@@ -1,0 +1,9 @@
+/bootstrap/compiled.php
+.env.*.php
+.env.php
+.env
+/vendor
+.idea
+
+# ignore dependency directory after npm install 
+node_modules
