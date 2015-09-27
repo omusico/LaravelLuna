@@ -13,7 +13,6 @@
                 <div class="panel-body">
 
                     @include('errors.list')
-
                     {!! Form::open(['url' => '/login', 'class' => 'form-horizontal', 'role' => 'form']) !!}
                         <div class="form-group">
                             {!! Form::label('id', '学号', ['class' => 'col-md-4 control-label']) !!}
@@ -31,14 +30,14 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember"> Remember Me
+                                        <input type="checkbox" name="remember">记住我
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                {!! Form::submit('Login', ['class' => 'btn btn-primary']) !!}
+                                {!! Form::submit('登陆', ['class' => 'btn btn-primary']) !!}
                                 <a class="btn btn-link" href="{{ url('/password/email') }}">忘记密码？</a>
                             </div>
                         </div>

@@ -18,12 +18,12 @@
 					<span class="icon-bar"></span>
 				</button>
 				@if(Auth::guest())
-					<a class="navbar-brand" href="/">学生成绩管理</a>
+					<a class="navbar-brand" href="/">后台管理</a>
 				@else
 					@if (Auth::user()->is_admin)
-						<a class="navbar-brand" href="/admin">学生成绩管理</a>
+						<a class="navbar-brand" href="/admin">后台管理</a>
 					@else
-						<a class="navbar-brand" href="/">学生成绩管理</a>
+						<a class="navbar-brand" href="/">后台管理</a>
 					@endif
 				@endif
 
