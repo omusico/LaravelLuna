@@ -31,7 +31,7 @@ class PasswordController extends Controller {
 	{
 		$this->auth = $auth;
 		$this->passwords = $passwords;
-		$this->subject = '学生成绩系统用户密码修改';
+		$this->subject = '后台系统用户密码修改';
 		$this->redirectTo = '/';
 		$this->middleware('guest');
 	}

@@ -20,7 +20,7 @@
 				@if(Auth::guest())
 					<a class="navbar-brand" href="/">后台管理</a>
 				@else
-					@if (Auth::user()->is_admin)
+                        @if (Auth::user()->is_admin)
 						<a class="navbar-brand" href="/admin">后台管理</a>
 					@else
 						<a class="navbar-brand" href="/">后台管理</a>

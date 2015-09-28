@@ -65,7 +65,7 @@ return [
 	|
 	*/
 
-	'fallback_locale' => 'en',
+	'fallback_locale' => 'cn',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -146,7 +146,8 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        'Laravel\Cashier\CashierServiceProvider',
 	],
 
 	/*

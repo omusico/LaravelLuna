@@ -15,9 +15,9 @@
                     @include('errors.list')
                     {!! Form::open(['url' => '/login', 'class' => 'form-horizontal', 'role' => 'form']) !!}
                         <div class="form-group">
-                            {!! Form::label('id', '学号', ['class' => 'col-md-4 control-label']) !!}
+                            {!! Form::label('name', '用户名', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
-                                {!! Form::text('id', old('id'), ['class' => 'form-control', 'required']) !!}
+                                {!! Form::text('name', old('name'), ['class' => 'form-control', 'required']) !!}
                             </div>
                         </div>
                         <div class="form-group">

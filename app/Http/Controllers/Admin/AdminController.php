@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\lu_user;
 use DB;
 use App\Grade;
 use Redirect;
@@ -19,14 +20,14 @@ class AdminController extends Controller {
 
     public function index()
     {
-        $result = User::where('is_admin', 0);
+        $result = lu_user::where('is_admin', 0);
         $count = $result->count();
-        $users = $result->paginate(10);
-        return view('Admin.index', compact('users', 'count'));
+        $lu_users = $result->paginate(10);
+        return view('Admin.index', compact('lu_users', 'count'));
     }
 
     public function create(){
-        $result = User::where('is_admin', 0);
+        $result = lu_user::where('is_admin', 0);
         $count = $result->count();
         return view('Admin.create', compact('count'));
     }
@@ -34,25 +35,29 @@ class AdminController extends Controller {
     public function store(Request $request)
     {
         $this->validate($request, [
-            'id' => 'required|digits:10|unique:users',
+            'name' => 'required|unique:lu_users',
             ]);
-        $user = new User;
-        $user->id = $request->id;
-        $user->name = $request->name;
-        $user->password = Hash::make($user->id);
-        $user->save();
-        session()->flash('message', $user->name."同学添加成功");
-        $grade = new Grade;
-	    $grade->user_id = $request->id;
-	    $grade->save();
+        $lu_user = new lu_user;
+        $lu_user->name = $request->name;
+        $lu_user->realName = $request->realName;
+        $lu_user->password = Hash::make('888888');
+        $lu_user->qq = $request->qq;
+        $lu_user->email = $request->email;
+        $lu_user->sex = $request->sex;
+        $lu_user->phone = $request->phone;
+        $lu_user->save();
+        session()->flash('message', $lu_user->name."会员添加成功");
+//      $grade = new Grade;
+//	    $grade->user_id = $request->id;
+//	    $grade->save();
         return Redirect::to('admin');
     }
 
-    public function destroy(User $user)
+    public function destroy(lu_user $lu_user)
     {
-        $name = $user->name;
-        $user->delete();
-        session()->flash('message', $name."同学已经被移除");
+        $name = $lu_user->name;
+        $lu_user->delete();
+        session()->flash('message', $name."会员已经被移除");
         return Redirect::back();
     }
 

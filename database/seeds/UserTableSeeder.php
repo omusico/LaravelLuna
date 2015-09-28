@@ -14,6 +14,7 @@ class UserTableSeeder extends Seeder {
     public function run()
     {
         DB::table('users')->delete();
+        DB::table('lu_users')->delete();
 
         User::create([
         'id' => 1210311232,
@@ -47,6 +48,13 @@ class UserTableSeeder extends Seeder {
         Grade::create([
             'user_id' => 1210311233,
             ]);
+
+        \App\lu_user::create([
+            'name' => 'admin',
+            'password' => Hash::make('root'),
+            'groupId' => 1,
+            'is_admin' => 1,
+        ]);
 
     }
 

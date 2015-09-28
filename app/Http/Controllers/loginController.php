@@ -22,10 +22,10 @@ class loginController extends Controller {
      */
     public function loginPost(Request $request)
     {
-        $this->validate($request, User::rules());
-        $id = $request->get('id');
+//        $this->validate($request, User::rules());
+        $name = $request->get('name');
         $password = $request->get('password');
-        if (Auth::attempt(['id' => $id, 'password' => $password], $request->get('remember'))) {
+        if (Auth::attempt(['name' => $name, 'password' => $password], $request->get('remember'))) {
             if (!Auth::user()->is_admin) {
                 return Redirect::route('stu_home');
             } else {
