@@ -34,9 +34,11 @@ class AdminController extends Controller {
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:lu_users',
-            ]);
+//        $this->validate($request, [
+//            'name' => 'required|unique:lu_users',
+//            ]);
+        $this->validate($request, lu_user::rules());
+
         $lu_user = new lu_user;
         $lu_user->name = $request->name;
         $lu_user->realName = $request->realName;
@@ -45,6 +47,8 @@ class AdminController extends Controller {
         $lu_user->email = $request->email;
         $lu_user->sex = $request->sex;
         $lu_user->phone = $request->phone;
+        $lu_user->groupId = $request->groupId;
+        $lu_user->invite = rand(10000,99999);
         $lu_user->save();
         session()->flash('message', $lu_user->name."会员添加成功");
 //      $grade = new Grade;

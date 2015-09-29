@@ -5,13 +5,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-use Laravel\Cashier\Billable;
-use Laravel\Cashier\Contracts\Billable as BillableContract;
 
-class lu_user extends Model implements BillableContract,AuthenticatableContract,CanResetPasswordContract{
-    use Billable;
+class lu_user extends Model implements AuthenticatableContract,CanResetPasswordContract{
 
-    protected $dates = ['trial_ends_at', 'subscription_ends_at'];
 
     use Authenticatable, CanResetPassword;
 
@@ -21,5 +17,16 @@ class lu_user extends Model implements BillableContract,AuthenticatableContract,
         'password', 'sex', 'phone', 'status', 'inSite', 'recUser', 'realName', 'qq', 'alipay_account', 'cashPwd'];
 
     protected $hidden = ['id','password', 'remember_token'];
+
+    protected static function rules()
+    {
+        return [
+            'name' => 'required|alpha_dash|unique:lu_users',
+//            'password' => 'required',
+            'email' => 'email|unique:lu_users',
+            'qq' => 'integer|unique:lu_users',
+            'phone' => 'digits:11|unique:lu_users',
+        ];
+    }
 
 }

@@ -36,19 +36,26 @@
                     <div class="form-group">
                         {!! Form::label('phone', '手机: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('phone', old('phone'), ['class' => 'form-control', 'numeric']) !!}
+                            {!! Form::text('phone', old('phone'), ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('qq', 'QQ: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('qq', old('qq'), ['class' => 'form-control', 'numeric']) !!}
+                            {!! Form::text('qq', old('qq'), ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('email', 'Email: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('email', old('email'), ['class' => 'form-control', 'email']) !!}
+                            {!! Form::text('email', old('email'), ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('groupId', '权限组: ', ['class' => 'control-label col-md-1']) !!}
+                        <div class="col-md-4">
+                            {{--{!! Form::text('groupId', old('email'), ['class' => 'form-control']) !!}--}}
+                            {!! Form::select('groupId',array('3'=>'总代理','5'=>'次级代理','8'=>'会员'),'8',['class'=>'form-control','required']) !!}
                         </div>
                     </div>
                     <div class="form-group">

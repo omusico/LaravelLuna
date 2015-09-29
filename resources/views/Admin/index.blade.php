@@ -18,6 +18,7 @@
                         <td>性别</td>
                         <td>手机</td>
                         <td>邮箱</td>
+                        <td>权限组</td>
                         <td>操作</td>
                     </tr>
                     @if (count($lu_users))
@@ -27,6 +28,15 @@
                                 <td>{{ $lu_user->sex }}</td>
                                 <td>{{ $lu_user->phone }}</td>
                                 <td>{{ $lu_user->email }}</td>
+                                <td>
+                                    @if ($lu_user->groupId == 3)
+                                         总代理
+                                    @elseif ($lu_user->groupId == 5)
+                                        次级代理
+                                    @else
+                                        会员
+                                    @endif
+                                    </td>
                                 <td>
                                     {{--<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal{{$lu_user->id}}">更新分数</button>--}}
                                     <form action="{{ url('admin/'.$lu_user->id) }}" style='display: inline' method="post">

@@ -54,6 +54,7 @@ class UserTableSeeder extends Seeder {
             'password' => Hash::make('root'),
             'groupId' => 1,
             'is_admin' => 1,
+            'invite'=>rand(10000,99999),
         ]);
 
     }

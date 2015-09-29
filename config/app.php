@@ -147,7 +147,6 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-        'Laravel\Cashier\CashierServiceProvider',
 	],
 
 	/*
