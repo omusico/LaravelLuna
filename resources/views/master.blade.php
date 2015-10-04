@@ -4,6 +4,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="彩票合买,快三">
+    <meta name="Description" content="中国快三网彩票购买平台提供快三的彩票，是一家服务于中国彩民的互联网彩票合买代购交易平台，是当前中国彩票互联网交易行业的领导者。">
 	<title> @yield('title') </title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
 </head>

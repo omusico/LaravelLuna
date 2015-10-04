@@ -35,7 +35,7 @@ class loginController extends Controller {
         } else {
             return Redirect::route('login')
                 ->withInput()
-                ->withErrors('学号或者密码不正确，请重试！');
+                ->withErrors('用户名或者密码不正确，请重试！');
         }
     }
 

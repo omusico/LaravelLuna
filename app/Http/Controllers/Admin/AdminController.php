@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App;
 
 class AdminController extends Controller {
 
@@ -29,7 +30,8 @@ class AdminController extends Controller {
     public function create(){
         $result = lu_user::where('is_admin', 0);
         $count = $result->count();
-        return view('Admin.create', compact('count'));
+        $user_groups = App\CommonClass::cache("user_groups",1);
+        return view('Admin.create', compact('count','user_groups'));
     }
 
     public function store(Request $request)

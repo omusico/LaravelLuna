@@ -1,8 +1,9 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use Hash;
 use App\Http\Controllers\Controller;
-
+use App\lu_user;
 use Illuminate\Http\Request;
 
 class registerController extends Controller
@@ -41,6 +42,11 @@ class registerController extends Controller
             //保存注册用户
             $this->validate($request, lu_user::rules());
 
+            $this->validate($request, [
+                'invite' =>'required|integer',
+                'password'=>'required|confirmed'
+                ] );
+
             $lu_user = new lu_user;
             $lu_user->name = $request->name;
             $lu_user->realName = $request->realName;
@@ -53,9 +59,9 @@ class registerController extends Controller
             $lu_user->invite = rand(10000, 99999);
             $lu_user->save();
             session()->flash('message', $lu_user->name . "注册成功");
-//        return Redirect::to('admin');
+//            return Redirect::to('login');
         } catch (\mysqli_sql_exception $e) {
-
+            echo $e;
         }
     }
 

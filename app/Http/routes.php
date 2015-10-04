@@ -16,7 +16,7 @@ Route::get('users', 'TestController@users');
 Route::get('/', 'WelcomeController@index');
 
 ####################################################
-#登录，登出, 自动跳转, 密码重置
+#登录，登出, 自动跳转, 密码重置,注册
 ####################################################
 Route::get('login', [
     'middleware' => 'guest', 'as' => 'login', 'uses' => 'loginController@loginGet']);
@@ -24,6 +24,8 @@ Route::post('login', [
     'middleware' => 'guest', 'uses' => 'loginController@loginPost']);
 Route::get('logout', [
     'middleware' => 'auth', 'as' => 'logout', 'uses' => 'loginController@logout']);
+Route::get('register', 'registerController@index');
+Route::post('register/save', ['as'=>'register_save', 'uses'=>'registerController@store']);
 Route::controller('password', 'PasswordController');
 ####################################################
 #学生的登录详情(包括资料修改，分数查询)
@@ -55,3 +57,8 @@ Route::get('download/stuList', [
     'as' => 'download_stu_list_excel', 'uses' => 'Admin\ExcelController@stuList']);
 Route::get('download/grade', [
     'as' => 'download_grade_list_excel', 'uses' => 'Admin\ExcelController@grade']);
+
+####################################################
+#获取缓存中的数据
+####################################################
+Route::get('getGroups',['as'=>'get_user_groups','uses'=>'cacheController@getGroups']);

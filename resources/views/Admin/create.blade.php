@@ -54,8 +54,23 @@
                     <div class="form-group">
                         {!! Form::label('groupId', '权限组: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {{--{!! Form::text('groupId', old('email'), ['class' => 'form-control']) !!}--}}
-                            {!! Form::select('groupId',array('3'=>'总代理','5'=>'次级代理','8'=>'会员'),'8',['class'=>'form-control','required']) !!}
+                            <select class="form-control" required="required" id="groupId" name="groupId">
+                                @foreach ($user_groups as $user_group)
+                                    <option value="{{ $user_group['groupId'] }}">{{ $user_group['name'] }}</option>
+                                @endforeach
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('groupId', '等级: ', ['class' => 'control-label col-md-1']) !!}
+                        <div class="col-md-4">
+                            <select class="form-control" required="required" id="groupId" name="groupId">
+                                @foreach ($user_groups as $user_group)
+                                    <option value="{{ $user_group['groupId'] }}">{{ $user_group['name'] }}</option>
+                                @endforeach
+                                ?>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
