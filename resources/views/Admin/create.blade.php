@@ -58,19 +58,34 @@
                                 @foreach ($user_groups as $user_group)
                                     <option value="{{ $user_group['groupId'] }}">{{ $user_group['name'] }}</option>
                                 @endforeach
-                                ?>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('groupId', '等级: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            <select class="form-control" required="required" id="groupId" name="groupId">
-                                @foreach ($user_groups as $user_group)
-                                    <option value="{{ $user_group['groupId'] }}">{{ $user_group['name'] }}</option>
+                            <select class="form-control" required="required" id="level" name="level">
+                                @foreach ($user_level as $key=>$level)
+                                    <option value="{{ $key }}">{{ $level['name'] }}</option>
                                 @endforeach
-                                ?>
                             </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('status', '状态: ', ['class' => 'control-label col-md-1']) !!}
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="status" id="status1" value="1" checked>
+                                    激活
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="status" id="status2" value="0">
+                                    锁定
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">

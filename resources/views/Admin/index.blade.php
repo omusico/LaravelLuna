@@ -29,25 +29,26 @@
                                 <td>{{ $lu_user->phone }}</td>
                                 <td>{{ $lu_user->email }}</td>
                                 <td>
-                                    @if ($lu_user->groupId == 3)
-                                         总代理
-                                    @elseif ($lu_user->groupId == 5)
-                                        次级代理
-                                    @else
-                                        会员
-                                    @endif
-                                    </td>
+{{--                                    {{var_dump($user_groups)}}--}}
+                                    @foreach($user_groups as $user_group)
+                                        @if($user_group['groupId'] === $lu_user->groupId)
+                                            {{$user_group['name'] }}
+                                        @endif
+                                    @endforeach
+                                </td>
                                 <td>
                                     {{--<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal{{$lu_user->id}}">更新分数</button>--}}
-                                    <form action="{{ url('admin/'.$lu_user->id) }}" style='display: inline' method="post">
+                                    <form action="{{ url('admin/'.$lu_user->id) }}" style='display: inline'
+                                          method="post">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <button class="btn btn-sm btn-danger" onclick="return confirm('确定删除?')">删除</button>
+                                        <button class="btn btn-sm btn-danger" onclick="return confirm('确定删除?')">删除
+                                        </button>
                                     </form>
                                 </td>
                             </tr>
 
-{{--                            @include('Admin.upload_grade')--}}
+                            {{--                            @include('Admin.upload_grade')--}}
 
                         @endforeach
                     @else

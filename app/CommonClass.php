@@ -24,7 +24,15 @@ class CommonClass {
                 Cache::forever("user_groups",$lu_user_groups);
                 return $lu_user_groups;
             }
-
+        }
+        else if("user_level"== $name){
+            if(Cache::has("user_level") && $isfresh !=1){
+                return Cache::get("user_level");
+            } else{
+                $user_level = defaultCache::userlevel();
+                Cache::forever("user_groups",$user_level);
+                return $user_level;
+            }
         }
     }
 }

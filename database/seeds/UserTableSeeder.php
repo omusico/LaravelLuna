@@ -72,10 +72,6 @@ class UserTableSeeder extends Seeder {
             'intro'=>'代理',
         ]);
         \App\lu_user_group::create([
-            'name'=>'管理员',
-            'intro'=>'管理员',
-        ]);
-        \App\lu_user_group::create([
             'name'=>'会员黑名单',
             'intro'=>'会员黑名单',
         ]);

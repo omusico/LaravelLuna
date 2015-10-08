@@ -24,14 +24,16 @@ class AdminController extends Controller {
         $result = lu_user::where('is_admin', 0);
         $count = $result->count();
         $lu_users = $result->paginate(10);
-        return view('Admin.index', compact('lu_users', 'count'));
+        $user_groups = App\CommonClass::cache("user_groups",1);
+        return view('Admin.index', compact('lu_users', 'count','user_groups'));
     }
 
     public function create(){
         $result = lu_user::where('is_admin', 0);
         $count = $result->count();
         $user_groups = App\CommonClass::cache("user_groups",1);
-        return view('Admin.create', compact('count','user_groups'));
+        $user_level = App\CommonClass::cache("user_level",0);
+        return view('Admin.create', compact('count','user_groups','user_level'));
     }
 
     public function store(Request $request)
@@ -50,6 +52,7 @@ class AdminController extends Controller {
         $lu_user->sex = $request->sex;
         $lu_user->phone = $request->phone;
         $lu_user->groupId = $request->groupId;
+        $lu_user->status = $request->status;
         $lu_user->invite = rand(10000,99999);
         $lu_user->save();
         session()->flash('message', $lu_user->name."会员添加成功");

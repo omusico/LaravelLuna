@@ -14,7 +14,7 @@ class lu_user extends Model implements AuthenticatableContract,CanResetPasswordC
     protected $table = 'lu_users';
 
     protected $fillable = ['name', 'email', 'is_admin',
-        'password', 'sex', 'phone', 'status', 'inSite', 'recUser', 'realName', 'qq', 'alipay_account', 'cashPwd'];
+        'password', 'sex', 'phone', 'status', 'inSite', 'recUser', 'realName', 'qq', 'alipay_account', 'cashPwd','groupId','level'];
 
     protected $hidden = ['id','password', 'remember_token'];
 
