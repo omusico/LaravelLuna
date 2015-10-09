@@ -61,4 +61,4 @@ Route::get('download/grade', [
 ####################################################
 #获取缓存中的数据
 ####################################################
-Route::get('getGroups',['as'=>'get_user_groups','uses'=>'cacheController@getGroups']);
+//Route::get('getGroups',['as'=>'get_user_groups','uses'=>'cacheController@getGroups']);

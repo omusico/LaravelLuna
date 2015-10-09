@@ -29,7 +29,6 @@
                                 <td>{{ $lu_user->phone }}</td>
                                 <td>{{ $lu_user->email }}</td>
                                 <td>
-{{--                                    {{var_dump($user_groups)}}--}}
                                     @foreach($user_groups as $user_group)
                                         @if($user_group['groupId'] === $lu_user->groupId)
                                             {{$user_group['name'] }}
@@ -38,6 +37,7 @@
                                 </td>
                                 <td>
                                     {{--<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal{{$lu_user->id}}">更新分数</button>--}}
+                                    <a class="btn btn-sm btn-info" href="/admin/{{$lu_user->id}}/edit">编辑</a>
                                     <form action="{{ url('admin/'.$lu_user->id) }}" style='display: inline'
                                           method="post">
                                         <input type="hidden" name="_method" value="DELETE">
@@ -47,9 +47,6 @@
                                     </form>
                                 </td>
                             </tr>
-
-                            {{--                            @include('Admin.upload_grade')--}}
-
                         @endforeach
                     @else
                         <h1>没有会员,请管理员添加</h1>

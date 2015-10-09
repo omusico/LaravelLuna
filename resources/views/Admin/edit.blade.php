@@ -8,47 +8,48 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10">
-                <h2>添加会员</h2>
+                <h2>会员修改</h2>
                 <hr/>
 
                 @include('errors.list')
 
                 <div class="form-group">
-                    {!! Form::model($user = new \App\lu_user, ['url' => 'admin/', 'class' => 'form-horizontal']) !!}
+                    {!! Form::open(['url' => '/admin/update', 'class' => 'form-horizontal', 'role' => 'form']) !!}
                     <div class="form-group">
                         {!! Form::label('name', '用户名: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
+                            {!! Form::text('name', $lu_user->name, ['class' => 'form-control','readonly']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('realName', '姓名: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('realName', old('realName'), ['class' => 'form-control', 'required']) !!}
+                            {!! Form::text('realName', $lu_user->name, ['class' => 'form-control', 'required']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('sex', '性别: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::select('sex', array('男'=>'男','女'=>'女'),'男',['class' => 'form-control', 'required']) !!}
+                            {!! Form::select('sex', array('男'=>'男','女'=>'女'),$lu_user->sex,['class' => 'form-control',
+                            'required']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('phone', '手机: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('phone', old('phone'), ['class' => 'form-control']) !!}
+                            {!! Form::text('phone', $lu_user->phone, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('qq', 'QQ: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('qq', old('qq'), ['class' => 'form-control']) !!}
+                            {!! Form::text('qq', $lu_user->qq, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('email', 'Email: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('email', old('email'), ['class' => 'form-control']) !!}
+                            {!! Form::text('email', $lu_user->email, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">
@@ -56,7 +57,11 @@
                         <div class="col-md-4">
                             <select class="form-control" required="required" id="groupId" name="groupId">
                                 @foreach ($user_groups as $user_group)
-                                    <option value="{{ $user_group['groupId'] }}">{{ $user_group['name'] }}</option>
+                                    @if($lu_user->groupId == $user_group['groupId'])
+                                        <option value="{{ $user_group['groupId'] }}" selected="selected">{{ $user_group['name'] }}</option>
+                                    @else
+                                        <option value="{{ $user_group['groupId'] }}">{{ $user_group['name'] }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -64,9 +69,14 @@
                     <div class="form-group">
                         {!! Form::label('groupId', '等级: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            <select class="form-control" required="required" id="level" name="level">
+                            <select class="form-control" required="required" id="level" name="level" >
                                 @foreach ($user_level as $key=>$level)
-                                    <option value="{{ $key }}">{{ $level['name'] }}</option>
+                                    {{--{{var_dump($lu_user->$level)}}--}}
+                                    @if($lu_user->level == $key)
+                                        <option value="{{ $key }}" selected="selected">{{ $level['name'] }}</option>
+                                    @else
+                                        <option value="{{ $key }}">{{ $level['name'] }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -76,13 +86,15 @@
                         <div class="col-md-4">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="status" id="status1" value="1" checked>
+                                    <input type="radio" name="status" id="status1"
+                                           value="1" {{$lu_user->status==0?"":"checked"}}>
                                     激活
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="status" id="status2" value="0">
+                                    <input type="radio" name="status" id="status2"
+                                           value="0" {{$lu_user->status==1?"":"checked"}}>
                                     锁定
                                 </label>
                             </div>

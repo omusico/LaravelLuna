@@ -70,6 +70,14 @@ class AdminController extends Controller {
         return Redirect::back();
     }
 
+    public function edit($lu_user){
+
+        $user_groups = App\CommonClass::cache("user_groups",1);
+        $user_level = App\CommonClass::cache("user_level",0);
+        return view('Admin.edit',compact('lu_user','user_groups','user_level'));
+
+    }
+
     public function upload_grade(Request $request)
     {
         $this->validate($request, Grade::rules());
