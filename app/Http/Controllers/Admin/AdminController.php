@@ -41,19 +41,25 @@ class AdminController extends Controller {
 //        $this->validate($request, [
 //            'name' => 'required|unique:lu_users',
 //            ]);
-        $this->validate($request, lu_user::rules());
-
-        $lu_user = new lu_user;
-        $lu_user->name = $request->name;
+//        $lu_user;
+        $id = $request->id;
+        if(!empty($id)){
+            $lu_user = lu_user::where('id',$request->id)->first();
+        }else{
+            $lu_user = new lu_user;
+            $this->validate($request, lu_user::rules());
+            $lu_user->invite = rand(10000,99999);
+            $lu_user->password = Hash::make('888888');
+            $lu_user->name = $request->name;
+        }
         $lu_user->realName = $request->realName;
-        $lu_user->password = Hash::make('888888');
         $lu_user->qq = $request->qq;
         $lu_user->email = $request->email;
         $lu_user->sex = $request->sex;
         $lu_user->phone = $request->phone;
         $lu_user->groupId = $request->groupId;
         $lu_user->status = $request->status;
-        $lu_user->invite = rand(10000,99999);
+        $lu_user->level = $request->level;
         $lu_user->save();
         session()->flash('message', $lu_user->name."会员添加成功");
 //      $grade = new Grade;
@@ -76,6 +82,23 @@ class AdminController extends Controller {
         $user_level = App\CommonClass::cache("user_level",0);
         return view('Admin.edit',compact('lu_user','user_groups','user_level'));
 
+    }
+
+    public function update($request){
+//        $this->validate($request, lu_user::rules());
+        $lu_user = lu_user::where('id',$request->id);
+        $lu_user->realName = $request->realName;
+//        $lu_user->password = Hash::make('888888');
+        $lu_user->qq = $request->qq;
+        $lu_user->email = $request->email;
+        $lu_user->sex = $request->sex;
+        $lu_user->phone = $request->phone;
+        $lu_user->groupId = $request->groupId;
+        $lu_user->status = $request->status;
+        $lu_user->level = $request->level;
+        $lu_user->save();
+        session()->flash('message', '会员修改成功');
+        return Redirect::back();
     }
 
     public function upload_grade(Request $request)

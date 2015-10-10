@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    添加会员
+    会员修改
 @stop
 
 @section('content')
@@ -14,17 +14,18 @@
                 @include('errors.list')
 
                 <div class="form-group">
-                    {!! Form::open(['url' => '/admin/update', 'class' => 'form-horizontal', 'role' => 'form']) !!}
+                    {!! Form::open(['url' => '/admin/', 'class' => 'form-horizontal', 'role' => 'form']) !!}
                     <div class="form-group">
                         {!! Form::label('name', '用户名: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
+                            {!! Form::text('id', $lu_user->id, ['class' => 'form-control','readonly','style'=>'display:none']) !!}
                             {!! Form::text('name', $lu_user->name, ['class' => 'form-control','readonly']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('realName', '姓名: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('realName', $lu_user->name, ['class' => 'form-control', 'required']) !!}
+                            {!! Form::text('realName', $lu_user->realName, ['class' => 'form-control', 'required']) !!}
                         </div>
                     </div>
                     <div class="form-group">
