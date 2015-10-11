@@ -5,12 +5,12 @@ use DB;
 use App\Grade;
 use Redirect;
 use Hash;
-use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App;
+use App\LunaLib\Common\CommonClass;
 
 class AdminController extends Controller {
 
@@ -24,15 +24,15 @@ class AdminController extends Controller {
         $result = lu_user::where('is_admin', 0);
         $count = $result->count();
         $lu_users = $result->paginate(10);
-        $user_groups = App\CommonClass::cache("user_groups",1);
+        $user_groups = CommonClass::cache("user_groups",1);
         return view('Admin.index', compact('lu_users', 'count','user_groups'));
     }
 
     public function create(){
         $result = lu_user::where('is_admin', 0);
         $count = $result->count();
-        $user_groups = App\CommonClass::cache("user_groups",1);
-        $user_level = App\CommonClass::cache("user_level",0);
+        $user_groups = CommonClass::cache("user_groups",1);
+        $user_level = CommonClass::cache("user_level",0);
         return view('Admin.create', compact('count','user_groups','user_level'));
     }
 
@@ -78,8 +78,8 @@ class AdminController extends Controller {
 
     public function edit($lu_user){
 
-        $user_groups = App\CommonClass::cache("user_groups",1);
-        $user_level = App\CommonClass::cache("user_level",0);
+        $user_groups = CommonClass::cache("user_groups",1);
+        $user_level = CommonClass::cache("user_level",0);
         return view('Admin.edit',compact('lu_user','user_groups','user_level'));
 
     }
