@@ -12,6 +12,7 @@
  * 只要我们使用 curl 来做伪登录，把 cookie 保存到文件，
  * 每次请求发送有效的 cookie 即可实现伪登录抓去数据！
  */
+namespace App\LunaLib\Common;
 require_once 'class_curl_multi.php';
 class Caiji {
     var $base_url;//要采集的网址

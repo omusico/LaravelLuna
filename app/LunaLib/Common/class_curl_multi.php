@@ -12,6 +12,8 @@
  * 只要我们使用 curl 来做伪登录，把 cookie 保存到文件，
  * 每次请求发送有效的 cookie 即可实现伪登录抓去数据！
  */
+namespace App\LunaLib\Common;
+
 class MultiHttpRequest
 {
 
@@ -64,7 +66,7 @@ class MultiHttpRequest
     		
         	$error = curl_error($curl[$k]);
         	if( $error != ""){
-        		file_put_contents(__WAF_ROOT__.'/net_error.log', 'time:'.date('Y-m-d H:i:s').''. $k." :".$error.PHP_EOL,FILE_APPEND);
+//        		file_put_contents(__WAF_ROOT__.'/net_error.log', 'time:'.date('Y-m-d H:i:s').''. $k." :".$error.PHP_EOL,FILE_APPEND);
         	}
 //         	if("" != $error && strpos($error, "Timed out")){
         	if("" != $error && strpos($error, "out")){
@@ -116,7 +118,7 @@ class MultiHttpRequest
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt(CURLOPT_HEADER, 1);
+        curl_setopt($curl, CURLOPT_HEADER, false);
         curl_setopt($curl, CURLOPT_HTTPHEADER,array('Accept-Encoding: gzip, deflate'));
         curl_setopt($curl, CURLOPT_ENCODING, 'gzip,deflate');
         curl_setopt($curl, CURLOPT_TIMEOUT,12);
@@ -155,8 +157,8 @@ class MultiHttpRequest
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_TIMEOUT,10);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
-        curl_setopt($curl, CURLOPT_HTTPHEADER,array('Accept-Encoding: gzip, deflate'));
-        curl_setopt($curl, CURLOPT_ENCODING, 'gzip,deflate');
+        curl_setopt($url, CURLOPT_HTTPHEADER,array('Accept-Encoding: gzip, deflate'));
+        curl_setopt($url, CURLOPT_ENCODING, 'gzip,deflate');
         return curl_exec($ch);
     }
 }

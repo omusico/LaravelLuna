@@ -15,6 +15,23 @@ use App;
 
 class CommonClass {
 
+    public static function arraySort(array $args ,$on ,$order=SORT_ASC){
+        $tmp = array();
+        if(!empty($args)){
+            foreach ($args as $key => $val){
+                if(is_array($val)){
+                    $tmp[] = $val[$on];
+                }else{
+                    return false;
+                }
+            }
+        }else{
+            return false;
+        }
+        array_multisort($tmp,$order,$args);
+        return $args;
+    }
+
     public static function cache($name,$isfresh){
         if("user_groups" == $name){
             if(Cache::has("user_groups") && $isfresh!=1){
