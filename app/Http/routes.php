@@ -30,33 +30,33 @@ Route::controller('password', 'PasswordController');
 ####################################################
 #学生的登录详情(包括资料修改，分数查询)
 ####################################################
-Route::get('stu/home', [
-    'as' => 'stu_home', 'uses' => 'Stu\StudentController@home']);
-Route::get('stu/edit', [
-    'as' => 'stu_edit', 'uses' => 'Stu\StudentController@edit']);
-Route::post('stu/update', [
-    'as' => 'stu_update', 'uses' => 'Stu\StudentController@update']);
+//Route::get('stu/home', [
+//    'as' => 'stu_home', 'uses' => 'Stu\StudentController@home']);
+//Route::get('stu/edit', [
+//    'as' => 'stu_edit', 'uses' => 'Stu\StudentController@edit']);
+//Route::post('stu/update', [
+//    'as' => 'stu_update', 'uses' => 'Stu\StudentController@update']);
 
 ####################################################
 #管理员入口(增删改查，上传分数)
 ####################################################
 #查看成绩排名
-Route::get('admin/grade', [
-    'as' => 'grade_list', 'uses' => 'Admin\GradeController@index']);
+//Route::get('admin/grade', [
+//    'as' => 'grade_list', 'uses' => 'Admin\GradeController@index']);
 #资源路由,学生的增删改查
 Route::resource('admin', 'Admin\AdminController');
 #上传分数
-Route::post('admin/upload_grade', [
-    'as' => 'upload_grade', 'uses' => 'Admin\AdminController@upload_grade']);
+//Route::post('admin/upload_grade', [
+//    'as' => 'upload_grade', 'uses' => 'Admin\AdminController@upload_grade']);
 
 ####################################################
 #管理员下载上传学生名单，成绩表
 ####################################################
 #下载学生名单
-Route::get('download/stuList', [
-    'as' => 'download_stu_list_excel', 'uses' => 'Admin\ExcelController@stuList']);
-Route::get('download/grade', [
-    'as' => 'download_grade_list_excel', 'uses' => 'Admin\ExcelController@grade']);
+//Route::get('download/stuList', [
+//    'as' => 'download_stu_list_excel', 'uses' => 'Admin\ExcelController@stuList']);
+//Route::get('download/grade', [
+//    'as' => 'download_grade_list_excel', 'uses' => 'Admin\ExcelController@grade']);
 
 ####################################################
 #获取缓存中的数据

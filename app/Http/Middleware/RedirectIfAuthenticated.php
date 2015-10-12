@@ -37,7 +37,8 @@ class RedirectIfAuthenticated {
 		if ($this->auth->check())
 		{
 			if (!Auth::user()->is_admin) {
-				return new RedirectResponse(url('/stu/home'));
+//				return new RedirectResponse(url('/'));
+                return view('index');
 			} else {
 				return new RedirectResponse(url('/admin'));
 			}

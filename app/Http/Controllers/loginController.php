@@ -27,7 +27,8 @@ class loginController extends Controller {
         $password = $request->get('password');
         if (Auth::attempt(['name' => $name, 'password' => $password], $request->get('remember'))) {
             if (!Auth::user()->is_admin) {
-                return Redirect::route('stu_home');
+//                return Redirect::route('');
+                return view('index');
             } else {
                 return Redirect::action('Admin\AdminController@index');
             }

@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\lu_caiji_record;
 use App\lu_user;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -99,51 +100,51 @@ class CollectController extends Controller
         $configs = defaultCache::cache_lottery_status();
         $conf = $lunaFunctions->get_lottery_config($lotteryType);
 
-//        if( strtoupper($lotteryType) == 'NMG') {
-//            $time = $this->getCurrentLottery($lotteryType);
-//            $time = json_decode($time,true);
-//            $currentPeriod = $time["issuse"];
-//            $str = explode("-", $currentPeriod);
-//            $pre = intval($str[1]) - 1;
-//
-//            $beginDay = mktime(9,50,0,date('m'),date('d'),date('Y')); //
-//            $now = strtotime("now");
-//            $end =  strtotime(date('Y-m-d').' '.$config['endTime']);
-//            if( $now > $beginDay &&  $pre == 0){
-//                $prePeriod = date('Ymd').'-073';
-//                $pre = '73';
-//            } else {
-//                if($pre < 10 ){
-//                    $prePeriod = $str[0].'-00'.$pre;
-//                }else {
-//                    $prePeriod = $str[0].'-0'.$pre;
-//                }
-//            }
-//
-//            $timeData = array(
-//                "currentPeriod" => 	$time["issuse"],
-//                "leftTime" => $time["bettime"],
-//                "kjTime" => $time["awardSeconds"],
-//                "prePeriod" => $prePeriod,
-//                "pre" => $pre,
-//                "num" => $conf["num"]
-//            );
-//
-//            $num = $config['num'];
-//            //&& (strtotime("now") - $end < 900
-//            if( $num - $pre == 0 ) {
-//                $needCaiji = 1;
-//                $timeData['needCaiji'] = 1;
-//            }
-//
-//        } else {
-//            $timeData = get_current_period($lotteryType);
-//        }
+        if( strtoupper($lotteryType) == 'NMG') {
+            $time = $this->getCurrentLottery($lotteryType);
+            $time = json_decode($time,true);
+            $currentPeriod = $time["issuse"];
+            $str = explode("-", $currentPeriod);
+            $pre = intval($str[1]) - 1;
+
+            $beginDay = mktime(9,50,0,date('m'),date('d'),date('Y')); //
+            $now = strtotime("now");
+            $end =  strtotime(date('Y-m-d').' '.$config['endTime']);
+            if( $now > $beginDay &&  $pre == 0){
+                $prePeriod = date('Ymd').'-073';
+                $pre = '73';
+            } else {
+                if($pre < 10 ){
+                    $prePeriod = $str[0].'-00'.$pre;
+                }else {
+                    $prePeriod = $str[0].'-0'.$pre;
+                }
+            }
+
+            $timeData = array(
+                "currentPeriod" => 	$time["issuse"],
+                "leftTime" => $time["bettime"],
+                "kjTime" => $time["awardSeconds"],
+                "prePeriod" => $prePeriod,
+                "pre" => $pre,
+                "num" => $conf["num"]
+            );
+
+            $num = $config['num'];
+            //&& (strtotime("now") - $end < 900
+            if( $num - $pre == 0 ) {
+                $needCaiji = 1;
+                $timeData['needCaiji'] = 1;
+            }
+
+        } else {
+            $timeData = get_current_period($lotteryType);
+        }
         $timeData = $lunaFunctions->get_current_period($lotteryType);
 //        $lotteryResult = Waf::model('lottery/result');
 //        $caijiModel = Waf::model('common/caijirecord');
 //        $count = $lotteryResult->isExistsProName($timeData['prePeriod'],$lotteryType);
-        $count = lu_lotteries_result::where('proName', $timeData['prePeriod'])->count();
+        $count = lu_lotteries_result::where('proName', $timeData['prePeriod'])->where('typeName', $lotteryType)->count();
         $now = strtotime("now");
         $periodTime = 600;
 //        if( $lotteryType == 'CHE' ){
@@ -157,7 +158,7 @@ class CollectController extends Controller
             $cjConfig = $lunaFunctions->get_lottery_cj_all_config($lotteryType);
             unset($cjConfig['js']);
             // 越大优先级越高
-            $cjConfig = Common\CommonClass::arraySort($cjConfig,'priority',SORT_DESC);
+            $cjConfig = Common\CommonClass::arraySort($cjConfig, 'priority', SORT_DESC);
 
             $hadKj = false; // 是否已经开奖
 //            $source;
@@ -220,7 +221,7 @@ class CollectController extends Controller
 //                    );
 
 //                    $count = $lotteryResult->isExistsProName($timeData['prePeriod'],$lotteryType);
-                    $count = lu_lotteries_result::where('proName', $timeData['prePeriod'])->count();
+                    $count = lu_lotteries_result::where('proName', $timeData['prePeriod'])->where('typeName',$lotteryType)->count();
                     if ($count <= 0) {
 //                        $lotteryResult->insert($data);
                         //fix insert lotteryResult;
@@ -253,15 +254,15 @@ class CollectController extends Controller
             // 已经采集了. 返回数据
             $status = 0;
             $msg = '已开奖';
-            //todo 返回采集数据
-//            lu_lotteries_result::
+            //fix 返回采集数据
+            $recordData = lu_lotteries_result::where('proName', $timeData['prePeriod'])->where('typeName', $lotteryType) ->first();
 //            $recordData = $lotteryResult->queryDetail($timeData['prePeriod'],$lotteryType);
-//            $kjData = array(
-//                'preTerm' => $recordData['proName'],
-//                'preOpenResult' => $recordData['codes'],
-//                'source' => get_cj_name($recordData['source']),
-//                'createTime' => date('m-d H:i:s',$recordData['created'])
-//            );
+            $kjData = array(
+                'preTerm' => $recordData->proName,
+                'preOpenResult' => $recordData->codes,
+                'source' => $lunaFunctions->get_cj_name($recordData->source),
+                'createTime' => date('m-d H:i:s', $recordData->created)
+            );
         }
 
         $result = array(
@@ -271,17 +272,17 @@ class CollectController extends Controller
             "data" => array_merge($timeData, $kjData)
         );
 
-        $caijiRecord = array(
-            "lotteryType" => $lotteryType,
-            "period" => $timeData['prePeriod'],
-            "useTime" => strtotime("now") - $now,
-            "status" => $status,
-            "msg" => json_encode($result),
-            "created" => strtotime("now"),
-            "createdTime" => date("Y-m-d H:i:s")
-        );
+        $caijiRecord = new lu_caiji_record();
+        $caijiRecord->lotteryType = $lotteryType;
+        $caijiRecord->period = $timeData['prePeriod'];
+        $caijiRecord->useTime = strtotime("now") - $now;
+        $caijiRecord->status = $status;
+        $caijiRecord->msg = json_encode($result);
+        $caijiRecord->created = strtotime("now");
+        $caijiRecord->createdTime = date("Y-m-d H:i:s");
 
-        //todo 插入采集记录表
+        //fix 插入采集记录表
+        $caijiRecord->save();
 //        $caijiModel->insert($caijiRecord);
 //        $urls = Waf::cache("notify_url");
 

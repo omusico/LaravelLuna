@@ -20,7 +20,8 @@ class isAdmin {
 		} else {
 			if (!Auth::user()->is_admin) {
 				session()->flash('message_warning', '您不是管理员！无法进入相关区域');
-				return Redirect::route('stu_home');
+//				return Redirect::route('/');
+                return view('index');
 			}
 		}
 		return $next($request);

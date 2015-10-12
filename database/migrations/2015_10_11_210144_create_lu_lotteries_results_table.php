@@ -19,7 +19,7 @@ class CreateLuLotteriesResultsTable extends Migration {
             $table->string('typeName',30);
             $table->string('codes');
             $table->integer('created');
-            $table->text('tjData');
+            $table->text('tjData')->nullable();
             $table->string('source',20);
 			$table->timestamps();
 		});
