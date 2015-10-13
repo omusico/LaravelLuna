@@ -67,3 +67,5 @@ Route::resource('admin', 'Admin\AdminController');
 ####################################################
 Route::get('collectLotteryData', [
     'as'=>'collectLotteryData','uses'=>'CollectController@collectLotteryData']);
+Route::get('lotteryIndex', [
+    'as'=>'lotteryIndex','uses'=>'LotteryK3Controller@index']);

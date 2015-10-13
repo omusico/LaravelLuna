@@ -101,7 +101,8 @@ class CollectController extends Controller
         $conf = $lunaFunctions->get_lottery_config($lotteryType);
 
         if( strtoupper($lotteryType) == 'NMG') {
-            $time = $this->getCurrentLottery($lotteryType);
+//            $time = $this->getCurrentLottery($lotteryType);
+            $time = $lunaFunctions->get_current_period($lotteryType);
             $time = json_decode($time,true);
             $currentPeriod = $time["issuse"];
             $str = explode("-", $currentPeriod);
@@ -138,9 +139,8 @@ class CollectController extends Controller
             }
 
         } else {
-            $timeData = get_current_period($lotteryType);
+            $timeData = $lunaFunctions->get_current_period($lotteryType);
         }
-        $timeData = $lunaFunctions->get_current_period($lotteryType);
 //        $lotteryResult = Waf::model('lottery/result');
 //        $caijiModel = Waf::model('common/caijirecord');
 //        $count = $lotteryResult->isExistsProName($timeData['prePeriod'],$lotteryType);

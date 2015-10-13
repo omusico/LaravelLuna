@@ -6,4 +6,103 @@
 .notPass{
     color: red;
 }
+
+/*.game_logo .kuai3, .game_logo .oldkuai3, .game_logo .gxkuai3, .game_logo .hbkuai3, .game_logo .ahkuai3, .game_logo .nmgkuai3 {*/
+    /*background: url(http://pimg1.126.net/caipiao/img/lotteryBet/kuai3/kuai3_logo_4e8d5e2.png?b67eeb612f18c9b168ef225b4d59f477) no-repeat center 40px;*/
+/*}*/
+/*.game_logo .cz_logo {*/
+    /*display: block;*/
+    /*width: 120px;*/
+    /*height: 112px;*/
+    /*margin: 0 auto;*/
+    /*overflow: hidden;*/
+    /*text-align: center;*/
+    /*padding: 6px 0 5px 0;*/
+    /*text-indent: 0;*/
+/*}*/
+/*.game_logo .cz_logo a {*/
+    /*display: block;*/
+    /*width: 120px;*/
+    /*height: 112px;*/
+    /*font-weight: 700;*/
+    /*font-size: 22px;*/
+    /*font-family: '宋体';*/
+    /*color: #333;*/
+/*}*/
+/*.game_logo .game_intro span {*/
+    /*display: block;*/
+    /*color: #727272;*/
+    /*text-align: center;*/
+/*}*/
+/*.game_logo .game_intro {*/
+    /*text-align: center;*/
+    /*line-height: 20px;*/
+/*}*/
+/*.betting_countDown {*/
+    /*width: 380px;*/
+    /*height: 153px;*/
+/*}*/
+/*.game_logo, .betting_countDown, .game_header .awardBox {*/
+    /*display: block;*/
+    /*width: 181px;*/
+    /*height: 153px;*/
+    /*margin-right: 10px;*/
+    /*background-color: #fbfbfb;*/
+    /*overflow: hidden;*/
+    /*float: left;*/
+/*}*/
+/*.bet_period {*/
+    /*text-align: center;*/
+    /*font-weight: 700;*/
+    /*height: 28px;*/
+    /*line-height: 28px;*/
+    /*font-size: 14px;*/
+    /*padding: 8px 0 6px;*/
+/*}*/
+/*.bet_period em {*/
+    /*font-weight: 700;*/
+    /*font-family: '宋体';*/
+    /*font-size: 16px;*/
+/*}*/
+/*.c_ba2636, a.c_ba2636:link, a.c_ba2636:visited {*/
+    /*color: #ba2636;*/
+/*}*/
+/*.countDownBox {*/
+    /*display: block;*/
+    /*width: 212px;*/
+    /*height: 70px;*/
+    /*background: url(http://pimg1.126.net/caipiao/img/lotteryBet/lottery_header_3221a24.png?9fed7a0e6ac87d0f816f836361dd7ae8) no-repeat;*/
+    /*margin: 0 auto;*/
+    /*text-align: center;*/
+/*}*/
+/*.betting_countDown .intro {*/
+    /*text-align: center;*/
+    /*color: #727272;*/
+/*}*/
+/*.game_header .awardBox {*/
+    /*width: 390px;*/
+    /*margin-right: 0;*/
+    /*position: relative;*/
+/*}*/
+/*.game_logo, .betting_countDown, .game_header .awardBox {*/
+    /*display: block;*/
+    /*width: 181px;*/
+    /*height: 153px;*/
+    /*margin-right: 10px;*/
+    /*background-color: #fbfbfb;*/
+    /*overflow: hidden;*/
+    /*float: left;*/
+/*}*/
+/*.game_header .awardBox .bet_period {*/
+    /*padding-bottom: 0;*/
+/*}*/
+/*.bet_period {*/
+    /*text-align: center;*/
+    /*font-weight: 700;*/
+    /*height: 28px;*/
+    /*line-height: 28px;*/
+    /*font-size: 14px;*/
+    /*padding: 8px 0 6px;*/
+/*}*/
+
 /*# sourceMappingURL=all.css.map */
