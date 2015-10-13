@@ -1,13 +1,12 @@
 @extends('master')
 
 @section('content')
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" xmlns="http://www.w3.org/1999/html">
         <ol class="carousel-indicators">
             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
         </ol>
-
         <div class="carousel-inner" role="listbox">
             <div class="item active">
                 <img src="http://images.apple.com/cn/macbook-air/images/overview_hero_hero.jpg" alt="...">
@@ -40,5 +39,13 @@
             <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only">Next</span>
         </a>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">test1</div>
+            <div class="col-md-4"><div style="height: 1000px"></div></div>
+            <div class="col-md-4">test3</div>
+        </div>
+
     </div>
 @stop
