@@ -8,6 +8,7 @@
     <meta name="Description" content="中国快三网彩票购买平台提供快三的彩票，是一家服务于中国彩民的互联网彩票合买代购交易平台，是当前中国彩票互联网交易行业的领导者。">
     <title> @yield('title') </title>
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
+    @yield('css')
 </head>
 <body>
 <div class="navbar navbar-default" role="navigation">

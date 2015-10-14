@@ -100,20 +100,4 @@ class AdminController extends Controller {
         session()->flash('message', '会员修改成功');
         return Redirect::back();
     }
-
-    public function upload_grade(Request $request)
-    {
-        $this->validate($request, Grade::rules());
-        $grade = Grade::where('user_id', $request->user_id)->first();
-        $grade->math = $request->math;
-        $grade->english = $request->english;
-        $grade->c = $request->c;
-        $grade->sport = $request->sport;
-        $grade->think = $request->think;
-        $grade->soft = $request->soft;
-        $grade->save();
-        session()->flash('message', '成绩提交成功');
-        return Redirect::back();
-    }
-
 }

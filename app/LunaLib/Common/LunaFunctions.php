@@ -14,6 +14,9 @@ class LunaFunctions
     {
         $lottery_type = strtolower($lottery_type);
         $lottery = \App\LunaLib\Common\defaultCache::cache_lottery_status();
+        if( !isset($lottery_type) || $lottery_type ==""){
+            $lottery_type = 'jsold';
+        }
         $config = $lottery[$lottery_type];
         return $config;
     }
@@ -151,6 +154,23 @@ class LunaFunctions
         $config = $cj_config[$lottery_type];
         return $config;
     }
+
+    // 获取彩种名称
+    function get_lottery_name($lottery_type){
+        if( !isset($lottery_type) ){
+            $lottery_type = 'jsold';
+        }
+
+//        if( Waf::isEmpty($lottery_type)){
+//            $lottery_type = $lottery_type == '' ? 'jsold': $lottery_type;
+//        }
+
+        $lottery_type = strtolower($lottery_type);
+        $cache_lottery_type = defaultCache::cache_lottery_status();
+        $gameProvince = $cache_lottery_type[$lottery_type]['name'];
+        return ($gameProvince == null ? '未知彩种' : $gameProvince);
+    }
+
 
     public function get_cj_name($type)
     {

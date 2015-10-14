@@ -10,6 +10,7 @@ namespace App\LunaLib\Common;
 
 class defaultCache
 {
+    // 支付等级
     public static function userlevel()
     {
         return array(
@@ -129,6 +130,122 @@ class defaultCache
                     'id' => '427447',
                     'key' => '569uxz8bek5uj5d3',
                     'terminalId' => '23161',
+                ),
+        );
+    }
+
+    public static function cache_chipin()
+    {
+        return array(
+            'HZ' =>
+                array(
+                    'dsdx_low' => '10',
+                    'dsdx_hight' => '50000',
+                    'low' => '10',
+                    'hight' => '10000',
+                ),
+            'TX' =>
+                array(
+                    'low' => '10',
+                    'hight' => '10000',
+                ),
+            '3THTX' =>
+                array(
+                    'low' => '10',
+                    'hight' => '10000',
+                ),
+            '3THDX' =>
+                array(
+                    'low' => '10',
+                    'hight' => '10000',
+                ),
+            '3BTH' =>
+                array(
+                    'low' => '10',
+                    'hight' => '10000',
+                ),
+            '3LHTX' =>
+                array(
+                    'low' => '10',
+                    'hight' => '10000',
+                ),
+            '2THFX' =>
+                array(
+                    'low' => '10',
+                    'hight' => '10000',
+                ),
+            '2THDX' =>
+                array(
+                    'low' => '10',
+                    'hight' => '10000',
+                ),
+            '2BTH' =>
+                array(
+                    'low' => '10',
+                    'hight' => '10000',
+                ),
+        );
+    }
+
+    //快三标签页
+    public static function cache_lottery_type()
+    {
+        return array(
+            9 =>
+                array(
+                    'typeId' => '9',
+                    'name' => '和值',
+                    'odds' => '90',
+                    'slug' => 'HZ',
+                ),
+            1 =>
+                array(
+                    'typeId' => '1',
+                    'name' => '三同号通选',
+                    'odds' => '90',
+                    'slug' => '3THTX',
+                ),
+            2 =>
+                array(
+                    'typeId' => '2',
+                    'name' => '三同号单选',
+                    'odds' => '90',
+                    'slug' => '3THDX',
+                ),
+            3 =>
+                array(
+                    'typeId' => '3',
+                    'name' => '三不同号',
+                    'odds' => '90',
+                    'slug' => '3BTH',
+                ),
+            4 =>
+                array(
+                    'typeId' => '4',
+                    'name' => '三连号通选',
+                    'odds' => '90',
+                    'slug' => '3LHTX',
+                ),
+            5 =>
+                array(
+                    'typeId' => '5',
+                    'name' => '二同号复选',
+                    'odds' => '90',
+                    'slug' => '2THFX',
+                ),
+            6 =>
+                array(
+                    'typeId' => '6',
+                    'name' => '二同号单选',
+                    'odds' => '90',
+                    'slug' => '2THDX',
+                ),
+            7 =>
+                array(
+                    'typeId' => '7',
+                    'name' => '二不同号',
+                    'odds' => '90',
+                    'slug' => '2BTH',
                 ),
         );
     }
@@ -1183,7 +1300,7 @@ class defaultCache
                     'endTime' => '22:00',
                     'num' => 84,
                     'kjTime' => 150,
-                ),
+                )
         );
     }
 }

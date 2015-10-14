@@ -43,7 +43,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">test1</div>
-            <div class="col-md-4"><div style="height: 1000px"></div></div>
+            <div class="col-md-4"></div>
             <div class="col-md-4">test3</div>
         </div>
 
