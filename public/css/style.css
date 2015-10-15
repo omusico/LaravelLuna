@@ -1,13 +1,13 @@
 ﻿/* :::::index.css::::: */
 
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td { font-family: "微软雅黑";margin: 0px; padding: 0px; }
+/*body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td { font-family: "微软雅黑";margin: 0px; padding: 0px; }*/
 table { border-collapse: collapse; border-spacing: 0px; }
 fieldset, img { border: 0px none; }
 address, caption, cite, code, dfn, em, strong, th, var { font-style: normal; font-weight: 400; }
 li { list-style: outside none none; }
 caption, th { text-align: left; }
 h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; }
-body { font: 12px/1.5 arial,SimSun,helvetica,sans-serif; background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(102, 102, 102); }
+/*body { font: 12px/1.5 arial,SimSun,helvetica,sans-serif; background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(102, 102, 102); }*/
 .clearfix:after { clear: both; content: "."; display: block; height: 0px; line-height: 0; visibility: hidden; }
 .clearfix {  }
 html, body, p, ul, ol, li, h1, h2, h3, h4, h5, h6, dt, dl, dd { border: 0px none; padding: 0px; margin: 0px; list-style: outside none none; }
@@ -205,16 +205,16 @@ a:hover { text-decoration: none; }
 .icon_shxuan5 { background-position: -2px -130px; }
 
 /* daohang */
-.nav{width: 1060px; line-height: 35px; margin:0px; float:left; font-size: 14px; position: relative; font-weight:bolder; }
-.nav-main span{display: inline-block; margin-left: 18px; width: 7px; height: 7px; background: url('down-icon.png') no-repeat;}
-.hover-up{transition-duration: .5s; transform: rotate(180deg); -webkit-transform: rotate(180deg);}
-.hover-down{transition-duration: .5s; transform: rotate(0deg); -webkit-transform: rotate(0deg);}
-.nav-main>li{width: 106px; height: 100%; display: block;  text-align:center;  color: #000; margin-right: 1px; cursor: pointer;}
-.nav-main>li:hover{ box-shadow:0 0 5px #000 inset;color:#000 }
-.hidden-box{  border-top: 0; position: absolute; display: none; top: 35px; z-index:999;background:#fff;left:0px}
-.hidden-box>ul{list-style-type: none; color: #ff3e3e; cursor: pointer; }
-.hidden-box li{ width:100px; text-align:center;font-size:13px;}
-.nav a:hover{color:#000;}
+/*.nav{width: 1060px; line-height: 35px; margin:0px; float:left; font-size: 14px; position: relative; font-weight:bolder; }*/
+/*.nav-main span{display: inline-block; margin-left: 18px; width: 7px; height: 7px; background: url('down-icon.png') no-repeat;}*/
+/*.hover-up{transition-duration: .5s; transform: rotate(180deg); -webkit-transform: rotate(180deg);}*/
+/*.hover-down{transition-duration: .5s; transform: rotate(0deg); -webkit-transform: rotate(0deg);}*/
+/*.nav-main>li{width: 106px; height: 100%; display: block;  text-align:center;  color: #000; margin-right: 1px; cursor: pointer;}*/
+/*.nav-main>li:hover{ box-shadow:0 0 5px #000 inset;color:#000 }*/
+/*.hidden-box{  border-top: 0; position: absolute; display: none; top: 35px; z-index:999;background:#fff;left:0px}*/
+/*.hidden-box>ul{list-style-type: none; color: #ff3e3e; cursor: pointer; }*/
+/*.hidden-box li{ width:100px; text-align:center;font-size:13px;}*/
+/*.nav a:hover{color:#000;}*/
 /*footer*/
 .footer { margin: 5px auto 0px;height: 90px;border-top:3px solid rgb(220,0,0);width:1060px;}
 .footbg { text-align: center;  color: rgb(153, 153, 153); height:15px; }
@@ -222,7 +222,7 @@ a:hover { text-decoration: none; }
 .foot_txt {line-height: 20px; width:300px; margin:0px auto;  font-size:14px; color:#000;}
 /*login*/
 .ipter{border: 1px solid rgb(218,218,218); padding: 10px 10px; width: 150px; border-radius: 4px; padding-left: 55px; -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075); box-shadow: inset 0 1px 1px rgba(0,0,0,.075); -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s; -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s}
-.ipter:focus{border-color: #66afe9; outline: 0; -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6); box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)} 
+.ipter:focus{border-color: #66afe9; outline: 0; -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6); box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
 .d_logo{background: url('main_pic.png') no-repeat scroll -227px -182px transparent; padding: 10px 10px; position: absolute; top: 43px; left: 45px;}
 .m_logo{background: url('main_pic.png') no-repeat scroll -254px -182px transparent; padding: 10px 10px; position: absolute; top: 13px; left: 45px;}
 .login_top{width: 275px; height: auto; margin: auto auto; text-align: center;}
@@ -231,7 +231,7 @@ a:hover { text-decoration: none; }
 .login_ipt{padding: 30px 0px 31px 0px; position: relative;}
 .login_rbtn{background: #ccc; padding: 7px 13px; border-radius: 4px; border: 1px solid rgb(218,218,218); color: #FFF; font-weight: bold;cursor: pointer;}
 .login_posi{margin: 0px 5px 0px 5px;}
-.login_posi a{ color:#c23741;} 
+.login_posi a{ color:#c23741;}
 .login_posi a:hover{ color:#000;}
 .login_weizhi{ margin-left:6px}
 .login_ht{width: 400px;height: 200px;margin: auto auto;text-align: center;margin-top: 80px; margin-bottom:50px;border: 1px solid #e7e7e7}
@@ -277,7 +277,7 @@ a:hover { text-decoration: none; }
 .ipt:focus{border-color: #66afe9; outline: 0; -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6); box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
 .u_logo{background: url('main_pic.png') no-repeat scroll -227px -182px transparent; padding: 10px 10px; position: absolute; top: 43px; left: 40px;}
 .p_logo{background: url('main_pic.png') no-repeat scroll -254px -182px transparent; padding: 10px 10px; position: absolute; top: 12px; left: 40px;}
-a{text-decoration: none;} 
+a{text-decoration: none;}
 /*jiaoyizhongxin*/
 .user-frm input{width:315px;height:25px}
 #lmiddle{ margin:0px auto 0px; width:1058px;border:1px solid rgb(218,218,218);}

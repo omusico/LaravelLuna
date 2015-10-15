@@ -82,5 +82,6 @@
 
 @yield('content')
 <script type="text/javascript" src="/js/all.js"></script>
+@yield('script')
 </body>
 </html>
