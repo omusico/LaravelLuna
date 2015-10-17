@@ -27,7 +27,7 @@ class CreateXhLotteriesK3sTable extends Migration {
             $table->decimal('bingoPrice',10,2)->default(0.00);
             $table->mediumInteger('uid')->default(0);
             $table->char('userName',32);
-            $table->mediumInteger('recUid')->default(0);
+            $table->mediumInteger('recUid')->default(0)->nullable();
             $table->char('userIp',15);
             $table->dateTime('endTime')->nullable();
             $table->tinyInteger('noticed')->default(0);

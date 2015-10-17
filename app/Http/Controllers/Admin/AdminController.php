@@ -61,6 +61,12 @@ class AdminController extends Controller {
         $lu_user->status = $request->status;
         $lu_user->level = $request->level;
         $lu_user->save();
+        if(empty($id)){
+            $lu_user_data = new App\lu_user_data();
+            $lu_user_data->uid = $lu_user->id;
+            $lu_user_data->points = $request->points;
+            $lu_user_data->save();
+        }
         session()->flash('message', $lu_user->name."会员添加成功");
 //      $grade = new Grade;
 //	    $grade->user_id = $request->id;

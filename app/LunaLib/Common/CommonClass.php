@@ -53,4 +53,20 @@ class CommonClass {
             }
         }
     }
+
+    public static function price($price ,$auto = 1){
+
+        if(!$price) return '0.00';
+
+        if($auto==1){
+
+            return sprintf("%.3f", $price);
+
+        }else{
+
+            return sprintf("%.3f",substr(sprintf("%.3f", $price), 0, -3));
+
+        }
+
+    }
 }

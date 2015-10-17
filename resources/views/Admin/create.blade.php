@@ -64,7 +64,7 @@
                     <div class="form-group">
                         {!! Form::label('groupId', '等级: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            <select class="form-control" required="required" id="level" name="level">
+                            <select class="form-control " required="required" id="level" name="level">
                                 @foreach ($user_level as $key=>$level)
                                     <option value="{{ $key }}">{{ $level['name'] }}</option>
                                 @endforeach
@@ -86,6 +86,12 @@
                                     锁定
                                 </label>
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('points', '账户余额: ', ['class' => 'control-label col-md-1']) !!}
+                        <div class="col-md-4">
+                            {!! Form::text('points', old('points'), ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">

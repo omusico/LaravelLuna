@@ -16,7 +16,6 @@ img { border: 0px none; }
 a { text-decoration: none; color: rgb(0, 83, 165); }
 i.icon u { visibility: hidden; }
 .content{ margin:0 auto; width:1060px;}
-.none{ display:none;}
 #bd { margin-top: 10px; border-top: 1px solid rgb(223, 223, 224); position: relative; }
 a:hover { color:  rgb(210, 0, 0); text-decoration: underline; }
 .blank10{clear: both; display: block; height: 10px; overflow: hidden;}
@@ -83,7 +82,7 @@ a:hover { text-decoration: none; }
 #page-header { background: none repeat scroll 0px 0px transparent; min-height: 0px; }
 #bd { width: auto; margin: 0px; }
 #bd .top-banner-content { margin: 0px auto; width: 1060px; overflow: hidden; position: relative; }
-.banner_content{ margin: 0px auto; width: 1060px; overflow: hidden; position: relative; border:1px solid rgb(218,218,218); background-color:#faf9f9;  }
+.banner_content{ margin: 0px auto; width: auto; overflow: hidden; position: relative; border:1px solid rgb(218,218,218); background-color:#faf9f9;  }
 #bd .top-banner-content .logo { display: block; width: 780px; height: 80px; background: url('top_main.png') no-repeat scroll -0px 0px transparent; }
 #bd .top-banner-content .link-qqkf { height: 70px; right:10px;  position: absolute; top: 25px; width: 130px;background: url('qqkf.png') no-repeat scroll transparent; }
 #bd .top-banner-content .link-zfbkf {height: 70px; right: 130px;  position: absolute; top: 25px; width: 130px;background: url('zfbcz.png') no-repeat scroll transparent;}
@@ -425,7 +424,7 @@ h1{font-size:16px;font-weight:500}
 .safe_app{ border:1px solid #ccc; width:226px; margin-top:px}
 #myTab2{height:40px;border-bottom:1px solid #ccc;}
 .kefu{width: 120px; height: 120px; position: absolute; display: block; top: 280px; left: 8px;}
-.step_box{ width: 620px; margin: 0px auto; color:#000; border: 1px solid rgb(218,218,218); padding:5px 0px 0px 0px;border-top:none; }
+.step_box{ width: auto; margin: 0px auto; color:#000; border: 1px solid rgb(218,218,218); padding:5px 0px 0px 0px;border-top:none; }
 .step_main_in .mode{ text-align:center;font-size:15px;font-weight:500;border-bottom:1px solid #ccc; padding-bottom:5px;}
 .step_main_in .expand{ text-align:center;padding:10px 0px}
 .expand .zhuiTop{ border-bottom:1px solid #ccc; padding-bottom:10px;font-size:13px;}
@@ -454,17 +453,17 @@ body{ width:auto; height:auto;margin:0px }
 #wrap-nav ul.menu li h3 a.depth_1{padding:2px 0 0 10px;display:inline-block;color:#282825;}
 .title img,.content1 img,#content img{width:100%}
 .kj_middle_box,.kj_info_l,.k_bottom,.right_middle,.kj_bottom_box{width:375px;}
-.kj_info_l,.kj_info_r,.kj_info_c,.right_top,#myTab3{width:375px;height:140px}
+.kj_info_l,.kj_info_r,.kj_info_c,.right_top,#myTab3{width:auto;height:140px}
 .kj_info_r{ margin-left:-30px}
-.kj_info_box,.kj_open_box{width:375px}
-.k_top{ height:440px}
+/*.kj_info_box,.kj_open_box{width:375px}*/
+/*.k_top{ height:440px}*/
 .cz_ico{ margin-left:115px}
 .select_num2{ margin-left:-10px; width:370px}
 .TabContent1 .content0 .select_num1 { width: 375px; margin-left:-10px;}
 .TabContent1 .content0 .select_txt1 { margin:auto 10px;   width:375px;}
 .kj_info_l .cz_info {width:300px; margin-left:30px }
 .select_num ul{ width:370px;  margin:auto 20px}
-.select_num ul .long_select_btn{ margin-left:100px}
+/*.select_num ul .long_select_btn{ margin-left:100px}*/
 .period-r{float:left}
 .login_weizhi{ margin-left:0px}
 .logAfter{ margin-left:70px}

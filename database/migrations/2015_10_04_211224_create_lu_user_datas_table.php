@@ -17,14 +17,14 @@ class CreateLuUserDatasTable extends Migration {
 			$table->increments('id');
             $table->mediumInteger('uid');
             $table->tinyInteger('gender')->default(0);
-            $table->char('regIp',15);
-            $table->char('loginIp',15);
+            $table->char('regIp',15)->nullable();
+            $table->char('loginIp',15)->nullable();
             $table->integer('loginNum')->default(0);
-            $table->text('cateAcl');
-            $table->char('openid',32);
-            $table->char('connectType',10);
+            $table->text('cateAcl')->nullable();
+            $table->char('openid',32)->nullable();
+            $table->char('connectType',10)->nullable();
             $table->decimal('points',10,2)->default(0.00);
-            $table->integer('verifyCode');
+            $table->integer('verifyCode')->nullable();
 			$table->timestamps();
 		});
 	}

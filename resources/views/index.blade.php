@@ -1,5 +1,7 @@
 @extends('master')
-
+@section('title')
+    中国快三网
+@stop
 @section('content')
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" xmlns="http://www.w3.org/1999/html">
         <ol class="carousel-indicators">

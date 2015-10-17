@@ -21,6 +21,11 @@ class LunaFunctions
         return $config;
     }
 
+    function get_lottery_kjType($lottery_type){
+        $config = $this->get_lottery_config($lottery_type);
+        return $config['kjType'];
+    }
+
 
 // 获取北京快3的期数
     public function get_bj_period($fdTime)
@@ -144,6 +149,96 @@ class LunaFunctions
             $result['needCaiji'] = 1;
         }
 
+        return $result;
+    }
+
+    function create_order_no($id){
+
+        return date("Ymd") . str_pad($id, 6, '0', STR_PAD_LEFT) . str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
+
+    }
+
+    function get_lottery_type_code($lotteryType){
+        $lotteryType = strtolower($lotteryType);
+        $k3Lottery = array('jsold','jsnew','hebei','hubei','jilin','nmg','beijin','anhui','fjk3');
+        if (in_array($lotteryType, $k3Lottery)) {
+            return 'k3';
+        } else if (strstr ( $lotteryType, "five" )) {
+            return 'five';
+        } else if ($lotteryType == 'happy') {
+            return 'happy';
+        } else if($lotteryType =='le' ){
+            return 'le';
+        } else if($lotteryType == 'poker'  ){
+            return 'poker';
+        } else if($lotteryType == 'che'){
+            return 'che';
+        } else if( strstr ( $lotteryType, "ssc" )) {
+            return 'ssc';
+        } else if( strstr ( $lotteryType, "xy" )){
+            return 'xy';
+        } else{
+            return '';
+        }
+
+    }
+
+    function get_buyed_money($uid,$proName,$playType, $lotteryType ){
+// 		if( $playType == 'HZ') {
+//        $db = Waf_Db::get();
+        $type=$this-> get_lottery_type_code($lotteryType);
+        if( $type == 'k3'){
+            $lottery_name = "lotteries_k3";
+        } else if ( $type == 'poker'){
+            $lottery_name = 'poker_lotteries';
+        } else {
+            $lottery_name = 'lotteries_'.$type;
+        }
+
+//        $select = $db->select('codes,sum(eachPrice) as sum ')->from($lottery_name);
+
+        $slug_types = defaultCache::cache_lottery_type_slug();//Waf::moduleData('lottery_type_slug','lottery');
+        $typeId = $slug_types[$playType]['typeId'];
+
+//        $where = " uid=".$uid. " and proName='".$proName. "' and typeId = '{$typeId}' and province = '{$lotteryType}' ";
+//        $row = $select->where($where)->groupBy('codes')->fetchAll();
+        $row = \Illuminate\Support\Facades\DB::select("select codes,sum(eachPrice) as sum from lu_lotteries_k3s where id='".$uid."' and proName='".$proName."' and typeId='".$typeId."' and province='".$lotteryType."' group by codes");
+
+
+        $m = array('单'=>0,'双'=>0,'大'=>0,'小'=>0);
+
+        if( !empty($row )) {
+            $b = $this->i_array_column($row, 'sum', 'codes');
+            $n = array_merge($m,$b);
+        } else {
+            $n = $m;
+        }
+        return $n;
+    }
+
+    function i_array_column($input, $columnKey, $indexKey=null){
+        $columnKeyIsNumber      = (is_numeric($columnKey)) ? true : false;
+        $indexKeyIsNull         = (is_null($indexKey)) ? true : false;
+        $indexKeyIsNumber       = (is_numeric($indexKey)) ? true : false;
+        $result                 = array();
+        foreach((array)$input as $key=>$row){
+            if($columnKeyIsNumber){
+                $tmp            = array_slice($row, $columnKey, 1);
+                $tmp            = (is_array($tmp) && !empty($tmp)) ? current($tmp) : null;
+            }else{
+                $tmp            = isset($row[$columnKey]) ? $row[$columnKey] : null;
+            }
+            if(!$indexKeyIsNull){
+                if($indexKeyIsNumber){
+                    $key        = array_slice($row, $indexKey, 1);
+                    $key        = (is_array($key) && !empty($key)) ? current($key) : null;
+                    $key        = is_null($key) ? 0 : $key;
+                }else{
+                    $key        = isset($row[$indexKey]) ? $row[$indexKey] : 0;
+                }
+            }
+            $result[$key]       = $tmp;
+        }
         return $result;
     }
 

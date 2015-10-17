@@ -24,12 +24,12 @@
             </button>
             <!-- 确保无论是宽屏还是窄屏，navbar-brand都显示 -->
             @if(Auth::guest())
-                <a class="navbar-brand" href="/">后台管理</a>
+                <a class="navbar-brand" href="/">中国快三网</a>
             @else
                 @if (Auth::user()->is_admin)
                     <a class="navbar-brand" href="/admin">后台管理</a>
                 @else
-                    <a class="navbar-brand" href="/">后台管理</a>
+                    <a class="navbar-brand" href="/">中国快三网</a>
                 @endif
             @endif
         </div>
@@ -38,16 +38,16 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/" class="btn-primary">网站首页</a></li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">进入</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">进入<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">江苏快三</a></li>
-                        <li><a href="#">北京快三</a></li>
-                        <li><a href="#">福建快三</a></li>
-                        <li><a href="#">安徽快三</a></li>
-                        <li><a href="#">吉林快三</a></li>
-                        <li><a href="#">广西快三</a></li>
-                        <li><a href="#">湖北快三</a></li>
-                        <li><a href="#">内蒙快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=jsold">江苏快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=beijin">北京快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=fjk3">福建快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=anhui">安徽快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=jilin">吉林快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=jsnew">广西快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=hubei">湖北快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=nmg">内蒙快三</a></li>
                     </ul>
                 </li>
                 <li><a href="##">游戏规则</a></li>
@@ -64,10 +64,10 @@
                     {!! Form::close() !!}
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle btn-info" data-toggle="dropdown" role="button"
+                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button"
                            aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/logout') }}">个人中心</a></li>
+                            {{--<li><a href="{{ url('/logout') }}">个人中心</a></li>--}}
                             <li><a href="{{ url('/logout') }}">退出</a></li>
                         </ul>
                     </li>

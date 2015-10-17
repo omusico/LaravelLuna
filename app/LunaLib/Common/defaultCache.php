@@ -1095,7 +1095,6 @@ class defaultCache
     }
 
     // lottery基本信息
-
     public static function cache_lottery_status()
     {
         return array(
@@ -1410,6 +1409,81 @@ class defaultCache
                     'endTime' => '22:00',
                     'num' => 84,
                     'kjTime' => 150,
+                )
+        );
+    }
+
+    public static function cache_lottery_type_slug(){
+        return array (
+            'HZ' =>
+                array (
+                    'typeId' => '9',
+                    'name' => '和值',
+                    'odds' => '90',
+                    'slug' => 'HZ',
+                ),
+            'DZ' =>
+                array (
+                    'typeId' => '10',
+                    'name' => '对子包选',
+                    'odds' => '90',
+                    'slug' => 'DZ',
+                ),
+            '3THTX' =>
+                array (
+                    'typeId' => '1',
+                    'name' => '三同号通选',
+                    'odds' => '90',
+                    'slug' => '3THTX',
+                ),
+            '3THDX' =>
+                array (
+                    'typeId' => '2',
+                    'name' => '三同号单选',
+                    'odds' => '90',
+                    'slug' => '3THDX',
+                ),
+            '3BTH' =>
+                array (
+                    'typeId' => '3',
+                    'name' => '三不同号',
+                    'odds' => '90',
+                    'slug' => '3BTH',
+                ),
+            '3LHTX' =>
+                array (
+                    'typeId' => '4',
+                    'name' => '三连号通选',
+                    'odds' => '90',
+                    'slug' => '3LHTX',
+                ),
+            '2THFX' =>
+                array (
+                    'typeId' => '5',
+                    'name' => '二同号复选',
+                    'odds' => '90',
+                    'slug' => '2THFX',
+                ),
+            '2THDX' =>
+                array (
+                    'typeId' => '6',
+                    'name' => '二同号单选',
+                    'odds' => '90',
+                    'slug' => '2THDX',
+                ),
+            '2BTH' =>
+                array (
+                    'typeId' => '7',
+                    'name' => '二不同号',
+                    'odds' => '90',
+                    'slug' => '2BTH',
+                ),
+            'TX' =>
+                array(
+                    'typeId' => '8',
+                    'name' => '通选',
+                    'odds' => '90',
+                    'slug' => 'TX',
                 )
         );
     }

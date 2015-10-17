@@ -25,7 +25,7 @@ Route::post('login', [
 Route::get('logout', [
     'middleware' => 'auth', 'as' => 'logout', 'uses' => 'loginController@logout']);
 Route::get('register', 'registerController@index');
-Route::post('register/save', ['as'=>'register_save', 'uses'=>'registerController@store']);
+Route::post('register/save', ['as' => 'register_save', 'uses' => 'registerController@store']);
 Route::controller('password', 'PasswordController');
 ####################################################
 #学生的登录详情(包括资料修改，分数查询)
@@ -66,6 +66,9 @@ Route::resource('admin', 'Admin\AdminController');
 #采集开奖信息
 ####################################################
 Route::get('collectLotteryData', [
-    'as'=>'collectLotteryData','uses'=>'CollectController@collectLotteryData']);
+    'as' => 'collectLotteryData', 'uses' => 'CollectController@collectLotteryData']);
 Route::get('lotteryIndex', [
-    'as'=>'lotteryIndex','uses'=>'LotteryK3Controller@index']);
+    'as' => 'lotteryIndex', 'uses' => 'LotteryK3Controller@index']);
+Route::any('/lotteryBetting', ['as' => 'lotteryBetting', 'uses' => 'LotteryK3Controller@betting']);
+Route::any('/getLotteryData', ['as' => 'getLotteryDataForQt', 'uses' => 'LotteryK3Controller@getLotteryDataForQt']);
+Route::any('/loadRecentResult', ['as' => 'loadRecentResult', 'uses' => 'LotteryK3Controller@loadRecentResult']);

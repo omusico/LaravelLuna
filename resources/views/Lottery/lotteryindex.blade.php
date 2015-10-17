@@ -1,16 +1,22 @@
 @extends('master')
+@section('title')
+    中国快三网-{{$czName}}
+@stop
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/k3_betting.css') }}">
+    <script type="text/javascript">
+        var lottery_type = '{{$config['lotterytype']}}';
+        var num ={{$lotterystatus[$config['lotterytype']]['num']}};
+    </script>
 @stop
 @section('content')
 
     <div class="container">
         <div class="banner_content">
             <div class="kj_info_box">
-
-                <div class="k_top">
-                    <div class="kj_info_l">
+                <div class="k_top container">
+                    <div class="kj_info_l col-md-4">
                         <div class="cz_name">
                             <h1>
                                 {{$czName}}
@@ -25,7 +31,7 @@
 					</span>
                         </div>
                     </div>
-                    <div class="kj_info_c">
+                    <div class="kj_info_c col-md-4">
                         <div class="djs_01">
                             距<span class="c_red" id="theCur">...</span>期投注截止还有：
                         </div>
@@ -37,10 +43,9 @@
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" id="proName"/> <input type="hidden"
-                                                               id="getOdds"/>
+                    <input type="hidden" id="proName"/> <input type="hidden" id="getOdds"/>
 
-                    <div class="kj_info_r">
+                    <div class="kj_info_r col-md-4">
                         <div class="kj_hao" id="kjjxz">
                             <div class="kj_qs" id="kjz">
                                 第<span class="c_red" id="prevWin">...</span>期开奖号码:
@@ -60,21 +65,20 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <main class="col-md-8">
-                    <div class="container">
-                        <ul class="nav nav-tabs" role="tablist" id="myTab"> 
-                            <li class="active"><a href="#HZ" role="tab" data-toggle="tab">和值</a></li>
-                            <li><a href="#3THTX" role="tab" data-toggle="tab">三同号通选</a></li>
-                            <li><a href="#3THDX" role="tab" data-toggle="tab">三同号单选</a></li>
-                            <li><a href="#3BTH" role="tab" data-toggle="tab">三不同号</a></li>
-                            <li><a href="#3LHTX" role="tab" data-toggle="tab">三连号通选</a></li>
-                            <li><a href="#2THFX" role="tab" data-toggle="tab">二同号复选</a></li>
-                            <li><a href="#2THDX" role="tab" data-toggle="tab">二同号单选</a></li>
-                            <li><a href="#2BTH" role="tab" data-toggle="tab">二不同号</a></li>
-                        </ul>
-                    </div>
+            <div class="container" id="lotteryContainer">
+                <main class="col-md-8" style="border-right: 1px solid rgb(218, 218, 218)">
+                    <ul class="nav nav-tabs" role="tablist" id="myTab"> 
+                        <li class="active"><a href="#HZ" role="tab" data-toggle="tab">和值</a></li>
+                        <li><a href="#3THTX" role="tab" data-toggle="tab">三同号通选</a></li>
+                        <li><a href="#3THDX" role="tab" data-toggle="tab">三同号单选</a></li>
+                        <li><a href="#3BTH" role="tab" data-toggle="tab">三不同号</a></li>
+                        <li><a href="#3LHTX" role="tab" data-toggle="tab">三连号通选</a></li>
+                        <li><a href="#2THFX" role="tab" data-toggle="tab">二同号复选</a></li>
+                        <li><a href="#2THDX" role="tab" data-toggle="tab">二同号单选</a></li>
+                        <li><a href="#2BTH" role="tab" data-toggle="tab">二不同号</a></li>
+                    </ul>
                     <div class="tab-content"> 
+
                         {{--和值--}}
                         <div class="tab-pane active" id="HZ"> 
                             <input type="hidden" id="HZ_chipin_l" value="{{$chipins['HZ']['low']}} "/>
@@ -87,6 +91,8 @@
                                     {{min($k3Odds['HZ'])}}-{{max($k3Odds['HZ'])}}
                                     倍
                                 </p>
+                                <br/>
+                                <br/>
 
                                 <div class="menu">
                                     <ul class="menucon">
@@ -146,10 +152,320 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="3THTX"> 
+                            <input type="hidden" id="3THTX_chipin_l" value="{{$chipins['3THTX']['low']}}"/>
+                            <input type="hidden" id="3THTX_chipin_h" value="{{$chipins['3THTX']['hight']}}"/>
 
+                            <div id="box_ball_3THTX" class="all_box">
+                                <p>投注说明：10元购买6个三同号(111,222,333,444,555,666)投注，选号与开奖号码一致即中奖{{$k3Odds['3THTX']['value']}}
+                                    倍。</p>
+
+                                <div class="menu">
+                                    <ul class="menucon">
+                                        <li>
+                                            <a>实例说明：</a>
+                                            <ul>
+                                                <li><a>选号：三同号通选</a></li>
+                                                <li><a>开奖：3,3,3</a></li>
+                                                <li><a>中奖：赔率31</a></li>
+                                                <li class="last"></li>
+                                            </ul>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="select_num" id="box_ball_3THTX_num">
+                                    <ul>
+                                        <li class="long_select_btn">选择</li>
+                                    </ul>
+                                </div>
+                                <div class="blank10"></div>
+                                <div class="select_txt hidden" id="box_ball_3THTX_odds">
+                                    <ul>
+
+                                        <li class="OneNum">赔率： <span id="3THTX_getodds">
+                                               {{$k3Odds['3THTX']['value']}}
+                                            </span></li>
+
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div class="tab-pane" id="3THDX">  <p>慕课网都有哪些讲师？课程质量高吗？<br>  学了就知道，我们不爱吹，低调是最牛逼的炫耀</p> </div>
-                        <div class="tab-pane" id="3BTH">  <p>我在慕课网学习能得到什么？<br>  屌丝逆袭不是传说,但关键是你学不学</p> </div>
+                        <div class="tab-pane" id="3THDX"> 
+                            <input type="hidden" id="3THDX_chipin_l" value="{{$chipins['3THDX']['low']}}"/>
+                            <input type="hidden" id="3THDX_chipin_h" value="{{$chipins['3THDX']['hight']}}"/>
+
+                            <div class="all_box" id="box_ball_3THDX">
+                                <p>投注说明：至少选择1个三同号投注，选号与开奖号码一致即中奖{{$k3Odds['3THDX']['value']}}倍。</p>
+
+                                <div class="menu">
+                                    <ul class="menucon">
+                                        <li>
+                                            <a>实例说明：</a>
+                                            <ul>
+                                                <li><a>选号：5,5,5</a></li>
+                                                <li><a>开奖：5,5,5</a></li>
+                                                <li><a>中奖：赔率149</a></li>
+                                                <li class="last"></li>
+                                            </ul>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="select_num" id="box_ball_3THDX_num">
+                                    <ul>
+                                        @foreach($k3Odds['3THDX'] as $key => $value)
+                                            @if($key !='value')
+                                                <li class="OneNum" id="box_ball_3THDX_{{$key}}">{{$key}}</li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div class="blank10"></div>
+                                <div class="select_txt hidden" id="box_ball_3THDX_odds">
+                                    <ul>
+                                        {{$i=1}}
+                                        @foreach($k3Odds['3THDX'] as $key => $value)
+                                            <li class="OneNum">
+                                                赔率：<span
+                                                @if($i ==1)
+                                                    id="3THDX_getodds"
+                                                        @endif >{{$value}}</span>
+                                            </li>
+                                            {{$i += 1}}
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="3BTH"> 
+                            <input type="hidden" id="3BTH_chipin_l" value="{{$chipins['3BTH']['low']}}"/>
+                            <input type="hidden" id="3BTH_chipin_h" value="{{$chipins['3BTH']['hight']}}"/>
+
+                            <div class="all_box" id="box_ball_3BTH">
+                                <p>投注说明：至少选择3个号码投注，选号与开奖号码一致即中奖{{$k3Odds['3BTH']['value']}}倍。</p>
+
+                                <div class="menu">
+                                    <ul class="menucon">
+                                        <li>
+                                            <a>实例说明：</a>
+                                            <ul>
+                                                <li><a>选号：5,4,6</a></li>
+                                                <li><a>开奖：5,4,6</a></li>
+                                                <li><a>中奖：赔率28</a></li>
+                                                <li class="last"></li>
+                                            </ul>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="select_num" id="box_ball_3BTH_num">
+                                    <ul>
+                                        @foreach($k3Odds['3BTH'] as $key=>$value)
+                                            @if($key!='value')
+                                                <li class="OneNum">{{$key}}</li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div class="blank10"></div>
+                                <div class="select_txt hidden" id="box_ball_3BTH_odds">
+                                    <ul>
+                                        {{$i = 1}}
+                                        @foreach($k3Odds['3BTH'] as $key=>$value):?>
+                                        <li class="OneNum">
+                                            赔率：<span @if ($i == 1)  id="3BTH_getodds"
+                                                    @endif
+                                                    >{{$value}}</span>
+                                        </li>
+                                        {{$i += 1}}
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div class="blank20"></div>
+                                <div class="select_info_text">
+                                    <a href="javascript:void(0);" class="addbtn_disabled" id="ball_add_btn">添加到投注列表</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="3LHTX"> 
+                            <input type="hidden" id="3LHTX_chipin_l" value="{{$chipins['3LHTX']['low']}}"/>
+                            <input type="hidden" id="3LHTX_chipin_h" value="{{$chipins['3LHTX']['hight']}}"/>
+
+                            <div class="all_box" id="box_ball_3LHTX">
+                                <p>投注说明：10元购买4个三连号（123、234、345、456）投注，选号与开奖号码一致即中奖{{$k3Odds['3LHTX']['value']}}倍。</p>
+
+                                <div class="menu">
+                                    <ul class="menucon">
+                                        <li>
+                                            <a>实例说明：</a>
+                                            <ul>
+                                                <li><a>选号：三连号</a></li>
+                                                <li><a>开奖：4,5,6</a></li>
+                                                <li><a>中奖：赔率8</a></li>
+                                                <li class="last"></li>
+                                            </ul>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="select_num" id="box_ball_3LHTX_num">
+                                    <ul>
+                                        <li class="long_select_btn">选择</li>
+                                    </ul>
+                                </div>
+                                <div class="blank10"></div>
+                                <div class="select_txt hidden" id="box_ball_3LHTX_odds">
+                                    <ul>
+
+                                        <li class="OneNum">赔率：<span
+                                                    id="3LHTX_getodds">{{$k3Odds['3LHTX']['value']}}</span></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="2THFX">
+                            <input type="hidden" id="2THFX_chipin_l" value="{{$chipins['2THFX']['low']}}"/>
+                            <input type="hidden" id="2THFX_chipin_h" value="{{$chipins['2THFX']['hight']}}"/>
+
+                            <div id="box_ball_2THFX" class="all_box">
+                                <p>投注说明： 10元购买1个二同号(11*,22*,33*,44*,55*,66*)投注，选号与开奖号码一致即中奖{{$k3Odds['2THFX']['value']}}
+                                    倍。</p>
+
+                                <div class="menu">
+                                    <ul class="menucon">
+                                        <li>
+                                            <a>实例说明：</a>
+                                            <ul>
+                                                <li><a>选号：5,5</a></li>
+                                                <li><a>开奖：5,5,6</a></li>
+                                                <li><a>中奖：赔率11</a></li>
+                                                <li class="last"></li>
+                                            </ul>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="select_num" id="box_ball_2THFX_num">
+                                    <ul>
+                                        @foreach($k3Odds['2THFX'] as $key=>$value)
+                                            @if($key!='value')
+                                                <li class="OneNum" id="box_ball_2THFX{{$key}}">{{$key}}*</li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div class="blank10"></div>
+                                <div class="select_txt hidden" id="box_ball_2THFX_odds">
+                                    <ul>
+                                        <li class="OneNum">赔率：<span
+                                                    id="2THFX_getodds">{{$k3Odds['2THFX']['value']}}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="2THDX">
+                            <input type="hidden" id="2THDX_chipin_l" value="{{$chipins['2THDX']['low']}}"/>
+                            <input type="hidden" id="2THDX_chipin_h" value="{{$chipins['2THDX']['hight']}}"/>
+
+                            <div id="box_ball_2THDX" class="all_box none">
+                                <p>投注说明：选择1个相同号码和1个不同号码投注，选号与开奖号码一致即中奖{{$k3Odds['2THDX']['value']}}倍。</p>
+
+                                <div class="menu">
+                                    <ul class="menucon">
+                                        <li>
+                                            <a>实例说明：</a>
+                                            <ul>
+                                                <li><a>选号：5,5,6</a></li>
+                                                <li><a>开奖：5,5,6</a></li>
+                                                <li><a>中奖：赔率51</a></li>
+                                                <li class="last"></li>
+                                            </ul>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="select_num" id="box_ball_2THDX_num">
+                                    <ul>
+                                        @foreach($k3Odds['2THDX'] as $key=>$value)
+                                            @if($key!='value')
+                                                @if($key>6)
+                                                    <li class="OneNum">{{$key}}</li>
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div class="blank10"></div>
+                                <div class="select_num" id="box_ball_2THDX_single">
+                                    <ul>
+                                        @foreach($k3Odds['2THDX'] as $key=>$value)
+                                            @if($key!='value')
+                                                @if($key<=6)
+                                                    <li class="OneNum">{{$key}}</li>
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div class="blank10"></div>
+                                <div class="select_txt hidden" id="box_ball_2THDX_single_odds">
+                                    <ul>
+                                        <li class="OneNum">
+                                            赔率：<span id="2THDX_getodds">{{$k3Odds['2THDX']['value']}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="blank10"></div>
+                                <div class="select_info_text">
+                                    <a href="javascript:void(0);" class="addbtn_disabled" id="ball_add_btn_2THDX">添加到投注列表</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="2BTH">
+                            <input type="hidden" id="2BTH_chipin_l" value="{{$chipins['2BTH']['low']}}"/>
+                            <input type="hidden" id="2BTH_chipin_h" value="{{$chipins['2BTH']['hight']}}"/>
+
+                            <div id="box_ball_2BTH" class="all_box none">
+                                <p>投注说明：至少选择2个号码投注，选号与开奖号码一致即中奖{{$k3Odds['2BTH']['value']}}倍。</p>
+
+                                <div class="menu">
+                                    <ul class="menucon">
+                                        <li>
+                                            <a>实例说明：</a>
+                                            <ul>
+                                                <li><a>选号：2,3</a></li>
+                                                <li><a>开奖：4,3,2</a></li>
+                                                <li><a>中奖：赔率6</a></li>
+                                                <li class="last"></li>
+                                            </ul>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="select_num" id="box_ball_2BTH_num">
+                                    <ul>
+                                        @foreach($k3Odds['2BTH'] as $key=>$value)
+                                            @if($key!='value')
+                                                <li class="OneNum">{{$key}}</li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div class="blank10"></div>
+                                <div class="select_txt hidden">
+                                    <ul>
+                                        <li class="OneNum">赔率：<span
+                                                    id="2BTH_getodds">{{$k3Odds['2BTH']['value']}}</span></li>
+                                    </ul>
+                                </div>
+                                <div class="blank20"></div>
+                                <div class="select_info_text">
+                                    <a href="javascript:void(0);" class="addbtn_disabled"
+                                       id="ball_add_btn_2BTH">添加到投注列表</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div style="display:block">
                         <div>
@@ -187,6 +503,7 @@
                             <div class="step_main">
                                 <div class="step_main_in">
                                     <div class="mode">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         购买方式： <input name="buyType" type="radio" value='daigou'
                                                      checked="checked" id='daigou'/><label>代购</label> <input
                                                 name="buyType" type="radio" value='zhuihao'
@@ -260,18 +577,23 @@
                     </div>
                 </main>
                 <aside class="col-md-4">
-                    <div class="login_weizhi">
+                    <div class="login_weizhi" style="height: 150px;">
+                        <div class="hy">
+                            <span>欢迎您回来 {{Auth::user()->name}}<br/><br/>
+                                余额：{{ \App\lu_user_data::where('uid',Auth::user()->id)->first()->points}}
+                            </span>
+                        </div>
                     </div>
-                    <div class="blank4"></div>
+                    {{--<div class="blank4"></div>--}}
                     <div class="kj_open_box">
                         <div class="r_middle">
                             <div class="kjgg_box">
                                 <div class="kjgg_tit">
                                     <div class="kjgg_name">
-                                        <h3></h3>
+                                        <h3>{{$czName}}开奖公告</h3>
                                     </div>
                                     <div class="kjgg_more">
-                                        <a target="_top"></a>
+                                        <a target="_top">今日开奖完整版</a>
 
                                     </div>
                                 </div>
@@ -298,5 +620,13 @@
     </div>
 @stop
 @section('script')
+    <script type="text/javascript" src="/js/k3_cj.js"></script>
     <script type="text/javascript" src="/js/k3_tz.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            setOutTime();
+            setTimeout("loadRecent()", 2500);
+        });
+
+    </script>
 @stop

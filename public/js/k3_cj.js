@@ -13,6 +13,30 @@ function refresh(){
 	window.location.reload();
 }
 
+Number.prototype.toLeftTimeString = function() {
+
+    var a = parseInt(this / 60 / 60 / 24, 10);
+
+    var b = parseInt(this / 60 / 60 % 24, 10);
+
+    var c = parseInt(this / 60 % 60, 10);
+
+    var f = this % 60;
+
+    var e = [];
+
+    e.push(a.toString());
+
+    e.push(b > 9 ? b.toString() : "0" + b.toString());
+
+    e.push(c > 9 ? c.toString() : "0" + c.toString());
+
+    e.push(f > 9 ? f.toString() : "0" + f.toString());
+
+    return e[0] > 0 ? e[0] + "天" + parseInt(e[1], 10) + "小时": e[1] + ":" + e[2] + ":" + e[3]
+
+};
+
 function setOutTime(){
     if(betTime < 1){
     	$("#theCur").html("");
@@ -42,11 +66,11 @@ function waitAward(){
 
 
 function loadWinInfo(){
-
+    var csrf_token = $('input[name=_token]').val();
     $.ajax({type: "POST",
 
-        url: baseUrl+'/index.php?m=common&c=index&a=getLotteryDataForQt&lottery_type='+lottery_type,
-
+        url: '/getLotteryData?lottery_type='+lottery_type,
+        data: '_token='+csrf_token,
         dataType: "json" ,
         cache : false,
         success: function(json){
@@ -104,16 +128,20 @@ function loadWinInfo(){
     });
 
 }
-
+function loadRecent(){
+    if( $("#awardNumBody").has("tr").length == 0 ){
+        loadRecentResult();
+    }
+}
 
 function loadRecentResult(){
-	
+    var csrf_token = $('input[name=_token]').val();
 	if( typeof(recentNum) == "undefined" ) recentNum = 15;
 
-	var url = baseUrl + "/index.php?m=lottery&c=index&a=loadRecentResult&lottery_type="+lottery_type  + "&recentNum=" + recentNum;
+	var url = "/loadRecentResult?lottery_type="+lottery_type  + "&recentNum=" + recentNum;
 
-    $.ajax({type: "POST",
-
+    $.ajax({type: "GET",
+        data: '_token='+csrf_token,
         url: url,
 
         dataType: "json" ,
