@@ -19,13 +19,26 @@ class AdminController extends Controller {
         $this->middleware('admin');
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $result = lu_user::where('is_admin', 0);
+        $groupid = $request->groupid;
+        $groupname='会员';
+        if(!empty($groupid)){
+            $groupname='代理';
+            $result = $result->where('groupid',$request->groupid);
+        }
         $count = $result->count();
         $lu_users = $result->paginate(10);
         $user_groups = CommonClass::cache("user_groups",1);
-        return view('Admin.index', compact('lu_users', 'count','user_groups'));
+        return view('Admin.index', compact('lu_users', 'count','user_groups','groupname'));
+    }
+
+    public function bettingList(Request $request){
+        $result = App\lu_lotteries_k3::where('status',1);
+        $count = $result->count();
+        $lu_lotteries_k3s = $result->paginate(10);
+        return view('Admin.bettingList',compact('lu_lotteries_k3s'));
     }
 
     public function create(){
@@ -65,7 +78,6 @@ class AdminController extends Controller {
             $lu_user_data = new App\lu_user_data();
             $lu_user_data->uid = $lu_user->id;
             $lu_user_data->points = $request->points;
-            $lu_user_data->save();
         }
         session()->flash('message', $lu_user->name."会员添加成功");
 //      $grade = new Grade;

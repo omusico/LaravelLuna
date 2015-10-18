@@ -25,6 +25,7 @@ class CreateLuPointsRecordsTable extends Migration {
             $table->decimal('changePoint',10,2);
             $table->decimal('newPoint',10,2);
             $table->integer('created');
+            $table->string('bz',20)->nullable();
 			$table->timestamps();
 		});
 	}

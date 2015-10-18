@@ -35,7 +35,7 @@
         </div>
         <!-- 屏幕宽度小于768px时，div.navbar-responsive-collapse容器里的内容都会隐藏，显示icon-bar图标，当点击icon-bar图标时，再展开。屏幕大于768px时，默认显示。 -->
         <div class="collapse navbar-collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav nav">
                 <li class="active"><a href="/" class="btn-primary">网站首页</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">进入<span class="caret"></span></a>
@@ -50,15 +50,17 @@
                         <li><a href="/lotteryIndex?lottery_type=nmg">内蒙快三</a></li>
                     </ul>
                 </li>
-                <li><a href="##">游戏规则</a></li>
+                <li><a href="/k3GameRule">游戏规则</a></li>
                 <li><a href="##">走势图</a></li>
                 <li><a href="##">合作代理</a></li>
                 <li><a href="##">交易记录</a></li>
                 @if (Auth::guest())
                     {!! Form::open(['url' => '/login', 'class' => 'navbar-form navbar-right', 'role' => 'search']) !!}
                     <div class="form-group">
-                        {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' =>'用户名...','required']) !!}
-                        {!! Form::password('password', ['class' => 'form-control', 'placeholder'=>'密码...','required']) !!}
+                        {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder'
+                        =>'用户名...','required']) !!}
+                        {!! Form::password('password', ['class' => 'form-control', 'placeholder'=>'密码...','required'])
+                        !!}
                     </div>
                     {!! Form::submit('登陆', ['class' => 'btn btn-primary']) !!}
                     {!! Form::close() !!}
@@ -79,8 +81,18 @@
 <div class="container">
     @include('flash')
 </div>
-
 @yield('content')
+<div class="footer">
+    <div class="f-link"><a title="关于我们" href="#" rel="nofollow" id="link425">关于我们</a> | <a title="用户注册" target="_blank"
+                                                                                           href="#" rel="nofollow"
+                                                                                           id="bottom_newuser">用户注册</a>
+        | <a
+                title="加盟合作" href="#" rel="nofollow" id="link428">加盟合作</a> | <a href="#" title="进入网盟" rel="nofollow"
+                                                                                id="link429">进入网盟</a> | <a title="网站地图"
+                                                                                                           ref=""
+                                                                                                           id="link430">网站地图</a>
+        | <a title="友情链接" href="" id="link431">友情链接</a> </div>
+</div>
 <script type="text/javascript" src="/js/all.js"></script>
 @yield('script')
 </body>

@@ -18,6 +18,10 @@ class lu_user extends Model implements AuthenticatableContract,CanResetPasswordC
 
     protected $hidden = ['password', 'remember_token'];
 
+    public function lu_user_data(){
+        return $this->hasOne('App\lu_user_data','uid','id');
+    }
+
     protected static function rules()
     {
         return [

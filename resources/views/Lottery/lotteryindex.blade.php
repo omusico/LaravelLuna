@@ -578,11 +578,7 @@
                 </main>
                 <aside class="col-md-4">
                     <div class="login_weizhi" style="height: 150px;">
-                        <div class="hy">
-                            <span>欢迎您回来 {{Auth::user()->name}}<br/><br/>
-                                余额：{{ \App\lu_user_data::where('uid',Auth::user()->id)->first()->points}}
-                            </span>
-                        </div>
+                        @include('userinfo')
                     </div>
                     {{--<div class="blank4"></div>--}}
                     <div class="kj_open_box">

@@ -11,14 +11,17 @@
 
                 @include('errors.list')
 
-                <h3 align="center">会员列表</h3>
+                <h3 align="center">
+                    {{$groupname}}列表</h3>
                 <table class="table table-hover">
                     <tr>
                         <td>姓名</td>
                         <td>性别</td>
+                        <td>所属代理</td>
                         <td>手机</td>
                         <td>邮箱</td>
                         <td>权限组</td>
+                        <td>余额</td>
                         <td>操作</td>
                     </tr>
                     @if (count($lu_users))
@@ -26,6 +29,7 @@
                             <tr>
                                 <td>{{ $lu_user->name }}</td>
                                 <td>{{ $lu_user->sex }}</td>
+                                <td>{{ $lu_user->recId }}</td>
                                 <td>{{ $lu_user->phone }}</td>
                                 <td>{{ $lu_user->email }}</td>
                                 <td>
@@ -34,10 +38,13 @@
                                             {{$user_group['name'] }}
                                         @endif
                                     @endforeach
+                                    {{--{{$user_group[$lu_user->groupId]['name']}}--}}
                                 </td>
+                                <td>{{ $lu_user->points }}</td>
                                 <td>
                                     {{--<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal{{$lu_user->id}}">更新分数</button>--}}
                                     <a class="btn btn-sm btn-info" href="/admin/{{$lu_user->id}}/edit">编辑</a>
+
                                     <form action="{{ url('admin/'.$lu_user->id) }}" style='display: inline'
                                           method="post">
                                         <input type="hidden" name="_method" value="DELETE">

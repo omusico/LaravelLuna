@@ -7,102 +7,142 @@
     color: red;
 }
 
-/*.game_logo .kuai3, .game_logo .oldkuai3, .game_logo .gxkuai3, .game_logo .hbkuai3, .game_logo .ahkuai3, .game_logo .nmgkuai3 {*/
-    /*background: url(http://pimg1.126.net/caipiao/img/lotteryBet/kuai3/kuai3_logo_4e8d5e2.png?b67eeb612f18c9b168ef225b4d59f477) no-repeat center 40px;*/
-/*}*/
-/*.game_logo .cz_logo {*/
-    /*display: block;*/
-    /*width: 120px;*/
-    /*height: 112px;*/
-    /*margin: 0 auto;*/
-    /*overflow: hidden;*/
-    /*text-align: center;*/
-    /*padding: 6px 0 5px 0;*/
-    /*text-indent: 0;*/
-/*}*/
-/*.game_logo .cz_logo a {*/
-    /*display: block;*/
-    /*width: 120px;*/
-    /*height: 112px;*/
-    /*font-weight: 700;*/
-    /*font-size: 22px;*/
-    /*font-family: '宋体';*/
-    /*color: #333;*/
-/*}*/
-/*.game_logo .game_intro span {*/
-    /*display: block;*/
-    /*color: #727272;*/
-    /*text-align: center;*/
-/*}*/
-/*.game_logo .game_intro {*/
-    /*text-align: center;*/
-    /*line-height: 20px;*/
-/*}*/
-/*.betting_countDown {*/
-    /*width: 380px;*/
-    /*height: 153px;*/
-/*}*/
-/*.game_logo, .betting_countDown, .game_header .awardBox {*/
-    /*display: block;*/
-    /*width: 181px;*/
-    /*height: 153px;*/
-    /*margin-right: 10px;*/
-    /*background-color: #fbfbfb;*/
-    /*overflow: hidden;*/
-    /*float: left;*/
-/*}*/
-/*.bet_period {*/
-    /*text-align: center;*/
-    /*font-weight: 700;*/
-    /*height: 28px;*/
-    /*line-height: 28px;*/
-    /*font-size: 14px;*/
-    /*padding: 8px 0 6px;*/
-/*}*/
-/*.bet_period em {*/
-    /*font-weight: 700;*/
-    /*font-family: '宋体';*/
-    /*font-size: 16px;*/
-/*}*/
-/*.c_ba2636, a.c_ba2636:link, a.c_ba2636:visited {*/
-    /*color: #ba2636;*/
-/*}*/
-/*.countDownBox {*/
-    /*display: block;*/
-    /*width: 212px;*/
-    /*height: 70px;*/
-    /*background: url(http://pimg1.126.net/caipiao/img/lotteryBet/lottery_header_3221a24.png?9fed7a0e6ac87d0f816f836361dd7ae8) no-repeat;*/
-    /*margin: 0 auto;*/
-    /*text-align: center;*/
-/*}*/
-/*.betting_countDown .intro {*/
-    /*text-align: center;*/
-    /*color: #727272;*/
-/*}*/
-/*.game_header .awardBox {*/
-    /*width: 390px;*/
-    /*margin-right: 0;*/
-    /*position: relative;*/
-/*}*/
-/*.game_logo, .betting_countDown, .game_header .awardBox {*/
-    /*display: block;*/
-    /*width: 181px;*/
-    /*height: 153px;*/
-    /*margin-right: 10px;*/
-    /*background-color: #fbfbfb;*/
-    /*overflow: hidden;*/
-    /*float: left;*/
-/*}*/
-/*.game_header .awardBox .bet_period {*/
-    /*padding-bottom: 0;*/
-/*}*/
-/*.bet_period {*/
-    /*text-align: center;*/
-    /*font-weight: 700;*/
-    /*height: 28px;*/
-    /*line-height: 28px;*/
-    /*font-size: 14px;*/
-    /*padding: 8px 0 6px;*/
-/*}*/
+.r_login a {
+    width: 130px;
+    height: 45px;
+    display: block;
+    line-height: 45px;
+    float: left;
+    background: url('login_up.png') no-repeat 0 0;
+}
+.r_login .up_btn {
+    /*margin-left: 10px;*/
+    background-position: 0 -45px;
+}
+.footer {
+    width: 1000px;
+    margin: 0 auto;
+    border-top: 2px solid #3C7EC8;
+    font-family: tahoma,"����";
+    padding-bottom: 10px;
+    color: #666;
+    padding-top: 6px;
+    margin-top: 20px;
+}
+.footer .f-link {
+    text-align: center;
+    color: #ccc;
+}
+.footer .f-link a {
+    margin: 0 5px;
+}
+.footer a {
+    color: #666;
+    text-decoration: none;
+}
+
+.jc_news_cont {
+    height: 400px;
+    overflow: hidden;
+    padding: 2px 8px 10px;
+    background: #fff;
+    line-height: 18px;
+}
+.quickbuy_con {
+    clear: both;
+    /*height: 460px;*/
+}
+.clearfix {
+    zoom: 1;
+}
+.bettingBox {
+    float: left;
+    width: 550px;
+    border: 1px solid rgb(221, 221, 221);
+    margin-bottom: 1px;
+}
+.bet_title {
+    height: 22px;
+    clear: both;
+    float: none;
+    padding: 15px 0px 10px;
+    position: relative;
+    z-index: 10;
+}
+.bettingBox .gpcBet_con {
+    height: 114px;
+    padding: 0px 15px;
+}
+
+.bettingBox .czLogo {
+    margin: -5px 10px 0px 0px;
+    float: left;
+    position: static;
+    cursor: pointer;
+}
+.czLogo {
+    width: 61px;
+    height: 64px;
+    background: url("logo_64.png") no-repeat scroll 0% 0% transparent;
+    display: block;
+    position: absolute;
+    margin: -7px 0px 0px -77px;
+    z-index: 10;
+    text-indent: -999px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.gpc_main {
+    float: left;
+    width: 300px;
+}
+.gpc_title {
+    padding-top: 12px;
+}
+.gpc_title {
+    font-size: 14px;
+    padding-bottom: 3px;
+}
+.gpc_title .retimeBlock {
+    font-size: 12px;
+    font-family: simsun;
+    margin-left: 5px;
+}
+.c_ba2636 {
+    color: rgb(180,0,0);
+    font-size: 13px;
+    font-weight: 600;
+}
+.quickbuy_menu {
+    height: 22px;
+    position: relative;
+    z-index: 1;
+    float: left;
+}
+.quickbuy_menu li.active {
+    background-color: #cb344e;
+    color: rgb(255, 255, 255);
+}
+.quickbuy_menu li {
+    float: left;
+    text-align: center;
+    height: 22px;
+    line-height: 22px;
+    width: 68px;
+    cursor: pointer;
+    border-radius: 2px;
+    background: none repeat scroll 0% 0% rgb(227, 227, 227);
+    margin-right: 6px;
+}
+.gpc_betBtn {
+    float: right;
+    width: 115px;
+    padding-top: 27px;
+}
+.quickbuy_menu li.active a:link, .quickbuy_menu li.active a:visited, .quickbuy_menu li.active a:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+.smallRedball { display: inline-block; width: 34px; height: 34px; line-height: 33px; background: url("main_pic.png") no-repeat scroll -395px -48px transparent;   text-align: center; margin-right: 12px;  }
 
 /*# sourceMappingURL=all.css.map */

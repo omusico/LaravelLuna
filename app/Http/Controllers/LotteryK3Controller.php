@@ -42,6 +42,10 @@ class LotteryK3Controller extends Controller
         return $data;
     }
 
+    public function k3GameRule(){
+        return view('k3gamerule');
+    }
+
     /**
      * 格式化号码
      *

@@ -14,6 +14,7 @@ Route::get('users', 'TestController@users');
 
 #主页
 Route::get('/', 'WelcomeController@index');
+Route::get('index', 'WelcomeController@index');
 
 ####################################################
 #登录，登出, 自动跳转, 密码重置,注册
@@ -45,6 +46,7 @@ Route::controller('password', 'PasswordController');
 //    'as' => 'grade_list', 'uses' => 'Admin\GradeController@index']);
 #资源路由,学生的增删改查
 Route::resource('admin', 'Admin\AdminController');
+Route::get('bettingList', 'Admin\AdminController@bettingList');
 #上传分数
 //Route::post('admin/upload_grade', [
 //    'as' => 'upload_grade', 'uses' => 'Admin\AdminController@upload_grade']);
@@ -72,3 +74,6 @@ Route::get('lotteryIndex', [
 Route::any('/lotteryBetting', ['as' => 'lotteryBetting', 'uses' => 'LotteryK3Controller@betting']);
 Route::any('/getLotteryData', ['as' => 'getLotteryDataForQt', 'uses' => 'LotteryK3Controller@getLotteryDataForQt']);
 Route::any('/loadRecentResult', ['as' => 'loadRecentResult', 'uses' => 'LotteryK3Controller@loadRecentResult']);
+//规则明细
+Route::get('/k3GameRule',['uses'=>'LotteryK3Controller@k3GameRule']);
+
