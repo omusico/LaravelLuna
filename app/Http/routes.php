@@ -72,6 +72,7 @@ Route::get('collectLotteryData', [
 Route::get('lotteryIndex', [
     'as' => 'lotteryIndex', 'uses' => 'LotteryK3Controller@index']);
 Route::any('/lotteryBetting', ['as' => 'lotteryBetting', 'uses' => 'LotteryK3Controller@betting']);
+Route::any('/userLotteryBetting', ['as' => 'userLotteryBetting', 'uses' => 'User\UserController@userBettingList']);
 Route::any('/getLotteryData', ['as' => 'getLotteryDataForQt', 'uses' => 'LotteryK3Controller@getLotteryDataForQt']);
 Route::any('/loadRecentResult', ['as' => 'loadRecentResult', 'uses' => 'LotteryK3Controller@loadRecentResult']);
 //规则明细

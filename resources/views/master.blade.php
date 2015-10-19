@@ -51,9 +51,9 @@
                     </ul>
                 </li>
                 <li><a href="/k3GameRule">游戏规则</a></li>
-                <li><a href="##">走势图</a></li>
-                <li><a href="##">合作代理</a></li>
-                <li><a href="##">交易记录</a></li>
+                <li><a href="#">走势图</a></li>
+                <li><a href="#">合作代理</a></li>
+                <li><a href="/userLotteryBetting">交易记录</a></li>
                 @if (Auth::guest())
                     {!! Form::open(['url' => '/login', 'class' => 'navbar-form navbar-right', 'role' => 'search']) !!}
                     <div class="form-group">
@@ -83,15 +83,9 @@
 </div>
 @yield('content')
 <div class="footer">
-    <div class="f-link"><a title="关于我们" href="#" rel="nofollow" id="link425">关于我们</a> | <a title="用户注册" target="_blank"
-                                                                                           href="#" rel="nofollow"
-                                                                                           id="bottom_newuser">用户注册</a>
-        | <a
-                title="加盟合作" href="#" rel="nofollow" id="link428">加盟合作</a> | <a href="#" title="进入网盟" rel="nofollow"
-                                                                                id="link429">进入网盟</a> | <a title="网站地图"
-                                                                                                           ref=""
-                                                                                                           id="link430">网站地图</a>
-        | <a title="友情链接" href="" id="link431">友情链接</a> </div>
+    <div class="f-link"><a title="关于我们" href="#">关于我们</a> | <a title="用户注册" target="_blank" href="/register">用户注册</a> |
+        <a title="加盟合作" href="#">加盟合作</a> | <a href="#" title="进入网盟">进入网盟</a> | <a title="网站地图">网站地图</a> | <a
+                title="友情链接" href="" id="link431">友情链接</a></div>
 </div>
 <script type="text/javascript" src="/js/all.js"></script>
 @yield('script')

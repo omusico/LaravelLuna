@@ -66,3 +66,6 @@
 
     </div>
 @stop
+@section('script')
+    <script type="text/javascript" src="/js/collect.js"></script>
+@stop

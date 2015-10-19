@@ -1,10 +1,12 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\lu_user_data;
 use Hash;
 use App\Http\Controllers\Controller;
 use App\lu_user;
 use Illuminate\Http\Request;
+use Redirect;
 
 class registerController extends Controller
 {
@@ -14,10 +16,11 @@ class registerController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        return view('register');
+        $invite = $request->invite;
+        return view('register',compact('invite'));
     }
 
     /**
@@ -43,23 +46,32 @@ class registerController extends Controller
             $this->validate($request, lu_user::rules());
 
             $this->validate($request, [
-                'invite' =>'required|integer',
-                'password'=>'required|confirmed'
-                ] );
+                'invite' => 'required|integer',
+                'password' => 'required|confirmed'
+            ]);
+            $count = lu_user::where('invite', $request->invite)->count();
+            if ($count > 0) {
 
-            $lu_user = new lu_user;
-            $lu_user->name = $request->name;
-            $lu_user->realName = $request->realName;
-            $lu_user->password = Hash::make($request->password);
-            $lu_user->qq = $request->qq;
-            $lu_user->email = $request->email;
-            $lu_user->sex = $request->sex;
-            $lu_user->phone = $request->phone;
-            $lu_user->groupId = $request->groupId;
-            $lu_user->invite = rand(10000, 99999);
-            $lu_user->save();
-            session()->flash('message', $lu_user->name . "注册成功");
-//            return Redirect::to('login');
+                $lu_user = new lu_user;
+                $lu_user->name = $request->name;
+                $lu_user->realName = $request->realName;
+                $lu_user->password = Hash::make($request->password);
+                $lu_user->qq = $request->qq;
+                $lu_user->email = $request->email;
+                $lu_user->sex = $request->sex;
+                $lu_user->phone = $request->phone;
+                $lu_user->groupId = $request->groupId;
+                $lu_user->invite = rand(10000, 99999);
+                $lu_user->save();
+                $lu_user_data = new lu_user_data();
+                $lu_user_data->uid = $lu_user->id;
+                $lu_user_data->save();
+                session()->flash('message', $lu_user->name . "注册成功");
+                return Redirect::to('login');
+            } else {
+                session()->flash('message', "邀请码不正确，请检查后再输入");
+                return Redirect::back();
+            }
         } catch (\mysqli_sql_exception $e) {
             echo $e;
         }

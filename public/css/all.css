@@ -145,4 +145,65 @@
 }
 .smallRedball { display: inline-block; width: 34px; height: 34px; line-height: 33px; background: url("main_pic.png") no-repeat scroll -395px -48px transparent;   text-align: center; margin-right: 12px;  }
 
+/* userinfo */
+ .nk3_login {
+    height: 220px;
+    position: relative;
+    margin-top: 0;
+    /*background: url("login_bg.jpg") repeat-y;*/
+}
+ .nk3_login .nk3_login_top {
+    height: 3px;
+    background: url("login_top_bg.jpg") no-repeat;
+    overflow: hidden;
+}
+ .nk3_login h4, .nk3_main .nk3_index_right .nk3_login h5 {
+    font-size: 14px;
+    color: #c00;
+    font-weight: bold;
+    padding-left: 9px;
+    height: 24px;
+    line-height: 24px;
+    padding-top: 8px;
+    cursor: pointer;
+}
+ .nk3_login h4 b, .nk3_main .nk3_index_right .nk3_login h5 b {
+    color: #666;
+}
+ .nk3_login h4 a, .nk3_main .nk3_index_right .nk3_login h5 a {
+    font-size: 12px;
+    font-weight: normal;
+}
+ .nk3_login .nk3_cztx {
+    margin: 5px auto 0;
+    width: 214px;
+    height: 41px;
+}
+ .nk3_login .nk3_cztx {
+    margin: 5px auto 0;
+    width: 214px;
+    height: 41px;
+}
+ .nk3_login .nk3_cztx a {
+    background: url("btn_kstz_101_29.jpg") no-repeat left 0;
+    width: 101px;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    float: left;
+}
+ .nk3_login .nk3_cztx a.nk3_tx {
+    background: url("btn_kstz_101_29.jpg") no-repeat right 0;
+    color: #333;
+    margin-left: 12px;
+}
+.nk3_login .nk3_login_more {
+    width: 240px;
+    margin: 0 auto;
+    border-top: 1px dashed #ccc;
+}
+
 /*# sourceMappingURL=all.css.map */

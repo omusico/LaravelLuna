@@ -10,7 +10,7 @@
 
         .h_l_cp {
             border: 1px solid #e6c9a0;
-            background: #faf9f9;
+            /*background: #faf9f9;*/
             float: none;
             margin-bottom: 10px;
             position: relative;
@@ -30,24 +30,6 @@
         .sub_lottery_tip a {
             margin-right: 0 !important;
             color: #e17f1a;
-        }
-
-        .notice_nav {
-            background-color: #f4f4f4;
-            height: 25px;
-            line-height: 25px;
-            overflow: hidden;
-            margin-bottom: -1px;
-        }
-
-        .notice {
-            border: 1px solid #e5e5e5;
-            position: relative;
-            font-family: microsoft yahei, "微软雅黑";
-        }
-
-        .m_b10 {
-            margin-bottom: 10px;
         }
 
         .notice_nav li.cur {
@@ -74,100 +56,107 @@
             margin-left: -1px;
         }
 
-        .notice_cont {
-            padding: 6px 9px 0;
-            height: 170px;
-            border-top: 1px solid #e5e5e5;
-            overflow: hidden;
-            line-height: 22px;
-            background-color: #fff;
+        a {
+            color: #000000;
         }
     </style>
 @stop
 @section('content')
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
-         xmlns="http://www.w3.org/1999/html">
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="http://images.apple.com/cn/macbook-air/images/overview_hero_hero.jpg" alt="...">
-
-                <div class="carousel-caption">
-                    <p>中奖率高、赔率高、信誉100%</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="http://images.apple.com/cn/macbook-air/images/overview_hero_hero.jpg" alt="...">
-
-                <div class="carousel-caption">
-                    <p>优惠多多、取款5分钟内到帐</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="http://images.apple.com/cn/macbook-air/images/overview_hero_hero.jpg" alt="...">
-
-                <div class="carousel-caption">
-                    <p>中奖金额免税收</p>
-                </div>
-            </div>
-        </div>
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
     <div class="container">
         <div class="row">
+            <div id="carousel-example-generic" class="carousel slide col-md-12" data-ride="carousel"
+                 xmlns="http://www.w3.org/1999/html">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="/css/mainswich.png" alt="...">
+
+                        <div class="carousel-caption">
+                            <p>中奖率高、赔率高、信誉100%</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="/css/mainswich.png" alt="...">
+
+                        <div class="carousel-caption">
+                            <p>优惠多多、取款5分钟内到帐</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="/css/mainswich.png" alt="...">
+
+                        <div class="carousel-caption">
+                            <p>中奖金额免税收</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="padding-top: 10px">
+        <div class="row" style="margin: 0px">
             <div class="col-md-3">
-                <div class="home_l h_l_cp">
-                    <ul class="lottery_box">
-                        <li class="first">
+                <div class="h_l_cp" style="background-color: #fbf8e9;font-size: 90%">
+                    <div style="border-bottom: #808080 solid 1px;text-align: center;font-family: bold">
+                        <a><br/>购买快三 快速导航<br/><br/></a>
+                    </div>
+                    <ul class="lottery_box" style="list-style: none;padding-top: 15px">
+                        <li>
                             <div class="sub_lottery_tip"><a href="/lotteryIndex?lottery_type=jsold" target="_blank"
                                                             title="" id="link115">猜一场，易中奖，87%返奖率！</a></div>
+                            <br/>
+
                             <p class="sub_lottery">
                                 <a target="_blank" href="/lotteryIndex?lottery_type=jsold"
                                    style="font-weight: bold; color: #E60010;" title="江苏快三" id="link116">江苏快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><br>
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b style="color:#00a1ff;">中奖贼简单</b></a><br>
                                 <a target="_blank" href="/lotteryIndex?lottery_type=beijin" title="北京快三" id="link117">北京快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><br>
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b style="color:#47ff36">摇骰子,易中奖</b></a><br>
                                 <a target="_blank" href="/lotteryIndex?lottery_type=fjk3" title="福建快三" id="link118">福建快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><br>
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b style="color:#ff44dc">买三个号就中</b></a><br>
                                 <a target="_blank" href="/lotteryIndex?lottery_type=anhui" title="安徽快三" id="link119">安徽快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a> <br>
                                 <a target="_blank" href="/lotteryIndex?lottery_type=jilin" title="吉林快三" id="link120">吉林快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><br>
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b>一天77期(中奖容易)</b></a><br>
                                 <a target="_blank" href="/lotteryIndex?lottery_type=jsnew" title="广西快三" id="link121">广西快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><br>
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><b>一天78期</b><br>
                                 <a target="_blank" href="/lotteryIndex?lottery_type=hubei" title="湖北快三" id="link122">湖北快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><br>
                                 <a target="_blank" href="/lotteryIndex?lottery_type=nmg" title="内蒙古快三" id="link123">内蒙快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a>
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b style="color:#ff6c00">100%中奖</b></a>
                             </p>
                         </li>
+                        <li><a href="/k3GameRule" style="padding-left: 30px;list-style: none">如何投注？&nbsp;</a><a
+                                    href="/k3GameRule">如何领奖？</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="quickbuy_con clearfix">
+                <div class="clearfix">
                     <div class="bettingBox">
                         <div class="bet_title">
                             {{--<h3>老快三：</h3>--}}
                             <ul class="quickbuy_menu">
                                 <li class="active"><a
-                                            href="http://localhost:8888/index.php/common/index/lotteryNav?lottery_type=jsold">江苏快三</a>
+                                            href="">江苏快三</a>
                                 </li>
                             </ul>
                             <p class="popularize">
                                 <a target="_top"
-                                   href="http://localhost:8888/index.php/common/index/lotteryNav?lottery_type=jsold"></a>
+                                   href="#"></a>
                             </p>
                         </div>
                         <dl class="gpcBet_con">
@@ -176,6 +165,7 @@
                                     <h3 class="czLogo icon_gdxuan5">
                                         <a href="" title="快三"></a>
                                     </h3>
+
                                     <div class="gpc_main">
                                         <p class="gpc_title">
                                             <a href="/lotteryIndex?lottery_type=jsold"><strong>江苏快三</strong>&nbsp;&nbsp;第<strong
@@ -202,7 +192,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="clearfix list_con">
+                                <p style="text-align: center">
                                     <em class="smallRedball">3</em>
                                     <em class="smallRedball">3</em>
                                     <em class="smallRedball">4</em>
@@ -221,7 +211,7 @@
                             </ul>
                             <p class="popularize">
                                 <a target="_top"
-                                   href="http://localhost:8888/index.php/common/index/lotteryNav?lottery_type=jsnew"></a>
+                                   href="/lotteryIndex?lottery_type=jsnew"></a>
                             </p>
                         </div>
                         <dl class="gpcBet_con">
@@ -258,7 +248,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="clearfix list_con">
+                                <p style="text-align: center">
                                     <em class="smallRedball">3</em>
                                     <em class="smallRedball">4</em>
                                     <em class="smallRedball">5</em>

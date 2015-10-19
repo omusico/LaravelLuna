@@ -20,7 +20,7 @@
                             <div class="form-group">
                                 {!! Form::label('invite', '邀请码: ', ['class' => 'control-label col-md-4']) !!}
                                 <div class="col-md-4">
-                                    {!! Form::text('invite', null, ['class' => 'form-control','required']) !!}
+                                    {!! Form::text('invite', $invite, ['class' => 'form-control','required']) !!}
                                 </div>
                             </div>
                             <div class="form-group">
