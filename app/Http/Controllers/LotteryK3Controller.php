@@ -306,27 +306,33 @@ class LotteryK3Controller extends Controller
 //            $this->response->throwJson(array('tip' => 'success', 'msg' => '提交成功', 'points' => $points));
             return array('tip' => 'success', 'msg' => '提交成功', 'points' => $points);
         } catch (Exception $e) {
-            file_put_contents(__WAF_ROOT__ . '/error.log', date('Y-m-d H:i:s', Waf_Time) . $e, FILE_APPEND);
-            $this->response->throwJson(array('tip' => 'error', 'msg' => $e, 'points' => $points));
-
+//            file_put_contents(__WAF_ROOT__ . '/error.log', date('Y-m-d H:i:s', Waf_Time) . $e, FILE_APPEND);
+            return array('tip' => 'error', 'msg' => $e, 'points' => $points);
         }
     }
 
+
     //追号
-    public function zhuihao(){
+    public function zhuihao(Request $request){
         try{
 
-            logger($this->request->getParams(),'zhuihao');
-            $userModel = Waf::model('user/list');
-            $uid = (int)Waf_Cookie::get('uid');
-            $userInfo = $userModel->detail($uid);
-            $ting = $this->request->ting;
-            $type = get_lottery_type_code($this->lottery_type);
+//            logger($this->request->getParams(),'zhuihao');
+//            $userModel = Waf::model('user/list');
+//            $uid = (int)Waf_Cookie::get('uid');
+//            $userInfo = $userModel->detail($uid);
+            $lunaFunctions = new LunaFunctions();
+            $uid = (int)Auth::user()->id;
+            $userInfo = lu_user::where('id', $uid)->first();// $userModel->detail($uid);
+            $userdata = lu_user_data::where('uid', $uid)->first();
+            $ting = $request->ting;
+            $type = $lunaFunctions->get_lottery_type_code($request->lottery_type);
 
             // 基本校验
-            $this->baseCheck($userInfo);
+            //todo 校验
+//            $this->baseCheck($userInfo);
             // 单期最大值校验
-            $codeArr = $this->checkPerMaxPoint( $userInfo['points']);
+
+            $codeArr = $this->checkPerMaxPoint( $userdata['points']);
 
             foreach($codeArr as $group){
 

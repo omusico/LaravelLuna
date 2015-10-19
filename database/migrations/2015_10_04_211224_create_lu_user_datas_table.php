@@ -16,10 +16,10 @@ class CreateLuUserDatasTable extends Migration {
 		{
 			$table->increments('id');
             $table->mediumInteger('uid');
-            $table->tinyInteger('gender')->default(0);
+            $table->tinyInteger('gender')->default(0)->nullable();
             $table->char('regIp',15)->nullable();
             $table->char('loginIp',15)->nullable();
-            $table->integer('loginNum')->default(0);
+            $table->integer('loginNum')->default(0)->nullable();
             $table->text('cateAcl')->nullable();
             $table->char('openid',32)->nullable();
             $table->char('connectType',10)->nullable();
