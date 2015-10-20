@@ -255,7 +255,7 @@ class LotteryK3Controller extends Controller
                         'proName' => $proName,
                         'total' => $totals,
                         'eachPrice' => CommonClass::price($eachPrice),
-                        'siteId' => '',
+                        'siteId' => 1,
 //                        'created' => $_SERVER['REQUEST_TIME'],
                         'uid' => $uid,
                         'userName' => $userInfo->name,

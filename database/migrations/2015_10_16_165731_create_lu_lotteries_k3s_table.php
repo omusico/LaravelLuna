@@ -33,11 +33,11 @@ class CreateLuLotteriesK3sTable extends Migration {
             $table->tinyInteger('noticed')->default(0);
             $table->tinyInteger('returned')->default(0);
             $table->tinyInteger('isOpen')->default(0);
-            $table->integer('dealing')->default(null);
-            $table->string('groupId',32)->default(null);
+            $table->integer('dealing')->default(0)->nullable();
+            $table->string('groupId',32)->default(null)->nullable();
             $table->string('province',32);
             $table->string('provinceName');
-            $table->string('resultNum');
+            $table->string('resultNum')->default(0);
             $table->timestamps();
 		});
 	}
