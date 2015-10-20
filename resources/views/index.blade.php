@@ -73,24 +73,24 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <img src="/css/mainswich.png" alt="...">
+                        <img src="/css/001.png" alt="...">
 
                         <div class="carousel-caption">
-                            <p>中奖率高、赔率高、信誉100%</p>
+                            {{--<p>中奖率高、赔率高、信誉100%</p>--}}
                         </div>
                     </div>
                     <div class="item">
-                        <img src="/css/mainswich.png" alt="...">
+                        <img src="/css/002.png" alt="...">
 
                         <div class="carousel-caption">
-                            <p>优惠多多、取款5分钟内到帐</p>
+                            {{--<p>优惠多多、取款5分钟内到帐</p>--}}
                         </div>
                     </div>
                     <div class="item">
-                        <img src="/css/mainswich.png" alt="...">
+                        <img src="/css/003.png" alt="...">
 
                         <div class="carousel-caption">
-                            <p>中奖金额免税收</p>
+                            {{--<p>中奖金额免税收</p>--}}
                         </div>
                     </div>
                 </div>
@@ -260,7 +260,7 @@
             </div>
             <div class="col-md-3">
                 <div class="h_l_cp" style="height: 211px;">
-                    @include('userinfo')
+                    @include('userInfo')
                 </div>
             </div>
         </div>
