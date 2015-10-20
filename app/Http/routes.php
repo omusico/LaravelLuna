@@ -77,4 +77,6 @@ Route::any('/getLotteryData', ['as' => 'getLotteryDataForQt', 'uses' => 'Lottery
 Route::any('/loadRecentResult', ['as' => 'loadRecentResult', 'uses' => 'LotteryK3Controller@loadRecentResult']);
 //规则明细
 Route::get('/k3GameRule',['uses'=>'LotteryK3Controller@k3GameRule']);
+Route::get('/phpinfo',['uses'=>'WelcomeController@phpinfo']);
+
 

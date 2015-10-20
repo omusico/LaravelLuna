@@ -33,4 +33,8 @@ class WelcomeController extends Controller {
 		return view('index');
 	}
 
+    public function phpinfo(){
+        return view('phpinfo');
+    }
+
 }
