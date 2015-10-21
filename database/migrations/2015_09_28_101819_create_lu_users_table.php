@@ -29,13 +29,13 @@ class CreateLuUsersTable extends Migration {
             $table->string('qq')->default('');
             $table->string('extendUrl')->default('');
             $table->decimal('amounts',10,2)->default(0.00);
-            $table->char('level',20)->default(null);
+            $table->char('level',20)->default(0);
             $table->integer('lowest')->default(0);
             $table->integer('highest')->default(0);
             $table->decimal('returnOdds',10,2)->default(0.00);
             $table->string('cashPwd')->nullable();
             $table->integer('totalBuy')->default(0);
-            $table->string('alipay_account')->default(null);
+            $table->string('alipay_account')->default('');
             $table->integer('dsdx_lowest')->default(0);
             $table->integer('dsdx_highest')->default(0);
             $table->boolean('is_admin')->default(0);
