@@ -260,7 +260,7 @@
             </div>
             <div class="col-md-3">
                 <div class="h_l_cp" style="height: 211px;">
-                    @include('userInfo')
+                    @include('userinfo')
                 </div>
             </div>
         </div>

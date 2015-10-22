@@ -26,6 +26,10 @@ class UserController extends Controller
         return view('User.usrBettingList', compact('lu_lotteries_k3s', 'count'));
     }
 
+    public function recharge(Request $request){
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
