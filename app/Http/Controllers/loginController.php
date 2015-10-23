@@ -38,7 +38,7 @@ class loginController extends Controller
     }
 
     public function adminloginGet(){
-        return view('admin.adminlogin');
+        return view('Admin.adminlogin');
     }
 
     public function adminloginPost(Request $request)
