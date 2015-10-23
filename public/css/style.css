@@ -84,8 +84,6 @@ a:hover { text-decoration: none; }
 #bd .top-banner-content { margin: 0px auto; width: 1060px; overflow: hidden; position: relative; }
 .banner_content{ margin: 0px auto; width: auto; overflow: hidden; position: relative; border:1px solid rgb(218,218,218); background-color:#faf9f9;  }
 #bd .top-banner-content .logo { display: block; width: 780px; height: 80px; background: url('top_main.png') no-repeat scroll -0px 0px transparent; }
-#bd .top-banner-content .link-qqkf { height: 70px; right:10px;  position: absolute; top: 25px; width: 130px;background: url('qqkf.png') no-repeat scroll transparent; }
-#bd .top-banner-content .link-zfbkf {height: 70px; right: 130px;  position: absolute; top: 25px; width: 130px;background: url('zfbcz.png') no-repeat scroll transparent;}
 .bd_content {position: relative; width: 1060px; margin: 1px auto 0; background-color:#faf9f9; }
 .shishifa-caipiao-nav {border: 1px solid rgb(228, 228, 228); background: url('daohang.png') repeat-x scroll  transparent; overflow:visible; padding: 0px 0px 0px 70px; height: 33px; position: relative; }
 .shishifa-caipiao-nav li { float: left; }
@@ -96,45 +94,6 @@ a:hover { text-decoration: none; }
 #caipiao_nav_list { overflow: hidden; height: 30px; line-height: 30px; background: none repeat scroll 0% 0% rgb(255, 254, 248); border: 1px solid rgb(228, 228, 228); position: relative; float:left; width:1058px;font-size:13px;  }
 .gg-title{float: left; width: 70px; height: 30px; font-weight:bolder; margin-left:30px;}
 .gg-content{float: left; width: 900px; height: 30px; }
-#lotteryList,#gamesMenu{display:none;}
-#lotteryList {  background: none repeat scroll 0% 0% rgb(255, 255, 255); border-right: 2px solid rgb(218,218,218);border-bottom: 2px solid rgb(218,218,218); border-left: 2px solid rgb(218,218,218); width:290px;   }
-#lotteryList ul { background-color: rgb(255, 255, 255); display: block; font-family: "微软雅黑"; overflow: visible; position: relative; z-index: 10; }
-#lotteryList li { display: block; clear: both; float: none; border-bottom: 1px dotted rgb(186, 186, 186); position: relative; z-index: 10; width: 220px; }
-#lotteryList li.end { border-bottom: 1px solid rgb(255, 255, 255); }
-#lotteryList li a, #lotteryList li a:hover { color: rgb(51, 51, 51); position: relative; display: inline-block; margin-right: 0px; height: auto; font-size: 12px; font-weight: 400; line-height: 16px; background: none repeat scroll 0px 0px transparent; padding: 0px; }
-#lotteryList li a:hover { color:  rgb(200, 0, 0); text-decoration: underline; }
-#lotteryList li .redWords { background-color:#d73f58; color: rgb(255, 255, 255); display: inline-block; height: 12px; line-height: 12px; padding: 1px 1px 1px 2px; border-radius: 2px; position: relative; vertical-align: middle; z-index: 10; }
-#lotteryList li .redWords i.arrowsIcon { display: block; height: 0px; font-size: 0px; line-height: 0; width: 0px; border-style: solid; border-width: 3px 3px 3px 0px; border-color: transparent #d73f58; position: absolute; left: -2px; top: 4px; z-index: 10; }
-#lotteryList li * { word-wrap: normal; }
-#lotteryList li.zyGame { white-space: nowrap; overflow: hidden; }
-#lotteryList li.zyGame a, #lotteryList li.zyGame a:visited, #lotteryList li.zyGame a:hover { display: block; text-decoration: none; color: rgb(51, 51, 51); padding: 4px 0px 4px 7px; }
-#lotteryList li.zyGame a:hover { background-color: rgb(249, 249, 249); width:220px;}
-#lotteryList li.zyGame a:hover .grayWords { color: rgb(153, 153, 153); }
-#lotteryList li.zyGame a:hover .redWords { color: rgb(255, 255, 255); }
-#lotteryList li.zyGame em.cz_logo35 { display: inline-block; margin-right: 4px; vertical-align: middle; text-indent: 0px; }
-#lotteryList li.zyGame strong { vertical-align: middle; color: rgb(51, 51, 51); font-size: 14px; margin-right: 10px; font-weight:700; }
-#lotteryList li.zyGame .grayWords { vertical-align: middle; margin-right: 5px; color: rgb(153, 153, 153); }
-#lotteryList li.zyGame .redWords { padding: 1px 2px; }
-#lotteryList li.otherGames { line-height: 16px; padding: 2px 0px;width:280px }
-#lotteryList li.otherGames h3 { float: left; margin-right: 3px; width: 22px; text-align: center; display: inline-block; background-color: rgb(241, 241, 241); color: rgb(113, 113, 113); }
-#lotteryList li.otherGames div { float: left; width: 250px; }
-#lotteryList li.otherGames em { display: block; float: left; width: 120px; padding: 3px 0px; }
-#lotteryList li.otherGames em a{font-size:14px }
-#lotteryList li.otherGames .redWords { left: 2px; margin-right: -2px; vertical-align: baseline; text-decoration: none; }
-#lotteryList li.otherGames .exArrow { position: absolute; right: 0px; top: 50%; margin-top: -8px; font-size: 16px; color: rgb(167, 167, 167); }
-#lotteryList li.otherGames .exBox { display: none; position: absolute; left: 218px; top: -1px; border-width: 1px 1px 1px 0px; border-style: solid solid solid none; border-color: rgb(183, 23, 15) rgb(183, 23, 15) rgb(183, 23, 15) -moz-use-text-color; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; background: none repeat scroll 0% 0% rgb(255, 255, 255); float: none; padding: 2px 0px; width: auto; }
-.mod-caizhong { width:1058px; border:1px solid rgb(218,218,218);border-top:none;font-size:14px;margin:0 auto; background-color:#faf9f9;  }
-.mod-caizhong .group { float: left; height: 79px; background: url('r_border.gif') no-repeat scroll right -40px transparent; display: inline;margin-top:5px}
-.mod-caizhong .group dt { float: left; width: 50px; margin-top: 12px; }
-.mod-caizhong .group dd { float: left; line-height: 22px; padding-top: 5px; display: inline; }
-.mod-caizhong .group-1 dd { width: 290px; }
-.mod-caizhong .group-2 dd { width: 323px; }
-.mod-caizhong .group-3 dd { width: 171px; margin-top:10px }
-.mod-caizhong .group-4 dd { width: 50px; }
-.mod-caizhong .group-4 { background: none repeat scroll 0px center transparent; }
-.mod-caizhong .group dd a { float: left; margin-right: 12px; white-space: pre; word-break: keep-all; display: inline;color:#000; }
-.mod-caizhong .group dd a:hover{color:#d43c55;}
-.ico-cz { display: block; width: 40px; height: 40px; background: url('t01fc3b4c38a4ad6617.png') no-repeat scroll 0px 0px transparent; }
 #slide{border:1px solid rgb(218,218,218);width:770px;height:220px}
 .cz_logo35 { width: 35px; height: 35px; background: url('logo_35.png') no-repeat scroll 0% 0% transparent; display: block; margin: 7px 7px 0px; z-index: 10; text-indent: -999px; overflow: hidden; white-space: nowrap; }
 .logo35_gdxuan5 { background-position: -2px -117px; }
@@ -417,11 +376,7 @@ h1{font-size:16px;font-weight:500}
 .safe li{float: left; color: rgb(76, 58, 38); font-size: 14px; margin: 0px 9px; font-weight:bolder;}
 .app{width: 225px; height: 265px;overflow: hidden; margin-top: 10px;}
 .app-download{width: 225px;  margin: 0px 40px;}
-.ewm{float: left; width: 150px; height: 150px; margin: 1px 8px 0px 0px; background: url('app.png') no-repeat scroll center center transparent;}
 .ewm li{float: left; color: rgb(76, 58, 38); font-size: 15px; margin: 150px 40px; font-weight:bolder;}
-.ios{float: left; width: 150px; height: 40px;}
-.android{float: left; width: 150px; height: 40px; margin-top: 8px;}
-.safe_app{ border:1px solid #ccc; width:226px; margin-top:px}
 #myTab2{height:40px;border-bottom:1px solid #ccc;}
 .kefu{width: 120px; height: 120px; position: absolute; display: block; top: 280px; left: 8px;}
 .step_box{ width: auto; margin: 0px auto; color:#000; border: 1px solid rgb(218,218,218); padding:5px 0px 0px 0px;border-top:none; }

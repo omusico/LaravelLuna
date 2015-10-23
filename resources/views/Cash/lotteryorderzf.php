@@ -12,7 +12,7 @@ $input_charset = $_POST['input_charset'];
 $notify_url = $_POST['notify_url'];
 $order_no = $_POST['order_no'];
 $order_time = $_POST['order_time'];
-$order_amount = $_POST['order_amount'];
+$order_amount = $_POST['amounts'];//$_POST['order_amount'];
 $product_name = $_POST['product_name'];
 $product_code = "";//$_POST['product_code'];
 $product_desc = "";//$_POST['product_desc'];
@@ -23,7 +23,7 @@ $bank_code = "";//$_POST['bank_code'];
 $redo_flag = "";//$_POST['redo_flag'];
 $extend_param = "";//$_POST['extend_param'];
 $extra_return_param = "";//$_POST['extra_return_param'];
-$return_url = "";//$_POST['return_url'];
+$return_url = "http://k3.gwou.cn/zfReturn_Url";//$_POST['return_url'];
 
 //////////////////////////////////// 字符编码转换 /////////////////////////////////
 /////////////////////////////// Character transcoding ////////////////////////////

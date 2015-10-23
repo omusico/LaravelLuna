@@ -8,7 +8,7 @@
 </head>
 <body onload='document.form1.submit();'>
 <?
-$mo=0.01;
+$mo= $_POST['amounts'];//0.01;
 //$key="XXXXXXXXXXXXXX";
 $key ="vd5HNSGGcgr0psuyabxjrpUrerixxIa3";
 $service="create_instant_trade";

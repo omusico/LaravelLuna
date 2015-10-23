@@ -24,7 +24,7 @@
                         您好，请选择支付方式，输入充值金额
                     </div>
                     <div class="fl" style="height: 60px; float:none;">
-                        <label style="width: auto">充值金额：</label><input type="number" id="amouts" name="amouts"
+                        <label style="width: auto">充值金额：</label><input type="number" id="amounts" name="amounts"
                                                                        value="100" size="5"
                                                                        min="10" class="money"
                                                                        onchange="pay.moneyFormat(this);"><span
@@ -36,11 +36,11 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="radio-inline">
-                            <input type="radio" value="zf" name="paytype"><img src="/css/bb19.png" alt="智付">
+                        <label class="radio-inline col-md-2">
+                            <input type="radio" value="zf" name="paytype"><img src="/css/zf.png" alt="智付">
                         </label>
-                        <label class="radio-inline">
-                            <input type="radio" value="kjt" name="paytype"><img src="/css/bb19.png" alt="快捷通">
+                        <label class="radio-inline col-md-2">
+                            <input type="radio" value="kjt" name="paytype"><img src="/css/kjt.png" alt="快捷通">
                         </label>
                     </div>
                     <div class="form-group" style="margin-top: 50px">
@@ -110,13 +110,13 @@
                                    value="{{date('Y-m-d H:i:s',time())}}">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="order_amount" class="control-label col-md-4">订单金额: </label>
+                    {{--<div class="form-group">--}}
+                        {{--<label for="order_amount" class="control-label col-md-4">订单金额: </label>--}}
 
-                        <div class="col-md-4">
-                            <input class="form-control" name="order_amount" type="text" id="order_amountn" value="0.1">
-                        </div>
-                    </div>
+                        {{--<div class="col-md-4">--}}
+                            {{--<input class="form-control" name="order_amount" type="text" id="order_amountn" value="0.1">--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                     <div class="form-group">
                         <label for="product_name" class="control-label col-md-4">接口版本: </label>
 

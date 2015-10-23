@@ -87,4 +87,5 @@ Route::get('/phpinfo',['uses'=>'WelcomeController@phpinfo']);
 Route::get('/recharge',['uses'=>'CashController@recharge']);
 Route::post('/recharge',['as'=>'recharge','uses'=>'CashController@rechargePost']);
 
-
+//智付，接口数据返回
+Route::post('/zfReturn_Url',['as'=>'zfReturn_Url','uses'=>'CashController@zfReturn_Url']);

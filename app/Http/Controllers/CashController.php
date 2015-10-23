@@ -3,7 +3,9 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\lu_lottery_recharge;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Redirect;
 
 class CashController extends Controller
@@ -100,6 +102,17 @@ class CashController extends Controller
                 ->withInput()
                 ->withErrors($errormessage);
         } else {
+            $data = array(
+                'sn'=>$request->order_no,
+                'uid'=>Auth::user()->id,
+                'siteId'=>1,
+                'amounts'=>$request->amounts,
+                'created'=>$_SERVER['REQUEST_TIME'],
+                'type'=>$paytype,
+                'status'=>2, //未付款状态
+                'userName'=>Auth::user()->name
+            );
+            lu_lottery_recharge::create($data);
             if($paytype == 'zf'){
                 return view('Cash.lotteryorderzf');
             }else{
@@ -107,6 +120,10 @@ class CashController extends Controller
             }
         }
 
+    }
+
+    public function zfReturn_Url(){
+        return view('Cash.zfReturn_Url');
     }
 
 }
