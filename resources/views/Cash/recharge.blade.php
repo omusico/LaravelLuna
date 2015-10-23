@@ -37,10 +37,10 @@
                     </div>
                     <div class="form-group">
                         <label class="radio-inline col-md-2">
-                            <input type="radio" value="zf" name="paytype"><img src="/css/zf.png" alt="智付">
+                            <input checked type="radio" value="zf" name="paytype"><img src="/css/zf.png" alt="智付">
                         </label>
                         <label class="radio-inline col-md-2">
-                            <input type="radio" value="kjt" name="paytype"><img src="/css/kjt.png" alt="快捷通">
+                            <input disabled type="radio" value="kjt" name="paytype"><img src="/css/kjt.png" alt="快捷通">
                         </label>
                     </div>
                     <div class="form-group" style="margin-top: 50px">
@@ -75,7 +75,7 @@
 
                         <div class="col-md-4">
                             <input class="form-control" name="notify_url" type="text" id="notify_url"
-                                   value="http://k3.gwou.cn/zfNotify_Url.jsp">
+                                   value="http://k3.gwou.cn/zfNotify_Url">
                         </div>
                     </div>
                     <div class="form-group">
