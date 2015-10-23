@@ -117,17 +117,13 @@ if ($dinpaySign == $sign) {
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script type="text/javascript">
         function directtohome() {
-            setTimeout(function () {
-                window.location.href = "index";
-            }, 3000
-        }
-        )
-        ;
+            setTimeout(window.location.href = "index", 3000);
         }
     </script>
 </head>
 <body onload="directtohome();">
 <!-- 页面展示（Page will show message）  -->
+<br/>
 3秒后将返回主界面
 </body>
 </html>
