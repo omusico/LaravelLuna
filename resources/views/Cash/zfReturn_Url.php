@@ -80,7 +80,7 @@ if ($dinpaySign == $sign) {
 
     //验签成功（Signature correct）
     $lrecharge = \App\lu_lottery_recharge::where('sn', $order_no)->first();
-    if ($recharge->status == '2') {
+    if ($lrecharge->status == '2') {
         $ldata = \App\lu_user_data::where('uid', $lrecharge->uid);
         $tmp = $ldata->points;
         $points = $ldata->points;
