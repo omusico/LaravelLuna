@@ -297,6 +297,19 @@ class defaultCache
         );
     }
 
+    public static function getByCrul($url){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0');
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_TIMEOUT,12); //timeout on response
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,10);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return $response;
+    }
+
     //快三标签页
     public static function cache_lottery_type()
     {
@@ -357,6 +370,150 @@ class defaultCache
                     'odds' => '90',
                     'slug' => '2BTH',
                 ),
+        );
+    }
+    public static function cache_lottery_url(){
+        return array (
+            'anhui' => array (
+                'js' => 'cll',
+                'cll' => array(
+                    'getAwardInfo' => 'http://www.cailele.com/static/termInfo/P163.txt?_=1411267169825',
+                    'qqServerTime' => 'http://www.cailele.com/serverDate.php?type=1&tag=i0bs15ea',
+                    'awardSeconds' => '260'
+                ),
+                'trend' => array(
+                    'trendUrl' => 'http://zs.cailele.com/ahk3/baseTrend.php',
+                    'title' => '安徽快3走势图',
+                    'template' => 'lottery_trend_base_new'
+                ),
+                'times' => 80
+            ),
+            'jilin' => array (
+                'js' => 'cll',
+                'cll' => array(
+                    'getAwardInfo' => 'http://www.cailele.com/static/termInfo/P159.txt?_=1411266100414',
+                    'qqServerTime' => 'http://www.cailele.com/serverDate.php?type=1&tag=i0br4on8',
+// 					'qqServerTime' => 'http://www.google.com',
+                    'awardSeconds' => '155'
+                ),
+                'trend' => array(
+                    'trendUrl' => 'http://zs.cailele.com/jlk3/baseTrend.php',
+                    'title' => '吉林快3走势图',
+                    'template' => 'lottery_trend_base_new'
+                ),
+                'times' => 79
+            ),
+            'jsold' => array (
+                'js' => 'wy',
+                'cll' => array(
+// 				'getAwardInfo'=>'http://www.cailele.com/static/termInfo/P157.txt',
+                    'qqServerTime'=>'http://www.cailele.com/serverDate.php?type=1&tag=hup43jer',
+                    'getAwardInfo' => 'http://43.248.8.48/jsk3.json',
+                    'awardSeconds' => '125'
+                ),
+                'wy' => array(
+                    'qqServerTime' => 'http://caipiao.163.com/order/preBet_periodInfoTime.html?gameEn=oldkuai3&cache=1403590172160',
+// 				'qqServerTime' => 'http://www.google.com',
+                    'getAwardInfo' =>	'http://caipiao.163.com/award/getAwardNumberInfo.html?gameEn=oldkuai3&cache=1422365420687&periodNum=1',
+// 				'getAwardInfo' => 'http://caipiao.163.com/order/preBet_moreAwardNumberInfoForKuai3.html?gameId=2012112609YX00000002&cache=1403588056669',
+// 				'getAwardInfo'=>'http://43.248.8.48/jsk3.json',
+                    'awardSeconds' => '135'
+                ),
+                'trend' => array(
+                    //http://www.kuai3.com/trend/jsks/ kuai3 lottery_trend_base_new
+                    'trendUrl' => 'http://trend.caipiao.163.com/jskuai3/#from=kj',
+                    'title' => '老快3走势图',
+                    'template' => 'lottery_trend_base_guangxi'
+                ),
+                'times' => 82
+
+            ),
+            'hubei' => array(
+                'js' => 'wy',
+                'wy' => array(
+                    'qqServerTime' => 'http://caipiao.163.com/order/preBet_periodInfoTime.html?gameEn=hbkuai3&cache=1411264682592',
+                    'getAwardInfo' => 'http://caipiao.163.com/award/getAwardNumberInfo.html?gameEn=hbkuai3&cache=1411264846697&period=',
+                    'awardSeconds' => '170'
+                ),
+                'trend' => array(
+                    'trendUrl' => 'http://zs.cailele.com/hbk3/baseTrend.php',
+                    'title' => '湖北快3走势图',
+                    'template' => 'lottery_trend_base_new'
+                ),
+                'times' => 81
+            ),
+            'jsnew' => array(
+                'js' => 'wy',
+                'wy' => array(
+                    'qqServerTime' => 'http://caipiao.163.com/order/preBet_periodInfoTime.html?gameEn=gxkuai3&cache=1411264960569',
+// 						'getAwardInfo' => 'http://caipiao.163.com/order/preBet_moreAwardNumberInfoForKuai3.html?gameId=2013071801YX00000001&cache=1411264960882',
+                    'getAwardInfo' => 'http://caipiao.163.com/award/getAwardNumberInfo.html?gameEn=gxkuai3&cache=1422060218880&period=',
+                    'awardSeconds' => '170'
+                ),
+                'trend' => array(
+                    'trendUrl' => 'http://zx.caipiao.163.com/trend/gxkuai3/#from=kj',
+                    'title' => '广西快3走势图',
+                    'template' => 'lottery_trend_base_guangxi'
+                ),
+                'times' => 78
+            ),
+            'hebei' => array(
+                'js' => 'k39',
+                'k39' => array(
+                    'qqServerTime' => 'http://www.k3918.com/hebei/GetInfo/?d=1411566206564',
+                    'getAwardInfo' => 'http://www.k3918.com/hebei/GetInfo/?d=1411566206564',
+                    'awardSeconds' => '290'
+                ),
+                'trend' => array(
+                    'trendUrl' => 'http://www.k3918.com/hebei/jbzs/1',
+                    'title' => '河北快3走势图',
+                    'template' => 'lottery_trend_base_new'
+                ),
+                'times' => 81
+            ),
+            'nmg' => array(
+                'js' => 'wy',
+                'wy' => array(
+                    'qqServerTime' => 'http://caipiao.163.com/order/preBet_periodInfoTime.html?gameEn=nmgkuai3&cache=1424865175723',
+                    // 						'getAwardInfo' => 'http://caipiao.163.com/order/preBet_moreAwardNumberInfoForKuai3.html?gameId=2013071801YX00000001&cache=1411264960882',
+                    'getAwardInfo' => 'http://caipiao.163.com/order/preBet_moreAwardNumberInfoForKuai3.html?gameId=2015010810YX11597474&cache=1424865179399',
+                    'awardSeconds' => '170'
+                ),
+                'trend' => array(
+                    'trendUrl' => 'http://trend.caipiao.163.com/nmgkuai3/#from=kj',
+                    'title' => '内蒙古快3走势图',
+                    'template' => 'lottery_trend_base_guangxi'
+                ),
+                'times' => 81
+            ),
+            'newyy' => array(
+                'js' => 'wy',
+                'wy' => array(
+                    'qqServerTime' => 'http://caipiao.163.com/order/preBet_periodInfoTime.html?gameEn=kuai3&cache=1411910483193',
+                    'getAwardInfo' => 'http://caipiao.163.com/order/preBet_moreAwardNumberInfoForKuai3.html?gameId=2012112009YX00000001&cache=1411910483264',
+                    'awardSeconds' => '170'
+                ),
+                'trend' => array(
+                    'trendUrl' => 'http://zx.caispiao.163.com/trend/kuai3/#from=kj',
+                    'title' => '江苏新快3走势图',
+                    'template' => 'lottery_trend_base_new'
+                ),
+                'times' => 78
+            ),
+            'happy' => array(
+                'js' => 'wy',
+                'wy' => array(
+                    'qqServerTime' => 'http://caipiao.163.com/order/preBet_periodInfoTime.html?gameEn=klc&cache=1419608748048',
+                    'getAwardInfo' => 'http://caipiao.163.com/award/getAwardNumberInfo.html?gameEn=klc&cache=1419608671643&period=',
+                    'awardSeconds' => '170'
+                ),
+                'trend' => array(
+                    'trendUrl' => 'http://zx.caispiao.163.com/trend/kuai3/#from=kj',
+                    'title' => '快乐彩走势图',
+                    'template' => 'lottery_trend_base_new'
+                ),
+                'times' => 78
+            )
         );
     }
 

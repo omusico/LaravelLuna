@@ -127,6 +127,8 @@ class MultiHttpRequest
         return $curl;
     }
 
+
+
     private function exec_handle($handle)
     {
         $flag = null;

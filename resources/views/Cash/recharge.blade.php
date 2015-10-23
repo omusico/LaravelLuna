@@ -118,7 +118,7 @@
                         {{--</div>--}}
                     {{--</div>--}}
                     <div class="form-group">
-                        <label for="product_name" class="control-label col-md-4">接口版本: </label>
+                        <label for="product_name" class="control-label col-md-4">商品名称: </label>
 
                         <div class="col-md-4">
                             <input class="form-control" name="product_name" type="text" id="product_name" value="饮水机">

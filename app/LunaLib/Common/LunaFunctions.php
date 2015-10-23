@@ -14,16 +14,76 @@ class LunaFunctions
     {
         $lottery_type = strtolower($lottery_type);
         $lottery = \App\LunaLib\Common\defaultCache::cache_lottery_status();
-        if( !isset($lottery_type) || $lottery_type ==""){
+        if (!isset($lottery_type) || $lottery_type == "") {
             $lottery_type = 'jsold';
         }
         $config = $lottery[$lottery_type];
         return $config;
     }
 
-    function get_lottery_kjType($lottery_type){
+    function get_lottery_kjType($lottery_type)
+    {
         $config = $this->get_lottery_config($lottery_type);
         return $config['kjType'];
+    }
+
+    public function getCurrentLottery($lotteryType)
+    {
+
+        $type = $this->get_lottery_type_code($lotteryType);
+        if ($type == 'k3') {
+            $this->_urls = defaultCache::cache_lottery_url();
+            $time = $this->_urls;
+            $lotteryType = strtoupper($lotteryType);
+            $action = 'getTimeFor' . $lotteryType;
+            $content = $this->getTimeForNMG();//$time->{$action}();
+            return $content;
+        }
+    }
+
+    public function getTimeForNMG(){
+        $js = $this->_urls['nmg'] ['js'];
+        $servierTime = $this->_urls['nmg'] [$js] ['qqServerTime'];
+        $awardInfo = $this->_urls['nmg'] [$js] ['getAwardInfo'];
+        $awardSeconds = $this->_urls['nmg'][$js]['awardSeconds'];
+        // 彩乐乐
+        if($js == 'wy' ){
+            $content = $this->getTimeFromWY($servierTime,$awardSeconds);
+            return $content;
+        } else  {
+            return '未找到配置接口,请联系管理员';
+        }
+    }
+
+    public function getTimeFromWY($servierTime,$awardSeconds){
+        $content1= defaultCache::getByCrul($servierTime);
+//        $str1 = mb_convert_encoding($content1, "utf-8", "gb2321");
+        $str1 = $content1;
+        $tt1=json_decode($str1,true);
+        if( $tt1 != null){
+            $time= round($tt1["nextSecondsLeft"]/1000);
+            $currentTerm = $tt1["currentPeriod"];  // 140705005
+
+            // 		$currentTerm = '20140705005';
+            $cc = substr($currentTerm, 0,2);
+            if( $cc != '20' ){
+                // 20140705005
+                $date = substr($currentTerm,0,6);
+                $term = substr($currentTerm,6,3	);
+                $issuse = '20'. $date.'-'.$term;
+            } else {
+                $date = substr($currentTerm,0,8);
+                $term = substr($currentTerm,8,3	);
+                $issuse =  $date.'-'.$term;
+            }
+
+            $content = '{"issuse":"'.$issuse.'","bettime":'.$time.',"awardSeconds":'.$awardSeconds.'}';
+            return $content;
+
+        } else {
+            return '{"issuse":"","bettime":"","awardSeconds":'.$awardSeconds.'}';
+        }
+
     }
 
 
@@ -152,47 +212,50 @@ class LunaFunctions
         return $result;
     }
 
-    function create_order_no($id){
+    function create_order_no($id)
+    {
 
         return date("Ymd") . str_pad($id, 6, '0', STR_PAD_LEFT) . str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
 
     }
 
-    function get_lottery_type_code($lotteryType){
+    function get_lottery_type_code($lotteryType)
+    {
         $lotteryType = strtolower($lotteryType);
-        $k3Lottery = array('jsold','jsnew','hebei','hubei','jilin','nmg','beijin','anhui','fjk3');
+        $k3Lottery = array('jsold', 'jsnew', 'hebei', 'hubei', 'jilin', 'nmg', 'beijin', 'anhui', 'fjk3');
         if (in_array($lotteryType, $k3Lottery)) {
             return 'k3';
-        } else if (strstr ( $lotteryType, "five" )) {
+        } else if (strstr($lotteryType, "five")) {
             return 'five';
         } else if ($lotteryType == 'happy') {
             return 'happy';
-        } else if($lotteryType =='le' ){
+        } else if ($lotteryType == 'le') {
             return 'le';
-        } else if($lotteryType == 'poker'  ){
+        } else if ($lotteryType == 'poker') {
             return 'poker';
-        } else if($lotteryType == 'che'){
+        } else if ($lotteryType == 'che') {
             return 'che';
-        } else if( strstr ( $lotteryType, "ssc" )) {
+        } else if (strstr($lotteryType, "ssc")) {
             return 'ssc';
-        } else if( strstr ( $lotteryType, "xy" )){
+        } else if (strstr($lotteryType, "xy")) {
             return 'xy';
-        } else{
+        } else {
             return '';
         }
 
     }
 
-    function get_buyed_money($uid,$proName,$playType, $lotteryType ){
+    function get_buyed_money($uid, $proName, $playType, $lotteryType)
+    {
 // 		if( $playType == 'HZ') {
 //        $db = Waf_Db::get();
-        $type=$this-> get_lottery_type_code($lotteryType);
-        if( $type == 'k3'){
+        $type = $this->get_lottery_type_code($lotteryType);
+        if ($type == 'k3') {
             $lottery_name = "lotteries_k3";
-        } else if ( $type == 'poker'){
+        } else if ($type == 'poker') {
             $lottery_name = 'poker_lotteries';
         } else {
-            $lottery_name = 'lotteries_'.$type;
+            $lottery_name = 'lotteries_' . $type;
         }
 
 //        $select = $db->select('codes,sum(eachPrice) as sum ')->from($lottery_name);
@@ -202,42 +265,43 @@ class LunaFunctions
 
 //        $where = " uid=".$uid. " and proName='".$proName. "' and typeId = '{$typeId}' and province = '{$lotteryType}' ";
 //        $row = $select->where($where)->groupBy('codes')->fetchAll();
-        $row = \Illuminate\Support\Facades\DB::select("select codes,sum(eachPrice) as sum from lu_lotteries_k3s where id='".$uid."' and proName='".$proName."' and typeId='".$typeId."' and province='".$lotteryType."' group by codes");
+        $row = \Illuminate\Support\Facades\DB::select("select codes,sum(eachPrice) as sum from lu_lotteries_k3s where id='" . $uid . "' and proName='" . $proName . "' and typeId='" . $typeId . "' and province='" . $lotteryType . "' group by codes");
 
 
-        $m = array('单'=>0,'双'=>0,'大'=>0,'小'=>0);
+        $m = array('单' => 0, '双' => 0, '大' => 0, '小' => 0);
 
-        if( !empty($row )) {
+        if (!empty($row)) {
             $b = $this->i_array_column($row, 'sum', 'codes');
-            $n = array_merge($m,$b);
+            $n = array_merge($m, $b);
         } else {
             $n = $m;
         }
         return $n;
     }
 
-    function i_array_column($input, $columnKey, $indexKey=null){
-        $columnKeyIsNumber      = (is_numeric($columnKey)) ? true : false;
-        $indexKeyIsNull         = (is_null($indexKey)) ? true : false;
-        $indexKeyIsNumber       = (is_numeric($indexKey)) ? true : false;
-        $result                 = array();
-        foreach((array)$input as $key=>$row){
-            if($columnKeyIsNumber){
-                $tmp            = array_slice($row, $columnKey, 1);
-                $tmp            = (is_array($tmp) && !empty($tmp)) ? current($tmp) : null;
-            }else{
-                $tmp            = isset($row[$columnKey]) ? $row[$columnKey] : null;
+    function i_array_column($input, $columnKey, $indexKey = null)
+    {
+        $columnKeyIsNumber = (is_numeric($columnKey)) ? true : false;
+        $indexKeyIsNull = (is_null($indexKey)) ? true : false;
+        $indexKeyIsNumber = (is_numeric($indexKey)) ? true : false;
+        $result = array();
+        foreach ((array)$input as $key => $row) {
+            if ($columnKeyIsNumber) {
+                $tmp = array_slice($row, $columnKey, 1);
+                $tmp = (is_array($tmp) && !empty($tmp)) ? current($tmp) : null;
+            } else {
+                $tmp = isset($row[$columnKey]) ? $row[$columnKey] : null;
             }
-            if(!$indexKeyIsNull){
-                if($indexKeyIsNumber){
-                    $key        = array_slice($row, $indexKey, 1);
-                    $key        = (is_array($key) && !empty($key)) ? current($key) : null;
-                    $key        = is_null($key) ? 0 : $key;
-                }else{
-                    $key        = isset($row[$indexKey]) ? $row[$indexKey] : 0;
+            if (!$indexKeyIsNull) {
+                if ($indexKeyIsNumber) {
+                    $key = array_slice($row, $indexKey, 1);
+                    $key = (is_array($key) && !empty($key)) ? current($key) : null;
+                    $key = is_null($key) ? 0 : $key;
+                } else {
+                    $key = isset($row[$indexKey]) ? $row[$indexKey] : 0;
                 }
             }
-            $result[$key]       = $tmp;
+            $result[$key] = $tmp;
         }
         return $result;
     }
@@ -251,8 +315,9 @@ class LunaFunctions
     }
 
     // 获取彩种名称
-    function get_lottery_name($lottery_type){
-        if( !isset($lottery_type) ){
+    function get_lottery_name($lottery_type)
+    {
+        if (!isset($lottery_type)) {
             $lottery_type = 'jsold';
         }
 

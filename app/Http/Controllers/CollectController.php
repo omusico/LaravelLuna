@@ -101,8 +101,7 @@ class CollectController extends Controller
         $conf = $lunaFunctions->get_lottery_config($lotteryType);
 
         if (strtoupper($lotteryType) == 'NMG') {
-//            $time = $this->getCurrentLottery($lotteryType);
-            $time = $lunaFunctions->get_current_period($lotteryType);
+            $time = $lunaFunctions->getCurrentLottery($lotteryType);
             $time = json_decode($time, true);
             $currentPeriod = $time["issuse"];
             $str = explode("-", $currentPeriod);
@@ -110,7 +109,7 @@ class CollectController extends Controller
 
             $beginDay = mktime(9, 50, 0, date('m'), date('d'), date('Y')); //
             $now = strtotime("now");
-            $end = strtotime(date('Y-m-d') . ' ' . $config['endTime']);
+//            $end = strtotime(date('Y-m-d') . ' ' . $config['endTime']);
             if ($now > $beginDay && $pre == 0) {
                 $prePeriod = date('Ymd') . '-073';
                 $pre = '73';
@@ -131,12 +130,12 @@ class CollectController extends Controller
                 "num" => $conf["num"]
             );
 
-            $num = $config['num'];
+//            $num = $configs['num'];
             //&& (strtotime("now") - $end < 900
-            if ($num - $pre == 0) {
-                $needCaiji = 1;
-                $timeData['needCaiji'] = 1;
-            }
+//            if ($num - $pre == 0) {
+//                $needCaiji = 1;
+//                $timeData['needCaiji'] = 1;
+//            }
 
         } else {
             $timeData = $lunaFunctions->get_current_period($lotteryType);
@@ -271,15 +270,6 @@ class CollectController extends Controller
             "lotteryType" => $lotteryType,
             "data" => array_merge($timeData, $kjData)
         );
-
-//        $caijiRecord = new lu_caiji_record();
-//        $caijiRecord->lotteryType = $lotteryType;
-//        $caijiRecord->period = $timeData['prePeriod'];
-//        $caijiRecord->useTime = strtotime("now") - $now;
-//        $caijiRecord->status = $status;
-//        $caijiRecord->msg = json_encode($result);
-//        $caijiRecord->created = strtotime("now");
-//        $caijiRecord->createdTime = date("Y-m-d H:i:s");
 
         $caijiRecord = array(
             "lotteryType" => $lotteryType,

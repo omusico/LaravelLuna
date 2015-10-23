@@ -11,7 +11,7 @@
     @yield('css')
 </head>
 <body>
-<div class="navbar navbar-default" role="navigation">
+<div class="navbar navbar-default" role="navigation" style="margin-bottom: 0px">
     <div class="container">
         <div class="navbar-header">
             　<!-- .navbar-toggle样式用于toggle收缩的内容，即nav-collapse collapse样式所在元素 -->
@@ -78,9 +78,11 @@
         </div>
     </div>
 </div>
+<div class="top_main_back"></div>
 <div class="container">
     @include('flash')
 </div>
+<div style="width: 100%;margin-top: 63px"></div>
 @yield('content')
 <div class="footer">
     <div class="f-link"><a title="关于我们" href="#">关于我们</a> | <a title="用户注册" target="_blank" href="/register">用户注册</a> |

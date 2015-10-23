@@ -7346,4 +7346,15 @@ ul, li {
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05);
 }
 
+.top_main_back {
+    width: 100%;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    height: 724px;
+    z-index: -1;
+    _z-index: 0;
+    background: url('backgoundimg.jpg') 50% 0px no-repeat;
+}
+
 /*# sourceMappingURL=all.css.map */

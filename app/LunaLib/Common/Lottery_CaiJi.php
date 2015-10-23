@@ -146,8 +146,8 @@ class Lottery_CaiJi{
 	public function getDataFromFj($config){
         //todo 要改
 		$content = $this->postByCurl("www.fjcp.cn/k3djs.aspx",array("rd"=>0.5326090115122497));
-		$str = mb_convert_encoding($content, "utf-8", "gb2321");
-//        $str = $content;
+//		$str = mb_convert_encoding($content, "utf-8", "gb2321");
+        $str = $content;
 		$json  = json_decode($str);
 		$result = array();
 		$win = $json->kjnum1.','.$json->kjnum2.','.$json->kjnum3;

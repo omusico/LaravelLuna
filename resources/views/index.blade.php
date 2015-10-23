@@ -64,7 +64,12 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div id="carousel-example-generic" class="carousel slide col-md-12" data-ride="carousel"
+            <div class="col-md-3" style="margin-left: 0px">
+                <div class="h_l_cp" style="height: 211px">
+                    @include('userinfo')
+                </div>
+            </div>
+            <div id="carousel-example-generic" class="carousel slide col-md-6" data-ride="carousel"
                  xmlns="http://www.w3.org/1999/html">
                 <ol class="carousel-indicators">
                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -102,6 +107,10 @@
                     <span class="glyphicon glyphicon-chevron-right"></span>
                     <span class="sr-only">Next</span>
                 </a>
+            </div>
+            <div class="col-md-3" style="margin-right: 0px">
+                <div class="h_l_cp" style="height: 211px;">
+                </div>
             </div>
         </div>
     </div>
@@ -259,9 +268,9 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="h_l_cp" style="height: 211px;">
-                    @include('userinfo')
-                </div>
+                {{--<div class="h_l_cp" style="height: 211px;">--}}
+                    {{--@include('userinfo')--}}
+                {{--</div>--}}
             </div>
         </div>
 
