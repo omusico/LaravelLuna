@@ -20,7 +20,7 @@ class CreateLuCaijiRecordsTable extends Migration {
             $table->integer('useTime');
             $table->integer('status');
             $table->text('msg');
-            $table->integer('fdTime');
+            $table->integer('fdTime')->default(0)->nullable();
             $table->integer('created');
             $table->dateTime('createdTime');
 			$table->timestamps();

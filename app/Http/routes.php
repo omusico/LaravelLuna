@@ -14,7 +14,7 @@ Route::get('users', 'TestController@users');
 
 #主页
 Route::get('/', 'WelcomeController@index');
-Route::get('index', 'WelcomeController@index');
+Route::get('index', ['as'=>'index','uses'=>'WelcomeController@index']);
 
 ####################################################
 #登录，登出, 自动跳转, 密码重置,注册
@@ -23,6 +23,10 @@ Route::get('login', [
     'middleware' => 'guest', 'as' => 'login', 'uses' => 'loginController@loginGet']);
 Route::post('login', [
     'middleware' => 'guest', 'uses' => 'loginController@loginPost']);
+Route::get('back/adminlogin', [
+    'middleware' => 'guest', 'as' => 'adminlogin','uses' => 'loginController@adminloginGet']);
+Route::post('back/adminlogin', [
+    'middleware' => 'guest', 'uses' => 'loginController@adminloginPost']);
 Route::get('logout', [
     'middleware' => 'auth', 'as' => 'logout', 'uses' => 'loginController@logout']);
 Route::get('register', 'registerController@index');
@@ -78,5 +82,9 @@ Route::any('/loadRecentResult', ['as' => 'loadRecentResult', 'uses' => 'LotteryK
 //规则明细
 Route::get('/k3GameRule',['uses'=>'LotteryK3Controller@k3GameRule']);
 Route::get('/phpinfo',['uses'=>'WelcomeController@phpinfo']);
+
+//充值
+Route::get('/recharge',['uses'=>'CashController@recharge']);
+Route::post('/recharge',['as'=>'recharge','uses'=>'CashController@rechargePost']);
 
 

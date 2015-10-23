@@ -9,17 +9,18 @@
 <body onload='document.form1.submit();'>
 <?
 $mo=0.01;
-$key="XXXXXXXXXXXXXX";
-
+//$key="XXXXXXXXXXXXXX";
+$key ="vd5HNSGGcgr0psuyabxjrpUrerixxIa3";
 $service="create_instant_trade";
 $version="1.0";
-$partner_id="200000XXXXXX";
+//$partner_id="200000XXXXXX";
+$partner_id="200000890890";
 $_input_charset="UTF-8";
 $sign_type="MD5";
-$return_url="http://www.XXXXXX.com/kjtpay/ReturnUrlResponse.php";
+$return_url="http://www.trlwo.com/kjtpay/ReturnUrlResponse.php";
 $memo="";
 $request_no=date('ymdHis').substr(microtime(),2,4);
-$trade_list=$request_no."~shopname~".$mo."~1~".$mo."~~XXXX@kjtpay.com.cn~1~instant~~~~~~20140826164521~http://www.XXXXXX.com/kjtpay/NotifyUrlResponse.php";
+$trade_list=$request_no."~shopname~".$mo."~1~".$mo."~~cthiw@kjtpay.com.cn~1~instant~~~~~~20140826164521~http://www.trlwo.com/kjtpay/NotifyUrlResponse.php";
 $operator_id="";
 $buyer_id="anonymous";
 $buyer_id_type="1";

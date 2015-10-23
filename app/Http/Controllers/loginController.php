@@ -7,12 +7,13 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class loginController extends Controller {
+class loginController extends Controller
+{
 
     /**
      * 返回login视图,登录页面
      */
-	public function loginGet()
+    public function loginGet()
     {
         return view('login');
     }
@@ -26,10 +27,27 @@ class loginController extends Controller {
         $name = $request->get('name');
         $password = $request->get('password');
         if (Auth::attempt(['name' => $name, 'password' => $password], $request->get('remember'))) {
+//            return Redirect::action('WelcomeController@index');
+            return Redirect::route('index');
+
+        } else {
+            return Redirect::route('login')
+                ->withInput()
+                ->withErrors('用户名或者密码不正确，请重试！');
+        }
+    }
+
+    public function adminloginGet(){
+        return view('admin.adminlogin');
+    }
+
+    public function adminloginPost(Request $request)
+    {
+        $name = $request->get('name');
+        $password = $request->get('password');
+        if (Auth::attempt(['name' => $name, 'password' => $password], $request->get('remember'))) {
             if (!Auth::user()->is_admin) {
-//                return Redirect::route('index');
                 return Redirect::action('WelcomeController@index');
-//                return view('index');
             } else {
                 return Redirect::action('Admin\AdminController@index');
             }
