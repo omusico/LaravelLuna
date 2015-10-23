@@ -75,7 +75,7 @@
 
                         <div class="col-md-4">
                             <input class="form-control" name="notify_url" type="text" id="notify_url"
-                                   value="http://k3.gwou.cn/Notify_Url.jsp">
+                                   value="http://k3.gwou.cn/zfNotify_Url.jsp">
                         </div>
                     </div>
                     <div class="form-group">

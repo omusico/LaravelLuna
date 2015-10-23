@@ -126,4 +126,8 @@ class CashController extends Controller
         return view('Cash.zfReturn_Url');
     }
 
+    public function zfNotify_Url(){
+        return view('Cash.zfNotify_Url');
+    }
+
 }

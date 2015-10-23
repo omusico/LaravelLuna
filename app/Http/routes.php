@@ -89,3 +89,4 @@ Route::post('/recharge',['as'=>'recharge','uses'=>'CashController@rechargePost']
 
 //智付，接口数据返回
 Route::post('/zfReturn_Url',['as'=>'zfReturn_Url','uses'=>'CashController@zfReturn_Url']);
+Route::post('/zfNotify_Url',['as'=>'zfNotify_Url','uses'=>'CashController@zfNotify_Url']);
