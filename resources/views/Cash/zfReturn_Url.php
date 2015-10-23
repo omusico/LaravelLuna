@@ -16,8 +16,16 @@
 	$trade_status = $_POST["trade_status"];
 	$trade_time = $_POST["trade_time"];
 	$trade_no = $_POST["trade_no"];
-	$bank_seq_no = $_POST["bank_seq_no"];
-	$extra_return_param = $_POST["extra_return_param"];
+    if(isset($_POST["bank_seq_no"])){
+        $bank_seq_no = $_POST["bank_seq_no"];
+    }else{
+        $bank_seq_no = "";
+    }
+    if(isset($_POST["extra_return_param"])){
+        $extra_return_param = $_POST["extra_return_param"];
+    }else{
+        $extra_return_param = "";
+    }
 
 	/////////////////////////////   数据签名  /////////////////////////////////
 	////////////////////////////  Data signature  ////////////////////////////
