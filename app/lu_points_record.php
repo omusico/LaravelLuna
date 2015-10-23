@@ -3,7 +3,7 @@
 use Illuminate\Database\Eloquent\Model;
 
 class lu_points_record extends Model {
-    protected $fillable=['uid','userName','addType','lotteryType','touSn','oldPoint','changePoint','newPoint','created'];
+    protected $fillable=['uid','userName','addType','lotteryType','touSn','winSn','oldPoint','changePoint','newPoint','created'];
 	//
 
 }
