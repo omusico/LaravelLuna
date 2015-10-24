@@ -38,7 +38,7 @@
                                         <a style="color: green">撤单</a>
                                     @elseif($lu_lotteries_k3->status == -1)
                                         <a style="color: red">追号中奖结束</a>
-                                    @elseif($lu_lotteries_k3->isOpen == 1)
+                                    @elseif($lu_lotteries_k3->isOpen == 1 || $lu_lotteries_k3->dealing ==1)
                                         @if($lu_lotteries_k3->noticed==1)
                                             <a style="color: red">中奖</a>
                                         @else
