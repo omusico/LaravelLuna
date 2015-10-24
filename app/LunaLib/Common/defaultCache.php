@@ -611,7 +611,7 @@ class defaultCache
                             'kjTime' => 120,
                             'fdTime' => 120,
                             'status' => '1',
-                            'priority' => 1,
+                            'priority' => 2,
                             'rule' =>
                                 array(
                                     'preTerm' => '<em class="red" id="open_issue">(.*?)</em> 期 开奖</h3><div class="ball-num clearfix">',
@@ -622,7 +622,7 @@ class defaultCache
                         array(
                             'url' => 'http://www.cailele.com/static/k3/newlyopenlist.xml',
                             'status' => '1',
-                            'priority' => 2,
+                            'priority' => 1,
                             'touUrl' => '',
                             'kjTime' => 150,
                             'fdTime' => 120,
@@ -666,7 +666,7 @@ class defaultCache
                         array(
                             'url' => 'http://www.cailele.com/static/ahk3/newlyopenlist.xml',
                             'status' => '1',
-                            'priority' => 2,
+                            'priority' => 1,
                             'touUrl' => '',
                             'kjTime' => 150,
                             'fdTime' => 120,
@@ -678,7 +678,7 @@ class defaultCache
                             'touUrl' => 'http://caipiao.163.com/order/ahkuai3/',
                             'kjTime' => 100,
                             'status' => '1',
-                            'priority' => 1,
+                            'priority' => 2,
                             'fdTime' => 90,
                             'rule' =>
                                 array(
@@ -696,7 +696,7 @@ class defaultCache
                             'touUrl' => '',
                             'kjTime' => 100,
                             'status' => '1',
-                            'priority' => 1,
+                            'priority' => 2,
                             'fdTime' => 90,
                             'rule' =>
                                 array(
@@ -710,7 +710,7 @@ class defaultCache
                             'kjTime' => 100,
                             'fdTime' => 90,
                             'status' => '1',
-                            'priority' => 0,
+                            'priority' => 2,
                             'rule' =>
                                 array(
                                     'preTerm' => '<em class="red" id="open_issue">(.*?)</em> 期 开奖</h3><div class="ball-num clearfix">',
@@ -721,7 +721,7 @@ class defaultCache
                         array(
                             'url' => 'http://www.cailele.com/static/jlk3/newlyopenlist.xml',
                             'status' => '1',
-                            'priority' => 2,
+                            'priority' => 1,
                             'touUrl' => '',
                             'kjTime' => 150,
                             'fdTime' => 120,
@@ -761,7 +761,7 @@ class defaultCache
                         array(
                             'url' => 'http://www.cailele.com/static/hbk3/newlyopenlist.xml',
                             'status' => '1',
-                            'priority' => 3,
+                            'priority' => 1,
                             'touUrl' => '',
                             'kjTime' => 150,
                             'fdTime' => 120,
@@ -799,7 +799,7 @@ class defaultCache
                             'kjTime' => 150,
                             'fdTime' => 60,
                             'status' => '1',
-                            'priority' => 1,
+                            'priority' => 2,
                             'rule' =>
                                 array(
                                     'preTerm' => 'var endPeriod="(.*?)";var breakPeriods',
@@ -810,7 +810,7 @@ class defaultCache
                         array(
                             'url' => 'http://www.cailele.com/static/nmgk3/newlyopenlist.xml',
                             'status' => '1',
-                            'priority' => 2,
+                            'priority' => 1,
                             'touUrl' => '',
                             'kjTime' => 150,
                             'fdTime' => 120,
