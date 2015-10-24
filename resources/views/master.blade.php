@@ -52,7 +52,7 @@
                 </li>
                 <li><a href="/k3GameRule">游戏规则</a></li>
                 <li><a href="#">走势图</a></li>
-                <li><a href="#">合作代理</a></li>
+                <li><a href="/inviteurl">合作代理</a></li>
                 <li><a href="/userLotteryBetting">交易记录</a></li>
                 @if (Auth::guest())
                     {!! Form::open(['url' => '/login', 'class' => 'navbar-form navbar-right', 'role' => 'search']) !!}

@@ -3,7 +3,15 @@
         <div class="distance nk3_login">
             <div class="nk3_login_top"></div>
             <h4>
-                <b>你好：</b><span> <a style="color:red;">{{Auth::user()->name}}</a></span><a
+                <b>你好：</b><span>
+                    @if(Auth::user()->groupId ==3)
+                        <a style="color: red">大代理</a>
+                    @elseif(Auth::user()->groupId==5)
+                        <a style="color: green">代理</a>
+                    @elseif(Auth::user()->groupId ==8)
+                        <a>注册会员</a>
+                    @endif
+                    <a style="color:red;">{{Auth::user()->name}}</a></span><a
                         href="/logout">&nbsp;&nbsp;&nbsp;&nbsp;[退出]</a>
             </h4>
             <h4 class="h_money1">用户余额：<span class="h_m_h" onclick="$(this).hide(); $('.h_money1 .h_m_s').show();"

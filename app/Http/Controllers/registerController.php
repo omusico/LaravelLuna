@@ -20,7 +20,14 @@ class registerController extends Controller
     {
         //
         $invite = $request->invite;
-        return view('register',compact('invite'));
+        $lu_user = lu_user::where('invite', $invite)->first();
+        $group = 8;
+        if (isset($lu_user)) {
+            if ($lu_user->groupId == 3) {
+                $group = 5;
+            }
+        }
+        return view('register', compact('invite', 'group'));
     }
 
     /**
@@ -49,10 +56,14 @@ class registerController extends Controller
                 'invite' => 'required|integer',
                 'password' => 'required|confirmed'
             ]);
-            $count = lu_user::where('invite', $request->invite)->count();
-            if ($count > 0) {
-
+            $invite_user = lu_user::where('invite', $request->invite)->first();
+            if (isset($invite_user->groupId)) {
                 $lu_user = new lu_user;
+                if($invite_user->groupId ==3){
+                    $lu_user->groupId =5;
+                }else{
+                    $lu_user->groupId =8;
+                }
                 $lu_user->name = $request->name;
                 $lu_user->realName = $request->realName;
                 $lu_user->password = Hash::make($request->password);
@@ -60,7 +71,8 @@ class registerController extends Controller
                 $lu_user->email = $request->email;
                 $lu_user->sex = $request->sex;
                 $lu_user->phone = $request->phone;
-                $lu_user->groupId = $request->groupId;
+                $lu_user->recUser = $request->invite;
+//                $lu_user->groupId = $request->groupId;
                 $lu_user->invite = rand(10000, 99999);
                 $lu_user->save();
                 $lu_user_data = new lu_user_data();
