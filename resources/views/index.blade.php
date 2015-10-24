@@ -59,65 +59,43 @@
         a {
             color: #000000;
         }
+        .distance {
+            overflow: hidden;
+            margin-top: 15px;
+            border: 1px solid #ccc;
+            background: #fff;
+        }
+        .nk3_kjgg h2 a {
+            float: right;
+            font-weight: normal;
+            color: #666;
+            padding-right: 8px;
+            display: inline;
+            font-size: 12px;
+        }
+        .nk3_kjgg ul {
+            margin: 3px 0 10px 0;
+        }
+        .nk3_kjgg li {
+            margin-left: 4px;
+            line-height: 19px;
+            border-bottom: dotted 1px #888;
+            padding: 10px 0 10px 0;
+            width: 201px;
+        }
+        .nk3_kjgg li em {
+            font-style: normal;
+            color: #d80000;
+        }
     </style>
 @stop
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-3" style="margin-left: 0px">
+            <div class="col-md-3" style="margin-right: 0px">
                 <div class="h_l_cp" style="height: 211px">
                     @include('userinfo')
                 </div>
-            </div>
-            <div id="carousel-example-generic" class="carousel slide col-md-6" data-ride="carousel"
-                 xmlns="http://www.w3.org/1999/html">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <img src="/css/001.png" alt="...">
-
-                        <div class="carousel-caption">
-                            {{--<p>中奖率高、赔率高、信誉100%</p>--}}
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="/css/002.png" alt="...">
-
-                        <div class="carousel-caption">
-                            {{--<p>优惠多多、取款5分钟内到帐</p>--}}
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="/css/003.png" alt="...">
-
-                        <div class="carousel-caption">
-                            {{--<p>中奖金额免税收</p>--}}
-                        </div>
-                    </div>
-                </div>
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-            <div class="col-md-3" style="margin-right: 0px">
-                <div class="h_l_cp" style="height: 211px;">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" style="padding-top: 10px">
-        <div class="row" style="margin: 0px">
-            <div class="col-md-3">
                 <div class="h_l_cp" style="background-color: #fbf8e9;font-size: 90%">
                     <div style="border-bottom: #808080 solid 1px;text-align: center;font-family: bold">
                         <a><br/>购买快三 快速导航<br/><br/></a>
@@ -153,8 +131,47 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="clearfix">
+            <div class="col-md-6" style="padding-left: 0px;padding-right: 0px">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
+                     xmlns="http://www.w3.org/1999/html">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="/css/001.png" alt="...">
+
+                            <div class="carousel-caption">
+                                {{--<p>中奖率高、赔率高、信誉100%</p>--}}
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/css/002.png" alt="...">
+
+                            <div class="carousel-caption">
+                                {{--<p>优惠多多、取款5分钟内到帐</p>--}}
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/css/003.png" alt="...">
+
+                            <div class="carousel-caption">
+                                {{--<p>中奖金额免税收</p>--}}
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="clearfix" style="padding-top: 10px">
                     <div class="bettingBox">
                         <div class="bet_title">
                             {{--<h3>老快三：</h3>--}}
@@ -268,11 +285,34 @@
                 </div>
             </div>
             <div class="col-md-3">
-                {{--<div class="h_l_cp" style="height: 211px;">--}}
-                    {{--@include('userinfo')--}}
-                {{--</div>--}}
+                <div class="distance nk3_kjgg">
+                    <h2><a href="/award/">更多&gt;&gt;</a>快3近期开奖公告</h2>
+                    <ul>
+                        <li><strong>老快3</strong> 第<em>151023-082</em>期开奖号码<br>
+                            开奖时间：2015-10-23 22:10:00
+                            <br>
+                            <a href="/jsks/">立即购买</a>
+                            <img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/4x24.png">                </li>
+                        <li><strong>快3</strong> 第<em>151023-080</em>期开奖号码<br>
+                            开奖时间：2015-10-23 22:00:00
+                            <br>
+                            <a href="/ahks/">立即购买</a>
+                            <img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/5x24.png">                </li>
+                        <li><strong>欢乐快3</strong> 第<em>150722-017</em>期开奖号码<br>
+                            开奖时间：2015-07-22 11:50:00
+                            <br>
+                            <a href="/hubks/">立即购买</a>
+                            <img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/3x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/4x24.png">                </li>
+                        <li style="border-bottom:none; padding-bottom:0;"><strong>新快3</strong> 第<em>151023-073</em>期开奖号码<br>
+                            开奖时间：2015-10-23 21:45:00
+                            <br>
+                            <a href="/nmgks/">立即购买</a>
+                            <img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/3x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/6x24.png">                </li>
+                    </ul>
+                </div>
             </div>
         </div>
+    </div>
 
     </div>
 @stop

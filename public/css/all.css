@@ -7108,7 +7108,7 @@ button.close {
 
 .bettingBox {
     float: left;
-    width: 550px;
+    width: 585px;
     border: 1px solid rgb(221, 221, 221);
     margin-bottom: 1px;
 }
@@ -7356,5 +7356,25 @@ ul, li {
     _z-index: 0;
     background: url('backgoundimg.jpg') 50% 0px no-repeat;
 }
-
+.nk3_kjgg h2 {
+    background: url('h_bgg.gif') no-repeat;
+    width: auto;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 9px;
+    font-size: 12px;
+}
+.nk3_kjgg li a {
+    background: url('r_btn_72_26.jpg') no-repeat;
+    width: 72px;
+    height: 26px;
+    line-height: 22px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    float: right;
+    margin-top: 3px;
+    display: inline;
+    text-decoration: none;
+}
 /*# sourceMappingURL=all.css.map */
