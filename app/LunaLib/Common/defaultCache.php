@@ -611,7 +611,7 @@ class defaultCache
                             'kjTime' => 120,
                             'fdTime' => 120,
                             'status' => '1',
-                            'priority' => 2,
+                            'priority' => 3,
                             'rule' =>
                                 array(
                                     'preTerm' => '<em class="red" id="open_issue">(.*?)</em> 期 开奖</h3><div class="ball-num clearfix">',
