@@ -77,5 +77,5 @@ function setOutTime() {
         }
     });
 
-    setTimeout("setOutTime()",10000);
+    setTimeout("setOutTime()",30000);
 }
