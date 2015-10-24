@@ -488,7 +488,7 @@ class LunaFunctions
                             lu_user_data::where('uid',$data['uid'])->update(['points'=>$pointRecordData['newPoint']]);
                             // 取消 追号
 //                            $detail = $lottery->detail($lotId);
-                            $detail = lu_lotteries_k3::where('lotId',$lotId);
+                            $detail = lu_lotteries_k3::where('id',$lotId);
                             if ($detail['groupId'] != null) {
                                 $groupId = explode('_', $detail['groupId']);
                                 $tingCount = intval($groupId[1]);

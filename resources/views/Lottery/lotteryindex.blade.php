@@ -8,7 +8,7 @@
     <script type="text/javascript">
         var lottery_type = '{{$config['lotterytype']}}';
         var num ={{$lotterystatus[$config['lotterytype']]['num']}};
-        console.log(num);
+//        console.log(num);
     </script>
 @stop
 @section('content')
@@ -507,7 +507,7 @@
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         购买方式： <input name="buyType" type="radio" value='daigou'
                                                      checked="checked" id='daigou'/><label>代购</label> <input
-                                                name="buyType" type="radio" value='zhuihao'
+                                                name="buyType" type="radio" value='zhuihao' disabled
                                                 id='buyTypeZh'/><label>追号</label>
                                         <label class="c_red">(追号需谨慎，注意看中奖次数)</label>
                                     </div>
