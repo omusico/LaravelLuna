@@ -61,7 +61,7 @@
         }
         .distance {
             overflow: hidden;
-            margin-top: 15px;
+            /*margin-top: 15px;*/
             border: 1px solid #ccc;
             background: #fff;
         }
