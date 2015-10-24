@@ -465,7 +465,7 @@ class LunaFunctions
                             if (!isset($matchCount)) $matchCount = 1;
 // 							file_put_contents ( __WAF_ROOT__ . '/win33.log','$matchCount:'.$matchCount . '\n', FILE_APPEND );
 //                            $lottery->update($lotId, array('noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount));
-                            lu_lotteries_k3::where('province',$lotId)->update(['noticed'=>1,'bingoPrice'=>$data['amount'],'dealing'=>$matchCount]);
+                            lu_lotteries_k3::where('id',$lotId)->update(['noticed'=>1,'bingoPrice'=>$data['amount'],'dealing'=>$matchCount]);
 //                            $userInfo = $userModel->detail($data['uid']);
                             $userInfo = lu_user_data::where('uid',$data['uid'])->first();
 

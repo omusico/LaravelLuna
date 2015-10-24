@@ -30,10 +30,18 @@
                                 <td>{{ $lu_lotteries_k3->eachPrice }}</td>
                                 <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
                                 <td>
-                                    @if($lu_lotteries_k3->status == 1)
-                                        等待开奖
+                                    @if($lu_lotteries_k3->status == -2)
+                                        <a style="color: green">撤单</a>
+                                    @elseif($lu_lotteries_k3->status == -1)
+                                        <a style="color: red">追号中奖结束</a>
+                                    @elseif($lu_lotteries_k3->isOpen == 1)
+                                        @if($lu_lotteries_k3->noticed==1)
+                                            <a style="color: red">中奖</a>
+                                        @else
+                                            <a style="color: #808080">未中奖</a>
+                                        @endif
                                     @else
-                                        已开奖
+                                        等待开奖
                                     @endif
                                 </td>
                                 <td>{{ $lu_lotteries_k3->created_at }}</td>
