@@ -312,6 +312,7 @@ class LotteryK3Controller extends Controller
             return array('tip' => 'success', 'msg' => '提交成功', 'points' => $points);
         } catch (Exception $e) {
 //            file_put_contents(__WAF_ROOT__ . '/error.log', date('Y-m-d H:i:s', Waf_Time) . $e, FILE_APPEND);
+            log::error($e);
             return array('tip' => 'error', 'msg' => $e, 'points' => $points);
         }
     }
@@ -456,10 +457,11 @@ class LotteryK3Controller extends Controller
                 $sql = "UPDATE xh_users SET totalBuy=totalBuy+{$alls} WHERE uid={$recUid}";
                 Waf_Db::get()->command($sql)->query();
             }
-            $this->response->throwJson(array('tip' => 'success', 'msg' => '提交成功', 'points' => $points));
+            return array('tip' => 'success', 'msg' => '提交成功', 'points' => $points);
         } catch (Exception $e) {
-            file_put_contents(__WAF_ROOT__ . '/error.log', date('Y-m-d H:i:s', Waf_Time) . $e, FILE_APPEND);
-            $this->response->throwJson(array('tip' => 'error', 'msg' => $e, 'points' => $points));
+            log::error($e);
+//            file_put_contents(__WAF_ROOT__ . '/error.log', date('Y-m-d H:i:s', Waf_Time) . $e, FILE_APPEND);
+            return array('tip' => 'error', 'msg' => $e, 'points' => $points);
         }
     }
 

@@ -50,6 +50,8 @@ Route::controller('password', 'PasswordController');
 //    'as' => 'grade_list', 'uses' => 'Admin\GradeController@index']);
 #资源路由,学生的增删改查
 Route::resource('admin', 'Admin\AdminController');
+
+Route::resource('company','CashController');
 Route::get('bettingList', 'Admin\AdminController@bettingList');
 #上传分数
 //Route::post('admin/upload_grade', [

@@ -57,6 +57,7 @@ class Caiji {
         $contents = $this->mp->start();
 
 //         file_put_contents(__WAF_ROOT__.'/cj_data.log', 'time:'.date('Y-m-d H:i:s')." :".$contents.PHP_EOL,FILE_APPEND);
+        log::info($contents.FILE_APPEND);
         foreach($contents as $content)
         {
             $content=$this->_prefilter($content);

@@ -286,7 +286,7 @@
             </div>
             <div class="col-md-3">
                 <div class="distance nk3_kjgg">
-                    <h2><a href="/award/">更多&gt;&gt;</a>快3近期开奖公告</h2>
+                    <h2 style="margin-top: 0px"><a href="/award/">更多&gt;&gt;</a>快3近期开奖公告</h2>
                     <ul>
                         <li><strong>老快3</strong> 第<em>151023-082</em>期开奖号码<br>
                             开奖时间：2015-10-23 22:10:00

@@ -12,7 +12,7 @@
     {{--<br /><br />--}}
     {{--<a href="/admin/grade"><button class="btn btn-info btn-lg">用户组列表</button></a>--}}
     {{--<br /><br />--}}
-    <a href="#"><button class="btn btn-info btn-lg">操作日志</button></a>
+    <a href="/company"><button class="btn btn-warning btn-lg">公司充值</button></a>
     <br /><br />
     <a href="#"><button class="btn btn-info btn-lg">会员统计</button></a>
     <br /><br />

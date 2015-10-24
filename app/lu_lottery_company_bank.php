@@ -6,4 +6,9 @@ class lu_lottery_company_bank extends Model {
 
 	//
 
+    protected static function rules(){
+        return [
+        ];
+    }
+
 }

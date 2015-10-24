@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\lu_lottery_company_recharge;
 use App\lu_lottery_recharge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,10 @@ class CashController extends Controller
     public function index()
     {
         //
+        $result = lu_lottery_company_recharge::where('status', 2);
+        $count = $result->count();
+        $lu_companys = $result->paginate(10);
+        return view('Admin.companyrecharge',compact('lu_companys','count'));
     }
 
     /**
@@ -36,9 +41,30 @@ class CashController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
         //
+        $lu_company = new lu_lottery_company_recharge();
+        if (empty($id)) {
+            $lu_company->sn = $request->sn;
+            $lu_company->amounts = $request->amounts;
+            $lu_company->payBank = $request->payBank;
+            $lu_company->siteId = $request->siteId;
+            $lu_company->siteBankId = $request->siteBankId;
+            $lu_company->status = 2;
+            $lu_company->rechargerUser = $request->rechargerUser;
+            $lu_company->payArea = $request->payArea;
+            $lu_company->payAreaCity = $request->payAreaCity;
+            $lu_company->payType = $request->payType;
+//            $lu_company->payBank = $request->payBank;
+            $lu_company->created = $_SERVER['REQUEST_TIME'];
+            $lu_company->uid = Auth::user()->id;
+            $lu_company->userName = Auth::user()->name;
+            $lu_company->added = 1;
+        }
+        $lu_company->save();
+        session()->flash('message', "充值成功");
+        return Redirect::to('recharge');
     }
 
     /**
@@ -61,6 +87,34 @@ class CashController extends Controller
     public function edit($id)
     {
         //
+        $lu_company = lu_lottery_company_recharge::where('id',$id)->first();
+        if($lu_company['status']==2){
+            $ldata = \App\lu_user_data::where('uid', $lu_company->uid)->first();
+            $tmp = $ldata->points;
+            $points = $ldata->points;
+//            $odd = $user['returnOdds'];
+//            $newOdd = $amount * $odd;
+            $points = $points + $lu_company['amounts'];
+            $ldata->points = $points;
+            $ldata->save();
+            //状态修改为已经付款
+            $lu_company->status = 1;
+            $lu_company->save();
+            $data = array(
+                'uid' => $lu_company->uid,
+                'userName' => $lu_company->userName,
+                'addType' => '4', // 公司充值
+                'lotteryType' => '', // 中奖
+                'winSn' => $lu_company->sn,
+                'oldPoint' => $tmp,
+                'changePoint' => $lu_company->amounts,
+                'newPoint' => $points,
+                'created' => strtotime(date('Y-m-d H:i:s'))
+            );
+            \App\lu_points_record::create($data);
+        }
+
+        return Redirect::to('company');
     }
 
     /**
@@ -83,6 +137,11 @@ class CashController extends Controller
     public function destroy($id)
     {
         //
+        $lu_company = lu_lottery_company_recharge::where('id',$id)->first();
+        $name = $lu_company->sn;
+        $lu_company->delete();
+        session()->flash('message', $name."公司充值已经移除已经被移除");
+        return Redirect::back();
     }
 
     public function recharge()
@@ -103,31 +162,33 @@ class CashController extends Controller
                 ->withErrors($errormessage);
         } else {
             $data = array(
-                'sn'=>$request->order_no,
-                'uid'=>Auth::user()->id,
-                'siteId'=>1,
-                'amounts'=>$request->amounts,
-                'created'=>$_SERVER['REQUEST_TIME'],
-                'type'=>$paytype,
-                'status'=>2, //未付款状态
-                'userName'=>Auth::user()->name
+                'sn' => $request->order_no,
+                'uid' => Auth::user()->id,
+                'siteId' => 1,
+                'amounts' => $request->amounts,
+                'created' => $_SERVER['REQUEST_TIME'],
+                'type' => $paytype,
+                'status' => 2, //未付款状态
+                'userName' => Auth::user()->name
             );
             lu_lottery_recharge::create($data);
-            if($paytype == 'zf'){
+            if ($paytype == 'zf') {
 //                Redirect::to("")
                 return view('Cash.lotteryorderzf');
-            }else{
+            } else {
                 return view('Cash.lotteryorderkjt');
             }
         }
 
     }
 
-    public function zfReturn_Url(){
+    public function zfReturn_Url()
+    {
         return view('Cash.zfReturn_Url');
     }
 
-    public function zfNotify_Url(){
+    public function zfNotify_Url()
+    {
         return view('Cash.zfNotify_Url');
     }
 

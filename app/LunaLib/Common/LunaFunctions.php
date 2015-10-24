@@ -407,7 +407,6 @@ class LunaFunctions
             //获奖列表
             $winlists = lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
             //获奖处理
-//            $model->updateAllDealing($winPre, array('dealing' => 1, 'resultNum' => $winCode));
             lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
             $args = array();
             if ($winlists) {
@@ -486,13 +485,9 @@ class LunaFunctions
                                 'created' => strtotime(date('Y-m-d H:i:s'))
                             );
                             lu_points_record::create($pointRecordData);
-//                            $pointRecordModel->insert($pointRecordData);
-//                            $userModel->updateLoginInfo($data['uid'], array('points' => array('+', $data['amount'])));
                             lu_user_data::where('uid', $data['uid'])->update(['points' => $pointRecordData['newPoint']]);
                             // 取消 追号
-//                            $detail = $lottery->detail($lotId);
                             if (!empty($lotId)) {
-
                                 $detail = lu_lotteries_k3::where('id', $lotId)->first();
 
                                 if ($detail['groupId'] != null) {
@@ -532,6 +527,7 @@ class LunaFunctions
                                 }
                             }
                         } catch (Exception $e) {
+                            log::error($e);
 //                            file_put_contents(__WAF_ROOT__ . '/error.log', date('Y-m-d h:i:s', Waf_Time) . $e, FILE_APPEND);
                         }
                     }
