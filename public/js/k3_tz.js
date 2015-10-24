@@ -1107,7 +1107,7 @@ CP.submit = function () {
                                     window.location.href = baseUrl + "/index.php/user/home/init?lottery_type=" + lottery_type;
                                     break;
                                 case 'success':
-                                    CP.tip('您的投注信息已经成功提交，请等待开奖！【<a href="' + 'myLotteryUrl' + '">查看我的购买信息</a>】');
+                                    CP.tip('您的投注信息已经成功提交，请等待开奖！【<a href="' + '/userLotteryBetting' + '">查看我的购买信息</a>】');
                                     CP.core.clearAll();
                                     if ($('.enter_digital').size() > 0) {
                                         $('.enter_digital').text(json.points);

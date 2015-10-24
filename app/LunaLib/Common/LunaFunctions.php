@@ -1,5 +1,6 @@
 <?php
 namespace App\LunaLib\Common;
+
 use App\lu_lotteries_k3;
 use App\lu_lottery_notes_k3;
 use App\lu_points_record;
@@ -45,47 +46,49 @@ class LunaFunctions
         }
     }
 
-    public function getTimeForNMG(){
+    public function getTimeForNMG()
+    {
         $js = $this->_urls['nmg'] ['js'];
         $servierTime = $this->_urls['nmg'] [$js] ['qqServerTime'];
         $awardInfo = $this->_urls['nmg'] [$js] ['getAwardInfo'];
         $awardSeconds = $this->_urls['nmg'][$js]['awardSeconds'];
         // 彩乐乐
-        if($js == 'wy' ){
-            $content = $this->getTimeFromWY($servierTime,$awardSeconds);
+        if ($js == 'wy') {
+            $content = $this->getTimeFromWY($servierTime, $awardSeconds);
             return $content;
-        } else  {
+        } else {
             return '未找到配置接口,请联系管理员';
         }
     }
 
-    public function getTimeFromWY($servierTime,$awardSeconds){
-        $content1= defaultCache::getByCrul($servierTime);
+    public function getTimeFromWY($servierTime, $awardSeconds)
+    {
+        $content1 = defaultCache::getByCrul($servierTime);
 //        $str1 = mb_convert_encoding($content1, "utf-8", "gb2321");
         $str1 = $content1;
-        $tt1=json_decode($str1,true);
-        if( $tt1 != null){
-            $time= round($tt1["nextSecondsLeft"]/1000);
+        $tt1 = json_decode($str1, true);
+        if ($tt1 != null) {
+            $time = round($tt1["nextSecondsLeft"] / 1000);
             $currentTerm = $tt1["currentPeriod"];  // 140705005
 
             // 		$currentTerm = '20140705005';
-            $cc = substr($currentTerm, 0,2);
-            if( $cc != '20' ){
+            $cc = substr($currentTerm, 0, 2);
+            if ($cc != '20') {
                 // 20140705005
-                $date = substr($currentTerm,0,6);
-                $term = substr($currentTerm,6,3	);
-                $issuse = '20'. $date.'-'.$term;
+                $date = substr($currentTerm, 0, 6);
+                $term = substr($currentTerm, 6, 3);
+                $issuse = '20' . $date . '-' . $term;
             } else {
-                $date = substr($currentTerm,0,8);
-                $term = substr($currentTerm,8,3	);
-                $issuse =  $date.'-'.$term;
+                $date = substr($currentTerm, 0, 8);
+                $term = substr($currentTerm, 8, 3);
+                $issuse = $date . '-' . $term;
             }
 
-            $content = '{"issuse":"'.$issuse.'","bettime":'.$time.',"awardSeconds":'.$awardSeconds.'}';
+            $content = '{"issuse":"' . $issuse . '","bettime":' . $time . ',"awardSeconds":' . $awardSeconds . '}';
             return $content;
 
         } else {
-            return '{"issuse":"","bettime":"","awardSeconds":'.$awardSeconds.'}';
+            return '{"issuse":"","bettime":"","awardSeconds":' . $awardSeconds . '}';
         }
 
     }
@@ -393,7 +396,7 @@ class LunaFunctions
         }
     }
 
-    function lottery_kj($lottery_type, $winPre,$winCode)
+    function lottery_kj($lottery_type, $winPre, $winCode)
     {
 
         $type = $this->get_lottery_type_code($lottery_type);
@@ -402,10 +405,10 @@ class LunaFunctions
         if ($winCode && $winPre) {
 //            $model = Waf::model('lottery/list', array('lottery_type' => $lottery_type));
             //获奖列表
-            $winlists = lu_lotteries_k3::where('province',$lottery_type)->where('proName',$winPre)->where('noticed',0)->where('status','<>','-1') ->where('status','<>','-2')->get();
+            $winlists = lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
             //获奖处理
 //            $model->updateAllDealing($winPre, array('dealing' => 1, 'resultNum' => $winCode));
-            lu_lotteries_k3::where('province',$lottery_type)->where('proName',$winPre)->update(['dealing'=>1,'resultNum'=>$winCode]);
+            lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
             $args = array();
             if ($winlists) {
                 $winArr = explode(',', $winCode);
@@ -453,7 +456,7 @@ class LunaFunctions
                     $lunaFunction = new LunaFunctions();
                     foreach ($args as $lotId => $data) {
                         $touSn = $data['touSn'];
-                        if(isset($data['matchCount'])){
+                        if (isset($data['matchCount'])) {
                             $matchCount = $data['matchCount'];
                         }
                         unset($data['eachPrice'], $data['touSn'], $data['matchCount']);
@@ -465,9 +468,9 @@ class LunaFunctions
                             if (!isset($matchCount)) $matchCount = 1;
 // 							file_put_contents ( __WAF_ROOT__ . '/win33.log','$matchCount:'.$matchCount . '\n', FILE_APPEND );
 //                            $lottery->update($lotId, array('noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount));
-                            lu_lotteries_k3::where('id',$lotId)->update(['noticed'=>1,'bingoPrice'=>$data['amount'],'dealing'=>$matchCount]);
+                            lu_lotteries_k3::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
 //                            $userInfo = $userModel->detail($data['uid']);
-                            $userInfo = lu_user_data::where('uid',$data['uid'])->first();
+                            $userInfo = lu_user_data::where('uid', $data['uid'])->first();
 
                             $tempPoints = $userInfo['points'];
                             $pointRecordData = array(
@@ -485,14 +488,17 @@ class LunaFunctions
                             lu_points_record::create($pointRecordData);
 //                            $pointRecordModel->insert($pointRecordData);
 //                            $userModel->updateLoginInfo($data['uid'], array('points' => array('+', $data['amount'])));
-                            lu_user_data::where('uid',$data['uid'])->update(['points'=>$pointRecordData['newPoint']]);
+                            lu_user_data::where('uid', $data['uid'])->update(['points' => $pointRecordData['newPoint']]);
                             // 取消 追号
 //                            $detail = $lottery->detail($lotId);
-                            $detail = lu_lotteries_k3::where('id',$lotId);
-                            if ($detail['groupId'] != null) {
-                                $groupId = explode('_', $detail['groupId']);
-                                $tingCount = intval($groupId[1]);
-                                //todo 取消追号逻辑
+                            if (!empty($lotId)) {
+
+                                $detail = lu_lotteries_k3::where('id', $lotId)->first();
+
+                                if ($detail['groupId'] != null) {
+                                    $groupId = explode('_', $detail['groupId']);
+                                    $tingCount = intval($groupId[1]);
+                                    //todo 取消追号逻辑
 //                                if ($tingCount > 0) {
 //                                    $winCount = $lottery->queryNoticedCountByGroupId($detail['groupId']);
 //                                    if ($winCount >= $tingCount) {
@@ -523,6 +529,7 @@ class LunaFunctions
 //
 //                                    }
 //                                }
+                                }
                             }
                         } catch (Exception $e) {
 //                            file_put_contents(__WAF_ROOT__ . '/error.log', date('Y-m-d h:i:s', Waf_Time) . $e, FILE_APPEND);
@@ -533,7 +540,7 @@ class LunaFunctions
             }
 //            $model->updateByProName($winPre, array('isOpen' => 1));
 
-            lu_lotteries_k3::where('province',$lottery_type)->where('proName',$winPre)->update(['isOpen'=>1]);
+            lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['isOpen' => 1]);
 
             // 如果是撤单在开奖.则需处理已经追号结束的.
 

@@ -9,6 +9,7 @@ use App\lu_user;
 use App\lu_user_data;
 use App\LunaLib\Common\CommonClass;
 use App\LunaLib\Common\defaultCache;
+use App\LunaLib\Common\Lottery_GetTime;
 use App\LunaLib\Common\LunaFunctions;
 
 use Illuminate\Http\Request;
@@ -473,6 +474,7 @@ class LotteryK3Controller extends Controller
             $timeData = $lunaFunctions->get_current_period($lotteryType);
             return $timeData['currentPeriod'];
         } else {
+            //todo
             $time = new Lottery_GetTime();
             $lotteryType = strtoupper($lotteryType);
             $action = 'getTimeFor' . $lotteryType;
