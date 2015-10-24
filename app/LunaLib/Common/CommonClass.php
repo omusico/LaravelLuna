@@ -54,6 +54,21 @@ class CommonClass {
         }
     }
 
+    /**
+
+     * 处理价格（保留两位小数）
+
+     *
+
+     * @static
+
+     * @param string $price
+
+     * @param string $auto 是否自动四舍五入
+
+     * @return void
+
+     */
     public static function price($price ,$auto = 1){
 
         if(!$price) return '0.00';
@@ -68,5 +83,22 @@ class CommonClass {
 
         }
 
+    }
+
+
+    /**
+     * 安全转换字符串
+     *
+     * @return string
+     */
+    public static function safeString($string) {
+        if(is_array($string)) {
+            foreach($string as $key => $val)
+                $string[$key] = self::safeString($val);
+        } else {
+            $string = preg_replace('/&amp;((#(\d{3,5}|x[a-fA-F0-9]{4})|[a-zA-Z][a-z0-9]{2,5});)/', '&\\1',
+                str_replace(array('&', '"', '<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $string));
+        }
+        return $string;
     }
 }

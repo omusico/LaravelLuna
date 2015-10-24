@@ -27,70 +27,6 @@ class CollectController extends Controller
         return view('welcome');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
     //采集
     public function collectLotteryData(Request $request)
     {
@@ -150,6 +86,7 @@ class CollectController extends Controller
 //            $periodTime = 300;
 //        }
         // 判断下当前期是否已经入库.若没有.则进行开奖采集.
+        $hadKj = false; // 是否已经开奖
         if ($count < 1) {
             // 如果时间上比较还比较早,则没必要采集.直接读取上一期的数据库
 
@@ -159,7 +96,6 @@ class CollectController extends Controller
             // 越大优先级越高
             $cjConfig = Common\CommonClass::arraySort($cjConfig, 'priority', SORT_DESC);
 
-            $hadKj = false; // 是否已经开奖
 //            $source;
 
             foreach ($cjConfig as $key => $val) {
@@ -287,8 +223,9 @@ class CollectController extends Controller
 
         // 且需要通知其他站点
         //todo 下面具体是否需要实现有待考虑
-//        if( $hadKj && count($urls) > 0 ){
-//            // 通知其他站点
+        if ($hadKj) {
+            $this->syncCjFromNotice($lotteryType, $timeData['prePeriod'], $kjData['preOpenResult'], $source);
+            // 通知其他站点
 //            $base = Waf_Config::get('base');
 //            $theme = $base['theme'];
 //
@@ -302,10 +239,43 @@ class CollectController extends Controller
 //
 //            $mp->set_urls($newUrls);
 //            $contents = $mp->start();
-//
-//        }
+
+        }
         return $result;
 //        $this->response->throwJson($result);
+    }
+
+    // 根据通知来开奖派奖
+    // 入参  开奖期数,开奖结果
+    public function syncCjFromNotice($lotteryType, $prePeriod, $preOpenResult, $source)
+    {
+
+//        $lotteryType = strtoupper(trim($this->request->lottery_type));
+//        $prePeriod = trim($this->request->prePeriod);
+//        $preOpenResult = trim($this->request->preOpenResult);
+//        $from = trim($this->request->from); // 来源
+//        $lotteryResult = Waf::model('lottery/result');
+//        $caijiModel = Waf::model('common/caijirecord');
+
+//        $count = $lotteryResult->isExistsProName($timeData['prePeriod'],$lotteryType);
+        $count = lu_lotteries_result::where('proName', $prePeriod)->where('typeName', $lotteryType)->count();
+        if ($count < 1) {
+            // 记录
+            $data = array(
+                'proName' => $prePeriod,
+                'typeName' => $lotteryType,
+                'codes' => $preOpenResult,
+                'created' => strtotime(date('Y-m-d H:i:s')),
+                'source' => $source
+            );
+//            $lotteryResult->insert($data);
+            lu_lotteries_result::create($data);
+            // 进行开奖.
+            // 还未进行开奖
+        }
+        $lunaFunction = new LunaFunctions();
+        $result = $lunaFunction->lottery_kj($lotteryType, $prePeriod, $preOpenResult);
+
     }
 
 }

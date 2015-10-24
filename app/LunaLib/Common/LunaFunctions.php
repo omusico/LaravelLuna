@@ -1,5 +1,9 @@
 <?php
 namespace App\LunaLib\Common;
+use App\lu_lotteries_k3;
+use App\lu_lottery_notes_k3;
+use App\lu_points_record;
+use App\lu_user_data;
 
 /**
  * Created by PhpStorm.
@@ -386,6 +390,158 @@ class LunaFunctions
             default:
                 return '未配置彩种类型,请联系管理员';
                 break;
+        }
+    }
+
+    function lottery_kj($lottery_type, $winPre,$winCode)
+    {
+
+        $type = $this->get_lottery_type_code($lottery_type);
+        if ('k3' == $type) $type = 'lottery';
+//        Waf::moduleLib('Lottery_Result', $type, true);
+        if ($winCode && $winPre) {
+//            $model = Waf::model('lottery/list', array('lottery_type' => $lottery_type));
+            //获奖列表
+            $winlists = lu_lotteries_k3::where('province',$lottery_type)->where('proName',$winPre)->where('noticed',0)->where('status','<>','-1') ->where('status','<>','-2')->get();
+            //获奖处理
+//            $model->updateAllDealing($winPre, array('dealing' => 1, 'resultNum' => $winCode));
+            lu_lotteries_k3::where('province',$lottery_type)->where('proName',$winPre)->update(['dealing'=>1,'resultNum'=>$winCode]);
+            $args = array();
+            if ($winlists) {
+                $winArr = explode(',', $winCode);
+                if ($type == 'lottery') {
+                    $types = defaultCache::cache_lottery_type();//Waf::moduleData('lottery_type', 'lottery');
+                    $types2 = defaultCache::cache_lottery_type2();//Waf::moduleData('lottery_type', 'lottery', 2);
+                    $types = $types + $types2;
+                } else {
+//                    $types = Waf::moduleData($type . '_type', $type);
+                }
+
+                if ($type == 'xy') {
+                    $result = new Lottery_Result($winPre, $winArr);
+                } else {
+                    $result = new Lottery_Result();
+                }
+
+                foreach ($winlists as $row) {
+                    $action = 'type' . $types[$row['typeId']]['slug'];
+
+                    // 增加抽奖 addChouJiangRecord($uid,$eachPrice);
+
+                    if ($row['groupId'] != null) {
+                        //todo 增加抽奖
+//                        addChouJiangRecord($row['uid'], $row['eachPrice']);
+                    }
+
+                    if (method_exists($result, $action)) {
+//                        if ('poker' == $type) $winArr = parsePokerResult($winCode);
+                        $myResults = $result->{$action}($winArr, $winPre, $row);
+                        if ($myResults) {
+                            $myResults["lotSn"] = $row['lotId'];
+                            $myResults["touSn"] = $row['sn'];
+                            $args[$row['lotId']] = $myResults;
+                        }
+                    } else {
+                        echo '未配置方法';
+                    }
+                }
+                if ($args) {
+//                    $note = Waf::model('lottery/note', array('lottery_type' => $lottery_type));
+//                    $lottery = Waf::model('lottery/list', array('lottery_type' => $lottery_type));
+//                    $userModel = Waf::model('user/list');
+//                    $pointRecordModel = Waf::model('lottery/pointrecord');
+                    $lunaFunction = new LunaFunctions();
+                    foreach ($args as $lotId => $data) {
+                        $touSn = $data['touSn'];
+                        if(isset($data['matchCount'])){
+                            $matchCount = $data['matchCount'];
+                        }
+                        unset($data['eachPrice'], $data['touSn'], $data['matchCount']);
+                        $data['status'] = 1;
+                        $data['province'] = $lottery_type;
+                        $data['provinceName'] = $lunaFunction->get_lottery_name($lottery_type);
+                        try {
+                            lu_lottery_notes_k3::create($data);
+                            if (!isset($matchCount)) $matchCount = 1;
+// 							file_put_contents ( __WAF_ROOT__ . '/win33.log','$matchCount:'.$matchCount . '\n', FILE_APPEND );
+//                            $lottery->update($lotId, array('noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount));
+                            lu_lotteries_k3::where('province',$lotId)->update(['noticed'=>1,'bingoPrice'=>$data['amount'],'dealing'=>$matchCount]);
+//                            $userInfo = $userModel->detail($data['uid']);
+                            $userInfo = lu_user_data::where('uid',$data['uid'])->first();
+
+                            $tempPoints = $userInfo['points'];
+                            $pointRecordData = array(
+                                'uid' => $data['uid'],
+                                'userName' => $userInfo['name'],
+                                'addType' => '2', // 中奖
+                                'lotteryType' => $lottery_type, //
+                                'touSn' => $touSn,
+                                'winSn' => $data['dateSn'],
+                                'oldPoint' => $tempPoints,
+                                'changePoint' => $data['amount'],
+                                'newPoint' => $tempPoints + $data['amount'],
+                                'created' => strtotime(date('Y-m-d H:i:s'))
+                            );
+                            lu_points_record::create($pointRecordData);
+//                            $pointRecordModel->insert($pointRecordData);
+//                            $userModel->updateLoginInfo($data['uid'], array('points' => array('+', $data['amount'])));
+                            lu_user_data::where('uid',$data['uid'])->update(['points'=>$pointRecordData['newPoint']]);
+                            // 取消 追号
+//                            $detail = $lottery->detail($lotId);
+                            $detail = lu_lotteries_k3::where('lotId',$lotId);
+                            if ($detail['groupId'] != null) {
+                                $groupId = explode('_', $detail['groupId']);
+                                $tingCount = intval($groupId[1]);
+                                //todo 取消追号逻辑
+//                                if ($tingCount > 0) {
+//                                    $winCount = $lottery->queryNoticedCountByGroupId($detail['groupId']);
+//                                    if ($winCount >= $tingCount) {
+//
+//                                        // 同时反本金
+//                                        $fanMoney = $lottery->queryFanMoney($detail['groupId']);
+//// 										if( $fanMoney > 0){
+//
+//                                        $pointRecordData = array(
+//                                            'uid' => $data['uid'],
+//                                            'userName' => $userInfo['name'],
+//                                            'addType' => '14', // 中奖
+//                                            'lotteryType' => $lottery_type, //
+//                                            'touSn' => $detail['groupId'],
+//                                            'oldPoint' => $tempPoints + $data['amount'],
+//                                            'changePoint' => $fanMoney,
+//                                            'newPoint' => $tempPoints + $data['amount'] + $fanMoney,
+//                                            'created' => strtotime(date('Y-m-d H:i:s')),
+//                                            'bz' => '追号'
+//                                        );
+//
+//                                        $pointRecordModel->insert($pointRecordData);
+//                                        $userModel->updateLoginInfo($data['uid'], array('points' => array('+', $fanMoney)));
+//// 										}
+//
+//                                        // 停止追号
+//                                        $lottery->updateLotteryStatus($detail['groupId'], array('status' => -1, 'isOpen' => 1));
+//
+//                                    }
+//                                }
+                            }
+                        } catch (Exception $e) {
+//                            file_put_contents(__WAF_ROOT__ . '/error.log', date('Y-m-d h:i:s', Waf_Time) . $e, FILE_APPEND);
+                        }
+                    }
+                    unset($note, $lottery, $userModel);
+                }
+            }
+//            $model->updateByProName($winPre, array('isOpen' => 1));
+
+            lu_lotteries_k3::where('province',$lottery_type)->where('proName',$winPre)->update(['isOpen'=>1]);
+
+            // 如果是撤单在开奖.则需处理已经追号结束的.
+
+
+            $msg = $lottery_type . "第" . $winPre . '期共投注:' . count($winlists) . '单,中奖注数：' . count($args);
+            return array("success" => true, "msg" => $msg);
+        } else {
+            return array("success" => false, "msg" => "参数配置错误");
         }
     }
 }

@@ -4,6 +4,8 @@
 /////////////////////////////////接收表单提交参数//////////////////////////////////////
 ////////////////////////To receive the parameter form HTML form//////////////////////
 
+$_SERVER['HTTP_ORIGIN']='http://k3.gwou.cn/';
+$_SERVER['HTTP_HOST']='http://k3.gwou.cn/';
 $merchant_code = $_POST['merchant_code'];
 $service_type = $_POST['service_type'];
 $interface_version = $_POST['interface_version'];

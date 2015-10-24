@@ -297,14 +297,15 @@ class defaultCache
         );
     }
 
-    public static function getByCrul($url){
+    public static function getByCrul($url)
+    {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0');
         curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_TIMEOUT,12); //timeout on response
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,10);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 12); //timeout on response
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
         $response = curl_exec($ch);
         curl_close($ch);
         return $response;
@@ -372,9 +373,75 @@ class defaultCache
                 ),
         );
     }
-    public static function cache_lottery_url(){
-        return array (
-            'anhui' => array (
+
+    public static function cache_lottery_type2()
+    {
+        return array(
+            9 =>
+                array(
+                    'typeId' => '9',
+                    'name' => '和值',
+                    'odds' => '90',
+                    'slug' => 'HZ',
+                ),
+            8 =>
+                array(
+                    'typeId' => '8',
+                    'name' => '通选',
+                    'odds' => '90',
+                    'slug' => 'TX',
+                ),
+            /*   1 =>
+              array (
+                'typeId' => '1',
+                'name' => '三同号通选',
+                'odds' => '90',
+                'slug' => '3THTX',
+              ), */
+            2 =>
+                array(
+                    'typeId' => '2',
+                    'name' => '三同号单选',
+                    'odds' => '90',
+                    'slug' => '3THDX',
+                ),
+            3 =>
+                array(
+                    'typeId' => '3',
+                    'name' => '三不同',
+                    'odds' => '90',
+                    'slug' => '3BTH',
+                ),
+
+            5 =>
+                array(
+                    'typeId' => '5',
+                    'name' => '二同号复选',
+                    'odds' => '90',
+                    'slug' => '2THFX',
+                ),
+            6 =>
+                array(
+                    'typeId' => '6',
+                    'name' => '二同号单选',
+                    'odds' => '90',
+                    'slug' => '2THDX',
+                ),
+            7 =>
+                array(
+                    'typeId' => '7',
+                    'name' => '二不同号',
+                    'odds' => '90',
+                    'slug' => '2BTH',
+                ),
+
+        );
+    }
+
+    public static function cache_lottery_url()
+    {
+        return array(
+            'anhui' => array(
                 'js' => 'cll',
                 'cll' => array(
                     'getAwardInfo' => 'http://www.cailele.com/static/termInfo/P163.txt?_=1411267169825',
@@ -388,7 +455,7 @@ class defaultCache
                 ),
                 'times' => 80
             ),
-            'jilin' => array (
+            'jilin' => array(
                 'js' => 'cll',
                 'cll' => array(
                     'getAwardInfo' => 'http://www.cailele.com/static/termInfo/P159.txt?_=1411266100414',
@@ -403,18 +470,18 @@ class defaultCache
                 ),
                 'times' => 79
             ),
-            'jsold' => array (
+            'jsold' => array(
                 'js' => 'wy',
                 'cll' => array(
 // 				'getAwardInfo'=>'http://www.cailele.com/static/termInfo/P157.txt',
-                    'qqServerTime'=>'http://www.cailele.com/serverDate.php?type=1&tag=hup43jer',
+                    'qqServerTime' => 'http://www.cailele.com/serverDate.php?type=1&tag=hup43jer',
                     'getAwardInfo' => 'http://43.248.8.48/jsk3.json',
                     'awardSeconds' => '125'
                 ),
                 'wy' => array(
                     'qqServerTime' => 'http://caipiao.163.com/order/preBet_periodInfoTime.html?gameEn=oldkuai3&cache=1403590172160',
 // 				'qqServerTime' => 'http://www.google.com',
-                    'getAwardInfo' =>	'http://caipiao.163.com/award/getAwardNumberInfo.html?gameEn=oldkuai3&cache=1422365420687&periodNum=1',
+                    'getAwardInfo' => 'http://caipiao.163.com/award/getAwardNumberInfo.html?gameEn=oldkuai3&cache=1422365420687&periodNum=1',
 // 				'getAwardInfo' => 'http://caipiao.163.com/order/preBet_moreAwardNumberInfoForKuai3.html?gameId=2012112609YX00000002&cache=1403588056669',
 // 				'getAwardInfo'=>'http://43.248.8.48/jsk3.json',
                     'awardSeconds' => '135'
@@ -1570,66 +1637,67 @@ class defaultCache
         );
     }
 
-    public static function cache_lottery_type_slug(){
-        return array (
+    public static function cache_lottery_type_slug()
+    {
+        return array(
             'HZ' =>
-                array (
+                array(
                     'typeId' => '9',
                     'name' => '和值',
                     'odds' => '90',
                     'slug' => 'HZ',
                 ),
             'DZ' =>
-                array (
+                array(
                     'typeId' => '10',
                     'name' => '对子包选',
                     'odds' => '90',
                     'slug' => 'DZ',
                 ),
             '3THTX' =>
-                array (
+                array(
                     'typeId' => '1',
                     'name' => '三同号通选',
                     'odds' => '90',
                     'slug' => '3THTX',
                 ),
             '3THDX' =>
-                array (
+                array(
                     'typeId' => '2',
                     'name' => '三同号单选',
                     'odds' => '90',
                     'slug' => '3THDX',
                 ),
             '3BTH' =>
-                array (
+                array(
                     'typeId' => '3',
                     'name' => '三不同号',
                     'odds' => '90',
                     'slug' => '3BTH',
                 ),
             '3LHTX' =>
-                array (
+                array(
                     'typeId' => '4',
                     'name' => '三连号通选',
                     'odds' => '90',
                     'slug' => '3LHTX',
                 ),
             '2THFX' =>
-                array (
+                array(
                     'typeId' => '5',
                     'name' => '二同号复选',
                     'odds' => '90',
                     'slug' => '2THFX',
                 ),
             '2THDX' =>
-                array (
+                array(
                     'typeId' => '6',
                     'name' => '二同号单选',
                     'odds' => '90',
                     'slug' => '2THDX',
                 ),
             '2BTH' =>
-                array (
+                array(
                     'typeId' => '7',
                     'name' => '二不同号',
                     'odds' => '90',

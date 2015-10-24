@@ -1090,7 +1090,7 @@ CP.submit = function () {
                     $('#typeboxSubmit').attr('disabled', true).html('数据提交中...');
                     $.ajax({
                         type: "POST",
-                        url: "/lotteryBetting?rand=" + Math.random() + "&lottery_type=jsold",
+                        url: "/lotteryBetting?rand=" + Math.random() + "&lottery_type="+lottery_type,
                         data: "playType=" + pt + '&zhushu=' + zhushu + '&proName=' + proName + '&totals=' + totals + '&codes=' + encodeURIComponent(codes)+'&_token='+csrf_token,
                         dataType: "json",
                         cache: false,

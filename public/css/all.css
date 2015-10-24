@@ -7108,7 +7108,7 @@ button.close {
 
 .bettingBox {
     float: left;
-    width: 585px;
+    width: 100%;
     border: 1px solid rgb(221, 221, 221);
     margin-bottom: 1px;
 }

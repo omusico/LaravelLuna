@@ -291,22 +291,22 @@
                         <li><strong>老快3</strong> 第<em>151023-082</em>期开奖号码<br>
                             开奖时间：2015-10-23 22:10:00
                             <br>
-                            <a href="/jsks/">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=jsold">立即购买</a>
                             <img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/4x24.png">                </li>
                         <li><strong>快3</strong> 第<em>151023-080</em>期开奖号码<br>
                             开奖时间：2015-10-23 22:00:00
                             <br>
-                            <a href="/ahks/">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=jilin">立即购买</a>
                             <img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/5x24.png">                </li>
                         <li><strong>欢乐快3</strong> 第<em>150722-017</em>期开奖号码<br>
                             开奖时间：2015-07-22 11:50:00
                             <br>
-                            <a href="/hubks/">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=hubei">立即购买</a>
                             <img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/3x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/4x24.png">                </li>
                         <li style="border-bottom:none; padding-bottom:0;"><strong>新快3</strong> 第<em>151023-073</em>期开奖号码<br>
                             开奖时间：2015-10-23 21:45:00
                             <br>
-                            <a href="/nmgks/">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=nmg">立即购买</a>
                             <img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/3x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/6x24.png">                </li>
                     </ul>
                 </div>

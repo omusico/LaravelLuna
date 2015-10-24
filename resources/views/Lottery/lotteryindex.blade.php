@@ -8,6 +8,7 @@
     <script type="text/javascript">
         var lottery_type = '{{$config['lotterytype']}}';
         var num ={{$lotterystatus[$config['lotterytype']]['num']}};
+        console.log(num);
     </script>
 @stop
 @section('content')

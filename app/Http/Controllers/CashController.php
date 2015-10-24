@@ -114,6 +114,7 @@ class CashController extends Controller
             );
             lu_lottery_recharge::create($data);
             if($paytype == 'zf'){
+//                Redirect::to("")
                 return view('Cash.lotteryorderzf');
             }else{
                 return view('Cash.lotteryorderkjt');

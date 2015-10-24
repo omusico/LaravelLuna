@@ -30,19 +30,21 @@ class LotteryK3Controller extends Controller
         $chipins = defaultCache::cache_chipin();
         $k3Odds = defaultCache::cache_k3_odds();
         $lotterystatus = defaultCache::cache_lottery_status();
-        return view('Lottery.lotteryindex', compact('czName', 'config', 'chipins', 'k3Odds','lotterystatus'));
+        return view('Lottery.lotteryindex', compact('czName', 'config', 'chipins', 'k3Odds', 'lotterystatus'));
     }
 
-    public function loadRecentResult(Request $request){
+    public function loadRecentResult(Request $request)
+    {
         $lotteryType = strtoupper(trim($request->lottery_type));
 //        $recentNum = $this->request->recentNum;
 //        $lotteryResult = Waf::model('lottery/result');
 //        $data = $lotteryResult->queryRecent($lotteryType,$recentNum);
-        $data = lu_lotteries_result::where('typeName',$lotteryType)->get();
+        $data = lu_lotteries_result::where('typeName', $lotteryType)->get();
         return $data;
     }
 
-    public function k3GameRule(){
+    public function k3GameRule()
+    {
         return view('k3gamerule');
     }
 
@@ -66,21 +68,22 @@ class LotteryK3Controller extends Controller
         return $code;
     }
 
-    public function getLotteryDataForQt(Request $request){
+    public function getLotteryDataForQt(Request $request)
+    {
 
         $lunaFunctions = new LunaFunctions();
         $lotteryType = strtoupper(trim($request->lottery_type));
         $timeData = $lunaFunctions->get_current_period($lotteryType);
 //        $lotteryResult = Waf::model('lottery/result');
 //        $count = $lotteryResult->isExistsProName($timeData['prePeriod'],$lotteryType);
-        $count =0;
-        if( $count < 1){
+        $count = 0;
+        if ($count < 1) {
             // 开奖中
             $status = 1;
             $msg = '开奖中';
             $kjData = array(
                 'preTerm' => $timeData['prePeriod'],
-                'preOpenResult'=> ''
+                'preOpenResult' => ''
             );
         } else {
             // 已开奖
@@ -101,7 +104,7 @@ class LotteryK3Controller extends Controller
             "status" => $status,
             "msg" => $msg,
             "lotteryType" => $lotteryType,
-            "data" => array_merge($timeData,$kjData)
+            "data" => array_merge($timeData, $kjData)
         );
         return $result;
     }
@@ -136,12 +139,13 @@ class LotteryK3Controller extends Controller
 
             $codes = $request->codes;//$this->request->codes;
             $proName = $request->proName;//$this->request->proName;
+            $lottery_type = $request->lottery_type;
             // strlen($proName) <= 5
             if (empty($codes) || empty($proName) || ($proName == '20-1-')) {
 //                $this->response->throwJson(array('tip' => 'error', 'msg' => '系统繁忙,请重新投注'));
             }
 
-            $now = $this->getCurrentTerm($request->lottery_type);
+            $now = $this->getCurrentTerm($lottery_type);
 
             if ($now != $proName) {
 //                $this->response->throwJson(array('tip' => 'timeout', 'msg' => '第' . $proName . '期已经截止下注,请稍后'));
@@ -162,7 +166,7 @@ class LotteryK3Controller extends Controller
                     list($code, $slug, $name, $eachPrice, $bingoPrice) = explode('|', $v);
                     // 如果有和值,则获取 一期已买数量
                     if ($slug == 'HZ' && in_array($code, array('单', '双', '大', '小'))) {
-                        $buyedMondy = $lunaFunctions->get_buyed_money($uid, $proName, $slug, $request->lottery_type);
+                        $buyedMondy = $lunaFunctions->get_buyed_money($uid, $proName, $slug, $lottery_type);
                         break;
                     }
                 }
@@ -172,7 +176,7 @@ class LotteryK3Controller extends Controller
 
                     list($code, $slug, $name, $eachPrice, $bingoPrice) = explode('|', $v);
                     if (!preg_match("/^\d*$/", $eachPrice)) {
-//                    $this->response->throwJson(array('tip' => 'error', 'msg' => '下注金额非数字'));
+                        return array('tip' => 'error', 'msg' => '下注金额非数字');
                     }
 
                     if ($v == '') {
@@ -212,7 +216,7 @@ class LotteryK3Controller extends Controller
             }
 
             if ($totals > $points) {
-                $this->response->throwJson(array('tip' => 'login', 'msg' => '您的余额不足，请立即充值'));
+                return array('tip' => 'login', 'msg' => '您的余额不足，请立即充值');
             }
 
             $this->typeDatas = defaultCache::cache_k3_odds();//Waf::moduleData('odds', 'lottery');
@@ -264,8 +268,8 @@ class LotteryK3Controller extends Controller
                         'recUid' => $recUid,
                         'bingoPrice' => CommonClass::price($new_bingoPrice),
                         'status' => 1,
-                        'province' => $request->lottery_type,
-                        'provinceName' => $lunaFunctions->get_lottery_name($request->lottery_type),
+                        'province' => $lottery_type,
+                        'provinceName' => $lunaFunctions->get_lottery_name($lottery_type),
                         'codes' => $this->_formatCode($code)
                     );
                     lu_lotteries_k3::create($data);
@@ -273,9 +277,9 @@ class LotteryK3Controller extends Controller
 
                     $pointRecordData = array(
                         'uid' => $uid,
-                        'userName' =>$userInfo->name,
+                        'userName' => $userInfo->name,
                         'addType' => '1', // 投注
-                        'lotteryType' => $request->lottery_type, // 彩种
+                        'lotteryType' => $lottery_type, // 彩种
                         'touSn' => $sn,
                         'oldPoint' => $tempPoints,
                         'changePoint' => CommonClass::price($eachPrice),
@@ -313,8 +317,9 @@ class LotteryK3Controller extends Controller
 
 
     //追号
-    public function zhuihao(Request $request){
-        try{
+    public function zhuihao(Request $request)
+    {
+        try {
 
 //            logger($this->request->getParams(),'zhuihao');
 //            $userModel = Waf::model('user/list');
@@ -332,39 +337,42 @@ class LotteryK3Controller extends Controller
 //            $this->baseCheck($userInfo);
             // 单期最大值校验
 
-            $codeArr = $this->checkPerMaxPoint( $userdata['points']);
+            $codeArr = $this->checkPerMaxPoint($userdata['points']);
 
-            foreach($codeArr as $group){
+            foreach ($codeArr as $group) {
 
                 $groupId = create_order_no($uid);
-                $groupId = $groupId.'_'.$ting;
+                $groupId = $groupId . '_' . $ting;
                 $i = 0;
 
-                foreach($group as $value){
+                foreach ($group as $value) {
                     //     			list($code,$eachPrice,$proNumber) = explode('|',$v);
                     // 单|HZ|和值|20|20141123-066<waf>单|HZ|和值|20|20141123-067<waf>单|HZ|和值|20|20141123-068<waf>单|HZ|和值|20|20141123-069<waf>单|HZ|和值|20|20141123-070<waf>
-                    list($code,$slug,$name,$eachPrice,$proNumber)=explode('|',$value);
-                    $i ++;
-                    if(isset($types[$slug]) && !empty($types[$slug])){
+                    list($code, $slug, $name, $eachPrice, $proNumber) = explode('|', $value);
+                    $i++;
+                    if (isset($types[$slug]) && !empty($types[$slug])) {
 
 
-
-                        if( $slug == 'HZ' || $slug == 'TX'){
+                        if ($slug == 'HZ' || $slug == 'TX') {
                             $key = trim($code);
-                            switch($code){
+                            switch ($code) {
                                 case '单':
-                                    $key = '19'; break;
+                                    $key = '19';
+                                    break;
                                 case '双':
-                                    $key = '20'; break;
+                                    $key = '20';
+                                    break;
                                 case '大':
-                                    $key = '21';break;
+                                    $key = '21';
+                                    break;
                                 case '小':
-                                    $key = '22'; break;
+                                    $key = '22';
+                                    break;
                                 default:
                                     $key = trim($code);
                             }
                             $odds = $this->typeDatas[$slug][$key];
-                        } else{
+                        } else {
                             $odds = $this->typeDatas[$slug]['value'];
                         }
 
@@ -373,27 +381,27 @@ class LotteryK3Controller extends Controller
                         $sn = create_order_no($uid);
 
                         $data = array(
-                            'typeId'=>intval($types[$slug]['typeId']),
-                            'sn'=>$sn,
-                            'proName'=>$proNumber,
-                            'total'=>$totals,
-                            'eachPrice'=>Waf::price($eachPrice),
-                            'siteId'=>siteId,
-                            'created'=> (strtotime("now") - $i),
-                            'uid'=>$uid,
-                            'userName'=>Waf_Cookie::get('username'),
-                            'userIp'=>$ip,
-                            'times'=>0,
-                            'recUid'=>$recUid,
-                            'bingoPrice'=>Waf::price($new_bingoPrice),
-                            'status'=>1,
-                            'codes'=>$this->_formatCode($code),
+                            'typeId' => intval($types[$slug]['typeId']),
+                            'sn' => $sn,
+                            'proName' => $proNumber,
+                            'total' => $totals,
+                            'eachPrice' => Waf::price($eachPrice),
+                            'siteId' => siteId,
+                            'created' => (strtotime("now") - $i),
+                            'uid' => $uid,
+                            'userName' => Waf_Cookie::get('username'),
+                            'userIp' => $ip,
+                            'times' => 0,
+                            'recUid' => $recUid,
+                            'bingoPrice' => Waf::price($new_bingoPrice),
+                            'status' => 1,
+                            'codes' => $this->_formatCode($code),
                             'province' => $this->lottery_type,
                             'provinceName' => get_lottery_name($this->lottery_type),
-                            'groupId'=> $groupId
+                            'groupId' => $groupId
                         );
                         $bb = $model->insert($data);
-                        $alls = $alls+$totals;
+                        $alls = $alls + $totals;
                         //     				file_put_contents ( __WAF_ROOT__ . '/info.log', '333' , FILE_APPEND );
 
                         $pointRecordData = array(
@@ -401,7 +409,7 @@ class LotteryK3Controller extends Controller
                             'userName' => Waf_Cookie::get('username'),
                             'addType' => '1', // 投注
                             'lotteryType' => $this->lottery_type, // 彩种
-                            'touSn' =>  $sn,
+                            'touSn' => $sn,
                             'oldPoint' => $tempPoints,
                             'changePoint' => -Waf::price($eachPrice),
                             'newPoint' => $tempPoints - Waf::price($eachPrice),
@@ -417,15 +425,14 @@ class LotteryK3Controller extends Controller
             }
 
 
-
             $codes = $this->request->codes;
-            $codeArgs = explode('<waf>',$codes);
+            $codeArgs = explode('<waf>', $codes);
             //     		$codeArgs = array_reverse($codeArgs);
             /*     		$bb = var_export ( $codeArgs, true );
              file_put_contents ( __WAF_ROOT__ . '/zhuihao.log',$bb . '\n', FILE_APPEND );
             */
 
-            $types = Waf::moduleData('lottery_type_slug','lottery');
+            $types = Waf::moduleData('lottery_type_slug', 'lottery');
 
             $model = Waf::model('lottery/list', array('lottery_type' => $this->lottery_type));
             //         var_dump($model);
@@ -434,27 +441,24 @@ class LotteryK3Controller extends Controller
             $recUid = (int)Waf_Cookie::get('recUid');
             $alls = 0;
 
-            $this->typeDatas = Waf::moduleData('odds','lottery');
+            $this->typeDatas = Waf::moduleData('odds', 'lottery');
             $pointRecordModel = Waf::model('lottery/pointrecord');
             $tempPoints = $points;
 
 
-
-
-
             $points = $points - $totals;
-            Waf_Cookie::set('points' ,$points);
+            Waf_Cookie::set('points', $points);
             $userModel = Waf::model('user/list');
-            $userModel->updateLoginInfo($uid ,array('points'=>$points));
-            if($alls!=0 && $recUid > 0){
+            $userModel->updateLoginInfo($uid, array('points' => $points));
+            if ($alls != 0 && $recUid > 0) {
                 //$userModel->updateInfo($recUid ,array('totalBuy'=>array('+'=>intval($totalBuy))));
-                $sql="UPDATE xh_users SET totalBuy=totalBuy+{$alls} WHERE uid={$recUid}";
+                $sql = "UPDATE xh_users SET totalBuy=totalBuy+{$alls} WHERE uid={$recUid}";
                 Waf_Db::get()->command($sql)->query();
             }
-            $this->response->throwJson(array('tip'=>'success','msg'=>'提交成功','points'=>$points));
-        } catch (Exception $e){
-            file_put_contents(__WAF_ROOT__.'/error.log', date('Y-m-d H:i:s',Waf_Time).$e,FILE_APPEND);
-            $this->response->throwJson(array('tip'=>'error','msg'=>$e,'points'=>$points));
+            $this->response->throwJson(array('tip' => 'success', 'msg' => '提交成功', 'points' => $points));
+        } catch (Exception $e) {
+            file_put_contents(__WAF_ROOT__ . '/error.log', date('Y-m-d H:i:s', Waf_Time) . $e, FILE_APPEND);
+            $this->response->throwJson(array('tip' => 'error', 'msg' => $e, 'points' => $points));
         }
     }
 

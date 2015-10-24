@@ -84,7 +84,7 @@ Route::get('/k3GameRule',['uses'=>'LotteryK3Controller@k3GameRule']);
 Route::get('/phpinfo',['uses'=>'WelcomeController@phpinfo']);
 
 //充值
-Route::get('/recharge',['uses'=>'CashController@recharge']);
+Route::get('/recharge',['middleware' => 'auth','uses'=>'CashController@recharge']);
 Route::post('/recharge',['as'=>'recharge','uses'=>'CashController@rechargePost']);
 
 //智付，接口数据返回
