@@ -1,4 +1,5 @@
 <?php namespace App\Http\Controllers;
+use DB;
 
 class WelcomeController extends Controller {
 
@@ -30,7 +31,36 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('index');
+        $recentResult = Db::select('SELECT proName,typeName, MAX(created_at) as created_at,codes FROM lu_lotteries_results GROUP BY typeName');
+        $recentArray = array();
+        foreach($recentResult as $key=>$value){
+            if($value->typeName=="ANHUI"){
+                $recentArray['ANHUI'] = $value;
+            }
+
+            if($value->typeName=="BEIJIN"){
+                $recentArray['BEIJIN'] = $value;
+            }
+            if($value->typeName=="FJK3"){
+                $recentArray['FJK3'] = $value;
+            }
+            if($value->typeName=="HUBEI"){
+                $recentArray['HUBEI'] = $value;
+            }
+            if($value->typeName=="JILIN"){
+                $recentArray['JILIN'] = $value;
+            }
+            if($value->typeName=="JSNEW"){
+                $recentArray['JSNEW'] = $value;
+            }
+            if($value->typeName=="JSOLD"){
+                $recentArray['JSOLD'] = $value;
+            }
+            if($value->typeName=="NMG"){
+                $recentArray['NMG'] = $value;
+            }
+        }
+		return view('index',compact('recentArray'));
 	}
 
     public function phpinfo(){

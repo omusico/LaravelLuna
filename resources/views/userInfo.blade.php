@@ -31,10 +31,18 @@
             <div class="nk3_login_bottom"></div>
         </div>
     @else
-        <div style="margin-top: 50px">
-            尊敬的用户<br/>您还未登陆，请马上<a href="/login"><span
-                        style="font-family: bold;color: red">登陆</span> </a>
-            或<a><span style="color: red;">注册</span></a>
+        <div style="margin-top: 20px">
+            {!! Form::open(['url' => '/login', 'class' => 'navbar-form navbar-right', 'role' => 'search']) !!}
+            <div class="form-group">
+                {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder'
+                =>'用户名...','required']) !!}
+                {!! Form::password('password', ['class' => 'form-control', 'placeholder'=>'密码...','required','style'=>'margin-top:10px;margin-bottom:10px'])
+                !!}
+            </div>
+            {!! Form::submit('登陆', ['class' => 'btn btn-sm btn-primary']) !!}
+            <a class="btn btn-sm btn-info" href="{{ url('/register') }}" >免费注册</a>
+            <a class="btn btn-sm btn-warning" href="{{ url('/register') }}" >代理注册</a>
+            {!! Form::close() !!}
         </div>
     @endif
 </div>

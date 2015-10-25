@@ -77,5 +77,14 @@ function setOutTime() {
         }
     });
 
+    $.ajax({
+        type: "get",
+        url: currenturl+"hebei",
+        dataType: "json",
+        cache: false,
+        success: function (json) {
+            console.log(json);
+        }
+    });
     setTimeout("setOutTime()",30000);
 }

@@ -95,73 +95,11 @@
     </style>
 @stop
 @section('content')
-    <div class="container header" style="margin-top: 50px" id="indexHeader">
-        <div class="logoWrap">
-            <h1 class="logo"><a href="#" title="中国快三网" class="logoLink"><img src="/css/m_logo.png" alt="中国快三网"></a></h1>
-        </div>
-        <ul class="part_nav">
-            <li class="home_cur " style="background-color: red"><a href="/" title="中国快三网首页" id="link83">首页</a></li>
-            <li class="m_li ">
-                <a href="/k3GameRule" target="_blank" title="游戏规则">游戏规则</a>
-            </li>
-            <li class="m_li "><a target="_blank" href="" title="走势图">走势图</a></li>
-            <li class="m_li ">
-                <a title="合作代理" target="_blank" href="/inviteurl">合作代理</a>
-            </li>
-            <li class="m_li ">
-                <a title="网址" href="#">网址</a>
-            </li>
-            <li class="m_li last"><a href="/userLotteryBetting" target="_blank" title="交易记录">交易记录</a></li>
-        </ul>
-        <div class="contact_r" style="width: auto; margin: 10px 20px 0 0; right: 70px;"><img src="/css/kftel.png"
-                                                                                             title="7×24小时服务热线：4000-500-500"
-                                                                                             alt="7×24小时服务热线：4000-500-500">
-        </div>
-        <div class="home_hb" style="background-color: red">
-            <ul>
-                <li><a target="_blank" href="" title="" id="link100">网站公告:开业大奖送好礼</a></li>
-            </ul>
-        </div>
-    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-3" style="margin-right: 0px">
                 <div class="h_l_cp" style="height: 211px">
                     @include('userinfo')
-                </div>
-                <div class="h_l_cp" style="background-color: #fbf8e9;font-size: 90%">
-                    <div style="border-bottom: #808080 solid 1px;text-align: center;font-family: bold">
-                        <a><br/>购买快三 快速导航<br/><br/></a>
-                    </div>
-                    <ul class="lottery_box" style="list-style: none;padding-top: 15px">
-                        <li>
-                            <div class="sub_lottery_tip"><a href="/lotteryIndex?lottery_type=jsold" target="_blank"
-                                                            title="" id="link115">猜一场，易中奖，87%返奖率！</a></div>
-                            <br/>
-
-                            <p class="sub_lottery">
-                                <a target="_blank" href="/lotteryIndex?lottery_type=jsold"
-                                   style="font-weight: bold; color: #E60010;" title="江苏快三" id="link116">江苏快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b style="color:#00a1ff;">中奖贼简单</b></a><br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=beijin" title="北京快三" id="link117">北京快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b style="color:#47ff36">摇骰子,易中奖</b></a><br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=fjk3" title="福建快三" id="link118">福建快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b style="color:#ff44dc">买三个号就中</b></a><br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=anhui" title="安徽快三" id="link119">安徽快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a> <br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=jilin" title="吉林快三" id="link120">吉林快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b>一天77期(中奖容易)</b></a><br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=jsnew" title="广西快三" id="link121">广西快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><b>一天78期</b><br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=hubei" title="湖北快三" id="link122">湖北快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=nmg" title="内蒙古快三" id="link123">内蒙快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b style="color:#ff6c00">100%中奖</b></a>
-                            </p>
-                        </li>
-                        <li><a href="/k3GameRule" style="padding-left: 30px;list-style: none">如何投注？&nbsp;</a><a
-                                    href="/k3GameRule">如何领奖？</a></li>
-                    </ul>
                 </div>
             </div>
             <div class="col-md-6" style="padding-left: 0px;padding-right: 0px">
@@ -195,166 +133,199 @@
                             </div>
                         </div>
                     </div>
-                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button"
+                       data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button"
+                       data-slide="next">
                         <span class="glyphicon glyphicon-chevron-right"></span>
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-                <div class="clearfix" style="padding-top: 10px">
-                    <div class="bettingBox">
-                        <div class="bet_title">
-                            {{--<h3>老快三：</h3>--}}
-                            <ul class="quickbuy_menu">
-                                <li class="active"><a
-                                            href="">江苏快三</a>
-                                </li>
-                            </ul>
-                            <p class="popularize">
-                                <a target="_top"
-                                   href="#"></a>
-                            </p>
-                        </div>
-                        <dl class="gpcBet_con">
-                            <dd>
-                                <div class="clearfix">
-                                    <h3 class="czLogo icon_gdxuan5">
-                                        <a href="" title="快三"></a>
-                                    </h3>
-
-                                    <div class="gpc_main">
-                                        <p class="gpc_title">
-                                            <a href="/lotteryIndex?lottery_type=jsold"><strong>江苏快三</strong>&nbsp;&nbsp;第<strong
-                                                        class="gpc_period">&nbsp;20151018-061&nbsp;</strong>期</a>
-                                            <span style="display: none;" class="retimeBlock"><span
-                                                        class="retime"><em>00</em>分<em>00</em>秒</span>后截止</span>
-                                        </p>
-
-                                        <p class="gpc_con">
-                                            <a href="">掷骰子，易入门，返奖率超过<span class="c_ba2636">83%</span>
-                                            </a>
-                                        </p>
-                                    </div>
-                                    <div class="gpc_betBtn">
-                                        <a href="/lotteryIndex?lottery_type=jsold"
-                                           class="btnSubmint"></a>
-                                    </div>
-                                    <div class="czTitle clearfix">
-                                        <div class="moreLinks">
-                                            <a class="trendLink" target="_top"
-                                               href="#"><i></i>走势图</a>
-                                            <a class="gameintroLink" target="_top"
-                                               href="#"><i></i>玩法说明</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p style="text-align: center">
-                                    <em class="smallRedball">3</em>
-                                    <em class="smallRedball">3</em>
-                                    <em class="smallRedball">4</em>
-
-                                </p>
-                            </dd>
-                        </dl>
-                    </div>
-                    <div class="bettingBox">
-                        <div class="bet_title">
-                            {{--<h3>新快三：</h3>--}}
-                            <ul class="quickbuy_menu">
-                                <li class="active"><a
-                                            href="/lotteryIndex?lottery_type=jsnew">广西快三</a>
-                                </li>
-                            </ul>
-                            <p class="popularize">
-                                <a target="_top"
-                                   href="/lotteryIndex?lottery_type=jsnew"></a>
-                            </p>
-                        </div>
-                        <dl class="gpcBet_con">
-                            <dd>
-                                <div class="clearfix">
-                                    <h3 class="czLogo icon_gdxuan5">
-                                        <a href="/LotteryIndex?lottery_type=jsnew"
-                                           title="新快三"></a>
-                                    </h3>
-
-                                    <div class="gpc_main">
-                                        <p class="gpc_title">
-                                            <a href=""><strong>广西快三</strong>&nbsp;&nbsp;第<strong class="gpc_period">
-                                                    20151018-033&nbsp;&nbsp;</strong>期</a>
-                                            <span style="display: none;" class="retimeBlock"><span
-                                                        class="retime"><em>00</em>分<em>00</em>秒</span>后截止</span>
-                                        </p>
-
-                                        <p class="gpc_con">
-                                            <a href="">中大奖，赔率高，独特玩法<span class="c_ba2636">单双大小</span>
-                                            </a>
-                                        </p>
-                                    </div>
-                                    <div class="gpc_betBtn">
-                                        <a href="/lotteryIndex?lottery_type=jsnew"
-                                           class="btnSubmint"></a>
-                                    </div>
-                                    <div class="czTitle clearfix">
-                                        <div class="moreLinks">
-                                            <a class="trendLink" target="_top"
-                                               href="#"><i></i>走势图</a>
-                                            <a class="gameintroLink" target="_top"
-                                               href="#"><i></i>玩法说明</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p style="text-align: center">
-                                    <em class="smallRedball">3</em>
-                                    <em class="smallRedball">4</em>
-                                    <em class="smallRedball">5</em>
-                                </p>
-                            </dd>
-                        </dl>
+            </div>
+            <div class="col-md-3">
+                <div class="notice m_b10" id="notice">
+                    <ul class="tabs-nav notice_nav">
+                        <li class="cur"><a href="#">消息</a></li>
+                    </ul>
+                    <div class="tabs-cnt notice_cont">
+                        <ul class="list_icon" style="padding-left: 0px">
+                            <li><a style="width: 205px;" href="http://tieba.baidu.com/p/3493423557" target="_blank">快3技巧：和值攻略揭秘</a><span class="time"></span></li>
+                            <li><a style="width: 205px;" href="http://tieba.baidu.com/p/3493429781" target="_blank">快3技巧 近期数据更有价值</a><span class="time"></span></li>
+                            <li><a style="width: 205px;" href="http://tieba.baidu.com/p/3454498923" target="_blank">快3技巧：五种杀号技巧手到擒来</a><span class="time"></span></li>
+                            <li><a style="width: 205px;" href="http://tieba.baidu.com/p/3389052828" target="_blank">快3玩法中奖妙招：模式选号法</a><span class="time"></span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="distance nk3_kjgg">
-                    <h2 style="margin-top: 0px"><a href="/award/">更多&gt;&gt;</a>快3近期开奖公告</h2>
-                    <ul>
-                        <li><strong>老快3</strong> 第<em>151023-082</em>期开奖号码<br>
-                            开奖时间：2015-10-23 22:10:00
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" style="margin-right: 0px;">
+                <div class="h_l_cp" style="background-color: #fbf8e9;font-size: 90%">
+                    <div style="border-bottom: #808080 solid 1px;text-align: center;font-family: bold">
+                        <a><br/>购买快三 快速导航<br/><br/></a>
+                    </div>
+                    <ul class="lottery_box" style="list-style: none;padding-top: 15px">
+                        <li>
+                            <div class="sub_lottery_tip"><a href="/lotteryIndex?lottery_type=jsold" target="_blank"
+                                                            title="" id="link115">猜一场，易中奖，87%返奖率！</a></div>
+                            <br/>
+
+                            <p class="sub_lottery">
+                                <a target="_blank" href="/lotteryIndex?lottery_type=jsold"
+                                   style="font-weight: bold; color: #E60010;" title="江苏快三" id="link116">江苏快三<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
+                                            style="color:#00a1ff;">中奖贼简单</b></a><br>
+                                <a target="_blank" href="/lotteryIndex?lottery_type=beijin" title="北京快三"
+                                   id="link117">北京快三<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
+                                            style="color:#47ff36">摇骰子,易中奖</b></a><br>
+                                <a target="_blank" href="/lotteryIndex?lottery_type=fjk3" title="福建快三" id="link118">福建快三<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
+                                            style="color:#ff44dc">买三个号就中</b></a><br>
+                                <a target="_blank" href="/lotteryIndex?lottery_type=anhui" title="安徽快三"
+                                   id="link119">安徽快三<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a> <br>
+                                <a target="_blank" href="/lotteryIndex?lottery_type=hebei" title="河北快三"
+                                   id="link119">河北快三<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a> <br>
+                                <a target="_blank" href="/lotteryIndex?lottery_type=jilin" title="吉林快三"
+                                   id="link120">吉林快三<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b>一天77期(中奖容易)</b></a><br>
+                                <a target="_blank" href="/lotteryIndex?lottery_type=jsnew" title="广西快三"
+                                   id="link121">广西快三<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><b>一天78期</b><br>
+                                <a target="_blank" href="/lotteryIndex?lottery_type=hubei" title="湖北快三"
+                                   id="link122">湖北快三<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><br>
+                                <a target="_blank" href="/lotteryIndex?lottery_type=nmg" title="内蒙古快三" id="link123">内蒙快三<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
+                                            style="color:#ff6c00">100%中奖</b></a>
+                            </p>
+                        </li>
+                        <li><a href="/k3GameRule" style="padding-left: 30px;list-style: none">如何投注？&nbsp;</a><a
+                                    href="/k3GameRule">如何领奖？</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3" style="padding-left: 0px;padding-right: 0px;border-right: none">
+                <div class="distance nk3_kjgg" style="border-right: none;">
+                    <h2 style="margin-top: 0px">
+                        快3近期开奖公告
+                    </h2>
+
+                    <ul class="col-md-3">
+                        <li><strong>安徽快3</strong> 第<em>{{$recentArray['ANHUI']->proName}}</em>期开奖号码<br>
+                            开奖时间：{{$recentArray['ANHUI']->created_at}}
+                            <br>
+                            <a href="/lotteryIndex?lottery_type=anhui">立即购买</a>
+                            <img style="display: inline;margin: 3px 5px;"
+                                 src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['ANHUI']->codes)[0]}}x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['ANHUI']->codes)[1]}}x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['ANHUI']->codes)[2]}}x24.png"></li>
+                        <li><strong>江苏快3</strong> 第<em>{{$recentArray['JSOLD']->proName}}</em>期开奖号码<br>
+                            开奖时间：{{$recentArray['JSOLD']->created_at}}
                             <br>
                             <a href="/lotteryIndex?lottery_type=jsold">立即购买</a>
                             <img style="display: inline;margin: 3px 5px;"
-                                 src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img
+                                 src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSOLD']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSOLD']->codes)[1]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/4x24.png"></li>
-                        <li><strong>快3</strong> 第<em>151023-080</em>期开奖号码<br>
-                            开奖时间：2015-10-23 22:00:00
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSOLD']->codes)[2]}}x24.png"></li>
+                        <li style="border-bottom:none; padding-bottom:0;"><strong>福建快3</strong>
+                            第<em>{{$recentArray['FJK3']->proName}}</em>期开奖号码<br>
+                            开奖时间：{{$recentArray['FJK3']->created_at}}
                             <br>
-                            <a href="/lotteryIndex?lottery_type=jilin">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=fjk3">立即购买</a>
                             <img style="display: inline;margin: 3px 5px;"
-                                 src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img
+                                 src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['FJK3']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['FJK3']->codes)[1]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/5x24.png"></li>
-                        <li><strong>欢乐快3</strong> 第<em>150722-017</em>期开奖号码<br>
-                            开奖时间：2015-07-22 11:50:00
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['FJK3']->codes)[2]}}x24.png"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3" style="padding-left: 0px;padding-right: 0px;">
+                <div class="distance nk3_kjgg" style="border-right: none;border-left: none">
+                    <h2 style="margin-top: 0px">
+                    </h2>
+
+                    <ul class="col-md-3">
+                        <li><strong>湖北快3</strong> 第<em>{{$recentArray['HUBEI']->proName}}</em>期开奖号码<br>
+                            开奖时间：{{$recentArray['HUBEI']->created_at}}
                             <br>
                             <a href="/lotteryIndex?lottery_type=hubei">立即购买</a>
                             <img style="display: inline;margin: 3px 5px;"
-                                 src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img
+                                 src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HUBEI']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/3x24.png"><img
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HUBEI']->codes)[1]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/4x24.png"></li>
-                        <li style="border-bottom:none; padding-bottom:0;"><strong>新快3</strong> 第<em>151023-073</em>期开奖号码<br>
-                            开奖时间：2015-10-23 21:45:00
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HUBEI']->codes)[2]}}x24.png"></li>
+                        <li><strong>吉林快3</strong> 第<em>{{$recentArray['JILIN']->proName}}</em>期开奖号码<br>
+                            开奖时间：{{$recentArray['JILIN']->created_at}}
+                            <br>
+                            <a href="/lotteryIndex?lottery_type=jilin">立即购买</a>
+                            <img style="display: inline;margin: 3px 5px;"
+                                 src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JILIN']->codes)[0]}}x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JILIN']->codes)[1]}}x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JILIN']->codes)[2]}}x24.png"></li>
+                        <li style="border-bottom:none; padding-bottom:0;"><strong>广西快3</strong>
+                            第<em>{{$recentArray['JSNEW']->proName}}</em>期开奖号码<br>
+                            开奖时间：{{$recentArray['JSNEW']->created_at}}
+                            <br>
+                            <a href="/lotteryIndex?lottery_type=jsnew">立即购买</a>
+                            <img style="display: inline;margin: 3px 5px;"
+                                 src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSNEW']->codes)[0]}}x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSNEW']->codes)[1]}}x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSNEW']->codes)[2]}}x24.png"></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-md-3" style="padding-left: 0px;">
+                <div class="distance nk3_kjgg" style="border-left: none">
+                    <h2 style="margin-top: 0px">
+                        <a href="/lotteryIndex?lottery_type=beijin">更多&gt;&gt;</a>
+                    </h2>
+
+                    <ul class="col-md-3">
+                        <li><strong>北京快3</strong> 第<em>{{$recentArray['BEIJIN']->proName}}</em>期开奖号码<br>
+                            开奖时间：{{$recentArray['BEIJIN']->created_at}}
+                            <br>
+                            <a href="/lotteryIndex?lottery_type=jilin">立即购买</a>
+                            <img style="display: inline;margin: 3px 5px;"
+                                 src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['BEIJIN']->codes)[0]}}x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['BEIJIN']->codes)[1]}}x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['BEIJIN']->codes)[2]}}x24.png"></li>
+                        <li><strong>内蒙古快3</strong> 第<em>{{$recentArray['NMG']->proName}}</em>期开奖号码<br>
+                            开奖时间：{{$recentArray['NMG']->created_at}}
                             <br>
                             <a href="/lotteryIndex?lottery_type=nmg">立即购买</a>
+                            <img style="display: inline;margin: 3px 5px;"
+                                 src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['NMG']->codes)[0]}}x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['NMG']->codes)[1]}}x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['NMG']->codes)[2]}}x24.png"></li>
+                        <li style="border-bottom:none; padding-bottom:0;"><strong>河北快3</strong>
+                            第<em>151023-073</em>期开奖号码<br>
+                            开奖时间：2015-10-23 21:45:00
+                            <br>
+                            <a href="/lotteryIndex?lottery_type=hebei">立即购买</a>
                             <img style="display: inline;margin: 3px 5px;"
                                  src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
@@ -365,7 +336,4 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    </div>
 @stop

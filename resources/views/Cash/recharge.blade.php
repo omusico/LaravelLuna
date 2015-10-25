@@ -12,7 +12,7 @@
         <main class="col-md-9" style="border-right: 1px solid rgb(218, 218, 218)">
             <ul class="nav nav-tabs" role="tablist" id="myTab"> 
                 <li class="active col-md-4" style="text-align: center"><a href="#DSF" role="tab"
-                                                                          data-toggle="tab">第三方</a></li>
+                                                                          data-toggle="tab">在线充值</a></li>
                 <li class="col-md-4" style="text-align: center;"><a href="#Company" role="tab"
                                                                     data-toggle="tab">公司充值</a></li>
             </ul>

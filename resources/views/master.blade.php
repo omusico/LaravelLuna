@@ -7,16 +7,11 @@
     <meta name="Keywords" content="彩票合买,快三">
     <meta name="Description" content="中国快三网彩票购买平台提供快三的彩票，是一家服务于中国彩民的互联网彩票合买代购交易平台，是当前中国彩票互联网交易行业的领导者。">
     <title> @yield('title') </title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-        });
-    </script>
     @yield('css')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
 </head>
 <body>
-<div class="navbar navbar-default" role="navigation" style="margin-bottom: 0px">
+<div class="navbar navbar-default" role="navigation" style="margin-bottom: 0px;height: 30px;display: none">
     <div class="container">
         <div class="navbar-header">
             　<!-- .navbar-toggle样式用于toggle收缩的内容，即nav-collapse collapse样式所在元素 -->
@@ -60,15 +55,15 @@
                 <li><a href="/inviteurl">合作代理</a></li>
                 <li><a href="/userLotteryBetting">交易记录</a></li>
                 @if (Auth::guest())
-                    {!! Form::open(['url' => '/login', 'class' => 'navbar-form navbar-right', 'role' => 'search']) !!}
-                    <div class="form-group">
-                        {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder'
-                        =>'用户名...','required']) !!}
-                        {!! Form::password('password', ['class' => 'form-control', 'placeholder'=>'密码...','required'])
-                        !!}
-                    </div>
-                    {!! Form::submit('登陆', ['class' => 'btn btn-primary']) !!}
-                    {!! Form::close() !!}
+                    {{--{!! Form::open(['url' => '/login', 'class' => 'navbar-form navbar-right', 'role' => 'search']) !!}--}}
+                    {{--<div class="form-group">--}}
+                        {{--{!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder'--}}
+                        {{--=>'用户名...','required']) !!}--}}
+                        {{--{!! Form::password('password', ['class' => 'form-control', 'placeholder'=>'密码...','required'])--}}
+                        {{--!!}--}}
+                    {{--</div>--}}
+                    {{--{!! Form::submit('登陆', ['class' => 'btn btn-primary']) !!}--}}
+                    {{--{!! Form::close() !!}--}}
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button"
@@ -84,11 +79,37 @@
     </div>
 </div>
 <div class="top_main_back"></div>
+<div class="container header" style="margin-top: 70px" id="indexHeader">
+    <div class="logoWrap">
+        <h1 class="logo"><a href="#" title="中国快三网" class="logoLink"><img src="/css/m_logo.png" alt="中国快三网"></a></h1>
+    </div>
+    <ul class="part_nav">
+        <li class="home_cur " style="background-color: red"><a href="/" title="中国快三网首页" id="link83">首页</a></li>
+        <li class="m_li ">
+            <a href="/k3GameRule" target="_blank" title="游戏规则">游戏规则</a>
+        </li>
+        <li class="m_li "><a href="#" title="走势图">走势图</a></li>
+        <li class="m_li ">
+            <a title="合作代理" target="_blank" href="/inviteurl">合作代理</a>
+        </li>
+        <li class="m_li ">
+            <a title="网址" href="#">网址</a>
+        </li>
+        <li class="m_li last"><a href="/userLotteryBetting" target="_blank" title="交易记录">交易记录</a></li>
+    </ul>
+    <div class="contact_r" style="width: auto; margin: 10px 20px 0 0; right: 70px;"><img src="/css/kftel.png" title="7×24小时服务热线：4000-500-500" alt="7×24小时服务热线：4000-500-500">
+    </div>
+    <div class="home_hb" style="background-color: red">
+        <ul>
+            <li><a target="_blank" href="" title="" id="link100">网站公告:开业大奖送好礼</a></li>
+        </ul>
+    </div>
+</div>
 {{--{{$_SERVER['REQUEST_URI']}}--}}
 @if($_SERVER['REQUEST_URI']=='/index' || $_SERVER['REQUEST_URI']=='/' || $_SERVER['REQUEST_URI']=='/k3GameRule')
 
 @else
-    <div style="width: 100%;margin-top: 63px"></div>
+    {{--<div style="width: 100%;margin-top: 78px"></div>--}}
 @endif
 <div class="container">
     @include('flash')
@@ -100,6 +121,11 @@
                 title="友情链接" href="" id="link431">友情链接</a></div>
 </div>
 <script type="text/javascript" src="/js/all.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    });
+</script>
 @yield('script')
 </body>
 </html>

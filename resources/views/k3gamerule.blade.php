@@ -5,7 +5,7 @@
 @section('css')
     <style type="text/css">
         .cm_wrapper {
-            min-width: 1000px;
+            /*min-width: 100%;*/
             position: relative;
             /*border-bottom: 4px solid #530000;*/
         }
@@ -18,13 +18,10 @@
     </style>
 @stop
 @section('content')
-    <div style="text-align: center;background: #fff1b4;">
-
+    <div class="container" style="text-align: center;">
         <div class="cm_wrapper clear">
             <div class="cm_w1000"><img src="/css/cm_banner.jpg" alt="拿起3枚骰子 快3号就有了"
                                        width="1000" height="441"></div>
-            <div class="cm_left_banner"></div>
-            <div class="cm_right_banner"></div>
         </div>
         <div class="cm_wrapper clear">
             <div class="cm_w1000"><img src="/css/middlerule.png" alt="拿起3枚骰子 快3号就有了"

@@ -7349,7 +7349,7 @@ ul, li {
 .top_main_back {
     width: 100%;
     position: absolute;
-    top: 35px;
+    top: 0px;
     left: 0;
     height: 724px;
     z-index: -1;
@@ -7462,5 +7462,33 @@ ul, li {
 }
 .home_hb a, .home_hb a:hover {
     color: #fff;
+}
+.notice {
+    border: 1px solid #e5e5e5;
+    position: relative;
+}
+.m_b10 {
+    margin-bottom: 10px;
+}
+.notice_nav {
+    background-color: #f4f4f4;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+    margin-bottom: -1px;
+}
+.notice_cont {
+    padding: 6px 9px 0;
+    height: 170px;
+    border-top: 1px solid #e5e5e5;
+    overflow: hidden;
+    line-height: 22px;
+    background-color: #fff;
+}
+.tabs-cnt {
+    clear: both;
+}
+.notice_cont .list_icon {
+    padding-top: 3px;
 }
 /*# sourceMappingURL=all.css.map */
