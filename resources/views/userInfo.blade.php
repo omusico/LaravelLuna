@@ -25,7 +25,7 @@
             </div>
             <div style="text-align: center">
                 <a href="/userLotteryBetting">我的投注</a> <a href="#">追号记录</a><br/>
-                <a href="#">中奖记录</a> <a href="#">账户明细</a><br/>
+                <a href="/getLotteryWin">中奖记录</a> <a href="#">账户明细</a><br/>
                 <a href="#">我的账户</a> <a href="#">站内信(0)</a>
             </div>
             <div class="nk3_login_bottom"></div>
