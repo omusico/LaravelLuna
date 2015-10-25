@@ -10,7 +10,7 @@ h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; }
 /*body { font: 12px/1.5 arial,SimSun,helvetica,sans-serif; background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(102, 102, 102); }*/
 .clearfix:after { clear: both; content: "."; display: block; height: 0px; line-height: 0; visibility: hidden; }
 .clearfix {  }
-html, body, p, ul, ol, li, h1, h2, h3, h4, h5, h6, dt, dl, dd { border: 0px none; padding: 0px; margin: 0px; list-style: outside none none; }
+html, body, p, ul, ol, li, h1, h2, h3, h4, h5, h6, dt, dl, dd { border: 0px none; padding: 0px; list-style: outside none none; }
 b, u, i, s, em { text-decoration: none; font-weight: 400; font-style: normal; }
 img { border: 0px none; }
 a { text-decoration: none; color: rgb(0, 83, 165); }

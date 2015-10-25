@@ -65,12 +65,12 @@ class registerController extends Controller
                     $lu_user->groupId =8;
                 }
                 $lu_user->name = $request->name;
-                $lu_user->realName = $request->realName;
+//                $lu_user->realName = $request->realName;
                 $lu_user->password = Hash::make($request->password);
                 $lu_user->qq = $request->qq;
-                $lu_user->email = $request->email;
+//                $lu_user->email = $request->email;
                 $lu_user->sex = $request->sex;
-                $lu_user->phone = $request->phone;
+//                $lu_user->phone = $request->phone;
                 $lu_user->recUser = $request->invite;
 //                $lu_user->groupId = $request->groupId;
                 $lu_user->invite = rand(10000, 99999);

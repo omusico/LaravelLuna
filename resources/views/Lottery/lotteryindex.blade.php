@@ -8,10 +8,23 @@
     <script type="text/javascript">
         var lottery_type = '{{$config['lotterytype']}}';
         var num ={{$lotterystatus[$config['lotterytype']]['num']}};
-//        console.log(num);
     </script>
 @stop
 @section('content')
+    <div class="container" style="text-align: center">
+        <div class="collapse navbar-collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav nav">
+                <li><a href="/lotteryIndex?lottery_type=jsold">江苏快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=beijin">北京快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=fjk3">福建快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=anhui">安徽快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=jilin">吉林快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=jsnew">广西快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=hubei">湖北快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=nmg">内蒙快三</a></li>
+            </ul>
+        </div>
+    </div>
     <div class="container">
         <div class="banner_content">
             <div class="kj_info_box">

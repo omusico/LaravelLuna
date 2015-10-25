@@ -43,12 +43,12 @@
                                     <input class="form-control" name="password_confirmation" type="password" id="password_confirmation" required="required">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                {!! Form::label('realName', '姓名: ', ['class' => 'control-label col-md-4']) !!}
-                                <div class="col-md-4">
-                                    {!! Form::text('realName', old('name'), ['class' => 'form-control', 'required']) !!}
-                                </div>
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--{!! Form::label('realName', '姓名: ', ['class' => 'control-label col-md-4']) !!}--}}
+                                {{--<div class="col-md-4">--}}
+                                    {{--{!! Form::text('realName', old('name'), ['class' => 'form-control', 'required']) !!}--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                             <div class="form-group">
                                 {!! Form::label('sex', '性别: ', ['class' => 'control-label col-md-4']) !!}
                                 <div class="col-md-4">
@@ -56,12 +56,12 @@
                                     'required']) !!}
                                 </div>
                             </div>
-                            <div class="form-group">
-                                {!! Form::label('phone', '手机: ', ['class' => 'control-label col-md-4']) !!}
-                                <div class="col-md-4">
-                                    {!! Form::text('phone', old('phone'), ['class' => 'form-control']) !!}
-                                </div>
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--{!! Form::label('phone', '手机: ', ['class' => 'control-label col-md-4']) !!}--}}
+                                {{--<div class="col-md-4">--}}
+                                    {{--{!! Form::text('phone', old('phone'), ['class' => 'form-control']) !!}--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                             <div class="form-group">
                                 {!! Form::label('qq', 'QQ: ', ['class' => 'control-label col-md-4']) !!}
                                 <div class="col-md-4">
@@ -69,12 +69,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                {!! Form::label('email', 'Email: ', ['class' => 'control-label col-md-4']) !!}
+                                {!! Form::label('cashPwd', '取款密码: ', ['class' => 'control-label col-md-4']) !!}
                                 <div class="col-md-4">
-                                    {!! Form::text('email', old('email'), ['class' => 'form-control']) !!}
+                                    {!! Form::text('cashPwd', null, ['class' => 'form-control','placeholder'=>'请输入四位数字取款密码']) !!}
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="display: none">
                                 {!! Form::label('groupId', '权限组: ', ['class' => 'control-label col-md-4']) !!}
                                 <div class="col-md-4">
                                     {{--{!! Form::text('groupId', old('email'), ['class' => 'form-control']) !!}--}}
