@@ -25,7 +25,12 @@ class AdminController extends Controller {
         $groupid = $request->groupid;
         $groupname='会员';
         if(!empty($groupid)){
-            $groupname='代理';
+            if($groupid==3){
+                $groupname='代理';
+            }
+            else{
+                $groupname='总代理';
+            }
             $result = $result->where('groupid',$request->groupid);
         }
         $count = $result->count();

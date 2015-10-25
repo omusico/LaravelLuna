@@ -23,8 +23,8 @@ class registerController extends Controller
         $lu_user = lu_user::where('invite', $invite)->first();
         $group = 8;
         if (isset($lu_user)) {
-            if ($lu_user->groupId == 3) {
-                $group = 5;
+            if ($lu_user->groupId == 5) {
+                $group = 3;
             }
         }
         return view('register', compact('invite', 'group'));
@@ -59,8 +59,8 @@ class registerController extends Controller
             $invite_user = lu_user::where('invite', $request->invite)->first();
             if (isset($invite_user->groupId)) {
                 $lu_user = new lu_user;
-                if($invite_user->groupId ==3){
-                    $lu_user->groupId =5;
+                if($invite_user->groupId ==5){
+                    $lu_user->groupId =3;
                 }else{
                     $lu_user->groupId =8;
                 }
