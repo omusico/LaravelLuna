@@ -13,6 +13,7 @@
             <main class="col-md-9">
 
                 @include('errors.list')
+                @if($isdaili)
                 <div class="form-group">
                     <label for="sign_type" class="control-label col-md-3">推广地址: </label>
 
@@ -20,7 +21,9 @@
                         <input class="form-control" id="inviteurl" style="color: red" value="{{$_SERVER['HTTP_HOST'].'/register?invite='.Auth::user()->invite}}">
                     </div>
                 </div>
+                @endif
                 <br/>
+                @if($isdaili)
                 <h3 align="center">
                     代理推荐列表</h3>
                 <table class="table table-hover">
@@ -57,6 +60,9 @@
                     @endif
                 </table>
                 <?php echo $lu_users->render(); ?>
+                    @else
+                    <a>当前用户不是代理或者还未登陆</a>
+                    @endif
             </main>
     </div>
 @stop
