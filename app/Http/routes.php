@@ -31,6 +31,10 @@ Route::get('logout', [
     'middleware' => 'auth', 'as' => 'logout', 'uses' => 'loginController@logout']);
 Route::get('register', 'registerController@index');
 Route::post('register/save', ['as' => 'register_save', 'uses' => 'registerController@store']);
+
+Route::get('dailiregister', 'registerController@dailiregister');
+Route::post('dailiregister/save', ['as' => 'dailiregister_save', 'uses' => 'registerController@dailistore']);
+
 Route::controller('password', 'PasswordController');
 ####################################################
 #学生的登录详情(包括资料修改，分数查询)
