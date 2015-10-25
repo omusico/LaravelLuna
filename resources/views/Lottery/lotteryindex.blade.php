@@ -577,7 +577,7 @@
                     </div>
                 </main>
                 <aside class="col-md-4">
-                    <div>
+                    <div class="login_weizhi" style="height: 150px;">
                         @include('userinfo')
                     </div>
                     {{--<div class="blank4"></div>--}}
