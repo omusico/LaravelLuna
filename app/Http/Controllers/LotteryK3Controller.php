@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\lu_lotteries_k3;
 use App\lu_lotteries_result;
+use App\lu_lottery_notes_k3;
 use App\lu_points_record;
 use App\lu_user;
 use App\lu_user_data;
@@ -11,6 +12,7 @@ use App\LunaLib\Common\CommonClass;
 use App\LunaLib\Common\defaultCache;
 use App\LunaLib\Common\Lottery_GetTime;
 use App\LunaLib\Common\LunaFunctions;
+use Auth;
 
 use Illuminate\Http\Request;
 
@@ -40,13 +42,19 @@ class LotteryK3Controller extends Controller
 //        $recentNum = $this->request->recentNum;
 //        $lotteryResult = Waf::model('lottery/result');
 //        $data = $lotteryResult->queryRecent($lotteryType,$recentNum);
-        $data = lu_lotteries_result::where('typeName', $lotteryType)->get();
+        $data = lu_lotteries_result::where('typeName', $lotteryType)->orderBy('created_at','desc')->get();
         return $data;
     }
 
     public function k3GameRule()
     {
         return view('k3gamerule');
+    }
+
+    public function getLotteryWin(){
+        $result = lu_lottery_notes_k3::where('uid',Auth::user()->id)->orderby('created_at','desc');
+        $lu_lottery_note_k3s =$result->paginate(10);
+        return view('User.lotterywinlist',compact('lu_lottery_note_k3s'));
     }
 
     /**

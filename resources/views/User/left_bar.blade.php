@@ -9,7 +9,7 @@
         <ul>
             <li><a href="/userLotteryBetting">我的投注</a></li>
             <li><a href="#">追号投注</a></li>
-            <li><a href="#">中奖记录</a></li>
+            <li><a href="/getLotteryWin">中奖记录</a></li>
         </ul>
         <h3>资金管理</h3>
         <ul>

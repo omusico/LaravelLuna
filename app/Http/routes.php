@@ -81,6 +81,7 @@ Route::any('/lotteryBetting', ['as' => 'lotteryBetting', 'uses' => 'LotteryK3Con
 Route::any('/userLotteryBetting', ['as' => 'userLotteryBetting', 'uses' => 'User\UserController@userBettingList']);
 Route::any('/getLotteryData', ['as' => 'getLotteryDataForQt', 'uses' => 'LotteryK3Controller@getLotteryDataForQt']);
 Route::any('/loadRecentResult', ['as' => 'loadRecentResult', 'uses' => 'LotteryK3Controller@loadRecentResult']);
+Route::get('/getLotteryWin',['middleware' => 'auth','as'=>'getlotterywin','uses'=>'LotteryK3Controller@getLotteryWin']);
 //规则明细
 Route::get('/k3GameRule',['uses'=>'LotteryK3Controller@k3GameRule']);
 Route::get('/phpinfo',['uses'=>'WelcomeController@phpinfo']);
@@ -93,3 +94,5 @@ Route::post('/recharge',['as'=>'recharge','uses'=>'CashController@rechargePost']
 //智付，接口数据返回
 Route::post('/zfReturn_Url',['as'=>'zfReturn_Url','uses'=>'CashController@zfReturn_Url']);
 Route::post('/zfNotify_Url',['as'=>'zfNotify_Url','uses'=>'CashController@zfNotify_Url']);
+
+
