@@ -12,7 +12,6 @@
     </script>
 @stop
 @section('content')
-
     <div class="container">
         <div class="banner_content">
             <div class="kj_info_box">

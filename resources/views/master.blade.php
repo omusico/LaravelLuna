@@ -9,7 +9,9 @@
     <title> @yield('title') </title>
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
     <script type="text/javascript">
+        $(document).ready(function () {
 
+        });
     </script>
     @yield('css')
 </head>
@@ -82,10 +84,15 @@
     </div>
 </div>
 <div class="top_main_back"></div>
+{{--{{$_SERVER['REQUEST_URI']}}--}}
+@if($_SERVER['REQUEST_URI']=='/index' || $_SERVER['REQUEST_URI']=='/' || $_SERVER['REQUEST_URI']=='/k3GameRule')
+
+@else
+    <div style="width: 100%;margin-top: 63px"></div>
+@endif
 <div class="container">
     @include('flash')
 </div>
-<div style="width: 100%;margin-top: 63px"></div>
 @yield('content')
 <div class="footer">
     <div class="f-link"><a title="关于我们" href="#">关于我们</a> | <a title="用户注册" target="_blank" href="/register">用户注册</a> |

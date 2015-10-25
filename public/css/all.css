@@ -7377,4 +7377,90 @@ ul, li {
     display: inline;
     text-decoration: none;
 }
+
+.header {
+    height: 130px;
+    position: relative;
+    margin-bottom: 10px;
+    z-index: 1;
+    /*width:1000px;*/
+    /*margin: 0px;*/
+}
+
+.logoWrap {
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+}
+.logoWrap .logo {
+    position: absolute;
+    z-index: 100;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.part_nav {
+    height: 35px;
+    font-size: 14px;
+    position: absolute;
+    top: 67px;
+    left: 200px;
+    z-index: 2;
+    background-position: 0 -64px;
+}
+.part_nav .home_cur {
+    width: 65px;
+    background-position: 0 0;
+}
+.home_cur a {
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+}
+.part_nav li {
+    height: 35px;
+    float: left;
+    text-align: center;
+}
+.part_nav .m_li {
+    width: 85px;
+    background-position: right -93px;
+    background-repeat: no-repeat;
+}
+.m_li a{
+    color: red;
+}
+.part_nav a {
+    height: 35px;
+    line-height: 29px;
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+}
+.part_nav .last {
+    background: none;
+    border-right: 1px solid #D6E3F3;
+}
+.contact_r {
+    width: 206px;
+    height: 52px;
+    position: absolute;
+    top: 6px;
+    right: 0;
+    overflow: hidden;
+}
+.home_hb {
+    width: 100%;
+    height: 33px;
+    line-height: 33px;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    background-position: 0 -30px;
+    background-repeat: repeat-x;
+}
+.home_hb a, .home_hb a:hover {
+    color: #fff;
+}
 /*# sourceMappingURL=all.css.map */

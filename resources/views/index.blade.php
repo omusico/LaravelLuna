@@ -59,12 +59,14 @@
         a {
             color: #000000;
         }
+
         .distance {
             overflow: hidden;
             /*margin-top: 15px;*/
             border: 1px solid #ccc;
             background: #fff;
         }
+
         .nk3_kjgg h2 a {
             float: right;
             font-weight: normal;
@@ -73,9 +75,11 @@
             display: inline;
             font-size: 12px;
         }
+
         .nk3_kjgg ul {
             margin: 3px 0 10px 0;
         }
+
         .nk3_kjgg li {
             margin-left: 4px;
             line-height: 19px;
@@ -83,6 +87,7 @@
             padding: 10px 0 10px 0;
             width: 201px;
         }
+
         .nk3_kjgg li em {
             font-style: normal;
             color: #d80000;
@@ -90,6 +95,34 @@
     </style>
 @stop
 @section('content')
+    <div class="container header" style="margin-top: 50px" id="indexHeader">
+        <div class="logoWrap">
+            <h1 class="logo"><a href="#" title="中国快三网" class="logoLink"><img src="/css/m_logo.png" alt="中国快三网"></a></h1>
+        </div>
+        <ul class="part_nav">
+            <li class="home_cur " style="background-color: red"><a href="/" title="中国快三网首页" id="link83">首页</a></li>
+            <li class="m_li ">
+                <a href="/k3GameRule" target="_blank" title="游戏规则">游戏规则</a>
+            </li>
+            <li class="m_li "><a target="_blank" href="" title="走势图">走势图</a></li>
+            <li class="m_li ">
+                <a title="合作代理" target="_blank" href="/inviteurl">合作代理</a>
+            </li>
+            <li class="m_li ">
+                <a title="网址" href="#">网址</a>
+            </li>
+            <li class="m_li last"><a href="/userLotteryBetting" target="_blank" title="交易记录">交易记录</a></li>
+        </ul>
+        <div class="contact_r" style="width: auto; margin: 10px 20px 0 0; right: 70px;"><img src="/css/kftel.png"
+                                                                                             title="7×24小时服务热线：4000-500-500"
+                                                                                             alt="7×24小时服务热线：4000-500-500">
+        </div>
+        <div class="home_hb" style="background-color: red">
+            <ul>
+                <li><a target="_blank" href="" title="" id="link100">网站公告:开业大奖送好礼</a></li>
+            </ul>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-3" style="margin-right: 0px">
@@ -292,22 +325,42 @@
                             开奖时间：2015-10-23 22:10:00
                             <br>
                             <a href="/lotteryIndex?lottery_type=jsold">立即购买</a>
-                            <img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/4x24.png">                </li>
+                            <img style="display: inline;margin: 3px 5px;"
+                                 src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/4x24.png"></li>
                         <li><strong>快3</strong> 第<em>151023-080</em>期开奖号码<br>
                             开奖时间：2015-10-23 22:00:00
                             <br>
                             <a href="/lotteryIndex?lottery_type=jilin">立即购买</a>
-                            <img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/5x24.png">                </li>
+                            <img style="display: inline;margin: 3px 5px;"
+                                 src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/5x24.png"></li>
                         <li><strong>欢乐快3</strong> 第<em>150722-017</em>期开奖号码<br>
                             开奖时间：2015-07-22 11:50:00
                             <br>
                             <a href="/lotteryIndex?lottery_type=hubei">立即购买</a>
-                            <img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/3x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/4x24.png">                </li>
+                            <img style="display: inline;margin: 3px 5px;"
+                                 src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/3x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/4x24.png"></li>
                         <li style="border-bottom:none; padding-bottom:0;"><strong>新快3</strong> 第<em>151023-073</em>期开奖号码<br>
                             开奖时间：2015-10-23 21:45:00
                             <br>
                             <a href="/lotteryIndex?lottery_type=nmg">立即购买</a>
-                            <img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/3x24.png"><img style="display: inline;margin: 3px 5px;" src="http://res.kuai3.com/resources/kuai3/images/sz/6x24.png">                </li>
+                            <img style="display: inline;margin: 3px 5px;"
+                                 src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/3x24.png"><img
+                                    style="display: inline;margin: 3px 5px;"
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/6x24.png"></li>
                     </ul>
                 </div>
             </div>
