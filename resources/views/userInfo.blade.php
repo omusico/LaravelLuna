@@ -41,7 +41,7 @@
             </div>
             {!! Form::submit('登陆', ['class' => 'btn btn-sm btn-primary']) !!}
             <a class="btn btn-sm btn-info" href="{{ url('/register') }}" >免费注册</a>
-            <a class="btn btn-sm btn-warning" href="{{ url('/register') }}" >代理注册</a>
+            <a class="btn btn-sm btn-warning" href="{{ url('/dailiregister') }}" >代理注册</a>
             {!! Form::close() !!}
         </div>
     @endif
