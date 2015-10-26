@@ -40,7 +40,7 @@
                              style="display:none;*margin-top:-45px;width: 450px;float:right; white-space: nowrap; font-weight: bolder;">
                         </div>
                         <input name="uid" value="{{Auth::user()->id}}" type="hidden">
-                        <input name="uid" value="{{Auth::user()->name}}" type="hidden">
+                        <input name="name" value="{{Auth::user()->name}}" type="hidden">
                     </div>
                     <div class="form-group">
                         <label class="radio-inline col-md-2 col-md-offset-2">
