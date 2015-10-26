@@ -21,6 +21,7 @@
                 <li><a href="/lotteryIndex?lottery_type=jilin">吉林快三</a></li>
                 <li><a href="/lotteryIndex?lottery_type=jsnew">广西快三</a></li>
                 <li><a href="/lotteryIndex?lottery_type=hubei">湖北快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=hebei">河北快三</a></li>
                 <li><a href="/lotteryIndex?lottery_type=nmg">内蒙快三</a></li>
             </ul>
         </div>

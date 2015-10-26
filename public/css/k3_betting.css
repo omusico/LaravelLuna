@@ -11,7 +11,7 @@ input{
 .kj_info_box { overflow: hidden;  width:auto; border-bottom:1px solid rgb(218,218,218);}
 .kj_middle_box{ border-bottom:1px solid rgb(218,218,218);}
 .kj_bottom_box{ overflow: hidden;  width:770px; }
-.kj_open_box{ width:auto;padding: 0px; overflow: hidden;border-top:1px solid rgb(218,218,218);}
+.kj_open_box{ width:100%;padding: 0px; overflow: hidden;border-top:1px solid rgb(218,218,218);}
 .period-l{border-right:1px solid rgb(218,218,218);min-height:745px;}
 .kj_info_l .cz_name { line-height: 90px; color: rgb(204, 0, 0); text-align: center; font-weight: bold;height:40px }
 .kj_info_l .cz_name h1 { color: rgb(204, 0, 0); text-align: center; font-weight: bold; font-size:16px; margin-left:80px  }

@@ -304,7 +304,7 @@
                         <li><strong>北京快3</strong> 第<em>{{$recentArray['BEIJIN']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['BEIJIN']->created_at}}
                             <br>
-                            <a href="/lotteryIndex?lottery_type=jilin">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=beijin">立即购买</a>
                             <img style="display: inline;margin: 3px 5px;"
                                  src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['BEIJIN']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"

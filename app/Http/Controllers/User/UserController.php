@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function userBettingList(Request $request)
     {
-        $result = lu_lotteries_k3::where('status', 1)->where('uid', \Auth::id());
+        $result = lu_lotteries_k3::where('status', 1)->where('uid', \Auth::id())->orderby('created_at','desc');
         $lu_lotteries_k3s = $result->paginate(10);
         return view('User.usrBettingList', compact('lu_lotteries_k3s', 'count'));
     }
