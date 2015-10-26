@@ -163,13 +163,13 @@ class CashController extends Controller
         } else {
             $data = array(
                 'sn' => $request->order_no,
-                'uid' => Auth::user()->id,
+                'uid' => $request->uid,
                 'siteId' => 1,
                 'amounts' => $request->amounts,
                 'created' => $_SERVER['REQUEST_TIME'],
                 'type' => $paytype,
                 'status' => 2, //未付款状态
-                'userName' => Auth::user()->name
+                'userName' => $request->name
             );
             lu_lottery_recharge::create($data);
             if ($paytype == 'zf') {

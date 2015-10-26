@@ -20,12 +20,14 @@
                 {{--第三方支付--}}
                 <div class="tab-pane active" id="DSF"> 
                     @include('errors.list')
-                    {!! Form::open(['url' => '/recharge', 'class' => 'form-horizontal', 'role' => 'form']) !!}
+                    {{--{!! Form::open(['url' => '/recharge', 'class' => 'form-horizontal', 'role' => 'form']) !!}--}}
+                    <form method="POST" action="http://k3.gwou.cn/recharge" accept-charset="UTF-8" class="form-horizontal" role="form"><input name="_token" type="hidden" value="qPzqUC6WIO09PmQr5hH4EZSVmzJpipguGMLbSlse">
                     <div class="nk3_center_zfuser"><b style="color: #FF0000;">{{Auth::user()->name}}</b>
                         您好，请选择支付方式，输入充值金额
                     </div>
                     <div class="fl" style="height: 60px; float:none;">
-                        <label class="col-md-offset-2" style="width: auto">充值金额：</label><input type="number"
+                        <label class="col-md-offset-2" style="width: auto">充值金额：</label>
+                        <input type="number"
                                                                                                id="amounts"
                                                                                                name="amounts"
                                                                                                value="100" size="5"
@@ -37,6 +39,8 @@
                         <div class="radios-ct"
                              style="display:none;*margin-top:-45px;width: 450px;float:right; white-space: nowrap; font-weight: bolder;">
                         </div>
+                        <input name="uid" value="{{Auth::user()->id}}" type="hidden">
+                        <input name="uid" value="{{Auth::user()->name}}" type="hidden">
                     </div>
                     <div class="form-group">
                         <label class="radio-inline col-md-2 col-md-offset-2">
