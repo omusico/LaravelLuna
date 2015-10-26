@@ -590,7 +590,7 @@
                     </div>
                 </main>
                 <aside class="col-md-4">
-                    <div class="login_weizhi" style="height: 150px;">
+                    <div class="login_weizhi">
                         @include('userinfo')
                     </div>
                     {{--<div class="blank4"></div>--}}

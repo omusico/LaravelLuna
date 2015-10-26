@@ -37,7 +37,7 @@ input{
 .kj_nub .hm_5{background: url('kuai3_nun.png') no-repeat scroll 0px -185px transparent;}
 .kj_nub .hm_6{background: url('kuai3_nun.png') no-repeat scroll -81px -185px transparent;}
 .kjgg_box {  }
-.kjgg_box .kjgg_tit {  height: 29px; padding: 0px 10px; overflow: hidden;border-bottom:1px solid rgb(218,218,218); }
+.kjgg_box .kjgg_tit {   padding: 0px 10px; overflow: hidden;border-bottom:1px solid rgb(218,218,218); }
 .kjgg_box .kjgg_tit a{ color:#000; font-weight:bold;font-size:13px}
 .kjgg_box .kjgg_tit a:hover{ color:red;}
 .kjgg_tit .kjgg_name { float: left; line-height: 28px; font-weight: bold; z-index:1; vertical-align: middle;padding-top: 6px}
