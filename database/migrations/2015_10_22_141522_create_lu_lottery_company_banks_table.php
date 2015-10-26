@@ -19,6 +19,7 @@ class CreateLuLotteryCompanyBanksTable extends Migration {
             $table->string('province');
             $table->string('city');
             $table->string('bankCode');
+            $table->string('userName');
             $table->integer('created');
 			$table->timestamps();
 		});

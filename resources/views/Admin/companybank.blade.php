@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10">
-                <h2>添加会员</h2>
+                <h2>添加银行账号</h2>
                 <hr/>
 
                 @include('errors.list')
@@ -37,6 +37,12 @@
                         {!! Form::label('bankCode', '银行账号: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
                             {!! Form::text('bankCode', old('bankCode'), ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('userName', '开户名: ', ['class' => 'control-label col-md-1']) !!}
+                        <div class="col-md-4">
+                            {!! Form::text('userName', old('userName'), ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">

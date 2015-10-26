@@ -25,6 +25,7 @@
                         <td>省份</td>
                         <td>城市</td>
                         <td>银行账号</td>
+                        <td>开户名</td>
                         <td>操作</td>
                     </tr>
                     @if (count($lu_lottery_company_banks))
@@ -34,6 +35,7 @@
                                 <td>{{ $lu_lottery_company_bank->province }}</td>
                                 <td>{{ $lu_lottery_company_bank->city }}</td>
                                 <td>{{ $lu_lottery_company_bank->bankCode }}</td>
+                                <td>{{ $lu_lottery_company_bank->userName }}</td>
                                 <td>
                                     {{--<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal{{$lu_user->id}}">更新分数</button>--}}
                                     <a class="btn btn-sm btn-info" href="/admin/{{$lu_lottery_company_bank->id}}/edit">编辑</a>
