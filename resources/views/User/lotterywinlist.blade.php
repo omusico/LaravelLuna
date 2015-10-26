@@ -29,7 +29,7 @@
                         <tr>
                             <td>{{$lu_lottery_note_k3->provinceName}}</td>
                             {{--<td>{{ \App\LunaLib\Common\CommonClass::get_lottery_name($lu_lottery_note_k3->provinceName)}}</td>--}}
-                            <td>{{ $lu_lottery_note_k3->sn }}</td>
+                            <td>{{ $lu_lottery_note_k3->dateSn }}</td>
                             <td>{{ $lu_lottery_note_k3->userName }}</td>
                             <td>{{ $lu_lottery_note_k3->proName }}</td>
                             <td>{{ $lu_lottery_note_k3->code}}</td>

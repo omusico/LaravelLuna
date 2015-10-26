@@ -14,35 +14,36 @@
                 @include('errors.list')
 
                 <div class="form-group">
-                    {!! Form::model($user = new \App\lu_lottery_company_bank, ['url' => 'companybank/', 'class' => 'form-horizontal']) !!}
+                    {!! Form::open(['url' => 'companybank/', 'class' => 'form-horizontal']) !!}
                     <div class="form-group">
                         {!! Form::label('bankName', '银行名称: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('bankName', old('bankName'), ['class' => 'form-control']) !!}
+                            {!! Form::text('id', $cbank->id, ['class' => 'form-control','readonly','style'=>'display:none']) !!}
+                            {!! Form::text('bankName', $cbank->bankName, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('province', '省份: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('province', old('province'), ['class' => 'form-control', 'required']) !!}
+                            {!! Form::text('province', $cbank->province, ['class' => 'form-control', 'required']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('city', '城市: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('city', old('city'), ['class' => 'form-control', 'required']) !!}
+                            {!! Form::text('city', $cbank->city, ['class' => 'form-control', 'required']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('bankCode', '银行账号: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('bankCode', old('bankCode'), ['class' => 'form-control']) !!}
+                            {!! Form::text('bankCode', $cbank->bankCode, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('userName', '开户名: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('userName', old('userName'), ['class' => 'form-control']) !!}
+                            {!! Form::text('userName', $cbank->userName, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">

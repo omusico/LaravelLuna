@@ -12,11 +12,11 @@
     {{--<br /><br />--}}
     {{--<a href="/admin/grade"><button class="btn btn-info ">用户组列表</button></a>--}}
     {{--<br /><br />--}}
-    <a href="/company"><button class="btn btn-warning ">公司充值</button></a>
+    <a href="/company"><button class="btn btn-danger ">公司充值</button></a>
     <br /><br />
     <a href="/companybank/create"><button class="btn btn-info ">添加公司账号</button></a>
     <br /><br />
-    <a href="/companybank"><button class="btn btn-info ">公司账号</button></a>
+    <a href="/companybank"><button class="btn btn-warning ">公司账号</button></a>
     <br /><br />
     <a href="#"><button class="btn btn-info ">会员统计</button></a>
     <br /><br />
