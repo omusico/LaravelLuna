@@ -322,16 +322,16 @@
                                     style="display: inline;margin: 3px 5px;"
                                     src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['NMG']->codes)[2]}}x24.png"></li>
                         <li style="border-bottom:none; padding-bottom:0;"><strong>河北快3</strong>
-                            第<em>151023-073</em>期开奖号码<br>
-                            开奖时间：2015-10-23 21:45:00
+                            第<em>{{$recentArray['HEBEI']->proName}}</em>期开奖号码<br>
+                            开奖时间：{{$recentArray['HEBEI']->created_at}}
                             <br>
                             <a href="/lotteryIndex?lottery_type=hebei">立即购买</a>
                             <img style="display: inline;margin: 3px 5px;"
-                                 src="http://res.kuai3.com/resources/kuai3/images/sz/2x24.png"><img
+                                 src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HEBEI']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/3x24.png"><img
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HEBEI']->codes)[1]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/6x24.png"></li>
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HEBEI']->codes)[2]}}x24.png"></li>
                     </ul>
                 </div>
             </div>

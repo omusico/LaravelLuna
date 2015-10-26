@@ -47,6 +47,9 @@ class WelcomeController extends Controller {
             if($value->typeName=="HUBEI"){
                 $recentArray['HUBEI'] = $value;
             }
+            if($value->typeName=="HEBEI"){
+                $recentArray['HEBEI'] = $value;
+            }
             if($value->typeName=="JILIN"){
                 $recentArray['JILIN'] = $value;
             }
