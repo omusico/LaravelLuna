@@ -34,6 +34,18 @@ class CommonClass
         return $args;
     }
 
+    public static function get_lottery_name($lottery_type)
+    {
+        if (!isset($lottery_type)) {
+            $lottery_type = 'jsold';
+        }
+
+        $lottery_type = strtolower($lottery_type);
+        $cache_lottery_type = defaultCache::cache_lottery_status();
+        $gameProvince = $cache_lottery_type[$lottery_type]['name'];
+        return ($gameProvince == null ? '未知彩种' : $gameProvince);
+    }
+
     public static function cache($name, $isfresh)
     {
         if ("user_groups" == $name) {

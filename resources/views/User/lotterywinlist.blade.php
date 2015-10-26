@@ -27,7 +27,7 @@
                 @if (count($lu_lottery_note_k3s))
                     @foreach ($lu_lottery_note_k3s as $lu_lottery_note_k3)
                         <tr>
-                            <td>{{ $lu_lottery_note_k3->provinceName }}</td>
+                            <td>{{ \App\LunaLib\Common\CommonClass::get_lottery_name($lu_lottery_note_k3->provinceName)}}</td>
                             <td>{{ $lu_lottery_note_k3->sn }}</td>
                             <td>{{ $lu_lottery_note_k3->userName }}</td>
                             <td>{{ $lu_lottery_note_k3->proName }}</td>
