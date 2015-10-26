@@ -85,17 +85,13 @@
     </div>
     <ul class="part_nav">
         <li class="home_cur " style="background-color: red"><a href="/" title="中国快三网首页" id="link83">首页</a></li>
-        <li class="m_li ">
-            <a href="/k3GameRule" target="_blank" title="游戏规则">游戏规则</a>
-        </li>
+        <li class="m_li "><a href="/k3GameRule" target="_blank" title="游戏规则">游戏规则</a></li>
+        <li class="m_li "><a href="#" target="_blank" title="优惠活动">优惠活动</a></li>
         <li class="m_li "><a href="#" title="走势图">走势图</a></li>
-        <li class="m_li ">
-            <a title="合作代理" target="_blank" href="/inviteurl">合作代理</a>
-        </li>
-        <li class="m_li ">
-            <a title="网址" href="#">网址</a>
-        </li>
-        <li class="m_li last"><a href="/userLotteryBetting" target="_blank" title="交易记录">交易记录</a></li>
+        <li class="m_li "><a title="合作代理" target="_blank" href="/inviteurl">合作代理</a></li>
+        <li class="m_li "><a href="/userLotteryBetting" target="_blank" title="交易记录">交易记录</a></li>
+        <li class="m_li "><a href="#" title="手机下注">手机下注</a></li>
+        <li class="m_li last"><a title="网址" href="#">网址</a></li>
     </ul>
     <div class="contact_r" style="width: auto; margin: 10px 20px 0 0; right: 70px;"><img src="/css/kftel.png"
                                                                                          title="7×24小时服务热线：zgk3wz@@126.com"

@@ -102,7 +102,7 @@
                     @include('userinfo')
                 </div>
             </div>
-            <div class="col-md-6" style="padding-left: 0px;padding-right: 0px">
+            <div class="col-md-6" style="padding-left: 0px;padding-right: 0px;margin-right: 0px">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
                      xmlns="http://www.w3.org/1999/html">
                     <ol class="carousel-indicators">
@@ -145,8 +145,8 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="notice m_b10" id="notice">
+            <div class="col-md-3" style="margin-left: 0px;padding-left: 0px">
+                <div class="notice m_b10" id="notice" style="border-bottom: none">
                     <ul class="tabs-nav notice_nav">
                         <li class="cur"><a href="#">最新优惠</a></li>
                     </ul>
