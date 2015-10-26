@@ -146,7 +146,19 @@
                 <div class="tab-pane" id="Company">
                     @include('errors.list')
                     {!! Form::open(['url' => '/company', 'class' => 'form-horizontal', 'role' => 'form']) !!}
-
+                    @if(isset($bank))
+                        <div class="form-group">
+                            <label for="amounts" class="control-label col-md-4">充值账户: </label>
+                            <label class="radio-inline col-md-4">
+                                <input checked type="radio" value="{{$bank->id}}" name="siteBankId">
+                                <a style="color:red">
+                                    银行名称：{{$bank->bankName}}<br/>
+                                    银行账号：{{$bank->bankCode}}<br/>
+                                    开户人 ：{{$bank->userName}}
+                                </a>
+                            </label>
+                        </div>
+                    @endif
                     <div class="form-group">
                         <label for="sn" class="control-label col-md-4">订单号: </label>
 
@@ -206,7 +218,7 @@
                             </select>
                             <input name="payBank" id="payBank" type="hidden">
                             <input name="siteId" value="1" type="hidden">
-                            <input name="siteBankId" id="siteBankId" value="1" type="hidden">
+                            {{--<input name="siteBankId" id="siteBankId" value="1" type="hidden">--}}
                             {{--<input name="status" value="2" type="hidden">--}}
                         </div>
                     </div>
