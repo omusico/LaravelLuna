@@ -201,7 +201,8 @@ class Lottery_CaiJi{
 		);
 		// 		var_dump($config);
 		$content=$this->caiji->parseResult($detail_urls);
-		$str = mb_convert_encoding($content, "utf-8", "gb2321");
+//		$str = mb_convert_encoding($content, "utf-8", "gb2321");
+        $str = $content;
 		$json  = json_decode($str);
 
 		$result = array();

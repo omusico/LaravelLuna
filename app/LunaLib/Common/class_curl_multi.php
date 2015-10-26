@@ -67,7 +67,7 @@ class MultiHttpRequest
         	$error = curl_error($curl[$k]);
         	if( $error != ""){
 //        		file_put_contents(__WAF_ROOT__.'/net_error.log', 'time:'.date('Y-m-d H:i:s').''. $k." :".$error.PHP_EOL,FILE_APPEND);
-                log::error($error);
+//                log::error($error);
         	}
 //         	if("" != $error && strpos($error, "Timed out")){
         	if("" != $error && strpos($error, "out")){
