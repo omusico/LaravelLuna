@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\lu_lottery_company_bank;
 use App\lu_lottery_company_recharge;
 use App\lu_lottery_recharge;
 use Illuminate\Http\Request;
@@ -146,7 +147,8 @@ class CashController extends Controller
 
     public function recharge()
     {
-        return view('Cash.recharge');
+       $bank =lu_lottery_company_bank::find(1);
+        return view('Cash.recharge',compact('bank'));
     }
 
     public function rechargePost(Request $request)

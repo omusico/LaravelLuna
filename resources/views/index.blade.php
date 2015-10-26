@@ -148,7 +148,7 @@
             <div class="col-md-3">
                 <div class="notice m_b10" id="notice">
                     <ul class="tabs-nav notice_nav">
-                        <li class="cur"><a href="#">消息</a></li>
+                        <li class="cur"><a href="#">最新优惠</a></li>
                     </ul>
                     <div class="tabs-cnt notice_cont">
                         <ul class="list_icon" style="padding-left: 0px">

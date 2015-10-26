@@ -21,127 +21,135 @@
                 <div class="tab-pane active" id="DSF"> 
                     @include('errors.list')
                     {{--{!! Form::open(['url' => '/recharge', 'class' => 'form-horizontal', 'role' => 'form']) !!}--}}
-                    <form method="POST" action="http://k3.gwou.cn/recharge" accept-charset="UTF-8" class="form-horizontal" role="form"><input name="_token" type="hidden" value="qPzqUC6WIO09PmQr5hH4EZSVmzJpipguGMLbSlse">
-                    <div class="nk3_center_zfuser"><b style="color: #FF0000;">{{Auth::user()->name}}</b>
-                        您好，请选择支付方式，输入充值金额
-                    </div>
-                    <div class="fl" style="height: 60px; float:none;">
-                        <label class="col-md-offset-2" style="width: auto">充值金额：</label>
-                        <input type="number"
-                                                                                               id="amounts"
-                                                                                               name="amounts"
-                                                                                               value="100" size="5"
-                                                                                               min="1" class="money"
-                                                                                               onchange="pay.moneyFormat(this);"><span
-                                style="display: inline-block;line-height: 45px; padding-left:5px;"> 元 (<span
-                                    id="recharge-tips"><span style="color:#FF0000">0</span>元手续费</span>)</span>
+                    <form method="POST" action="http://k3.gwou.cn/recharge" accept-charset="UTF-8"
+                          class="form-horizontal" role="form"><input name="_token" type="hidden"
+                                                                     value="qPzqUC6WIO09PmQr5hH4EZSVmzJpipguGMLbSlse">
 
-                        <div class="radios-ct"
-                             style="display:none;*margin-top:-45px;width: 450px;float:right; white-space: nowrap; font-weight: bolder;">
+                        <div class="nk3_center_zfuser"><b style="color: #FF0000;">{{Auth::user()->name}}</b>
+                            您好，请选择支付方式，输入充值金额
                         </div>
-                        <input name="uid" value="{{Auth::user()->id}}" type="hidden">
-                        <input name="name" value="{{Auth::user()->name}}" type="hidden">
-                    </div>
-                    <div class="form-group">
-                        <label class="radio-inline col-md-2 col-md-offset-2">
-                            <input checked type="radio" value="zf" name="paytype"><img src="/css/zf.png" alt="智付">
-                        </label>
-                        <label class="radio-inline col-md-2">
-                            <input disabled type="radio" value="kjt" name="paytype"><img src="/css/kjt.png" alt="快捷通">
-                        </label>
-                    </div>
-                    <div class="form-group" style="margin-top: 50px">
-                        <input type="submit" class="btn-lg btn-danger col-lg-offset-3" value="充值">
-                    </div>
-                    <div style="display: none">
-                        <div><a>---以下开始是测试数据</a></div>
-                        <div class="form-group">
-                            <label for="merchant_code" class="control-label col-md-4 ">商家号: </label>
+                        <div class="fl" style="height: 60px; float:none;">
+                            <label class="col-md-offset-2" style="width: auto">充值金额：</label>
+                            <input type="number"
+                                   id="amounts"
+                                   name="amounts"
+                                   value="100" size="5"
+                                   min="1" class="money"
+                                   onchange="pay.moneyFormat(this);"><span
+                                    style="display: inline-block;line-height: 45px; padding-left:5px;"> 元 (<span
+                                        id="recharge-tips"><span style="color:#FF0000">0</span>元手续费</span>)</span>
 
-                            <div class="col-md-4">
-                                <input class="form-control" name="merchant_code" type="text" id="merchant_code"
-                                       value="2000632709">
+                            <div class="radios-ct"
+                                 style="display:none;*margin-top:-45px;width: 450px;float:right; white-space: nowrap; font-weight: bolder;">
                             </div>
+                            <input name="uid" value="{{Auth::user()->id}}" type="hidden">
+                            <input name="name" value="{{Auth::user()->name}}" type="hidden">
                         </div>
                         <div class="form-group">
-                            <label for="service_type" class="control-label col-md-4">业务类型: </label>
+                            <label class="radio-inline col-md-2 col-md-offset-2">
+                                <input checked type="radio" value="zf" name="paytype"><img src="/css/zf.png" alt="智付">
+                            </label>
+                            <label class="radio-inline col-md-2">
+                                <input disabled type="radio" value="kjt" name="paytype"><img src="/css/kjt.png"
+                                                                                             alt="快捷通">
+                            </label>
+                        </div>
+                        <div class="form-group" style="margin-top: 50px">
+                            <input type="submit" class="btn-lg btn-danger col-lg-offset-3" value="充值">
+                        </div>
+                        <div style="display: none">
+                            <div><a>---以下开始是测试数据</a></div>
+                            <div class="form-group">
+                                <label for="merchant_code" class="control-label col-md-4 ">商家号: </label>
 
-                            <div class="col-md-4">
-                                <input class="form-control" name="service_type" type="text" id="service_type"
-                                       value="direct_pay">
+                                <div class="col-md-4">
+                                    <input class="form-control" name="merchant_code" type="text" id="merchant_code"
+                                           value="2000632709">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="service_type" class="control-label col-md-4">业务类型: </label>
+
+                                <div class="col-md-4">
+                                    <input class="form-control" name="service_type" type="text" id="service_type"
+                                           value="direct_pay">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="sign_type" class="control-label col-md-4">签名方式: </label>
+
+                                <div class="col-md-4">
+                                    <input class="form-control" name="sign_type" type="text" id="sign_type" value="MD5">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="notify_url" class="control-label col-md-4">充值接收地址: </label>
+
+                                <div class="col-md-4">
+                                    <input class="form-control" name="notify_url" type="text" id="notify_url"
+                                           value="http://k3.gwou.cn/zfNotify_Url">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input_charset" class="control-label col-md-4">编码字集: </label>
+
+                                <div class="col-md-4">
+                                    <input class="form-control" name="input_charset" type="text" id="input_charsete"
+                                           value="UTF-8">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="interface_version" class="control-label col-md-4">接口版本: </label>
+
+                                <div class="col-md-4">
+                                    <input class="form-control" name="interface_version" type="text"
+                                           id="interface_version"
+                                           value="V3.0">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="order_no" class="control-label col-md-4">订单号（唯一: </label>
+
+                                <div class="col-md-4">
+                                    <input class="form-control" name="order_no" type="text" id="order_no"
+                                           value="{{date("YmdHis")}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="order_time" class="control-label col-md-4">订单时间: </label>
+
+                                <div class="col-md-4">
+                                    <input class="form-control" name="order_time" type="text" id="order_time"
+                                           value="{{date('Y-m-d H:i:s',time())}}">
+                                </div>
+                            </div>
+                            {{--<div class="form-group">--}}
+                            {{--<label for="order_amount" class="control-label col-md-4">订单金额: </label>--}}
+
+                            {{--<div class="col-md-4">--}}
+                            {{--<input class="form-control" name="order_amount" type="text" id="order_amountn" value="0.1">--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            <div class="form-group">
+                                <label for="product_name" class="control-label col-md-4">商品名称: </label>
+
+                                <div class="col-md-4">
+                                    <input class="form-control" name="product_name" type="text" id="product_name"
+                                           value="饮水机">
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="sign_type" class="control-label col-md-4">签名方式: </label>
-
-                            <div class="col-md-4">
-                                <input class="form-control" name="sign_type" type="text" id="sign_type" value="MD5">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="notify_url" class="control-label col-md-4">充值接收地址: </label>
-
-                            <div class="col-md-4">
-                                <input class="form-control" name="notify_url" type="text" id="notify_url"
-                                       value="http://k3.gwou.cn/zfNotify_Url">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="input_charset" class="control-label col-md-4">编码字集: </label>
-
-                            <div class="col-md-4">
-                                <input class="form-control" name="input_charset" type="text" id="input_charsete"
-                                       value="UTF-8">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="interface_version" class="control-label col-md-4">接口版本: </label>
-
-                            <div class="col-md-4">
-                                <input class="form-control" name="interface_version" type="text" id="interface_version"
-                                       value="V3.0">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="order_no" class="control-label col-md-4">订单号（唯一: </label>
-
-                            <div class="col-md-4">
-                                <input class="form-control" name="order_no" type="text" id="order_no"
-                                       value="{{date("YmdHis")}}">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="order_time" class="control-label col-md-4">订单时间: </label>
-
-                            <div class="col-md-4">
-                                <input class="form-control" name="order_time" type="text" id="order_time"
-                                       value="{{date('Y-m-d H:i:s',time())}}">
-                            </div>
-                        </div>
-                        {{--<div class="form-group">--}}
-                        {{--<label for="order_amount" class="control-label col-md-4">订单金额: </label>--}}
-
-                        {{--<div class="col-md-4">--}}
-                        {{--<input class="form-control" name="order_amount" type="text" id="order_amountn" value="0.1">--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        <div class="form-group">
-                            <label for="product_name" class="control-label col-md-4">商品名称: </label>
-
-                            <div class="col-md-4">
-                                <input class="form-control" name="product_name" type="text" id="product_name"
-                                       value="饮水机">
-                            </div>
-                        </div>
-                    </div>
-                    {!! Form::close() !!}
+                    </form>
+                    {{--{!! Form::close() !!}--}}
                 </div>
                 {{--公司充值--}}
                 <div class="tab-pane" id="Company">
                     @include('errors.list')
                     {!! Form::open(['url' => '/company', 'class' => 'form-horizontal', 'role' => 'form']) !!}
+
                     <div class="form-group">
                         <label for="sn" class="control-label col-md-4">订单号: </label>
+
                         <div class="col-md-4">
                             <input class="form-control" name="sn" type="text" id="sn"
                                    value="{{date("YmdHis")}}" readonly>
@@ -196,7 +204,7 @@
                                 <option value="33">南京银行</option>
                                 <option value="34">北京农商银行</option>
                             </select>
-                            <input name="payBank" id="payBank"  type="hidden">
+                            <input name="payBank" id="payBank" type="hidden">
                             <input name="siteId" value="1" type="hidden">
                             <input name="siteBankId" id="siteBankId" value="1" type="hidden">
                             {{--<input name="status" value="2" type="hidden">--}}
@@ -252,25 +260,24 @@
                             {!! Form::submit('提交,申请', ['class' => 'btn btn-success form-control']) !!}
                         </div>
                     </div>
+                    {!! Form::close() !!}
                 </div>
-                {!! Form::close() !!}
             </div>
-    </div>
-    </main>
+        </main>
     </div>
 @stop
 @section('script')
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    $(document).ready(function(){
+        $(document).ready(function () {
 
-    });
-    function changetobank(value) {
-        var index = value.selectedIndex; // 选中索引
+        });
+        function changetobank(value) {
+            var index = value.selectedIndex; // 选中索引
 
-        var text = value.options[index].text; // 选中文本
-        $("#payBank").val(text);
+            var text = value.options[index].text; // 选中文本
+            $("#payBank").val(text);
 //        var value = value.options[index].value; // 选中值
-    }
-</script>
+        }
+    </script>
 @stop

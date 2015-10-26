@@ -31,7 +31,7 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-        $recentResult = Db::select('SELECT proName,typeName, MAX(created_at) as created_at,codes FROM lu_lotteries_results GROUP BY typeName');
+        $recentResult = Db::select('select * from lu_lotteries_results where id in (select max(id) from lu_lotteries_results group by typeName)');
         $recentArray = array();
         foreach($recentResult as $key=>$value){
             if($value->typeName=="ANHUI"){
