@@ -21,13 +21,14 @@ class registerController extends Controller
     {
         //
         $invite = $request->invite;
-//        $lu_user = lu_user::where('invite', $invite)->first();
-//        $group = 8;
-//        if (isset($lu_user)) {
-//            if ($lu_user->groupId == 5) {
+        $lu_user = lu_user::where('invite', $invite)->first();
+        $group = 8;
+        if (isset($lu_user)) {
+            if ($lu_user->groupId == 5) {
 //                $group = 3;
-//            }
-//        }
+                return view('User.dailiregister', compact('invite'));
+            }
+        }
         return view('register', compact('invite'));
     }
 

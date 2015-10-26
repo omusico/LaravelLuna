@@ -56,6 +56,10 @@ Route::controller('password', 'PasswordController');
 Route::resource('admin', 'Admin\AdminController');
 
 Route::resource('company','CashController');
+
+Route::resource('companybank','CbankController');
+
+
 Route::get('bettingList', 'Admin\AdminController@bettingList');
 #上传分数
 //Route::post('admin/upload_grade', [

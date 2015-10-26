@@ -56,12 +56,12 @@
                                     'required']) !!}
                                 </div>
                             </div>
-                            {{--<div class="form-group">--}}
-                            {{--{!! Form::label('phone', '手机: ', ['class' => 'control-label col-md-4']) !!}--}}
-                            {{--<div class="col-md-4">--}}
-                            {{--{!! Form::text('phone', old('phone'), ['class' => 'form-control']) !!}--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
+                            <div class="form-group">
+                            {!! Form::label('phone', '手机: ', ['class' => 'control-label col-md-4']) !!}
+                            <div class="col-md-4">
+                            {!! Form::text('phone', old('phone'), ['class' => 'form-control']) !!}
+                            </div>
+                            </div>
                             <div class="form-group">
                                 {!! Form::label('qq', 'QQ: ', ['class' => 'control-label col-md-4']) !!}
                                 <div class="col-md-4">
@@ -86,6 +86,13 @@
                                     {!! Form::text('bankCode', null, ['class' => 'form-control']) !!}
                                 </div>
                             </div>
+                            <div class="form-group">
+                                {!! Form::label('bankUserName', '开户人姓名: ', ['class' => 'control-label col-md-4']) !!}
+                                <div class="col-md-4">
+                                    {!! Form::text('bankUserName', null, ['class' => 'form-control']) !!}
+                                </div>
+                            </div>
+
                             <div class="form-group" style="display: none">
                                 {!! Form::label('groupId', '权限组: ', ['class' => 'control-label col-md-4']) !!}
                                 <div class="col-md-4">

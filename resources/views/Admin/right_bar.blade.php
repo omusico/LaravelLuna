@@ -14,6 +14,10 @@
     {{--<br /><br />--}}
     <a href="/company"><button class="btn btn-warning btn-lg">公司充值</button></a>
     <br /><br />
+    <a href="/companybank/create"><button class="btn btn-info btn-lg">添加公司账号</button></a>
+    <br /><br />
+    <a href="/companybank"><button class="btn btn-info btn-lg">公司账号</button></a>
+    <br /><br />
     <a href="#"><button class="btn btn-info btn-lg">会员统计</button></a>
     <br /><br />
     <a href="#"><button class="btn btn-info btn-lg">返水记录</button></a>
