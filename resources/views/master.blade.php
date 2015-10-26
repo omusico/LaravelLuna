@@ -57,10 +57,10 @@
                 @if (Auth::guest())
                     {{--{!! Form::open(['url' => '/login', 'class' => 'navbar-form navbar-right', 'role' => 'search']) !!}--}}
                     {{--<div class="form-group">--}}
-                        {{--{!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder'--}}
-                        {{--=>'用户名...','required']) !!}--}}
-                        {{--{!! Form::password('password', ['class' => 'form-control', 'placeholder'=>'密码...','required'])--}}
-                        {{--!!}--}}
+                    {{--{!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder'--}}
+                    {{--=>'用户名...','required']) !!}--}}
+                    {{--{!! Form::password('password', ['class' => 'form-control', 'placeholder'=>'密码...','required'])--}}
+                    {{--!!}--}}
                     {{--</div>--}}
                     {{--{!! Form::submit('登陆', ['class' => 'btn btn-primary']) !!}--}}
                     {{--{!! Form::close() !!}--}}
@@ -97,7 +97,9 @@
         </li>
         <li class="m_li last"><a href="/userLotteryBetting" target="_blank" title="交易记录">交易记录</a></li>
     </ul>
-    <div class="contact_r" style="width: auto; margin: 10px 20px 0 0; right: 70px;"><img src="/css/kftel.png" title="7×24小时服务热线：4000-500-500" alt="7×24小时服务热线：4000-500-500">
+    <div class="contact_r" style="width: auto; margin: 10px 20px 0 0; right: 70px;"><img src="/css/kftel.png"
+                                                                                         title="7×24小时服务热线：zgk3wz@@126.com"
+                                                                                         alt="7×24小时服务热线：zgk3wz@@126.com">
     </div>
     <div class="home_hb" style="background-color: red">
         <ul>
@@ -106,10 +108,24 @@
     </div>
 </div>
 {{--{{$_SERVER['REQUEST_URI']}}--}}
-@if($_SERVER['REQUEST_URI']=='/index' || $_SERVER['REQUEST_URI']=='/' || $_SERVER['REQUEST_URI']=='/k3GameRule')
+@if($_SERVER['REQUEST_URI']=='/index' || $_SERVER['REQUEST_URI']=='/')
 
 @else
-    {{--<div style="width: 100%;margin-top: 78px"></div>--}}
+    <div class="container" style="text-align: center">
+        <div class="collapse navbar-collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav nav col-md-offset-2">
+                <li><a href="/lotteryIndex?lottery_type=jsold">江苏快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=beijin">北京快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=fjk3">福建快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=anhui">安徽快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=jilin">吉林快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=jsnew">广西快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=hubei">湖北快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=hebei">河北快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=nmg">内蒙快三</a></li>
+            </ul>
+        </div>
+    </div>
 @endif
 <div class="container">
     @include('flash')
