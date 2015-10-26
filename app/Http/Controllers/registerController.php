@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\lu_lottery_user;
 use App\lu_user_data;
 use Hash;
 use App\Http\Controllers\Controller;
@@ -131,6 +132,23 @@ class registerController extends Controller
                 $lu_user_data = new lu_user_data();
                 $lu_user_data->uid = $lu_user->id;
                 $lu_user_data->save();
+
+                $data = array(
+
+                    'bankName'=>$request->bankName,
+
+                    'bankCode'=>$request->bankCode,
+
+                    'openBank'=>$request->openBank,
+
+                    'userName'=>$request->bankUserName,
+
+                    'uid'=>$lu_user_data->$lu_user->id,
+
+                    'created'=>$_REQUEST['REQUEST_TIME']
+
+                );
+                lu_lottery_user::create($data);
                 session()->flash('message', $lu_user->name . "注册成功");
                 return Redirect::to('login');
             } else {
