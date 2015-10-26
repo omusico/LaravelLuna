@@ -148,4 +148,62 @@ class CommonClass
         curl_close($ch);
         return $response;
     }
+
+    public static function get_cj_name($type)
+    {
+        switch ($type) {
+            case 'wy':
+                return '网易';
+                break;
+            case 'cjw':
+                return '彩经网';
+                break;
+            case 'lecai':
+                return '百度乐彩';
+                break;
+            case '360cp':
+                return '360';
+                break;
+            case 'cll':
+                return '彩乐乐';
+                break;
+            case 'icaile';
+                return '爱彩乐';
+                break;
+            case 'k39':
+                return '快3网';
+                break;
+            case 'le':
+                return '网易';
+                break;
+            case 'beijin':
+                return '北京官网';
+                break;
+            case 'sc':
+                return '四川官网';
+                break;
+            case 'wlc':
+                return '万利彩';
+                break;
+            case 'wy2':
+                return '网易';
+                break;
+            case 'pk10':
+                return '1396me';
+                break;
+            case 'fj':
+                return '福建福利彩';
+                break;
+            case 'xjflcp':
+                return '新疆福利彩票';
+                break;
+            case 'tjflcp':
+                return '天津福利彩票';
+                break;
+            default:
+                return '未配置彩种类型,请联系管理员';
+                break;
+        }
+
+    }
 }

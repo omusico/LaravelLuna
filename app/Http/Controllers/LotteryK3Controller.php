@@ -91,7 +91,8 @@ class LotteryK3Controller extends Controller
         $timeData = $lunaFunctions->get_current_period($lotteryType);
 //        $lotteryResult = Waf::model('lottery/result');
 //        $count = $lotteryResult->isExistsProName($timeData['prePeriod'],$lotteryType);
-        $count = 0;
+        $count = lu_lotteries_result::where('proName',$timeData['prePeriod'])->where('typeName',$lotteryType)->count();
+//        $count = 0;
         if ($count < 1) {
             // 开奖中
             $status = 1;
@@ -104,15 +105,16 @@ class LotteryK3Controller extends Controller
             // 已开奖
             $status = 0;
             $msg = '已开奖';
-            //todo need fix it
+            //fixed need fix it
+            $recordData = lu_lotteries_result::where('proName',$timeData['prePeriod'])->where('typeName',$lotteryType)->first();
 //            $recordData = $lotteryResult->queryDetail($timeData['prePeriod'],$lotteryType);
-//            $kjData = array(
-//                'preTerm' => $recordData['proName'],
-//                'preOpenResult' => $recordData['codes'],
-//                "source" => get_cj_name($recordData['source']),
-//                "createTime" =>  date('Y-m-d H:i:s',$recordData['created'])
-//
-//            );
+            $kjData = array(
+                'preTerm' => $recordData['proName'],
+                'preOpenResult' => $recordData['codes'],
+                "source" => CommonClass::get_cj_name($recordData['source']),
+                "createTime" =>  date('Y-m-d H:i:s',$recordData['created'])
+
+            );
         }
 
         $result = array(
