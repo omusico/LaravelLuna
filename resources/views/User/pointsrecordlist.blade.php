@@ -40,8 +40,8 @@
                                     {{$lu_points_record->addType}}
                                 @endif
                             </td>
-                            <td>{{ $lu_points_record->lotteryType }}</td>
-{{--                            <td>{{ \App\LunaLib\Common\CommonClass::get_lottery_name($lu_points_record->lotteryTypee)}}</td>--}}
+                            {{--<td>{{ $lu_points_record->lotteryType }}</td>--}}
+                            <td>{{ \App\LunaLib\Common\CommonClass::get_lottery_name($lu_points_record->lotteryTypee)}}</td>
                             <td>{{ $lu_points_record->userName }}</td>
                             <td>{{ $lu_points_record->touSn }}</td>
                             <td>{{ $lu_points_record->oldPoint}}</td>
