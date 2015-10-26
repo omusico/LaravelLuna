@@ -301,7 +301,7 @@
                     </h2>
 
                     <ul class="col-md-3">
-                        <li><strong>北京快3</strong> 第<em>{{$recentArray['BEIJIN']->proName}}</em>期开奖号码<br>
+                        <li><strong>北京快3</strong> 第<em>{{$recentArray['BEIJIN']->proName}}</em>期开奖号码<br><br>
                             开奖时间：{{$recentArray['BEIJIN']->created_at}}
                             <br>
                             <a href="/lotteryIndex?lottery_type=beijin">立即购买</a>

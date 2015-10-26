@@ -79,7 +79,7 @@
     </div>
 </div>
 <div class="top_main_back"></div>
-<div class="container header" style="margin-top: 70px" id="indexHeader">
+<div class="container header" style="margin-top: 50px" id="indexHeader">
     <div class="logoWrap">
         <h1 class="logo"><a href="#" title="中国快三网" class="logoLink"><img src="/css/m_logo.png" alt="中国快三网"></a></h1>
     </div>
