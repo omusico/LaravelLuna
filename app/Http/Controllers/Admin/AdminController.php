@@ -2,7 +2,6 @@
 
 use App\lu_user;
 use DB;
-use App\Grade;
 use Redirect;
 use Hash;
 use App\Http\Requests;

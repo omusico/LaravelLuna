@@ -4,7 +4,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\lu_lotteries_k3;
+use App\LunaLib\Common\CommonClass;
 use Illuminate\Http\Request;
+use Auth;
 
 class UserController extends Controller
 {
@@ -92,6 +94,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function account(){
+//        $user_groups = CommonClass::cache("user_groups",1);
+//        $user_level = CommonClass::cache("user_level",0);
+        return view('User.account');
     }
 
 }
