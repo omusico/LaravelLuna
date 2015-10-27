@@ -141,4 +141,8 @@ class AdminController extends Controller {
         session()->flash('message', '滚动文字修改成功');
         return Redirect::back();
     }
+
+    public function k3odds(Request $request){
+        return view('Admin.k3odds');
+    }
 }
