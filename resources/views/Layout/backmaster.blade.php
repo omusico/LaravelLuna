@@ -50,7 +50,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">内容<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/marquee">滚动文字</a></li>
-                        <li><a href="#">新闻中心</a></li>
+                        <li><a href="/news">新闻中心</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
