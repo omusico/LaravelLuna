@@ -15,11 +15,11 @@
         <ul>
             <li><a href="/getPointsRecord" class="">账户明细</a></li>
             <li><a href="/recharge">立即充值</a></li>
-            <li><a href="#">我要提现</a></li>
+            <li><a href="/deposit">我要提现</a></li>
         </ul>
         <h3>安全中心</h3>
         <ul>
-            <li><a href="#">安全中心</a></li>
+            {{--<li><a href="#">安全中心</a></li>--}}
             <li><a href="#">修改密码</a></li>
             {{--<li><a href="#">绑定手机</a></li>--}}
             <li><a href="#">绑定银行卡</a></li>

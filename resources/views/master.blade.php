@@ -93,14 +93,16 @@
         <li class="m_li "><a href="#" title="手机下注">手机下注</a></li>
         <li class="m_li last"><a title="网址" href="#">网址</a></li>
     </ul>
-    <div class="contact_r" style="width: auto; margin: 10px 20px 0 0; right: 70px;"><img src="/css/kftel.png"
-                                                                                         title="7×24小时服务热线：zgk3wz@@126.com"
-                                                                                         alt="7×24小时服务热线：zgk3wz@@126.com">
+    <div class="contact_r" style="width: auto; margin: 10px 20px 0 0; right: 70px;"><img src="/css/kftel.png" title="7×24小时服务热线：zgk3wz@@126.com" alt="7×24小时服务热线：zgk3wz@@126.com">
     </div>
     <div class="home_hb" style="background-color: red">
         <ul>
-            <li><a target="_blank" href="" title="" id="link100">网站公告:开业大奖送好礼</a></li>
+            <li>
+                <marquee scrollamount=3 style="color:white">网站公告:开业大奖送好礼</marquee>
+                {{--<a target="_blank" href="" title="" id="link100"></a>--}}
+            </li>
         </ul>
+
     </div>
 </div>
 {{--{{$_SERVER['REQUEST_URI']}}--}}
