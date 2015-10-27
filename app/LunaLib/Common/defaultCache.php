@@ -136,7 +136,7 @@ class defaultCache
 
     public static function cache_k3_odds()
     {
-        if(\Cache::has('k3odds')){
+        if (\Cache::has('k3odds')) {
             return \Cache::get('k3odds');
         }
         return array(
@@ -249,7 +249,7 @@ class defaultCache
 
     public static function cache_chipin()
     {
-        if(\Cache::has('chipins')){
+        if (\Cache::has('chipins')) {
             return \Cache::get('chipins');
         }
         return array(
@@ -1716,6 +1716,42 @@ class defaultCache
                     'odds' => '90',
                     'slug' => 'TX',
                 )
+        );
+    }
+
+    public static function cache_user_return()
+    {
+        return array(
+            1 =>
+                array(
+                    'min' => '500',
+                    'max' => '10000',
+                    'rate' => '0.01',
+                ),
+            2 =>
+                array(
+                    'min' => '10001',
+                    'max' => '100000',
+                    'rate' => '0.012',
+                ),
+            3 =>
+                array(
+                    'min' => '100001',
+                    'max' => '500000',
+                    'rate' => '0.015',
+                ),
+            4 =>
+                array(
+                    'min' => '500001',
+                    'max' => '1000000',
+                    'rate' => '0.018',
+                ),
+            5 =>
+                array(
+                    'min' => '1000001',
+                    'max' => '100000000',
+                    'rate' => '0.02',
+                ),
         );
     }
 }
