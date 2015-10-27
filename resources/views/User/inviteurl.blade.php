@@ -1,4 +1,4 @@
-@extends('master')
+@extends('Layout.master')
 
 @section('title')
     代理推广链接

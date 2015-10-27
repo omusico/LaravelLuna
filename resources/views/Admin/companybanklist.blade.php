@@ -1,7 +1,7 @@
-@extends('master')
+@extends('Layout.backmaster')
 
 @section('title')
-    管理员
+    公司转账账户
 @stop
 
 @section('content')

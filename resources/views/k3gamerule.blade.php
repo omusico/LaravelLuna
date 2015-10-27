@@ -1,4 +1,4 @@
-@extends('master')
+@extends('Layout.master')
 @section('title')
     中国快三网-游戏规则
 @stop

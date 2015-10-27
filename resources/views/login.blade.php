@@ -1,4 +1,4 @@
-@extends('master')
+@extends('Layout.master')
 
 @section('title')
     欢迎登录

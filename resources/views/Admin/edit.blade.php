@@ -1,4 +1,4 @@
-@extends('master')
+@extends('Layout.backmaster')
 
 @section('title')
     会员修改

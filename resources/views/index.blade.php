@@ -1,4 +1,4 @@
-@extends('master')
+@extends('Layout.master')
 @section('title')
     中国快三网
 @stop
@@ -99,7 +99,7 @@
         <div class="row">
             <div class="col-md-3" style="margin-right: 0px">
                 <div class="h_l_cp" style="height: 211px">
-                    @include('userinfo')
+                    @include('Layout.userinfo')
                 </div>
             </div>
             <div class="col-md-6" style="padding-left: 0px;padding-right: 0px;margin-right: 0px">

@@ -1,4 +1,4 @@
-@extends('master')
+@extends('Layout.backmaster')
 
 @section('title')
     管理员登陆

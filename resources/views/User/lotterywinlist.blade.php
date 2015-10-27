@@ -1,4 +1,4 @@
-@extends('master')
+@extends('Layout.master')
 @section('title')
     中奖记录
 @stop

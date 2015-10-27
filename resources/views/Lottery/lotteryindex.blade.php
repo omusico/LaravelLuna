@@ -1,4 +1,4 @@
-@extends('master')
+@extends('Layout.master')
 @section('title')
     中国快三网-{{$czName}}
 @stop
@@ -577,7 +577,7 @@
                 </main>
                 <aside class="col-md-4">
                     <div class="login_weizhi">
-                        @include('userinfo')
+                        @include('Layout.userinfo')
                     </div>
                     {{--<div class="blank4"></div>--}}
                     <div class="kj_open_box">
