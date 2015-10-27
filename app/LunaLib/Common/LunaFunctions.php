@@ -442,7 +442,7 @@ class LunaFunctions
                         if ($myResults) {
                             $myResults["lotSn"] = $row['lotId'];
                             $myResults["touSn"] = $row['sn'];
-                            $args[$row['lotId']] = $myResults;
+                            $args[$row['id']] = $myResults;
                         }
                     } else {
                         echo '未配置方法';

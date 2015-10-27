@@ -31,7 +31,8 @@ class CbankController extends Controller {
 	public function create()
 	{
 		//
-        return view('Admin.companybank');
+        $cbank = new lu_lottery_company_bank();
+        return view('Admin.companybank',compact('cbank'));
 	}
 
 	/**
@@ -44,7 +45,12 @@ class CbankController extends Controller {
 		//
         $id = $request->id;
         if(!empty($id)){
-            $lu_lottery_company_bank = lu_lottery_company_bank::where('id',$request->id)->first();
+            $lu_lottery_company_bank = lu_lottery_company_bank::find($id);
+            $lu_lottery_company_bank->bankName = $request->bankName;
+            $lu_lottery_company_bank->province = $request->province;
+            $lu_lottery_company_bank->city = $request->city;
+            $lu_lottery_company_bank->bankCode = $request->bankCode;
+            $lu_lottery_company_bank->userName = $request->userName;
         }else{
             $lu_lottery_company_bank = new lu_lottery_company_bank;
             $lu_lottery_company_bank->bankName = $request->bankName;
@@ -78,6 +84,8 @@ class CbankController extends Controller {
 	public function edit($id)
 	{
 		//
+        $cbank =lu_lottery_company_bank::find($id);
+        return view('Admin.companybank',compact('cbank'));
 	}
 
 	/**

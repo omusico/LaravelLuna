@@ -12,7 +12,7 @@
                 @include('errors.list')
 
                 <h3 align="center">
-                    投注列表</h3>
+                    公司充值审批列表</h3>
                 <table class="table table-hover">
                     <tr>
                         <td>订单号</td>

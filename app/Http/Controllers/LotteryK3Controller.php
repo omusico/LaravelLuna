@@ -132,7 +132,7 @@ class LotteryK3Controller extends Controller
             $totals = 0;
             $lotteryTypes = defaultCache::cache_lottery_status();
             $lunaFunctions = new LunaFunctions();
-            //todo 获取status的值
+            //todo 获取status的值,看这个lottery是否在维护
             $status = 1;//$lotteryTypes[$this->lottery_type]['status'];
             if ($status == 0) {
 //                $lotteryName = $lotteryTypes[$this->lottery_type]['name'];
@@ -492,7 +492,7 @@ class LotteryK3Controller extends Controller
             $timeData = $lunaFunctions->get_current_period($lotteryType);
             return $timeData['currentPeriod'];
         } else {
-            //todo
+            //fixed
             $time = new Lottery_GetTime();
             $lotteryType = strtoupper($lotteryType);
             $action = 'getTimeFor' . $lotteryType;

@@ -38,8 +38,8 @@
                                 <td>{{ $lu_lottery_company_bank->userName }}</td>
                                 <td>
                                     {{--<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal{{$lu_user->id}}">更新分数</button>--}}
-                                    <a class="btn btn-sm btn-info" href="/admin/{{$lu_lottery_company_bank->id}}/edit">编辑</a>
-                                    <form action="{{ url('admin/'.$lu_lottery_company_bank->id) }}" style='display: inline'
+                                    <a class="btn btn-sm btn-info" href="/companybank/{{$lu_lottery_company_bank->id}}/edit">编辑</a>
+                                    <form action="{{ url('companybank/'.$lu_lottery_company_bank->id) }}" style='display: inline'
                                           method="post">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -50,7 +50,7 @@
                             </tr>
                         @endforeach
                     @else
-                        <h1>没有会员,请管理员添加</h1>
+                        <h1>没有记录,请管理员添加</h1>
                     @endif
                 </table>
                 <?php echo $lu_lottery_company_banks->render(); ?>
