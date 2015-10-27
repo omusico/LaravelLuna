@@ -4,6 +4,7 @@ namespace App\LunaLib\Common;
 use App\lu_lotteries_k3;
 use App\lu_lottery_notes_k3;
 use App\lu_points_record;
+use App\lu_user;
 use App\lu_user_data;
 
 /**
@@ -474,7 +475,7 @@ class LunaFunctions
                             $tempPoints = $userInfo['points'];
                             $pointRecordData = array(
                                 'uid' => $data['uid'],
-                                'userName' => $userInfo['name'],
+                                'userName' => lu_user::find($data['uid'])->name,
                                 'addType' => '2', // 中奖
                                 'lotteryType' => $lottery_type, //
                                 'touSn' => $touSn,
