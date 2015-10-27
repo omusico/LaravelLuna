@@ -148,7 +148,7 @@ class CashController extends Controller
     public function recharge()
     {
        $bank =lu_lottery_company_bank::find(1);
-        return view('Cash.recharge',compact());
+        return view('Cash.recharge',compact('bank'));
     }
 
     public function rechargePost(Request $request)
