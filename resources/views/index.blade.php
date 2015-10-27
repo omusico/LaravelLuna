@@ -152,10 +152,18 @@
                     </ul>
                     <div class="tabs-cnt notice_cont">
                         <ul class="list_icon" style="padding-left: 0px">
-                            <li><a style="width: 205px;" href="http://tieba.baidu.com/p/3493423557" target="_blank">快3技巧：和值攻略揭秘</a><span class="time"></span></li>
-                            <li><a style="width: 205px;" href="http://tieba.baidu.com/p/3493429781" target="_blank">快3技巧 近期数据更有价值</a><span class="time"></span></li>
-                            <li><a style="width: 205px;" href="http://tieba.baidu.com/p/3454498923" target="_blank">快3技巧：五种杀号技巧手到擒来</a><span class="time"></span></li>
-                            <li><a style="width: 205px;" href="http://tieba.baidu.com/p/3389052828" target="_blank">快3玩法中奖妙招：模式选号法</a><span class="time"></span></li>
+                            @if(null!==Cache::get('news'))
+                                @foreach(Cache::get('news') as $key=>$value)
+                                    <li><a style="width: 205px;" href="{{isset($value['url'])?$value['url']:'#'}}" target="_blank">{{isset($value['title'])?$value['title']:''}}</a><span
+                                                class="time"></span></li>
+                                @endforeach
+                            @endif
+                            {{--<li><a style="width: 205px;" href="http://tieba.baidu.com/p/3493429781" target="_blank">快3技巧--}}
+                                    {{--近期数据更有价值</a><span class="time"></span></li>--}}
+                            {{--<li><a style="width: 205px;" href="http://tieba.baidu.com/p/3454498923" target="_blank">快3技巧：五种杀号技巧手到擒来</a><span--}}
+                                        {{--class="time"></span></li>--}}
+                            {{--<li><a style="width: 205px;" href="http://tieba.baidu.com/p/3389052828" target="_blank">快3玩法中奖妙招：模式选号法</a><span--}}
+                                        {{--class="time"></span></li>--}}
                         </ul>
                     </div>
                 </div>
@@ -228,7 +236,8 @@
                                     style="display: inline;margin: 3px 5px;"
                                     src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['ANHUI']->codes)[1]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['ANHUI']->codes)[2]}}x24.png"></li>
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['ANHUI']->codes)[2]}}x24.png">
+                        </li>
                         <li><strong>江苏快3</strong> 第<em>{{$recentArray['JSOLD']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['JSOLD']->created_at}}
                             <br>
@@ -238,7 +247,8 @@
                                     style="display: inline;margin: 3px 5px;"
                                     src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSOLD']->codes)[1]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSOLD']->codes)[2]}}x24.png"></li>
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSOLD']->codes)[2]}}x24.png">
+                        </li>
                         <li style="border-bottom:none; padding-bottom:0;"><strong>福建快3</strong>
                             第<em>{{$recentArray['FJK3']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['FJK3']->created_at}}
@@ -249,7 +259,8 @@
                                     style="display: inline;margin: 3px 5px;"
                                     src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['FJK3']->codes)[1]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['FJK3']->codes)[2]}}x24.png"></li>
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['FJK3']->codes)[2]}}x24.png">
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -268,7 +279,8 @@
                                     style="display: inline;margin: 3px 5px;"
                                     src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HUBEI']->codes)[1]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HUBEI']->codes)[2]}}x24.png"></li>
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HUBEI']->codes)[2]}}x24.png">
+                        </li>
                         <li><strong>吉林快3</strong> 第<em>{{$recentArray['JILIN']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['JILIN']->created_at}}
                             <br>
@@ -278,7 +290,8 @@
                                     style="display: inline;margin: 3px 5px;"
                                     src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JILIN']->codes)[1]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JILIN']->codes)[2]}}x24.png"></li>
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JILIN']->codes)[2]}}x24.png">
+                        </li>
                         <li style="border-bottom:none; padding-bottom:0;"><strong>广西快3</strong>
                             第<em>{{$recentArray['JSNEW']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['JSNEW']->created_at}}
@@ -289,7 +302,8 @@
                                     style="display: inline;margin: 3px 5px;"
                                     src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSNEW']->codes)[1]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSNEW']->codes)[2]}}x24.png"></li>
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSNEW']->codes)[2]}}x24.png">
+                        </li>
                     </ul>
                 </div>
 
@@ -310,7 +324,8 @@
                                     style="display: inline;margin: 3px 5px;"
                                     src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['BEIJIN']->codes)[1]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['BEIJIN']->codes)[2]}}x24.png"></li>
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['BEIJIN']->codes)[2]}}x24.png">
+                        </li>
                         <li><strong>内蒙古快3</strong> 第<em>{{$recentArray['NMG']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['NMG']->created_at}}
                             <br>
@@ -320,7 +335,8 @@
                                     style="display: inline;margin: 3px 5px;"
                                     src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['NMG']->codes)[1]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['NMG']->codes)[2]}}x24.png"></li>
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['NMG']->codes)[2]}}x24.png">
+                        </li>
                         <li style="border-bottom:none; padding-bottom:0;"><strong>河北快3</strong>
                             第<em>{{$recentArray['HEBEI']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['HEBEI']->created_at}}
@@ -331,7 +347,8 @@
                                     style="display: inline;margin: 3px 5px;"
                                     src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HEBEI']->codes)[1]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
-                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HEBEI']->codes)[2]}}x24.png"></li>
+                                    src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HEBEI']->codes)[2]}}x24.png">
+                        </li>
                     </ul>
                 </div>
             </div>

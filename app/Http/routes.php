@@ -62,6 +62,9 @@ Route::get('bettingList', 'Admin\AdminController@bettingList');
 Route::get('marquee', 'Admin\AdminController@marquee');
 Route::post('savemarquee', 'Admin\AdminController@savemarquee');
 Route::get('k3odds', 'Admin\AdminController@k3odds');
+Route::post('savek3odds', 'Admin\AdminController@savek3odds');
+Route::get('news', 'Admin\AdminController@news');
+Route::post('savenews', 'Admin\AdminController@savenews');
 #上传分数
 //Route::post('admin/upload_grade', [
 //    'as' => 'upload_grade', 'uses' => 'Admin\AdminController@upload_grade']);

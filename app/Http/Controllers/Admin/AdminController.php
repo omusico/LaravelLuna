@@ -142,7 +142,41 @@ class AdminController extends Controller {
         return Redirect::back();
     }
 
-    public function k3odds(Request $request){
-        return view('Admin.k3odds');
+    public function k3odds(){
+        $odds = App\LunaLib\Common\defaultCache::cache_k3_odds();
+//        Cache::forget('chipins');
+        $chipins =App\LunaLib\Common\defaultCache::cache_chipin();
+        $types =App\LunaLib\Common\defaultCache::cache_lottery_type_slug();
+        $nameDatas = array(
+            '19' => '单',
+            '20' => '双',
+            '21' => '小',
+            '22' => '大',
+            'val' => '赔率'
+        );
+        return view('Admin.k3odds',compact('odds','chipins','types','nameDatas'));
+    }
+
+    public function savek3odds(Request $request){
+        $k3odds=$request->odds;
+        $chipins = $request->chipins;
+        Cache::forever('k3odds', $k3odds);
+        Cache::forever('chipins', $chipins);
+        session()->flash('message', '修改赔率成功');
+        return Redirect::back();
+    }
+
+    public function news(){
+        if(Cache::has('news')){
+            $news = Cache::get('news');
+        }
+        return view('Admin.news',compact('news'));
+    }
+
+    public function savenews(Request $request){
+        $news=$request->news;
+        Cache::forever('news', $news);
+        session()->flash('message', '前台优惠消息更新成功');
+        return Redirect::back();
     }
 }

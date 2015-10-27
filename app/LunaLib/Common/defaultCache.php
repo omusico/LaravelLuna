@@ -136,6 +136,9 @@ class defaultCache
 
     public static function cache_k3_odds()
     {
+        if(\Cache::has('k3odds')){
+            return \Cache::get('k3odds');
+        }
         return array(
             'HZ' =>
                 array(
@@ -246,6 +249,9 @@ class defaultCache
 
     public static function cache_chipin()
     {
+        if(\Cache::has('chipins')){
+            return \Cache::get('chipins');
+        }
         return array(
             'HZ' =>
                 array(

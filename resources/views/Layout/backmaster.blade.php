@@ -45,7 +45,7 @@
                         <li><a href="#">返水管理</a></li>
                     </ul>
                 </li>
-                <li><a href="#">快三赔率管理</a></li>
+                <li><a href="/k3odds">快三赔率管理</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">内容<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
