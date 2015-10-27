@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\lu_user;
+use App\lu_user_data;
 use DB;
 use Redirect;
 use Hash;
@@ -20,7 +21,7 @@ class AdminController extends Controller {
 
     public function index(Request $request)
     {
-        $result = lu_user::where('is_admin', 0);
+        $result = lu_user::where('is_admin', 0)->orderby('created_at','desc');
         $groupid = $request->groupid;
         $groupname='会员';
         if(!empty($groupid)){

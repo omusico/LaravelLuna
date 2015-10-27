@@ -46,7 +46,7 @@
                                         @endif
                                     @endforeach
                                 </td>
-                                <td>{{ $lu_user->points }}</td>
+                                <td>{{ $lu_user->lu_user_data->points }}</td>
                                 <td>{{ $lu_user->invite }}</td>
                                 <td>
                                     {{--<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal{{$lu_user->id}}">更新分数</button>--}}

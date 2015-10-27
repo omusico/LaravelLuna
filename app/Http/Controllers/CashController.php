@@ -148,7 +148,7 @@ class CashController extends Controller
     public function recharge()
     {
        $bank =lu_lottery_company_bank::find(1);
-        return view('Cash.recharge',compact('bank'));
+        return view('Cash.recharge',compact());
     }
 
     public function rechargePost(Request $request)
@@ -175,6 +175,7 @@ class CashController extends Controller
             );
             lu_lottery_recharge::create($data);
             if ($paytype == 'zf') {
+//                Redirect::to("")
                 return view('Cash.lotteryorderzf');
             } else {
                 return view('Cash.lotteryorderkjt');
