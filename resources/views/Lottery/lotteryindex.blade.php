@@ -577,7 +577,7 @@
                 </main>
                 <aside class="col-md-4">
                     <div class="login_weizhi">
-                        @include('Layout.userinfo')
+                        @include('userinfo')
                     </div>
                     {{--<div class="blank4"></div>--}}
                     <div class="kj_open_box">
