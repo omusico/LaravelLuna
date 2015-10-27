@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App;
 use App\LunaLib\Common\CommonClass;
+use Cache;
 
 class AdminController extends Controller {
 
@@ -122,6 +123,22 @@ class AdminController extends Controller {
         $lu_user->level = $request->level;
         $lu_user->save();
         session()->flash('message', '会员修改成功');
+        return Redirect::back();
+    }
+
+    public function marquee(){
+        if(Cache::has('marquee')){
+            $marquee = Cache::get('marquee');
+        }else{
+            $marquee = "请到后台设置你的滚动文字";
+        }
+        return view('Admin.marquee',compact('marquee'));
+    }
+
+    public function savemarquee(Request $request){
+        $marquee=$request->marquee;
+        Cache::forever('marquee', $marquee);
+        session()->flash('message', '滚动文字修改成功');
         return Redirect::back();
     }
 }

@@ -49,10 +49,7 @@ Route::controller('password', 'PasswordController');
 ####################################################
 #管理员入口(增删改查，上传分数)
 ####################################################
-#查看成绩排名
-//Route::get('admin/grade', [
-//    'as' => 'grade_list', 'uses' => 'Admin\GradeController@index']);
-#资源路由,学生的增删改查
+#会员路由
 Route::resource('admin', 'Admin\AdminController');
 
 Route::resource('company','CashController');
@@ -61,6 +58,9 @@ Route::resource('companybank','CbankController');
 
 
 Route::get('bettingList', 'Admin\AdminController@bettingList');
+
+Route::get('marquee', 'Admin\AdminController@marquee');
+Route::post('savemarquee', 'Admin\AdminController@savemarquee');
 #上传分数
 //Route::post('admin/upload_grade', [
 //    'as' => 'upload_grade', 'uses' => 'Admin\AdminController@upload_grade']);

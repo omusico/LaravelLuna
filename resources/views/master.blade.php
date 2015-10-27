@@ -98,7 +98,7 @@
     <div class="home_hb" style="background-color: red">
         <ul>
             <li>
-                <marquee scrollamount=3 style="color:white">网站公告:开业大奖送好礼</marquee>
+                <marquee scrollamount=3 style="color:white">{{Cache::get('marquee','请到后台设置滚动文字')}}</marquee>
                 {{--<a target="_blank" href="" title="" id="link100"></a>--}}
             </li>
         </ul>
