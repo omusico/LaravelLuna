@@ -83,7 +83,7 @@
                                 <div class="col-md-4">
                                     {{--{!! Form::text('groupId', old('email'), ['class' => 'form-control']) !!}--}}
                                     {!!
-                                    Form::select('groupId',array('8'=>'会员'),8,['class'=>'form-control','required','readonly'])
+                                    Form::select('groupId',array('2'=>'会员'),2,['class'=>'form-control','required','readonly'])
                                     !!}
                                 </div>
                             </div>
@@ -98,4 +98,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @stop

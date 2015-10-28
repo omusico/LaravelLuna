@@ -5,11 +5,11 @@
             <h4>
                 <b>你好：</b><span>
                     @if(Auth::user()->groupId ==3)
-                        <a style="color: red">大代理</a>
+                        <a style="color: red">代理</a>
                     @elseif(Auth::user()->groupId==5)
-                        <a style="color: green">代理</a>
-                    @elseif(Auth::user()->groupId ==8)
-                        <a>注册会员</a>
+                        <a style="color: green">大代理</a>
+                    @elseif(Auth::user()->groupId ==2)
+                        <a>会员</a>
                     @endif
                     <a style="color:red;">{{Auth::user()->name}}</a></span><a
                         href="/logout">&nbsp;&nbsp;&nbsp;&nbsp;[退出]</a>

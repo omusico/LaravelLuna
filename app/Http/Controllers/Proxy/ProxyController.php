@@ -20,19 +20,25 @@ class ProxyController extends Controller
     public function index()
     {
         //
-        $isdaili =false;
-        $groupId = Auth::user()->groupId;
-        if ($groupId == 5 || $groupId == 3) {
-            $result = lu_user::where('recUser', Auth::user()->invite);
-            $count = $result->count();
-            $lu_users = $result->paginate(10);
-            $user_groups = CommonClass::cache("user_groups",1);
-            $isdaili = true;
-            return view('User.inviteurl',compact('lu_users','user_groups','isdaili'));
-        }else{
-            return view('User.inviteurl',compact('isdaili'));
-        }
+        $isdaili = false;
+        $display ='block';
+        if (!Auth::guest()) {
 
+            $groupId = Auth::user()->groupId;
+            if ($groupId == 5 || $groupId == 3) {
+                $display='none';
+                $result = lu_user::where('recUser', Auth::user()->invite);
+                $count = $result->count();
+                $lu_users = $result->paginate(10);
+                $user_groups = CommonClass::cache("user_groups", 1);
+                $isdaili = true;
+                return view('User.inviteurl', compact('lu_users', 'user_groups', 'isdaili','display'));
+            } else {
+                return view('User.inviteurl', compact('isdaili','display'));
+            }
+
+        }
+        return view('User.inviteurl','display');
     }
 
     /**

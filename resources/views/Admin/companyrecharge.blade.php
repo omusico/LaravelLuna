@@ -16,6 +16,7 @@
                 <table class="table table-hover">
                     <tr>
                         <td>订单号</td>
+                        <td>用户名</td>
                         <td>充值金额</td>
                         <td>银行</td>
                         <td>存款人姓名</td>
@@ -29,6 +30,7 @@
                         @foreach ($lu_companys as $lu_company)
                             <tr>
                                 <td>{{ $lu_company->sn }}</td>
+                                <td>{{ $lu_company->userName }}</td>
                                 <td>{{ $lu_company->amounts }}</td>
                                 <td>{{ $lu_company->payBank }}</td>
                                 <td>{{ $lu_company->rechargerUser }}</td>

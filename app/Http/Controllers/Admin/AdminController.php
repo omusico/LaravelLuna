@@ -27,11 +27,7 @@ class AdminController extends Controller
         $groupid = $request->groupid;
         $groupname = '会员';
         if (!empty($groupid)) {
-            if ($groupid == 3) {
-                $groupname = '代理';
-            } else {
-                $groupname = '总代理';
-            }
+            $groupname = App\lu_user_group::find($groupid)->name;
             $result = $result->where('groupid', $request->groupid);
         }
         $count = $result->count();
