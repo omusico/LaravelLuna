@@ -18,6 +18,7 @@ class CreateLuLotteryUsersTable extends Migration {
             $table->mediumInteger('uid');
             $table->string('bankName');
             $table->string('bankCode');
+            $table->string('openBank');
             $table->char('userName',32);
             $table->integer('created');
 			$table->timestamps();
