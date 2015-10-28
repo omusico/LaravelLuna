@@ -14,6 +14,11 @@
 
             @include('errors.list')
 
+            <div class="form-group col-md-10 col-md-offset-1" style="text-align: center">
+                <a class="btn btn-default btn-primary" href="#" >代理中心</a>
+                <a class="btn btn-default btn-info" href="#" >代理注册</a>
+                <a class="btn btn-default btn-warning" href="#" >代理登陆</a>
+            </div>
             <textarea class="form-control" name="proxycert" rows="25">{{Cache::get('proxycert')}}</textarea>
 
             @if($isdaili)
