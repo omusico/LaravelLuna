@@ -106,7 +106,7 @@ Route::get('/deposit',['middleware' => 'auth','as'=>'deposit','uses'=>'User\User
 //规则明细
 Route::get('/k3GameRule',['uses'=>'LotteryK3Controller@k3GameRule']);
 Route::get('/phpinfo',['uses'=>'WelcomeController@phpinfo']);
-Route::get('/inviteurl',['uses'=>'Proxy\ProxyController@index']);
+Route::get('/inviteurl',['as'=>'inviteurl','uses'=>'Proxy\ProxyController@index']);
 
 //充值
 Route::get('/recharge',['middleware' => 'auth','uses'=>'CashController@recharge']);

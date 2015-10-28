@@ -28,6 +28,9 @@ class loginController extends Controller
         $password = $request->get('password');
         if (Auth::attempt(['name' => $name, 'password' => $password], $request->get('remember'))) {
 //            return Redirect::action('WelcomeController@index');
+            if(Auth::user()->groupId == 3 || Auth::user()->groupId ==5){
+                return Redirect::route('inviteurl');
+            }
             return Redirect::route('index');
 
         } else {
