@@ -159,10 +159,10 @@ class CashController extends Controller
         return view('Cash.deposit',compact('lu_lottery_applys'));
     }
     public function apply(Request $request){
-        if(Auth::user()->groupId !=8){
-            session()->flash('message_warning', '你当前的管理组不能提现');
-            return Redirect::back();
-        }
+//        if(Auth::user()->groupId !=8){
+//            session()->flash('message_warning', '你当前的管理组不能提现');
+//            return Redirect::back();
+//        }
         if(empty(Auth::user()->cashPwd)){
             session()->flash('message_warning', '您还未设置取现密码,请先到个人中心设置取现');
             return Redirect::back();
