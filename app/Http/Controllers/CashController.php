@@ -210,7 +210,7 @@ class CashController extends Controller
                     'userName' => Auth::user()->name,
                     'addType' => '7', // 提现申请
                     'lotteryType' => '', // 中奖
-                    'winSn' => $lu_lottery_apply->sn,
+                    'touSn' => $lu_lottery_apply->sn,
                     'oldPoint' => $oldpoints,
                     'changePoint' => -$lu_lottery_apply->amounts,
                     'newPoint' => $points,

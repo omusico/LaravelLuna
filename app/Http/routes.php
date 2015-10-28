@@ -68,6 +68,7 @@ Route::post('savenews', 'Admin\AdminController@savenews');
 Route::get('userreturns', 'Admin\AdminController@userreturns');
 Route::post('saveuserreturns', 'Admin\AdminController@saveuserreturns');
 Route::get('getdepositlist','Admin\AdminController@getdepositlist');
+Route::get('deposit/{id}/edit','Admin\AdminController@updatedepositstatus');
 #上传分数
 //Route::post('admin/upload_grade', [
 //    'as' => 'upload_grade', 'uses' => 'Admin\AdminController@upload_grade']);

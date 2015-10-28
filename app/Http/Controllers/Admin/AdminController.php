@@ -56,6 +56,14 @@ class AdminController extends Controller
         return view('Admin.admindepositlist',compact('lu_lottery_applys','count'));
     }
 
+    public function updatedepositstatus($id){
+        $deposit = App\lu_lottery_apply::find($id);
+        $deposit->status =1;
+        $deposit->save();
+        session()->flash('message', '状态修改成功');
+        return Redirect::back();
+    }
+
     public function create()
     {
         $result = lu_user::where('is_admin', 0);
