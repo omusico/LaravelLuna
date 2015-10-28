@@ -74,6 +74,7 @@
     });
 </script>
 <script language="javascript" src="http://dft.zoosnet.net/JS/LsJS.aspx?siteid=DFT23548681&float=1&lng=cn"></script>
+
 @yield('script')
 </body>
 </html>
