@@ -42,7 +42,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#">快3手动开奖</a></li>
                         <li><a href="#">撤单</a></li>
-                        <li><a href="#">返水管理</a></li>
+                        <li><a href="/userreturns">返水管理</a></li>
                     </ul>
                 </li>
                 <li><a href="/k3odds">快三赔率管理</a></li>
