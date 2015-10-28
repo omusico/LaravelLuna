@@ -17,7 +17,7 @@ class CbankController extends Controller {
 	public function index()
 	{
 		//
-        $result = lu_lottery_company_bank::where('created',0);
+        $result = lu_lottery_company_bank::orderby('created_at','desc');
         $count = $result->count();
         $lu_lottery_company_banks = $result->paginate(10);
         return view('Admin.companybanklist',compact('lu_lottery_company_banks','count'));
