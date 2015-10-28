@@ -21,7 +21,7 @@
             </h4>
 
             <div class="nk3_cztx">
-                <a href="/recharge">充 值</a> <a href="" class="nk3_tx">提 现</a>
+                <a href="/recharge">充 值</a> <a href="/deposit" class="nk3_tx">提 现</a>
             </div>
             <div style="text-align: center">
                 <a href="/userLotteryBetting">我的投注</a> <a href="#">追号记录</a><br/>

@@ -84,6 +84,10 @@ class registerController extends Controller
 //                $lu_user->phone = $request->phone;
                 $lu_user->recUser = $request->invite;
 //                $lu_user->groupId = $request->groupId;
+                $cashPwd = $this->request->cashPwd;
+                if(isset($cashPwd)){
+                    $lu_user->cashPwd = implode('-',$cashPwd);
+                }
                 $lu_user->invite = rand(10000, 99999);
                 $lu_user->save();
                 $lu_user_data = new lu_user_data();

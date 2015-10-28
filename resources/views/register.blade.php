@@ -71,7 +71,11 @@
                             <div class="form-group">
                                 {!! Form::label('cashPwd', '取款密码: ', ['class' => 'control-label col-md-4']) !!}
                                 <div class="col-md-4">
-                                    {!! Form::text('cashPwd', null, ['class' => 'form-control','placeholder'=>'请输入四位数字取款密码']) !!}
+                                    {{--{!! Form::text('cashPwd', null, ['class' => 'form-control','placeholder'=>'请输入四位数字取款密码']) !!}--}}
+                                    {!! Form::selectRange('cashPwd[0]',0,9,0,['class' => '']) !!}
+                                    {!! Form::selectRange('cashPwd[1]',0,9,0,['class' => '']) !!}
+                                    {!! Form::selectRange('cashPwd[2]',0,9,0,['class' => '']) !!}
+                                    {!! Form::selectRange('cashPwd[3]',0,9,0,['class' => '']) !!}
                                 </div>
                             </div>
                             <div class="form-group" style="display: none">

@@ -107,6 +107,8 @@ Route::get('/inviteurl',['middleware' => 'auth','uses'=>'Proxy\ProxyController@i
 //充值
 Route::get('/recharge',['middleware' => 'auth','uses'=>'CashController@recharge']);
 Route::post('/recharge',['as'=>'recharge','uses'=>'CashController@rechargePost']);
+Route::get('/deposit',['middleware' => 'auth','uses'=>'CashController@deposit']);
+Route::post('/apply',['as'=>'apply','uses'=>'CashController@apply']);
 
 //智付，接口数据返回
 Route::post('/zfReturn_Url',['as'=>'zfReturn_Url','uses'=>'CashController@zfReturn_Url']);

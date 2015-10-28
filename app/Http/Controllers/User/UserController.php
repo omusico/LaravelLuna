@@ -102,4 +102,8 @@ class UserController extends Controller
         return view('User.account');
     }
 
+    public function deposit(){
+        return view('Cash.deposit');
+    }
+
 }

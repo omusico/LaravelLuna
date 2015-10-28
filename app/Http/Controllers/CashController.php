@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\lu_lottery_apply;
 use App\lu_lottery_company_bank;
 use App\lu_lottery_company_recharge;
 use App\lu_lottery_recharge;
@@ -149,6 +150,39 @@ class CashController extends Controller
     {
        $bank =lu_lottery_company_bank::find(1);
         return view('Cash.recharge',compact('bank'));
+    }
+
+    public function deposit()
+    {
+//        $bank =lu_lottery_company_bank::find(1);
+        $lu_lottery_applys = lu_lottery_apply::orderby('created_at','desc')->paginate(10);
+        return view('Cash.deposit',compact('lu_lottery_applys'));
+    }
+    public function apply(Request $request){
+        if(Auth::user()->groupId !=8){
+            session()->flash('message_warning', '你当前的管理组不能提现');
+            return Redirect::back();
+        }
+        if(empty(Auth::user()->cashPwd)){
+            session()->flash('message_warning', '您还未设置取现密码,请先到个人中心设置取现');
+            return Redirect::back();
+        }
+        $cashPwd = implode('-',$request->cashPwd);
+        if(Auth::user()->cashPwd == $cashPwd){
+            $lu_lottery_apply = new lu_lottery_apply();
+            $lu_lottery_apply->sn = $request->sn;
+            $lu_lottery_apply->amounts = $request ->amounts;
+            $lu_lottery_apply->created = $_SERVER['REQUEST_TIME'];
+            $lu_lottery_apply->status = 2;
+            $lu_lottery_apply->save();
+            session()->flash('message', '申请取现成功，请等待管理员审批');
+            return Redirect::back();
+        }else{
+
+            session()->flash('message_warning', '申请取现失败，支付密码错误');
+            return Redirect::back();
+        }
+
     }
 
     public function rechargePost(Request $request)
