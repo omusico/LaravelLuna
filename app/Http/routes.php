@@ -61,6 +61,8 @@ Route::get('bettingList', 'Admin\AdminController@bettingList');
 
 Route::get('marquee', 'Admin\AdminController@marquee');
 Route::post('savemarquee', 'Admin\AdminController@savemarquee');
+Route::get('proxycert', 'Admin\AdminController@proxycert');
+Route::post('saveproxycert', 'Admin\AdminController@saveproxycert');
 Route::get('k3odds', 'Admin\AdminController@k3odds');
 Route::post('savek3odds', 'Admin\AdminController@savek3odds');
 Route::get('news', 'Admin\AdminController@news');

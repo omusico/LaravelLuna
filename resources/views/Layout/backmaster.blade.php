@@ -69,11 +69,17 @@
                     </ul>
                 </li>
                 <li><a href="#">设置</a></li>
-                {{--<li><a href="#">彩票</a></li>--}}
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">彩票<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/getdepositlist">提现审批申请</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">代理<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/proxycert">代理管理</a></li>
+                        <li><a href="/proxycert">代理条款设置</a></li>
                     </ul>
                 </li>
                 @if(!Auth::guest())

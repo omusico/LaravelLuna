@@ -7,23 +7,27 @@
 @section('content')
     <div class="container">
 
-            <aside class="col-md-3" style="padding-left: 0px">
-                @include('User.left_bar')
-            </aside>
-            <main class="col-md-9">
+        <aside class="col-md-3" style="padding-left: 0px">
+            @include('User.left_bar')
+        </aside>
+        <main class="col-md-9">
 
-                @include('errors.list')
-                @if($isdaili)
+            @include('errors.list')
+
+            <textarea class="form-control" name="proxycert" rows="25">{{Cache::get('proxycert')}}</textarea>
+
+            @if($isdaili)
                 <div class="form-group">
                     <label for="sign_type" class="control-label col-md-3">推广地址: </label>
 
                     <div class="col-md-6">
-                        <input class="form-control" id="inviteurl" style="color: red" value="{{$_SERVER['HTTP_HOST'].'/register?invite='.Auth::user()->invite}}">
+                        <input class="form-control" id="inviteurl" style="color: red"
+                               value="{{$_SERVER['HTTP_HOST'].'/register?invite='.Auth::user()->invite}}">
                     </div>
                 </div>
-                @endif
-                <br/>
-                @if($isdaili)
+            @endif
+            <br/>
+            @if($isdaili)
                 <h3 align="center">
                     代理推荐列表</h3>
                 <table class="table table-hover">
@@ -60,10 +64,10 @@
                     @endif
                 </table>
                 <?php echo $lu_users->render(); ?>
-                    @else
-                    <a>当前用户不是代理或者还未登陆</a>
-                    @endif
-            </main>
+            @else
+                <a>当前用户不是代理或者还未登陆</a>
+            @endif
+        </main>
     </div>
 @stop
 @section('script')

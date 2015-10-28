@@ -146,6 +146,26 @@ class AdminController extends Controller
         return Redirect::back();
     }
 
+    //代理证书
+    public function proxycert()
+    {
+        if (Cache::has('proxycert')) {
+            $proxycert = Cache::get('proxycert');
+        } else {
+            $proxycert = "请到后台设置你的代理条款";
+        }
+        return view('Admin.proxycert', compact('proxycert'));
+    }
+
+    public function saveproxycert(Request $request)
+    {
+        $proxycert = $request->proxycert;
+        Cache::forever('proxycert', $proxycert);
+        session()->flash('message', '代理条款修改成功');
+        return Redirect::back();
+    }
+
+    //滚动文字
     public function marquee()
     {
         if (Cache::has('marquee')) {

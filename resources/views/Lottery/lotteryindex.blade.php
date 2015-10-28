@@ -92,7 +92,6 @@
                                 </p>
                                 <br/>
                                 <br/>
-
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -157,7 +156,8 @@
                             <div id="box_ball_3THTX" class="all_box">
                                 <p>投注说明：10元购买6个三同号(111,222,333,444,555,666)投注，选号与开奖号码一致即中奖{{$k3Odds['3THTX']['value']}}
                                     倍。</p>
-
+                                <br/>
+                                <br/>
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -195,7 +195,8 @@
 
                             <div class="all_box" id="box_ball_3THDX">
                                 <p>投注说明：至少选择1个三同号投注，选号与开奖号码一致即中奖{{$k3Odds['3THDX']['value']}}倍。</p>
-
+                                <br/>
+                                <br/>
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -242,7 +243,8 @@
 
                             <div class="all_box" id="box_ball_3BTH">
                                 <p>投注说明：至少选择3个号码投注，选号与开奖号码一致即中奖{{$k3Odds['3BTH']['value']}}倍。</p>
-
+                                <br/>
+                                <br/>
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -292,7 +294,8 @@
 
                             <div class="all_box" id="box_ball_3LHTX">
                                 <p>投注说明：10元购买4个三连号（123、234、345、456）投注，选号与开奖号码一致即中奖{{$k3Odds['3LHTX']['value']}}倍。</p>
-
+                                <br/>
+                                <br/>
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -330,7 +333,8 @@
                             <div id="box_ball_2THFX" class="all_box">
                                 <p>投注说明： 10元购买1个二同号(11*,22*,33*,44*,55*,66*)投注，选号与开奖号码一致即中奖{{$k3Odds['2THFX']['value']}}
                                     倍。</p>
-
+                                <br/>
+                                <br/>
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -369,7 +373,8 @@
 
                             <div id="box_ball_2THDX" class="all_box none">
                                 <p>投注说明：选择1个相同号码和1个不同号码投注，选号与开奖号码一致即中奖{{$k3Odds['2THDX']['value']}}倍。</p>
-
+                                <br/>
+                                <br/>
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -427,7 +432,8 @@
 
                             <div id="box_ball_2BTH" class="all_box none">
                                 <p>投注说明：至少选择2个号码投注，选号与开奖号码一致即中奖{{$k3Odds['2BTH']['value']}}倍。</p>
-
+                                <br/>
+                                <br/>
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>

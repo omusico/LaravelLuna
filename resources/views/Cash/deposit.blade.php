@@ -35,8 +35,6 @@
             {!! Form::submit('提款申请', ['class' => 'btn btn-primary']) !!}
             {!! Form::close() !!}
             <div>
-                <h3 align="center">
-                    提现列表</h3>
                 <table class="table table-hover">
                     <tr>
                         <td>流水号</td>
