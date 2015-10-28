@@ -154,16 +154,17 @@
                         <ul class="list_icon" style="padding-left: 0px">
                             @if(null!==Cache::get('news'))
                                 @foreach(Cache::get('news') as $key=>$value)
-                                    <li><a style="width: 205px;" href="{{isset($value['url'])?$value['url']:'#'}}" target="_blank">{{isset($value['title'])?$value['title']:''}}</a><span
+                                    <li><a style="width: 205px;" href="{{isset($value['url'])?$value['url']:'#'}}"
+                                           target="_blank">{{isset($value['title'])?$value['title']:''}}</a><span
                                                 class="time"></span></li>
                                 @endforeach
                             @endif
                             {{--<li><a style="width: 205px;" href="http://tieba.baidu.com/p/3493429781" target="_blank">快3技巧--}}
-                                    {{--近期数据更有价值</a><span class="time"></span></li>--}}
+                            {{--近期数据更有价值</a><span class="time"></span></li>--}}
                             {{--<li><a style="width: 205px;" href="http://tieba.baidu.com/p/3454498923" target="_blank">快3技巧：五种杀号技巧手到擒来</a><span--}}
-                                        {{--class="time"></span></li>--}}
+                            {{--class="time"></span></li>--}}
                             {{--<li><a style="width: 205px;" href="http://tieba.baidu.com/p/3389052828" target="_blank">快3玩法中奖妙招：模式选号法</a><span--}}
-                                        {{--class="time"></span></li>--}}
+                            {{--class="time"></span></li>--}}
                         </ul>
                     </div>
                 </div>
@@ -353,4 +354,8 @@
                 </div>
             </div>
         </div>
+    </div>
+@stop
+@section('script')
+    <script language="javascript" src="http://dft.zoosnet.net/JS/LsJS.aspx?siteid=DFT23548681&float=1&lng=cn"></script>
 @stop

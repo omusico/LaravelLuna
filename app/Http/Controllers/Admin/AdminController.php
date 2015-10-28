@@ -179,4 +179,16 @@ class AdminController extends Controller {
         session()->flash('message', '前台优惠消息更新成功');
         return Redirect::back();
     }
+
+    public function userreturns(){
+        $userreturns = App\LunaLib\Common\defaultCache::cache_user_returns();
+        return view('Admin.userreturns',compact('userreturns'));
+    }
+
+    public function saveuserreturns(Request $request){
+        $userreturns=$request->userreturns;
+        Cache::forever('userreturns', $userreturns);
+        session()->flash('message', '返水设置成功');
+        return Redirect::back();
+    }
 }

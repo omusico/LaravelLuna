@@ -1719,8 +1719,11 @@ class defaultCache
         );
     }
 
-    public static function cache_user_return()
+    public static function cache_user_returns()
     {
+        if(\Cache::has('userreturns')){
+            return \Cache::get('userreturns');
+        }
         return array(
             1 =>
                 array(

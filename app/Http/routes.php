@@ -65,8 +65,8 @@ Route::get('k3odds', 'Admin\AdminController@k3odds');
 Route::post('savek3odds', 'Admin\AdminController@savek3odds');
 Route::get('news', 'Admin\AdminController@news');
 Route::post('savenews', 'Admin\AdminController@savenews');
-Route::get('userreturn', 'Admin\AdminController@userreturn');
-Route::post('saveuserreturn', 'Admin\AdminController@saveuserreturn');
+Route::get('userreturns', 'Admin\AdminController@userreturns');
+Route::post('saveuserreturns', 'Admin\AdminController@saveuserreturns');
 #上传分数
 //Route::post('admin/upload_grade', [
 //    'as' => 'upload_grade', 'uses' => 'Admin\AdminController@upload_grade']);
