@@ -21,7 +21,8 @@
                                     <hr/>
                                     <div class="form-group">
                                         @foreach($value as $k=>$v)
-                                            <label class="control-label col-md-1">{{$k}}</label>
+                                            <label class="control-label col-md-1">
+                                                {{$numName = (isset($nameDatas[$k]) && in_array($key ,$keyDatas)) ? $nameDatas[$k] : $k}} </label>
                                             <div class="col-md-1" style="padding: 0px">
                                                 <input class="form-control" required="required"
                                                        name="odds[{{$key}}][{{$k}}]"

@@ -154,7 +154,10 @@ class AdminController extends Controller {
             '22' => '大',
             'val' => '赔率'
         );
-        return view('Admin.k3odds',compact('odds','chipins','types','nameDatas'));
+        $keyDatas = array(
+            'HZ','HLL','JQYS','5X','DNXB','CXQD'
+        );
+        return view('Admin.k3odds',compact('odds','chipins','types','nameDatas','keyDatas'));
     }
 
     public function savek3odds(Request $request){
