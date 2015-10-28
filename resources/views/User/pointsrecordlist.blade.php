@@ -30,12 +30,14 @@
                             <td>
                                 @if ($lu_points_record->addType ==1)
                                     投注
-                                @elseif($lu_points_record->addType=2)
+                                @elseif($lu_points_record->addType==2)
                                     中奖
-                                @elseif($lu_points_record->addType=3)
+                                @elseif($lu_points_record->addType==3)
                                     在线充值
-                                @elseif($lu_points_record->addType=4)
+                                @elseif($lu_points_record->addType==4)
                                     公司充值
+                                @elseif($lu_points_record->addType==7)
+                                    提现
                                 @else
                                     {{$lu_points_record->addType}}
                                 @endif

@@ -37,7 +37,8 @@ class CommonClass
     public static function get_lottery_name($lottery_type)
     {
         if (!isset($lottery_type)) {
-            $lottery_type = 'jsold';
+//            $lottery_type = 'jsold';
+            return null;
         }
 
         $lottery_type = strtolower($lottery_type);
