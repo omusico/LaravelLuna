@@ -27,10 +27,11 @@ class ProxyController extends Controller
             $groupId = Auth::user()->groupId;
             if ($groupId == 5 || $groupId == 3) {
                 $display='none';
-                $result = lu_user::where('recUser', Auth::user()->invite);
+                $result = lu_user::where('recId', Auth::user()->id);
                 $count = $result->count();
                 $lu_users = $result->paginate(10);
                 $user_groups = CommonClass::cache("user_groups", 1);
+//                $result2 =  \DB::select('select id from lu_users where recid = ?', [11]);
                 $isdaili = true;
                 return view('User.inviteurl', compact('lu_users', 'user_groups', 'isdaili','display'));
             } else {

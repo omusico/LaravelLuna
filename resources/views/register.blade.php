@@ -81,10 +81,10 @@
                             <div class="form-group" style="display: none">
                                 {!! Form::label('groupId', '权限组: ', ['class' => 'control-label col-md-4']) !!}
                                 <div class="col-md-4">
-                                    {{--{!! Form::text('groupId', old('email'), ['class' => 'form-control']) !!}--}}
-                                    {!!
-                                    Form::select('groupId',array('2'=>'会员'),2,['class'=>'form-control','required','readonly'])
-                                    !!}
+                                    {{--{!! Form::text('groupId', 2, ['class' => 'form-control']) !!}--}}
+                                    {{--{!!--}}
+                                    {{--Form::select('groupId',array('2'=>'会员'),2,['class'=>'form-control','required','readonly'])--}}
+                                    {{--!!}--}}
                                 </div>
                             </div>
                             <div class="form-group">

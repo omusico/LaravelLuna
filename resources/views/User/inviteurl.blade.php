@@ -53,19 +53,26 @@
                                 <tr>
                                     <td>{{ $lu_user->name }}</td>
                                     <td>{{ $lu_user->sex }}</td>
-{{--                                    <td>{{ $lu_user->recId }}</td>--}}
+                                    {{--                                    <td>{{ $lu_user->recId }}</td>--}}
                                     <td>{{ $lu_user->phone }}</td>
                                     <td>{{ $lu_user->email }}</td>
                                     <td>
+{{--                                        {{$lu_user->groupId}}--}}
                                         @foreach($user_groups as $user_group)
-                                            @if($user_group['groupId'] === $lu_user->groupId)
+                                            @if($user_group['groupId'] == $lu_user->groupId)
                                                 {{$user_group['name'] }}
                                             @endif
                                         @endforeach
                                         {{--{{$user_group[$lu_user->groupId]['name']}}--}}
                                     </td>
                                     <td>{{ $lu_user->lu_user_data->points }}</td>
-                                    <td>{{DB::table('lu_lotteries_k3s')->where('uid',$lu_user->id)->sum('eachPrice')}}</td>
+                                    <td>
+                                        @if(Auth::user()->groupId ==5)
+                                            {{DB::select('select sum(eachPrice) as sum from lu_lotteries_k3s where uid in (select id from lu_users where recId =?)',[$lu_user->id])[0]->sum}}
+                                        @else
+                                            {{DB::table('lu_lotteries_k3s')->where('uid',$lu_user->id)->sum('eachPrice')}}
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         @else

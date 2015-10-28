@@ -15,7 +15,7 @@
                         @include('errors.list')
 
                         <div class="form-group">
-                            {!! Form::model($user = new \App\lu_user, ['url' => 'register/save', 'class' => 'form-horizontal'])
+                            {!! Form::model($user = new \App\lu_user, ['url' => 'dailiregister/save', 'class' => 'form-horizontal'])
                             !!}
                             <div class="form-group">
                                 {!! Form::label('invite', '邀请码: ', ['class' => 'control-label col-md-4']) !!}

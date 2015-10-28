@@ -27,10 +27,10 @@ class lu_user extends Model implements AuthenticatableContract,CanResetPasswordC
         return [
             'name' => 'required|alpha_dash|unique:lu_users',
 //            'password' => 'required',
-            'email' => 'email|unique:lu_users',
-            'qq' => 'integer|unique:lu_users',
-            'phone' => 'digits:11|unique:lu_users',
-            'cashPwd'=>'digits_between:4,4',
+            'email' => 'email',
+            'qq' => 'integer',
+            'phone' => 'digits:11',
+//            'cashPwd'=>'digits_between:4,4',
         ];
     }
 
