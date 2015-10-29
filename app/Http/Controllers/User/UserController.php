@@ -141,6 +141,9 @@ class UserController extends Controller
             session()->flash('message', "银行卡绑定成功");
         } else {
             $bank = lu_lottery_user::find($id);
+            if(!isset($bank)){
+                $bank = new lu_lottery_user();
+            }
             $bank->bankName = $request->bankName;
             $bank->bankCode = $request->bankCode;
             $bank->openBank = $request->openBank;
