@@ -1,5 +1,5 @@
 <div class="nk3_center_left">
-    <h2 style="margin-top: 0px">个人中心</h2>
+    <h2 style="margin-top: 0px">个人中心:{{Auth::user()->name}}</h2>
     <div class="nk3_center_left_box">
         <h3>我的账户</h3>
         <ul>
@@ -20,7 +20,7 @@
         <h3>安全中心</h3>
         <ul>
             {{--<li><a href="#">安全中心</a></li>--}}
-            <li><a href="#">修改密码</a></li>
+            <li><a href="/editpwd">修改密码</a></li>
             {{--<li><a href="#">绑定手机</a></li>--}}
             <li><a href="/bank">绑定银行卡</a></li>
             {{--<li><a href="/member/realnameauth/">实名认证</a></li>--}}

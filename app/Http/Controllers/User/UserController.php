@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\lu_lotteries_k3;
 use App\lu_lottery_user;
+use App\lu_user;
 use App\LunaLib\Common\CommonClass;
 use Illuminate\Http\Request;
 use Auth;
@@ -106,15 +107,50 @@ class UserController extends Controller
         return view('User.account');
     }
 
+    public function editpwd()
+    {
+        return view('User.editpwd');
+    }
+
+    public function editpwdpost(Request $request)
+    {
+        $oldpwd = $request->oldpassword;
+        $name = Auth::user()->name;
+        if (Auth::attempt(array('name' => $name, 'password' => $oldpwd), false)) {
+
+            $user = Auth::user();
+            $password = $request->password;
+            if (!empty($password)) {
+                $this->validate($request, [
+                    'password' => 'required|confirmed'
+                ]);
+                $user->password = \Hash::make($request->password);
+            }
+            $cashPwd = implode('-', $request->cashPwd);
+            $user->cashPwd = $cashPwd;
+            $user->save();
+            session()->flash('message', "密码修改成功");
+            return Redirect::back();
+        } else {
+            session()->flash('message_warning', "原密码输入错误");
+            return Redirect::back();
+        }
+    }
+
     public function deposit()
     {
+
+        $bank = lu_lottery_user::where('uid', Auth::user()->id)->first();
+        if (!isset($bank)) {
+            return view('bank');
+        }
         return view('Cash.deposit');
     }
 
     public function bank()
     {
-        $bank = lu_lottery_user::where('uid',Auth::user()->id)->first();
-        if(!isset($bank)){
+        $bank = lu_lottery_user::where('uid', Auth::user()->id)->first();
+        if (!isset($bank)) {
             $bank = new lu_lottery_user();
         }
         return view('User.bank', compact('bank'));

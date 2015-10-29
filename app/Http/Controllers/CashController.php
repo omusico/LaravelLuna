@@ -169,7 +169,7 @@ class CashController extends Controller
 //        }
         if (empty(Auth::user()->cashPwd)) {
             session()->flash('message_warning', '您还未设置取现密码,请先到个人中心设置取现');
-            return Redirect::back();
+            return view('editpwd');
         }
         $amounts = $request->amounts;
         if ($amounts > Auth::user()->lu_user_data->points) {
