@@ -103,8 +103,11 @@ Route::get('/getLotteryWin',['middleware' => 'auth','as'=>'getlotterywin','uses'
 Route::get('/getPointsRecord',['middleware' => 'auth','as'=>'getpointsrecord','uses'=>'LotteryK3Controller@getPointsRecord']);
 Route::get('/account',['middleware' => 'auth','as'=>'account','uses'=>'User\UserController@account']);
 Route::get('/deposit',['middleware' => 'auth','as'=>'deposit','uses'=>'User\UserController@deposit']);
+Route::get('/bank',['middleware' => 'auth','as'=>'bank','uses'=>'User\UserController@bank']);
+Route::post('/savebank',['middleware' => 'auth','as'=>'savebank','uses'=>'User\UserController@savebank']);
 //规则明细
 Route::get('/k3GameRule',['uses'=>'LotteryK3Controller@k3GameRule']);
+Route::get('/favourable',['uses'=>'LotteryK3Controller@favourable']);
 Route::get('/phpinfo',['uses'=>'WelcomeController@phpinfo']);
 Route::get('/inviteurl',['as'=>'inviteurl','uses'=>'Proxy\ProxyController@index']);
 

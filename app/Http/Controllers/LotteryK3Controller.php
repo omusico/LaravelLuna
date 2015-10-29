@@ -60,6 +60,10 @@ class LotteryK3Controller extends Controller
         return view('User.pointsrecordlist',compact('lu_points_records'));
     }
 
+    public function favourable(){
+       return view('favourable');
+    }
+
     public function getLotteryWin(){
         $result = lu_lottery_notes_k3::where('uid',Auth::user()->id)->orderby('created_at','desc');
         $lu_lottery_note_k3s =$result->paginate(10);

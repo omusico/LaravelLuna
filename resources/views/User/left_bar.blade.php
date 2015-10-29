@@ -22,7 +22,7 @@
             {{--<li><a href="#">安全中心</a></li>--}}
             <li><a href="#">修改密码</a></li>
             {{--<li><a href="#">绑定手机</a></li>--}}
-            <li><a href="#">绑定银行卡</a></li>
+            <li><a href="/bank">绑定银行卡</a></li>
             {{--<li><a href="/member/realnameauth/">实名认证</a></li>--}}
         </ul>
         <h3>站内信</h3>

@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                {!! Form::label('openBank', '开户行地址: ', ['class' => 'control-label col-md-4']) !!}
+                                {!! Form::label('openBank', '开户行: ', ['class' => 'control-label col-md-4']) !!}
                                 <div class="col-md-4">
                                     {!! Form::text('openBank', null, ['class' => 'form-control']) !!}
                                 </div>

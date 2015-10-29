@@ -19,7 +19,7 @@
     <ul class="part_nav">
         <li class="home_cur " style="background-color: red"><a href="/" title="中国快三网首页" id="link83">首页</a></li>
         <li class="m_li "><a href="/k3GameRule" target="_blank" title="游戏规则">游戏规则</a></li>
-        <li class="m_li "><a href="#" target="_blank" title="优惠活动">优惠活动</a></li>
+        <li class="m_li "><a href="/favourable" target="_blank" title="优惠活动">优惠活动</a></li>
         <li class="m_li "><a href="#" title="走势图">走势图</a></li>
         <li class="m_li "><a title="合作代理" target="_blank" href="/inviteurl">合作代理</a></li>
         <li class="m_li "><a href="/userLotteryBetting" target="_blank" title="交易记录">交易记录</a></li>
