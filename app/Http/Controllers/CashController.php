@@ -53,6 +53,7 @@ class CashController extends Controller
             $lu_company->sn = $request->sn;
             $lu_company->amounts = $request->amounts;
             $lu_company->payBank = $request->payBank;
+            $lu_company->bankId = $request->bankId;
             $lu_company->siteId = $request->siteId;
             $lu_company->siteBankId = $request->siteBankId;
             $lu_company->status = 2;
@@ -67,8 +68,9 @@ class CashController extends Controller
             $lu_company->added = 1;
         }
         $lu_company->save();
+        $url = $request->bankurl;
         session()->flash('message', "充值成功");
-        return Redirect::to('recharge');
+        return Redirect::to($url);
     }
 
     /**
@@ -151,6 +153,7 @@ class CashController extends Controller
     public function recharge()
     {
         $bank = lu_lottery_company_bank::find(1);
+//        return view('User.bankselect');
         return view('Cash.recharge', compact('bank'));
     }
 

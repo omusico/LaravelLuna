@@ -145,134 +145,379 @@
                 {{--公司充值--}}
                 <div class="tab-pane" id="Company">
                     @include('errors.list')
-                    {!! Form::open(['url' => '/company', 'class' => 'form-horizontal', 'role' => 'form']) !!}
-                    @if(isset($bank))
-                        <div class="form-group">
-                            <label for="amounts" class="control-label col-md-4">充值账户: </label>
-                            <label class="radio-inline col-md-4">
-                                <input checked type="radio" value="{{$bank->id}}" name="siteBankId">
-                                <a style="color:red">
-                                    银行名称：{{$bank->bankName}}<br/>
-                                    银行账号：{{$bank->bankCode}}<br/>
-                                    开户人 ：{{$bank->userName}}
-                                </a>
-                            </label>
-                        </div>
-                    @endif
-                    <div class="form-group">
-                        <label for="sn" class="control-label col-md-4">订单号: </label>
-
-                        <div class="col-md-4">
-                            <input class="form-control" name="sn" type="text" id="sn"
-                                   value="{{date("YmdHis")}}" readonly>
-                        </div>
+                    <table width="100%" border="0" id="bankselect">
+                        <tbody>
+                        <tr style="vertical-align:middle;">
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="1" style="vertical-align:top;">
+                            </td>
+                            <td id="b1" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.abchina.com/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/ABOC.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="2" style="vertical-align:top;">
+                            </td>
+                            <td id="b2" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.bankofbeijing.com.cn" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/BOBJ.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="3" style="vertical-align:top;">
+                            </td>
+                            <td id="b3" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.bankcomm.com/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/BOCOM.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="4" style="vertical-align:top;">
+                            </td>
+                            <td id="b4" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.bankofshanghai.com" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/BOS.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="5" style="vertical-align:top;">
+                            </td>
+                            <td id="b5" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.boc.cn/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/CB.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="6" style="vertical-align:top;">
+                            </td>
+                            <td id="b6" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.ccb.com/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/CCB.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="7" style="vertical-align:top;">
+                            </td>
+                            <td id="b7" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.cebbank.com" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/CEB.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="8" style="vertical-align:top;">
+                            </td>
+                            <td id="b8" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.cib.com.cn" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/CIB.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="9" style="vertical-align:top;">
+                            </td>
+                            <td id="b9" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.cmbc.com.cn" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/CMBC.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="10" style="vertical-align:top;">
+                            </td>
+                            <td id="b10" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.cmbchina.com/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/CMBCHINA.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="11" style="vertical-align:top;">
+                            </td>
+                            <td id="b11" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://bank.ecitic.com/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/ECITIC.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="12" style="vertical-align:top;">
+                            </td>
+                            <td id="b12" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.gdb.com.cn/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/GDB.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="13" style="vertical-align:top;">
+                            </td>
+                            <td id="b13" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.hxb.com.cn/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/HXB.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="14" style="vertical-align:top;">
+                            </td>
+                            <td id="b14" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.icbc.com.cn/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/ICBC.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="15" style="vertical-align:top;">
+                            </td>
+                            <td id="b15" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.chinapost.com.cn" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/PSBC.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="16" style="vertical-align:top;">
+                            </td>
+                            <td id="b16" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.sdb.com.cn" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/SDB.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="17" style="vertical-align:top;">
+                            </td>
+                            <td id="b17" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://ebank.spdb.com.cn/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/SPDB.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="18" style="vertical-align:top;">
+                            </td>
+                            <td id="b18" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.18ebank.com" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/SZPAB.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="19" style="vertical-align:top;">
+                            </td>
+                            <td id="b19" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.cbhb.com.cn/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/BHB.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="20" style="vertical-align:top;">
+                            </td>
+                            <td id="b20" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.dongguanbank.cn" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/DGB.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="21" style="vertical-align:top;">
+                            </td>
+                            <td id="b21" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.gzcb.com.cn" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/GZCB.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="22" style="vertical-align:top;">
+                            </td>
+                            <td id="b22" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.hccb.com.cn/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/HZB.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="23" style="vertical-align:top;">
+                            </td>
+                            <td id="b23" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.czbank.com/czbank/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/CZB.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="24" style="vertical-align:top;">
+                            </td>
+                            <td id="b24" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.nbcb.com.cn/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/NBCB.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="25" style="vertical-align:top;">
+                            </td>
+                            <td id="b25" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.hkbea.com/hk/index_tc.htm" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/HKBEA.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="26" style="vertical-align:top;">
+                            </td>
+                            <td id="b26" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.wzcb.com.cn" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/WZCB.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="27" style="vertical-align:top;">
+                            </td>
+                            <td id="b27" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.jshbank.com/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/SXJS.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="28" style="vertical-align:top;">
+                            </td>
+                            <td id="b28" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.njcb.com.cn/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/NJCB.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="29" style="vertical-align:top;">
+                            </td>
+                            <td id="b29" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.961111.cn/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/GNXS.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="30" style="vertical-align:top;">
+                            </td>
+                            <td id="b30" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.shrcb.com" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/SHRCB.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="31" style="vertical-align:top;">
+                            </td>
+                            <td id="b31" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.hkbchina.com" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/HKBCHINA.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="32" style="vertical-align:top;">
+                            </td>
+                            <td id="b32" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.zhnx.com.cn/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/ZHNX.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="33" style="vertical-align:top;">
+                            </td>
+                            <td id="b33" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.sdebank.com/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/SDE.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="34" style="vertical-align:top;">
+                            </td>
+                            <td id="b34" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.ydxh.cn" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/YDXH.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="35" style="vertical-align:top;">
+                            </td>
+                            <td id="b35" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.czcb.com.cn/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/CZCB.jpg"></a>
+                            </td>
+                            <td style="vertical-align:middle;" height="40" width="5" align="center">
+                                <input name="bank_id" type="radio" value="36" style="vertical-align:top;">
+                            </td>
+                            <td id="b36" width="70" style="vertical-align:top; padding-top:2px">
+                                <a href="http://www.bjrcb.com/" target="_blank"><img
+                                            src="http://k3cp.net/app/Module/Lottery/ui/images/banks/BJRCB.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr></tr>
+                        </tbody>
+                    </table>
+                    <div id="bankbtn">
+                        <a class="btn btn-info" href="#" style="margin-left: 50px" onclick="jumptonext()">下一步</a>
                     </div>
-                    <div class="form-group">
-                        <label for="amounts" class="control-label col-md-4">充值金额: </label>
-
-                        <div class="col-md-4">
-                            <input class="form-control money" name="amounts" type="number" id="amounts" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="bankId" class="control-label col-md-4">银行: </label>
-
-                        <div class="col-md-4">
-                            <select class="form-control" name="bankId" id="bankId" required
-                                    onchange="changetobank(this)">
-                                <option value=""></option>
-                                <option value="1">北京银行</option>
-                                <option value="2">中国建设银行</option>
-                                <option value="3">招商银行</option>
-                                <option value="4">中国工商银行</option>
-                                <option value="5">平安银行</option>
-                                <option value="6">杭州银行</option>
-                                <option value="7">温州银行</option>
-                                <option value="8">上海农商银行</option>
-                                <option value="9">交通银行</option>
-                                <option value="10">中国农业银行</option>
-                                <option value="11">中国银行</option>
-                                <option value="12">中国民生银行</option>
-                                <option value="13">华夏银行</option>
-                                <option value="14">浦发银行</option>
-                                <option value="15">广州银行</option>
-                                <option value="16">BEA东亚银行</option>
-                                <option value="17">广州农商银行</option>
-                                <option value="18">顺德农商银行</option>
-                                <option value="19">中国光大银行</option>
-                                <option value="20">中信银行</option>
-                                <option value="21">中国邮政</option>
-                                <option value="22">渤海银行</option>
-                                <option value="23">浙商银行</option>
-                                <option value="24">晋商银行</option>
-                                <option value="25">汉口银行</option>
-                                <option value="26">浙江稠州商业银行</option>
-                                <option value="27">上海银行</option>
-                                <option value="28">兴业银行</option>
-                                <option value="29">广发银行</option>
-                                <option value="30">深圳发展银行</option>
-                                <option value="31">东莞银行</option>
-                                <option value="32">宁波银行</option>
-                                <option value="33">南京银行</option>
-                                <option value="34">北京农商银行</option>
-                            </select>
-                            <input name="payBank" id="payBank" type="hidden">
-                            <input name="siteId" value="1" type="hidden">
-                            {{--<input name="siteBankId" id="siteBankId" value="1" type="hidden">--}}
-                            {{--<input name="status" value="2" type="hidden">--}}
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="rechargerUser" class="control-label col-md-4">存款人姓名:</label>
-
-                        <div class="col-md-4">
-                            <input class="form-control" name="rechargerUser" type="text" id="rechargerUser">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="payArea" class="control-label col-md-4">开户行网点: </label>
-
-                        <div class="col-md-4">
-                            <input class="form-control" name="payArea" type="text" id="payArea">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="payAreaCity" class="control-label col-md-4">开户行城市: </label>
-
-                        <div class="col-md-4">
-                            <input class="form-control" name="payAreaCity" type="text" id="payAreaCity">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="payType" class="control-label col-md-4">支付方式: </label>
-
-                        <div class="col-md-4">
+                    <div id="banksubmit" style="display: none">
+                        {!! Form::open(['url' => '/company', 'class' => 'form-horizontal', 'role' => 'form']) !!}
+                        @if(isset($bank))
                             <div class="form-group">
-                                <label class="radio-inline">
-                                    <input checked type="radio" value="1" name="payType">网银转帐
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" value="2" name="payType">ATM自动柜员机
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" value="3" name="payType">ATM现金入款
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" value="4" name="payType">银行柜台
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" value="5" name="payType">手机银行转帐
+                                <label for="amounts" class="control-label col-md-4">充值账户: </label>
+                                <label class="radio-inline col-md-4">
+                                    <input checked type="radio" value="{{$bank->id}}" name="siteBankId">
+                                    <a style="color:red">
+                                        银行名称：{{$bank->bankName}}<br/>
+                                        银行账号：{{$bank->bankCode}}<br/>
+                                        开户人 ：{{$bank->userName}}
+                                    </a>
                                 </label>
                             </div>
+                        @endif
+                        <div class="form-group">
+                            <label for="sn" class="control-label col-md-4">订单号: </label>
+
+                            <div class="col-md-4">
+                                <input class="form-control" name="sn" type="text" id="sn"
+                                       value="{{date("YmdHis")}}" readonly>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-4 col-md-offset-4">
-                            {!! Form::submit('提交,申请', ['class' => 'btn btn-success form-control']) !!}
+                        <div class="form-group">
+                            <label for="amounts" class="control-label col-md-4">充值金额: </label>
+
+                            <div class="col-md-4">
+                                <input class="form-control money" name="amounts" type="number" id="amounts" required>
+                            </div>
                         </div>
+                        <div class="form-group">
+                            <label for="bankId" class="control-label col-md-4">银行: </label>
+
+                            <div class="col-md-4" id="bankinsert">
+
+                                <input type="hidden" name="bankId" id="bankId">
+                                <input type="hidden" name="bankurl" id="bankurl">
+                                <input name="payBank" id="payBank" type="hidden">
+                                <input name="siteId" value="1" type="hidden">
+                                {{--<input name="siteBankId" id="siteBankId" value="1" type="hidden">--}}
+                                {{--<input name="status" value="2" type="hidden">--}}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rechargerUser" class="control-label col-md-4">存款人姓名:</label>
+
+                            <div class="col-md-4">
+                                <input class="form-control" name="rechargerUser" type="text" id="rechargerUser">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="payArea" class="control-label col-md-4">开户行网点: </label>
+
+                            <div class="col-md-4">
+                                <input class="form-control" name="payArea" type="text" id="payArea">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="payAreaCity" class="control-label col-md-4">开户行城市: </label>
+
+                            <div class="col-md-4">
+                                <input class="form-control" name="payAreaCity" type="text" id="payAreaCity">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="payType" class="control-label col-md-4">支付方式: </label>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="radio-inline">
+                                        <input checked type="radio" value="1" name="payType">网银转帐
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="2" name="payType">ATM自动柜员机
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="3" name="payType">ATM现金入款
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="4" name="payType">银行柜台
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="5" name="payType">手机银行转帐
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4 col-md-offset-4">
+                                {!! Form::submit('提交,申请', ['class' => 'btn btn-success form-control']) !!}
+                            </div>
+                        </div>
+                        {!! Form::close() !!}
                     </div>
-                    {!! Form::close() !!}
                 </div>
             </div>
         </main>
@@ -282,7 +527,9 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-
+            @if(isset($url))
+                window.location.href={{$url}};
+            @endif
         });
         function changetobank(value) {
             var index = value.selectedIndex; // 选中索引
@@ -290,6 +537,22 @@
             var text = value.options[index].text; // 选中文本
             $("#payBank").val(text);
 //        var value = value.options[index].value; // 选中值
+        }
+
+        function jumptonext() {
+            if ($("input[name='bank_id']:checked").val() != undefined) {
+
+                var herfa = $("input[name='bank_id']:checked").parent().next().find('a');
+                $("#bankurl").val($("input[name='bank_id']:checked").parent().next().find('a').attr('href'));
+                $("#bankId").val($("input[name='bank_id']:checked").val());
+                $("#bankinsert").append(herfa);
+                $("#bankselect").hide();
+                $("#bankbtn").hide();
+                $("#banksubmit").show();
+
+            } else {
+                alert('请选中一家银行');
+            }
         }
     </script>
 @stop
