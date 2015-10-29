@@ -39,7 +39,7 @@ class ProxyController extends Controller
             }
 
         }
-        return view('User.inviteurl','display');
+        return view('User.inviteurl',compact('display'));
     }
 
     /**
