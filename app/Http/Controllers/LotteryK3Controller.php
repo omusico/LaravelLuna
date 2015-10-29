@@ -33,6 +33,7 @@ class LotteryK3Controller extends Controller
         $chipins = defaultCache::cache_chipin();
         $k3Odds = defaultCache::cache_k3_odds();
         $lotterystatus = defaultCache::cache_lottery_status();
+        return view('errors.maintance');
         if(strtolower($request->lottery_type)=='fjk3'){
             return view('errors.maintance');
         }
