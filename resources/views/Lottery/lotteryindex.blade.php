@@ -3,7 +3,7 @@
     中国快三网-{{$czName}}
 @stop
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/betting.css') }}">
+{{--    <link rel="stylesheet" type="text/css" href="{{ asset('/css/betting.css') }}">--}}
     <script type="text/javascript">
         var lottery_type = '{{$config['lotterytype']}}';
         var num ={{$lotterystatus[$config['lotterytype']]['num']}};
