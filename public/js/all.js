@@ -27,3 +27,4 @@ $(function () {
     $("#sortTable").tablesorter();
 });
 //# sourceMappingURL=all.js.map
+

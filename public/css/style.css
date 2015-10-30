@@ -221,7 +221,7 @@ a:hover { text-decoration: none; }
 .awardTd{ font-weight:700; color:#d43c55;}
 /*pagingbox*/
 .paybox a{ color:#fff;  cursor: pointer; font-size: 25px;height: 49px; line-height: 49px;}
-.paybox { width: 234px; margin: 20px auto ; height: 50px; position:relative; background: url(phpico.png) no-repeat scroll 15px -243px rgba(0, 0, 0, 0); }
+.paybox { width: 234px; margin: 20px auto ; height: 50px; position:relative; background: url(betting.png) no-repeat scroll 15px -243px rgba(0, 0, 0, 0); }
 .paybox a:hover { text-decoration: none; color: rgb(180,180,180);}
 .submit_btn{ border: medium none;width:192px; padding:10px 65px 10px 65px; }
 .paging { padding: 20px 0; overflow: hidden }
@@ -277,7 +277,7 @@ h1{font-size:16px;font-weight:500}
 /* ::::: http://www.11-5.com/middlecenter/right ::::: */
 .TabTitle3 ul { display: block; height: 33px; width:1056px; overflow: hidden;  line-height: 16px;}
 .TabTitle3 ul li {float: left; height: 31px; line-height: 21px; padding: 6px 11px; color: rgb(0, 0, 0); cursor: pointer; font-size:14px }
-.TabTitle3 ul li.active {background: url('phpico.png') no-repeat scroll 0px -0px transparent; color: rgb(255, 255, 255); font-weight:600; }
+.TabTitle3 ul li.active {background: url('betting.png') no-repeat scroll 0px -0px transparent; color: rgb(255, 255, 255); font-weight:600; }
 .TabTitle3 ul li.normal { color: rgb(0, 0, 0); }
 .user_wrapper {border-top:1px solid rgb(218,218,218);  width: 1058px; margin: 10px auto 20px; overflow: auto; background: none repeat scroll 0% 0% rgb(255, 255, 255); }
 .leftmenu {background:none no-repeat scroll  rgb(254, 251, 245); width: 1058px; margin: 0px 8px 0px 0px; float: left; font-family: "微软雅黑"; overflow: hidden;border-bottom:1px solid rgb(218,218,218); }

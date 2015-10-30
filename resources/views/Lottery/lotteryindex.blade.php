@@ -3,8 +3,6 @@
     中国快三网-{{$czName}}
 @stop
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/k3_betting.css') }}">
     <script type="text/javascript">
         var lottery_type = '{{$config['lotterytype']}}';
         var num ={{$lotterystatus[$config['lotterytype']]['num']}};
@@ -13,30 +11,30 @@
 @section('content')
     <div class="container">
         <div class="banner_content">
-            <div class="kj_info_box">
-                <div class="k_top container">
-                    <div class="kj_info_l col-md-4">
-                        <div class="cz_name">
+            <div class="zgk3_info_box">
+                <div class="zgk3_top container">
+                    <div class="zgk3_info_l col-md-4">
+                        <div class="zgk3_name">
                             <h1>
                                 {{$czName}}
                             </h1>
                         </div>
-                        <div class="cz_ico">
-                            <span class="other ks78"></span>
+                        <div class="zgk3_ico">
+                            <span class="k3logo zgk3_bezc"></span>
                         </div>
-                        <div class="cz_info">
-                            <span class="jieshao">10分钟一期，返奖率75%</span> <span class="jieshao">销售时间：
+                        <div class="zgk3_info">
+                            <span class="yaoshao">10分钟一期，返奖率75%</span> <span class="yaoshao">销售时间：
                                 {{$config ['beginTime'] . '-' . $config ['endTime']}}
 					</span>
                         </div>
                     </div>
-                    <div class="kj_info_c col-md-4">
-                        <div class="djs_01">
+                    <div class="zgk3_info_c col-md-4">
+                        <div class="zgk3_ju">
                             距<span class="c_red" id="theCur">...</span>期投注截止还有：
                         </div>
-                        <div class="djs_02">
-                            <div class="djs_time" id="countDownTime">00:00</div>
-                            <div class="djs_jz">
+                        <div class="zgk3_li">
+                            <div class="zgk3_jusecond" id="countDownTime">00:00</div>
+                            <div class="zgk3_jz">
                                 已截止<span class="c_red" id="curperiod">...</span>期，还有<span
                                         class="c_red" id="remainperiod">...</span>期。
                             </div>
@@ -44,21 +42,19 @@
                     </div>
                     <input type="hidden" id="proName"/> <input type="hidden" id="getOdds"/>
 
-                    <div class="kj_info_r col-md-4">
-                        <div class="kj_hao" id="kjjxz">
-                            <div class="kj_qs" id="kjz">
+                    <div class="zgk3_info_r col-md-4">
+                        <div class="zgk3_hao" id="kjjxz">
+                            <div class="zgk3_qs" id="kjz">
                                 第<span class="c_red" id="prevWin">...</span>期开奖号码:
                             </div>
-                            <div class="kj_nub" id="awerdNum_balls">
+                            <div class="zgk3_nub" id="awerdNum_balls">
                                 <span class="hm_6"></span>&nbsp;&nbsp;<span class="hm_6"></span>&nbsp;&nbsp;<span
                                         class="hm_6"></span>&nbsp;&nbsp;
                             </div>
-                            <div style="display: none;" id="kjzimg" class="kj_nub">
+                            <div style="display: none;" id="kjzimg" class="zgk3_nub">
                                 <img src=" " alt="开奖中" height="63" width="259"/>
                             </div>
-                            <div class="hz_xt" id="kjxthz" style="">
-                                和值：<span id="lottery_hz">...</span> 型态：<span class="da_ico">...</span>&nbsp;&nbsp;<span
-                                        class="dan_ico">...</span>
+                            <div style="">
                             </div>
                         </div>
                     </div>
@@ -80,10 +76,10 @@
 
                         {{--和值--}}
                         <div class="tab-pane active" id="HZ"> 
-                            <input type="hidden" id="HZ_chipin_l" value="{{$chipins['HZ']['low']}} "/>
+                            <input type="hidden" id="HZ_limit_min" value="{{$chipins['HZ']['low']}} "/>
                             <input type="hidden" id="HZ_chipin_h" value="{{$chipins['HZ']['hight']}}"/>
-                            {{--                            <input type="hidden" id="HZ_other_chipin_l" value="{{ $chipins['HZ']['other_low'] }}"/>--}}
-                            {{--                            <input type="hidden" id="HZ_other_chipin_h" value="{{ $chipins['HZ']['other_hight'] }}"/>--}}
+                            {{--                            <input type="hidden" id="HZ_k3logo_chipin_l" value="{{ $chipins['HZ']['k3logo_low'] }}"/>--}}
+                            {{--                            <input type="hidden" id="HZ_k3logo_chipin_h" value="{{ $chipins['HZ']['k3logo_hight'] }}"/>--}}
 
                             <div class="content0 all_box" id="box_ball_HZ">
                                 <p>投注说明：至少选择1个和值投注，选号与开奖的三个号码相加的数值一致即中奖。奖金
@@ -477,9 +473,9 @@
                             <div class="blank10"></div>
                         </div>
                         <div class="blank10"></div>
-                        <div class="select_list_box">
-                            <div class="selected_list">
-                                <dl class="select_list">
+                        <div class="choose_list_box">
+                            <div class="chose_list">
+                                <dl class="choose_list">
                                     <dd>选项[最多200项]</dd>
                                 </dl>
                                 <ul class="has_add_ball" id="has_add_ball">
@@ -513,7 +509,6 @@
                                                      checked="checked" id='daigou'/><label>代购</label> <input
                                                 name="buyType" type="radio" value='zhuihao' disabled
                                                 id='buyTypeZh'/><label>追号</label>
-                                        <label class="c_red">(追号需谨慎，注意看中奖次数)</label>
                                     </div>
                                     <div class="expand" style="display: none;">
                                         <!--追号开始-->
@@ -572,12 +567,11 @@
                             </div>
                         </div>
 
-                        <div class="paybox clear">
+                        <div class="donecommit clear">
                             <input id="playType" value="HZ" type="hidden"/> <input
                                     id="gameName" value="和值" type="hidden"/> <input
-                                    id="totalVals" value="0" type="hidden"/><a href="#"
-                                                                               class="submit_btn"
-                                                                               onclick="CP.submit();return false;">立即投注</a>
+                                    id="totalVals" value="0" type="hidden"/>
+                            <a class="btn-lg btn-danger" href="#" onclick="BET.submit();return false">投注</a>
                         </div>
                     </div>
                 </main>
@@ -586,16 +580,12 @@
                         @include('userinfo')
                     </div>
                     {{--<div class="blank4"></div>--}}
-                    <div class="kj_open_box">
+                    <div class="zgk3_open_box">
                         <div class="r_middle">
                             <div class="kjgg_box">
                                 <div class="kjgg_tit">
                                     <div class="kjgg_name">
                                         <h3>{{$czName}}开奖公告</h3>
-                                    </div>
-                                    <div class="kjgg_more">
-                                        <a target="_top">今日开奖完整版</a>
-
                                     </div>
                                 </div>
                                 <div class="kjgg_con">
@@ -621,8 +611,7 @@
     </div>
 @stop
 @section('script')
-    <script type="text/javascript" src="/js/k3_cj.js"></script>
-    <script type="text/javascript" src="/js/k3_tz.js"></script>
+    <script type="text/javascript" src="/js/betting.js"></script>
     <script type="text/javascript">
         $(function () {
             setOutTime();
