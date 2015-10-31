@@ -1,9 +1,9 @@
 <div class="nk3_center_left">
-    <h2 style="margin-top: 0px">个人中心:
+    <h2 style="margin-top: 0px;font-size: 90%">个人中心:
         @if(!Auth::guest())
             {{Auth::user()->name}}
-            余额: {{Auth::user()->lu_user_data->points}}
-            <a href="/logout" style="color: white">php[退出]</a>
+            余额:<span style="font-style: italic"> {{Auth::user()->lu_user_data->points}}</span>
+            <a href="/logout" style="color: #add8e6">[退出]</a>
         @endif
     </h2>
 

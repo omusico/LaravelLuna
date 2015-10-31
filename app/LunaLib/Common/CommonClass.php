@@ -34,6 +34,28 @@ class CommonClass
         return $args;
     }
 
+    public static function cache_point_type(){
+        return array(
+            5 => '支付宝充值',
+            16 => '财付通',
+            1 => '投注',
+            2 => '中奖',
+            3 => '在线充值',
+            4 => '公司充值',
+            5 => '支付宝充值',
+            6 => '手动修改',
+            7 => '提现申请',
+            8 => '返水',
+            10 => '代理返佣',
+            11 => '优惠活动',
+            12 => '继续打码',
+            13 => '撤单',
+            14 => '反本金',
+            15 => '抽奖',
+            16=>'提现拒绝返还'
+        );
+    }
+
     public static function get_lottery_name($lottery_type)
     {
         if (!isset($lottery_type)) {

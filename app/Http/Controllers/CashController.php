@@ -142,11 +142,10 @@ class CashController extends Controller
      */
     public function destroy($id)
     {
-        //
-        $lu_company = lu_lottery_company_recharge::where('id', $id)->first();
+        $lu_company = lu_lottery_company_recharge::find($id);
         $name = $lu_company->sn;
         $lu_company->delete();
-        session()->flash('message', $name . "公司充值已经移除已经被移除");
+        session()->flash('message', $name . "公司充值已经移除");
         return Redirect::back();
     }
 
@@ -186,42 +185,43 @@ class CashController extends Controller
             $lu_lottery_apply->amounts = $request->amounts;
             $lu_lottery_apply->created = $_SERVER['REQUEST_TIME'];
             $lu_lottery_apply->status = 2;
+            $lu_lottery_apply->uid = Auth::user()->id;
             $lu_lottery_apply->save();
-            if ($lu_lottery_apply->id > 0) {
-                $data['orderSn'] = $lu_lottery_apply->sn;
-                $data['orderId'] = $lu_lottery_apply->id;
-                $data['payType'] = 'apply';
-                $data['proData'] = array(
-                    'total' => $lu_lottery_apply->amounts
-                );
-                $data['formatAmounts'] = CommonClass::price($lu_lottery_apply->amounts);
-                //$this->view->payUrl = format_order_pay_url($data);
-//                $this->view->data = $data;
-                //会员余额变动
-                $userModel = Auth::user()->lu_user_data;
-                $oldpoints = $userModel->points;
-                $points = $oldpoints - $lu_lottery_apply->amounts;
-//                Waf_Cookie::set('points' ,$points);
-//                $this->view->myPoints = $points;
-//                $userModel->updateLoginInfo($this->uid ,array('points'=>$points));
-                $userModel->points = $points;
-                $userModel->save();
-
-//                $pointRecordModel = Waf::model('lottery/pointrecord');
-                $data = array(
-                    'uid' => Auth::user()->id,
-                    'userName' => Auth::user()->name,
-                    'addType' => '7', // 提现申请
-                    'lotteryType' => '', // 中奖
-                    'touSn' => $lu_lottery_apply->sn,
-                    'oldPoint' => $oldpoints,
-                    'changePoint' => -$lu_lottery_apply->amounts,
-                    'newPoint' => $points,
-                    'created' => strtotime(date('Y-m-d H:i:s'))
-                );
-//                $pointRecordModel->insert($pointRecordData);
-                lu_points_record::create($data);
-            }
+//            if ($lu_lottery_apply->id > 0) {
+//                $data['orderSn'] = $lu_lottery_apply->sn;
+//                $data['orderId'] = $lu_lottery_apply->id;
+//                $data['payType'] = 'apply';
+//                $data['proData'] = array(
+//                    'total' => $lu_lottery_apply->amounts
+//                );
+//                $data['formatAmounts'] = CommonClass::price($lu_lottery_apply->amounts);
+//                //$this->view->payUrl = format_order_pay_url($data);
+////                $this->view->data = $data;
+//                //会员余额变动
+//                $userModel = Auth::user()->lu_user_data;
+//                $oldpoints = $userModel->points;
+//                $points = $oldpoints - $lu_lottery_apply->amounts;
+////                Waf_Cookie::set('points' ,$points);
+////                $this->view->myPoints = $points;
+////                $userModel->updateLoginInfo($this->uid ,array('points'=>$points));
+//                $userModel->points = $points;
+//                $userModel->save();
+//
+////                $pointRecordModel = Waf::model('lottery/pointrecord');
+//                $data = array(
+//                    'uid' => Auth::user()->id,
+//                    'userName' => Auth::user()->name,
+//                    'addType' => '7', // 提现申请
+//                    'lotteryType' => '', // 中奖
+//                    'touSn' => $lu_lottery_apply->sn,
+//                    'oldPoint' => $oldpoints,
+//                    'changePoint' => -$lu_lottery_apply->amounts,
+//                    'newPoint' => $points,
+//                    'created' => strtotime(date('Y-m-d H:i:s'))
+//                );
+////                $pointRecordModel->insert($pointRecordData);
+//                lu_points_record::create($data);
+//            }
             session()->flash('message', '申请取现成功，请等待管理员审批');
             return Redirect::back();
         } else {

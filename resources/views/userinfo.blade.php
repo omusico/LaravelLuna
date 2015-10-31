@@ -11,7 +11,7 @@
                     @elseif(Auth::user()->groupId ==2)
                         <a>会员</a>
                     @endif
-                    <a style="color:red;">{{Auth::user()->name}}</a></span><a
+                    <a style="color:red;font-size: large;font-family: bold" href="account">{{Auth::user()->name}}</a></span><a
                         href="/logout">&nbsp;&nbsp;&nbsp;&nbsp;[退出]</a>
             </h4>
             <h4 class="h_money1">用户余额：<span class="h_m_h" onclick="$(this).hide(); $('.h_money1 .h_m_s').show();"

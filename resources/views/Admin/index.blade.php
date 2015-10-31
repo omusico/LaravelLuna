@@ -12,9 +12,9 @@
                 @include('errors.list')
                 <div><select class="form-control col-md-4" id="groupId" name="groupId" onchange="changtolocation(this)">
                         <option value="">选择要管理的组</option>
-                        <option value="5">总代理</option>
-                        <option value="3">次级代理</option>
-                        <option value="8">会员</option>
+                        @foreach($user_groups as $user_group)
+                            <option value="{{$user_group['groupId']}}">{{$user_group['name']}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <h3 align="center">
@@ -78,14 +78,14 @@
 @section('script')
     <script type="text/javascript" src="/js/collect.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
         });
         function changtolocation(value) {
             var index = value.selectedIndex; // 选中索引
 
             var text = value.options[index].text; // 选中文本
             var val = value.options[index].value; // 选中值
-            setTimeout(window.location.href = "admin?groupid="+val, 1000);
+            setTimeout(window.location.href = "admin?groupid=" + val, 1000);
         }
     </script>
 @stop
