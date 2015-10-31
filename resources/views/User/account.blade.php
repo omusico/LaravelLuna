@@ -13,9 +13,9 @@
             @include('errors.list')
             <h2 class="col-md-offset-4">个人账户信息</h2><br><br>
 
-            <form class="form-horizontal">
+            {!! Form::open(['url' => '/saveaccount', 'class' => 'form-horizontal', 'role' => 'form']) !!}
                 <div class="form-group">
-                    {!! Form::label('name', '用户名: ', ['class' => 'control-label col-md-4']) !!}
+                    {!! Form::label('name', '用户名: ', ['class' => 'control-label col-md-2']) !!}
                     <div class="col-md-4">
                         {!! Form::text('id', Auth::user()->id, ['class' =>
                         'form-control','readonly','style'=>'display:none']) !!}
@@ -23,60 +23,92 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('realName', '姓名: ', ['class' => 'control-label col-md-4']) !!}
+                    {!! Form::label('realName', '姓名: ', ['class' => 'control-label col-md-2']) !!}
                     <div class="col-md-4">
                         {!! Form::text('realName', Auth::user()->realName, ['class' => 'form-control', 'required']) !!}
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('sex', '性别: ', ['class' => 'control-label col-md-4']) !!}
+                    {!! Form::label('sex', '性别: ', ['class' => 'control-label col-md-2']) !!}
                     <div class="col-md-4">
                         {!! Form::select('sex', array('男'=>'男','女'=>'女'),Auth::user()->sex,['class' => 'form-control',
                         'required']) !!}
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('phone', '手机: ', ['class' => 'control-label col-md-4']) !!}
+                    {!! Form::label('phone', '手机: ', ['class' => 'control-label col-md-2']) !!}
                     <div class="col-md-4">
                         {!! Form::text('phone', Auth::user()->phone, ['class' => 'form-control']) !!}
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('qq', 'QQ: ', ['class' => 'control-label col-md-4']) !!}
+                    {!! Form::label('qq', 'QQ: ', ['class' => 'control-label col-md-2']) !!}
                     <div class="col-md-4">
                         {!! Form::text('qq', Auth::user()->qq, ['class' => 'form-control']) !!}
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('email', 'Email: ', ['class' => 'control-label col-md-4']) !!}
+                    {!! Form::label('email', 'Email: ', ['class' => 'control-label col-md-2']) !!}
                     <div class="col-md-4">
                         {!! Form::text('email', Auth::user()->email, ['class' => 'form-control']) !!}
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('status', '状态: ', ['class' => 'control-label col-md-4']) !!}
+                    {!! Form::label('groupId', '权限组: ', ['class' => 'control-label col-md-2']) !!}
+                    <div class="col-md-4">
+                        <select class="form-control" required="required" id="groupId" name="groupId">
+                            @foreach ($user_groups as $user_group)
+                                @if(Auth::user()->groupId == $user_group['groupId'])
+                                    <option value="{{ $user_group['groupId'] }}"
+                                            selected="selected">{{ $user_group['name'] }}</option>
+                                @else
+                                    <option value="{{ $user_group['groupId'] }}">{{ $user_group['name'] }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    {!! Form::label('groupId', '等级: ', ['class' => 'control-label col-md-2']) !!}
+                    <div class="col-md-4">
+                        <select class="form-control" required="required" id="level" name="level">
+                            @foreach ($user_level as $key=>$level)
+                                {{--{{var_dump(Auth::user()->$level)}}--}}
+                                @if(Auth::user()->level == $key)
+                                    <option value="{{ $key }}" selected="selected">{{ $level['name'] }}</option>
+                                @else
+                                    <option value="{{ $key }}">{{ $level['name'] }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    {!! Form::label('status1', '状态: ', ['class' => 'control-label col-md-2']) !!}
                     <div class="col-md-4">
                         <div class="radio">
                             <label>
                                 <input type="radio" name="status" id="status1" readonly
-                                       value="1" {{Auth::user()->status==0?"":"checked"}}>
+                                      disabled value="1" {{Auth::user()->status==0?"":"checked"}}>
                                 激活
                             </label>
                         </div>
                         <div class="radio">
                             <label>
                                 <input type="radio" name="status" id="status2" readonly
-                                       value="0" {{Auth::user()->status==1?"":"checked"}}>
+                                      disabled value="0" {{Auth::user()->status==1?"":"checked"}}>
                                 锁定
                             </label>
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        {!! Form::submit('修改', ['class' => 'btn btn-success form-control']) !!}
+                    </div>
+                </div>
 
-            </form>
+            {!! Form::close() !!}
         </main>
     </div>
-@stop
-@section('script')
-    <script type="text/javascript" src="/js/collect.js"></script>
 @stop

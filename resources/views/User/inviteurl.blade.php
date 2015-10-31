@@ -88,7 +88,6 @@
     </div>
 @stop
 @section('script')
-    <script type="text/javascript" src="/js/collect.js"></script>
     <script type="text/javascript">
         $("#inviteurl").mouseover(function () {
             $(this).select();

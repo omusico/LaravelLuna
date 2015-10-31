@@ -102,9 +102,24 @@ class UserController extends Controller
 
     public function account()
     {
-//        $user_groups = CommonClass::cache("user_groups",1);
-//        $user_level = CommonClass::cache("user_level",0);
-        return view('User.account');
+        $user_groups = CommonClass::cache("user_groups", 1);
+        $user_level = CommonClass::cache("user_level", 0);
+        return view('User.account', compact('user_groups', 'user_level'));
+    }
+
+    public function saveaccount(Request $request)
+    {
+        $lu_user = lu_user::where('id', $request->id)->first();
+        $lu_user->realName = $request->realName;
+        $lu_user->qq = $request->qq;
+        $lu_user->email = $request->email;
+        $lu_user->sex = $request->sex;
+        $lu_user->phone = $request->phone;
+        $lu_user->groupId = $request->groupId;
+        $lu_user->level = $request->level;
+        $lu_user->save();
+        session()->flash('message', "账号保存成功");
+        return Redirect::back();
     }
 
     public function editpwd()

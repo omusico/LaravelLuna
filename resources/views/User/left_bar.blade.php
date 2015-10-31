@@ -3,7 +3,7 @@
         @if(!Auth::guest())
             {{Auth::user()->name}}
             余额: {{Auth::user()->lu_user_data->points}}
-            <a href="/logout" style="color: white">&nbsp;&nbsp;&nbsp;&nbsp;[退出]</a>
+            <a href="/logout" style="color: white">php[退出]</a>
         @endif
     </h2>
 

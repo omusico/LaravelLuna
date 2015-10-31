@@ -107,6 +107,7 @@ Route::get('/bank',['middleware' => 'auth','as'=>'bank','uses'=>'User\UserContro
 Route::post('/savebank',['middleware' => 'auth','as'=>'savebank','uses'=>'User\UserController@savebank']);
 Route::get('/editpwd',['middleware' => 'auth','as'=>'editpwd','uses'=>'User\UserController@editpwd']);
 Route::post('/editpwdpost',['middleware' => 'guest','as'=>'editpwdpost','uses'=>'User\UserController@editpwdpost']);
+Route::post('/saveaccount',['middleware' => 'auth','as'=>'saveaccount','uses'=>'User\UserController@saveaccount']);
 //规则明细
 Route::get('/k3GameRule',['uses'=>'LotteryK3Controller@k3GameRule']);
 Route::get('/favourable',['uses'=>'LotteryK3Controller@favourable']);
