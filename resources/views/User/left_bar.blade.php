@@ -1,5 +1,12 @@
 <div class="nk3_center_left">
-    <h2 style="margin-top: 0px">个人中心:{{Auth::user()->name}}</h2>
+    <h2 style="margin-top: 0px">个人中心:
+        @if(!Auth::guest())
+            {{Auth::user()->name}}
+            余额: {{Auth::user()->lu_user_data->points}}
+            <a href="/logout" style="color: white">&nbsp;&nbsp;&nbsp;&nbsp;[退出]</a>
+        @endif
+    </h2>
+
     <div class="nk3_center_left_box">
         <h3>我的账户</h3>
         <ul>
