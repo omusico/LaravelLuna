@@ -37,7 +37,7 @@
                                 </td>
                                 <td>
                                     <a class="btn btn-sm btn-success" href="/deposit/{{$lu_lottery_apply->id}}/edit">通过</a>
-                                    <form action="{{ url('deposit/'.$lu_lottery_apply->id) }}" style='display: inline'
+                                    <form action="{{ url('deposit/'.$lu_lottery_apply->id)}}" style='display: inline'
                                           method="post">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
