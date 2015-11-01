@@ -38,7 +38,7 @@
                             <tr>
                                 <td>{{ $lu_user->name }}</td>
                                 <td>{{ $lu_user->sex }}</td>
-                                <td>{{ $lu_user->recId }}</td>
+                                <td>{{ $lu_user->recUser }}</td>
                                 <td>{{ $lu_user->phone }}</td>
                                 <td>{{ $lu_user->email }}</td>
                                 <td>
