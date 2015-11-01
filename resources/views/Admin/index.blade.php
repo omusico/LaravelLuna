@@ -31,6 +31,7 @@
                         <td>邀请码</td>
                         <td>注册时间</td>
                         <td>操作</td>
+                        <td>充值</td>
                     </tr>
                     @if (count($lu_users))
                         @foreach ($lu_users as $lu_user)
@@ -61,6 +62,9 @@
                                         <button class="btn btn-sm btn-danger" onclick="return confirm('确定删除?')">删除
                                         </button>
                                     </form>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-primary" href="/manualrecharge/{{$lu_user->id}}">手动充值</a>
                                 </td>
                             </tr>
                         @endforeach

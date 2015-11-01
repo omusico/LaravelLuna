@@ -193,9 +193,6 @@
                                    id="link117">北京快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
                                             style="color:#47ff36">摇骰子,易中奖</b></a><br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=fjk3" title="福建快三" id="link118">福建快三<span
-                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
-                                            style="color:#ff44dc">买三个号就中</b></a><br>
                                 <a target="_blank" href="/lotteryIndex?lottery_type=anhui" title="安徽快三"
                                    id="link119">安徽快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a> <br>
@@ -211,6 +208,9 @@
                                 <a target="_blank" href="/lotteryIndex?lottery_type=hubei" title="湖北快三"
                                    id="link122">湖北快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><br>
+                                <a target="_blank" href="/lotteryIndex?lottery_type=fjk3" title="福建快三">福建快三<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
+                                            style="color:#ff44dc">买三个号就中</b></a><br>
                                 <a target="_blank" href="/lotteryIndex?lottery_type=nmg" title="内蒙古快三" id="link123">内蒙快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
                                             style="color:#ff6c00">100%中奖</b></a>

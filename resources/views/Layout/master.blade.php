@@ -17,7 +17,7 @@
         <h1 class="logo"><a href="#" title="中国快三网" class="logoLink"><img src="/css/m_logo.png" alt="中国快三网"></a></h1>
     </div>
     <ul class="part_nav">
-        <li class="home_cur " style="background-color: red"><a href="/" title="中国快三网首页" id="link83">首页</a></li>
+        <li class="home_cur " style="background-color: red"><a href="/" title="中国快三网首页">首页</a></li>
         <li class="m_li "><a href="/k3GameRule" target="_blank" title="游戏规则">游戏规则</a></li>
         <li class="m_li "><a href="/favourable" target="_blank" title="优惠活动">优惠活动</a></li>
         <li class="m_li "><a href="#" title="走势图">走势图</a></li>
@@ -32,13 +32,11 @@
         <ul>
             <li>
                 <marquee scrollamount=3 style="color:white">{{Cache::get('marquee','请到后台设置滚动文字')}}</marquee>
-                {{--<a target="_blank" href="" title="" id="link100"></a>--}}
             </li>
         </ul>
 
     </div>
 </div>
-{{--{{$_SERVER['REQUEST_URI']}}--}}
 @if($_SERVER['REQUEST_URI']=='/index' || $_SERVER['REQUEST_URI']=='/')
 
 @else
@@ -47,12 +45,12 @@
             <ul class="nav navbar-nav nav col-md-offset-2">
                 <li><a href="/lotteryIndex?lottery_type=jsold">江苏快三</a></li>
                 <li><a href="/lotteryIndex?lottery_type=beijin">北京快三</a></li>
-                <li><a href="/lotteryIndex?lottery_type=fjk3">福建快三</a></li>
                 <li><a href="/lotteryIndex?lottery_type=anhui">安徽快三</a></li>
                 <li><a href="/lotteryIndex?lottery_type=jilin">吉林快三</a></li>
                 <li><a href="/lotteryIndex?lottery_type=jsnew">广西快三</a></li>
                 <li><a href="/lotteryIndex?lottery_type=hubei">湖北快三</a></li>
                 <li><a href="/lotteryIndex?lottery_type=hebei">河北快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=fjk3">福建快三</a></li>
                 <li><a href="/lotteryIndex?lottery_type=nmg">内蒙快三</a></li>
             </ul>
         </div>
@@ -70,11 +68,17 @@
 <script type="text/javascript" src="/js/all.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+        $.ajax({type: "POST",
+            url: '/getPersonalwin',
+            dataType: "json" ,
+            success: function(json){
 
+            }
+
+        });
     });
 </script>
 <script language="javascript" src="http://dft.zoosnet.net/JS/LsJS.aspx?siteid=DFT23548681&float=1&lng=cn"></script>
-
 @yield('script')
 </body>
 </html>

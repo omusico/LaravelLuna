@@ -83,6 +83,8 @@ class registerController extends Controller
                     $lu_user->cashPwd = implode('-', $cashPwd);
                 }
                 $lu_user->invite = rand(10000, 99999);
+                // 默认激活
+                $lu_user->status = 1;
                 $lu_user->save();
                 $lu_user_data = new lu_user_data();
                 $lu_user_data->uid = $lu_user->id;
@@ -112,22 +114,15 @@ class registerController extends Controller
             $invite_user = lu_user::where('invite', $request->invite)->first();
             if (isset($invite_user->groupId)) {
                 $lu_user = new lu_user;
-//                if($invite_user->groupId ==5){
-//                    $lu_user->groupId =3;
-//                }else{
-//                    $lu_user->groupId =8;
-//                }
                 $lu_user->groupId =3;
                 $lu_user->name = $request->name;
                 $lu_user->realName = $request->realName;
                 $lu_user->password = Hash::make($request->password);
                 $lu_user->qq = $request->qq;
-//                $lu_user->email = $request->email;
                 $lu_user->sex = $request->sex;
-//                $lu_user->phone = $request->phone;
+                $lu_user->phone = $request->phone;
                 $lu_user->recId = $invite_user->id;
                 $lu_user->recUser = $invite_user->name;
-//                $lu_user->groupId = $request->groupId;
                 $lu_user->invite = rand(10000, 99999);
                 $lu_user->save();
                 $lu_user_data = new lu_user_data();
@@ -135,22 +130,15 @@ class registerController extends Controller
                 $lu_user_data->save();
 
                 $data = array(
-
                     'bankName' => $request->bankName,
-
                     'bankCode' => $request->bankCode,
-
                     'openBank' => $request->openBank,
-
                     'userName' => $request->bankUserName,
-
                     'uid' => $lu_user->id,
-
                     'created' => $_SERVER['REQUEST_TIME']
-
                 );
                 lu_lottery_user::create($data);
-                session()->flash('message', $lu_user->name . "注册成功");
+                session()->flash('message', $lu_user->name . "注册成功,请等待后台审核");
                 return Redirect::to('login');
             } else {
                 session()->flash('message', "邀请码不正确，请检查后再输入");

@@ -19,11 +19,6 @@ class UserController extends Controller
      *
      * @return Response
      */
-    public function index()
-    {
-        //
-    }
-
     public function userBettingList(Request $request)
     {
         $result = lu_lotteries_k3::where('status', 1)->where('uid', \Auth::id())->orderby('created_at', 'desc');
@@ -31,74 +26,6 @@ class UserController extends Controller
         return view('User.usrBettingList', compact('lu_lotteries_k3s', 'count'));
     }
 
-    public function recharge(Request $request)
-    {
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
     public function account()
     {
@@ -115,8 +42,8 @@ class UserController extends Controller
         $lu_user->email = $request->email;
         $lu_user->sex = $request->sex;
         $lu_user->phone = $request->phone;
-        $lu_user->groupId = $request->groupId;
-        $lu_user->level = $request->level;
+//        $lu_user->groupId = $request->groupId;
+//        $lu_user->level = $request->level;
         $lu_user->save();
         session()->flash('message', "账号保存成功");
         return Redirect::back();
@@ -176,19 +103,12 @@ class UserController extends Controller
         $id = $request->id;
         if (empty($id)) {
             $data = array(
-
                 'bankName' => $request->bankName,
-
                 'bankCode' => $request->bankCode,
-
                 'openBank' => $request->openBank,
-
                 'userName' => $request->userName,
-
                 'uid' => Auth::user()->id,
-
                 'created' => $_SERVER['REQUEST_TIME']
-
             );
             lu_lottery_user::create($data);
 
@@ -203,6 +123,11 @@ class UserController extends Controller
             session()->flash('message', "银行卡修改成功");
         }
         return Redirect::back();
-//        return view('User.bank');
+    }
+
+    public function getPersonalwin()
+    {
+        $result = lu_lotteries_k3::where('uid',Auth::user()->id)->where('noticed','1')->where('created_at','>',date("Y-m-d G:H:s",strtotime("-1 hours")))->get();
+        return $result;
     }
 }

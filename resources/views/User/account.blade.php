@@ -54,36 +54,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('groupId', '权限组: ', ['class' => 'control-label col-md-2']) !!}
-                    <div class="col-md-4">
-                        <select class="form-control" required="required" id="groupId" name="groupId">
-                            @foreach ($user_groups as $user_group)
-                                @if(Auth::user()->groupId == $user_group['groupId'])
-                                    <option value="{{ $user_group['groupId'] }}"
-                                            selected="selected">{{ $user_group['name'] }}</option>
-                                @else
-                                    <option value="{{ $user_group['groupId'] }}">{{ $user_group['name'] }}</option>
-                                @endif
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('groupId', '等级: ', ['class' => 'control-label col-md-2']) !!}
-                    <div class="col-md-4">
-                        <select class="form-control" required="required" id="level" name="level">
-                            @foreach ($user_level as $key=>$level)
-                                {{--{{var_dump(Auth::user()->$level)}}--}}
-                                @if(Auth::user()->level == $key)
-                                    <option value="{{ $key }}" selected="selected">{{ $level['name'] }}</option>
-                                @else
-                                    <option value="{{ $key }}">{{ $level['name'] }}</option>
-                                @endif
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
                     {!! Form::label('status1', '状态: ', ['class' => 'control-label col-md-2']) !!}
                     <div class="col-md-4">
                         <div class="radio">

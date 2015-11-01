@@ -72,6 +72,8 @@ Route::post('saveuserreturns', 'Admin\AdminController@saveuserreturns');
 Route::get('getdepositlist','Admin\AdminController@getdepositlist');
 Route::get('deposit/{id}/edit','Admin\AdminController@updatedepositstatus');
 Route::any('deposit/{id}','Admin\AdminController@deletedeposit');
+Route::get('manualrecharge/{id}','Admin\AdminController@manualrecharge');
+Route::post('manualupdate','Admin\AdminController@manualupdate');
 #上传分数
 //Route::post('admin/upload_grade', [
 //    'as' => 'upload_grade', 'uses' => 'Admin\AdminController@upload_grade']);
@@ -96,6 +98,7 @@ Route::get('collectLotteryData', [
     'as' => 'collectLotteryData', 'uses' => 'CollectController@collectLotteryData']);
 Route::get('lotteryIndex', [
     'as' => 'lotteryIndex', 'uses' => 'LotteryK3Controller@index']);
+
 Route::any('/lotteryBetting', ['as' => 'lotteryBetting', 'uses' => 'LotteryK3Controller@betting']);
 Route::any('/userLotteryBetting', ['as' => 'userLotteryBetting', 'uses' => 'User\UserController@userBettingList']);
 Route::any('/getLotteryData', ['as' => 'getLotteryDataForQt', 'uses' => 'LotteryK3Controller@getLotteryDataForQt']);
@@ -109,6 +112,7 @@ Route::post('/savebank',['middleware' => 'auth','as'=>'savebank','uses'=>'User\U
 Route::get('/editpwd',['middleware' => 'auth','as'=>'editpwd','uses'=>'User\UserController@editpwd']);
 Route::post('/editpwdpost',['middleware' => 'guest','as'=>'editpwdpost','uses'=>'User\UserController@editpwdpost']);
 Route::post('/saveaccount',['middleware' => 'auth','as'=>'saveaccount','uses'=>'User\UserController@saveaccount']);
+Route::get('/getPersonalwin',['middleware' => 'auth','as'=>'getPersonalwin','uses'=>'User\UserController@getPersonalwin']);
 //规则明细
 Route::get('/k3GameRule',['uses'=>'LotteryK3Controller@k3GameRule']);
 Route::get('/favourable',['uses'=>'LotteryK3Controller@favourable']);

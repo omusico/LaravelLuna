@@ -283,4 +283,45 @@ class AdminController extends Controller
         session()->flash('message', '返水设置成功');
         return Redirect::back();
     }
+
+    public function manualrecharge(Request $request)
+    {
+        $point_types = CommonClass::cache_point_type();
+        $user = lu_user::find($request->id);
+        return view('Admin.manualrecharge', compact('user', 'point_types'));
+    }
+
+    public function manualupdate(Request $request)
+    {
+
+        $user = lu_user::find($request->id);
+        $userModel = $user->lu_user_data;
+        $data['orderSn'] = $request->sn;
+        $data['orderId'] = $request->id;
+        $data['payType'] = 'apply';
+        $data['proData'] = array(
+            'total' => $request->amounts
+        );
+        $data['formatAmounts'] = CommonClass::price($request->amounts);
+        //会员余额变动
+        $oldpoints = $userModel->points;
+        $points = $oldpoints + $request->amounts;
+        $userModel->points = $points;
+        $userModel->save();
+
+        $data = array(
+            'uid' => $user->id,
+            'userName' => $user->name,
+            'addType' => $request->addType, // 提现申请
+            'lotteryType' => '', // 中奖
+            'touSn' => $request->sn,
+            'oldPoint' => $oldpoints,
+            'changePoint' => $request->amounts,
+            'newPoint' => $points,
+            'created' => strtotime(date('Y-m-d H:i:s'))
+        );
+        App\lu_points_record::create($data);
+        session()->flash('message', $request->sn . '手动添加成功');
+        return Redirect::back();
+    }
 }
