@@ -97,12 +97,12 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-3 mobilhide" style="margin-right: 0px">
+            <div class="col-md-3 " style="margin-right: 0px">
                 <div class="h_l_cp" style="height: 211px">
                     @include('userinfo')
                 </div>
             </div>
-            <div class="col-md-6" style="padding-left: 0px;padding-right: 0px;margin-right: 0px">
+            <div class="col-md-6 mobilhide" style="padding-left: 0px;padding-right: 0px;margin-right: 0px">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
                      xmlns="http://www.w3.org/1999/html">
                     <ol class="carousel-indicators">
