@@ -38,12 +38,28 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a class="btn btn-sm btn-success" href="/deposit/{{$lu_lottery_apply->id}}/edit">通过</a>
+                                    <a class="btn btn-sm btn-success"
+                                       href="/deposit/{{$lu_lottery_apply->id}}/edit">通过</a>
+
                                     <form action="{{ url('deposit/'.$lu_lottery_apply->id)}}" style='display: inline'
                                           method="post">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                                         <button class="btn btn-sm btn-danger" onclick="return confirm('确定删除?')">删除
+                                        </button>
+                                        <?php $item = \App\lu_lottery_user::where('uid', $lu_lottery_apply->uid)->first(); ?>
+                                        <button type="button" class="btn btn-warning"
+                                                data-container="body" data-toggle="popover" data-placement="bottom"
+                                                title="{{ $lu_lottery_apply->userName }}--银行信息"
+                                                data-content="
+                                                @if(isset($item))
+                                                 银行名称 : {{ $item->bankName }} |
+                                                开户行 : {{ $item->openBank }} |
+                                                 银行账号 : {{ $item->bankCode }}|
+                                                     开户人姓名 : {{ $item->userName }}
+                                                    @endif
+                                                        ">
+                                            点击,查看银行信息
                                         </button>
                                     </form>
                                 </td>

@@ -83,6 +83,13 @@
     <script type="text/javascript" src="/js/collect.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            if (/Mobile|Android|iPhone|iPod|Nokia|WP7|Symbian|MIDP|UCWEB|Minimo|Opera M(ob|in)i/.test(a) && !/iPad/.test(a) && !/(^|\s)mobi_redi=1(;|$)/.test(document.cookie)) {
+                console.log('手机');
+                a = null ;
+//                if (m = RegExp("(^|)pctomb=([^;]*)(;|$)", "gi").exec(document.cookie))
+//                    a = decodeURIComponent(m[2]);
+//                null  == a ? location.replace("http://m.500.com/act/frompc/index.html?mobi=http://m.500.com/&pc=http://www.500.com/") : 1 == a && location.replace("http://m.500.com/")
+            }
         });
         function changtolocation(value) {
             var index = value.selectedIndex; // 选中索引
