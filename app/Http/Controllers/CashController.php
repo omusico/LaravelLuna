@@ -159,7 +159,7 @@ class CashController extends Controller
     public function deposit()
     {
 //        $bank =lu_lottery_company_bank::find(1);
-        $lu_lottery_applys = lu_lottery_apply::orderby('created_at', 'desc')->paginate(10);
+        $lu_lottery_applys = lu_lottery_apply::where('uid',Auth::user()->id)->orderby('created_at', 'desc')->paginate(10);
         return view('Cash.deposit', compact('lu_lottery_applys'));
     }
 
@@ -186,6 +186,7 @@ class CashController extends Controller
             $lu_lottery_apply->created = $_SERVER['REQUEST_TIME'];
             $lu_lottery_apply->status = 2;
             $lu_lottery_apply->uid = Auth::user()->id;
+            $lu_lottery_apply->userName = Auth::user()->name;
             $lu_lottery_apply->save();
 //            if ($lu_lottery_apply->id > 0) {
 //                $data['orderSn'] = $lu_lottery_apply->sn;

@@ -106,7 +106,7 @@ Route::any('/loadRecentResult', ['as' => 'loadRecentResult', 'uses' => 'LotteryK
 Route::get('/getLotteryWin',['middleware' => 'auth','as'=>'getlotterywin','uses'=>'LotteryK3Controller@getLotteryWin']);
 Route::get('/getPointsRecord',['middleware' => 'auth','as'=>'getpointsrecord','uses'=>'LotteryK3Controller@getPointsRecord']);
 Route::get('/account',['middleware' => 'auth','as'=>'account','uses'=>'User\UserController@account']);
-Route::get('/deposit',['middleware' => 'auth','as'=>'deposit','uses'=>'User\UserController@deposit']);
+//Route::get('/deposit',['middleware' => 'auth','as'=>'deposit','uses'=>'User\UserController@deposit']);
 Route::get('/bank',['middleware' => 'auth','as'=>'bank','uses'=>'User\UserController@bank']);
 Route::post('/savebank',['middleware' => 'auth','as'=>'savebank','uses'=>'User\UserController@savebank']);
 Route::get('/editpwd',['middleware' => 'auth','as'=>'editpwd','uses'=>'User\UserController@editpwd']);

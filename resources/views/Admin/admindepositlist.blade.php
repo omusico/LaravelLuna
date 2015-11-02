@@ -16,6 +16,7 @@
                 <table class="table table-hover">
                     <tr>
                         <td>流水号</td>
+                        <td>用户名</td>
                         <td>金额</td>
                         <td>提款时间</td>
                         <td>手续费</td>
@@ -26,6 +27,7 @@
                         @foreach ($lu_lottery_applys as $lu_lottery_apply)
                             <tr>
                                 <td>{{ $lu_lottery_apply->sn }}</td>
+                                <td>{{ $lu_lottery_apply->userName }}</td>
                                 <td>{{ $lu_lottery_apply->amounts }}</td>
                                 <td>{{ $lu_lottery_apply->created_at }}</td>
                                 <td>{{ $lu_lottery_apply->fees }}</td>
