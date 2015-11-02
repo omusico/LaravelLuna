@@ -578,7 +578,7 @@
                         </div>
                     </div>
                 </main>
-                <aside class="col-md-4">
+                <aside class="col-md-4 mobilhide">
                     <div class="login_weizhi">
                         @include('userinfo')
                     </div>

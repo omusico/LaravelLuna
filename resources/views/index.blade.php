@@ -97,7 +97,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-3" style="margin-right: 0px">
+            <div class="col-md-3 mobilhide" style="margin-right: 0px">
                 <div class="h_l_cp" style="height: 211px">
                     @include('userinfo')
                 </div>
@@ -145,7 +145,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3" style="margin-left: 0px;padding-left: 0px">
+            <div class="col-md-3 mobilhide" style="margin-left: 0px;padding-left: 0px">
                 <div class="notice m_b10" id="notice" style="border-bottom: none">
                     <ul class="tabs-nav notice_nav">
                         <li class="cur"><a href="#">最新优惠</a></li>
@@ -221,7 +221,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3" style="padding-left: 0px;padding-right: 0px;border-right: none">
+            <div class="col-md-3 mobilhide" style="padding-left: 0px;padding-right: 0px;border-right: none">
                 <div class="distance nk3_kjgg" style="border-right: none;">
                     <h2 style="margin-top: 0px">
                         快3近期开奖公告
@@ -265,7 +265,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3" style="padding-left: 0px;padding-right: 0px;">
+            <div class="col-md-3 mobilhide" style="padding-left: 0px;padding-right: 0px;">
                 <div class="distance nk3_kjgg" style="border-right: none;border-left: none">
                     <h2 style="margin-top: 0px">
                     </h2>
@@ -309,7 +309,7 @@
                 </div>
 
             </div>
-            <div class="col-md-3" style="padding-left: 0px;">
+            <div class="col-md-3 mobilhide" style="padding-left: 0px;">
                 <div class="distance nk3_kjgg" style="border-left: none">
                     <h2 style="margin-top: 0px">
                         <a href="/lotteryIndex?lottery_type=beijin">更多&gt;&gt;</a>
@@ -355,4 +355,9 @@
             </div>
         </div>
     </div>
+@stop
+@section('script')
+    <script type="text/javascript">
+
+    </script>
 @stop

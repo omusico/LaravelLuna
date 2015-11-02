@@ -16,7 +16,7 @@
     <div class="logoWrap">
         <h1 class="logo"><a href="#" title="中国快三网" class="logoLink"><img src="/css/m_logo.png" alt="中国快三网"></a></h1>
     </div>
-    <ul class="part_nav">
+    <ul class="part_nav mobilhide">
         <li class="home_cur " style="background-color: red"><a href="/" title="中国快三网首页">首页</a></li>
         <li class="m_li "><a href="/k3GameRule" target="_blank" title="游戏规则">游戏规则</a></li>
         <li class="m_li "><a href="/favourable" target="_blank" title="优惠活动">优惠活动</a></li>
@@ -26,7 +26,9 @@
         <li class="m_li "><a href="#" title="手机下注">手机下注</a></li>
         <li class="m_li last"><a title="网址" href="#">网址</a></li>
     </ul>
-    <div class="contact_r" style="width: auto; margin: 10px 20px 0 0; right: 70px;"><img src="/css/kftel.png" title="7×24小时服务热线：zgk3wz@@126.com" alt="7×24小时服务热线：zgk3wz@@126.com">
+    <div class="contact_r" style="width: auto; margin: 10px 20px 0 0; right: 70px;"><img src="/css/kftel.png"
+                                                                                         title="7×24小时服务热线：zgk3wz@@126.com"
+                                                                                         alt="7×24小时服务热线：zgk3wz@@126.com">
     </div>
     <div class="home_hb" style="background-color: red">
         <ul>
@@ -60,7 +62,7 @@
     @include('flash')
 </div>
 @yield('content')
-<div class="footer">
+<div class="footer mobilhide">
     <div class="f-link"><a title="关于我们" href="#">关于我们</a> | <a title="用户注册" target="_blank" href="/register">用户注册</a> |
         <a title="加盟合作" href="#">加盟合作</a> | <a href="#" title="进入网盟">进入网盟</a> | <a title="网站地图">网站地图</a> | <a
                 title="友情链接" href="" id="link431">友情链接</a></div>
@@ -68,15 +70,32 @@
 <script type="text/javascript" src="/js/all.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $.ajax({type: "POST",
+        $.ajax({
+            type: "POST",
             url: '/getPersonalwin',
-            dataType: "json" ,
-            success: function(json){
+            dataType: "json",
+            success: function (json) {
 
             }
 
         });
     });
+
+
+    (function (a) {
+        if (/Mobile|Android|iPhone|iPod|Nokia|WP7|Symbian|MIDP|UCWEB|Minimo|Opera M(ob|in)i/.test(a) && !/iPad/.test(a) && !/(^|\s)mobi_redi=1(;|$)/.test(document.cookie)) {
+            a = null;
+            $(".mobilhide").hide();
+            <?php $islogin = strstr($_SERVER['REQUEST_URI'],'login'); ?>
+            @if(Auth::guest() && empty($islogin))
+            location.replace('/login');
+            @endif
+//                a = null ;
+//                if (m = RegExp("(^|)pctomb=([^;]*)(;|$)", "gi").exec(document.cookie))
+//                    a = decodeURIComponent(m[2]);
+//                null  == a ? location.replace("http://m.500.com/act/frompc/index.html?mobi=http://m.500.com/&pc=http://www.500.com/") : 1 == a && location.replace("http://m.500.com/")
+        }
+    })(navigator.userAgent);
 </script>
 <script language="javascript" src="http://dft.zoosnet.net/JS/LsJS.aspx?siteid=DFT23548681&float=1&lng=cn"></script>
 @yield('script')
