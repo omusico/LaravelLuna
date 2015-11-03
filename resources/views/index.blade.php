@@ -151,7 +151,7 @@
                         <li class="cur"><a href="#">最新优惠</a></li>
                     </ul>
                     <div class="tabs-cnt notice_cont">
-                        <ul class="list_icon" style="padding-left: 0px">
+                        <ul class="list_icon" style="padding-left: 0px;color: red;">
                             @if(null!==Cache::get('news'))
                                 @foreach(Cache::get('news') as $key=>$value)
                                     <li><a style="width: 205px;" href="{{isset($value['url'])?$value['url']:'#'}}"
