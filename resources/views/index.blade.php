@@ -159,12 +159,6 @@
                                                 class="time"></span></li>
                                 @endforeach
                             @endif
-                            {{--<li><a style="width: 205px;" href="http://tieba.baidu.com/p/3493429781" target="_blank">快3技巧--}}
-                            {{--近期数据更有价值</a><span class="time"></span></li>--}}
-                            {{--<li><a style="width: 205px;" href="http://tieba.baidu.com/p/3454498923" target="_blank">快3技巧：五种杀号技巧手到擒来</a><span--}}
-                            {{--class="time"></span></li>--}}
-                            {{--<li><a style="width: 205px;" href="http://tieba.baidu.com/p/3389052828" target="_blank">快3玩法中奖妙招：模式选号法</a><span--}}
-                            {{--class="time"></span></li>--}}
                         </ul>
                     </div>
                 </div>
