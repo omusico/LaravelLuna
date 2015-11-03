@@ -40,13 +40,22 @@ class LotteryK3Controller extends Controller
         return view('Lottery.lotteryindex', compact('czName', 'config', 'chipins', 'k3Odds', 'lotterystatus'));
     }
 
+    public function trend(Request $request){
+        $lottery_type = strtoupper(trim($request->lottery_type));
+        $lunaFunctions = new LunaFunctions();
+        $czName = $lunaFunctions->get_lottery_name($lottery_type);
+        $config = $lunaFunctions->get_lottery_config($lottery_type);
+        $datas =lu_lotteries_result::where('typeName',$lottery_type)->orderby('created_at','desc')->take(50)->get();
+        return view('Lottery.lotterytrend',compact('datas','czName','config'));
+    }
+
     public function loadRecentResult(Request $request)
     {
         $lotteryType = strtoupper(trim($request->lottery_type));
 //        $recentNum = $this->request->recentNum;
 //        $lotteryResult = Waf::model('lottery/result');
 //        $data = $lotteryResult->queryRecent($lotteryType,$recentNum);
-        $data = lu_lotteries_result::where('typeName', $lotteryType)->orderBy('created_at','desc')->get();
+        $data = lu_lotteries_result::where('typeName', $lotteryType)->orderBy('created_at','desc')->take(20)->get();
         return $data;
     }
 
