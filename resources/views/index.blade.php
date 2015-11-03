@@ -154,7 +154,7 @@
                         <ul class="list_icon" style="padding-left: 0px;color: red;">
                             @if(null!==Cache::get('news'))
                                 @foreach(Cache::get('news') as $key=>$value)
-                                    <li><a style="width: 205px;" href="{{isset($value['url'])?$value['url']:'#'}}"
+                                    <li><a style="width: 205px;color: red;" href="{{isset($value['url'])?$value['url']:'#'}}"
                                            target="_blank">{{isset($value['title'])?$value['title']:''}}</a><span
                                                 class="time"></span></li>
                                 @endforeach
