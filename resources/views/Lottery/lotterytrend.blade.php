@@ -16,7 +16,7 @@
 
                 @include('errors.list')
                 <h3 align="center">
-                    走势图</h3>
+                    {{$czName}}走势图</h3>
                 <table class="table table-hover">
                     <tr>
                         <th rowspan="2">期号</th>

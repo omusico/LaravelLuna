@@ -20,7 +20,7 @@
         <li class="home_cur " style="background-color: red"><a href="/" title="中国快三网首页">首页</a></li>
         <li class="m_li "><a href="/k3GameRule" target="_blank" title="游戏规则">游戏规则</a></li>
         <li class="m_li "><a href="/favourable" target="_blank" title="优惠活动">优惠活动</a></li>
-        <li class="m_li "><a href="#" title="走势图">走势图</a></li>
+        <li class="m_li "><a href="/lotterytrend?lottery_type=jsold" title="走势图">走势图</a></li>
         <li class="m_li "><a title="合作代理" target="_blank" href="/inviteurl">合作代理</a></li>
         <li class="m_li "><a href="/userLotteryBetting" target="_blank" title="交易记录">交易记录</a></li>
         <li class="m_li "><a href="#" title="手机下注">手机下注</a></li>
@@ -42,21 +42,40 @@
 @if($_SERVER['REQUEST_URI']=='/index' || $_SERVER['REQUEST_URI']=='/')
 
 @else
-    <div class="container" style="text-align: center">
-        <div class="collapse navbar-collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav nav col-md-offset-2">
-                <li><a href="/lotteryIndex?lottery_type=jsold">江苏快三</a></li>
-                <li><a href="/lotteryIndex?lottery_type=beijin">北京快三</a></li>
-                <li><a href="/lotteryIndex?lottery_type=anhui">安徽快三</a></li>
-                <li><a href="/lotteryIndex?lottery_type=jilin">吉林快三</a></li>
-                <li><a href="/lotteryIndex?lottery_type=jsnew">广西快三</a></li>
-                <li><a href="/lotteryIndex?lottery_type=hubei">湖北快三</a></li>
-                <li><a href="/lotteryIndex?lottery_type=hebei">河北快三</a></li>
-                <li><a href="/lotteryIndex?lottery_type=fjk3">福建快三</a></li>
-                <li><a href="/lotteryIndex?lottery_type=nmg">内蒙快三</a></li>
-            </ul>
+
+    @if(!empty(strstr($_SERVER['REQUEST_URI'],'lotterytrend')))
+        <div class="container" style="text-align: center">
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav nav col-md-offset-2">
+                    <li><a href="/lotterytrend?lottery_type=jsold">江苏快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=beijin">北京快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=anhui">安徽快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=jilin">吉林快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=jsnew">广西快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=hubei">湖北快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=hebei">河北快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=fjk3">福建快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=nmg">内蒙快三</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
+    @else
+        <div class="container" style="text-align: center">
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav nav col-md-offset-2">
+                    <li><a href="/lotteryIndex?lottery_type=jsold">江苏快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=beijin">北京快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=anhui">安徽快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=jilin">吉林快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=jsnew">广西快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=hubei">湖北快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=hebei">河北快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=fjk3">福建快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=nmg">内蒙快三</a></li>
+                </ul>
+            </div>
+        </div>
+    @endif
 @endif
 <div class="container">
     @include('flash')
