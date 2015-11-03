@@ -38,10 +38,22 @@ class AdminController extends Controller
 
     public function bettingList(Request $request)
     {
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
         $result = App\lu_lotteries_k3::where('status', 1);
-        $count = $result->count();
+        if(!empty($userName)){
+            $result->where('userName',$userName);
+        }
+        if(!empty($starttime)){
+            $result->where('created_at','>=',$starttime);
+        }
+        if(!empty($endtime)){
+            $result->where('created_at','<=',$endtime);
+        }
+        $result = $result->orderby('created_at','desc');
         $lu_lotteries_k3s = $result->paginate(10);
-        return view('Admin.bettingList', compact('lu_lotteries_k3s'));
+        return view('Admin.bettingList', compact('lu_lotteries_k3s','userName','starttime','endtime'));
     }
 
     public function getdepositlist()
