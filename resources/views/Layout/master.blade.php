@@ -113,10 +113,6 @@
             @if(Auth::guest() && empty($islogin) && empty($isregister))
             location.replace('/login');
             @endif
-//                a = null ;
-//                if (m = RegExp("(^|)pctomb=([^;]*)(;|$)", "gi").exec(document.cookie))
-//                    a = decodeURIComponent(m[2]);
-//                null  == a ? location.replace("http://m.500.com/act/frompc/index.html?mobi=http://m.500.com/&pc=http://www.500.com/") : 1 == a && location.replace("http://m.500.com/")
         }
     })(navigator.userAgent);
 </script>

@@ -137,17 +137,17 @@
                                     </td>
                                 @endif
                                 @if($hz %2==0)
-                                    <td style="background-color: red;color: white;font-family: bold">
+                                    <td style="background-color: #008000;color: #808080">
                                         单
                                     </td>
-                                    <td style="background-color: #008000;color: #808080">
+                                    <td style="background-color: red;color: white;font-family: bold">
                                         双
                                     </td>
                                 @else
-                                    <td style="background-color: #008000;color: #808080">
+                                    <td style="background-color: red;color: white;font-family: bold">
                                         单
                                     </td>
-                                    <td style="background-color: red;color: white;font-family: bold">
+                                    <td style="background-color: #008000;color: #808080">
                                         双
                                     </td>
                                 @endif
