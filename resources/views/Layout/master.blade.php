@@ -14,21 +14,35 @@
 <div class="top_main_back"></div>
 <div class="container header" style="margin-top: 50px" id="indexHeader">
     <div class="logoWrap">
-        <h1 class="logo"><a href="#" title="中国快三网" class="logoLink"><img src="/css/m_logo.png" alt="中国快三网"></a></h1>
+        <h1 class="logo"><a href="/" title="中国快三网" class="logoLink"><img src="/css/m_logo.png" alt="中国快三网"></a></h1>
     </div>
-    <ul class="part_nav mobilhide">
-        <li class="home_cur " style="background-color: red"><a href="/" title="中国快三网首页">首页</a></li>
-        <li class="m_li "><a href="/k3GameRule" target="_blank" title="游戏规则">游戏规则</a></li>
-        <li class="m_li "><a href="/favourable" target="_blank" title="优惠活动">优惠活动</a></li>
-        <li class="m_li "><a href="/lotterytrend?lottery_type=jsold" title="走势图">走势图</a></li>
-        <li class="m_li "><a title="合作代理" target="_blank" href="/inviteurl">合作代理</a></li>
-        <li class="m_li "><a href="/userLotteryBetting" target="_blank" title="交易记录">交易记录</a></li>
-        <li class="m_li "><a href="#" title="手机下注">手机下注</a></li>
-        <li class="m_li last"><a title="网址" href="#">网址</a></li>
-    </ul>
+    <div class="collapse navbar-collapse navbar-responsive-collapse"
+         style="position: absolute; top: 62px; left: 200px;">
+        <ul class="nav navbar-nav nav">
+            <li class="active"><a href="/" class="btn-danger" style="background-color: red;font-weight: bold">首页</a>
+            </li>
+            <li><a href="/k3GameRule" target="_blank" style="color:red;font-weight: bold" title="游戏规则">游戏规则</a></li>
+            <li><a href="/favourable" target="_blank" style="color:red;font-weight: bold" title="优惠活动">优惠活动</a></li>
+            <li><a href="/lotterytrend?lottery_type=jsold" style="color:red;font-weight: bold" title="走势图">走势图</a></li>
+            <li><a title="合作代理" target="_blank" style="color:red;font-weight: bold" href="/inviteurl">合作代理</a></li>
+            <li><a href="/userLotteryBetting" target="_blank" style="color:red;font-weight: bold" title="交易记录">交易记录</a>
+            </li>
+            <li><a href="#" title="手机下注" style="color:red;font-weight: bold">手机下注</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" style="color:red;font-weight: bold" data-toggle="dropdown"
+                   role="button">网址<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">网址一</a></li>
+                    <li><a href="#">网址二</a></li>
+                    <li><a href="#">网址三</a></li>
+                    <li><a href="#">网址四</a></li>
+                    <li><a href="#">网址五</a></li>
+                </ul>
+        </ul>
+    </div>
     <div class="contact_r" style="width: auto; margin: 10px 20px 0 0; right: 70px;"><img src="/css/kftel.png"
-                                                                                         title="7×24小时服务热线：zgk3wz@@126.com"
-                                                                                         alt="7×24小时服务热线：zgk3wz@@126.com">
+                                                                                         title="7×24小时服务热线：zgk3wz@126.com"
+                                                                                         alt="7×24小时服务热线：zgk3wz@126.com">
     </div>
     <div class="home_hb" style="background-color: red">
         <ul>
@@ -38,6 +52,12 @@
         </ul>
 
     </div>
+</div>
+<div class="container mobilShow" style="display: none">
+    @if(!Auth::guest())
+        <label class="form-control" style="text-align: center">余额：{{Auth::user()->lu_user_data->points}}</label>
+        <a class="btn-danger btn-lg form-control" href="/logout" style="text-align: center">退出登陆</a>
+    @endif
 </div>
 @if($_SERVER['REQUEST_URI']=='/index' || $_SERVER['REQUEST_URI']=='/')
 
@@ -105,6 +125,8 @@
         if (/Mobile|Android|iPhone|iPod|Nokia|WP7|Symbian|MIDP|UCWEB|Minimo|Opera M(ob|in)i/.test(a) && !/iPad/.test(a) && !/(^|\s)mobi_redi=1(;|$)/.test(document.cookie)) {
             a = null;
             $(".mobilhide").hide();
+            $(".mobilShow").show();
+
             $(".btn").addClass("btn-lg");
             <?php
             $islogin = strstr($_SERVER['REQUEST_URI'],'login');
@@ -113,6 +135,7 @@
             @if(Auth::guest() && empty($islogin) && empty($isregister))
             location.replace('/login');
             @endif
+
         }
     })(navigator.userAgent);
 </script>

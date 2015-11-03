@@ -40,10 +40,10 @@
                     <table class="table table-hover">
                         <tr>
                             <td>姓名</td>
-                            <td>性别</td>
+                            <td class="mobilhide">性别</td>
                             {{--<td>所属代理</td>--}}
-                            <td>手机</td>
-                            <td>邮箱</td>
+                            <td class="mobilhide">手机</td>
+                            <td class="mobilhide">邮箱</td>
                             <td>权限组</td>
                             <td>余额</td>
                             <td>消费金额</td>
@@ -52,10 +52,10 @@
                             @foreach ($lu_users as $lu_user)
                                 <tr>
                                     <td>{{ $lu_user->name }}</td>
-                                    <td>{{ $lu_user->sex }}</td>
+                                    <td class="mobilhide">{{ $lu_user->sex }}</td>
                                     {{--                                    <td>{{ $lu_user->recId }}</td>--}}
-                                    <td>{{ $lu_user->phone }}</td>
-                                    <td>{{ $lu_user->email }}</td>
+                                    <td class="mobilhide">{{ $lu_user->phone }}</td>
+                                    <td class="mobilhide">{{ $lu_user->email }}</td>
                                     <td>
 {{--                                        {{$lu_user->groupId}}--}}
                                         @foreach($user_groups as $user_group)
