@@ -57,6 +57,7 @@
                         <h1>没有记录</h1>
                     @endif
                 </table>
+                {{--{{$lu_lotteries_k3->appends($input)->links()}}--}}
                 <?php echo $lu_lotteries_k3s->render(); ?>
             </div>
             @include('Admin.right_bar')

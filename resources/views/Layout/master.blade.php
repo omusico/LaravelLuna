@@ -86,6 +86,7 @@
         if (/Mobile|Android|iPhone|iPod|Nokia|WP7|Symbian|MIDP|UCWEB|Minimo|Opera M(ob|in)i/.test(a) && !/iPad/.test(a) && !/(^|\s)mobi_redi=1(;|$)/.test(document.cookie)) {
             a = null;
             $(".mobilhide").hide();
+            $(".btn").addClass("btn-lg");
             <?php $islogin = strstr($_SERVER['REQUEST_URI'],'login'); ?>
             @if(Auth::guest() && empty($islogin))
             location.replace('/login');

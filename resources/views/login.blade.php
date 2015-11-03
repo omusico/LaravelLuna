@@ -37,15 +37,16 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                {!! Form::submit('登陆', ['class' => 'btn btn-primary']) !!}
-                                <a class="btn btn-info" href="{{ url('/register') }}" style="margin-left: 50px">注册</a>
+                                {!! Form::submit('登陆', ['class' => 'btn btn-default btn-primary']) !!}
+                                <a class="btn btn-default btn-info" href="{{ url('/register') }}" >免费注册</a>
+                                <a class="btn btn-default btn-warning" href="{{ url('/dailiregister') }}" >代理注册</a>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <a class="btn btn-link" href="{{ url('/password/email') }}">忘记密码？</a>
-                            </div>
-                        </div>
+                        {{--<div class="form-group">--}}
+                            {{--<div class="col-md-6 col-md-offset-4">--}}
+                                {{--<a class="btn btn-link" href="{{ url('/password/email') }}">忘记密码？</a>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                         {!! Form::close() !!}
                     </div>
                 </div>
