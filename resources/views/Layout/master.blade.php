@@ -106,8 +106,11 @@
             a = null;
             $(".mobilhide").hide();
             $(".btn").addClass("btn-lg");
-            <?php $islogin = strstr($_SERVER['REQUEST_URI'],'login'); ?>
-            @if(Auth::guest() && empty($islogin))
+            <?php
+            $islogin = strstr($_SERVER['REQUEST_URI'],'login');
+            $isregister = strstr($_SERVER['REQUEST_URI'],'register');
+             ?>
+            @if(Auth::guest() && empty($islogin) && empty($isregister))
             location.replace('/login');
             @endif
 //                a = null ;
