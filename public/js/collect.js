@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    //setOutTime();
+    setOutTime();
 });
 
 function setOutTime() {
