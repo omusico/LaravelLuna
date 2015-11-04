@@ -22,25 +22,46 @@
                     <td>充值金额</td>
                     <td>返水金额</td>
                 </tr>
-                @for ($i = 1; $i <= 7; $i++)
+                @for ($i =0; $i < 7; $i++)
                     <tr>
                         <td>{{ date('Y-m-d',strtotime('-'.$i.' day')) }}</td>
+                        <?php $k3s = 0 ?>
                         @foreach ($lu_lotteries_k3s as $lu_lotteries_k3)
                             @if($lu_lotteries_k3->created_at == date('Y-m-d',strtotime('-'.$i.' day')))
+                                <?php $k3s = 1 ?>
                                 <td>{{ $lu_lotteries_k3->eachPrice }}</td>
                                 <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
                             @endif
                         @endforeach
+                        @if($k3s==0)
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        @endif
+                        <?php $apply = 0 ?>
                         @foreach ($lu_lottery_applys as $lu_lottery_apply)
-                            @if($lu_lotteries_k3->created_at == date('Y-m-d',strtotime('-'.$i.' day')))
+                            @if($lu_lottery_apply->created_at == date('Y-m-d',strtotime('-'.$i.' day')))
+                                <?php $apply = 1 ?>
                                 <td>{{ $lu_lottery_apply->applys }}</td>
                             @endif
                         @endforeach
+                        @if($apply==0)
+                            <td>
+                            </td>
+                        @endif
+                        <?php $recharge = 0 ?>
                         @foreach ($lu_lottery_recharges as $lu_lottery_recharge)
+                            {{--{{$lu_lottery_recharge->created_at}}--}}
                             @if($lu_lottery_recharge->created_at == date('Y-m-d',strtotime('-'.$i.' day')))
+                                <?php $recharge = 1 ?>
                                 <td>{{ $lu_lottery_rechargey->recharges }}</td>
                             @endif
                         @endforeach
+                        @if($recharge==0)
+                            <td>
+                            </td>
+                        @endif
                         <td></td>
                     </tr>
                 @endfor
