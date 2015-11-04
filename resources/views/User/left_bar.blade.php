@@ -20,7 +20,7 @@
         </ul>
         <h3>资金管理</h3>
         <ul>
-            <li><a href="/getPointsRecord" class="">账户明细</a></li>
+            <li><a href="/getaccountdetail" class="">账户明细</a></li>
             <li><a href="/recharge">立即充值</a></li>
             <li><a href="/deposit">我要提现</a></li>
         </ul>
