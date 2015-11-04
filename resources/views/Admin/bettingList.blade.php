@@ -10,6 +10,7 @@
 @section('content')
     <div class="container">
         <div class="row">
+            @include('Admin.back_left_bar')
             <div class="col-md-10">
 
                 @include('errors.list')
@@ -94,7 +95,6 @@
                 {{--{{$lu_lotteries_k3->appends($input)->links()}}--}}
                 <?php echo $lu_lotteries_k3s->appends(['userName' => $userName, 'starttime' => $starttime, 'endtime' => $endtime])->render(); ?>
             </div>
-            @include('Admin.right_bar')
         </div>
 
     </div>

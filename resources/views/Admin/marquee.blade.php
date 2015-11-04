@@ -7,6 +7,7 @@
 @section('content')
     <div class="container">
         <div class="row">
+            @include('Admin.back_left_bar')
             <div class="col-md-10">
                 @include('errors.list')
                 <h2 class="col-md-offset-5">滚动文字设置</h2>
@@ -23,7 +24,6 @@
                 </div>
                 {!! Form::close() !!}
             </div>
-            @include('Admin.right_bar')
         </div>
 
     </div>

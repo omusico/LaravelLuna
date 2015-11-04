@@ -7,6 +7,7 @@
 @section('content')
     <div class="container">
         <div class="row">
+            @include('Admin.back_left_bar')
             <div class="col-md-10">
                 <h2>添加银行账号</h2>
                 <hr/>
@@ -54,7 +55,6 @@
                     {!! Form::close() !!}
                 </div>
             </div>
-            @include('Admin.right_bar')
         </div>
     </div>
 @stop

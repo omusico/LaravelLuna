@@ -7,6 +7,7 @@
 @section('content')
     <div class="container">
         <div class="row">
+            @include('Admin.back_left_bar')
             <div class="col-md-10">
                 <div class="panel panel-default">
                     <div class="panel-heading">返水设置</div>
@@ -45,7 +46,6 @@
                     </div>
                 </div>
             </div>
-            @include('Admin.right_bar')
         </div>
     </div>
 @stop

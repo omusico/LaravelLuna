@@ -7,6 +7,7 @@
 @section('content')
     <div class="container">
         <div class="row">
+            @include('Admin.back_left_bar')
             <div class="col-md-10">
                 <h3 align="center">学生成绩表</h3>
                 <table class="table table-striped" id="sortTable">
@@ -38,7 +39,6 @@
                 </table>
             </div>
 
-            @include('Admin.right_bar')
 
         </div>
     </div>
