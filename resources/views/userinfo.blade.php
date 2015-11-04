@@ -1,5 +1,5 @@
 <div>
-    @if(isset(Auth::user()->name))
+    @if(!Auth::guest())
         <div class="distance nk3_login">
             <div class="nk3_login_top"></div>
             <h4>
@@ -17,7 +17,7 @@
             <h4 class="h_money1">用户余额：<span class="h_m_h" onclick="$(this).hide(); $('.h_money1 .h_m_s').show();"
                                             style="display: none;">￥****元&nbsp;&nbsp;<a>显示余额</a></span>
                 <span class="h_m_s" onclick="$(this).hide(); $('.h_money1 .h_m_h').show();"
-                      style="display: inline;">￥{{ \App\lu_user_data::where('uid',Auth::user()->id)->first()->points}}元&nbsp;&nbsp;<a>隐藏余额</a></span>
+                      style="display: inline;">￥{{ Auth::user()->lu_user_data->points}}元&nbsp;&nbsp;<a>隐藏余额</a></span>
             </h4>
 
             <div class="nk3_cztx">
