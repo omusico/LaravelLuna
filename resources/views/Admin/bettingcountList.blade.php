@@ -58,11 +58,11 @@
                         <td>投注次数</td>
                         <td>剩余金额</td>
                     </tr>
+                    <?php
+                    $sumeach = 0;
+                    $sumbingo = 0;
+                    ?>
                     @if (count($lu_lotteries_k3s))
-                        <?php
-                        $sumeach = 0;
-                        $sumbingo = 0;
-                        ?>
                         @foreach ($lu_lotteries_k3s as $lu_lotteries_k3)
                             <?php
                             $sumeach += $lu_lotteries_k3->eachPrice;
