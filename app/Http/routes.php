@@ -58,6 +58,7 @@ Route::resource('companybank','CbankController');
 
 
 Route::get('bettingList', 'Admin\AdminController@bettingList');
+Route::get('bettingcountList', 'Admin\AdminController@bettingcountList');
 
 Route::get('marquee', 'Admin\AdminController@marquee');
 Route::post('savemarquee', 'Admin\AdminController@savemarquee');
@@ -74,6 +75,7 @@ Route::get('deposit/{id}/edit','Admin\AdminController@updatedepositstatus');
 Route::any('deposit/{id}','Admin\AdminController@deletedeposit');
 Route::get('manualrecharge/{id}','Admin\AdminController@manualrecharge');
 Route::post('manualupdate','Admin\AdminController@manualupdate');
+Route::get('resetpwd','Admin\AdminController@resetpwd');
 #上传分数
 //Route::post('admin/upload_grade', [
 //    'as' => 'upload_grade', 'uses' => 'Admin\AdminController@upload_grade']);

@@ -14,7 +14,10 @@
                         <a href="/admin/create"><span>添加会员</span></a>
                     </li>
                     <li>
-                        <a href="/bettingList"><span>会员投注统计</span></a>
+                        <a href="/bettingcountList"><span>会员投注统计</span></a>
+                    </li>
+                    <li>
+                        <a href="/bettingList"><span>会员投注列表</span></a>
                     </li>
                     <li>
                         <a href="/admin"><span>反水统计</span></a>

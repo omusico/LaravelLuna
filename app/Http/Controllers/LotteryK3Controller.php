@@ -34,19 +34,20 @@ class LotteryK3Controller extends Controller
         $k3Odds = defaultCache::cache_k3_odds();
         $lotterystatus = defaultCache::cache_lottery_status();
 //        return view('errors.maintance');
-        if(strtolower($request->lottery_type)=='fjk3'){
+        if (strtolower($request->lottery_type) == 'fjk3') {
             return view('errors.maintance');
         }
         return view('Lottery.lotteryindex', compact('czName', 'config', 'chipins', 'k3Odds', 'lotterystatus'));
     }
 
-    public function trend(Request $request){
+    public function trend(Request $request)
+    {
         $lottery_type = strtoupper(trim($request->lottery_type));
         $lunaFunctions = new LunaFunctions();
         $czName = $lunaFunctions->get_lottery_name($lottery_type);
         $config = $lunaFunctions->get_lottery_config($lottery_type);
-        $datas =lu_lotteries_result::where('typeName',$lottery_type)->orderby('created_at','desc')->take(50)->get();
-        return view('Lottery.lotterytrend',compact('datas','czName','config'));
+        $datas = lu_lotteries_result::where('typeName', $lottery_type)->orderby('created_at', 'desc')->take(50)->get();
+        return view('Lottery.lotterytrend', compact('datas', 'czName', 'config'));
     }
 
     public function loadRecentResult(Request $request)
@@ -55,7 +56,7 @@ class LotteryK3Controller extends Controller
 //        $recentNum = $this->request->recentNum;
 //        $lotteryResult = Waf::model('lottery/result');
 //        $data = $lotteryResult->queryRecent($lotteryType,$recentNum);
-        $data = lu_lotteries_result::where('typeName', $lotteryType)->orderBy('created_at','desc')->take(20)->get();
+        $data = lu_lotteries_result::where('typeName', $lotteryType)->orderBy('created_at', 'desc')->take(20)->get();
         return $data;
     }
 
@@ -64,20 +65,23 @@ class LotteryK3Controller extends Controller
         return view('k3gamerule');
     }
 
-    public function getPointsRecord(){
-        $result = lu_points_record::where('uid',Auth::user()->id)->orderby('created_at','desc');
-        $lu_points_records =$result->paginate(10);
-        return view('User.pointsrecordlist',compact('lu_points_records'));
+    public function getPointsRecord()
+    {
+        $result = lu_points_record::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
+        $lu_points_records = $result->paginate(10);
+        return view('User.pointsrecordlist', compact('lu_points_records'));
     }
 
-    public function favourable(){
-       return view('favourable');
+    public function favourable()
+    {
+        return view('favourable');
     }
 
-    public function getLotteryWin(){
-        $result = lu_lottery_notes_k3::where('uid',Auth::user()->id)->orderby('created_at','desc');
-        $lu_lottery_note_k3s =$result->paginate(10);
-        return view('User.lotterywinlist',compact('lu_lottery_note_k3s'));
+    public function getLotteryWin()
+    {
+        $result = lu_lottery_notes_k3::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
+        $lu_lottery_note_k3s = $result->paginate(10);
+        return view('User.lotterywinlist', compact('lu_lottery_note_k3s'));
     }
 
     /**
@@ -108,7 +112,7 @@ class LotteryK3Controller extends Controller
         $timeData = $lunaFunctions->get_current_period($lotteryType);
 //        $lotteryResult = Waf::model('lottery/result');
 //        $count = $lotteryResult->isExistsProName($timeData['prePeriod'],$lotteryType);
-        $count = lu_lotteries_result::where('proName',$timeData['prePeriod'])->where('typeName',$lotteryType)->count();
+        $count = lu_lotteries_result::where('proName', $timeData['prePeriod'])->where('typeName', $lotteryType)->count();
 //        $count = 0;
         if ($count < 1) {
             // 开奖中
@@ -123,13 +127,13 @@ class LotteryK3Controller extends Controller
             $status = 0;
             $msg = '已开奖';
             //fixed need fix it
-            $recordData = lu_lotteries_result::where('proName',$timeData['prePeriod'])->where('typeName',$lotteryType)->first();
+            $recordData = lu_lotteries_result::where('proName', $timeData['prePeriod'])->where('typeName', $lotteryType)->first();
 //            $recordData = $lotteryResult->queryDetail($timeData['prePeriod'],$lotteryType);
             $kjData = array(
                 'preTerm' => $recordData['proName'],
                 'preOpenResult' => $recordData['codes'],
                 "source" => CommonClass::get_cj_name($recordData['source']),
-                "createTime" =>  date('Y-m-d H:i:s',$recordData['created'])
+                "createTime" => date('Y-m-d H:i:s', $recordData['created'])
 
             );
         }
@@ -158,10 +162,11 @@ class LotteryK3Controller extends Controller
             $uid = (int)\Auth::user()->id;// Waf_Cookie::get('uid');
             $userInfo = lu_user::where('id', $uid)->first();// $userModel->detail($uid);
             $userdata = lu_user_data::where('uid', $uid)->first();
+            $chipins = defaultCache::cache_chipin();
 
             $status = $userInfo['status'];
             if ($status == 0 || $status == -2) {
-//                $this->response->throwJson(array('tip' => 'error', 'msg' => '您当前不能投注,请联系客服'));
+                return array('tip' => 'error', 'msg' => '您当前不能投注,请联系客服');
             }
 
 //            $verifyCode = Waf_Cookie::get('verifycode');
@@ -176,13 +181,13 @@ class LotteryK3Controller extends Controller
             $lottery_type = $request->lottery_type;
             // strlen($proName) <= 5
             if (empty($codes) || empty($proName) || ($proName == '20-1-')) {
-//                $this->response->throwJson(array('tip' => 'error', 'msg' => '系统繁忙,请重新投注'));
+                return array('tip' => 'error', 'msg' => '系统繁忙,请重新投注');
             }
 
             $now = $this->getCurrentTerm($lottery_type);
 
             if ($now != $proName) {
-//                $this->response->throwJson(array('tip' => 'timeout', 'msg' => '第' . $proName . '期已经截止下注,请稍后'));
+                return array('tip' => 'timeout', 'msg' => '第' . $proName . '期已经截止下注,请稍后');
             }
 
 
@@ -224,27 +229,27 @@ class LotteryK3Controller extends Controller
 
                     if ($slug == 'HZ' && in_array($code, array('单', '双', '大', '小'))) {
                         $buyedMondy[$code] += $eachPrice;
-//                    $highest = get_tz_dsdx_highest('lottery', 'HZ');
-//                    $lowest = get_tz_dsdx_lowest('lottery', 'HZ');
+                        $highest = $chipins['HZ']['dsdx_hight'];//get_tz_dsdx_highest('lottery', 'HZ');
+                        $lowest = $chipins['HZ']['dsdx_low']; //get_tz_dsdx_lowest('lottery', 'HZ');
 //
-//                    if ($price < $lowest) {
-//                        $this->response->throwJson(array('tip' => 'error', 'msg' => '当前有单注投注金额小于' . $lowest . '块,请重新投注'));
-//                    }
+                        if ($price < $lowest) {
+                            return array('tip' => 'error', 'msg' => '当前有单注投注金额小于' . $lowest . '块,请重新投注');
+                        }
 //
-//                    if ($buyedMondy[$code] > $highest) {
-//                        $this->response->throwJson(array('tip' => 'error', 'msg' => '您该期所下注金额' . $code . '超过最大限额' . $highest . ',请重新下注', 'points' => $points));
-//                    }
+                        if ($buyedMondy[$code] > $highest) {
+                            return array('tip' => 'error', 'msg' => '您该期所下注金额' . $code . '超过最大限额' . $highest . ',请重新下注', 'points' => $points);
+                        }
                     } else {
-//                    $highest = get_tz_highest('lottery', $slug);
-//                    $lowest = get_tz_lowest('lottery', $slug);
+                    $highest = $chipins[$slug]['hight'];
+                    $lowest = $chipins[$slug]['low'];
 //
-//                    if ($price < $lowest) {
-//                        $this->response->throwJson(array('tip' => 'error', 'msg' => '当前有单注投注金额小于' . $lowest . '块,请重新投注'));
-//                    }
-//
-//                    if ($price > $highest) {
-//                        $this->response->throwJson(array('tip' => 'error', 'msg' => '您该期所下注金额' . $code . '超过最大限额' . $highest . ',请重新下注', 'points' => $points));
-//                    }
+                    if ($price < $lowest) {
+                        return array('tip' => 'error', 'msg' => '当前有单注投注金额小于' . $lowest . '块,请重新投注');
+                    }
+
+                    if ($price > $highest) {
+                        return array('tip' => 'error', 'msg' => '您该期所下注金额' . $code . '超过最大限额' . $highest . ',请重新下注', 'points' => $points);
+                    }
                     }
                 }
             }

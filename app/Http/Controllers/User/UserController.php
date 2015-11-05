@@ -21,9 +21,9 @@ class UserController extends Controller
      */
     public function userBettingList(Request $request)
     {
-//        $result = lu_lotteries_k3::where('status', 1)->where('uid', \Auth::id())->orderby('created_at', 'desc');
-        $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_k3s where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ',[Auth::user()->id,Auth::user()->id]);
-//        $lu_lotteries_k3s = $result->paginate(10);
+        $result = lu_lotteries_k3::where('status', 1)->where('uid', \Auth::id())->orderby('created_at', 'desc');
+//        $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_k3s where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ',[Auth::user()->id,Auth::user()->id]);
+        $lu_lotteries_k3s = $result->paginate(10);
         return view('User.usrBettingList', compact('lu_lotteries_k3s'));
     }
 

@@ -42,18 +42,44 @@ class AdminController extends Controller
         $starttime = $request->starttime;
         $endtime = $request->endtime;
         $result = App\lu_lotteries_k3::where('status', 1);
-        if(!empty($userName)){
-            $result->where('userName',$userName);
+        if (!empty($userName)) {
+            $result->where('userName', $userName);
         }
-        if(!empty($starttime)){
-            $result->where('created_at','>=',$starttime);
+        if (!empty($starttime)) {
+            $result->where('created_at', '>=', $starttime);
         }
-        if(!empty($endtime)){
-            $result->where('created_at','<=',$endtime);
+        if (!empty($endtime)) {
+            $result->where('created_at', '<=', $endtime);
         }
-        $result = $result->orderby('created_at','desc');
+        $result = $result->orderby('created_at', 'desc');
         $lu_lotteries_k3s = $result->paginate(10);
-        return view('Admin.bettingList', compact('lu_lotteries_k3s','userName','starttime','endtime'));
+        return view('Admin.bettingList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime'));
+    }
+
+    public function bettingcountList(Request $request)
+    {
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+//        $result = App\lu_lotteries_k3::where('status', 1);
+        $wheresql = ' where 1=1 ';
+        if (!empty($userName)) {
+            $wheresql .= ' and userName= "' . $userName . '"';
+        }
+        if (empty($starttime) && empty($endtime)) {
+            $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
+        }
+        if (!empty($starttime)) {
+            $wheresql .= ' and created_at >="' . $starttime . '"';
+        }
+        if (!empty($endtime)) {
+            $wheresql .= ' and created_at <="' . $endtime . '"';
+        }
+        $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
+
+//        $result = $result->orderby('created_at', 'desc');
+//        $lu_lotteries_k3s = $result->paginate(10);
+        return view('Admin.bettingcountList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime'));
     }
 
     public function getdepositlist()
@@ -105,6 +131,15 @@ class AdminController extends Controller
         }
         session()->flash('message', $lu_lottery_apply->sn . '状态修改成功');
         return Redirect::back();
+    }
+
+    public function resetpwd(Request $request)
+    {
+        $lu_user = lu_user::find($request->id);
+        $lu_user->password = Hash::make($request->pwd);
+        $lu_user->save();
+        session()->flash('message', '密码修改成功');
+        return array("修改成功");
     }
 
     public function deletedeposit($id)

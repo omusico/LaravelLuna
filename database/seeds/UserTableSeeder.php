@@ -57,6 +57,12 @@ class UserTableSeeder extends Seeder {
             'invite'=>rand(10000,99999),
         ]);
 
+        \App\lu_user_point::create([
+            'uid' =>'1',
+            'gender'=>'0',
+            'points'=>0,
+            ]);
+
         \App\lu_user_group::create([
             'name'=>'管理员',
             'intro'=>'管理员',

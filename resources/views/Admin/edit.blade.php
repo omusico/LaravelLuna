@@ -19,7 +19,8 @@
                     <div class="form-group">
                         {!! Form::label('name', '用户名: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('id', $lu_user->id, ['class' => 'form-control','readonly','style'=>'display:none']) !!}
+                            {!! Form::text('id', $lu_user->id, ['class' =>
+                            'form-control','readonly','style'=>'display:none']) !!}
                             {!! Form::text('name', $lu_user->name, ['class' => 'form-control','readonly']) !!}
                         </div>
                     </div>
@@ -60,7 +61,8 @@
                             <select class="form-control" required="required" id="groupId" name="groupId">
                                 @foreach ($user_groups as $user_group)
                                     @if($lu_user->groupId == $user_group['groupId'])
-                                        <option value="{{ $user_group['groupId'] }}" selected="selected">{{ $user_group['name'] }}</option>
+                                        <option value="{{ $user_group['groupId'] }}"
+                                                selected="selected">{{ $user_group['name'] }}</option>
                                     @else
                                         <option value="{{ $user_group['groupId'] }}">{{ $user_group['name'] }}</option>
                                     @endif
@@ -71,7 +73,7 @@
                     <div class="form-group">
                         {!! Form::label('groupId', '等级: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            <select class="form-control" required="required" id="level" name="level" >
+                            <select class="form-control" required="required" id="level" name="level">
                                 @foreach ($user_level as $key=>$level)
                                     {{--{{var_dump($lu_user->$level)}}--}}
                                     @if($lu_user->level == $key)
@@ -104,12 +106,39 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-5">
-                            {!! Form::submit('完成,创建', ['class' => 'btn btn-success form-control']) !!}
+                            {!! Form::submit('完成,修改', ['class' => 'btn btn-success form-control']) !!}
                         </div>
                     </div>
                     {!! Form::close() !!}
+                    <div class="form-group">
+                        {!! Form::label('pwd', '重置密码: ', ['class' => 'control-label col-md-1']) !!}
+                        <div class="col-md-4">
+                            {!! Form::text('pwd', null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            <a class="form-control btn-danger" onclick="resetpwd()">密码重置</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+@stop
+@section('script')
+    <script type="text/javascript">
+        function resetpwd(){
+//            window.location.href = 'resetpwd?id='+$("input[name='id']").val()+"&pwd="+$("#pwd").val();
+            $.ajax({
+                type: "get",
+                url: '/resetpwd?id='+$("input[name='id']").val()+"&pwd="+$("#pwd").val(),
+                dataType: "json",
+                cache: false,
+                success: function (json) {
+                    alert(json);
+                }
+            });
+        }
+    </script>
 @stop
