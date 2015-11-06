@@ -82,6 +82,27 @@ class AdminController extends Controller
         return view('Admin.bettingcountList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime'));
     }
 
+
+    public function rechargelist(Request $request)
+    {
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+        $result = App\lu_lottery_recharge::where('status', 1);
+        if (!empty($userName)) {
+            $result->where('userName', $userName);
+        }
+        if (!empty($starttime)) {
+            $result->where('created_at', '>=', $starttime);
+        }
+        if (!empty($endtime)) {
+            $result->where('created_at', '<=', $endtime);
+        }
+        $result = $result->orderby('created_at', 'desc');
+        $lu_lottery_recharges = $result->paginate(10);
+        return view('Admin.rechargelist', compact('lu_lottery_recharges', 'userName', 'starttime', 'endtime'));
+    }
+
     public function getdepositlist(Request $request)
     {
         $userName = $request->userName;

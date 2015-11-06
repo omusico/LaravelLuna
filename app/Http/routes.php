@@ -78,6 +78,7 @@ Route::any('deposit/{id}','Admin\AdminController@deletedeposit');
 Route::get('manualrecharge/{id}','Admin\AdminController@manualrecharge');
 Route::post('manualupdate','Admin\AdminController@manualupdate');
 Route::get('resetpwd','Admin\AdminController@resetpwd');
+Route::get('rechargelist','Admin\AdminController@rechargelist');
 #上传分数
 //Route::post('admin/upload_grade', [
 //    'as' => 'upload_grade', 'uses' => 'Admin\AdminController@upload_grade']);

@@ -48,7 +48,7 @@
                         <a href="/company"><span>公司充值</span></a>
                     </li>
                     <li>
-                        <a href="/admin"><span>在线充值</span></a>
+                        <a href="/rechargelist"><span>在线充值</span></a>
                     </li>
                     <li>
                         <a href="/companybank"><span>公司充值账户</span></a>
