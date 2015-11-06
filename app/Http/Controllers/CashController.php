@@ -21,13 +21,25 @@ class CashController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $result = lu_lottery_company_recharge::where('status', 2);
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+        $result = lu_lottery_company_recharge::orderby('created_at', 'desc');
+        if (!empty($userName)) {
+            $result->where('userName', $userName);
+        }
+        if (!empty($starttime)) {
+            $result->where('created_at', '>=', $starttime);
+        }
+        if (!empty($endtime)) {
+            $result->where('created_at', '<=', $endtime);
+        }
         $count = $result->count();
         $lu_companys = $result->paginate(10);
-        return view('Admin.companyrecharge', compact('lu_companys', 'count'));
+        return view('Admin.companyrecharge', compact('lu_companys', 'count','userName', 'starttime', 'endtime'));
     }
 
     /**

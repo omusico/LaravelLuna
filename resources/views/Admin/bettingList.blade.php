@@ -136,7 +136,7 @@
         });
 
         function Search() {
-            url ="bettingList?userName="+$("#userName").val()+"&starttime="+$("#starttime").val()+"&endtime="+$("#endtime").val();
+            url = "bettingList?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val();
             window.location.href = url;
         }
         ;

@@ -42,16 +42,16 @@
                 <span>资金管理</span>
                 <ul>
                     <li>
-                        <a href="/company"><span>公司充值</span></a>
-                    </li>
-                    <li>
                         <a href="/getdepositlist"><span>提现审批申请</span></a>
                     </li>
                     <li>
-                        <a href="/companybank"><span>公司充值账户</span></a>
+                        <a href="/company"><span>公司充值</span></a>
                     </li>
                     <li>
                         <a href="/admin"><span>在线充值</span></a>
+                    </li>
+                    <li>
+                        <a href="/companybank"><span>公司充值账户</span></a>
                     </li>
                 </ul
             </li>

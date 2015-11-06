@@ -82,54 +82,71 @@ class AdminController extends Controller
         return view('Admin.bettingcountList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime'));
     }
 
-    public function getdepositlist()
+    public function getdepositlist(Request $request)
     {
-        $result = App\lu_lottery_apply::where('status', 2)->orderby('created_at', 'desc');
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+        $result = App\lu_lottery_apply::orderby('created_at', 'desc');
+        if (!empty($userName)) {
+            $result->where('userName', $userName);
+        }
+        if (!empty($starttime)) {
+            $result->where('created_at', '>=', $starttime);
+        }
+        if (!empty($endtime)) {
+            $result->where('created_at', '<=', $endtime);
+        }
         $count = $result->count();
         $lu_lottery_applys = $result->paginate(10);
-        return view('Admin.admindepositlist', compact('lu_lottery_applys', 'count'));
+        return view('Admin.admindepositlist', compact('lu_lottery_applys', 'count', 'userName', 'starttime', 'endtime'));
     }
 
     public function updatedepositstatus($id)
     {
         $lu_lottery_apply = App\lu_lottery_apply::find($id);
 
-        $user = lu_user::find($lu_lottery_apply->uid);
-        $userModel = $user->lu_user_data;
-        if ($userModel->points < $lu_lottery_apply->amounts) {
-            session()->flash('message_warning', $lu_lottery_apply->sn . '状态修改失败，会员当前账户小于其提现金额，不能提现');
-            return Redirect::back();
-        }
-        $lu_lottery_apply->status = 1;
-        $lu_lottery_apply->save();
-        if ($lu_lottery_apply->id > 0) {
-            $data['orderSn'] = $lu_lottery_apply->sn;
-            $data['orderId'] = $lu_lottery_apply->id;
-            $data['payType'] = 'apply';
-            $data['proData'] = array(
-                'total' => $lu_lottery_apply->amounts
-            );
-            $data['formatAmounts'] = CommonClass::price($lu_lottery_apply->amounts);
-            //会员余额变动
-            $oldpoints = $userModel->points;
-            $points = $oldpoints - $lu_lottery_apply->amounts;
-            $userModel->points = $points;
-            $userModel->save();
+        if ($lu_lottery_apply->status == 2) {
 
-            $data = array(
-                'uid' => $user->id,
-                'userName' => $user->name,
-                'addType' => '7', // 提现申请
-                'lotteryType' => '', // 中奖
-                'touSn' => $lu_lottery_apply->sn,
-                'oldPoint' => $oldpoints,
-                'changePoint' => -$lu_lottery_apply->amounts,
-                'newPoint' => $points,
-                'created' => strtotime(date('Y-m-d H:i:s'))
-            );
-            App\lu_points_record::create($data);
+            $user = lu_user::find($lu_lottery_apply->uid);
+            $userModel = $user->lu_user_data;
+            if ($userModel->points < $lu_lottery_apply->amounts) {
+                session()->flash('message_warning', $lu_lottery_apply->sn . '状态修改失败，会员当前账户小于其提现金额，不能提现');
+                return Redirect::back();
+            }
+            $lu_lottery_apply->status = 1;
+            $lu_lottery_apply->save();
+            if ($lu_lottery_apply->id > 0) {
+                $data['orderSn'] = $lu_lottery_apply->sn;
+                $data['orderId'] = $lu_lottery_apply->id;
+                $data['payType'] = 'apply';
+                $data['proData'] = array(
+                    'total' => $lu_lottery_apply->amounts
+                );
+                $data['formatAmounts'] = CommonClass::price($lu_lottery_apply->amounts);
+                //会员余额变动
+                $oldpoints = $userModel->points;
+                $points = $oldpoints - $lu_lottery_apply->amounts;
+                $userModel->points = $points;
+                $userModel->save();
+
+                $data = array(
+                    'uid' => $user->id,
+                    'userName' => $user->name,
+                    'addType' => '7', // 提现申请
+                    'lotteryType' => '', // 中奖
+                    'touSn' => $lu_lottery_apply->sn,
+                    'oldPoint' => $oldpoints,
+                    'changePoint' => -$lu_lottery_apply->amounts,
+                    'newPoint' => $points,
+                    'created' => strtotime(date('Y-m-d H:i:s'))
+                );
+                App\lu_points_record::create($data);
+            }
+            session()->flash('message', $lu_lottery_apply->sn . '状态修改成功');
+        } else {
+            session()->flash('message_warning', $lu_lottery_apply->sn . '状态已经通过,不能再修改了');
         }
-        session()->flash('message', $lu_lottery_apply->sn . '状态修改成功');
         return Redirect::back();
     }
 
@@ -272,20 +289,22 @@ class AdminController extends Controller
         return Redirect::back();
     }
 
-    public function checkapply(){
+    public function checkapply()
+    {
 //        Cache::forget('checkapply');
-        if(!Cache::has("checkapply")){
-            $result = App\lu_lottery_apply::where('created_at','>=',date('Y-m-d H:i:s',strtotime('-1 minute')))->get();
-            Cache::add('checkapply',1,1);
+        if (!Cache::has("checkapply")) {
+            $result = App\lu_lottery_apply::where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute')))->get();
+            Cache::add('checkapply', 1, 1);
             return $result;
         }
     }
 
-    public function checkrecharge(){
-        Cache::forget('checkrecharge');
-        if(!Cache::has("checkrecharge")){
-            $result = App\lu_lottery_company_recharge::where('created_at','>=',date('Y-m-d H:i:s',strtotime('-1 minute')))->get();
-            Cache::add('checkrecharge',1,1);
+    public function checkrecharge()
+    {
+//        Cache::forget('checkrecharge');
+        if (!Cache::has("checkrecharge")) {
+            $result = App\lu_lottery_company_recharge::where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute')))->get();
+            Cache::add('checkrecharge', 1, 1);
             return $result;
         }
 
