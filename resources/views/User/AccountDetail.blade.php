@@ -55,7 +55,7 @@
                             {{--{{$lu_lottery_recharge->created_at}}--}}
                             @if($lu_lottery_recharge->created_at == date('Y-m-d',strtotime('-'.$i.' day')))
                                 <?php $recharge = 1 ?>
-                                <td>{{ $lu_lottery_rechargey->recharges }}</td>
+                                <td>{{ $lu_lottery_recharge->recharges }}</td>
                             @endif
                         @endforeach
                         @if($recharge==0)

@@ -16,6 +16,8 @@
 {{--<embed autoplay="false" src="/css/1.wav" width="0" height="0" id="Player"/>--}}
 {{--<embed autoplay="false" src="/css/2.mp3" width="0" height="0" id="Player2"/>--}}
 {{--{{date('Y-m-d H:i:s',strtotime('-1 minute'))}}--}}
+<audio src="/css/2.mp3" id="audio1" controls="controls" style="display: none"></audio>
+<audio src="/css/1.wav" id="audio2" controls="controls" style="display: none"></audio>
 <div class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -60,6 +62,9 @@
 @else
 
 @endif
+<div class="container" style="padding: 0px;margin: 0px">
+    <marquee scrollamount=3 style="color:red" id="backmar"></marquee>
+</div>
 <div class="container">
     @include('flash')
 </div>
@@ -72,6 +77,8 @@
 <script type="text/javascript" src="/js/all.js"></script>
 <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
 <script type="text/javascript">
+
+    audio = document.getElementById('audio1');
     $(document).ready(function () {
         checkapply();
         checkrecharge();
@@ -90,11 +97,14 @@
                     for (var i = 0; i < json.length; i++) {
                         applyUser += json[i].userName;
                     }
-                    alert("会员" + applyUser + "申请提现，请马上处理");
+//                    alert("会员" + applyUser + "申请提现，请马上处理");
+                    $("#backmar").html("会员" + applyUser + "申请提现，请马上处理");
+                    audio.play();
                 }
             }
         });
-        setTimeout('checkapply()', 120000);
+
+        setTimeout('checkapply()', 1200);
     }
 
     function checkrecharge() {
@@ -110,7 +120,9 @@
                     for (var i = 0; i < json.length; i++) {
                         rechargeUser += json[i].userName;
                     }
-                    alert("会员" + rechargeUser + "申请公司充值审批，请马上处理");
+//                    alert("会员" + rechargeUser + "申请公司充值审批，请马上处理");
+                    $("#backmar").html("会员" + rechargeUser + "申请公司充值审批，请马上处理");
+                    audio.play();
                 }
             }
         });
