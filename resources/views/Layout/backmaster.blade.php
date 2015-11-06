@@ -13,6 +13,9 @@
     @yield('css')
 </head>
 <body>
+{{--<embed autoplay="false" src="/css/1.wav" width="0" height="0" id="Player"/>--}}
+{{--<embed autoplay="false" src="/css/2.mp3" width="0" height="0" id="Player2"/>--}}
+{{--{{date('Y-m-d H:i:s',strtotime('-1 minute'))}}--}}
 <div class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -38,52 +41,6 @@
         <!-- 屏幕宽度小于768px时，div.navbar-responsive-collapse容器里的内容都会隐藏，显示icon-bar图标，当点击icon-bar图标时，再展开。屏幕大于768px时，默认显示。 -->
         <div class="collapse navbar-collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav nav">
-                {{--<li class="active"><a href="/" class="btn-primary">网站首页</a></li>--}}
-                {{--<li class="dropdown">--}}
-                    {{--<a class="dropdown-toggle" data-toggle="dropdown" role="button">投注管理<span class="caret"></span></a>--}}
-                    {{--<ul class="dropdown-menu" role="menu">--}}
-                        {{--<li><a href="#">快3手动开奖</a></li>--}}
-                        {{--<li><a href="#">撤单</a></li>--}}
-                        {{--<li><a href="/userreturns">返水管理</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
-                {{--<li><a href="/k3odds">快三赔率管理</a></li>--}}
-                {{--<li class="dropdown">--}}
-                    {{--<a class="dropdown-toggle" data-toggle="dropdown" role="button">内容<span class="caret"></span></a>--}}
-                    {{--<ul class="dropdown-menu" role="menu">--}}
-                        {{--<li><a href="/marquee">滚动文字</a></li>--}}
-                        {{--<li><a href="/news">新闻中心</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
-                {{--<li class="dropdown">--}}
-                    {{--<a class="dropdown-toggle" data-toggle="dropdown" role="button">会员<span class="caret"></span></a>--}}
-                    {{--<ul class="dropdown-menu" role="menu">--}}
-                        {{--<li><a href="/admin/create">添加会员</a></li>--}}
-                        {{--<li><a href="/bettingList">会员投注统计</a></li>--}}
-                        {{--<li><a href="/admin">会员列表</a></li>--}}
-                        {{--<li><a href="#">用户组添加</a></li>--}}
-                        {{--<li><a href="#">操作日志</a></li>--}}
-                        {{--<li><a href="#">会员统计</a></li>--}}
-                        {{--<li><a href="#">代理管理</a></li>--}}
-                        {{--<li><a href="#">返水记录</a></li>--}}
-                        {{--<li><a href="#">支付等级设置</a></li>--}}
-                        {{--<li><a href="#">已删除会员</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
-                {{--<li><a href="#">设置</a></li>--}}
-                {{--<li class="dropdown">--}}
-                    {{--<a class="dropdown-toggle" data-toggle="dropdown" role="button">彩票<span class="caret"></span></a>--}}
-                    {{--<ul class="dropdown-menu" role="menu">--}}
-                        {{--<li><a href="/getdepositlist">提现审批申请</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
-                {{--<li class="dropdown">--}}
-                    {{--<a class="dropdown-toggle" data-toggle="dropdown" role="button">代理<span class="caret"></span></a>--}}
-                    {{--<ul class="dropdown-menu" role="menu">--}}
-                        {{--<li><a href="/proxycert">代理管理</a></li>--}}
-                        {{--<li><a href="/proxycert">代理条款设置</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
                 @if(!Auth::guest())
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button"
@@ -116,8 +73,49 @@
 <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+        checkapply();
+        checkrecharge();
 
     });
+
+    function checkapply() {
+        $.ajax({
+            type: "get",
+            url: '/checkapply',
+            dataType: "json",
+            cache: false,
+            success: function (json) {
+                if (json.length > 0) {
+                    var applyUser = "";
+                    for (var i = 0; i < json.length; i++) {
+                        applyUser += json[i].userName;
+                    }
+                    alert("会员" + applyUser + "申请提现，请马上处理");
+                }
+            }
+        });
+        setTimeout('checkapply()', 120000);
+    }
+
+    function checkrecharge() {
+        $.ajax({
+            type: "get",
+            url: '/checkrecharge',
+            dataType: "json",
+            cache: false,
+            success: function (json) {
+                if (json.length > 0) {
+                    console.log(json);
+                    var rechargeUser = "";
+                    for (var i = 0; i < json.length; i++) {
+                        rechargeUser += json[i].userName;
+                    }
+                    alert("会员" + rechargeUser + "申请公司充值审批，请马上处理");
+                }
+            }
+        });
+        setTimeout('checkrecharge()', 120000);
+    }
 </script>
 @yield('script')
 </body>

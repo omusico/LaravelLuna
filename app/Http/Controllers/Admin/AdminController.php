@@ -272,6 +272,24 @@ class AdminController extends Controller
         return Redirect::back();
     }
 
+    public function checkapply(){
+        Cache::forget('checkapply');
+        if(!Cache::has("checkapply")){
+            $result = App\lu_lottery_apply::where('created_at','>=',date('Y-m-d H:i:s',strtotime('-2 minute')))->get();
+            Cache::add('checkapply',1,2);
+            return $result;
+        }
+    }
+
+    public function checkrecharge(){
+        if(!Cache::has("checkrecharge")){
+            $result = App\lu_lottery_company_recharge::where('created_at','>=',date('Y-m-d H:i:s',strtotime('-2 minute')))->get();
+            Cache::add('checkrecharge',1,2);
+            return $result;
+        }
+
+    }
+
     public function k3odds()
     {
         $odds = App\LunaLib\Common\defaultCache::cache_k3_odds();
