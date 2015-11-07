@@ -57,7 +57,51 @@
     @if(!Auth::guest())
         <label class="form-control" style="text-align: center">余额：{{Auth::user()->lu_user_data->points}}</label>
         <a class="btn-danger btn-lg form-control" href="/logout" style="text-align: center">退出登陆</a>
+        <input type="hidden" id="isLogin">
     @endif
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header" style="text-align: center">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel" style="color: red;font-family: bold">
+                    尊敬的用户,您当前还未登陆，请先登陆再操作
+                </h4>
+            </div>
+            {!! Form::open(['url' => '/login', 'class' => 'form-horizontal', 'role' => 'form']) !!}
+            <div class="form-group">
+                {!! Form::label('name', '用户名', ['class' => 'col-md-4 control-label']) !!}
+                <div class="col-md-6">
+                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'required']) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                {!! Form::label('password', '密码', ['class' => 'col-md-4 control-label']) !!}
+                <div class="col-md-6">
+                    {!! Form::password('password', ['class' => 'form-control', 'required']) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-4">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="remember">记住我
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-4">
+                    {!! Form::submit('登陆', ['class' => 'btn btn-default btn-primary']) !!}
+                </div>
+            </div>
+            {!! Form::close() !!}
+        </div>
+    </div>
 </div>
 @if($_SERVER['REQUEST_URI']=='/index' || $_SERVER['REQUEST_URI']=='/')
 
@@ -135,6 +179,7 @@
             @if(Auth::guest() && empty($islogin) && empty($isregister))
             location.replace('/login');
             @endif
+
 
         }
     })(navigator.userAgent);

@@ -17,7 +17,7 @@
 {{--<embed autoplay="false" src="/css/2.mp3" width="0" height="0" id="Player2"/>--}}
 {{--{{date('Y-m-d H:i:s',strtotime('-1 minute'))}}--}}
 <audio src="/css/2.mp3" id="audio1" controls="controls" style="display: none"></audio>
-<audio src="/css/1.wav" id="audio2" controls="controls" style="display: none"></audio>
+{{--<audio src="/css/1.wav" id="audio2" controls="controls" style="display: none"></audio>--}}
 <div class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -79,9 +79,13 @@
 <script type="text/javascript">
 
     audio = document.getElementById('audio1');
+    var applyUser = "";
+    var rechargeUser = "";
+    var rechargecompanyUser = "";
     $(document).ready(function () {
         checkapply();
         checkrecharge();
+        checkcompanyrecharge();
 
     });
 
@@ -93,18 +97,19 @@
             cache: false,
             success: function (json) {
                 if (json.length > 0) {
-                    var applyUser = "";
+                    applyUser = "";
                     for (var i = 0; i < json.length; i++) {
                         applyUser += json[i].userName;
                     }
 //                    alert("会员" + applyUser + "申请提现，请马上处理");
-                    $("#backmar").html("会员" + applyUser + "申请提现，请马上处理");
+                    applyUser= "会员" + applyUser + "申请提现，请马上处理/";
+                    $("#backmar").html(applyUser+rechargecompanyUser+rechargeUser);
                     audio.play();
                 }
             }
         });
 
-        setTimeout('checkapply()', 1200);
+        setTimeout('checkapply()', 12000);
     }
 
     function checkrecharge() {
@@ -116,17 +121,41 @@
             success: function (json) {
                 if (json.length > 0) {
                     console.log(json);
-                    var rechargeUser = "";
+                    rechargeUser = "";
                     for (var i = 0; i < json.length; i++) {
                         rechargeUser += json[i].userName;
                     }
 //                    alert("会员" + rechargeUser + "申请公司充值审批，请马上处理");
-                    $("#backmar").html("会员" + rechargeUser + "申请公司充值审批，请马上处理");
+                    rechargeUser = "会员" + rechargeUser + "通过第三方付款已经到账，请知悉/";
+                    $("#backmar").html(rechargeUser + rechargecompanyUser + applyUser);
                     audio.play();
                 }
             }
         });
-        setTimeout('checkrecharge()', 120000);
+        setTimeout('checkrecharge()', 12000);
+    }
+
+    function checkcompanyrecharge() {
+        $.ajax({
+            type: "get",
+            url: '/checkcompanyrecharge',
+            dataType: "json",
+            cache: false,
+            success: function (json) {
+                if (json.length > 0) {
+                    console.log(json);
+                    rechargecompanyUser = "";
+                    for (var i = 0; i < json.length; i++) {
+                        rechargecompanyUser += json[i].userName;
+                    }
+//                    alert("会员" + rechargeUser + "申请公司充值审批，请马上处理");
+                    rechargecompanyUser= "会员" + rechargecompanyUser + "申请公司充值审批，请马上处理/";
+                    $("#backmar").html(rechargecompanyUser+rechargeUser+applyUser);
+                    audio.play();
+                }
+            }
+        });
+        setTimeout('checkcompanyrecharge()', 12000);
     }
 </script>
 @yield('script')

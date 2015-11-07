@@ -314,7 +314,7 @@ class AdminController extends Controller
     {
 //        Cache::forget('checkapply');
         if (!Cache::has("checkapply")) {
-            $result = App\lu_lottery_apply::where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute')))->get();
+            $result = App\lu_lottery_apply::where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute -15 second')))->get();
             Cache::add('checkapply', 1, 1);
             return $result;
         }
@@ -322,10 +322,20 @@ class AdminController extends Controller
 
     public function checkrecharge()
     {
-//        Cache::forget('checkrecharge');
         if (!Cache::has("checkrecharge")) {
-            $result = App\lu_lottery_company_recharge::where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute')))->get();
+            $result = App\lu_lottery_recharge::where('status',1)->where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute -15 second')))->get();
             Cache::add('checkrecharge', 1, 1);
+            return $result;
+        }
+
+    }
+
+    public function checkcompanyrecharge()
+    {
+//        Cache::forget('checkcompanyrecharge');
+        if (!Cache::has("checkcompanyrecharge")) {
+            $result = App\lu_lottery_company_recharge::where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute -15 second')))->get();
+            Cache::add('checkcompanyrecharge', 1, 1);
             return $result;
         }
 

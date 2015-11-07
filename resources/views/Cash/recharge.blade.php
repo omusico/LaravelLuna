@@ -471,21 +471,21 @@
                             <label for="rechargerUser" class="control-label col-md-4">存款人姓名:</label>
 
                             <div class="col-md-4">
-                                <input class="form-control" name="rechargerUser" type="text" id="rechargerUser">
+                                <input class="form-control" name="rechargerUser" type="text" id="rechargerUser" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="payArea" class="control-label col-md-4">开户行网点: </label>
 
                             <div class="col-md-4">
-                                <input class="form-control" name="payArea" type="text" id="payArea">
+                                <input class="form-control" name="payArea" type="text" id="payArea" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="payAreaCity" class="control-label col-md-4">开户行城市: </label>
 
                             <div class="col-md-4">
-                                <input class="form-control" name="payAreaCity" type="text" id="payAreaCity">
+                                <input class="form-control" name="payAreaCity" type="text" id="payAreaCity" required>
                             </div>
                         </div>
                         <div class="form-group">

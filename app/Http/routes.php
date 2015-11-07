@@ -63,6 +63,7 @@ Route::get('bettingcountList', 'Admin\AdminController@bettingcountList');
 Route::get('marquee', 'Admin\AdminController@marquee');
 Route::get('checkapply', 'Admin\AdminController@checkapply');
 Route::get('checkrecharge', 'Admin\AdminController@checkrecharge');
+Route::get('checkcompanyrecharge', 'Admin\AdminController@checkcompanyrecharge');
 Route::post('savemarquee', 'Admin\AdminController@savemarquee');
 Route::get('proxycert', 'Admin\AdminController@proxycert');
 Route::post('saveproxycert', 'Admin\AdminController@saveproxycert');
