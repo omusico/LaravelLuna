@@ -1,7 +1,7 @@
-@extends('Layout.master')
+@extends('Layout.backmaster')
 
 @section('title')
-    添加会员
+    添加银行账号
 @stop
 
 @section('content')

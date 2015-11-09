@@ -43,9 +43,6 @@
                         <label class="col-md-6 col-md-offset-2">格式: 20140629-016(请直接从投注查看拷贝期号.勿手写) </label>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 col-md-offset-2">格式: 3,2,3 </label>
-                    </div>
-                    <div class="form-group">
                         <div class="col-md-4 col-md-offset-2">
                             {!! Form::submit('撤单', ['class' => 'btn btn-success form-control']) !!}
                         </div>

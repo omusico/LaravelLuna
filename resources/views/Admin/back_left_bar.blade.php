@@ -51,7 +51,7 @@
                         <a href="/rechargelist"><span>在线充值</span></a>
                     </li>
                     <li>
-                        <a href="/companybank"><span>添加公司充值账户</span></a>
+                        <a href="/companybank/create"><span>添加公司充值账户</span></a>
                     </li>
                     <li>
                         <a href="/companybank"><span>公司充值账户</span></a>
@@ -68,7 +68,7 @@
                         <a href="/manualkj"><span>快三手动开奖</span></a>
                     </li>
                     <li>
-                        <a href="/admin"><span>撤单</span></a>
+                        <a href="/cancelOrder"><span>撤单</span></a>
                     </li>
                     <li>
                         <a href="/admin"><span>返水管理</span></a>

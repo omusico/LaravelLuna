@@ -571,7 +571,8 @@ class LunaFunctions
                 'proName' => $winPre,
                 'typeName'=> $lotteryType,
                 'codes' => $winCode,
-                'created' => $kjTime
+                'created' => $kjTime,
+                'source'=>'manual'
             );
 //            $lotteryResult->insert($data);
             lu_lotteries_result::create($data);
