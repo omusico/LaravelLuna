@@ -96,7 +96,7 @@
             </div>
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">
-                    {!! Form::submit('登陆', ['class' => 'btn btn-default btn-primary']) !!}
+                    {!! Form::submit('登陆', ['class' => 'btn btn-lg btn-primary']) !!}
                 </div>
             </div>
             {!! Form::close() !!}

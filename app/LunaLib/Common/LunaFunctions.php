@@ -2,6 +2,7 @@
 namespace App\LunaLib\Common;
 
 use App\lu_lotteries_k3;
+use App\lu_lotteries_result;
 use App\lu_lottery_notes_k3;
 use App\lu_points_record;
 use App\lu_user;
@@ -547,5 +548,81 @@ class LunaFunctions
         } else {
             return array("success" => false, "msg" => "参数配置错误");
         }
+    }
+
+    function sdkjAddRecord($lotteryType,$winPre,$winCode){
+        $lotteryType = strtoupper($lotteryType);
+//        $lotteryResult = Waf::model('lottery/result');
+//        $count = $lotteryResult->isExistsProName($winPre,$lotteryType);
+        $count =lu_lotteries_result::where('proName',$winPre)->where('typeName',$lotteryType)->count();
+
+
+        if( $lotteryType == 'CHE' || $lotteryType == 'BEIJIN'){
+            $peroid = $winPre;
+        } else {
+            $peroid = explode('-', $winPre);
+            $peroid = intval($peroid[1]);
+        }
+
+        $kjTime = $this ->getTimeByPeriod($lotteryType,$peroid);
+
+        if( $count < 1){
+            $data = array(
+                'proName' => $winPre,
+                'typeName'=> $lotteryType,
+                'codes' => $winCode,
+                'created' => $kjTime
+            );
+//            $lotteryResult->insert($data);
+            lu_lotteries_result::create($data);
+        }
+    }
+
+    function getTimeByPeriod($lottery_type,$period){
+        $lottery_type = strtolower($lottery_type);
+        $config = $this->get_lottery_config($lottery_type);
+        $beginTime = $config['beginTime'];
+        $begin =  strtotime(date('Y-m-d').' '.$beginTime);
+        $now = strtotime("now");
+
+        if( $lottery_type == 'cqssc'){
+
+            $beginDay = mktime(2,0,0,date('m'),date('d'),date('Y')); //
+            $beginDay2 = mktime(10,0,0,date('m'),date('d'),date('Y')); //
+            $beginDay3 = mktime(22,0,0,date('m'),date('d'),date('Y')); //
+            // 5 分钟一期的 96期
+            if( $now > $beginDay3 ){
+                $kjTime = $beginDay3 + ($period-96)*300;
+            } else if( $now <= $beginDay){
+                $kjTime = strtotime(date('Y-m-d')) + $period * 300;
+            } else if ( $now >= $beginDay2 ){
+                $kjTime = $beginDay2 + ($period - 24) * 600;
+            }
+
+        }else if ( $lottery_type == 'xjssc'){
+
+        }else if ( $lottery_type == 'beijin'){
+            $baseData = array(
+                'baseTime'=>1424826600, // 0206  9:10	echo mktime(9,10,0,2,6,2015);
+                'baseNum' => 6673);
+            $day = ceil((time()-$baseData['baseTime'])/86400)-1;
+            $qs = $period - $day * 89 - $baseData['baseNum'];
+            echo $qs.'xx';
+            $beginDay = mktime(9,10,0,date('m'),date('d'),date('Y'));
+            $kjTime = $beginDay + $qs * 600;
+
+
+        }else if ( $lottery_type == 'che'){
+            $baseData = array(
+                'baseTime'=>1424912820, // 0206  9:07	echo mktime(9,07,0,2,26,2015);
+                'baseNum' => 475590);
+            $day = ceil((time()-$baseData['baseTime'])/86400)-1;
+            $qs = $period - $day * 179 - $baseData['baseNum'];
+            $beginDay = mktime(9,7,0,date('m'),date('d'),date('Y'));
+            $kjTime = $beginDay + $qs * 300;
+        } else {
+            $kjTime = $begin + $period * 600;
+        }
+        return $kjTime;
     }
 }

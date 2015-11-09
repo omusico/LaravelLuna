@@ -130,7 +130,7 @@
                                         <li class="OneNum" id="box_ball_HZ_d">大</li>
                                     </ul>
                                 </div>
-                                <div class="select_txt1" style="width:375px" id="box_ball_HZ_single_odds">
+                                <div class="select_txt1" style="width:450px" id="box_ball_HZ_single_odds">
                                     <ul>
                                         <li class="OneNum">赔率:<span
                                                     id="HZ_getodds_19">{{$k3Odds['HZ'][19]}}</span>
