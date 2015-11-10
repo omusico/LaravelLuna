@@ -111,6 +111,7 @@ Route::get('lotteryIndex', [
 Route::get('lotterytrend', [
     'as' => 'lotterytrend', 'uses' => 'LotteryK3Controller@trend']);
 Route::any('/lotteryBetting', ['middleware' => 'auth','as' => 'lotteryBetting', 'uses' => 'LotteryK3Controller@betting']);
+Route::any('/zhuihao', ['middleware' => 'auth','as' => 'lotteryBetting', 'uses' => 'LotteryK3Controller@zhuihao']);
 Route::any('/userLotteryBetting', ['middleware' => 'auth','as' => 'userLotteryBetting', 'uses' => 'User\UserController@userBettingList']);
 Route::any('/getaccountdetail', ['middleware' => 'auth','as' => 'getaccountdetail', 'uses' => 'User\UserController@getaccountdetail']);
 Route::any('/getLotteryData', ['as' => 'getLotteryDataForQt', 'uses' => 'LotteryK3Controller@getLotteryDataForQt']);

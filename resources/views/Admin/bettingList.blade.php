@@ -24,8 +24,8 @@
                         <label>开始时间:</label>
                     </div>
                     <div style="float: left;margin-left: 10px">
-                        <div class="input-group date form_datetime" style="width: 220px"
-                             data-date-format="yyyy-mm-dd hh:ii" data-link-field="starttime">
+                        <div class="input-group date form_date" style="width: 220px"
+                             data-date-format="yyyy-mm-dd" data-link-field="starttime">
                             <input class="form-control" size="16" type="text" value="{{$starttime}}" readonly>
                             <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                             <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
@@ -36,8 +36,8 @@
                         <label>结束时间:</label>
                     </div>
                     <div style="float: left;margin-left: 10px">
-                        <div class="input-group date form_datetime" style="width: 220px"
-                             data-date-format="yyyy-mm-dd hh:ii" data-link-field="endtime">
+                        <div class="input-group date form_date" style="width: 220px"
+                             data-date-format="yyyy-mm-dd" data-link-field="endtime">
                             <input class="form-control" size="16" type="text" value="{{$endtime}}" readonly>
                             <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                             <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>

@@ -952,10 +952,10 @@ BET.submit = function () {
                 var proName = $("#proName").val();
                 var pt = $dom.playType.val();
                 var total = BET.zhui.getTotals();
-                if (total > user.points) {
-                    BET.tip("您的余额不足，请充值！");
-                    return false
-                }
+                //if (total > user.points) {
+                //    BET.tip("您的余额不足，请充值！");
+                //    return false
+                //}
                 singleCodes.each(function (i) {
                         var isChecked = checktime.eq(i).is(":checked");
                         if (isChecked) {
@@ -981,7 +981,8 @@ BET.submit = function () {
                         $("#typeboxSubmit").attr("disabled", true).html("数据提交中...");
                         $.ajax({
                             type: "POST",
-                            url: baseUrl + "/index.php?m=lottery&c=index&a=zhuihao&rand=" + Math.random() + "&lottery_type=" + lottery_type + "&ting=" + ting,
+                            //url: baseUrl + "/index.php?m=lottery&c=index&a=zhuihao&rand=" + Math.random() + "&lottery_type=" + lottery_type + "&ting=" + ting,
+                            url: "/zhuihao?rand=" + Math.random() + "&lottery_type=" + lottery_type + "&ting=" + ting,
                             data: "playType=" + pt + "&proName=" + proName + "&totals=" + total + "&codes=" + encodeURIComponent(codes),
                             dataType: "json",
                             cache: false,
@@ -997,7 +998,7 @@ BET.submit = function () {
                                         window.location.href = baseUrl + "/index.php/user/home/init?lottery_type=" + lottery_type;
                                         break;
                                     case "success":
-                                        BET.tip('您的投注信息已经成功提交，请等待开奖！【<a href="' + myLotteryUrl + '">查看我的购买信息</a>】');
+                                        BET.tip('您的投注信息已经成功提交，请等待开奖！【<a href="' + "/userLotteryBetting" + '">查看我的购买信息</a>】');
                                         BET.core.clearAll();
                                         BET.zhui.clearAll();
                                         if ($(".enter_digital").size() > 0) {
@@ -1107,7 +1108,7 @@ BET.submit = function () {
                 }
             }
         }
-    }else{
+    } else {
         $('#myModal').modal('show');
     }
 }

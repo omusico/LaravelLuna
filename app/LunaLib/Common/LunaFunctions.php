@@ -496,36 +496,40 @@ class LunaFunctions
                                     $groupId = explode('_', $detail['groupId']);
                                     $tingCount = intval($groupId[1]);
                                     //todo 取消追号逻辑
-//                                if ($tingCount > 0) {
+                                    if ($tingCount > 0) {
 //                                    $winCount = $lottery->queryNoticedCountByGroupId($detail['groupId']);
-//                                    if ($winCount >= $tingCount) {
-//
-//                                        // 同时反本金
+                                        $winCount = lu_lotteries_k3::where('noticed', 1)->where('groupId', $detail['groupId'])->count();
+                                        if ($winCount >= $tingCount) {
+
+                                            // 同时反本金
 //                                        $fanMoney = $lottery->queryFanMoney($detail['groupId']);
-//// 										if( $fanMoney > 0){
-//
-//                                        $pointRecordData = array(
-//                                            'uid' => $data['uid'],
-//                                            'userName' => $userInfo['name'],
-//                                            'addType' => '14', // 中奖
-//                                            'lotteryType' => $lottery_type, //
-//                                            'touSn' => $detail['groupId'],
-//                                            'oldPoint' => $tempPoints + $data['amount'],
-//                                            'changePoint' => $fanMoney,
-//                                            'newPoint' => $tempPoints + $data['amount'] + $fanMoney,
-//                                            'created' => strtotime(date('Y-m-d H:i:s')),
-//                                            'bz' => '追号'
-//                                        );
-//
+                                            $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_k3s where groupId=' . $detail['groupId'] . ' and isopen =0 and noticed =0')[0]->sum;
+// 										if( $fanMoney > 0){
+
+                                            $pointRecordData = array(
+                                                'uid' => $data['uid'],
+                                                'userName' => $userInfo['name'],
+                                                'addType' => '14', // 中奖
+                                                'lotteryType' => $lottery_type, //
+                                                'touSn' => $detail['groupId'],
+                                                'oldPoint' => $tempPoints + $data['amount'],
+                                                'changePoint' => $fanMoney,
+                                                'newPoint' => $tempPoints + $data['amount'] + $fanMoney,
+                                                'created' => strtotime(date('Y-m-d H:i:s')),
+                                                'bz' => '追号'
+                                            );
+                                            lu_points_record::create($pointRecordData);
+
 //                                        $pointRecordModel->insert($pointRecordData);
 //                                        $userModel->updateLoginInfo($data['uid'], array('points' => array('+', $fanMoney)));
-//// 										}
-//
-//                                        // 停止追号
+// 										}
+
+                                            // 停止追号
+                                            lu_lotteries_k3::where('groupId', $detail['groupId'])->update(['status' => -1, 'isOpen' => 1]);
 //                                        $lottery->updateLotteryStatus($detail['groupId'], array('status' => -1, 'isOpen' => 1));
-//
-//                                    }
-//                                }
+
+                                        }
+                                    }
                                 }
                             }
                         } catch (Exception $e) {
@@ -550,76 +554,78 @@ class LunaFunctions
         }
     }
 
-    function sdkjAddRecord($lotteryType,$winPre,$winCode){
+    function sdkjAddRecord($lotteryType, $winPre, $winCode)
+    {
         $lotteryType = strtoupper($lotteryType);
 //        $lotteryResult = Waf::model('lottery/result');
 //        $count = $lotteryResult->isExistsProName($winPre,$lotteryType);
-        $count =lu_lotteries_result::where('proName',$winPre)->where('typeName',$lotteryType)->count();
+        $count = lu_lotteries_result::where('proName', $winPre)->where('typeName', $lotteryType)->count();
 
 
-        if( $lotteryType == 'CHE' || $lotteryType == 'BEIJIN'){
+        if ($lotteryType == 'CHE' || $lotteryType == 'BEIJIN') {
             $peroid = $winPre;
         } else {
             $peroid = explode('-', $winPre);
             $peroid = intval($peroid[1]);
         }
 
-        $kjTime = $this ->getTimeByPeriod($lotteryType,$peroid);
+        $kjTime = $this->getTimeByPeriod($lotteryType, $peroid);
 
-        if( $count < 1){
+        if ($count < 1) {
             $data = array(
                 'proName' => $winPre,
-                'typeName'=> $lotteryType,
+                'typeName' => $lotteryType,
                 'codes' => $winCode,
                 'created' => $kjTime,
-                'source'=>'manual'
+                'source' => 'manual'
             );
 //            $lotteryResult->insert($data);
             lu_lotteries_result::create($data);
         }
     }
 
-    function getTimeByPeriod($lottery_type,$period){
+    function getTimeByPeriod($lottery_type, $period)
+    {
         $lottery_type = strtolower($lottery_type);
         $config = $this->get_lottery_config($lottery_type);
         $beginTime = $config['beginTime'];
-        $begin =  strtotime(date('Y-m-d').' '.$beginTime);
+        $begin = strtotime(date('Y-m-d') . ' ' . $beginTime);
         $now = strtotime("now");
 
-        if( $lottery_type == 'cqssc'){
+        if ($lottery_type == 'cqssc') {
 
-            $beginDay = mktime(2,0,0,date('m'),date('d'),date('Y')); //
-            $beginDay2 = mktime(10,0,0,date('m'),date('d'),date('Y')); //
-            $beginDay3 = mktime(22,0,0,date('m'),date('d'),date('Y')); //
+            $beginDay = mktime(2, 0, 0, date('m'), date('d'), date('Y')); //
+            $beginDay2 = mktime(10, 0, 0, date('m'), date('d'), date('Y')); //
+            $beginDay3 = mktime(22, 0, 0, date('m'), date('d'), date('Y')); //
             // 5 分钟一期的 96期
-            if( $now > $beginDay3 ){
-                $kjTime = $beginDay3 + ($period-96)*300;
-            } else if( $now <= $beginDay){
+            if ($now > $beginDay3) {
+                $kjTime = $beginDay3 + ($period - 96) * 300;
+            } else if ($now <= $beginDay) {
                 $kjTime = strtotime(date('Y-m-d')) + $period * 300;
-            } else if ( $now >= $beginDay2 ){
+            } else if ($now >= $beginDay2) {
                 $kjTime = $beginDay2 + ($period - 24) * 600;
             }
 
-        }else if ( $lottery_type == 'xjssc'){
+        } else if ($lottery_type == 'xjssc') {
 
-        }else if ( $lottery_type == 'beijin'){
+        } else if ($lottery_type == 'beijin') {
             $baseData = array(
-                'baseTime'=>1424826600, // 0206  9:10	echo mktime(9,10,0,2,6,2015);
+                'baseTime' => 1424826600, // 0206  9:10	echo mktime(9,10,0,2,6,2015);
                 'baseNum' => 6673);
-            $day = ceil((time()-$baseData['baseTime'])/86400)-1;
+            $day = ceil((time() - $baseData['baseTime']) / 86400) - 1;
             $qs = $period - $day * 89 - $baseData['baseNum'];
-            echo $qs.'xx';
-            $beginDay = mktime(9,10,0,date('m'),date('d'),date('Y'));
+            echo $qs . 'xx';
+            $beginDay = mktime(9, 10, 0, date('m'), date('d'), date('Y'));
             $kjTime = $beginDay + $qs * 600;
 
 
-        }else if ( $lottery_type == 'che'){
+        } else if ($lottery_type == 'che') {
             $baseData = array(
-                'baseTime'=>1424912820, // 0206  9:07	echo mktime(9,07,0,2,26,2015);
+                'baseTime' => 1424912820, // 0206  9:07	echo mktime(9,07,0,2,26,2015);
                 'baseNum' => 475590);
-            $day = ceil((time()-$baseData['baseTime'])/86400)-1;
+            $day = ceil((time() - $baseData['baseTime']) / 86400) - 1;
             $qs = $period - $day * 179 - $baseData['baseNum'];
-            $beginDay = mktime(9,7,0,date('m'),date('d'),date('Y'));
+            $beginDay = mktime(9, 7, 0, date('m'), date('d'), date('Y'));
             $kjTime = $beginDay + $qs * 300;
         } else {
             $kjTime = $begin + $period * 600;

@@ -510,7 +510,7 @@
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         购买方式： <input name="buyType" type="radio" value='daigou'
                                                      checked="checked" id='daigou'/><label>代购</label> <input
-                                                name="buyType" type="radio" value='zhuihao' disabled
+                                                name="buyType" type="radio" value='zhuihao'
                                                 id='buyTypeZh'/><label>追号</label>
                                     </div>
                                     <div class="expand" style="display: none;">

@@ -356,12 +356,12 @@ class AdminController extends Controller
 
 
         $lunaFunction = new App\LunaLib\Common\LunaFunctions();
-        $this->sdkjFromNotice($lottery_type,$winPre,$winCode);
+        $this->sdkjFromNotice($lottery_type, $winPre, $winCode);
 
 //        $this->notice->set($contents);
         $lunaFunction->get_lottery_type_code($lottery_type);
 
-        session()->flash('message', $winPre.'手动开奖金成功');
+        session()->flash('message', $winPre . '手动开奖金成功');
         return Redirect::back();
 
 //        if ($type == 'k3') $type = 'lottery';
@@ -370,12 +370,13 @@ class AdminController extends Controller
 
     }
 
-    public function sdkjFromNotice($lottery_type,$winPre,$winCode){
-        if(empty($winPre)){
+    public function sdkjFromNotice($lottery_type, $winPre, $winCode)
+    {
+        if (empty($winPre)) {
             echo '请填写开奖期号';
             return;
         }
-        if(empty($winCode)){
+        if (empty($winCode)) {
             echo '请填写开奖结果';
             return;
         }
@@ -383,17 +384,17 @@ class AdminController extends Controller
         // 如果是已撤单,则初始化相关状态
 //        $model = Waf::model('lottery/list',array('lottery_type' => $lottery_type));
 //        $params =  array("proName"=>$winPre,"province"=>strtolower($lottery_type),"status"=>"-2");
-        $cancelList = App\lu_lotteries_k3::where("proName",$winPre)->where("province",strtolower($lottery_type))->where("status",-2)->get();
+        $cancelList = App\lu_lotteries_k3::where("proName", $winPre)->where("province", strtolower($lottery_type))->where("status", -2)->get();
 //        $cancelList = $model->queryList($params);
 
 //        $pointRecordModel = Waf::model('lottery/pointrecord');
 //        $userModel = Waf::model("User/list");
 
-        foreach ($cancelList as $key=>$lottery){
+        foreach ($cancelList as $key => $lottery) {
             // 扣掉钱.同时初始化
 
 //            $userDetail = $userModel->detail($lottery['uid']);
-            $userDetail = lu_user_data::where('uid',$lottery['uid'])->first();
+            $userDetail = lu_user_data::where('uid', $lottery['uid'])->first();
 
             $cancelPrice = $lottery['eachPrice'];
 
@@ -402,9 +403,9 @@ class AdminController extends Controller
                 'userName' => $lottery['userName'],
                 'addType' => '1', // 投注
                 'lotteryType' => $lottery_type, // 彩种
-                'touSn' =>  $lottery['sn'],
+                'touSn' => $lottery['sn'],
                 'oldPoint' => $userDetail['points'],
-                'changePoint' => -$cancelPrice ,
+                'changePoint' => -$cancelPrice,
                 'newPoint' => $userDetail['points'] - $cancelPrice,
                 'created' => strtotime(date('Y-m-d H:i:s')),
                 'bz' => '撤单后又开奖自动扣钱'
@@ -426,7 +427,7 @@ class AdminController extends Controller
         $result = $lunaFunction->lottery_kj($lottery_type, $winPre, $winCode);
 
 //        $result = lottery_kj($lottery_type,$winPre,$winCode);
-        $lunaFunction->sdkjAddRecord($lottery_type,$winPre,$winCode);
+        $lunaFunction->sdkjAddRecord($lottery_type, $winPre, $winCode);
         $result = var_export($result, true);
         return $result;
 //        return get_site_name().'开奖成功...'.$result;
@@ -492,6 +493,38 @@ class AdminController extends Controller
         return Redirect::back();
     }
 
+    public function manualreturns()
+    {
+        return view('Admin.manualreturns');
+    }
+
+    // 手动返水
+    public function manualreturnsPost(Request $request)
+    {
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+//        $result = App\lu_lotteries_k3::where('status', 1);
+        $wheresql = ' where 1=1 ';
+        if (!empty($userName)) {
+            $wheresql .= ' and userName= "' . $userName . '"';
+        }
+        if (empty($starttime) && empty($endtime)) {
+            $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
+        }
+        if (!empty($starttime)) {
+            $wheresql .= ' and created_at >="' . $starttime . '"';
+        }
+        if (!empty($endtime)) {
+            $wheresql .= ' and created_at <="' . $endtime . '"';
+        }
+        $bettings = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,' .
+            '(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,' .
+            'count(eachPrice) as bcount from lu_lotteries_k3s ' .
+            $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' .
+            $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
+    }
+
     public function manualrecharge(Request $request)
     {
         $point_types = CommonClass::cache_point_type();
@@ -540,30 +573,31 @@ class AdminController extends Controller
 
     //撤单
     //cancelOrderForAll
-    public function cancelOrderPost(Request $request){
+    public function cancelOrderPost(Request $request)
+    {
         $type = $request->lottery_type;
         $proName = $request->proName;
 //        $model = Waf::model("Lottery/list",array("lottery_type" => $type));
 //        $params = array("proName" => $proName, "province" => strtolower($type));
-        $lists = App\lu_lotteries_k3::where("proName",$proName)->where('province',strtolower($type))->get();//$model->queryList($params);
+        $lists = App\lu_lotteries_k3::where("proName", $proName)->where('province', strtolower($type))->get();//$model->queryList($params);
 //        $userModel = Waf::model("User/list");
 
 
 //        $pointRecordModel = Waf::model('lottery/pointrecord');
-        foreach ($lists as $key => $lottery){
+        foreach ($lists as $key => $lottery) {
 //            if($data['status'] == '-2' || $data['status'] == '-1' ){
 //                continue;
 //            }
 
-            if( $lottery['noticed'] == 1){
-                $cancelPrice = ($lottery['eachPrice'] - $lottery['bingoPrice'] );
+            if ($lottery['noticed'] == 1) {
+                $cancelPrice = ($lottery['eachPrice'] - $lottery['bingoPrice']);
                 // 删除中奖的订单号。
 //                $note = Waf::model("Lottery/note",array("lottery_type"=>$type));
 //                $note->deleteCancelOrder($proName,$type);
 
-                DB::table('lu_lottery_notes_k3s')->where('proName',$proName)->where('province',strtolower($type))->delete();
+                DB::table('lu_lottery_notes_k3s')->where('proName', $proName)->where('province', strtolower($type))->delete();
 
-            } else if($lottery['noticed'] == 0 ){
+            } else if ($lottery['noticed'] == 0) {
                 $cancelPrice = $lottery['eachPrice'];
             }
 
@@ -571,39 +605,39 @@ class AdminController extends Controller
             $lottery->status = -2;
             $lottery->save();
 //            $user = $userModel->detail($lottery['uid']);
-            $user = lu_user_data::where('uid',$lottery['uid'])->first();
+            $user = lu_user_data::where('uid', $lottery['uid'])->first();
             // 添加资金明细.
             $pointRecordData = array(
                 'uid' => $lottery['uid'],
                 'userName' => $lottery['userName'],
                 'addType' => '13', // 撤单
                 'lotteryType' => $type, // 彩种
-                'touSn' =>  $lottery['sn'],
+                'touSn' => $lottery['sn'],
                 'oldPoint' => $user['points'],
-                'changePoint' => $cancelPrice ,
+                'changePoint' => $cancelPrice,
                 'newPoint' => $user['points'] + $cancelPrice,
                 'created' => strtotime(date('Y-m-d H:i:s'))
             );
             App\lu_points_record::create($pointRecordData);
 //            $pointRecordModel->insert($pointRecordData);
 //            $userModel->updateLoginInfo($lottery['uid'] ,array('points'=> $user['points'] + $cancelPrice));
-            $user->points = $user->points +$cancelPrice;
+            $user->points = $user->points + $cancelPrice;
             $user->save();
 
             // 查看是否有追号截止的。如果有追号，则恢复.
-            if($lottery['groupId'] != null){
-                $params =  array("groupId"=>$lottery['groupId'],"province"=>strtolower($type),"status"=>"-1");
-                $zhuihaoList = App\lu_lotteries_k3::where('groupId',$lottery['groupId'])->where('province',strtolower($type))->where('status','-1')->get(); //$model->queryList($params);
-                foreach ($zhuihaoList as $hao){
-                    $userDetail = lu_user_data::where('uid',$lottery['uid'])->first();//$userModel->detail($lottery['uid']);
+            if ($lottery['groupId'] != null) {
+                $params = array("groupId" => $lottery['groupId'], "province" => strtolower($type), "status" => "-1");
+                $zhuihaoList = App\lu_lotteries_k3::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
+                foreach ($zhuihaoList as $hao) {
+                    $userDetail = lu_user_data::where('uid', $lottery['uid'])->first();//$userModel->detail($lottery['uid']);
                     $pointRecordData = array(
                         'uid' => $hao['uid'],
                         'userName' => $hao['userName'],
                         'addType' => '1', // 投注
                         'lotteryType' => $type, // 彩种
-                        'touSn' =>  $hao['sn'],
+                        'touSn' => $hao['sn'],
                         'oldPoint' => $userDetail['points'],
-                        'changePoint' => -$hao['eachPrice'] ,
+                        'changePoint' => -$hao['eachPrice'],
                         'newPoint' => $userDetail['points'] - $hao['eachPrice'],
                         'created' => strtotime(date('Y-m-d H:i:s')),
                         'bz' => '原追号停止恢复'

@@ -299,7 +299,7 @@ class Lottery_Result
         $handle = 0;
         $data = array();
         $value = $codeArr[0] + $codeArr[1] + $codeArr[2];
-        $diff = Waf_Common::getArrayDiff($codeArr, $codes);
+        $diff = CommonClass::getArrayDiff($codeArr, $codes);
         if (empty($diff)) {
             $lunaFunction = new LunaFunctions();
             $amount = $row['bingoPrice'];

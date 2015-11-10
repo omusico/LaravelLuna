@@ -69,6 +69,17 @@ class CommonClass
         return ($gameProvince == null ? '未知彩种' : $gameProvince);
     }
 
+    public static function object_array($array) {
+        if(is_object($array)) {
+            $array = (array)$array;
+        } if(is_array($array)) {
+            foreach($array as $key=>$value) {
+                $array[$key] = object_array($value);
+            }
+        }
+        return $array;
+    }
+
     public static function cache($name, $isfresh)
     {
         if ("user_groups" == $name) {
@@ -132,6 +143,12 @@ class CommonClass
                 str_replace(array('&', '"', '<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $string));
         }
         return $string;
+    }
+
+    public static function getArrayDiff($a,$b){
+        $c = array_diff($a, $b);
+        $d = array_diff($b, $a);
+        return array_merge($c ,$d);
     }
 
     /**
