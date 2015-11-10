@@ -57,6 +57,7 @@
                         <td>号码</td>
                         <td>投注金额</td>
                         <td>中奖金额</td>
+                        <td>开奖结果</td>
                         <td>状态</td>
                         <td>投注时间</td>
                     </tr>
@@ -70,6 +71,7 @@
                                 <td>{{ $lu_lotteries_k3->codes }}</td>
                                 <td>{{ $lu_lotteries_k3->eachPrice }}</td>
                                 <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
+                                <td>{{ $lu_lotteries_k3->resultNum }}</td>
                                 <td>
                                     @if($lu_lotteries_k3->status == -2)
                                         <a style="color: green">撤单</a>
