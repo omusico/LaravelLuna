@@ -9,7 +9,7 @@
         <div class="row">
             @include('Admin.back_left_bar')
             <div class="col-md-10">
-                <h2>快三手动开奖</h2>
+                <h2>快三手动返水</h2>
                 <hr/>
 
                 @include('errors.list')
@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-4 col-md-offset-2">
-                            {!! Form::submit('手动,开奖', ['class' => 'btn btn-success form-control']) !!}
+                            {!! Form::submit('手动,返水', ['class' => 'btn btn-success form-control']) !!}
                         </div>
                     </div>
                     {!! Form::close() !!}
