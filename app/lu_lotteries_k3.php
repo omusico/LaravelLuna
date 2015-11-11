@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class lu_lotteries_k3 extends Model {
 
-    protected $fillable=['typeId','sn','proName','total','eachPrice','siteId','uid','userName','userIp','times','recUid','bingoPrice','status','province','provinceName','codes'];
+    protected $fillable=['typeId','sn','proName','total','eachPrice','siteId','uid','userName','userIp','times','recUid','bingoPrice','status','province','provinceName','codes','groupId','isOpen'];
 	//
 
 }

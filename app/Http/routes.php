@@ -84,6 +84,9 @@ Route::get('manualkj','Admin\AdminController@manualkj');
 Route::post('manualkjPost','Admin\AdminController@manualkjPost');
 Route::get('cancelOrder','Admin\AdminController@cancelOrder');
 Route::post('cancelOrderPost','Admin\AdminController@cancelOrderPost');
+Route::get('manualreturns','Admin\AdminController@manualreturns');
+Route::post('manualreturnsPost','Admin\AdminController@manualreturnsPost');
+
 #上传分数
 //Route::post('admin/upload_grade', [
 //    'as' => 'upload_grade', 'uses' => 'Admin\AdminController@upload_grade']);

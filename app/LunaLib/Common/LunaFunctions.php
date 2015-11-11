@@ -503,7 +503,7 @@ class LunaFunctions
 
                                             // 同时反本金
 //                                        $fanMoney = $lottery->queryFanMoney($detail['groupId']);
-                                            $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_k3s where groupId=' . $detail['groupId'] . ' and isopen =0 and noticed =0')[0]->sum;
+                                            $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_k3s where groupId="' . $detail['groupId'] . '" and isopen =0 and noticed =0')[0]->sum;
 // 										if( $fanMoney > 0){
 
                                             $pointRecordData = array(

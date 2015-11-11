@@ -502,15 +502,16 @@ class AdminController extends Controller
     public function manualreturnsPost(Request $request)
     {
         $userName = $request->userName;
-        $starttime = $request->starttime;
-        $endtime = $request->endtime;
+//        $starttime = $request->starttime;
+//        $endtime = $request->endtime;
+        $currentday = $request->currentday;
 //        $result = App\lu_lotteries_k3::where('status', 1);
         $wheresql = ' where 1=1 ';
         if (!empty($userName)) {
             $wheresql .= ' and userName= "' . $userName . '"';
         }
         if (empty($starttime) && empty($endtime)) {
-            $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
+            $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d', $currentday) . '"';
         }
         if (!empty($starttime)) {
             $wheresql .= ' and created_at >="' . $starttime . '"';
@@ -523,6 +524,76 @@ class AdminController extends Controller
             'count(eachPrice) as bcount from lu_lotteries_k3s ' .
             $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' .
             $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
+
+        foreach ($bettings as $betting) {
+//            list($uid, $prices, $points, $name) = explode(',', $str);
+            $count = App\lu_lottery_returns::where('uid', $betting->uid)->where('lotId', date('Y-m-d', $currentday))->count();
+            if ($count == 0) {
+
+                $prices = $betting->eachPrice;
+                $user_returns = App\LunaLib\Common\defaultCache::cache_user_returns();
+                $odds = $this->getOdds($prices, $user_returns);
+                $amount = $prices * $odds;
+                $data = array(
+
+                    'created' => $_SERVER['REQUEST_TIME'],
+
+                    'amounts' => $amount,
+
+                    'uid' => $betting->uid,
+
+                    'siteId' => 1,
+
+                    'userName' => $betting->userName,
+
+                    'odds' => $odds,
+
+                    //todo use select day
+                    'lotId' => date('Y-m-d', $currentday),
+
+                    'optUid' => \Auth::user()->id,
+
+                    'optUser' => \Auth::user()->name,
+
+                );
+                App\lu_lottery_returns::create($data);
+//            $this->model->insertReturns($data);
+
+                $userdata = lu_user_data::where('uid', $betting->uid)->first();
+                $points = $userdata->points;
+                $userdata->points = $points + $amount;
+                $userdata->save();
+//            $data = array(
+//                'points' => array('+', $amount)
+//            );
+                // 添加成功
+//            if ($userModel->updateCateAcl($uid, $data)) {
+//            }
+                $pointRecordData = array(
+                    'uid' => $betting->uid,
+                    'userName' => $betting->userName,
+                    'addType' => '8', // 反水
+                    'oldPoint' => $points,
+                    'changePoint' => CommonClass::price($amount),
+                    'newPoint' => $points + CommonClass::price($amount),
+                    'created' => strtotime(date('Y-m-d H:i:s'))
+                );
+                App\lu_points_record::create($pointRecordData);
+            }
+//            $pointRecordModel->insert($pointRecordData);
+        }
+        session()->flash('message', '返水成功');
+        return Redirect::back();
+    }
+
+    public function  getOdds($price, $user_returns)
+    {
+        foreach ($user_returns as $key => $range) {
+            if ($price >= $range['min'] && $price <= $range['max']) {
+                return $range['rate'];
+            }
+        }
+        return 0;
     }
 
     public function manualrecharge(Request $request)
