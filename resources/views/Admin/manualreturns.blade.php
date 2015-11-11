@@ -23,7 +23,7 @@
                             <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                             <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                         </div>
-                        <input type="hidden" id="starttime" value="{{$starttime}}"/><br/>
+                        <input type="hidden" id="currentday" name="currentday"/><br/>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4 col-md-offset-2">
