@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\lu_lotteries_k3;
+use App\lu_lottery_return;
 use App\lu_lottery_user;
 use App\lu_user;
 use App\LunaLib\Common\CommonClass;
@@ -33,7 +34,8 @@ class UserController extends Controller
         $lu_lottery_applys = \DB::select('select left(created_at,10) as created_at,SUM(amounts) as applys  from lu_lottery_applies where uid =? group by left(created_at,10) ',[Auth::user()->id]);
 
         $lu_lottery_recharges = \DB::select('select left(created_at,10) as created_at,SUM(amounts) as recharges  from lu_lottery_recharges where uid =? and status=1 group by left(created_at,10) ',[Auth::user()->id]);
-        return view('User.AccountDetail', compact('lu_lotteries_k3s','lu_lottery_applys','lu_lottery_recharges'));
+        $lu_lottery_returns = lu_lottery_return::where('uid',Auth::user()->id)->get();
+        return view('User.AccountDetail', compact('lu_lotteries_k3s','lu_lottery_applys','lu_lottery_recharges','lu_lottery_returns'));
     }
 
 

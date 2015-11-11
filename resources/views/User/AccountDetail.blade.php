@@ -62,6 +62,18 @@
                             <td>
                             </td>
                         @endif
+                        <?php $return = 0 ?>
+                        @foreach ($lu_lottery_returns as $lu_lottery_return)
+                            {{--{{$lu_lottery_recharge->created_at}}--}}
+                            @if($lu_lottery_return->returnDay == date('Y-m-d',strtotime('-'.$i.' day')))
+                                <?php $recharge = 1 ?>
+                                <td>{{ $lu_lottery_return->amounts }}</td>
+                            @endif
+                        @endforeach
+                        @if($return==0)
+                            <td>
+                            </td>
+                        @endif
                         <td></td>
                     </tr>
                 @endfor

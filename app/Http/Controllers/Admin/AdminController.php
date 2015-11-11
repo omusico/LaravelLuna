@@ -62,7 +62,7 @@ class AdminController extends Controller
         $starttime = $request->starttime;
         $endtime = $request->endtime;
 
-        
+
 //        $result = App\lu_lotteries_k3::where('status', 1);
         $wheresql = ' where 1=1 ';
         if (!empty($userName)) {

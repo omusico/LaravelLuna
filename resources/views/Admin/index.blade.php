@@ -66,6 +66,20 @@
                                 </td>
                                 <td>
                                     <a class="btn btn-sm btn-primary" href="/manualrecharge/{{$lu_user->id}}">手动充值</a>
+                                    <?php $item = \App\lu_lottery_user::where('uid', $lu_user->id)->first(); ?>
+                                    <button type="button" class="btn btn-sm btn-warning"
+                                            data-container="body" data-toggle="popover" data-placement="bottom"
+                                            title="{{ $lu_user->name }}--银行信息"
+                                            data-content="
+                                                @if(isset($item))
+                                                 银行名称 : {{ $item->bankName }} |
+                                                开户行 : {{ $item->openBank }} |
+                                                 银行账号 : {{ $item->bankCode }}|
+                                                     开户人姓名 : {{ $item->userName }}
+                                                    @endif
+                                                    ">
+                                        银行卡
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach

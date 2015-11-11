@@ -73,6 +73,10 @@
                     <li>
                         <a href="/userreturns"><span>返水管理</span></a>
                     </li>
+
+                    <li>
+                        <a href="/manualreturns"><span>手动返水</span></a>
+                    </li>
                 </ul
             </li>
             <li>
