@@ -10,8 +10,8 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @include('Admin.back_left_bar')
-            <div class="col-md-10">
+{{--            @include('Admin.back_left_bar')--}}
+            <div class="col-md-12">
 
                 @include('errors.list')
 

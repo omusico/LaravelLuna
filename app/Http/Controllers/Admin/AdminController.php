@@ -36,6 +36,10 @@ class AdminController extends Controller
         return view('Admin.index', compact('lu_users', 'count', 'user_groups', 'groupname'));
     }
 
+    public function adminindex(){
+        return view('Admin.backindex');
+    }
+
     public function bettingList(Request $request)
     {
         $userName = $request->userName;

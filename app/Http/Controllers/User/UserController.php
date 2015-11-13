@@ -139,7 +139,10 @@ class UserController extends Controller
 
     public function getPersonalwin()
     {
-        $result = lu_lotteries_k3::where('uid', Auth::user()->id)->where('noticed', '1')->where('created_at', '>', date("Y-m-d G:H:s", strtotime("-1 hours")))->get();
-        return $result;
+        if (!Cache::has("checkapply")) {
+            $result = lu_lotteries_k3::where('uid', Auth::user()->id)->where('noticed', '1')->where('created_at', '>', date("Y-m-d G:H:s", strtotime("-1 hours")))->get();
+            Cache::add('checkapply', 1, 1);
+            return $result;
+        }
     }
 }

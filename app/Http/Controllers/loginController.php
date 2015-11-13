@@ -52,7 +52,8 @@ class loginController extends Controller
             if (!Auth::user()->is_admin) {
                 return Redirect::action('WelcomeController@index');
             } else {
-                return Redirect::action('Admin\AdminController@index');
+//                return Redirect::action('Admin\AdminController@index');
+                return Redirect::action('Admin\AdminController@adminindex');
             }
 
         } else {

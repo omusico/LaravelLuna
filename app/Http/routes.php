@@ -8,6 +8,7 @@
 
 #测试
 Route::get('/test', 'TestController@index');
+Route::get('/testmain', 'TestController@adminmain');
 Route::post('/test', ['as' => 'test_upload', 'uses' => 'TestController@post']);
 Route::get('/users/export', 'TestController@export');
 Route::get('users', 'TestController@users');
@@ -56,7 +57,7 @@ Route::resource('company','CashController');
 
 Route::resource('companybank','CbankController');
 
-
+Route::get('adminindex', 'Admin\AdminController@adminindex');
 Route::get('bettingList', 'Admin\AdminController@bettingList');
 Route::get('bettingcountList', 'Admin\AdminController@bettingcountList');
 
