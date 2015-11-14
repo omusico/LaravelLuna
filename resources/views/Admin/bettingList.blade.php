@@ -11,9 +11,9 @@
     <div>
         @include('errors.list')
 
-        <h3 align="center">
-            投注列表</h3>
-
+        {{--<h3 align="center">--}}
+        {{--投注列表</h3>--}}
+        <hr/>
         <div>
             <div style="float: left;">
                 <label>用户名:</label><input type="text" id="userName" name="userName" value="{{$userName}}">
@@ -56,6 +56,7 @@
                 <td>开奖结果</td>
                 <td>状态</td>
                 <td>投注时间</td>
+                <td>操作</td>
             </tr>
             @if (count($lu_lotteries_k3s))
                 @foreach ($lu_lotteries_k3s as $lu_lotteries_k3)
@@ -84,6 +85,11 @@
                             @endif
                         </td>
                         <td>{{ $lu_lotteries_k3->created_at }}</td>
+                        <td>
+                            @if($lu_lotteries_k3->status != -2)
+                                <a class="btn btn-sm btn-warning" href="/cancelOrderSingle/{{$lu_lotteries_k3->id}}">撤单</a>
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
             @else

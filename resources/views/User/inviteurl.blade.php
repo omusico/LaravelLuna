@@ -67,11 +67,11 @@
                                     </td>
                                     <td>{{ $lu_user->lu_user_data->points }}</td>
                                     <td>
-                                        @if(Auth::user()->groupId ==5)
-                                            {{DB::select('select sum(eachPrice) as sum from lu_lotteries_k3s where uid in (select id from lu_users where recId =?)',[$lu_user->id])[0]->sum}}
-                                        @else
+                                        {{--@if(Auth::user()->groupId ==5)--}}
+                                            {{--{{DB::select('select sum(eachPrice) as sum from lu_lotteries_k3s where uid in (select id from lu_users where recId =?)',[$lu_user->id])[0]->sum}}--}}
+                                        {{--@else--}}
                                             {{DB::table('lu_lotteries_k3s')->where('uid',$lu_user->id)->sum('eachPrice')}}
-                                        @endif
+                                        {{--@endif--}}
                                     </td>
                                 </tr>
                             @endforeach

@@ -1,16 +1,17 @@
 (function ($) {
     var _isMax = false;
-    $.fn.panel.defaults = $.extend({}, $.fn.panel.defaults, { onBeforeDestroy: function () {
-        var frame = $('iframe', this);
-        if (frame.length > 0) {
-            frame[0].contentWindow.document.write('');
-            frame[0].contentWindow.close();
-            frame.remove();
-            if ($.browser.msie) {
-                CollectGarbage();
+    $.fn.panel.defaults = $.extend({}, $.fn.panel.defaults, {
+        onBeforeDestroy: function () {
+            var frame = $('iframe', this);
+            if (frame.length > 0) {
+                frame[0].contentWindow.document.write('');
+                frame[0].contentWindow.close();
+                frame.remove();
+                if ($.browser.msie) {
+                    CollectGarbage();
+                }
             }
         }
-    }
     });
     $.createFrame = function (src, name) {
         return '<iframe scrolling="auto" frameborder="0" name="' + name + '" src="' + src + '" style="width:100%;height:99%;"></iframe>';
@@ -18,7 +19,14 @@
     $.addTab = function (jq, name, title, url) {
 
         if ($(jq).tabs('exists', title)) {
-            $(jq).tabs('select', title);            
+            $(jq).tabs('select', title);
+            var currTab = $(jq).tabs('getSelected');
+            $(jq).tabs('update', {
+                tab : currTab,
+                options : {
+                    content : $.createFrame(url)
+                }
+            });
         } else {
             if (url == "" || url == null || url == "undefined") {
                 $.messager.show({
@@ -33,7 +41,7 @@
                     }
                 });
                 return false;
-            }                
+            }
             if (parent.$("#tabXG").length > 0) {
                 var getTabs = parent.$("#tabXG").tabs("tabs");
                 if (getTabs.length > 15) {
@@ -76,7 +84,7 @@
                 var src = iframe.attr('src');
                 var name = iframe.attr('name');
                 $(this).tabs('update', {
-                    tab: currTab, options: { content: $.createFrame(src, name) }
+                    tab: currTab, options: {content: $.createFrame(src, name)}
                 });
             }
         });
@@ -98,7 +106,6 @@
         var height = 400;
         var parentWidth = 1055;
         var parentHeight = 1000;
-
 
 
         if (left > parentWidth - width) {
@@ -128,7 +135,6 @@
         var height = $(this).dialog('options').height;
         var parentWidth = 1055;
         var parentHeight = 1000;
-
 
 
         if (left > parentWidth - width) {
@@ -185,7 +191,7 @@
             icon = 'icon-max';
             text = '全屏';
         }
-        $(this).linkbutton({ 'iconCls': icon, 'text': text });
+        $(this).linkbutton({'iconCls': icon, 'text': text});
         _isMax = !_isMax;
     }
 
@@ -312,7 +318,7 @@
     $.doComAdd = function (seletor) {
         var lastIndex;
         $(seletor).datagrid('endEdit', lastIndex);
-        $(seletor).datagrid('insertRow', { index: 0, row: {} });
+        $(seletor).datagrid('insertRow', {index: 0, row: {}});
         lastIndex = 0;
         $(seletor).datagrid('selectRow', lastIndex);
         $(seletor).datagrid('beginEdit', lastIndex);
@@ -339,7 +345,7 @@
         if (row) {
             var index = $(seletor).datagrid('getRowIndex', row);
             $(seletor).datagrid('endEdit', index);
-            $(seletor).datagrid('insertRow', { index: 0, row: row });
+            $(seletor).datagrid('insertRow', {index: 0, row: row});
             $(seletor).datagrid('selectRow', 0);
             $(seletor).datagrid('beginEdit', 0);
         }
@@ -367,7 +373,7 @@
         row = row.substr(0, row.length - 1);
         row += "})";
         var json = eval(row);
-        self.parent.frames[iframename].$(goal).datagrid('updateRow', { index: index, row: json });
+        self.parent.frames[iframename].$(goal).datagrid('updateRow', {index: index, row: json});
         $(seletor).find("[name]").each(function () {
             $(this).val("");
         });
@@ -385,7 +391,7 @@
         rowJson = rowJson.substr(0, rowJson.length - 1);
         rowJson += "})";
         var json = eval(rowJson);
-        $(goal).datagrid('insertRow', { index: 0, row: json });
+        $(goal).datagrid('insertRow', {index: 0, row: json});
         $(seletor).find("[name]").each(function () {
             $(this).val("");
         });
@@ -403,7 +409,7 @@
         row = row.substr(0, row.length - 1);
         row += "})";
         var json = eval(row);
-        self.parent.frames[iframename].$(goal).datagrid('insertRow', { index: rowIndex, row: json });
+        self.parent.frames[iframename].$(goal).datagrid('insertRow', {index: rowIndex, row: json});
         $(seletor).find("[name]").each(function () {
             $(this).val("");
         });
@@ -421,14 +427,14 @@
         row = row.substr(0, row.length - 1);
         row += "})";
         var json = eval(row);
-        self.parent.frames[iframename].$(masterGoal).datagrid('insertRow', { index: rowIndex, row: json });
+        self.parent.frames[iframename].$(masterGoal).datagrid('insertRow', {index: rowIndex, row: json});
         $(seletor).find("[name]").each(function () {
             $(this).val("");
         });
 
         var rows = $(targetGoal).datagrid('getRows');
         for (var i = 0; i < rows.length; i++) {
-            self.parent.frames[iframename].$(slaveGoal).datagrid('insertRow', { index: rowIndex, row: rows[i] });
+            self.parent.frames[iframename].$(slaveGoal).datagrid('insertRow', {index: rowIndex, row: rows[i]});
         }
     }
 
@@ -447,7 +453,7 @@
             rowJson = rowJson.substr(0, rowJson.length - 1);
             rowJson += "})";
             var json = eval(rowJson);
-            $(goal).datagrid('updateRow', { index: index, row: json });
+            $(goal).datagrid('updateRow', {index: index, row: json});
             $(seletor).find("[name]").each(function () {
                 $(this).val("");
             });
@@ -468,7 +474,7 @@
         row = row.substr(0, row.length - 1);
         row += "})";
         var json = eval(row);
-        self.parent.frames[iframename].$(goal).datagrid('updateRow', { index: index, row: json });
+        self.parent.frames[iframename].$(goal).datagrid('updateRow', {index: index, row: json});
         $(seletor).find("[name]").each(function () {
             $(this).val("");
         });
@@ -488,7 +494,7 @@
                 }
             }
             if (isExist) {
-                self.parent.frames[iframename].$(masterGoal).datagrid("updateRow", { index: index, row: srows[i] });
+                self.parent.frames[iframename].$(masterGoal).datagrid("updateRow", {index: index, row: srows[i]});
             }
             else {
                 addArry.push(i);

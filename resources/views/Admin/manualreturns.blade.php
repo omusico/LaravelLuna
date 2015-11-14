@@ -6,7 +6,7 @@
 
 @section('content')
     <div>
-        <h2>快三手动返水</h2>
+        {{--<h2>快三手动返水</h2>--}}
         <hr/>
 
         @include('errors.list')
