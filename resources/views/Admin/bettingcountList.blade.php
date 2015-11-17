@@ -40,6 +40,9 @@
                 </div>
                 <input type="hidden" id="endtime" value="{{$endtime}}"/><br/>
             </div>
+            <div style="float: left">
+                {{--<input class="easyui-datebox" style="width: 100px;" id="jiashizhengriqi" type="text" name="jiashizhengriqi" data-options="required:true,formatter:'YYYY-mm-dd'" />--}}
+            </div>
             <div style="float: left;margin-left: 10px">
                 <a class="btn btn-default btn-primary" onclick="Search()">查询</a>
             </div>

@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="Keywords" content="彩票合买,快三">
-    <meta name="Description" content="中国快三网彩票购买平台提供快三的彩票，是一家服务于中国彩民的互联网彩票合买代购交易平台，是当前中国彩票互联网交易行业的领导者。">
+    <meta name="Keywords" content="快三娱乐平台">
+    <meta name="Description" content="快三娱乐平台。">
     <title> @yield('title') </title>
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
     @yield('css')
@@ -60,10 +60,11 @@
         <input type="hidden" id="isLogin">
     @endif
 </div>
+{{--隐藏登陆框--}}
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content" >
+        <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal"
                         aria-hidden="true">×
@@ -100,6 +101,24 @@
                 </div>
             </div>
             {!! Form::close() !!}
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="winDialog" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="text-align: center">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel" style="color: red;font-family: bold">
+                    中奖信息
+                </h4>
+            </div>
+            <div class="modal-body" style="background-color: red">
+                <a style="color: white;" id="winText"></a>
+            </div>
         </div>
     </div>
 </div>
@@ -153,15 +172,7 @@
 <script type="text/javascript" src="/js/all.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $.ajax({
-            type: "POST",
-            url: '/getPersonalwin',
-            dataType: "json",
-            success: function (json) {
-
-            }
-
-        });
+        checkwin();
     });
 
 
@@ -181,8 +192,34 @@
             @endif
 
 
+
         }
     })(navigator.userAgent);
+
+    function checkwin() {
+        $.ajax({
+            type: "Get",
+            url: '/getPersonalwin',
+            dataType: "json",
+            success: function (json) {
+                console.log(json);
+                var content = "恭喜,亲爱的{{Auth::user()->name}}，您的";
+                if (json.length > 0) {
+                    for (var i = 0; i < json.length; i++) {
+                        if (i == json.length - 1) {
+                            content += json[i].provinceName + "第" + json[i].proName + "买" + json[i].codes + "中奖了!";
+                        } else {
+                            content += json[i].provinceName + "第" + json[i].proName + "买" + json[i].codes + " 、 ";
+                        }
+                    }
+                    $("#winText").html(content);
+                    $('#winDialog').modal('show');
+                }
+            }
+
+        });
+        setTimeout('checkwin()', 30000);
+    }
 </script>
 <script language="javascript" src="http://dft.zoosnet.net/JS/LsJS.aspx?siteid=DFT23548681&float=1&lng=cn"></script>
 @yield('script')

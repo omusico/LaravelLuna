@@ -30,12 +30,12 @@ class UserController extends Controller
 
     public function getaccountdetail(Request $request)
     {
-        $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_k3s where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ',[Auth::user()->id,Auth::user()->id]);
-        $lu_lottery_applys = \DB::select('select left(created_at,10) as created_at,SUM(amounts) as applys  from lu_lottery_applies where uid =? group by left(created_at,10) ',[Auth::user()->id]);
+        $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_k3s where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ', [Auth::user()->id, Auth::user()->id]);
+        $lu_lottery_applys = \DB::select('select left(created_at,10) as created_at,SUM(amounts) as applys  from lu_lottery_applies where uid =? group by left(created_at,10) ', [Auth::user()->id]);
 
-        $lu_lottery_recharges = \DB::select('select left(created_at,10) as created_at,SUM(amounts) as recharges  from lu_lottery_recharges where uid =? and status=1 group by left(created_at,10) ',[Auth::user()->id]);
-        $lu_lottery_returns = lu_lottery_return::where('uid',Auth::user()->id)->get();
-        return view('User.AccountDetail', compact('lu_lotteries_k3s','lu_lottery_applys','lu_lottery_recharges','lu_lottery_returns'));
+        $lu_lottery_recharges = \DB::select('select left(created_at,10) as created_at,SUM(amounts) as recharges  from lu_lottery_recharges where uid =? and status=1 group by left(created_at,10) ', [Auth::user()->id]);
+        $lu_lottery_returns = lu_lottery_return::where('uid', Auth::user()->id)->get();
+        return view('User.AccountDetail', compact('lu_lotteries_k3s', 'lu_lottery_applys', 'lu_lottery_recharges', 'lu_lottery_returns'));
     }
 
 
@@ -139,10 +139,13 @@ class UserController extends Controller
 
     public function getPersonalwin()
     {
-        if (!Cache::has("checkapply")) {
-            $result = lu_lotteries_k3::where('uid', Auth::user()->id)->where('noticed', '1')->where('created_at', '>', date("Y-m-d G:H:s", strtotime("-1 hours")))->get();
-            Cache::add('checkapply', 1, 1);
-            return $result;
+//        \Cache::forget('personalwin');
+        if (!Auth::guest()) {
+            if (!\Cache::has("personalwin")) {
+                $result = lu_lotteries_k3::where('uid', Auth::user()->id)->where('noticed', '1')->where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute -31 second')))->get();
+                \Cache::add('personalwin', 1, 1);
+                return $result;
+            }
         }
     }
 }

@@ -28,6 +28,9 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="col-md-6 col-md-offset-2">如果要减金额，前面加个减号（-）,例如（-100） </label>
+            </div>
+            <div class="form-group">
                 {!! Form::label('groupId', '添加类型: ', ['class' => 'control-label col-md-2']) !!}
                 <div class="col-md-4">
                     <select class="form-control" required="required" id="groupId" name="groupId">

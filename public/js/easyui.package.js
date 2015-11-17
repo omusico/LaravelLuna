@@ -7,8 +7,10 @@
                 frame[0].contentWindow.document.write('');
                 frame[0].contentWindow.close();
                 frame.remove();
-                if ($.browser.msie) {
-                    CollectGarbage();
+                if ($.browser.msie != undefined) {
+                    if ($.browser.msie) {
+                        CollectGarbage();
+                    }
                 }
             }
         }
@@ -22,9 +24,9 @@
             $(jq).tabs('select', title);
             var currTab = $(jq).tabs('getSelected');
             $(jq).tabs('update', {
-                tab : currTab,
-                options : {
-                    content : $.createFrame(url)
+                tab: currTab,
+                options: {
+                    content: $.createFrame(url)
                 }
             });
         } else {

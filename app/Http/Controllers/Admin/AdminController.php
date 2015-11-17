@@ -737,13 +737,7 @@ class AdminController extends Controller
     {
         $type = $request->lottery_type;
         $proName = $request->proName;
-//        $model = Waf::model("Lottery/list",array("lottery_type" => $type));
-//        $params = array("proName" => $proName, "province" => strtolower($type));
         $lists = App\lu_lotteries_k3::where("proName", $proName)->where('province', strtolower($type))->get();//$model->queryList($params);
-//        $userModel = Waf::model("User/list");
-
-
-//        $pointRecordModel = Waf::model('lottery/pointrecord');
         foreach ($lists as $key => $lottery) {
             if ($lottery['status'] == '-2' || $lottery['status'] == '-1') {
                 continue;
@@ -752,9 +746,6 @@ class AdminController extends Controller
             if ($lottery['noticed'] == 1) {
                 $cancelPrice = ($lottery['eachPrice'] - $lottery['bingoPrice']);
                 // 删除中奖的订单号。
-//                $note = Waf::model("Lottery/note",array("lottery_type"=>$type));
-//                $note->deleteCancelOrder($proName,$type);
-
                 DB::table('lu_lottery_notes_k3s')->where('proName', $proName)->where('province', strtolower($type))->delete();
 
             } else if ($lottery['noticed'] == 0) {
@@ -764,7 +755,6 @@ class AdminController extends Controller
 //            $model->update($lottery['lotId'], array('status' => -2)); // 撤单
             $lottery->status = -2;
             $lottery->save();
-//            $user = $userModel->detail($lottery['uid']);
             $user = lu_user_data::where('uid', $lottery['uid'])->first();
             // 添加资金明细.
             $pointRecordData = array(
@@ -779,14 +769,12 @@ class AdminController extends Controller
                 'created' => strtotime(date('Y-m-d H:i:s'))
             );
             App\lu_points_record::create($pointRecordData);
-//            $pointRecordModel->insert($pointRecordData);
-//            $userModel->updateLoginInfo($lottery['uid'] ,array('points'=> $user['points'] + $cancelPrice));
             $user->points = $user->points + $cancelPrice;
             $user->save();
 
             // 查看是否有追号截止的。如果有追号，则恢复.
             if ($lottery['groupId'] != null) {
-                $params = array("groupId" => $lottery['groupId'], "province" => strtolower($type), "status" => "-1");
+//                $params = array("groupId" => $lottery['groupId'], "province" => strtolower($type), "status" => "-1");
                 $zhuihaoList = App\lu_lotteries_k3::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
                 foreach ($zhuihaoList as $hao) {
                     $userDetail = lu_user_data::where('uid', $lottery['uid'])->first();//$userModel->detail($lottery['uid']);

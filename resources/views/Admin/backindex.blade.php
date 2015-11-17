@@ -34,24 +34,21 @@
     <div id="leftMenu">
         <ul class="easyui-tree">
             <li>
-                <a href="/backindex"><span>主页</span></a>
+                <a href="/adminindex"><span>主页</span></a>
             </li>
             <li>
                 <span>会员管理</span>
                 <ul>
                     <li>
-                        {{--<a href="/admin"><span>会员列表</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','会员列表','会员列表','/admin')"><span>会员列表</span></a>
                     </li>
                     <li>
                         <a onclick="$.addTopTab('#tabXG','添加会员','添加会员','/admin/create')"><span>添加会员</span></a>
                     </li>
                     <li>
-                        {{--<a href="/bettingcountList"><span>会员投注统计</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','会员投注统计','会员投注统计','/bettingcountList')"><span>会员投注统计</span></a>
                     </li>
                     <li>
-                        {{--<a href="/bettingList"><span>会员投注列表</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','会员投注列表','会员投注列表','/bettingList')"><span>会员投注列表</span></a>
                     </li>
                     {{--<li>--}}
@@ -66,11 +63,9 @@
                 <span>代理管理</span>
                 <ul>
                     <li>
-                        {{--<a href="/admin?groupid=3"><span>代理列表</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','代理列表','代理列表','/admin?groupid=3')">代理列表</a>
                     </li>
                     <li>
-                        {{--<a href="/proxycert"><span>代理条款设置</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','代理条款设置','代理条款设置','/proxycert')">代理条款设置</a>
                     </li>
                 </ul>
@@ -79,23 +74,18 @@
                 <span>资金管理</span>
                 <ul>
                     <li>
-                        {{--<a href="/getdepositlist"><span>提现审批申请</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','提现审批申请','提现审批申请','/getdepositlist')">提现审批申请</a>
                     </li>
                     <li>
-                        {{--<a href="/company"><span>公司充值</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','公司充值','公司充值','/company')">公司充值</a>
                     </li>
                     <li>
-                        {{--<a href="/rechargelist"><span>在线充值</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','在线充值','在线充值','/rechargelist')">在线充值</a>
                     </li>
                     <li>
-                        {{--<a href="/companybank/create"><span>添加公司充值账户</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','添加公司充值账户','添加公司充值账户','/companybank/create')">添加公司充值账户</a>
                     </li>
                     <li>
-                        {{--<a href="/companybank"><span>公司充值账户</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','公司充值账户','公司充值账户','/companybank')">公司充值账户</a>
                     </li>
                 </ul>
@@ -104,24 +94,19 @@
                 <span>彩票管理</span>
                 <ul>
                     <li>
-                        {{--<a href="/k3odds"><span>快三赔率管理</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','快三赔率管理','快三赔率管理','/k3odds')">快三赔率管理</a>
                     </li>
                     <li>
-                        {{--<a href="/manualkj"><span>快三手动开奖</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','快三手动开奖','快三手动开奖','/manualkj')">快三手动开奖</a>
                     </li>
                     <li>
-                        {{--<a href="/cancelOrder"><span>撤单</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','撤单','撤单','/cancelOrder')">撤单</a>
                     </li>
                     <li>
-                        {{--<a href="/userreturns"><span>返水管理</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','返水管理','返水管理','/userreturns')">返水管理</a>
                     </li>
 
                     <li>
-                        {{--<a href="/manualreturns"><span>手动返水</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','手动返水','手动返水','/manualreturns')">手动返水</a>
                     </li>
                 </ul>
