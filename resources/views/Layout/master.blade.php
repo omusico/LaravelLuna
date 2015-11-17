@@ -190,9 +190,6 @@
             @if(Auth::guest() && empty($islogin) && empty($isregister))
             location.replace('/login');
             @endif
-
-
-
         }
     })(navigator.userAgent);
 
@@ -202,9 +199,10 @@
             url: '/getPersonalwin',
             dataType: "json",
             success: function (json) {
-                console.log(json);
-                var content = "恭喜,亲爱的{{Auth::user()->name}}，您的";
+//                console.log(json);
                 if (json.length > 0) {
+                    @if(!Auth::guest())
+                    var content = "恭喜,亲爱的{{Auth::user()->name}}，您的";
                     for (var i = 0; i < json.length; i++) {
                         if (i == json.length - 1) {
                             content += json[i].provinceName + "第" + json[i].proName + "买" + json[i].codes + "中奖了!";
@@ -214,6 +212,8 @@
                     }
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
+                    @endif
+
                 }
             }
 
