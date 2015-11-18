@@ -37,18 +37,9 @@ Route::get('dailiregister', 'registerController@dailiregister');
 Route::post('dailiregister/save', ['as' => 'dailiregister_save', 'uses' => 'registerController@dailistore']);
 
 Route::controller('password', 'PasswordController');
-####################################################
-#学生的登录详情(包括资料修改，分数查询)
-####################################################
-//Route::get('stu/home', [
-//    'as' => 'stu_home', 'uses' => 'Stu\StudentController@home']);
-//Route::get('stu/edit', [
-//    'as' => 'stu_edit', 'uses' => 'Stu\StudentController@edit']);
-//Route::post('stu/update', [
-//    'as' => 'stu_update', 'uses' => 'Stu\StudentController@update']);
 
 ####################################################
-#管理员入口(增删改查，上传分数)
+#管理员入口(增删改查)
 ####################################################
 #会员路由
 Route::resource('admin', 'Admin\AdminController');
@@ -136,6 +127,7 @@ Route::get('/k3GameRule', ['uses' => 'LotteryK3Controller@k3GameRule']);
 Route::get('/favourable', ['uses' => 'LotteryK3Controller@favourable']);
 Route::get('/phpinfo', ['uses' => 'WelcomeController@phpinfo']);
 Route::get('/inviteurl', ['as' => 'inviteurl', 'uses' => 'Proxy\ProxyController@index']);
+Route::get('/proxydetail/{id}', ['as' => 'proxydetail', 'uses' => 'Proxy\ProxyController@proxydetail']);
 
 //充值
 Route::get('/recharge', ['middleware' => 'auth', 'uses' => 'CashController@recharge']);

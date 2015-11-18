@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\lu_lotteries_k3;
 use App\lu_user;
 use App\LunaLib\Common\CommonClass;
 use Illuminate\Http\Request;
@@ -17,93 +18,52 @@ class ProxyController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         $isdaili = false;
-        $display ='block';
+        $display = 'block';
         if (!Auth::guest()) {
 
             $groupId = Auth::user()->groupId;
             if ($groupId == 5 || $groupId == 3) {
-                $display='none';
+                $display = 'none';
+                $userName = $request->userName;
+                $starttime = $request->starttime;
+                $endtime = $request->endtime;
                 $result = lu_user::where('recId', Auth::user()->id);
-                $count = $result->count();
+                if (!empty($userName)) {
+                    $result->where('name', $userName);
+                }
+//                if (empty($starttime) && empty($endtime)) {
+//                    $result->where('left(created_at,10)',date('Y-m-d'));
+//                }
+                if (!empty($starttime)) {
+                    $result->where('created_at', '>=', $starttime);
+                }
+                if (!empty($endtime)) {
+                    $result->where('created_at', '<=', $endtime);
+                }
                 $lu_users = $result->paginate(10);
                 $user_groups = CommonClass::cache("user_groups", 1);
-//                $result2 =  \DB::select('select id from lu_users where recid = ?', [11]);
                 $isdaili = true;
-                return view('User.inviteurl', compact('lu_users', 'user_groups', 'isdaili','display'));
+                return view('User.inviteurl', compact('lu_users', 'user_groups', 'isdaili', 'display', 'userName', 'starttime', 'endtime'));
+
             } else {
-                return view('User.inviteurl', compact('isdaili','display'));
+                return view('User.inviteurl', compact('isdaili', 'display'));
             }
 
         }
-        return view('User.inviteurl',compact('display'));
+        return view('User.inviteurl', compact('display'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
+    function proxydetail($id)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
+        if (lu_user::find($id)->recId == Auth::user()->id) {
+            $result = lu_lotteries_k3::where('uid', $id)->orderby('created_at', 'desc');
+            $lu_lotteries_k3s = $result->paginate(10);
+            return view('User.usrBettingList', compact('lu_lotteries_k3s'));
+        }
     }
 
 }
