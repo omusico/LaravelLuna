@@ -34,7 +34,7 @@
                                    id="amounts"
                                    name="amounts"
                                    value="100" size="5"
-                                   min="1" class="money"
+                                   min="10" class="money"
                                    onchange="pay.moneyFormat(this);"><span
                                     style="display: inline-block;line-height: 45px; padding-left:5px;"> 元 (<span
                                         id="recharge-tips"><span style="color:#FF0000">0</span>元手续费</span>)</span>
