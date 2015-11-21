@@ -1094,7 +1094,7 @@ BET.submit = function () {
                                             break;
                                         case "error":
                                             alert(json.msg);
-                                            window.location.href = baseUrl + "/index.php/user/home/init?lottery_type=" + lottery_type;
+                                            //window.location.href = baseUrl + "/index.php/user/home/init?lottery_type=" + lottery_type;
                                             break;
                                         default:
                                             alert(json.msg)

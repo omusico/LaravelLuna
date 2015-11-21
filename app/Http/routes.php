@@ -104,10 +104,13 @@ Route::get('collectLotteryData', [
     'as' => 'collectLotteryData', 'uses' => 'CollectController@collectLotteryData']);
 Route::get('lotteryIndex', [
     'as' => 'lotteryIndex', 'uses' => 'LotteryK3Controller@index']);
+Route::get('fivelotteryIndex', [
+    'as' => 'fivelotteryIndex', 'uses' => 'LotteryFiveController@index']);
 Route::get('lotterytrend', [
     'as' => 'lotterytrend', 'uses' => 'LotteryK3Controller@trend']);
 Route::any('/lotteryBetting', ['middleware' => 'auth', 'as' => 'lotteryBetting', 'uses' => 'LotteryK3Controller@betting']);
-Route::any('/zhuihao', ['middleware' => 'auth', 'as' => 'lotteryBetting', 'uses' => 'LotteryK3Controller@zhuihao']);
+Route::any('/fivelotteryBetting', ['middleware' => 'auth', 'as' => 'fivelotteryBetting', 'uses' => 'LotteryFiveController@betting']);
+Route::any('/zhuihao', ['middleware' => 'auth', 'as' => 'zhuihao', 'uses' => 'LotteryK3Controller@zhuihao']);
 Route::any('/userLotteryBetting', ['middleware' => 'auth', 'as' => 'userLotteryBetting', 'uses' => 'User\UserController@userBettingList']);
 Route::any('/getaccountdetail', ['middleware' => 'auth', 'as' => 'getaccountdetail', 'uses' => 'User\UserController@getaccountdetail']);
 Route::any('/getLotteryData', ['as' => 'getLotteryDataForQt', 'uses' => 'LotteryK3Controller@getLotteryDataForQt']);
@@ -138,5 +141,9 @@ Route::post('/apply', ['as' => 'apply', 'uses' => 'CashController@apply']);
 //智付，接口数据返回
 Route::post('/zfReturn_Url', ['as' => 'zfReturn_Url', 'uses' => 'CashController@zfReturn_Url']);
 Route::post('/zfNotify_Url', ['as' => 'zfNotify_Url', 'uses' => 'CashController@zfNotify_Url']);
+
+
+//five
+Route::get('/five', 'WelcomeController@five');
 
 

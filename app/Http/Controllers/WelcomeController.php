@@ -63,8 +63,12 @@ class WelcomeController extends Controller {
                 $recentArray['NMG'] = $value;
             }
         }
-		return view('index',compact('recentArray'));
+		return view(env('SITE_TYPE','').'index',compact('recentArray'));
 	}
+
+    public function five(){
+        return view('fiveindex');
+    }
 
     public function phpinfo(){
         return view('phpinfo');

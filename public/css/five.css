@@ -1,0 +1,46 @@
+.top_main_back_five {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 100%;
+    z-index: -1;
+    _z-index: 0;
+    background: url('fiveback.png') 50% 0px no-repeat;
+}
+
+.fiveindexbutton {
+    background: url('buttonback.png') no-repeat;
+    height: 30px;
+    text-align: center;
+    border: 2px solid #EFE697
+}
+
+.fiveindexbutton span {
+    color: #f9d450
+}
+.crown {
+    background: url('crown.png') no-repeat;
+    text-align: center;
+    border: 2px solid #EFE697;
+    height: 40px;
+    margin: auto;
+}
+
+.crown span {
+    color: #f9d450;
+    font-size: large;
+}
+
+.hm-con { clear: both; overflow: hidden;}
+.hm-con li { float: left; height: 60px; line-height: 55px; border-bottom: 1px solid rgb(255, 255, 255); text-align: center; padding-left: 1px; font-size:15px; font-weight:bolder; }
+.w700 { width: 740px; margin: 8px auto 10px; }
+.kj_tab { width: 740px;}
+.kj-w110{ width:115px}
+.kj-w110 div{width: 44px; height: 44px; display: block; text-align: center; line-height: 39px; font-size: 16px; font-weight: 700; overflow: hidden; color:#9f0417; margin-top:7px; margin-left:40px}
+.kj-w110 .OneNum{ cursor: pointer;background: url('main_pic.png') no-repeat scroll -451px -48px transparent; }
+.kj-w110 .OneNum_active{cursor: pointer;background: url('main_pic.png') no-repeat scroll -516px -48px transparent; color:#fff }
+.kj_title span { display: inline-block; width: 15px; margin: 180px 0px 0px 18px; }
+.kj_tab .hm-con { float: right; width: 740px; overflow: hidden; clear: none; }
+.kjgg_box h3, em, i { margin: 0px; padding: 0px; font-style: normal; }
+.open_Ball{background: url('main_pic.png') no-repeat scroll 23px -220px transparent;display: inline-block; font-size:18px;font-weight:bolder;color:#fff;}

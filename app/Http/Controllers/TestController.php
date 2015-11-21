@@ -20,8 +20,8 @@ class TestController extends Controller {
         return redirect()->back();
     }
 
-    public function adminmain(){
-        return view('Layout.easyUIbackmaster');
-    }
+//    public function adminmain(){
+//        return view('Layout.easyUIbackmaster');
+//    }
 
 }

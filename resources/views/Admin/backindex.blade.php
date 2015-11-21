@@ -149,7 +149,7 @@
 <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="/js/easyui.gq.js"></script>
 <script type="text/javascript" src="/js/easyui.package.js"></script>
-<script type="text/javascript" src="/js/collect.js"></script>
+<script type="text/javascript" src="/js/{{env('SITE_TYPE','')}}collect.js"></script>
 <script type="text/javascript" defer="defer">
     $(function () {
         $('#tabXG').tabs('add', {

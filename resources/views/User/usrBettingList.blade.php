@@ -17,7 +17,7 @@
                 <tr>
                     <td>类型</td>
                     <td>订单</td>
-                    <td>姓名</td>
+                    {{--<td>姓名</td>--}}
                     <td>期号</td>
                     <td>号码</td>
                     <td>投注金额</td>
@@ -30,7 +30,7 @@
                         <tr>
                             <td>{{ $lu_lotteries_k3->provinceName }}</td>
                             <td>{{ $lu_lotteries_k3->sn }}</td>
-                            <td>{{ $lu_lotteries_k3->userName }}</td>
+                            {{--<td>{{ $lu_lotteries_k3->userName }}</td>--}}
                             <td>{{ $lu_lotteries_k3->proName }}</td>
                             <td>{{ $lu_lotteries_k3->codes }}</td>
                             <td>{{ $lu_lotteries_k3->eachPrice }}</td>
