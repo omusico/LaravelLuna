@@ -2017,7 +2017,7 @@ function loadWinInfo() {
                     html += '<span class="hm_' + args[w] + '"></span>';
                     hz = hz + parseInt(args[w], 10)
                 }
-                var d = hz > 10 ? '<span class="specil"> 大</span>' : '<span class="specil"> 小</span>';
+                var d = hz > 30 ? '<span class="specil"> 大</span>' : '<span class="specil"> 小</span>';
                 var e = hz % 2 == 0 ? '<span class="specil">双</span>' : '<span class="specil">单</span>';
                 if ($("#kjxthz").size() > 0) {
                     var h = '和值：<span id="lottery_hz">' + hz + "</span> 型态：" + d + "&nbsp;&nbsp;" + e;
@@ -2079,10 +2079,10 @@ function loadRecentResult() {
                         hz = hz + parseInt(value, 10)
                     }
                     var d = "";
-                    if (hz <= 10) {
+                    if (hz <= 30) {
                         d = '<span class="specil"> 小</span>'
                     } else {
-                        if (hz > 10) {
+                        if (hz > 30) {
                             d = '<span class="specil"> 大</span>'
                         }
                     }
