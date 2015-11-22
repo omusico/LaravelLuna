@@ -268,15 +268,19 @@
         function userclick(type) {
             if (type == 1) {
 
+                window.location.href = 'register';
             }
             if (type == 2) {
 
+                window.location.href = 'recharge';
             }
             if (type == 3) {
 
+                window.location.href = 'deposit';
             }
             if (type == 4) {
 
+                window.location.href = 'dailiregister';
             }
             if (type == 5) {
                 $('#myModal').modal('show');

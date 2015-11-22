@@ -1,4 +1,4 @@
-@extends('Layout.master')
+@extends('Layout.'.env("SITE_TYPE",'').'master')
 
 @section('title')
     代理推广链接
@@ -6,8 +6,8 @@
 
 @section('content')
     <div class="container">
-
-        <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1" style="background-color: white">
 
             @include('errors.list')
 
@@ -123,6 +123,7 @@
                 @endif
             @endif
         </div>
+    </div>
     </div>
 @stop
 @section('script')
