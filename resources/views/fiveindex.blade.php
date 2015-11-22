@@ -82,10 +82,12 @@
 
         .nk3_kjgg li {
             margin-left: 4px;
-            line-height: 19px;
+            line-height: 32px;
             border-bottom: dotted 1px #888;
             padding: 10px 0 10px 0;
-            width: 201px;
+            width: 301px;
+            color: #f9d450;
+            height: 120px;
         }
 
         .nk3_kjgg li em {
@@ -103,7 +105,6 @@
                 </div>
             </div>
             <div class="row">
-
                 <div class="col-md-5 mobilhide"
                      style="padding-left: 0px;padding-right: 0px;margin-right: 0px;border: 3px solid #EFE697">
                     <div id="carousel-generic" class="carousel slide" data-ride="carousel"
@@ -166,6 +167,96 @@
                                 @endif
                             </ul>
                         </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mobilhide" style="padding-left: 0px;padding-right: 0px;border-right: none">
+                    <div class="distance nk3_kjgg" style="border-right: none;background-color: transparent">
+                        <ul class="col-md-4">
+                            @if(null !=$recentArray['SDFIVE'])
+                                <li><strong>山东11选5</strong> 第<em>{{$recentArray['SDFIVE']->proName}}</em>期开奖号码<br>
+                                    开奖时间：{{$recentArray['SDFIVE']->created_at}}
+                                    <br>
+                                    <a href="/fivelotteryIndex?lottery_type=sdfive">立即购买</a>
+
+                                    <div class="fiveNum">{{explode(',', $recentArray['SDFIVE']->codes)[0]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['SDFIVE']->codes)[1]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['SDFIVE']->codes)[2]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['SDFIVE']->codes)[3]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['SDFIVE']->codes)[4]}}</div>
+                                </li>
+                            @endif
+                            @if(null !=$recentArray['GDFIVE'])
+                                <li><strong>广东11选5</strong> 第<em>{{$recentArray['GDFIVE']->proName}}</em>期开奖号码<br>
+                                    开奖时间：{{$recentArray['GDFIVE']->created_at}}
+                                    <br>
+                                    <a href="/fivelotteryIndex?lottery_type=gdfive">立即购买</a>
+
+                                    <div class="fiveNum">{{explode(',', $recentArray['GDFIVE']->codes)[0]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['GDFIVE']->codes)[1]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['GDFIVE']->codes)[2]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['GDFIVE']->codes)[3]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['GDFIVE']->codes)[4]}}</div>
+                                </li>
+                            @endif
+                            @if(null !=$recentArray['SHFIVE'])
+                                <li><strong>上海11选5</strong> 第<em>{{$recentArray['SHFIVE']->proName}}</em>期开奖号码<br>
+                                    开奖时间：{{$recentArray['SHFIVE']->created_at}}
+                                    <br>
+                                    <a href="/fivelotteryIndex?lottery_type=shfive">立即购买</a>
+
+                                    <div class="fiveNum">{{explode(',', $recentArray['SHFIVE']->codes)[0]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['SHFIVE']->codes)[1]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['SHFIVE']->codes)[2]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['SHFIVE']->codes)[3]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['SHFIVE']->codes)[4]}}</div>
+                                </li>
+                            @endif
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 mobilhide" style="padding-left: 0px;">
+                    <div class="distance nk3_kjgg" style="border-right: none;background-color: transparent">
+                        <ul class="col-md-3">
+                            @if(null !=$recentArray['JXFIVE'])
+                                <li><strong>江西11选5</strong> 第<em>{{$recentArray['JXFIVE']->proName}}</em>期开奖号码<br>
+                                    开奖时间：{{$recentArray['JXFIVE']->created_at}}
+                                    <br>
+                                    <a href="/fivelotteryIndex?lottery_type=jxfive">立即购买</a>
+
+                                    <div class="fiveNum">{{explode(',', $recentArray['JXFIVE']->codes)[0]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['JXFIVE']->codes)[1]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['JXFIVE']->codes)[2]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['JXFIVE']->codes)[3]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['JXFIVE']->codes)[4]}}</div>
+                                </li>
+                            @endif
+                            @if(null !=$recentArray['ZJFIVE'])
+                                <li><strong>浙江11选5</strong> 第<em>{{$recentArray['ZJFIVE']->proName}}</em>期开奖号码<br>
+                                    开奖时间：{{$recentArray['ZJFIVE']->created_at}}
+                                    <br>
+                                    <a href="/fivelotteryIndex?lottery_type=zjfive">立即购买</a>
+
+                                    <div class="fiveNum">{{explode(',', $recentArray['ZJFIVE']->codes)[0]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['ZJFIVE']->codes)[1]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['ZJFIVE']->codes)[2]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['ZJFIVE']->codes)[3]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['ZJFIVE']->codes)[4]}}</div>
+                                </li>
+                            @endif
+                            @if(null !=$recentArray['LIAONINGFIVE'])
+                                <li><strong>辽宁11选5</strong> 第<em>{{$recentArray['LIAONINGFIVE']->proName}}</em>期开奖号码<br>
+                                    开奖时间：{{$recentArray['LIAONINGFIVE']->created_at}}
+                                    <br>
+                                    <a href="/fivelotteryIndex?lottery_type=sdfive">立即购买</a>
+
+                                    <div class="fiveNum">{{explode(',', $recentArray['LIAONINGFIVE']->codes)[0]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['LIAONINGFIVE']->codes)[1]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['LIAONINGFIVE']->codes)[2]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['LIAONINGFIVE']->codes)[3]}}</div>
+                                    <div class="fiveNum">{{explode(',', $recentArray['LIAONINGFIVE']->codes)[4]}}</div>
+                                </li>
+                            @endif
+                        </ul>
                     </div>
                 </div>
             </div>

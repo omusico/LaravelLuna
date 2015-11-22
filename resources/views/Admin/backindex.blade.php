@@ -21,7 +21,7 @@
                 <span style="font-weight: bold;color: #000000">欢迎您 {{Auth::user()->name}}</span>
             </a>
             {{--<a style="margin-right: 5px;" id="btnEditPwd" onclick=" EditPwd() " class="easyui-linkbutton"--}}
-               {{--data-options="iconCls:'icon-edit',plain:true">修改密码</a>--}}
+            {{--data-options="iconCls:'icon-edit',plain:true">修改密码</a>--}}
             <a style="margin-right: 5px;" id="btnLogOut" onclick=" Logout() " class="easyui-linkbutton"
                data-options="iconCls:'icon-undo',plain:true">退出</a><br/>
         </div>
@@ -93,15 +93,21 @@
             <li>
                 <span>彩票管理</span>
                 <ul>
-                    <li>
-                        <a onclick="$.addTopTab('#tabXG','快三赔率管理','快三赔率管理','/k3odds')">快三赔率管理</a>
-                    </li>
-                    <li>
-                        <a onclick="$.addTopTab('#tabXG','快三手动开奖','快三手动开奖','/manualkj')">快三手动开奖</a>
-                    </li>
-                    <li>
-                        <a onclick="$.addTopTab('#tabXG','撤单','撤单','/cancelOrder')">撤单</a>
-                    </li>
+                    @if(env('SITE_TYPE','')=='five')
+                        <li>
+                            <a onclick="$.addTopTab('#tabXG','11选5赔率管理','11选5赔率管理','')">11选5赔率管理</a>
+                        </li>
+                    @else
+                        <li>
+                            <a onclick="$.addTopTab('#tabXG','快三赔率管理','快三赔率管理','/k3odds')">快三赔率管理</a>
+                        </li>
+                        <li>
+                            <a onclick="$.addTopTab('#tabXG','快三手动开奖','快三手动开奖','/manualkj')">手动开奖</a>
+                        </li>
+                        <li>
+                            <a onclick="$.addTopTab('#tabXG','撤单','撤单','/cancelOrder')">撤单</a>
+                        </li>
+                    @endif
                     <li>
                         <a onclick="$.addTopTab('#tabXG','返水管理','返水管理','/userreturns')">返水管理</a>
                     </li>

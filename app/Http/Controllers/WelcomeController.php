@@ -62,6 +62,30 @@ class WelcomeController extends Controller {
             if($value->typeName=="NMG"){
                 $recentArray['NMG'] = $value;
             }
+            if($value->typeName=="SDFIVE"){
+                $recentArray['SDFIVE'] = $value;
+            }
+            if($value->typeName=="GDFIVE"){
+                $recentArray['GDFIVE'] = $value;
+            }
+            if($value->typeName=="SHFIVE"){
+                $recentArray['SHFIVE'] = $value;
+            }
+            if($value->typeName=="JXFIVE"){
+                $recentArray['JXFIVE'] = $value;
+            }
+            if($value->typeName=="ZJFIVE"){
+                $recentArray['ZJFIVE'] = $value;
+            }
+            if($value->typeName=="CQFIVE"){
+                $recentArray['CQFIVE'] = $value;
+            }
+            if($value->typeName=="LIAONINGFIVE"){
+                $recentArray['LIAONINGFIVE'] = $value;
+            }
+            if($value->typeName=="HLJFIVE"){
+                $recentArray['HLJFIVE'] = $value;
+            }
         }
 		return view(env('SITE_TYPE','').'index',compact('recentArray'));
 	}

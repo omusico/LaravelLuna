@@ -1,4 +1,4 @@
-@extends('Layout.master')
+@extends('Layout.'.env("SITE_TYPE",'').'master')
 
 @section('title')
     代理注册
@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">代理注册</div>
                     <div class="panel-body">

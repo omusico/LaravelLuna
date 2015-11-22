@@ -1,6 +1,7 @@
 <?php
 namespace App\LunaLib\Common;
 
+use App\lu_lotteries_five;
 use App\lu_lotteries_k3;
 use App\lu_lotteries_result;
 use App\lu_lottery_notes_k3;
@@ -400,16 +401,24 @@ class LunaFunctions
 
     function lottery_kj($lottery_type, $winPre, $winCode)
     {
-
+        $Sitetype = env('SITE_TYPE','');
         $type = $this->get_lottery_type_code($lottery_type);
         if ('k3' == $type) $type = 'lottery';
 //        Waf::moduleLib('Lottery_Result', $type, true);
         if ($winCode && $winPre) {
 //            $model = Waf::model('lottery/list', array('lottery_type' => $lottery_type));
             //获奖列表
-            $winlists = lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
+            if(type=='five'){
+                $winlists = lu_lotteries_five::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
+            }else{
+                $winlists = lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
+            }
             //获奖处理
-            lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
+            if(type=='five'){
+                lu_lotteries_five::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
+            }else{
+                lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
+            }
             $args = array();
             if ($winlists) {
                 $winArr = explode(',', $winCode);
@@ -469,7 +478,13 @@ class LunaFunctions
                             if (!isset($matchCount)) $matchCount = 1;
 // 							file_put_contents ( __WAF_ROOT__ . '/win33.log','$matchCount:'.$matchCount . '\n', FILE_APPEND );
 //                            $lottery->update($lotId, array('noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount));
-                            lu_lotteries_k3::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
+                            if(type=='five'){
+
+                                lu_lotteries_five::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
+                            }else{
+
+                                lu_lotteries_k3::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
+                            }
 //                            $userInfo = $userModel->detail($data['uid']);
                             $userInfo = lu_user_data::where('uid', $data['uid'])->first();
 
