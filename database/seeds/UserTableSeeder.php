@@ -51,7 +51,7 @@ class UserTableSeeder extends Seeder {
 
         \App\lu_user::create([
             'name' => 'admin',
-            'password' => Hash::make('root'),
+            'password' => Hash::make('root2015'),
             'groupId' => 1,
             'is_admin' => 1,
             'invite'=>rand(10000,99999),
