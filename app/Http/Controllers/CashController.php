@@ -8,7 +8,9 @@ use App\lu_lottery_company_bank;
 use App\lu_lottery_company_recharge;
 use App\lu_lottery_recharge;
 use App\lu_points_record;
+use App\lu_user;
 use App\LunaLib\Common\CommonClass;
+use App\LunaLib\Common\defaultCache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
@@ -39,7 +41,7 @@ class CashController extends Controller
         }
         $count = $result->count();
         $lu_companys = $result->paginate(10);
-        return view('Admin.companyrecharge', compact('lu_companys', 'count','userName', 'starttime', 'endtime'));
+        return view('Admin.companyrecharge', compact('lu_companys', 'count', 'userName', 'starttime', 'endtime'));
     }
 
     /**
@@ -164,14 +166,25 @@ class CashController extends Controller
     public function recharge()
     {
         $bank = lu_lottery_company_bank::find(1);
+        $userlevels = defaultCache::userlevel();
+        if (Auth::user()->recId == 0) {
+            if (Auth::user()->level == 0) {
+                $levelkey = 1;
+            } else {
+                $levelkey = Auth::user()->level;
+            }
+        } else {
+            $levelkey = lu_user::find(Auth::user()->recId)->level;
+        }
+        $level = $userlevels[$levelkey];
 //        return view('User.bankselect');
-        return view('Cash.recharge', compact('bank'));
+        return view('Cash.recharge', compact('bank',"level","levelkey"));
     }
 
     public function deposit()
     {
 //        $bank =lu_lottery_company_bank::find(1);
-        $lu_lottery_applys = lu_lottery_apply::where('uid',Auth::user()->id)->orderby('created_at', 'desc')->paginate(10);
+        $lu_lottery_applys = lu_lottery_apply::where('uid', Auth::user()->id)->orderby('created_at', 'desc')->paginate(10);
         return view('Cash.deposit', compact('lu_lottery_applys'));
     }
 
@@ -249,6 +262,7 @@ class CashController extends Controller
     {
         $errormessage = "";
         $paytype = $request->paytype;
+        $levelkey = $request->levelkey;
         if (empty($paytype)) {
             $errormessage = "请选择一种支付方式";
         }
@@ -258,7 +272,7 @@ class CashController extends Controller
                 ->withErrors($errormessage);
         } else {
             $data = array(
-                'sn' => $request->order_no,
+                'sn' => date("YmdHis"),
                 'uid' => $request->uid,
                 'siteId' => 1,
                 'amounts' => $request->amounts,
@@ -269,7 +283,6 @@ class CashController extends Controller
             );
             lu_lottery_recharge::create($data);
             if ($paytype == 'zf') {
-//                Redirect::to("")
                 return view('Cash.lotteryorderzf');
             } else {
                 return view('Cash.lotteryorderkjt');

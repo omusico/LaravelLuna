@@ -368,7 +368,7 @@ class AdminController extends Controller
 //        $this->notice->set($contents);
         $lunaFunction->get_lottery_type_code($lottery_type);
 
-        session()->flash('message', $winPre . '手动开奖金成功');
+        session()->flash('message', $winPre . '手动开奖成功');
         return Redirect::back();
 
 //        if ($type == 'k3') $type = 'lottery';
@@ -460,12 +460,45 @@ class AdminController extends Controller
         return view('Admin.k3odds', compact('odds', 'chipins', 'types', 'nameDatas', 'keyDatas'));
     }
 
+    public function fiveodds()
+    {
+        $odds = App\LunaLib\Common\defaultCache::cache_five_odds();
+        $chipins = App\LunaLib\Common\defaultCache::cache_five_chipins();
+        $types = App\LunaLib\Common\defaultCache::cache_five_type_slug();
+        $nameDatas = array(
+            '46' => '单',
+            '47' => '双',
+            '48' => '小',
+            '49' => '大',
+            '50' => '前单',
+            '51' => '前双',
+            '52' => '前大',
+            '53' => '前小',
+            'val' => '赔率'
+        );
+
+        $keyDatas = array(
+            '2BTH','HZ'
+        );
+        return view('Admin.fiveodds', compact('odds', 'chipins', 'types', 'nameDatas', 'keyDatas'));
+    }
+
     public function savek3odds(Request $request)
     {
         $k3odds = $request->odds;
         $chipins = $request->chipins;
         Cache::forever('k3odds', $k3odds);
         Cache::forever('chipins', $chipins);
+        session()->flash('message', '修改赔率成功');
+        return Redirect::back();
+    }
+
+    public function savefiveodds(Request $request)
+    {
+        $fiveodds = $request->odds;
+        $chipins = $request->chipins;
+        Cache::forever('fiveodds', $fiveodds);
+        Cache::forever('fivechipins', $chipins);
         session()->flash('message', '修改赔率成功');
         return Redirect::back();
     }
@@ -616,6 +649,19 @@ class AdminController extends Controller
             }
         }
         return 0;
+    }
+
+    public function userlevel(){
+        $userlevels = App\LunaLib\Common\defaultCache::userlevel();
+        return view('Admin.userlevel',compact('userlevels'));
+    }
+
+    public function saveuserlevel(Request $request)
+    {
+        $userlevel = $request->userlevel;
+        Cache::forever('userlevel', $userlevel);
+        session()->flash('message', '修改支付方式成功');
+        return Redirect::back();
     }
 
     public function manualrecharge(Request $request)

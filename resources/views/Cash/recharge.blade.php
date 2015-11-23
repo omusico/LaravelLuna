@@ -23,7 +23,7 @@
                         <div class="tab-pane active" id="DSF"> 
                             @include('errors.list')
                             {{--{!! Form::open(['url' => '/recharge', 'class' => 'form-horizontal', 'role' => 'form']) !!}--}}
-                            <form method="POST" action="http://k3.gwou.cn/recharge" accept-charset="UTF-8"
+                            <form method="POST" action="{{$level['returnurl']}}/recharge" accept-charset="UTF-8"
                                   class="form-horizontal" role="form"><input name="_token" type="hidden"
                                                                              value="qPzqUC6WIO09PmQr5hH4EZSVmzJpipguGMLbSlse">
 
@@ -48,30 +48,23 @@
                                     <input name="uid" value="{{Auth::user()->id}}" type="hidden">
                                     <input name="name" value="{{Auth::user()->name}}" type="hidden">
                                 </div>
-                                <div class="form-group">
-                                    <label class="radio-inline col-md-2 col-md-offset-2">
-                                        <input checked type="radio" value="zf" name="paytype"><img src="/css/zf.png"
-                                                                                                   alt="智付">
-                                    </label>
-                                    <label class="radio-inline col-md-2">
-                                        <input disabled type="radio" value="kjt" name="paytype"><img src="/css/kjt.png"
-                                                                                                     alt="快捷通">
-                                    </label>
-                                </div>
+                                <input name="paytype" value="{{$level['typeName']}}" type="hidden">
+                                <input name="levelkey" value="{{$levelkey}}" type="hidden">
+                                {{--<div class="form-group" style="display: none">--}}
+                                    {{--<label class="radio-inline col-md-2 col-md-offset-2">--}}
+                                        {{--<input checked type="radio" value="zf" name="paytype"><img src="/css/zf.png"--}}
+                                                                                                   {{--alt="智付">--}}
+                                    {{--</label>--}}
+                                    {{--<label class="radio-inline col-md-2">--}}
+                                        {{--<input disabled type="radio" value="kjt" name="paytype"><img src="/css/kjt.png"--}}
+                                                                                                     {{--alt="快捷通">--}}
+                                    {{--</label>--}}
+                                {{--</div>--}}
                                 <div class="form-group" style="margin-top: 50px">
                                     <input type="submit" class="btn-lg btn-danger col-lg-offset-3" value="充值">
                                 </div>
                                 <div style="display: none">
                                     <div><a>---以下开始是测试数据</a></div>
-                                    <div class="form-group">
-                                        <label for="merchant_code" class="control-label col-md-4 ">商家号: </label>
-
-                                        <div class="col-md-4">
-                                            <input class="form-control" name="merchant_code" type="text"
-                                                   id="merchant_code"
-                                                   value="2000632709">
-                                        </div>
-                                    </div>
                                     <div class="form-group">
                                         <label for="service_type" class="control-label col-md-4">业务类型: </label>
 
@@ -94,7 +87,7 @@
 
                                         <div class="col-md-4">
                                             <input class="form-control" name="notify_url" type="text" id="notify_url"
-                                                   value="http://k3.gwou.cn/zfNotify_Url">
+                                                   value="{{$level['returnurl']}}/zfNotify_Url">
                                         </div>
                                     </div>
                                     <div class="form-group">

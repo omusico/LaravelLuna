@@ -88,6 +88,9 @@
                     <li>
                         <a onclick="$.addTopTab('#tabXG','公司充值账户','公司充值账户','/companybank')">公司充值账户</a>
                     </li>
+                    <li>
+                        <a onclick="$.addTopTab('#tabXG','支付方式','支付方式','/userlevel')">支付方式</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -95,19 +98,19 @@
                 <ul>
                     @if(env('SITE_TYPE','')=='five')
                         <li>
-                            <a onclick="$.addTopTab('#tabXG','11选5赔率管理','11选5赔率管理','')">11选5赔率管理</a>
+                            <a onclick="$.addTopTab('#tabXG','11选5赔率管理','11选5赔率管理','/fiveodds')">11选5赔率管理</a>
                         </li>
                     @else
                         <li>
                             <a onclick="$.addTopTab('#tabXG','快三赔率管理','快三赔率管理','/k3odds')">快三赔率管理</a>
                         </li>
-                        <li>
-                            <a onclick="$.addTopTab('#tabXG','快三手动开奖','快三手动开奖','/manualkj')">手动开奖</a>
-                        </li>
-                        <li>
-                            <a onclick="$.addTopTab('#tabXG','撤单','撤单','/cancelOrder')">撤单</a>
-                        </li>
                     @endif
+                    <li>
+                        <a onclick="$.addTopTab('#tabXG','快三手动开奖','快三手动开奖','/manualkj')">手动开奖</a>
+                    </li>
+                    <li>
+                        <a onclick="$.addTopTab('#tabXG','撤单','撤单','/cancelOrder')">撤单</a>
+                    </li>
                     <li>
                         <a onclick="$.addTopTab('#tabXG','返水管理','返水管理','/userreturns')">返水管理</a>
                     </li>

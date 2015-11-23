@@ -13,125 +13,155 @@ class defaultCache
     // 支付等级
     public static function userlevel()
     {
-        return array(
-            1 =>
+//        \Cache::forget('userlevel');
+        if (\Cache::has('userlevel')) {
+            return \Cache::get('userlevel');
+        }
+
+        if (env('SITE_TYPE') == 'five') {
+            return array(1 =>
                 array(
-                    'typeName' => 'gfb',
-                    'name' => '国付宝',
-                    'url' => 'http://pay.dxdesigh.com',
-                    'id' => '0000007888',
-                    'key' => '0000000002000002725',
+                    'typeName' => 'zf',
+                    'name' => '智付',
+                    'url' => 'https://merchants.dinpay.com',
+                    'id' => '2000632750',
+                    'key' => 'zxcvbnm8901123_890123mm',
                     'terminalId' => '',
-                ),
-            2 =>
+                    'returnurl' =>'five.kang886.cn',
+                ));
+        } else {
+            return array(1 =>
                 array(
-                    'typeName' => 'hc',
-                    'name' => '汇潮腾',
-                    'url' => 'http://pay.juwen.tv',
-                    'id' => '25256',
-                    'key' => 'PtgXhOoB',
+                    'typeName' => 'zf',
+                    'name' => '智付',
+                    'url' => 'https://merchants.dinpay.com ',
+                    'id' => '2000632709',
+                    'key' => 'zxcvbnm890123_890123zxcvbnm',
                     'terminalId' => '',
-                ),
-            3 =>
-                array(
-                    'typeName' => 'khb',
-                    'name' => '支付3何增娣',
-                    'url' => 'http://pay.hncpqzj.cn',
-                    'id' => '2000390058',
-                    'key' => 'dj98j3idj2dhw283rjdfrig5',
-                    'terminalId' => '',
-                ),
-            4 =>
-                array(
-                    'typeName' => 'hc',
-                    'name' => '汇潮度点',
-                    'url' => 'http://pay.che911.com.cn',
-                    'id' => '24832',
-                    'key' => 'UAqUZPHa',
-                    'terminalId' => '',
-                ),
-            5 =>
-                array(
-                    'typeName' => 'khb',
-                    'name' => '陈思_快汇宝',
-                    'url' => 'http://pay.zzbxpw.cn',
-                    'id' => '2000390046',
-                    'key' => 'kjsi_9wji02_iu3k2_829jd_83y2e',
-                    'terminalId' => '',
-                ),
-            6 =>
-                array(
-                    'typeName' => 'khb',
-                    'name' => '官海艳_快汇宝',
-                    'url' => 'http://pay.zz-china.cn',
-                    'id' => '2000390047',
-                    'key' => 'JKS_9JD8k9_sj9f90_2euu27_30f8d_hjhds2',
-                    'terminalId' => '',
-                ),
-            7 =>
-                array(
-                    'typeName' => 'yeepay',
-                    'name' => '黑名单',
-                    'url' => '',
-                    'id' => '13123',
-                    'key' => '12123123213123213',
-                    'terminalId' => '',
-                ),
-            8 =>
-                array(
-                    'typeName' => 'khb',
-                    'name' => '陈永龙_快汇宝',
-                    'url' => 'http://pays.zzg1903.cn',
-                    'id' => '2000390018',
-                    'key' => 'j93u3_u3o097876y_uf87r7ru',
-                    'terminalId' => '',
-                ),
-            9 =>
-                array(
-                    'typeName' => 'khb',
-                    'name' => '',
-                    'url' => '',
-                    'id' => '',
-                    'key' => '',
-                    'terminalId' => '',
-                ),
-            10 =>
-                array(
-                    'typeName' => 'khb',
-                    'name' => '',
-                    'url' => '',
-                    'id' => '',
-                    'key' => '',
-                    'terminalId' => '',
-                ),
-            11 =>
-                array(
-                    'typeName' => 'hc',
-                    'name' => '汇潮',
-                    'url' => 'http://pay.huanggao.org.cn',
-                    'id' => '22682',
-                    'key' => 'Ji7H8l9y',
-                    'terminalId' => '',
-                ),
-            12 =>
-                array(
-                    'typeName' => 'hc',
-                    'name' => '汇潮2',
-                    'url' => 'http://pay.huanggao.org.cn',
-                    'id' => '22682',
-                    'key' => 'Ji7H8l9y',
-                    'terminalId' => '',
-                ),
-            13 =>
-                array(
-                    'typeName' => 'bf',
-                    'name' => 'XX宝付',
-                    'url' => 'pay.n6w2h.com',
-                    'id' => '427447',
-                    'key' => '569uxz8bek5uj5d3',
-                    'terminalId' => '23161',
-                ),
-        );
+                    'returnurl' =>'k3.gwou.cn',
+                ));
+
+        }
+
+//        return array(
+//            1 =>
+//                array(
+//                    'typeName' => 'gfb',
+//                    'name' => '国付宝',
+//                    'url' => 'http://pay.dxdesigh.com',
+//                    'id' => '0000007888',
+//                    'key' => '0000000002000002725',
+//                    'terminalId' => '',
+//                ),
+//            2 =>
+//                array(
+//                    'typeName' => 'hc',
+//                    'name' => '汇潮腾',
+//                    'url' => 'http://pay.juwen.tv',
+//                    'id' => '25256',
+//                    'key' => 'PtgXhOoB',
+//                    'terminalId' => '',
+//                ),
+//            3 =>
+//                array(
+//                    'typeName' => 'khb',
+//                    'name' => '支付3何增娣',
+//                    'url' => 'http://pay.hncpqzj.cn',
+//                    'id' => '2000390058',
+//                    'key' => 'dj98j3idj2dhw283rjdfrig5',
+//                    'terminalId' => '',
+//                ),
+//            4 =>
+//                array(
+//                    'typeName' => 'hc',
+//                    'name' => '汇潮度点',
+//                    'url' => 'http://pay.che911.com.cn',
+//                    'id' => '24832',
+//                    'key' => 'UAqUZPHa',
+//                    'terminalId' => '',
+//                ),
+//            5 =>
+//                array(
+//                    'typeName' => 'khb',
+//                    'name' => '陈思_快汇宝',
+//                    'url' => 'http://pay.zzbxpw.cn',
+//                    'id' => '2000390046',
+//                    'key' => 'kjsi_9wji02_iu3k2_829jd_83y2e',
+//                    'terminalId' => '',
+//                ),
+//            6 =>
+//                array(
+//                    'typeName' => 'khb',
+//                    'name' => '官海艳_快汇宝',
+//                    'url' => 'http://pay.zz-china.cn',
+//                    'id' => '2000390047',
+//                    'key' => 'JKS_9JD8k9_sj9f90_2euu27_30f8d_hjhds2',
+//                    'terminalId' => '',
+//                ),
+//            7 =>
+//                array(
+//                    'typeName' => 'yeepay',
+//                    'name' => '黑名单',
+//                    'url' => '',
+//                    'id' => '13123',
+//                    'key' => '12123123213123213',
+//                    'terminalId' => '',
+//                ),
+//            8 =>
+//                array(
+//                    'typeName' => 'khb',
+//                    'name' => '陈永龙_快汇宝',
+//                    'url' => 'http://pays.zzg1903.cn',
+//                    'id' => '2000390018',
+//                    'key' => 'j93u3_u3o097876y_uf87r7ru',
+//                    'terminalId' => '',
+//                ),
+//            9 =>
+//                array(
+//                    'typeName' => 'khb',
+//                    'name' => '',
+//                    'url' => '',
+//                    'id' => '',
+//                    'key' => '',
+//                    'terminalId' => '',
+//                ),
+//            10 =>
+//                array(
+//                    'typeName' => 'khb',
+//                    'name' => '',
+//                    'url' => '',
+//                    'id' => '',
+//                    'key' => '',
+//                    'terminalId' => '',
+//                ),
+//            11 =>
+//                array(
+//                    'typeName' => 'hc',
+//                    'name' => '汇潮',
+//                    'url' => 'http://pay.huanggao.org.cn',
+//                    'id' => '22682',
+//                    'key' => 'Ji7H8l9y',
+//                    'terminalId' => '',
+//                ),
+//            12 =>
+//                array(
+//                    'typeName' => 'hc',
+//                    'name' => '汇潮2',
+//                    'url' => 'http://pay.huanggao.org.cn',
+//                    'id' => '22682',
+//                    'key' => 'Ji7H8l9y',
+//                    'terminalId' => '',
+//                ),
+//            13 =>
+//                array(
+//                    'typeName' => 'bf',
+//                    'name' => 'XX宝付',
+//                    'url' => 'pay.n6w2h.com',
+//                    'id' => '427447',
+//                    'key' => '569uxz8bek5uj5d3',
+//                    'terminalId' => '23161',
+//                ),
+//        );
     }
 
     public static function cache_k3_odds()
@@ -1853,6 +1883,9 @@ class defaultCache
 
     public static function cache_five_odds()
     {
+        if (\Cache::has('fiveodds')) {
+            return \Cache::get('fiveodds');
+        }
         return array(
             'HZ' =>
                 array(
@@ -2016,21 +2049,21 @@ class defaultCache
                     10 => '6',
                     11 => '6',
                 ),
-            'QE' =>
-                array(
-                    'value' => '',
-                    '01' => '',
-                    '02' => '',
-                    '03' => '',
-                    '04' => '',
-                    '05' => '',
-                    '06' => '',
-                    '07' => '',
-                    '08' => '',
-                    '09' => '',
-                    10 => '',
-                    11 => '',
-                ),
+//            'QE' =>
+//                array(
+//                    'value' => '',
+//                    '01' => '',
+//                    '02' => '',
+//                    '03' => '',
+//                    '04' => '',
+//                    '05' => '',
+//                    '06' => '',
+//                    '07' => '',
+//                    '08' => '',
+//                    '09' => '',
+//                    10 => '',
+//                    11 => '',
+//                ),
             'QY' =>
                 array(
                     'value' => '9',
@@ -2199,82 +2232,86 @@ class defaultCache
         );
     }
 
-    public static function cache_five_chipins(){
-        return array (
+    public static function cache_five_chipins()
+    {
+        if (\Cache::has('fivechipins')) {
+            return \Cache::get('fivechipins');
+        }
+        return array(
             'HZ' =>
-                array (
+                array(
                     'other_low' => '',
                     'other_hight' => '',
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'RX1' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'RX2' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'RX3' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'RX4' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'RX5' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'RX6' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'RX7' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'RX8' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'QE' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'QY' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'QEZHI' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'QEZU' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'QSZHI' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
             'QSZU' =>
-                array (
+                array(
                     'low' => '10',
                     'hight' => '10000',
                 ),
