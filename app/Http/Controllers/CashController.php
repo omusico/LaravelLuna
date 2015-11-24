@@ -272,7 +272,7 @@ class CashController extends Controller
                 ->withErrors($errormessage);
         } else {
             $data = array(
-                'sn' => date("YmdHis"),
+                'sn' => $request->order_no,
                 'uid' => $request->uid,
                 'siteId' => 1,
                 'amounts' => $request->amounts,
