@@ -9,6 +9,7 @@
     <title> @yield('title') </title>
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/five.css') }}">
+    <link rel="icon" href="fivefavicon.ico" type="image/x-icon" />
     @yield('css')
 </head>
 <body class="top_main_back_five" style="background-color: #797002">

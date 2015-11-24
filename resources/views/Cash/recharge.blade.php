@@ -28,7 +28,7 @@
                                                                              value="qPzqUC6WIO09PmQr5hH4EZSVmzJpipguGMLbSlse">
 
                                 <div class="nk3_center_zfuser"><b style="color: #FF0000;">{{Auth::user()->name}}</b>
-                                    您好，请选择支付方式，输入充值金额
+                                    您好，请输入充值金额
                                 </div>
                                 <div class="fl" style="height: 60px; float:none;">
                                     <label class="col-md-offset-2" style="width: auto">充值金额：</label>
@@ -138,6 +138,7 @@
                                             <input class="form-control" name="product_name" type="text"
                                                    id="product_name"
                                                    value="饮水机">
+
                                         </div>
                                     </div>
                                 </div>
