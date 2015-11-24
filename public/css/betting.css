@@ -1796,6 +1796,16 @@ input {
     background: url('littleback.png')
 }
 
+.specildan{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 16px;
+    color: #fff
+}
+
 .right_top {
     width: 760px
 }
