@@ -71,7 +71,11 @@ if ($trade_time != "") {
 //注：以下的key值必须与商家后台设置的支付密钥保持一致
 //Note：The key value must be consistent with which you had set on Dinpay's Merchant System.
 
-$key = "zxcvbnm890123_890123zxcvbnm";
+$lrecharge = \App\lu_lottery_recharge::where('sn', $order_no)->first();
+$userlevels = \App\LunaLib\Common\defaultCache::userlevel();
+$level = $userlevels[$lrecharge->type];
+
+$key = $level['key'];//"zxcvbnm890123_890123zxcvbnm";
 
 $signStr = $signStr . "key=" . $key;
 $sign = md5($signStr);
@@ -79,7 +83,6 @@ $sign = md5($signStr);
 if ($dinpaySign == $sign) {
 
     //验签成功（Signature correct）
-    $lrecharge = \App\lu_lottery_recharge::where('sn', $order_no)->first();
     if ($lrecharge->status == '2') {
         $ldata = \App\lu_user_data::where('uid', $lrecharge->uid)->first();
         $tmp = $ldata->points;

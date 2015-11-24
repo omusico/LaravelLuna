@@ -6,8 +6,10 @@
 
 @section('content')
     <div class="container">
+        @if(env('SITE_TYPE','')=='five')
         <div class="row">
             <div class="col-md-10 col-md-offset-1" style="background-color: white">
+                @endif
                 <aside class="col-md-3" style="padding-left: 0px">
                     @include('User.left_bar')
                 </aside>
@@ -69,7 +71,9 @@
                         <?php echo $lu_lottery_applys->render(); ?>
                     </div>
                 </main>
+                @if(env('SITE_TYPE','')=='five')
             </div>
         </div>
+            @endif
     </div>
 @stop

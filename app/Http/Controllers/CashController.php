@@ -277,7 +277,7 @@ class CashController extends Controller
                 'siteId' => 1,
                 'amounts' => $request->amounts,
                 'created' => $_SERVER['REQUEST_TIME'],
-                'type' => $paytype,
+                'type' => $levelkey,
                 'status' => 2, //未付款状态
                 'userName' => $request->name
             );

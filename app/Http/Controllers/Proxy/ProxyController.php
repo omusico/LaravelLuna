@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\lu_lotteries_five;
 use App\lu_lotteries_k3;
 use App\lu_user;
 use App\LunaLib\Common\CommonClass;
@@ -60,7 +61,11 @@ class ProxyController extends Controller
     function proxydetail($id)
     {
         if (lu_user::find($id)->recId == Auth::user()->id) {
-            $result = lu_lotteries_k3::where('uid', $id)->orderby('created_at', 'desc');
+            if(env('SITE_TYPE','')=='five') {
+                $result = lu_lotteries_five::where('uid', $id)->orderby('created_at', 'desc');
+            }else{
+                $result = lu_lotteries_k3::where('uid', $id)->orderby('created_at', 'desc');
+            }
             $lu_lotteries_k3s = $result->paginate(10);
             return view('User.usrBettingList', compact('lu_lotteries_k3s'));
         }

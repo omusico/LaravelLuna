@@ -9,7 +9,7 @@
     <title> @yield('title') </title>
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/five.css') }}">
-    <link rel="icon" href="fivefavicon.ico" type="image/x-icon" />
+    <link rel="icon" href="fivefavicon.ico" type="image/x-icon"/>
     @yield('css')
 </head>
 <body class="top_main_back_five" style="background-color: #797002">
@@ -17,9 +17,6 @@
 <div style="height: 100px;text-align: center;">
     <div style="padding-top: 40px;color:#f9d450;font-size: xx-large ">
         11选5娱乐平台
-    </div>
-    <div style="color: white;font-size: small">
-        11x51.com
     </div>
 </div>
 <div class="container fiveheader" id="indexHeader">
@@ -51,14 +48,6 @@
         </ul>
     </div>
     <div class="col-md-10 col-md-offset-1" style="background-color: #EFE697;height: 3px;margin-top: 50px"></div>
-    {{--<div class="home_hb" style="background-color: red">--}}
-    {{--<ul>--}}
-    {{--<li>--}}
-    {{--<marquee scrollamount=3 style="color:white">{{Cache::get('marquee','请到后台设置滚动文字')}}</marquee>--}}
-    {{--</li>--}}
-    {{--</ul>--}}
-
-    {{--</div>--}}
 </div>
 <div class="container mobilShow" style="display: none">
     @if(!Auth::guest())
@@ -182,7 +171,9 @@
 <script type="text/javascript" src="/js/all.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-//        checkwin();
+        if ($("#isLogin").val() != undefined) {
+            checkwin();
+        }
     });
 
 
@@ -200,6 +191,7 @@
             @if(Auth::guest() && empty($islogin) && empty($isregister))
             location.replace('/login');
             @endif
+
 
 
         }
@@ -224,9 +216,6 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
-
-
-
                 }
             }
 

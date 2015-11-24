@@ -6,7 +6,7 @@
 
 @section('content')
     <div>
-        <h2>快三手动开奖</h2>
+        <h2>手动开奖</h2>
         <hr/>
 
         @include('errors.list')

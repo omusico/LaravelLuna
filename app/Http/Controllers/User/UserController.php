@@ -155,7 +155,13 @@ class UserController extends Controller
 //        \Cache::forget('personalwin');
         if (!Auth::guest()) {
             if (!\Cache::has("personalwin")) {
-                $result = lu_lotteries_k3::where('uid', Auth::user()->id)->where('noticed', '1')->where('updated_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute -35 second')))->get();
+                if(env('SITE_TYPE','')=='five'){
+
+                    $result = lu_lotteries_five::where('uid', Auth::user()->id)->where('noticed', '1')->where('updated_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute -35 second')))->get();
+                }else{
+
+                    $result = lu_lotteries_k3::where('uid', Auth::user()->id)->where('noticed', '1')->where('updated_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute -35 second')))->get();
+                }
                 \Cache::add('personalwin', 1, 1);
                 return $result;
             }

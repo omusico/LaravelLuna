@@ -172,7 +172,9 @@
 <script type="text/javascript" src="/js/all.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        checkwin();
+        if ($("#isLogin").val() != undefined) {
+            checkwin();
+        }
     });
 
 

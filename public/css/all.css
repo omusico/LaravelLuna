@@ -9818,4 +9818,7 @@ strong.c_ba2636 {
     color: rgb(255, 255, 255);
     font-weight: 700;
 }
-
+.da_ico{ background: url('d_x_d_x.gif') no-repeat scroll 0px 0px transparent;color: white }
+.xiao_ico { background: url('d_x_d_x.gif') no-repeat scroll -19px 0px transparent;color: white }
+.dan_ico{ background: url('d_x_d_x.gif') no-repeat scroll -38px 0px transparent;color: white }
+.shuang_ico { background: url('d_x_d_x.gif') no-repeat scroll -57px 0px transparent;color: white }

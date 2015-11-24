@@ -25,15 +25,19 @@ class AdminController extends Controller
     {
         $result = lu_user::where('is_admin', 0)->orderby('created_at', 'desc');
         $groupid = $request->groupid;
+        $userName = $request->userName;
         $groupname = '会员';
         if (!empty($groupid)) {
             $groupname = App\lu_user_group::where('groupId', $groupid)->first()->name;
             $result = $result->where('groupid', $request->groupid);
         }
+        if (!empty($userName)) {
+            $result = $result->where('name', $userName);
+        }
         $count = $result->count();
         $lu_users = $result->paginate(10);
         $user_groups = CommonClass::cache("user_groups", 1);
-        return view('Admin.index', compact('lu_users', 'count', 'user_groups', 'groupname'));
+        return view('Admin.index', compact('lu_users', 'count', 'user_groups', 'groupname', 'userName'));
     }
 
     public function adminindex()
@@ -46,7 +50,13 @@ class AdminController extends Controller
         $userName = $request->userName;
         $starttime = $request->starttime;
         $endtime = $request->endtime;
-        $result = App\lu_lotteries_k3::orderby('created_at', 'desc');
+        if(env('SITE_TYPE','')=='five'){
+
+            $result = App\lu_lotteries_five::orderby('created_at', 'desc');
+        }else{
+
+            $result = App\lu_lotteries_k3::orderby('created_at', 'desc');
+        }
         if (!empty($userName)) {
             $result->where('userName', $userName);
         }
@@ -82,7 +92,13 @@ class AdminController extends Controller
         if (!empty($endtime)) {
             $wheresql .= ' and created_at <="' . $endtime . '"';
         }
-        $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
+        if(env('SITE_TYPE','')=='five'){
+
+            $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_fives ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_fives ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
+        }else{
+
+            $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
+        }
 
 //        $result = $result->orderby('created_at', 'desc');
 //        $lu_lotteries_k3s = $result->paginate(10);
@@ -321,7 +337,7 @@ class AdminController extends Controller
     {
 //        Cache::forget('checkapply');
         if (!Cache::has("checkapply")) {
-            $result = App\lu_lottery_apply::where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute -15 second')))->get();
+            $result = App\lu_lottery_apply::where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-25 second')))->get();
             Cache::add('checkapply', 1, 1);
             return $result;
         }
@@ -391,7 +407,13 @@ class AdminController extends Controller
         // 如果是已撤单,则初始化相关状态
 //        $model = Waf::model('lottery/list',array('lottery_type' => $lottery_type));
 //        $params =  array("proName"=>$winPre,"province"=>strtolower($lottery_type),"status"=>"-2");
-        $cancelList = App\lu_lotteries_k3::where("proName", $winPre)->where("province", strtolower($lottery_type))->where("status", -2)->get();
+        if (env('SITE_TYPE', '') == 'five') {
+
+            $cancelList = App\lu_lotteries_five::where("proName", $winPre)->where("province", strtolower($lottery_type))->where("status", -2)->get();
+        } else {
+            $cancelList = App\lu_lotteries_k3::where("proName", $winPre)->where("province", strtolower($lottery_type))->where("status", -2)->get();
+        }
+
 //        $cancelList = $model->queryList($params);
 
 //        $pointRecordModel = Waf::model('lottery/pointrecord');
@@ -478,7 +500,7 @@ class AdminController extends Controller
         );
 
         $keyDatas = array(
-            '2BTH','HZ'
+            '2BTH', 'HZ'
         );
         return view('Admin.fiveodds', compact('odds', 'chipins', 'types', 'nameDatas', 'keyDatas'));
     }
@@ -572,11 +594,20 @@ class AdminController extends Controller
         if (!empty($endtime)) {
             $wheresql .= ' and created_at <="' . $endtime . '"';
         }
-        $bettings = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,' .
-            '(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,' .
-            'count(eachPrice) as bcount from lu_lotteries_k3s ' .
-            $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' .
-            $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
+        if (env('SITE_TYPE', '') == 'five') {
+            $bettings = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,' .
+                '(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,' .
+                'count(eachPrice) as bcount from lu_lotteries_fives ' .
+                $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_fives ' .
+                $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
+        } else {
+
+            $bettings = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,' .
+                '(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,' .
+                'count(eachPrice) as bcount from lu_lotteries_k3s ' .
+                $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' .
+                $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
+        }
 
         foreach ($bettings as $betting) {
 //            list($uid, $prices, $points, $name) = explode(',', $str);
@@ -651,9 +682,10 @@ class AdminController extends Controller
         return 0;
     }
 
-    public function userlevel(){
+    public function userlevel()
+    {
         $userlevels = App\LunaLib\Common\defaultCache::userlevel();
-        return view('Admin.userlevel',compact('userlevels'));
+        return view('Admin.userlevel', compact('userlevels'));
     }
 
     public function saveuserlevel(Request $request)
@@ -713,15 +745,24 @@ class AdminController extends Controller
     //单一撤单
     public function cancelOrderSingle($id)
     {
-        $lottery = App\lu_lotteries_k3::find($id);
+        if (env('SITE_TYPE', '') == 'five') {
+
+            $lottery = App\lu_lotteries_five::find($id);
+        } else {
+
+            $lottery = App\lu_lotteries_k3::find($id);
+        }
         if ($lottery['status'] == '-2' || $lottery['status'] == '-1') {
 
         } else {
             $type = $lottery['province'];
             if ($lottery['noticed'] == 1) {
                 $cancelPrice = ($lottery['eachPrice'] - $lottery['bingoPrice']);
-
-                DB::table('lu_lottery_notes_k3s')->where('proName', $lottery['proName'])->where('province', strtolower($type))->delete();
+                if (env('SITE_TYPE', '') == 'five') {
+                    DB::table('lu_lottery_notes_fives')->where('proName', $lottery['proName'])->where('province', strtolower($type))->delete();
+                } else {
+                    DB::table('lu_lottery_notes_k3s')->where('proName', $lottery['proName'])->where('province', strtolower($type))->delete();
+                }
 
             } else if ($lottery['noticed'] == 0) {
                 $cancelPrice = $lottery['eachPrice'];
@@ -748,8 +789,14 @@ class AdminController extends Controller
 
             // 查看是否有追号截止的。如果有追号，则恢复.
             if ($lottery['groupId'] != null) {
-                $params = array("groupId" => $lottery['groupId'], "province" => strtolower($type), "status" => "-1");
-                $zhuihaoList = App\lu_lotteries_k3::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
+//                $params = array("groupId" => $lottery['groupId'], "province" => strtolower($type), "status" => "-1");
+                if(env('SITE_TYPE','')=='five'){
+
+                    $zhuihaoList = App\lu_lotteries_five::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
+                }else{
+
+                    $zhuihaoList = App\lu_lotteries_k3::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
+                }
                 foreach ($zhuihaoList as $hao) {
                     $userDetail = lu_user_data::where('uid', $lottery['uid'])->first();//$userModel->detail($lottery['uid']);
                     $pointRecordData = array(
@@ -783,7 +830,11 @@ class AdminController extends Controller
     {
         $type = $request->lottery_type;
         $proName = $request->proName;
-        $lists = App\lu_lotteries_k3::where("proName", $proName)->where('province', strtolower($type))->get();//$model->queryList($params);
+        if(env('SITE_TYPE','')=='five') {
+            $lists = App\lu_lotteries_five::where("proName", $proName)->where('province', strtolower($type))->get();//$model->queryList($params);
+        }else{
+            $lists = App\lu_lotteries_k3::where("proName", $proName)->where('province', strtolower($type))->get();//$model->queryList($params);
+        }
         foreach ($lists as $key => $lottery) {
             if ($lottery['status'] == '-2' || $lottery['status'] == '-1') {
                 continue;
@@ -821,7 +872,13 @@ class AdminController extends Controller
             // 查看是否有追号截止的。如果有追号，则恢复.
             if ($lottery['groupId'] != null) {
 //                $params = array("groupId" => $lottery['groupId'], "province" => strtolower($type), "status" => "-1");
-                $zhuihaoList = App\lu_lotteries_k3::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
+                if(env('SITE_TYPE','')=='five'){
+
+                    $zhuihaoList = App\lu_lotteries_five::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
+                }else{
+
+                    $zhuihaoList = App\lu_lotteries_k3::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
+                }
                 foreach ($zhuihaoList as $hao) {
                     $userDetail = lu_user_data::where('uid', $lottery['uid'])->first();//$userModel->detail($lottery['uid']);
                     $pointRecordData = array(

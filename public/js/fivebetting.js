@@ -2017,8 +2017,8 @@ function loadWinInfo() {
                     html += '<span class="hm_' + args[w] + '"></span>';
                     hz = hz + parseInt(args[w], 10)
                 }
-                var d = hz > 30 ? '<span class="specil"> 大</span>' : '<span class="specil"> 小</span>';
-                var e = hz % 2 == 0 ? '<span class="specil">双</span>' : '<span class="specil">单</span>';
+                var d = hz > 30 ? '<span class="da_ico"> 大</span>' : '<span class="xiao_ico"> 小</span>';
+                var e = hz % 2 == 0 ? '<span class="dan_ico">双</span>' : '<span class="shuang_ico">单</span>';
                 if ($("#kjxthz").size() > 0) {
                     var h = '和值：<span id="lottery_hz">' + hz + "</span> 型态：" + d + "&nbsp;&nbsp;" + e;
                     $("#kjxthz").html(h)
@@ -2080,13 +2080,13 @@ function loadRecentResult() {
                     }
                     var d = "";
                     if (hz <= 30) {
-                        d = '<span class="specil"> 小</span>'
+                        d = '<span class="da_ico"> 小</span>'
                     } else {
                         if (hz > 30) {
-                            d = '<span class="specil"> 大</span>'
+                            d = '<span class="xiao_ico"> 大</span>'
                         }
                     }
-                    var e = hz % 2 == 0 ? '<span class="specil">双</span>' : '<span class="specil">单</span>';
+                    var e = hz % 2 == 0 ? '<span class="shuang_ico">双</span>' : '<span class="dan_ico">单</span>';
                     html += '<td align="center"  >' + hz + '</td><td align="center">  ' + d + "&nbsp;|&nbsp;" + e + "</td></tr>"
                 }
                 $("#awardNumBody").html(html)

@@ -7,15 +7,24 @@
 @section('content')
     <div>
         @include('errors.list')
-        <div><select class="form-control col-md-4" id="groupId" name="groupId" onchange="changtolocation(this)">
-                <option value="">选择要管理的组</option>
-                @foreach($user_groups as $user_group)
-                    <option value="{{$user_group['groupId']}}">{{$user_group['name']}}</option>
-                @endforeach
-            </select>
+        <hr>
+        <div>
+            <div style="float: left;">
+                <label>用户名:</label><input type="text" id="userName" name="userName" value="{{$userName}}">
+            </div>
+            {{--<div style="float: left">--}}
+                {{--<select name="groupId" class="easyui-combobox" style="width: 215px" id="groupId">--}}
+                    {{--<option value="">选择要管理的组</option>--}}
+                    {{--@foreach($user_groups as $user_group)--}}
+                        {{--<option value="{{$user_group['groupId']}}">{{$user_group['name']}}</option>--}}
+                    {{--@endforeach--}}
+                {{--</select>--}}
+            {{--</div>--}}
+            <div style="float: right;margin-right: 50px">
+                <a class="btn btn-default btn-primary" onclick="Search()">查询</a>
+            </div>
         </div>
-        <h3 align="center">
-            {{$groupname}}列表</h3>
+
         <table class="table table-hover">
             <tr>
                 <td>姓名</td>
@@ -83,7 +92,7 @@
                 <h1>没有会员,请管理员添加</h1>
             @endif
         </table>
-        <?php echo $lu_users->render(); ?>
+        <?php echo $lu_users->appends(['userName' => $userName])->render(); ?>
 
     </div>
 @stop
@@ -98,6 +107,11 @@
             var text = value.options[index].text; // 选中文本
             var val = value.options[index].value; // 选中值
             setTimeout(window.location.href = "admin?groupid=" + val, 1000);
+        }
+
+        function Search() {
+            url = "admin?userName=" + $("#userName").val() ;
+            window.location.href = url;
         }
     </script>
 @stop

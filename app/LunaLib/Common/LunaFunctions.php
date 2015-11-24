@@ -505,7 +505,13 @@ class LunaFunctions
                             lu_user_data::where('uid', $data['uid'])->update(['points' => $pointRecordData['newPoint']]);
                             // 取消 追号
                             if (!empty($lotId)) {
-                                $detail = lu_lotteries_k3::where('id', $lotId)->first();
+                                if(env('SITE_TYPE','')=='five'){
+
+                                    $detail = lu_lotteries_five::where('id', $lotId)->first();
+                                }else{
+
+                                    $detail = lu_lotteries_k3::where('id', $lotId)->first();
+                                }
 
                                 if ($detail['groupId'] != null) {
                                     $groupId = explode('_', $detail['groupId']);
@@ -540,7 +546,13 @@ class LunaFunctions
 // 										}
 
                                             // 停止追号
-                                            lu_lotteries_k3::where('groupId', $detail['groupId'])->update(['status' => -1, 'isOpen' => 1]);
+                                            if(env('SITE_TYPE','')=='five'){
+
+                                                lu_lotteries_five::where('groupId', $detail['groupId'])->update(['status' => -1, 'isOpen' => 1]);
+                                            }else{
+
+                                                lu_lotteries_k3::where('groupId', $detail['groupId'])->update(['status' => -1, 'isOpen' => 1]);
+                                            }
 //                                        $lottery->updateLotteryStatus($detail['groupId'], array('status' => -1, 'isOpen' => 1));
 
                                         }
