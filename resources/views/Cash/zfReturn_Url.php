@@ -72,8 +72,9 @@ if ($trade_time != "") {
 //Note：The key value must be consistent with which you had set on Dinpay's Merchant System.
 
 $lrecharge = \App\lu_lottery_recharge::where('sn', $order_no)->first();
+$levelkey = $lrecharge->type;
 $userlevels = \App\LunaLib\Common\defaultCache::userlevel();
-$level = $userlevels[$lrecharge->type];
+$level = $userlevels[$levelkey];
 
 $key = $level['key'];//"zxcvbnm890123_890123zxcvbnm";
 

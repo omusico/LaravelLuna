@@ -90,7 +90,8 @@
                     <div class="form-group">
                         {!! Form::label('points', '账户余额: ', ['class' => 'control-label col-md-1']) !!}
                         <div class="col-md-4">
-                            {!! Form::text('points', old('points'), ['class' => 'form-control']) !!}
+                            {{--{!! Form::text('points', 0, ['class' => 'form-control']) !!}--}}
+                            {!! Form::input('number','points', null, ['class' => 'form-control', 'required']) !!}
                         </div>
                     </div>
                     <div class="form-group">

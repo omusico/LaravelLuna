@@ -282,11 +282,11 @@ class CashController extends Controller
                 'userName' => $request->name
             );
             lu_lottery_recharge::create($data);
-            if ($paytype == 'zf') {
-                return view('Cash.lotteryorderzf');
-            } else {
-                return view('Cash.lotteryorderkjt');
-            }
+            return view('Cash.lotteryorderzf');
+//            if ($paytype == 'zf') {
+//            } else {
+//                return view('Cash.lotteryorderkjt');
+//            }
         }
 
     }
