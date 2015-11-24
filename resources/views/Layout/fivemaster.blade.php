@@ -17,6 +17,9 @@
     <div style="padding-top: 40px;color:#f9d450;font-size: xx-large ">
         11选5娱乐平台
     </div>
+    <div style="color: white;font-size: small">
+        11x51.com
+    </div>
 </div>
 <div class="container fiveheader" id="indexHeader">
     <div class="col-md-10 col-md-offset-1" style="background-color: #EFE697;height: 3px"></div>
