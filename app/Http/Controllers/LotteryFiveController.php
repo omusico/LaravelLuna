@@ -150,7 +150,7 @@ class LotteryFiveController extends Controller {
 //            $pointRecordModel = Waf::model('lottery/pointrecord');
             $tempPoints = $points;
             foreach($codeArgs as $value){
-                if ($v != "") {
+                if ($value != "") {
                     list($code, $slug, $name, $eachPrice, $bingoPrice) = explode('|', $value);
                     if (isset($types[$slug]) && !empty($types[$slug])) {
 

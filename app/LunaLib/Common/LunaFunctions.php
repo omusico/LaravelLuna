@@ -427,7 +427,7 @@ class LunaFunctions
                     $types2 = defaultCache::cache_lottery_type2();//Waf::moduleData('lottery_type', 'lottery', 2);
                     $types = $types + $types2;
                 } else {
-//                    $types = Waf::moduleData($type . '_type', $type);
+                    $types = defaultCache::cache_five_types();//Waf::moduleData($type . '_type', $type);
                 }
 
                 if ($type == 'xy') {

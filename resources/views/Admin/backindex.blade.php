@@ -8,6 +8,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/icon.css') }}">
     {{--<link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">--}}
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/easyui.css') }}">
+    @if(env('SITE_TYPE','')=='five')
+        <link rel="icon" href="fivefavicon.ico" type="image/x-icon"/>
+    @endif
 </head>
 <body id="main" class="easyui-layout" style="background-color: #DFE8F6">
 <audio src="/css/2.mp3" id="audio1" controls="controls" style="display: none"></audio>
