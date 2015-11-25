@@ -16,10 +16,10 @@
 {{--<div class="top_main_back_five"></div>--}}
 <div style="height: 100px;text-align: center;">
     <div style="padding-top: 40px;color:#f9d450;font-size: xx-large ">
-        11选5娱乐平台
+         <a style="color: #f9d450" href="/">11选5娱乐平台</a>
     </div>
 </div>
-<div class="container fiveheader" id="indexHeader">
+<div class="container fiveheader mobilhide" id="indexHeader">
     <div class="col-md-10 col-md-offset-1" style="background-color: #EFE697;height: 3px"></div>
     <div class="collapse navbar-collapse navbar-responsive-collapse"
          style="position: absolute; left: 100px;border-width: 3px;border-color: #f9d450">
@@ -27,7 +27,7 @@
             <li><a href="/" style="color:white;font-weight: bold">网站首页</a></li>
             {{--<li><a href="/k3GameRule" target="_blank" style="color:white;font-weight: bold" title="游戏规则">游戏规则</a></li>--}}
             <li><a href="/recharge" target="_blank" style="color:white;font-weight: bold">在线存款</a></li>
-            <li><a href="#" target="_blank" style="color:white;font-weight: bold" title="优惠活动">优惠活动</a></li>
+            <li><a href="/favourable" target="_blank" style="color:white;font-weight: bold" title="优惠活动">优惠活动</a></li>
             <li><a href="#" style="color:white;font-weight: bold" title="走势图">走势图</a>
             </li>
             <li><a title="合作代理" target="_blank" style="color:white;font-weight: bold" href="/inviteurl">合作代理</a></li>
@@ -52,7 +52,7 @@
 <div class="container mobilShow" style="display: none">
     @if(!Auth::guest())
         <label class="form-control" style="text-align: center">余额：{{Auth::user()->lu_user_data->points}}</label>
-        <a class="btn-danger btn-lg form-control" href="/logout" style="text-align: center">退出登陆</a>
+        <a class="btn-danger btn-lg form-control" href="/logout" style="text-align: center;background-color: #f9d450">退出登陆</a>
         <input type="hidden" id="isLogin">
     @endif
 </div>
@@ -160,13 +160,22 @@
     @endif
 @endif
 <div class="container">
-    @include('flash')
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            @include('flash')
+        </div>
+    </div>
 </div>
 @yield('content')
-<div class="footer mobilhide" style="background-color: #242000;">
-    <div class="f-link"><a title="关于我们" href="#">关于我们</a> | <a title="用户注册" target="_blank" href="/register">用户注册</a> |
-        <a title="加盟合作" href="#">加盟合作</a> | <a href="#" title="进入网盟">进入网盟</a> | <a title="网站地图">网站地图</a> | <a
-                title="友情链接" href="" id="link431">友情链接</a></div>
+<div class="container">
+    <div class="row">
+        <div class="fivefooter mobilhide col-md-offset-1 col-md-10" style="background-color: #242000;">
+            <div class="f-link"><a title="关于我们" href="#">关于我们</a> | <a title="用户注册" target="_blank" href="/register">用户注册</a>
+                |
+                <a title="加盟合作" href="#">加盟合作</a> | <a href="#" title="进入网盟">进入网盟</a> | <a title="网站地图">网站地图</a> | <a
+                        title="友情链接" href="">友情链接</a></div>
+        </div>
+    </div>
 </div>
 <script type="text/javascript" src="/js/all.js"></script>
 <script type="text/javascript">
@@ -194,6 +203,7 @@
 
 
 
+
         }
     })(navigator.userAgent);
 
@@ -216,6 +226,7 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
+
                 }
             }
 

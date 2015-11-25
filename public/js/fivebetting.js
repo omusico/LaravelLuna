@@ -1417,11 +1417,11 @@ Five.submit = function () {
                             switch (json.tip) {
                                 case 'login':
                                     alert(json.msg);
-                                    window.location.href = loginUrl;
+                                    //window.location.href = loginUrl;
                                     break;
                                 case 'timeout':
                                     alert(json.msg);
-                                    window.location.href = baseUrl + "/index.php/user/home/init?lottery_type=" + lottery_type;
+                                    //window.location.href = baseUrl + "/index.php/user/home/init?lottery_type=" + lottery_type;
                                     break;
                                 case 'success':
                                     CP.tip('您的投注信息已经成功提交，请等待开奖！【<a href="' + myLotteryUrl + '">查看我的购买信息</a>】');
@@ -1435,7 +1435,7 @@ Five.submit = function () {
                                     break;
                                 case 'error' :
                                     alert(json.msg);
-                                    window.location.href = baseUrl + "/index.php/user/home/init?lottery_type=" + lottery_type;
+                                    //window.location.href = baseUrl + "/index.php/user/home/init?lottery_type=" + lottery_type;
                                     break;
                                 default:
                                     alert(json.msg);

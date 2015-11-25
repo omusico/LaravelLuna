@@ -105,7 +105,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-2 col-md-offset-1 " style="margin-right: 0px">
+            <div class="col-md-2 col-md-offset-1 mobilhide" style="margin-right: 0px">
                 <div class="h_l_cp" style="height: 600px;">
                     @include('fiveuserinfo')
                 </div>
@@ -175,7 +175,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mobilhide" style="padding-left: 0px;padding-right: 0px;border-right: none">
+                <div class="col-md-4 mobileshow" style="padding-left: 0px;padding-right: 0px;border-right: none">
                     <div class="distance nk3_kjgg" style="border-right: none;background-color: transparent">
                         <ul class="col-md-4">
                             @if(null !=$recentArray['SDFIVE'])
@@ -220,7 +220,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4 mobilhide" style="padding-left: 0px;">
+                <div class="col-md-4 mobileshow" style="padding-left: 0px;">
                     <div class="distance nk3_kjgg" style="border-right: none;background-color: transparent">
                         <ul class="col-md-3">
                             @if(null !=$recentArray['JXFIVE'])

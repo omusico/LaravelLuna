@@ -1,4 +1,4 @@
-@extends('Layout.master')
+@extends('Layout.'.env("SITE_TYPE",'').'master')
 @section('title')
     中国快三网-优惠活动
 @stop
@@ -19,9 +19,17 @@
 @stop
 @section('content')
     <div class="container" style="text-align: center;">
-        <div class="cm_wrapper clear">
-            <div class="cm_w1000"><img src="/css/favourable.gif" alt="优惠活动"
-                                       width="1000" height="100%"></div>
-        </div>
+        @if(env('SITE_TYPE','')=='five')
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1" style="background-color: white">
+                    @endif
+                    <div class="cm_wrapper clear">
+                        <div class="cm_w1000" style="width: 100%;background-color: transparent"><img src="/css/favourable.gif" alt="优惠活动"
+                                                   width="1000" height="100%"></div>
+                    </div>
+                    @if(env('SITE_TYPE','')=='five')
+                </div>
+            </div>
+        @endif
     </div>
 @stop
