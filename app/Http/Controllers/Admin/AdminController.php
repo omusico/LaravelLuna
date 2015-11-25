@@ -408,7 +408,6 @@ class AdminController extends Controller
 //        $model = Waf::model('lottery/list',array('lottery_type' => $lottery_type));
 //        $params =  array("proName"=>$winPre,"province"=>strtolower($lottery_type),"status"=>"-2");
         if (env('SITE_TYPE', '') == 'five') {
-
             $cancelList = App\lu_lotteries_five::where("proName", $winPre)->where("province", strtolower($lottery_type))->where("status", -2)->get();
         } else {
             $cancelList = App\lu_lotteries_k3::where("proName", $winPre)->where("province", strtolower($lottery_type))->where("status", -2)->get();

@@ -408,13 +408,13 @@ class LunaFunctions
         if ($winCode && $winPre) {
 //            $model = Waf::model('lottery/list', array('lottery_type' => $lottery_type));
             //获奖列表
-            if($type=='five'){
+            if($Sitetype=='five'){
                 $winlists = lu_lotteries_five::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
             }else{
                 $winlists = lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
             }
             //获奖处理
-            if($type=='five'){
+            if($Sitetype=='five'){
                 lu_lotteries_five::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
             }else{
                 lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
