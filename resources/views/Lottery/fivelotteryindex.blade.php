@@ -1193,25 +1193,16 @@
 
                                     </div>
                                     <div class="blank10"></div>
-
                                     <div class="select_txt none">
-
                                         <ul>
-
                                             <?php $i = 1;?>
-
                                             <?php foreach($fiveOdds['QY'] as $key=>$value):?>
-                                            @if(is_numeric($key))
                                                 <li class="OneNum">赔率：<span
                                                     <?php if ($i == 1) echo ' id="QY_getodds"';?>><?php echo $value;?></span>
                                                 </li>
-                                            @endif
                                             <?php $i += 1;?>
-
                                             <?php endforeach;?>
-
                                         </ul>
-
                                     </div>
 
                                 </div>
