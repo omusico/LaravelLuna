@@ -56,7 +56,7 @@ class LotteryK3Controller extends Controller
 //        $recentNum = $this->request->recentNum;
 //        $lotteryResult = Waf::model('lottery/result');
 //        $data = $lotteryResult->queryRecent($lotteryType,$recentNum);
-        $data = lu_lotteries_result::where('typeName', $lotteryType)->orderBy('created_at', 'desc')->take(20)->get();
+        $data = lu_lotteries_result::where('typeName', $lotteryType)->orderBy('proName', 'desc')->take(20)->get();
         return $data;
     }
 
