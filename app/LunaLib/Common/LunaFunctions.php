@@ -4,6 +4,7 @@ namespace App\LunaLib\Common;
 use App\lu_lotteries_five;
 use App\lu_lotteries_k3;
 use App\lu_lotteries_result;
+use App\lu_lottery_notes_five;
 use App\lu_lottery_notes_k3;
 use App\lu_points_record;
 use App\lu_user;
@@ -476,7 +477,11 @@ class LunaFunctions
                         $data['province'] = $lottery_type;
                         $data['provinceName'] = $lunaFunction->get_lottery_name($lottery_type);
                         try {
-                            lu_lottery_notes_k3::create($data);
+                            if(env('SITE_TYPE','')=='five'){
+                                lu_lottery_notes_five::create($data);
+                            }else{
+                                lu_lottery_notes_k3::create($data);
+                            }
                             if (!isset($matchCount)) $matchCount = 1;
 // 							file_put_contents ( __WAF_ROOT__ . '/win33.log','$matchCount:'.$matchCount . '\n', FILE_APPEND );
 //                            $lottery->update($lotId, array('noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount));
@@ -521,12 +526,24 @@ class LunaFunctions
                                     //todo 取消追号逻辑
                                     if ($tingCount > 0) {
 //                                    $winCount = $lottery->queryNoticedCountByGroupId($detail['groupId']);
-                                        $winCount = lu_lotteries_k3::where('noticed', 1)->where('groupId', $detail['groupId'])->count();
+                                        if(env('SITE_TYPE','')=='five'){
+
+                                            $winCount = lu_lotteries_five::where('noticed', 1)->where('groupId', $detail['groupId'])->count();
+                                        }else{
+
+                                            $winCount = lu_lotteries_k3::where('noticed', 1)->where('groupId', $detail['groupId'])->count();
+                                        }
                                         if ($winCount >= $tingCount) {
 
                                             // 同时反本金
 //                                        $fanMoney = $lottery->queryFanMoney($detail['groupId']);
-                                            $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_k3s where groupId="' . $detail['groupId'] . '" and isopen =0 and noticed =0')[0]->sum;
+                                            if(env('SITE_TYPE','')=='five'){
+
+                                                $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_fives where groupId="' . $detail['groupId'] . '" and isopen =0 and noticed =0')[0]->sum;
+                                            }else{
+
+                                                $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_k3s where groupId="' . $detail['groupId'] . '" and isopen =0 and noticed =0')[0]->sum;
+                                            }
 // 										if( $fanMoney > 0){
 
                                             $pointRecordData = array(
@@ -570,8 +587,13 @@ class LunaFunctions
                 }
             }
 //            $model->updateByProName($winPre, array('isOpen' => 1));
+            if(env('SITE_TYPE','')=='five'){
 
-            lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['isOpen' => 1]);
+                lu_lotteries_five::where('province', $lottery_type)->where('proName', $winPre)->update(['isOpen' => 1]);
+            }else{
+
+                lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['isOpen' => 1]);
+            }
 
             // 如果是撤单在开奖.则需处理已经追号结束的.
 

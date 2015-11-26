@@ -1,6 +1,6 @@
 @extends('Layout.'.env("SITE_TYPE",'').'master')
 @section('title')
-    中国快三网-优惠活动
+    优惠活动
 @stop
 @section('css')
     <style type="text/css">

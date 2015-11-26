@@ -167,7 +167,7 @@
 
                                     </div>
                                     <div class="blank10"></div>
-                                    <div class="user_content">
+                                    <div class="user_content mobilhide">
                                         <div class="w700">
                                             <div class="kj_tab">
                                                 <div class="kj_szc">
