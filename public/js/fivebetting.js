@@ -2014,7 +2014,9 @@ function loadWinInfo() {
                 html = "";
                 var hz = 0;
                 for (var w = 0; w < args.length; w++) {
-                    html += '<span class="hm_' + args[w] + '"></span>';
+                    html += '<div class="fiveNum">' + args[w] + '</div>';
+
+                    //html += '<span class="fiveNum">' + args[w] + '</span>';
                     hz = hz + parseInt(args[w], 10)
                 }
                 var d = hz > 30 ? '<span class="da_ico"> 大</span>' : '<span class="xiao_ico"> 小</span>';
