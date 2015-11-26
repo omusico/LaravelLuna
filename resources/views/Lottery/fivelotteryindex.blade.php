@@ -486,10 +486,8 @@
                                        value="<?php echo $chipins['RX4']['hight']?>"/>
 
                                 <div id="box_ball_RX4" class="all_box none">
-
                                     <p>
                                         投注说明：从01～11中任选4个或多个号码，所选号码与开奖号码任意四个号码相同即中奖.赔率<?php echo $fiveOdds['RX4']['value']?></p>
-
                                     <div class="menu">
                                         <ul class="menucon">
                                             <li>

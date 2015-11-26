@@ -179,11 +179,11 @@ class FiveLottery_Result{
 
         if(in_array($codes[0],$codeArr)){
             $handle+=1;
-            $winCode = $this->_removeCheckedValue($winCode ,$codes[0]);
+//            $winCode = $this->_removeCheckedValue($winCode ,$codes[0]);
         }
         if(in_array($codes[1],$codeArr)){
             $handle+=1;
-            $winCode = $this->_removeCheckedValue($winCode ,$codes[0]);
+//            $winCode = $this->_removeCheckedValue($winCode ,$codes[0]);
         }
         $value = $codes[0]+$codes[1];
         $data = array();

@@ -9504,6 +9504,8 @@ input {
 }
 
 .select_info_text {
+    background-color: #d9534f;
+    color: white;
     clear: both;
     font-size: 12px;
     text-align: center
@@ -9512,11 +9514,11 @@ input {
 .select_info_text .addbtn_disabled {
     height: 44px;
     float: left;
-    background: url('betting.png') no-repeat scroll 0 -196px transparent;
+    /*background: url('betting.png') no-repeat scroll 0 -196px transparent;*/
     font-size: 14px;
     width: 169px;
     text-align: center;
-    color: #000;
+    color:white ;
     display: block;
     font-weight: bolder
 }
