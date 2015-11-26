@@ -24,7 +24,7 @@
                             <td>姓名</td>
                             <td>期号</td>
                             <td>号码</td>
-                            <td>投注金额</td>
+                            {{--<td>投注金额</td>--}}
                             <td>中奖金额</td>
                             <td>投注时间</td>
                         </tr>
@@ -37,7 +37,7 @@
                                     <td>{{ $lu_lottery_note_k3->userName }}</td>
                                     <td>{{ $lu_lottery_note_k3->proName }}</td>
                                     <td>{{ $lu_lottery_note_k3->code}}</td>
-                                    <td>{{ $lu_lottery_note_k3->eachPrice }}</td>
+                                    {{--<td>{{ $lu_lottery_note_k3->eachPrice }}</td>--}}
                                     <td>{{ $lu_lottery_note_k3->bingoPrice }}</td>
                                     <td>{{ $lu_lottery_note_k3->created_at }}</td>
                                 </tr>
