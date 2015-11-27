@@ -5,7 +5,7 @@ try {
 //
 //    $fp = @popen('/usr/bin/cd /var/www/html/LaravelLuna | /usr/bin/git pull origin master', "w");
     $str = system('/usr/bin/cd /var/www/html/LaravelLuna | /usr/bin/git pull origin master');
-    echo $str;
+    echo '<br>'.$str;
 //    if ($fp) {
 //        echo($fp);
 //    }
