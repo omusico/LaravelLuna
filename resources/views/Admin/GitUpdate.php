@@ -4,4 +4,4 @@
 $fp = @popen('/bin/git pull origin master', "r");
 echo($fp);
 @pclose($fp);
-echo "success";
+echo "<br>success";
