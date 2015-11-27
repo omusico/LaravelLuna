@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\lu_lotteries_k3;
 use App\lu_lotteries_result;
+use App\lu_lottery_notes_five;
 use App\lu_lottery_notes_k3;
 use App\lu_points_record;
 use App\lu_user;
@@ -79,7 +80,13 @@ class LotteryK3Controller extends Controller
 
     public function getLotteryWin()
     {
-        $result = lu_lottery_notes_k3::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
+        if(env('SITE_TYPE','')=='five'){
+
+            $result = lu_lottery_notes_five::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
+        }else{
+
+            $result = lu_lottery_notes_k3::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
+        }
         $lu_lottery_note_k3s = $result->paginate(10);
         return view('User.lotterywinlist', compact('lu_lottery_note_k3s'));
     }
