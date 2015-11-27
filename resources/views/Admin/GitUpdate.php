@@ -1,7 +1,7 @@
 <?php
 //exec('ls');
 
-$fp = @popen("git pull origin master", "w");
+$fp = @popen('/bin/git pull origin master', "r");
 echo($fp);
 @pclose($fp);
 echo "success";
