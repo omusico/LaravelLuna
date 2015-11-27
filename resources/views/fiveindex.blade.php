@@ -98,7 +98,7 @@
 @stop
 @section('content')
 
-    <div class="row">
+    <div class="row" style="display: none">
         <div class="col-md-10 col-md-offset-1">
             <marquee scrollamount=3 style="color:white">{{Cache::get('marquee','请到后台设置滚动文字')}}</marquee>
         </div>

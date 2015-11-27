@@ -34,6 +34,9 @@ class LotteryFiveController extends Controller {
         $fiveOdds = defaultCache::cache_five_odds();
         $lotterystatus = defaultCache::cache_lottery_status();
         $lotterytypes = defaultCache::cache_five_types();
+        if (strtolower($request->lottery_type) == 'cqfive') {
+            return view('errors.maintance');
+        }
 //        return view('errors.maintance');
 //        if (strtolower($request->lottery_type) == 'fjk3') {
 //            return view('errors.maintance');

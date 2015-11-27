@@ -14,8 +14,13 @@
 </head>
 <body class="top_main_back_five" style="background-color: #797002">
 {{--<div class="top_main_back_five"></div>--}}
-<div class="container">
+<div class="container mobilhide">
     <div class="fivelogo"></div>
+</div>
+<div style="height: 100px;text-align: center;display: none" class="mobilShow">
+    <div style="padding-top: 40px;color:#f9d450;font-size: xx-large ">
+        <a style="color: #f9d450" href="/">11选5娱乐平台</a>
+    </div>
 </div>
 <div class="container fiveheader mobilhide" id="indexHeader">
     {{--<div class="col-md-10 col-md-offset-1" style="background-color: #EFE697;height: 3px"></div>--}}
