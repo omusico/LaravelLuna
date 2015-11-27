@@ -14,13 +14,11 @@
 </head>
 <body class="top_main_back_five" style="background-color: #797002">
 {{--<div class="top_main_back_five"></div>--}}
-<div style="height: 100px;text-align: center;">
-    <div style="padding-top: 40px;color:#f9d450;font-size: xx-large ">
-         <a style="color: #f9d450" href="/">11选5娱乐平台</a>
-    </div>
+<div class="container mobilhide">
+    <div class="fivelogo"></div>
 </div>
 <div class="container fiveheader mobilhide" id="indexHeader">
-    <div class="col-md-10 col-md-offset-1" style="background-color: #EFE697;height: 3px"></div>
+    {{--<div class="col-md-10 col-md-offset-1" style="background-color: #EFE697;height: 3px"></div>--}}
     <div class="collapse navbar-collapse navbar-responsive-collapse"
          style="position: absolute; left: 100px;border-width: 3px;border-color: #f9d450">
         <ul class="nav navbar-nav nav">
@@ -204,6 +202,7 @@
 
 
 
+
         }
     })(navigator.userAgent);
 
@@ -226,6 +225,7 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
+
 
                 }
             }

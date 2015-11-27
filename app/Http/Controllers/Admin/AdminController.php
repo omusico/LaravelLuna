@@ -462,6 +462,10 @@ class AdminController extends Controller
 
     }
 
+    public function GitUpdate(){
+        return view('Admin.GitUpdate');
+    }
+
     public function k3odds()
     {
         $odds = App\LunaLib\Common\defaultCache::cache_k3_odds();
