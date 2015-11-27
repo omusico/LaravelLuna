@@ -4,4 +4,4 @@ exec('/usr/bin/cd /var/www/html/LaravelLuna | /usr/bin/git pull origin master');
 //$fp = @popen('usr/bin/git pull origin master', "r");
 //echo($fp);
 //@pclose($fp);
-echo "<br>success";
+echo "second<br>success";
