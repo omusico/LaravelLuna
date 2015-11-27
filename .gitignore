@@ -7,3 +7,4 @@
 
 # ignore dependency directory after npm install 
 node_modules
+/resources/views/Admin/GitUpdate.php

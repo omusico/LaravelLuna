@@ -70,7 +70,8 @@
 .fivelogo{
     margin-top: 30px;
     height: 117px;
-    width: 978px;
+    width: 100%;
+    /*margin-left: 30px;*/
     margin-left: 80px;
     background: url('fivelogo.png') no-repeat;
 }
