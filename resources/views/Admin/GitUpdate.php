@@ -4,8 +4,8 @@ try {
 //    exec('/usr/bin/cd /var/www/html/LaravelLuna | /usr/bin/git pull origin master');
 //
 //    $fp = @popen('/usr/bin/cd /var/www/html/LaravelLuna | /usr/bin/git pull origin master', "w");
-    $str = system('/usr/bin/cd /var/www/html/LaravelLuna | /usr/bin/git pull origin master');
-    echo '<br>'.$str;
+    $str = system('/usr/bin/git pull origin master');
+    echo $str.'<br>';
 //    if ($fp) {
 //        echo($fp);
 //    }
