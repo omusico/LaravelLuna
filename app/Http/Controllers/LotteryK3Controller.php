@@ -63,7 +63,7 @@ class LotteryK3Controller extends Controller
 
     public function k3GameRule()
     {
-        return view('k3gamerule');
+        return view('Lottery.k3gamerule');
     }
 
     public function getPointsRecord()

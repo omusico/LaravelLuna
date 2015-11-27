@@ -41,6 +41,21 @@ class LotteryFiveController extends Controller {
         return view('Lottery.fivelotteryindex', compact('czName', 'config', 'chipins', 'fiveOdds', 'lotterystatus','lotterytypes'));
 	}
 
+    public function fiveGameRule()
+    {
+        return view('Lottery.fivegamerule');
+    }
+
+    public function trend(Request $request)
+    {
+        $lottery_type = strtoupper(trim($request->lottery_type));
+        $lunaFunctions = new LunaFunctions();
+        $czName = $lunaFunctions->get_lottery_name($lottery_type);
+        $config = $lunaFunctions->get_lottery_config($lottery_type);
+        $datas = lu_lotteries_result::where('typeName', $lottery_type)->orderby('created_at', 'desc')->take(20)->get();
+        return view('Lottery.fivelotterytrend', compact('datas', 'czName', 'config'));
+    }
+
     public function betting(Request $request) {
 
         try{

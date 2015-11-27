@@ -23,10 +23,9 @@
          style="position: absolute; left: 100px;border-width: 3px;border-color: #f9d450">
         <ul class="nav navbar-nav nav">
             <li><a href="/" style="color:white;font-weight: bold">网站首页</a></li>
-            {{--<li><a href="/k3GameRule" target="_blank" style="color:white;font-weight: bold" title="游戏规则">游戏规则</a></li>--}}
-            <li><a href="/recharge" target="_blank" style="color:white;font-weight: bold">在线存款</a></li>
-            <li><a href="/favourable" target="_blank" style="color:white;font-weight: bold" title="优惠活动">优惠活动</a></li>
-            <li><a href="#" style="color:white;font-weight: bold" title="走势图">走势图</a>
+            <li><a href="/fiveGameRule" style="color:white;font-weight: bold" title="游戏规则">游戏规则</a></li>
+            <li><a href="/favourable" style="color:white;font-weight: bold" title="优惠活动">优惠活动</a></li>
+            <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:white;font-weight: bold" title="走势图">走势图</a>
             </li>
             <li><a title="合作代理" target="_blank" style="color:white;font-weight: bold" href="/inviteurl">合作代理</a></li>
             <li><a href="/userLotteryBetting" target="_blank" style="color:white;font-weight: bold"

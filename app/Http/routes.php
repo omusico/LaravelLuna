@@ -113,6 +113,8 @@ Route::get('fivelotteryIndex', [
     'as' => 'fivelotteryIndex', 'uses' => 'LotteryFiveController@index']);
 Route::get('lotterytrend', [
     'as' => 'lotterytrend', 'uses' => 'LotteryK3Controller@trend']);
+Route::get('fivelotterytrend', [
+    'as' => 'fivelotterytrend', 'uses' => 'LotteryFiveController@trend']);
 Route::any('/lotteryBetting', ['middleware' => 'auth', 'as' => 'lotteryBetting', 'uses' => 'LotteryK3Controller@betting']);
 Route::any('/fivelotteryBetting', ['middleware' => 'auth', 'as' => 'fivelotteryBetting', 'uses' => 'LotteryFiveController@betting']);
 Route::any('/zhuihao', ['middleware' => 'auth', 'as' => 'zhuihao', 'uses' => 'LotteryK3Controller@zhuihao']);
@@ -132,6 +134,7 @@ Route::post('/saveaccount', ['middleware' => 'auth', 'as' => 'saveaccount', 'use
 Route::get('/getPersonalwin', ['middleware' => 'auth', 'as' => 'getPersonalwin', 'uses' => 'User\UserController@getPersonalwin']);
 //规则明细
 Route::get('/k3GameRule', ['uses' => 'LotteryK3Controller@k3GameRule']);
+Route::get('/fiveGameRule', ['uses' => 'LotteryFiveController@fiveGameRule']);
 Route::get('/favourable', ['uses' => 'LotteryK3Controller@favourable']);
 Route::get('/phpinfo', ['uses' => 'WelcomeController@phpinfo']);
 Route::get('/inviteurl', ['as' => 'inviteurl', 'uses' => 'Proxy\ProxyController@index']);
