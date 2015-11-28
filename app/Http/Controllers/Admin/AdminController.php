@@ -50,10 +50,10 @@ class AdminController extends Controller
         $userName = $request->userName;
         $starttime = $request->starttime;
         $endtime = $request->endtime;
-        if(env('SITE_TYPE','')=='five'){
+        if (env('SITE_TYPE', '') == 'five') {
 
             $result = App\lu_lotteries_five::orderby('created_at', 'desc');
-        }else{
+        } else {
 
             $result = App\lu_lotteries_k3::orderby('created_at', 'desc');
         }
@@ -92,9 +92,9 @@ class AdminController extends Controller
         if (!empty($endtime)) {
             $wheresql .= ' and created_at <="' . $endtime . '"';
         }
-        if(env('SITE_TYPE','')=='five'){
+        if (env('SITE_TYPE', '') == 'five') {
             $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_fives ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_fives ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
-        }else{
+        } else {
             $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
         }
 
@@ -201,11 +201,12 @@ class AdminController extends Controller
         return array("修改成功");
     }
 
-    public function refusedeposit(Request $request){
+    public function refusedeposit(Request $request)
+    {
         $lu_lottery_apply = App\lu_lottery_apply::find($request->refuseid);
         if ($lu_lottery_apply->status == 2) {//待审批
-            $lu_lottery_apply->remarks=$request->remarks;
-            $lu_lottery_apply->status=3;//拒绝
+            $lu_lottery_apply->remarks = $request->remarks;
+            $lu_lottery_apply->status = 3;//拒绝
             $lu_lottery_apply->save();
 
             $user = lu_user::find($lu_lottery_apply->uid);
@@ -293,8 +294,7 @@ class AdminController extends Controller
         $lu_user->status = $request->status;
         $lu_user->level = $request->level;
         $depositOdds = $request->depositOdds;
-        if(!empty($depositOdds))
-        {
+        if (!empty($depositOdds)) {
             $lu_user->depositOdds = $request->depositOdds;
         }
         $lu_user->save();
@@ -513,7 +513,8 @@ class AdminController extends Controller
 
     }
 
-    public function GitUpdate(){
+    public function GitUpdate()
+    {
         return view('Admin.GitUpdate');
     }
 
@@ -757,6 +758,13 @@ class AdminController extends Controller
         return view('Admin.manualrecharge', compact('user', 'point_types'));
     }
 
+    public function admindetail($id)
+    {
+        $point_types = CommonClass::cache_point_type();
+        $lu_points_records = App\lu_points_record::where('uid',$id)->orderby('created_at','desc')->paginate(10);
+        return view('Admin.admindetail', compact('lu_points_records', 'point_types'));
+    }
+
     public function manualupdate(Request $request)
     {
 
@@ -844,10 +852,10 @@ class AdminController extends Controller
             // 查看是否有追号截止的。如果有追号，则恢复.
             if ($lottery['groupId'] != null) {
 //                $params = array("groupId" => $lottery['groupId'], "province" => strtolower($type), "status" => "-1");
-                if(env('SITE_TYPE','')=='five'){
+                if (env('SITE_TYPE', '') == 'five') {
 
                     $zhuihaoList = App\lu_lotteries_five::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
-                }else{
+                } else {
 
                     $zhuihaoList = App\lu_lotteries_k3::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
                 }
@@ -884,9 +892,9 @@ class AdminController extends Controller
     {
         $type = $request->lottery_type;
         $proName = $request->proName;
-        if(env('SITE_TYPE','')=='five') {
+        if (env('SITE_TYPE', '') == 'five') {
             $lists = App\lu_lotteries_five::where("proName", $proName)->where('province', strtolower($type))->get();//$model->queryList($params);
-        }else{
+        } else {
             $lists = App\lu_lotteries_k3::where("proName", $proName)->where('province', strtolower($type))->get();//$model->queryList($params);
         }
         foreach ($lists as $key => $lottery) {
@@ -926,10 +934,10 @@ class AdminController extends Controller
             // 查看是否有追号截止的。如果有追号，则恢复.
             if ($lottery['groupId'] != null) {
 //                $params = array("groupId" => $lottery['groupId'], "province" => strtolower($type), "status" => "-1");
-                if(env('SITE_TYPE','')=='five'){
+                if (env('SITE_TYPE', '') == 'five') {
 
                     $zhuihaoList = App\lu_lotteries_five::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
-                }else{
+                } else {
 
                     $zhuihaoList = App\lu_lotteries_k3::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
                 }

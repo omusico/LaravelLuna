@@ -60,14 +60,14 @@
                         <td>
                             {{--<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal{{$lu_user->id}}">更新分数</button>--}}
                             <a class="btn btn-sm btn-info" href="/admin/{{$lu_user->id}}/edit">编辑</a>
-
-                            <form action="{{ url('admin/'.$lu_user->id) }}" style='display: inline'
-                                  method="post">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                <button class="btn btn-sm btn-danger" onclick="return confirm('确定删除?')">删除
-                                </button>
-                            </form>
+                            <a class="btn btn-sm btn-default" href="/admindetail/{{$lu_user->id}}">资金明细</a>
+                            {{--<form action="{{ url('admin/'.$lu_user->id) }}" style='display: inline'--}}
+                                  {{--method="post">--}}
+                                {{--<input type="hidden" name="_method" value="DELETE">--}}
+                                {{--<input type="hidden" name="_token" value="{{csrf_token()}}">--}}
+                                {{--<button class="btn btn-sm btn-danger" onclick="return confirm('确定删除?')">删除--}}
+                                {{--</button>--}}
+                            {{--</form>--}}
                         </td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="/manualrecharge/{{$lu_user->id}}">手动充值</a>
