@@ -292,7 +292,11 @@ class AdminController extends Controller
         $lu_user->groupId = $request->groupId;
         $lu_user->status = $request->status;
         $lu_user->level = $request->level;
-        $lu_user->depositOdds = $request->depositOdds;
+        $depositOdds = $request->depositOdds;
+        if(!empty($depositOdds))
+        {
+            $lu_user->depositOdds = $request->depositOdds;
+        }
         $lu_user->save();
         if (empty($id)) {
             $lu_user_data = new App\lu_user_data();
