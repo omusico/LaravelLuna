@@ -110,7 +110,7 @@
                                     @if($lu_lottery_apply->status ==2)
                                         <a class="btn btn-sm btn-success"
                                            href="/deposit/{{$lu_lottery_apply->id}}/edit">通过</a>
-                                        @if($lu_lottery_apply->created_at<="2015-11-28 23:00:00")
+                                        @if($lu_lottery_apply->created_at<="2015-11-29 08:00:00")
                                             <form action="{{ url('deposit/'.$lu_lottery_apply->id)}}"
                                                   style='display: inline'
                                                   method="post">
