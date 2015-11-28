@@ -63,6 +63,7 @@
             ?>
             @if (count($lu_lotteries_k3s))
                 @foreach ($lu_lotteries_k3s as $lu_lotteries_k3)
+                    @if(\App\lu_user::find($lu_lotteries_k3->uid)->groupId <> 7)
                     <?php
                     $sumeach += $lu_lotteries_k3->eachPrice;
                     $sumbingo += $lu_lotteries_k3->bingoPrice;
@@ -76,6 +77,7 @@
                         <td>{{ $lu_lotteries_k3->bcount }}</td>
                         <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->points }}</td>
                     </tr>
+                    @endif
                 @endforeach
             @else
                 <h1>没有记录</h1>

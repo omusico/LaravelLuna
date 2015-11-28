@@ -8,15 +8,46 @@
 @stop
 
 @section('content')
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="text-align: center">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: red;font-family: bold">
+                        请输入拒绝理由
+                    </h4>
+                </div>
+                {!! Form::open(['url' => '/refusedeposit', 'class' => 'form-horizontal', 'role' => 'form']) !!}
+                <input name="refuseid" id="refuseid" type="hidden">
+
+                <div class="form-group">
+                    {!! Form::label('name', '拒绝理由', ['class' => 'col-md-4 control-label']) !!}
+                    <div class="col-md-6">
+                        <input class="form-control" name="remarks" rows="5" required="required"> </input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-4">
+                        {!! Form::submit('拒绝', ['class' => 'btn btn-lg btn-danger']) !!}
+                    </div>
+                </div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
-{{--            @include('Admin.back_left_bar')--}}
+            {{--            @include('Admin.back_left_bar')--}}
             <div class="col-md-12">
 
                 @include('errors.list')
 
                 <h3 align="center">
                     提现审批列表</h3>
+
                 <div>
                     <div style="float: left;">
                         <label>用户名:</label><input type="text" id="userName" name="userName" value="{{$userName}}">
@@ -54,6 +85,7 @@
                         <td>金额</td>
                         <td>提款时间</td>
                         <td>手续费</td>
+                        <td>拒绝理由</td>
                         <td>状态</td>
                         <td>操作</td>
                     </tr>
@@ -65,8 +97,11 @@
                                 <td>{{ $lu_lottery_apply->amounts }}</td>
                                 <td>{{ $lu_lottery_apply->created_at }}</td>
                                 <td>{{ $lu_lottery_apply->fees }}</td>
+                                <td><a style="color: red">{{ $lu_lottery_apply->remarks }}</a></td>
                                 <td>@if( $lu_lottery_apply->status ==2)
-                                        未通过
+                                        待审批
+                                    @elseif( $lu_lottery_apply->status ==3)
+                                        <a style="color: red;">拒绝</a>
                                     @else
                                         <a style="color: green;">通过</a>
                                     @endif
@@ -75,28 +110,36 @@
                                     @if($lu_lottery_apply->status ==2)
                                         <a class="btn btn-sm btn-success"
                                            href="/deposit/{{$lu_lottery_apply->id}}/edit">通过</a>
+                                        @if($lu_lottery_apply->created_at<="2015-11-28 20:00:00")
+                                            <form action="{{ url('deposit/'.$lu_lottery_apply->id)}}"
+                                                  style='display: inline'
+                                                  method="post">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                                <button class="btn btn-sm btn-danger" onclick="return confirm('确定删除?')">
+                                                    删除
+                                                </button>
+                                            </form>
+                                        @else
+                                            <a class="btn btn-sm btn-danger"
+                                               onclick="ClicktoRefuse({{$lu_lottery_apply->id}})">拒绝</a>
+                                        @endif
                                     @endif
-                                    <form action="{{ url('deposit/'.$lu_lottery_apply->id)}}" style='display: inline'
-                                          method="post">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <button class="btn btn-sm btn-danger" onclick="return confirm('确定删除?')">删除
-                                        </button>
-                                        <?php $item = \App\lu_lottery_user::where('uid', $lu_lottery_apply->uid)->first(); ?>
-                                        <button type="button" class="btn btn-warning"
-                                                data-container="body" data-toggle="popover" data-placement="bottom"
-                                                title="{{ $lu_lottery_apply->userName }}--银行信息"
-                                                data-content="
+
+                                    <?php $item = \App\lu_lottery_user::where('uid', $lu_lottery_apply->uid)->first(); ?>
+                                    <button type="button" class="btn btn-warning"
+                                            data-container="body" data-toggle="popover" data-placement="bottom"
+                                            title="{{ $lu_lottery_apply->userName }}--银行信息"
+                                            data-content="
                                                 @if(isset($item))
                                                  银行名称 : {{ $item->bankName }} |
                                                 开户行 : {{ $item->openBank }} |
                                                  银行账号 : {{ $item->bankCode }}|
                                                      开户人姓名 : {{ $item->userName }}
                                                     @endif
-                                                        ">
-                                            点击,查看银行信息
-                                        </button>
-                                    </form>
+                                                    ">
+                                        银行信息
+                                    </button>
                                 </td>
                                 </td>
                             </tr>
@@ -152,5 +195,10 @@
             window.location.href = url;
         }
         ;
+        function ClicktoRefuse(id) {
+            $("#refuseid").val(id);
+            $('#myModal').modal('show');
+
+        }
     </script>
 @stop

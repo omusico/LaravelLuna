@@ -93,10 +93,8 @@ class AdminController extends Controller
             $wheresql .= ' and created_at <="' . $endtime . '"';
         }
         if(env('SITE_TYPE','')=='five'){
-
             $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_fives ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_fives ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
         }else{
-
             $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
         }
 
@@ -203,6 +201,54 @@ class AdminController extends Controller
         return array("修改成功");
     }
 
+    public function refusedeposit(Request $request){
+        $lu_lottery_apply = App\lu_lottery_apply::find($request->refuseid);
+        if ($lu_lottery_apply->status == 2) {//待审批
+            $lu_lottery_apply->remarks=$request->remarks;
+            $lu_lottery_apply->status=3;//拒绝
+            $lu_lottery_apply->save();
+
+            $user = lu_user::find($lu_lottery_apply->uid);
+            $userModel = $user->lu_user_data;
+//            if ($userModel->points < $lu_lottery_apply->amounts) {
+//                session()->flash('message_warning', $lu_lottery_apply->sn . '状态修改失败，会员当前账户小于其提现金额，不能提现');
+//                return Redirect::back();
+//            }
+            if ($lu_lottery_apply->id > 0) {
+                $data['orderSn'] = $lu_lottery_apply->sn;
+                $data['orderId'] = $lu_lottery_apply->id;
+                $data['payType'] = 'apply';
+                $data['proData'] = array(
+                    'total' => $lu_lottery_apply->amounts
+                );
+                $data['formatAmounts'] = CommonClass::price($lu_lottery_apply->amounts);
+                //会员余额变动
+                $oldpoints = $userModel->points;
+
+                $points = $oldpoints + $lu_lottery_apply->amounts;
+                $userModel->points = $points;
+                $userModel->save();
+
+                $data = array(
+                    'uid' => $user->id,
+                    'userName' => $user->name,
+                    'addType' => '16', // 提现拒绝返回
+                    'lotteryType' => '', // 中奖
+                    'touSn' => $lu_lottery_apply->sn,
+                    'oldPoint' => $oldpoints,
+                    'changePoint' => -$lu_lottery_apply->amounts,
+                    'newPoint' => $points,
+                    'created' => strtotime(date('Y-m-d H:i:s'))
+                );
+                App\lu_points_record::create($data);
+            }
+            session()->flash('message', $lu_lottery_apply->sn . '状态修改成功');
+        } else {
+            session()->flash('message_warning', $lu_lottery_apply->sn . '状态已经不能再修改了');
+        }
+        return Redirect::back();
+    }
+
     public function deletedeposit($id)
     {
         $deposit = App\lu_lottery_apply::find($id);
@@ -246,6 +292,7 @@ class AdminController extends Controller
         $lu_user->groupId = $request->groupId;
         $lu_user->status = $request->status;
         $lu_user->level = $request->level;
+        $lu_user->depositOdds = $request->depositOdds;
         $lu_user->save();
         if (empty($id)) {
             $lu_user_data = new App\lu_user_data();

@@ -91,6 +91,10 @@ class UserTableSeeder extends Seeder {
             'intro'=>'客服',
             'admin'=>1,
         ]);
+        \App\lu_user_group::create([
+            'name'=>'测试用户',
+            'intro'=>'测试用户',
+        ]);
     }
 
 }

@@ -160,7 +160,7 @@ class LotteryFiveController extends Controller {
             }
 
             if($totals > $points){
-                return array('tip'=>'login','msg'=>'您的余额不足，请立即充值');
+                return array('tip'=>'error','msg'=>'您的余额不足，请立即充值');
             }
 
 

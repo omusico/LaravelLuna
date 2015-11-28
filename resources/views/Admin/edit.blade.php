@@ -97,6 +97,18 @@
                     </div>
                 </div>
             </div>
+            @if($lu_user->groupId ==3 || $lu_user->groupId==5)
+                <div class="form-group">
+                    {!! Form::label('depositOdds', '打码量: ', ['class' => 'control-label col-md-1']) !!}
+                    <div class="col-md-4">
+                        {{--{!! Form::text('depositOdds', $lu_user->depositOdds, ['class' => 'form-control']) !!}--}}
+                        {!! Form::input('number','depositOdds', $lu_user->depositOdds, ['class' => 'form-control', 'required']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-offset-1">打码量0.00表示没有设置，按倍数来，写5，表示按5倍的打码量 </label>
+                </div>
+            @endif
             <div class="form-group">
                 <div class="col-md-5">
                     {!! Form::submit('完成,修改', ['class' => 'btn btn-success form-control']) !!}

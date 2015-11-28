@@ -12,8 +12,8 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <h2 align="center" style="color: white">
+            <div class="col-md-10 col-md-offset-1" style="padding: 0px">
+                <h2 align="center" style="color: white;margin-top: 5px">
                     {{$czName}}走势图</h2>
                 <table class="table table-hover" style="background-color: white">
                     <tr>
@@ -33,24 +33,6 @@
                         <th>大小</th>
                     </tr>
                     <?php
-                    $sums = array(
-                            3,
-                            4,
-                            5,
-                            6,
-                            7,
-                            8,
-                            9,
-                            10,
-                            11,
-                            12,
-                            13,
-                            14,
-                            15,
-                            16,
-                            17,
-                            18
-                    );
                     $hz = 0;
                     ?>
                     @if (count($datas))
@@ -70,115 +52,115 @@
                                 };
                                 ?>
                                 @if($codes[0]%2==0)
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #ddd005;">
+                                    <td class="trendcolor1">
                                         双
                                     </td>
                                 @else
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #84cf54;">
+                                    <td class="trendcolor2">
                                         单
                                     </td>
                                 @endif
                                 @if($codes[0]>5)
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #ddd005;">
+                                    <td class="trendcolor1">
                                         大
                                     </td>
                                 @else
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #84cf54;">
+                                    <td class="trendcolor2">
                                         小
                                     </td>
                                 @endif
                                 @if($codes[1]%2==0)
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #ddd005;">
+                                    <td class="trendcolor1">
                                         双
                                     </td>
                                 @else
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #84cf54;">
+                                    <td class="trendcolor2">
                                         单
                                     </td>
                                 @endif
                                 @if($codes[1]>5)
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #ddd005;">
+                                    <td class="trendcolor1">
                                         大
                                     </td>
                                 @else
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #84cf54;">
+                                    <td class="trendcolor2">
                                         小
                                     </td>
                                 @endif
                                 @if($codes[2]%2==0)
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #ddd005;">
+                                    <td class="trendcolor1">
                                         双
                                     </td>
                                 @else
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #84cf54;">
+                                    <td class="trendcolor2">
                                         单
                                     </td>
                                 @endif
                                 @if($codes[2]>5)
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #ddd005;">
+                                    <td class="trendcolor1">
                                         大
                                     </td>
                                 @else
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #84cf54;">
+                                    <td class="trendcolor2">
                                         小
                                     </td>
                                 @endif
                                 @if($codes[3]%2==0)
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #ddd005;">
+                                    <td class="trendcolor1">
                                         双
                                     </td>
                                 @else
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #84cf54;">
+                                    <td class="trendcolor2">
                                         单
                                     </td>
                                 @endif
                                 @if($codes[3]>5)
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #ddd005;">
+                                    <td class="trendcolor1">
                                         大
                                     </td>
                                 @else
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #84cf54;">
+                                    <td class="trendcolor2">
                                         小
                                     </td>
                                 @endif
                                 @if($codes[4]%2==0)
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #ddd005;">
+                                    <td class="trendcolor1">
                                         双
                                     </td>
                                 @else
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #84cf54;">
+                                    <td class="trendcolor2">
                                         单
                                     </td>
                                 @endif
                                 @if($codes[4]>5)
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #ddd005;">
+                                    <td class="trendcolor1">
                                         大
                                     </td>
                                 @else
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #84cf54;">
+                                    <td class="trendcolor2">
                                         小
                                     </td>
                                 @endif
 
-                                @if($hz>30)
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #ddd005;">
-                                        大
-                                    </td>
-                                @else
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #84cf54;">
-                                        小
-                                    </td>
-                                @endif
+                                <td style="color: rgb(255, 255, 255); background: none repeat scroll 0% 0% rgb(231, 133, 141);">{{$hz}}</td>
                                 @if($hz %2==0)
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #ddd005;">
+                                    <td class="trendcolor1">
                                         单
                                     </td>
                                 @else
-                                    <td style="color: rgb(255, 255, 255);     background: none repeat scroll 0% 0% #84cf54;">
+                                    <td class="trendcolor2">
                                         双
                                     </td>
                                 @endif
-                                <td style="color: rgb(255, 255, 255); background: none repeat scroll 0% 0% rgb(231, 133, 141);">{{$hz}}</td>
+                                @if($hz>30)
+                                    <td class="trendcolor1">
+                                        大
+                                    </td>
+                                @else
+                                    <td class="trendcolor2">
+                                        小
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     @else

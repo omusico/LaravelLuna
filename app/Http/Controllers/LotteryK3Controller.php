@@ -78,18 +78,18 @@ class LotteryK3Controller extends Controller
         return view('favourable');
     }
 
-    public function getLotteryWin()
-    {
-        if(env('SITE_TYPE','')=='five'){
-
-            $result = lu_lottery_notes_five::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
-        }else{
-
-            $result = lu_lottery_notes_k3::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
-        }
-        $lu_lottery_note_k3s = $result->paginate(10);
-        return view('User.lotterywinlist', compact('lu_lottery_note_k3s'));
-    }
+//    public function getLotteryWin()
+//    {
+//        if(env('SITE_TYPE','')=='five'){
+//
+//            $result = lu_lottery_notes_five::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
+//        }else{
+//
+//            $result = lu_lottery_notes_k3::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
+//        }
+//        $lu_lottery_note_k3s = $result->paginate(10);
+//        return view('User.lotterywinlist', compact('lu_lottery_note_k3s'));
+//    }
 
     /**
      * 格式化号码
@@ -262,7 +262,7 @@ class LotteryK3Controller extends Controller
             }
 
             if ($totals > $points) {
-                return array('tip' => 'login', 'msg' => '您的余额不足，请立即充值');
+                return array('tip' => 'error', 'msg' => '您的余额不足，请立即充值');
             }
 
             $this->typeDatas = defaultCache::cache_k3_odds();//Waf::moduleData('odds', 'lottery');
@@ -519,7 +519,7 @@ class LotteryK3Controller extends Controller
             }
 
             if ($totals > $points) {
-                return array('tip' => 'login', 'msg' => '您的余额不足，请立即充值');
+                return array('tip' => 'error', 'msg' => '您的余额不足，请立即充值');
             }
 
             //$this->typeDatas = Waf::moduleData('odds', 'lottery');

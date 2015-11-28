@@ -8,7 +8,7 @@
     <div class="container" id="lotteryContainer">
         @if(env('SITE_TYPE','')=='five')
             <div class="row">
-                <div class="col-md-10 col-md-offset-1" style="background-color: white">
+                <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
                     @endif
                     <aside class="col-md-3" style="padding-left: 0px">
                         @include('User.left_bar')
@@ -26,9 +26,8 @@
                                 @include('errors.list')
                                 {{--{!! Form::open(['url' => '/recharge', 'class' => 'form-horizontal', 'role' => 'form']) !!}--}}
                                 <form method="POST" action="{{$level['returnurl']}}/recharge" accept-charset="UTF-8"
-                                      class="form-horizontal" role="form"><input name="_token" type="hidden"
-                                                                                 value="qPzqUC6WIO09PmQr5hH4EZSVmzJpipguGMLbSlse">
-
+                                      class="form-horizontal" role="form">
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <div class="nk3_center_zfuser"><b style="color: #FF0000;">{{Auth::user()->name}}</b>
                                         您好，请输入充值金额
                                     </div>

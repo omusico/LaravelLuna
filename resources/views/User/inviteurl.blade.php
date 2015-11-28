@@ -8,7 +8,7 @@
     <div class="container">
         @if(env('SITE_TYPE','')=='five')
             <div class="row">
-                <div class="col-md-10 col-md-offset-1" style="background-color: white">
+                <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
                     @endif
                     @include('errors.list')
 
@@ -86,6 +86,7 @@
                                     <td>权限组</td>
                                     <td>余额</td>
                                     <td>消费金额</td>
+                                    <td>注册时间</td>
                                     <td>操作</td>
                                 </tr>
                                 @if (count($lu_users))
@@ -114,8 +115,22 @@
                                                 {{--@endif--}}
                                             </td>
                                             <td>
+                                               {{$lu_user->created_at}}
+                                            </td>
+                                            <td>
                                                 <a class="btn btn-sm btn-info"
                                                    href="/proxydetail/{{$lu_user->id}}">投注情况</a>
+                                                {{--<button type="button" class="btn btn-sm btn-warning"--}}
+                                                        {{--data-container="body" data-toggle="popover" data-placement="bottom"--}}
+                                                        {{--title="{{ $lu_user->name }}--客户资料"--}}
+                                                        {{--data-content="--}}
+                                                  {{--: {{ $lu_user->realName }} |--}}
+                                                 {{--开户行 : {{ $item->openBank }} |--}}
+                                                 {{--银行账号 : {{ $item->bankCode }}|--}}
+                                                 {{--开户人姓名 : {{ $item->userName }}--}}
+                                                                {{--">--}}
+                                                    {{--客户资料--}}
+                                                {{--</button>--}}
                                             </td>
                                         </tr>
                                     @endforeach

@@ -72,6 +72,8 @@ Route::post('saveuserlevel', 'Admin\AdminController@saveuserlevel');
 Route::get('getdepositlist', 'Admin\AdminController@getdepositlist');
 Route::get('deposit/{id}/edit', 'Admin\AdminController@updatedepositstatus');
 Route::any('deposit/{id}', 'Admin\AdminController@deletedeposit');
+Route::post('refusedeposit', 'Admin\AdminController@refusedeposit');
+
 Route::get('manualrecharge/{id}', 'Admin\AdminController@manualrecharge');
 Route::post('manualupdate', 'Admin\AdminController@manualupdate');
 Route::get('resetpwd', 'Admin\AdminController@resetpwd');
@@ -122,7 +124,7 @@ Route::any('/userLotteryBetting', ['middleware' => 'auth', 'as' => 'userLotteryB
 Route::any('/getaccountdetail', ['middleware' => 'auth', 'as' => 'getaccountdetail', 'uses' => 'User\UserController@getaccountdetail']);
 Route::any('/getLotteryData', ['as' => 'getLotteryDataForQt', 'uses' => 'LotteryK3Controller@getLotteryDataForQt']);
 Route::any('/loadRecentResult', ['as' => 'loadRecentResult', 'uses' => 'LotteryK3Controller@loadRecentResult']);
-Route::get('/getLotteryWin', ['middleware' => 'auth', 'as' => 'getlotterywin', 'uses' => 'LotteryK3Controller@getLotteryWin']);
+Route::get('/getLotteryWin', ['middleware' => 'auth', 'as' => 'getlotterywin', 'uses' => 'User\UserController@getLotteryWin']);
 Route::get('/getPointsRecord', ['middleware' => 'auth', 'as' => 'getpointsrecord', 'uses' => 'LotteryK3Controller@getPointsRecord']);
 Route::get('/account', ['middleware' => 'auth', 'as' => 'account', 'uses' => 'User\UserController@account']);
 //Route::get('/deposit',['middleware' => 'auth','as'=>'deposit','uses'=>'User\UserController@deposit']);
@@ -139,6 +141,7 @@ Route::get('/favourable', ['uses' => 'LotteryK3Controller@favourable']);
 Route::get('/phpinfo', ['uses' => 'WelcomeController@phpinfo']);
 Route::get('/inviteurl', ['as' => 'inviteurl', 'uses' => 'Proxy\ProxyController@index']);
 Route::get('/proxydetail/{id}', ['as' => 'proxydetail', 'uses' => 'Proxy\ProxyController@proxydetail']);
+Route::get('/proxypersonal/{id}', ['as' => 'proxypersonal', 'uses' => 'Proxy\ProxyController@proxypersonal']);
 
 //充值
 Route::get('/recharge', ['middleware' => 'auth', 'uses' => 'CashController@recharge']);

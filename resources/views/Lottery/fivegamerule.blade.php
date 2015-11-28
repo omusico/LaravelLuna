@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1" style="background-color: white">
+            <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
                 {{--<div class="form-group col-md-10 col-md-offset-1" style="text-align: center">--}}
                 {{--<a class="btn btn-default btn-primary" href="#">代理中心</a>--}}
                 {{--<a class="btn btn-default btn-info" href="/dailiregister">代理注册</a>--}}

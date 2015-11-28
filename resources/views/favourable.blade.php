@@ -21,7 +21,7 @@
     <div class="container" style="text-align: center;">
         @if(env('SITE_TYPE','')=='five')
             <div class="row">
-                <div class="col-md-10 col-md-offset-1" style="background-color: white">
+                <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
                     @endif
                     <div class="cm_wrapper clear">
                         <div class="cm_w1000" style="width: 100%;background-color: transparent"><img src="/css/favourable.gif" alt="优惠活动"

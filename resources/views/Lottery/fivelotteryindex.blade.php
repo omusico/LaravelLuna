@@ -12,7 +12,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-offset-1 col-md-10" style="background-color: #faf9f9">
+            <div class="col-md-offset-1 col-md-10" style="background-color: #faf9f9;padding-left:0px">
                 <div class="zgk3_info_box">
                     <div class=" zgk3_top row">
                         <div class="zgk3_info_l col-md-4">
@@ -1319,7 +1319,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="padding:0px">
                         <div class="login_weizhi">
                             @include('userinfo')
                         </div>

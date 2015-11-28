@@ -4,8 +4,10 @@
 @stop
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1" style="background-color: white">
+        @if(env('SITE_TYPE','')=='five')
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1" style="background-color: white;padding: 0px">
+                    @endif
                 <aside class="col-md-3" style="padding-left: 0px">
                     @include('User.left_bar')
                 </aside>
@@ -63,7 +65,9 @@
                     </table>
                     <?php echo $lu_lotteries_k3s->render(); ?>
                 </main>
+                    @if(env('SITE_TYPE','')=='five')
+                </div>
             </div>
-        </div>
+        @endif
     </div>
 @stop

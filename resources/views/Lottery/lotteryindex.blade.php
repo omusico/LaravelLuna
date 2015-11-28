@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container" id="lotteryContainer">
+            <div class="container">
                 <main class="col-md-8" style="border-right: 1px solid rgb(218, 218, 218)">
                     <ul class="nav nav-tabs" role="tablist" id="myTab"> 
                         <li class="active"><a href="#HZ" role="tab" data-toggle="tab">和值</a></li>

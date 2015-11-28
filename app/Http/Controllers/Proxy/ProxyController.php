@@ -71,4 +71,11 @@ class ProxyController extends Controller
         }
     }
 
+    function proxypersonal($id){
+        $lu_user = lu_user::find($id);
+        if ($lu_user->recId == Auth::user()->id) {
+
+        }
+    }
+
 }

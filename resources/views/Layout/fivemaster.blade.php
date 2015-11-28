@@ -202,11 +202,6 @@
             @if(Auth::guest() && empty($islogin) && empty($isregister))
             location.replace('/login');
             @endif
-
-
-
-
-
         }
     })(navigator.userAgent);
 

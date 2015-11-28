@@ -102,15 +102,15 @@ class UserController extends Controller
         }
     }
 
-    public function deposit()
-    {
-
-        $bank = lu_lottery_user::where('uid', Auth::user()->id)->first();
-        if (!isset($bank)) {
-            return view('bank');
-        }
-        return view('Cash.deposit');
-    }
+//    public function deposit()
+//    {
+//
+//        $bank = lu_lottery_user::where('uid', Auth::user()->id)->first();
+//        if (!isset($bank)) {
+//            return view('bank');
+//        }
+//        return view('Cash.deposit');
+//    }
 
     public function bank()
     {
@@ -146,6 +146,19 @@ class UserController extends Controller
             session()->flash('message', "银行卡修改成功");
         }
         return Redirect::back();
+    }
+
+    public function getLotteryWin()
+    {
+        if(env('SITE_TYPE','')=='five'){
+
+            $result = lu_lotteries_five::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
+        }else{
+
+            $result = lu_lotteries_k3::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
+        }
+        $lu_lottery_note_k3s = $result->paginate(10);
+        return view('User.lotterywinlist', compact('lu_lottery_note_k3s'));
     }
 
     public function getPersonalwin()

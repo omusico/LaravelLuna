@@ -8,7 +8,7 @@
     <div class="container">
         @if(env('SITE_TYPE','')=='five')
             <div class="row">
-                <div class="col-md-10 col-md-offset-1" style="background-color: white">
+                <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
                     @endif
                     <aside class="col-md-3" style="padding-left: 0px">
                         @include('User.left_bar')

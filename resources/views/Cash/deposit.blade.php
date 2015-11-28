@@ -8,7 +8,7 @@
     <div class="container">
         @if(env('SITE_TYPE','')=='five')
         <div class="row">
-            <div class="col-md-10 col-md-offset-1" style="background-color: white">
+            <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
                 @endif
                 <aside class="col-md-3" style="padding-left: 0px">
                     @include('User.left_bar')
@@ -48,6 +48,7 @@
                                 <td>金额</td>
                                 <td>提款时间</td>
                                 <td>手续费</td>
+                                <td>拒绝理由</td>
                                 <td>状态</td>
                             </tr>
                             @if (count($lu_lottery_applys))
@@ -58,8 +59,11 @@
                                         <td>{{ $lu_lottery_apply->amounts }}</td>
                                         <td>{{ $lu_lottery_apply->created_at }}</td>
                                         <td>{{ $lu_lottery_apply->fees }}</td>
+                                        <td><a style="color: red">{{ $lu_lottery_apply->remarks }}</a></td>
                                         <td>@if( $lu_lottery_apply->status ==2)
-                                                未通过
+                                                待审批
+                                            @elseif( $lu_lottery_apply->status ==3)
+                                                <a style="color: red;">拒绝</a>
                                             @else
                                                 <a style="color: green;">通过</a>
                                             @endif

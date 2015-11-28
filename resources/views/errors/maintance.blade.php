@@ -38,7 +38,7 @@
     <div class="container" style="vertical-align: middle;text-align: center;vertical-align: middle">
         @if(env('SITE_TYPE','')=='five')
             <div class="row">
-                <div class="col-md-10 col-md-offset-1" style="background-color: white">
+                <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
                     @endif
                     <div class="content">
                         <div class="title">该彩种正在维护，不能投注.</div>
