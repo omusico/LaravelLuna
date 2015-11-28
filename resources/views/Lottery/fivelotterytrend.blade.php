@@ -5,6 +5,9 @@
 @section('css')
     {{--    <link rel="stylesheet" type="text/css" href="{{ asset('/css/betting.css') }}">--}}
     <style type="text/css">
+        th td{
+            text-align: center;
+        }
     </style>
     <script type="text/javascript">
     </script>
