@@ -433,10 +433,10 @@ class LunaFunctions
 
                 if ($type == 'xy') {
                     $result = new Lottery_Result($winPre, $winArr);
-                } else if($type=="k3"){
-                    $result = new Lottery_Result();
-                } else if($type=="five"){
+                }  else if($type=="five"){
                     $result = new FiveLottery_Result();
+                }else {
+                    $result = new Lottery_Result();
                 }
 
                 foreach ($winlists as $row) {

@@ -5,6 +5,9 @@
 @section('css')
     {{--    <link rel="stylesheet" type="text/css" href="{{ asset('/css/betting.css') }}">--}}
     <style type="text/css">
+        .winBall{
+            text-align: center;
+        }
     </style>
     <script type="text/javascript">
     </script>
@@ -89,7 +92,7 @@
                                 <td>
                                     {{$item->proName}}
                                 </td>
-                                <td colspan="3">
+                                <td colspan="3" style="background-color: rgb(255, 255, 238);color: red">
                                     {{$item->codes}}
                                 </td>
                                 <?php
@@ -116,38 +119,38 @@
                                             {{$sum}}
                                         </td>
                                     @else
-                                        <td style="color:#808080;">
+                                        <td style="background-color: rgb(255, 255, 238);color:#808080;">
                                             {{$sum}}
                                         </td>
                                     @endif
                                 @endforeach
                                 @if($hz>10)
-                                    <td style="background-color: red;color: white;font-family: bold">
+                                    <td class="trendcolor2">
                                         大
                                     </td>
-                                    <td style="background-color: #008000;color: #808080">
+                                    <td class="trendcolor3">
                                         小
                                     </td>
                                 @else
-                                    <td style="background-color: #008000;color: #808080">
+                                    <td class="trendcolor3">
                                         大
                                     </td>
-                                    <td style="background-color: red;color: white;font-family: bold">
+                                    <td class="trendcolor2">
                                         小
                                     </td>
                                 @endif
                                 @if($hz %2==0)
-                                    <td style="background-color: #008000;color: #808080">
+                                    <td class="trendcolor3">
                                         单
                                     </td>
-                                    <td style="background-color: red;color: white;font-family: bold">
+                                    <td class="trendcolor2">
                                         双
                                     </td>
                                 @else
-                                    <td style="background-color: red;color: white;font-family: bold">
+                                    <td class="trendcolor2">
                                         单
                                     </td>
-                                    <td style="background-color: #008000;color: #808080">
+                                    <td class="trendcolor3">
                                         双
                                     </td>
                                 @endif

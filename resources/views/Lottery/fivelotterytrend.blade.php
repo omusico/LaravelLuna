@@ -15,7 +15,7 @@
             <div class="col-md-10 col-md-offset-1" style="padding: 0px">
                 <h2 align="center" style="color: white;margin-top: 5px">
                     {{$czName}}走势图</h2>
-                <table class="table table-hover" style="background-color: white">
+                <table class="table table-hover" style="background-color: white;">
                     <tr>
                         <th rowspan="2">期号</th>
                         <th colspan="3" rowspan="2">开奖号码</th>

@@ -9824,3 +9824,17 @@ strong.c_ba2636 {
 .xiao_ico { background: url('d_x_d_x.gif') no-repeat scroll -19px 0px transparent;color: white }
 .dan_ico{ background: url('d_x_d_x.gif') no-repeat scroll -38px 0px transparent;color: white }
 .shuang_ico { background: url('d_x_d_x.gif') no-repeat scroll -57px 0px transparent;color: white }
+
+.trendcolor1 {
+    color: rgb(255, 255, 255);
+    background: none repeat scroll 0% 0% #ddd005;
+}
+
+.trendcolor2 {
+    color: rgb(255, 255, 255);
+    background: none repeat scroll 0% 0% #84cf54;
+}
+.trendcolor3 {
+    color: rgb(255, 255, 255);
+    background: none repeat scroll 0% 0% #808080;
+}
