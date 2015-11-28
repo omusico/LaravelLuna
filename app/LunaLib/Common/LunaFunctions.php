@@ -520,7 +520,7 @@ class LunaFunctions
                                     $detail = lu_lotteries_k3::where('id', $lotId)->first();
                                 }
 
-                                if ($detail['groupId'] != null) {
+                                if ($detail['groupId'] != null && $detail['groupId']!="0") {
                                     $groupId = explode('_', $detail['groupId']);
                                     $tingCount = intval($groupId[1]);
                                     //todo 取消追号逻辑
