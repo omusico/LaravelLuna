@@ -55,12 +55,12 @@
                                 };
                                 ?>
                                 @if($codes[0]%2==0)
-                                    <td class="trendcolor1">
-                                        双
-                                    </td>
-                                @else
                                     <td class="trendcolor2">
                                         单
+                                    </td>
+                                @else
+                                    <td class="trendcolor1">
+                                        双
                                     </td>
                                 @endif
                                 @if($codes[0]>5)
