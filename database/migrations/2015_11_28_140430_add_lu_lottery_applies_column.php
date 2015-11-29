@@ -14,7 +14,7 @@ class AddLuLotteryAppliesColumn extends Migration {
 	{
 		//
         Schema::table('lu_lottery_applies', function (Blueprint $table) {
-            $table->string('remarks');
+            $table->string('remarks')->nullable();
         });
 	}
 

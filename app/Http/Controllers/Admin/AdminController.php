@@ -151,40 +151,40 @@ class AdminController extends Controller
         if ($lu_lottery_apply->status == 2) {
 
             $user = lu_user::find($lu_lottery_apply->uid);
-            $userModel = $user->lu_user_data;
-            if ($userModel->points < $lu_lottery_apply->amounts) {
-                session()->flash('message_warning', $lu_lottery_apply->sn . '状态修改失败，会员当前账户小于其提现金额，不能提现');
-                return Redirect::back();
-            }
+//            $userModel = $user->lu_user_data;
+//            if ($userModel->points < $lu_lottery_apply->amounts) {
+//                session()->flash('message_warning', $lu_lottery_apply->sn . '状态修改失败，会员当前账户小于其提现金额，不能提现');
+//                return Redirect::back();
+//            }
             $lu_lottery_apply->status = 1;
             $lu_lottery_apply->save();
-            if ($lu_lottery_apply->id > 0) {
-                $data['orderSn'] = $lu_lottery_apply->sn;
-                $data['orderId'] = $lu_lottery_apply->id;
-                $data['payType'] = 'apply';
-                $data['proData'] = array(
-                    'total' => $lu_lottery_apply->amounts
-                );
-                $data['formatAmounts'] = CommonClass::price($lu_lottery_apply->amounts);
-                //会员余额变动
-                $oldpoints = $userModel->points;
-                $points = $oldpoints - $lu_lottery_apply->amounts;
-                $userModel->points = $points;
-                $userModel->save();
-
-                $data = array(
-                    'uid' => $user->id,
-                    'userName' => $user->name,
-                    'addType' => '7', // 提现申请
-                    'lotteryType' => '', // 中奖
-                    'touSn' => $lu_lottery_apply->sn,
-                    'oldPoint' => $oldpoints,
-                    'changePoint' => -$lu_lottery_apply->amounts,
-                    'newPoint' => $points,
-                    'created' => strtotime(date('Y-m-d H:i:s'))
-                );
-                App\lu_points_record::create($data);
-            }
+//            if ($lu_lottery_apply->id > 0) {
+//                $data['orderSn'] = $lu_lottery_apply->sn;
+//                $data['orderId'] = $lu_lottery_apply->id;
+//                $data['payType'] = 'apply';
+//                $data['proData'] = array(
+//                    'total' => $lu_lottery_apply->amounts
+//                );
+//                $data['formatAmounts'] = CommonClass::price($lu_lottery_apply->amounts);
+//                //会员余额变动
+//                $oldpoints = $userModel->points;
+//                $points = $oldpoints - $lu_lottery_apply->amounts;
+//                $userModel->points = $points;
+//                $userModel->save();
+//
+//                $data = array(
+//                    'uid' => $user->id,
+//                    'userName' => $user->name,
+//                    'addType' => '7', // 提现申请
+//                    'lotteryType' => '', // 中奖
+//                    'touSn' => $lu_lottery_apply->sn,
+//                    'oldPoint' => $oldpoints,
+//                    'changePoint' => -$lu_lottery_apply->amounts,
+//                    'newPoint' => $points,
+//                    'created' => strtotime(date('Y-m-d H:i:s'))
+//                );
+//                App\lu_points_record::create($data);
+//            }
             session()->flash('message', $lu_lottery_apply->sn . '状态修改成功');
         } else {
             session()->flash('message_warning', $lu_lottery_apply->sn . '状态已经通过,不能再修改了');
