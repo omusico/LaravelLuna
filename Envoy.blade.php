@@ -5,3 +5,4 @@ cd site
 git pull origin master
 php artisan migrate
 @endtask
+
