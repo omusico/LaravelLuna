@@ -55,12 +55,12 @@
                                 };
                                 ?>
                                 @if($codes[0]%2==0)
-                                    <td class="trendcolor2">
-                                        单
-                                    </td>
-                                @else
                                     <td class="trendcolor1">
                                         双
+                                    </td>
+                                @else
+                                    <td class="trendcolor2">
+                                        单
                                     </td>
                                 @endif
                                 @if($codes[0]>5)
@@ -147,12 +147,12 @@
 
                                 <td style="color: rgb(255, 255, 255); background: none repeat scroll 0% 0% rgb(231, 133, 141);">{{$hz}}</td>
                                 @if($hz %2==0)
-                                    <td class="trendcolor1">
-                                        单
-                                    </td>
-                                @else
                                     <td class="trendcolor2">
                                         双
+                                    </td>
+                                @else
+                                    <td class="trendcolor1">
+                                        单
                                     </td>
                                 @endif
                                 @if($hz>30)
