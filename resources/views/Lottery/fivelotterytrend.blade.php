@@ -155,7 +155,7 @@
                                         单
                                     </td>
                                 @endif
-                                @if($hz>30)
+                                @if($hz>=30)
                                     <td class="trendcolor1">
                                         大
                                     </td>
