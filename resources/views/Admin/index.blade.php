@@ -27,6 +27,7 @@
 
         <table class="table table-hover">
             <tr>
+                <td>用户名</td>
                 <td>姓名</td>
                 <td>性别</td>
                 <td>所属代理</td>
@@ -43,6 +44,7 @@
                 @foreach ($lu_users as $lu_user)
                     <tr>
                         <td>{{ $lu_user->name }}</td>
+                        <td>{{ $lu_user->realName }}</td>
                         <td>{{ $lu_user->sex }}</td>
                         <td>{{ $lu_user->recUser }}</td>
                         <td>{{ $lu_user->phone }}</td>

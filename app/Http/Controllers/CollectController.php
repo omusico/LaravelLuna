@@ -30,8 +30,37 @@ class CollectController extends Controller
     //采集
     public function collectLotteryData(Request $request)
     {
-
         $lotteryType = strtoupper(trim($request->lottery_type));
+        $this->collectFromType($lotteryType);
+    }
+
+    public function cronCollect()
+    {
+        if (env('SITE_TYPE', '') == 'five') {
+            $this->collectFromType('sdfive');
+            $this->collectFromType('gdfive');
+            $this->collectFromType('shfive');
+            $this->collectFromType('zjfive');
+            $this->collectFromType('jxfive');
+            $this->collectFromType('liaoningfive');
+            $this->collectFromType('hljfive');
+//            $this->collectFromType('sdfive');
+
+        }else{
+            $this->collectFromType('jsold');
+            $this->collectFromType('beijin');
+            $this->collectFromType('anhui');
+            $this->collectFromType('jilin');
+            $this->collectFromType('jsnew');
+            $this->collectFromType('hubei');
+            $this->collectFromType('hebei');
+            $this->collectFromType('nmg');
+        }
+    }
+
+    public function collectFromType($lotteryType)
+    {
+
         $lunaFunctions = new LunaFunctions();
         $configs = defaultCache::cache_lottery_status();
         $conf = $lunaFunctions->get_lottery_config($lotteryType);
@@ -226,23 +255,8 @@ class CollectController extends Controller
         if ($hadKj) {
             $this->syncCjFromNotice($lotteryType, $timeData['prePeriod'], $kjData['preOpenResult'], $source);
             // 通知其他站点
-//            $base = Waf_Config::get('base');
-//            $theme = $base['theme'];
-//
-//            $mp=new MultiHttpRequest();
-//            $urls = Waf::cache("notify_url");
-//            $newUrls = array();
-//            foreach ($urls as $key=>$val){
-//                $newUrls[$key] = $val."/index.php?m=common&c=index&a=syncCjFromNotice".
-//                    "&lottery_type=".$lotteryType."&prePeriod=".$timeData['prePeriod']."&preOpenResult=".$kjData['preOpenResult'].'&from='.$source;
-//            }
-//
-//            $mp->set_urls($newUrls);
-//            $contents = $mp->start();
-
         }
         return $result;
-//        $this->response->throwJson($result);
     }
 
     // 根据通知来开奖派奖
