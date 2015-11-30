@@ -2081,10 +2081,10 @@ function loadRecentResult() {
                         hz = hz + parseInt(value, 10)
                     }
                     var d = "";
-                    if (hz <= 30) {
+                    if (hz < 30) {
                         d = '<span class="da_ico"> 小</span>'
                     } else {
-                        if (hz > 30) {
+                        if (hz >= 30) {
                             d = '<span class="xiao_ico"> 大</span>'
                         }
                     }
