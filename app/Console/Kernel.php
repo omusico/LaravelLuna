@@ -31,13 +31,13 @@ class Kernel extends ConsoleKernel {
             if(env("SITE_TYPE")=="five"){
                 $fiveArrs=['sdfive','gdfive','shfive','zjfive','jxfive','liaoningfive','hljfive'];
                 foreach($fiveArrs as $value){
-                    exec('curl localhost:8000/collectLotteryData?lottery_type='.$value);
+                    exec('curl localhost/collectLotteryData?lottery_type='.$value);
                 }
             }
             else{
                $k3Arrs=['jsold','beijin','anhui','jilin','jsnew','hubei','hebei','nmg'];
                 foreach($k3Arrs as $value){
-                    exec('curl localhost:8000/collectLotteryData?lottery_type='.$value);
+                    exec('curl localhost/collectLotteryData?lottery_type='.$value);
                 }
             }
         })->cron('*/1 * * * * *');
