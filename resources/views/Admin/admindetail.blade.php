@@ -21,7 +21,8 @@
                 @foreach ($lu_points_records as $lu_points_record)
                     <tr>
                         <td>{{ $lu_points_record->userName }}</td>
-                        <td>{{ $point_types[$lu_points_record->addType] }}</td>
+                        {{--<td>{{ $point_types[$lu_points_record->addType] }}</td>--}}
+                        <td>{{ $lu_points_record->addType }}</td>
                         <td>{{ $lu_points_record->oldPoint }}</td>
                         <td>{{ $lu_points_record->changePoint }}</td>
                         <td>{{ $lu_points_record->newPoint }}</td>
