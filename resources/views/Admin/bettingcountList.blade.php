@@ -56,6 +56,7 @@
                 <td>盈利金额</td>
                 <td>投注次数</td>
                 <td>剩余金额</td>
+                <td>在线ip</td>
             </tr>
             <?php
             $sumeach = 0;
@@ -76,6 +77,7 @@
                         <td>{{ $lu_lotteries_k3->profit }}</td>
                         <td>{{ $lu_lotteries_k3->bcount }}</td>
                         <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->points }}</td>
+                        <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->loginIp }}</td>
                     </tr>
                     @endif
                 @endforeach
