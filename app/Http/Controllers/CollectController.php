@@ -34,29 +34,6 @@ class CollectController extends Controller
         $this->collectFromType($lotteryType);
     }
 
-    public function cronCollect()
-    {
-        if (env('SITE_TYPE', '') == 'five') {
-            $this->collectFromType('sdfive');
-            $this->collectFromType('gdfive');
-            $this->collectFromType('shfive');
-            $this->collectFromType('zjfive');
-            $this->collectFromType('jxfive');
-            $this->collectFromType('liaoningfive');
-            $this->collectFromType('hljfive');
-//            $this->collectFromType('sdfive');
-
-        }else{
-            $this->collectFromType('jsold');
-            $this->collectFromType('beijin');
-            $this->collectFromType('anhui');
-            $this->collectFromType('jilin');
-            $this->collectFromType('jsnew');
-            $this->collectFromType('hubei');
-            $this->collectFromType('hebei');
-            $this->collectFromType('nmg');
-        }
-    }
 
     public function collectFromType($lotteryType)
     {

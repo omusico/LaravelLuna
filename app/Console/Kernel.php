@@ -1,6 +1,7 @@
 <?php namespace App\Console;
 
-use App\Http\Controllers\CollectController;
+use App\Http\Controllers;
+use App\LunaLib\Common;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -25,7 +26,21 @@ class Kernel extends ConsoleKernel {
 	{
 		$schedule->command('inspire')
 				 ->hourly();
-        $schedule->call('CollectController@collectFromInternal')->everyFiveMinutes();
+//        $schedule->call('Common\CommonClass@cronCollect')->cron('*/1 * * * * *');
+        $schedule->call(function () {
+            if(env("SITE_TYPE")=="five"){
+                $fiveArrs=['sdfive','gdfive','shfive','zjfive','jxfive','liaoningfive','hljfive'];
+                foreach($fiveArrs as $value){
+                    exec('curl localhost:8000/collectLotteryData?lottery_type='.$value);
+                }
+            }
+            else{
+               $k3Arrs=['jsold','beijin','anhui','jilin','jsnew','hubei','hebei','nmg'];
+                foreach($k3Arrs as $value){
+                    exec('curl localhost:8000/collectLotteryData?lottery_type='.$value);
+                }
+            }
+        })->cron('*/1 * * * * *');
 	}
 
 }
