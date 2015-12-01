@@ -9435,9 +9435,12 @@ input {
 
 .select_num ul .long_select_btn {
     float: left;
-    background: url('betting.png') repeat-x scroll 0 -121px transparent;
+    /*background: url('betting.png') repeat-x scroll 0 -121px transparent;*/
+    background: none;
+    background-color: #d9534f;
+    color: white;
     font-size: 22px;
-    height: 64px;
+    height: 43px;
     width: 130px;
     line-height: 50px;
     text-align: center;
@@ -9837,4 +9840,23 @@ strong.c_ba2636 {
 .trendcolor3 {
     color: rgb(255, 255, 255);
     background: none repeat scroll 0% 0% #808080;
+}
+
+.select_num2 ul li .num{
+    background: url('five.png') no-repeat;
+}
+.select_num ul li{
+    background: url('five.png') no-repeat;
+}
+.select_num1 ul li{
+    background: url('five.png') no-repeat;
+}
+.select_num2 ul li .OneNum_active{
+    background: url('fivepress.png') no-repeat;
+}
+.select_num ul li.OneNum_active{
+    background: url('fivepress.png') no-repeat;
+}
+.select_num1 ul li.OneNum_active{
+    background: url('fivepress.png') no-repeat;
 }

@@ -65,7 +65,7 @@
                             <div class="form-group">
                                 {!! Form::label('qq', 'QQ: ', ['class' => 'control-label col-md-4']) !!}
                                 <div class="col-md-4">
-                                    {!! Form::text('qq', old('qq'), ['class' => 'form-control']) !!}
+                                    {!! Form::text('qq', old('qq'), ['class' => 'form-control','required']) !!}
                                 </div>
                             </div>
                             <div class="form-group">

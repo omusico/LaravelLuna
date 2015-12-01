@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\lu_user_data;
 use Auth;
 use App\User;
 use Redirect;
@@ -27,6 +28,10 @@ class loginController extends Controller
         $name = $request->get('name');
         $password = $request->get('password');
         if (Auth::attempt(['name' => $name, 'password' => $password], $request->get('remember'))) {
+            $lu_user_data = lu_user_data::where('uid',Auth::user()->id)->first();
+            $lu_user_data->loginIp = $request->ip();
+            $lu_user_data->loginNum = $lu_user_data->loginNum +1;
+            $lu_user_data->save();
 //            return Redirect::action('WelcomeController@index');
             if(Auth::user()->groupId == 3 || Auth::user()->groupId ==5){
                 return Redirect::route('inviteurl');

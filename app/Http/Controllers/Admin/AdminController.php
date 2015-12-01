@@ -61,9 +61,11 @@ class AdminController extends Controller
             $result->where('userName', $userName);
         }
         if (!empty($starttime)) {
+            $starttime = substr($starttime,0,10);
             $result->where('created_at', '>=', $starttime);
         }
         if (!empty($endtime)) {
+            $endtime = substr($endtime,0,10);
             $result->where('created_at', '<=', $endtime);
         }
 //        $result = $result->orderby('created_at', 'desc');
@@ -87,9 +89,11 @@ class AdminController extends Controller
             $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
         }
         if (!empty($starttime)) {
+            $starttime = substr($starttime,0,10);
             $wheresql .= ' and created_at >="' . $starttime . '"';
         }
         if (!empty($endtime)) {
+            $endtime = substr($endtime,0,10);
             $wheresql .= ' and created_at <="' . $endtime . '"';
         }
         if (env('SITE_TYPE', '') == 'five') {
@@ -98,8 +102,6 @@ class AdminController extends Controller
             $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
         }
 
-//        $result = $result->orderby('created_at', 'desc');
-//        $lu_lotteries_k3s = $result->paginate(10);
         return view('Admin.bettingcountList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime'));
     }
 

@@ -76,69 +76,52 @@
                                     <a class="btn btn-default btn-primary" onclick="Search()">查询</a>
                                 </div>
                             </div>
-                            <table class="table table-hover">
-                                <tr>
-                                    <td>姓名</td>
-                                    <td class="mobilhide">性别</td>
-                                    {{--<td>所属代理</td>--}}
-                                    {{--<td class="mobilhide">手机</td>--}}
-                                    {{--<td class="mobilhide">邮箱</td>--}}
-                                    <td>权限组</td>
-                                    <td>余额</td>
-                                    <td>消费金额</td>
-                                    <td>注册时间</td>
-                                    <td>操作</td>
-                                </tr>
-                                @if (count($lu_users))
-                                    @foreach ($lu_users as $lu_user)
-                                        <tr>
-                                            <td>{{ $lu_user->name }}</td>
-                                            <td class="mobilhide">{{ $lu_user->sex }}</td>
-                                            {{--                                    <td>{{ $lu_user->recId }}</td>--}}
-                                            {{--<td class="mobilhide">{{ $lu_user->phone }}</td>--}}
-                                            {{--<td class="mobilhide">{{ $lu_user->email }}</td>--}}
-                                            <td>
-                                                {{--                                        {{$lu_user->groupId}}--}}
-                                                @foreach($user_groups as $user_group)
-                                                    @if($user_group['groupId'] == $lu_user->groupId)
-                                                        {{$user_group['name'] }}
-                                                    @endif
-                                                @endforeach
-                                                {{--{{$user_group[$lu_user->groupId]['name']}}--}}
-                                            </td>
-                                            <td>{{ $lu_user->lu_user_data->points }}</td>
-                                            <td>
-                                                {{--@if(Auth::user()->groupId ==5)--}}
-                                                {{--{{DB::select('select sum(eachPrice) as sum from lu_lotteries_k3s where uid in (select id from lu_users where recId =?)',[$lu_user->id])[0]->sum}}--}}
-                                                {{--@else--}}
-                                                {{DB::table('lu_lotteries_k3s')->where('uid',$lu_user->id)->where('status', '1') ->sum('eachPrice')}}
-                                                {{--@endif--}}
-                                            </td>
-                                            <td>
-                                               {{$lu_user->created_at}}
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-sm btn-info"
-                                                   href="/proxydetail/{{$lu_user->id}}">投注情况</a>
-                                                {{--<button type="button" class="btn btn-sm btn-warning"--}}
-                                                        {{--data-container="body" data-toggle="popover" data-placement="bottom"--}}
-                                                        {{--title="{{ $lu_user->name }}--客户资料"--}}
-                                                        {{--data-content="--}}
-                                                  {{--: {{ $lu_user->realName }} |--}}
-                                                 {{--开户行 : {{ $item->openBank }} |--}}
-                                                 {{--银行账号 : {{ $item->bankCode }}|--}}
-                                                 {{--开户人姓名 : {{ $item->userName }}--}}
-                                                                {{--">--}}
-                                                    {{--客户资料--}}
-                                                {{--</button>--}}
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                @else
-                                    <h1>没有会员</h1>
-                                @endif
-                            </table>
-                            <?php echo $lu_users->appends(['userName' => $userName, 'starttime' => $starttime, 'endtime' => $endtime])->render(); ?>
+                            <table class="table table-hover"        <table class="table table-hover">
+                                    <tr>
+                                        {{--<td>日期</td>--}}
+                                        <td>会员</td>
+                                        <td>投注金额</td>
+                                        <td>中奖金额</td>
+                                        <td>盈利金额</td>
+                                        <td>投注次数</td>
+                                        <td>剩余金额</td>
+                                        <td>操作</td>
+                                    </tr>
+                                    <?php
+                                    $sumeach = 0;
+                                    $sumbingo = 0;
+                                    ?>
+                                    @if (count($lu_lotteries_bettings))
+                                        @foreach ($lu_lotteries_bettings as $lu_lotteries_betting)
+                                            @if(\App\lu_user::find($lu_lotteries_betting->id)->groupId <> 7)
+                                                <?php
+                                                $sumeach += $lu_lotteries_betting->eachPrice;
+                                                $sumbingo += $lu_lotteries_betting->bingoPrice;
+                                                ?>
+                                                <tr>
+                                                    {{--                                <td>{{ $lu_lotteries_betting->uid }}</td>--}}
+                                                    <td>{{ $lu_lotteries_betting->name }}</td>
+                                                    <td>{{ $lu_lotteries_betting->eachPrice }}</td>
+                                                    <td>{{ $lu_lotteries_betting->bingoPrice }}</td>
+                                                    <td>{{ $lu_lotteries_betting->profit }}</td>
+                                                    <td>{{ $lu_lotteries_betting->bcount }}</td>
+                                                    <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_betting->id)->first()->points }}</td>
+                                                    <td>
+                                                        <a class="btn btn-sm btn-info"
+                                                           href="/proxydetail/{{$lu_lotteries_betting->id}}">投注情况</a>
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                    @else
+                                        <h1>没有记录</h1>
+                                    @endif
+                                </table>
+                                <div>
+                                    <a>投注总金额：<span style="color: red">{{$sumeach}}</span> 中奖金额：<span
+                                                style="color: red"> {{$sumbingo}}</span>盈利金额：<span
+                                                style="color: red"> {{$sumeach -$sumbingo}}</span></a>
+                                </div>
                         @else
                             <a>当前用户不是代理或者还未登陆</a>
                         @endif
