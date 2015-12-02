@@ -281,6 +281,10 @@
         });
         setTimeout('checkcompanyrecharge()', 12000);
     }
+
+    $(document).ready(function () {
+        setOutTime();
+    });
 </script>
 </body>
 </html>

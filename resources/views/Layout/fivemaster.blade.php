@@ -234,11 +234,6 @@
     }
 </script>
 <script language="javascript" src="http://dft.zoosnet.net/JS/LsJS.aspx?siteid=DFT68330066&float=1&lng=cn"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        setOutTime();
-    });
-</script>
 @yield('script')
 </body>
 </html>
