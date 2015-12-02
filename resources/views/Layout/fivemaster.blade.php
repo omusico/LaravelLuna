@@ -10,7 +10,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/five.css') }}">
     <link rel="icon" href="fivefavicon.ico" type="image/x-icon"/>
-    <style type="text/css"></style>
+    <style type="text/css">
+        .fivelogo {
+            margin-top: 0px;
+        }
+    </style>
     @yield('css')
 </head>
 <body class="top_main_back_five1">
@@ -129,35 +133,35 @@
     @if(!empty(strstr($_SERVER['REQUEST_URI'],'fivelotterytrend')))
         <div class="container" style="text-align: center">
             {{--<div class="row">--}}
-                <div class="collapse navbar-collapse navbar-responsive-collapse">
-                    <ul class="nav navbar-nav nav ">
-                        <li><a href="/fivelotterytrend?lottery_type=sdfive">山东11选5</a></li>
-                        <li><a href="/fivelotterytrend?lottery_type=gdfive">广东11选5</a></li>
-                        <li><a href="/fivelotterytrend?lottery_type=shfive">上海11选5</a></li>
-                        <li><a href="/fivelotterytrend?lottery_type=zjfive">浙江11选5</a></li>
-                        <li><a href="/fivelotterytrend?lottery_type=jxfive">江西11选5</a></li>
-                        <li><a href="/fivelotterytrend?lottery_type=liaoningfive">辽宁11选5</a></li>
-                        <li><a href="/fivelotterytrend?lottery_type=hljfive">黑龙江11选5</a></li>
-                        <li><a href="/fivelotterytrend?lottery_type=cqfive">重庆11选5</a></li>
-                    </ul>
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav nav ">
+                    <li><a href="/fivelotterytrend?lottery_type=sdfive">山东11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=gdfive">广东11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=shfive">上海11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=zjfive">浙江11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=jxfive">江西11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=liaoningfive">辽宁11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=hljfive">黑龙江11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=cqfive">重庆11选5</a></li>
+                </ul>
             </div>
             {{--</div>--}}
         </div>
     @else
         <div class="container" style="text-align: center">
             {{--<div class="row">--}}
-                <div class="collapse navbar-collapse navbar-responsive-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/fivelotteryIndex?lottery_type=sdfive">山东11选5</a></li>
-                        <li><a href="/fivelotteryIndex?lottery_type=gdfive">广东11选5</a></li>
-                        <li><a href="/fivelotteryIndex?lottery_type=shfive">上海11选5</a></li>
-                        <li><a href="/fivelotteryIndex?lottery_type=zjfive">浙江11选5</a></li>
-                        <li><a href="/fivelotteryIndex?lottery_type=jxfive">江西11选5</a></li>
-                        <li><a href="/fivelotteryIndex?lottery_type=liaoningfive">辽宁11选5</a></li>
-                        <li><a href="/fivelotteryIndex?lottery_type=hljfive">黑龙江11选5</a></li>
-                        <li><a href="/fivelotteryIndex?lottery_type=cqfive">重庆11选5</a></li>
-                    </ul>
-                </div>
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/fivelotteryIndex?lottery_type=sdfive">山东11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=gdfive">广东11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=shfive">上海11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=zjfive">浙江11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=jxfive">江西11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=liaoningfive">辽宁11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=hljfive">黑龙江11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=cqfive">重庆11选5</a></li>
+                </ul>
+            </div>
             {{--</div>--}}
         </div>
     @endif
@@ -203,6 +207,7 @@
             @if(Auth::guest() && empty($islogin) && empty($isregister))
             location.replace('/login');
             @endif
+
         }
     })(navigator.userAgent);
 
@@ -225,6 +230,7 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
+
 
 
                 }
