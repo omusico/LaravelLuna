@@ -129,7 +129,7 @@
     @if(!empty(strstr($_SERVER['REQUEST_URI'],'fivelotterytrend')))
         <div class="container" style="text-align: center">
             {{--<div class="row">--}}
-                {{--<div class="collapse navbar-collapse navbar-responsive-collapse navbar-inverse col-md-offset-1 col-md-10">--}}
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav nav ">
                         <li><a href="/fivelotterytrend?lottery_type=sdfive">山东11选5</a></li>
                         <li><a href="/fivelotterytrend?lottery_type=gdfive">广东11选5</a></li>
@@ -140,13 +140,13 @@
                         <li><a href="/fivelotterytrend?lottery_type=hljfive">黑龙江11选5</a></li>
                         <li><a href="/fivelotterytrend?lottery_type=cqfive">重庆11选5</a></li>
                     </ul>
-            {{--</div>--}}
+            </div>
             {{--</div>--}}
         </div>
     @else
         <div class="container" style="text-align: center">
             {{--<div class="row">--}}
-                {{--<div class="collapse navbar-collapse navbar-responsive-collapse navbar-inverse col-md-offset-1 col-md-10">--}}
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="/fivelotteryIndex?lottery_type=sdfive">山东11选5</a></li>
                         <li><a href="/fivelotteryIndex?lottery_type=gdfive">广东11选5</a></li>
@@ -157,7 +157,7 @@
                         <li><a href="/fivelotteryIndex?lottery_type=hljfive">黑龙江11选5</a></li>
                         <li><a href="/fivelotteryIndex?lottery_type=cqfive">重庆11选5</a></li>
                     </ul>
-                {{--</div>--}}
+                </div>
             {{--</div>--}}
         </div>
     @endif
