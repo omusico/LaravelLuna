@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/five.css') }}">
     <link rel="icon" href="fivefavicon.ico" type="image/x-icon"/>
+    <style type="text/css"></style>
     @yield('css')
 </head>
 <body class="top_main_back_five1">
@@ -146,7 +147,7 @@
         <div class="container" style="text-align: center">
             {{--<div class="row">--}}
                 {{--<div class="collapse navbar-collapse navbar-responsive-collapse navbar-inverse col-md-offset-1 col-md-10">--}}
-                    <ul class="nav navbar-nav nav ">
+                    <ul class="nav navbar-nav">
                         <li><a href="/fivelotteryIndex?lottery_type=sdfive">山东11选5</a></li>
                         <li><a href="/fivelotteryIndex?lottery_type=gdfive">广东11选5</a></li>
                         <li><a href="/fivelotteryIndex?lottery_type=shfive">上海11选5</a></li>

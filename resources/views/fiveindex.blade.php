@@ -104,11 +104,11 @@
         </div>
     </div>
     <div class="container">
-            <div class="col-md-3 mobilhide" style="padding: 0px">
-                <div class="h_l_cp" style="height: 240px;">
+            <div class="col-md-3" style="padding: 0px">
+                <div class="h_l_cp mobilhide" style="height: 240px;">
                     @include('userinfo')
                 </div>
-                <div class="h_l_cp" style="background-color: #fbf8e9;font-size: 90%;height: 375px">
+                <div class="h_l_cp mobilShow" style="background-color: #fbf8e9;font-size: 90%;height: 375px">
                     <div style="border-bottom: #808080 solid 1px;text-align: center;font-family: bold">
                         <a><br/>购买11选五 快速导航<br/><br/></a>
                         <br/>
@@ -213,7 +213,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mobileshow" style="padding-left: 0px;padding-right: 0px;border-right: none">
+                <div class="col-md-4 mobilhide" style="padding-left: 0px;padding-right: 0px;border-right: none">
                     <div class="distance nk3_kjgg" style="border-right: none;background-color: transparent">
                         <ul class="col-md-4">
                             @if(null !=$recentArray['SDFIVE'])
@@ -258,7 +258,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-5 mobileshow" style="padding-left: 0px;border-right: 1px solid #ccc;">
+                <div class="col-md-5 mobilhide" style="padding-left: 0px;border-right: 1px solid #ccc;">
                     <div class="distance nk3_kjgg" style="border-right: none;background-color: transparent">
                         <ul class="col-md-3">
                             @if(null !=$recentArray['JXFIVE'])
