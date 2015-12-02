@@ -345,6 +345,7 @@ class LotteryK3Controller extends Controller
             $points2 = $userdata['points'];
             $points = $points2 - $totals;
             $userdata->points = $points;
+            $userdata->loginIp =$ip;
 //            Waf_Cookie::set('points', $points);
 //            $userModel->updateLoginInfo($uid, array('points' => $points));
             $userdata->save();
