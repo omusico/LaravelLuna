@@ -28,6 +28,11 @@ class Kernel extends ConsoleKernel {
 				 ->hourly();
 //        $schedule->call('Common\CommonClass@cronCollect')->cron('*/1 * * * * *');
         $schedule->call(function () {
+            if (\Cache::has("CountCron")) {
+                Cache::forever('CountCron', date('Y-m-d H:i:s'));
+            }else{
+                Cache::Add('CountCron', date('Y-m-d H:i:s'),2);
+            }
             if(env("SITE_TYPE")=="five"){
                 $fiveArrs=['sdfive','gdfive','shfive','zjfive','jxfive','liaoningfive','hljfive'];
                 foreach($fiveArrs as $value){
