@@ -6,10 +6,10 @@
 
 @section('content')
     <div class="container">
-        @if(env('SITE_TYPE','')=='five')
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
-                    @endif
+        {{--@if(env('SITE_TYPE','')=='five')--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">--}}
+                    {{--@endif--}}
                     @include('errors.list')
 
                     <div class="form-group col-md-10 col-md-offset-1" style="text-align: center">
@@ -126,10 +126,10 @@
                             <a>当前用户不是代理或者还未登陆</a>
                         @endif
                     @endif
-                    @if(env('SITE_TYPE','')=='five')
-                </div>
-            </div>
-        @endif
+                    {{--@if(env('SITE_TYPE','')=='five')--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--@endif--}}
     </div>
 @stop
 @section('script')

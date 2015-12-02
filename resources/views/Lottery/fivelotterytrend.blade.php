@@ -15,7 +15,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1" style="padding: 0px">
+            <div class="col-md-12" style="padding: 0px">
                 <h2 align="center" style="color: white;margin-top: 5px">
                     {{$czName}}走势图</h2>
                 <table class="table table-hover" style="background-color: white;">

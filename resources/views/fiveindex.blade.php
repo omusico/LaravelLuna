@@ -85,8 +85,8 @@
             line-height: 32px;
             border-bottom: dotted 1px #888;
             padding: 10px 0 10px 0;
-            width: 301px;
-            color: #f9d450;
+            width: 341px;
+            color: #000000;
             height: 120px;
         }
 
@@ -104,15 +104,53 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-md-2 col-md-offset-1 mobilhide" style="margin-right: 0px">
-                <div class="h_l_cp" style="height: 600px;">
-                    @include('fiveuserinfo')
+            <div class="col-md-3 mobilhide" style="padding: 0px">
+                <div class="h_l_cp" style="height: 240px;">
+                    @include('userinfo')
+                </div>
+                <div class="h_l_cp" style="background-color: #fbf8e9;font-size: 90%;height: 375px">
+                    <div style="border-bottom: #808080 solid 1px;text-align: center;font-family: bold">
+                        <a><br/>购买11选五 快速导航<br/><br/></a>
+                        <br/>
+                    </div>
+                    <ul class="lottery_box" style="list-style: none;padding-top: 15px">
+                        <li>
+                            <div class="sub_lottery_tip"><a href="/lotteryIndex?lottery_type=jsold" target="_blank"
+                                                            title="" id="link115">猜一场，易中奖，87%返奖率！</a></div>
+                            <br/>
+                            <br/>
+
+                            <p class="sub_lottery">
+                                <a target="_blank" href="/fivelotteryIndex?lottery_type=sdfive"
+                                   style="font-weight: bold; color: #E60010;" title="山东11选5">山东11选5<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
+                                            style="color:#00a1ff;">中奖贼简单</b></a><br>
+                                <a target="_blank" href="/fivelotteryIndex?lottery_type=gdfive" title="广东11选5">广东11选5<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
+                                            style="color:#47ff36">摇骰子,易中奖</b></a><br>
+                                <a target="_blank" href="/fivelotteryIndex?lottery_type=shfive" title="上海11选5">上海11选5<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a> <br>
+                                <a target="_blank" href="/fivelotteryIndex?lottery_type=jxfive" title="江西11选5">江西11选5<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a> <br>
+                                <a target="_blank" href="/fivelotteryIndex?lottery_type=zjfive" title="浙江11选5">浙江11选5<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b>一天83期(中奖容易)</b></a><br>
+                                <a target="_blank" href="/fivelotteryIndex?lottery_type=liaoningfive" title="辽宁11选5">辽宁11选5<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><b>一天83期,随买随中</b><br>
+                                <a target="_blank" href="/fivelotteryIndex?lottery_type=cqfive" title="重庆11选5">重庆11选5<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><br>
+                                <a target="_blank" href="/fivelotteryIndex?lottery_type=hljfive" title="黑龙江11选5">黑龙江11选5<span
+                                            style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
+                                            style="color:#ff6c00">100%中奖</b></a><br>
+                            </p>
+                        </li>
+                        <li><a href="/k3GameRule" style="padding-left: 30px;list-style: none">如何投注？&nbsp;</a><a
+                                    href="/k3GameRule">如何领奖？</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-5 mobilhide"
-                     style="padding-left: 0px;padding-right: 0px;margin-right: 0px;border: 3px solid #EFE697">
+            <div class="row" style="margin: 0px">
+                <div class="col-md-6 mobilhide"
+                     style="padding-left: 0px;padding-right: 0px;margin-right: 0px;">
                     <div id="carousel-generic" class="carousel slide" data-ride="carousel"
                          xmlns="http://www.w3.org/1999/html">
                         <ol class="carousel-indicators">
@@ -161,7 +199,7 @@
                             <li class="cur" style="background-color: transparent"><a href="#" style="color: #f9d450">最新优惠</a>
                             </li>
                         </ul>
-                        <div class="tabs-cnt notice_cont" style="height: 184px;background-color: transparent">
+                        <div class="tabs-cnt notice_cont" style="height: 210px;background-color: transparent">
                             <ul class="list_icon" style="padding-left: 0px;color: red;">
                                 @if(null!==Cache::get('news'))
                                     @foreach(Cache::get('news') as $key=>$value)
@@ -220,7 +258,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4 mobileshow" style="padding-left: 0px;">
+                <div class="col-md-5 mobileshow" style="padding-left: 0px;border-right: 1px solid #ccc;">
                     <div class="distance nk3_kjgg" style="border-right: none;background-color: transparent">
                         <ul class="col-md-3">
                             @if(null !=$recentArray['JXFIVE'])
@@ -253,7 +291,7 @@
                                 <li><strong>辽宁11选5</strong> 第<em>{{$recentArray['LIAONINGFIVE']->proName}}</em>期开奖号码<br>
                                     开奖时间：{{$recentArray['LIAONINGFIVE']->created_at}}
                                     <br>
-                                    <a href="/fivelotteryIndex?lottery_type=sdfive">立即购买</a>
+                                    <a href="/fivelotteryIndex?lottery_type=liaoningfive">立即购买</a>
 
                                     <div class="fiveNum">{{explode(',', $recentArray['LIAONINGFIVE']->codes)[0]}}</div>
                                     <div class="fiveNum">{{explode(',', $recentArray['LIAONINGFIVE']->codes)[1]}}</div>
@@ -266,7 +304,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 @stop
 @section('script')

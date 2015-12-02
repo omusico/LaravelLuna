@@ -12,9 +12,9 @@
     <link rel="icon" href="fivefavicon.ico" type="image/x-icon"/>
     @yield('css')
 </head>
-<body class="top_main_back_five" style="background-color: #797002">
+<body class="top_main_back_five1">
 {{--<div class="top_main_back_five"></div>--}}
-<div class="container mobilhide">
+<div class="container mobilhide" style="background-color: #797002;">
     <div class="fivelogo"></div>
 </div>
 <div style="height: 100px;text-align: center;display: none" class="mobilShow">
@@ -22,23 +22,23 @@
         <a style="color: #f9d450" href="/">11选5娱乐平台</a>
     </div>
 </div>
-<div class="container fiveheader mobilhide" id="indexHeader">
-    {{--<div class="col-md-10 col-md-offset-1" style="background-color: #EFE697;height: 3px"></div>--}}
+<div class="container fiveheader mobilhide" style="background-color: #f5f5f5;border: solid #f9d450">
+    {{--<div class="col-md-12" style="background-color: #EFE697;height: 3px"></div>--}}
     <div class="collapse navbar-collapse navbar-responsive-collapse"
-         style="position: absolute; left: 100px;border-width: 3px;border-color: #f9d450">
+         style="position: absolute;border-width: 3px;border-color: #f9d450">
         <ul class="nav navbar-nav nav">
-            <li><a href="/" style="color:white;font-weight: bold">网站首页</a></li>
-            <li><a href="/fiveGameRule" style="color:white;font-weight: bold" title="游戏规则">游戏规则</a></li>
-            <li><a href="/favourable" style="color:white;font-weight: bold" title="优惠活动">优惠活动</a></li>
-            <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:white;font-weight: bold" title="走势图">走势图</a>
+            <li><a href="/" style="color:red;font-weight: bold">网站首页</a></li>
+            <li><a href="/fiveGameRule" style="color:red;font-weight: bold" title="游戏规则">游戏规则</a></li>
+            <li><a href="/favourable" style="color:red;font-weight: bold" title="优惠活动">优惠活动</a></li>
+            <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:red;font-weight: bold" title="走势图">走势图</a>
             </li>
-            <li><a title="合作代理" target="_blank" style="color:white;font-weight: bold" href="/inviteurl">合作代理</a></li>
-            <li><a href="/userLotteryBetting" target="_blank" style="color:white;font-weight: bold"
+            <li><a title="合作代理" target="_blank" style="color:red;font-weight: bold" href="/inviteurl">合作代理</a></li>
+            <li><a href="/userLotteryBetting" target="_blank" style="color:red;font-weight: bold"
                    title="交易记录">交易记录</a>
             </li>
-            <li><a href="#" title="手机下注" style="color:white;font-weight: bold">手机下注</a></li>
+            <li><a href="#" title="手机下注" style="color:red;font-weight: bold">手机下注</a></li>
             <li class="dropdown">
-                <a class="dropdown-toggle" style="color:white;font-weight: bold" data-toggle="dropdown"
+                <a class="dropdown-toggle" style="color:red;font-weight: bold" data-toggle="dropdown"
                    role="button">网址<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#">网址一</a></li>
@@ -49,7 +49,7 @@
                 </ul>
         </ul>
     </div>
-    <div class="col-md-10 col-md-offset-1" style="background-color: #EFE697;height: 3px;margin-top: 50px"></div>
+    <div class="col-md-12" style="background-color: #EFE697;height: 0px;margin-top: 50px"></div>
 </div>
 <div class="container mobilShow" style="display: none">
     @if(!Auth::guest())
@@ -127,8 +127,8 @@
 
     @if(!empty(strstr($_SERVER['REQUEST_URI'],'fivelotterytrend')))
         <div class="container" style="text-align: center">
-            <div class="row">
-                <div class="collapse navbar-collapse navbar-responsive-collapse navbar-inverse col-md-offset-1 col-md-10">
+            {{--<div class="row">--}}
+                {{--<div class="collapse navbar-collapse navbar-responsive-collapse navbar-inverse col-md-offset-1 col-md-10">--}}
                     <ul class="nav navbar-nav nav ">
                         <li><a href="/fivelotterytrend?lottery_type=sdfive">山东11选5</a></li>
                         <li><a href="/fivelotterytrend?lottery_type=gdfive">广东11选5</a></li>
@@ -139,13 +139,13 @@
                         <li><a href="/fivelotterytrend?lottery_type=hljfive">黑龙江11选5</a></li>
                         <li><a href="/fivelotterytrend?lottery_type=cqfive">重庆11选5</a></li>
                     </ul>
-                </div>
-            </div>
+            {{--</div>--}}
+            {{--</div>--}}
         </div>
     @else
         <div class="container" style="text-align: center">
-            <div class="row">
-                <div class="collapse navbar-collapse navbar-responsive-collapse navbar-inverse col-md-offset-1 col-md-10">
+            {{--<div class="row">--}}
+                {{--<div class="collapse navbar-collapse navbar-responsive-collapse navbar-inverse col-md-offset-1 col-md-10">--}}
                     <ul class="nav navbar-nav nav ">
                         <li><a href="/fivelotteryIndex?lottery_type=sdfive">山东11选5</a></li>
                         <li><a href="/fivelotteryIndex?lottery_type=gdfive">广东11选5</a></li>
@@ -156,8 +156,8 @@
                         <li><a href="/fivelotteryIndex?lottery_type=hljfive">黑龙江11选5</a></li>
                         <li><a href="/fivelotteryIndex?lottery_type=cqfive">重庆11选5</a></li>
                     </ul>
-                </div>
-            </div>
+                {{--</div>--}}
+            {{--</div>--}}
         </div>
     @endif
 @endif
@@ -171,7 +171,7 @@
 @yield('content')
 <div class="container">
     <div class="row">
-        <div class="fivefooter mobilhide col-md-offset-1 col-md-10" style="background-color: #242000;">
+        <div class="footer mobilhide">
             <div class="f-link"><a title="关于我们" href="#">关于我们</a> | <a title="用户注册" target="_blank" href="/register">用户注册</a>
                 |
                 <a title="加盟合作" href="#">加盟合作</a> | <a href="#" title="进入网盟">进入网盟</a> | <a title="网站地图">网站地图</a> | <a

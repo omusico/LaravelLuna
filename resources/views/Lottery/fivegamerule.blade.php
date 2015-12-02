@@ -7,13 +7,13 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
+            <div class="col-md-12" style="background-color: white;padding:0px">
                 {{--<div class="form-group col-md-10 col-md-offset-1" style="text-align: center">--}}
                 {{--<a class="btn btn-default btn-primary" href="#">代理中心</a>--}}
                 {{--<a class="btn btn-default btn-info" href="/dailiregister">代理注册</a>--}}
                 {{--<a class="btn btn-default btn-warning" href="/login">代理登陆</a>--}}
                 {{--</div>--}}
-                <textarea class="form-control" name="proxycert" rows="25" readonly>
+                <textarea class="form-control" name="proxycert" rows="35" readonly>
 一、玩法类型及承销
 11选5是一种在线即开型彩票玩法，属于基诺型彩票范畴，由省体育彩票管理中心负责承销。
 
