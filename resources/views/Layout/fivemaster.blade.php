@@ -12,50 +12,57 @@
     <link rel="icon" href="fivefavicon.ico" type="image/x-icon"/>
     <style type="text/css">
         .fivelogo {
-            margin-top: 0px;
+            margin: 0px;
         }
     </style>
     @yield('css')
 </head>
-<body class="top_main_back_five1">
+<body>
+<div class="fivelogo mobilhide"></div>
 {{--<div class="top_main_back_five"></div>--}}
-<div class="container mobilhide" style="background-color: #797002;">
-    <div class="fivelogo"></div>
-</div>
+{{--<div class="container mobilhide">--}}
+{{--<div class="col-md-12 fivelogo"></div>--}}
+{{--</div>--}}
 <div style="height: 100px;text-align: center;display: none" class="mobilShow">
-    <div style="padding-top: 40px;color:#f9d450;font-size: xx-large ">
-        <a style="color: #f9d450" href="/">11选5娱乐平台</a>
+    <div class="fivemologo">
+        {{--<a stylek="color: #f9d450" href="/">11选5娱乐平台</a>--}}
     </div>
 </div>
-<div class="container fiveheader mobilhide" style="background-color: #f5f5f5;border: solid #f9d450">
+<div class="mobilhide" style="width: 100%;height: 15px;background-color:#f9f2f4;text-align: center "></div>
+<div class="container fiveheader mobilhide" style="background-color: #f9f2f4;">
     {{--<div class="col-md-12" style="background-color: #EFE697;height: 3px"></div>--}}
-    <div class="collapse navbar-collapse navbar-responsive-collapse"
-         style="position: absolute;border-width: 3px;border-color: #f9d450">
-        <ul class="nav navbar-nav nav">
-            <li><a href="/" style="color:red;font-weight: bold">网站首页</a></li>
-            <li><a href="/fiveGameRule" style="color:red;font-weight: bold" title="游戏规则">游戏规则</a></li>
-            <li><a href="/favourable" style="color:red;font-weight: bold" title="优惠活动">优惠活动</a></li>
-            <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:red;font-weight: bold" title="走势图">走势图</a>
-            </li>
-            <li><a title="合作代理" target="_blank" style="color:red;font-weight: bold" href="/inviteurl">合作代理</a></li>
-            <li><a href="/userLotteryBetting" target="_blank" style="color:red;font-weight: bold"
-                   title="交易记录">交易记录</a>
-            </li>
-            <li><a href="#" title="手机下注" style="color:red;font-weight: bold">手机下注</a></li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" style="color:red;font-weight: bold" data-toggle="dropdown"
-                   role="button">网址<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">网址一</a></li>
-                    <li><a href="#">网址二</a></li>
-                    <li><a href="#">网址三</a></li>
-                    <li><a href="#">网址四</a></li>
-                    <li><a href="#">网址五</a></li>
-                </ul>
-        </ul>
-    </div>
-    <div class="col-md-12" style="background-color: #EFE697;height: 0px;margin-top: 50px"></div>
 </div>
+<div style="width: 100%;background-color:#ffe48d ">
+    <div class="container">
+        <div class="collapse navbar-collapse navbar-responsive-collapse"
+             style="position: absolute;">
+            <ul class="nav navbar-nav nav">
+                <li><a href="/" style="color:red;font-weight: bold">网站首页</a></li>
+                <li><a href="/fiveGameRule" style="color:red;font-weight: bold" title="游戏规则">游戏规则</a></li>
+                <li><a href="/favourable" style="color:red;font-weight: bold" title="优惠活动">优惠活动</a></li>
+                <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:red;font-weight: bold"
+                       title="走势图">走势图</a>
+                </li>
+                <li><a title="合作代理" target="_blank" style="color:red;font-weight: bold" href="/inviteurl">合作代理</a></li>
+                <li><a href="/userLotteryBetting" target="_blank" style="color:red;font-weight: bold"
+                       title="交易记录">交易记录</a>
+                </li>
+                <li><a href="#" title="手机下注" style="color:red;font-weight: bold">手机下注</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" style="color:red;font-weight: bold" data-toggle="dropdown"
+                       role="button">网址<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">网址一</a></li>
+                        <li><a href="#">网址二</a></li>
+                        <li><a href="#">网址三</a></li>
+                        <li><a href="#">网址四</a></li>
+                        <li><a href="#">网址五</a></li>
+                    </ul>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="col-md-12" style="height: 0px;margin-top: 50px"></div>
 <div class="container mobilShow" style="display: none">
     @if(!Auth::guest())
         <label class="form-control" style="text-align: center">余额：{{Auth::user()->lu_user_data->points}}</label>
@@ -208,6 +215,10 @@
             location.replace('/login');
             @endif
 
+
+
+
+
         }
     })(navigator.userAgent);
 
@@ -230,9 +241,6 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
-
-
-
                 }
             }
 

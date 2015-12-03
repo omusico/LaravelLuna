@@ -2014,7 +2014,7 @@ function loadWinInfo() {
                 html = "";
                 var hz = 0;
                 for (var w = 0; w < args.length; w++) {
-                    html += '<div class="fiveNum">' + args[w] + '</div>';
+                    html += '<em class="awardBall'+(w+1)+'">' + args[w] + '</em>';
 
                     //html += '<span class="fiveNum">' + args[w] + '</span>';
                     hz = hz + parseInt(args[w], 10)

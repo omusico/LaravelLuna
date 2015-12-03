@@ -194,9 +194,9 @@
                     </div>
                 </div>
                 <div class="col-md-3 mobilhide" style="margin-left: 0px;padding-left: 0px">
-                    <div class="notice m_b10" id="notice" style="border: 3px solid #EFE697">
+                    <div class="notice m_b10" id="notice" style="border: 3px solid #f5f5f5">
                         <ul class="tabs-nav notice_nav" style="background-color: transparent">
-                            <li class="cur" style="background-color: transparent"><a href="#" style="color: #f9d450">最新优惠</a>
+                            <li class="cur" style="background-color: transparent"><a href="#" style="color: #000000">最新优惠</a>
                             </li>
                         </ul>
                         <div class="tabs-cnt notice_cont" style="height: 210px;background-color: transparent">
