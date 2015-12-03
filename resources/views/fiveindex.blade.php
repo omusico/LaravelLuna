@@ -160,21 +160,21 @@
                         </ol>
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
-                                <img src="/css/five01.png" alt="...">
+                                <img src="/css/five001.png" alt="...">
 
                                 <div class="carousel-caption">
                                     {{--<p>中奖率高、赔率高、信誉100%</p>--}}
                                 </div>
                             </div>
                             <div class="item">
-                                <img src="/css/five02.png" alt="...">
+                                <img src="/css/five002.png" alt="...">
 
                                 <div class="carousel-caption">
                                     {{--<p>优惠多多、取款5分钟内到帐</p>--}}
                                 </div>
                             </div>
                             <div class="item">
-                                <img src="/css/five03.png" alt="...">
+                                <img src="/css/five003.png" alt="...">
 
                                 <div class="carousel-caption">
                                     {{--<p>中奖金额免税收</p>--}}
