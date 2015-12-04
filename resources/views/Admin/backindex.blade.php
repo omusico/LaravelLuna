@@ -283,7 +283,7 @@
     }
 
     $(document).ready(function () {
-        setOutTime();
+//        setOutTime();
     });
 </script>
 </body>
