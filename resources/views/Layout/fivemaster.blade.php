@@ -12,10 +12,8 @@
     <link rel="icon" href="fivefavicon.ico" type="image/x-icon"/>
     <style type="text/css">
         .fivelogo {
-            margin: 0px;
-        }
-        .fivelogo {
             /*margin-top: 30px;*/
+            margin: 0px;
             height: 117px;
             width: 100%;
             background: url({{asset('/css/fivelogo1.png')}}) no-repeat;
