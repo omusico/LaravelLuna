@@ -105,6 +105,7 @@ class LotteryFiveController extends Controller {
             $codeArgs = explode('<waf>',$codes);
 
             $types = defaultCache::cache_five_type_slug(); //Waf::moduleData('five_type_slug','five');
+            $chipins = defaultCache::cache_five_chipins();
             $ip =$request->ip();
             $recUid = $userInfo->recId;
             $alls = 0;
@@ -147,8 +148,13 @@ class LotteryFiveController extends Controller {
                     }
 
                     $price = (int)$eachPrice;
-                    if ($price < $userInfo['lowest']) {
-                        return array('tip' => 'error', 'msg' => '当前有单注投注金额小于' . $userInfo['lowest'] . '块,请重新投注');
+                    $highest = $chipins[$slug]['hight'];
+                    $lowest = $chipins[$slug]['low'];
+                    if ($price < $lowest) {
+                        return array('tip' => 'error', 'msg' => '当前有单注投注金额小于' . $lowest . '块,请重新投注');
+                    }
+                    if ($price > $highest) {
+                        return array('tip' => 'error', 'msg' => '您该期所下注金额' . $code . '超过最大限额' . $highest . ',请重新下注', 'points' => $points);
                     }
                     $totals = $totals + $eachPrice;
 
