@@ -14,6 +14,12 @@
         .fivelogo {
             margin: 0px;
         }
+        .fivelogo {
+            /*margin-top: 30px;*/
+            height: 117px;
+            width: 100%;
+            background: url({{asset('/css/fivelogo1.png')}}) no-repeat;
+        }
     </style>
     @yield('css')
 </head>
