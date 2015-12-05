@@ -146,7 +146,6 @@ class LotteryFiveController extends Controller {
                     if ($v == '') {
                         continue;
                     }
-
                     $price = (int)$eachPrice;
                     $highest = $chipins[$slug]['hight'];
                     $lowest = $chipins[$slug]['low'];
