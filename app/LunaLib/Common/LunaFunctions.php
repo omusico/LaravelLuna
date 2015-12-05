@@ -560,6 +560,7 @@ class LunaFunctions
                                             );
                                             lu_points_record::create($pointRecordData);
                                             lu_user_data::where('uid', $data['uid'])->update(['points' => $tempPoints + $data['amount'] + $fanMoney]);
+                                            
 //                                        $pointRecordModel->insert($pointRecordData);
 //                                        $userModel->updateLoginInfo($data['uid'], array('points' => array('+', $fanMoney)));
 
