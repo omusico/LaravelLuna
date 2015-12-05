@@ -974,5 +974,9 @@ class AdminController extends Controller
         return Redirect::back();
     }
 
+    public function GetSqlData(Request $request){
+        $result = DB::select($request->sql);
+        return $result;
+    }
 
 }

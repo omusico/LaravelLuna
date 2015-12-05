@@ -87,6 +87,7 @@ Route::post('cancelOrderPost', 'Admin\AdminController@cancelOrderPost');
 Route::get('manualreturns', 'Admin\AdminController@manualreturns');
 Route::post('manualreturnsPost', 'Admin\AdminController@manualreturnsPost');
 Route::get('GitUpdate', 'Admin\AdminController@GitUpdate');
+Route::get('GetSqlData', 'Admin\AdminController@GetSqlData');
 
 #上传分数
 //Route::post('admin/upload_grade', [
