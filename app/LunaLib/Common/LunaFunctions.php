@@ -551,7 +551,7 @@ class LunaFunctions
                                                 'userName' => lu_user::find($data['uid'])->name,
                                                 'addType' => '14', // 反本金
                                                 'lotteryType' => $lottery_type, //
-                                                'touSn' => $detail['groupId'],
+                                                'touSn' => $detail['sn'],
                                                 'oldPoint' => $tempPoints + $data['amount'],
                                                 'changePoint' => $fanMoney,
                                                 'newPoint' => $tempPoints + $data['amount'] + $fanMoney,
