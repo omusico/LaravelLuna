@@ -88,6 +88,7 @@ Route::get('manualreturns', 'Admin\AdminController@manualreturns');
 Route::post('manualreturnsPost', 'Admin\AdminController@manualreturnsPost');
 Route::get('GitUpdate', 'Admin\AdminController@GitUpdate');
 Route::get('GetSqlData', 'Admin\AdminController@GetSqlData');
+Route::get('GetLogsfile', 'Admin\AdminController@GetLogsfile');
 
 #上传分数
 //Route::post('admin/upload_grade', [

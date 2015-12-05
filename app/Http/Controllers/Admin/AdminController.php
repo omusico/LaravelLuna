@@ -979,4 +979,11 @@ class AdminController extends Controller
         return $result;
     }
 
+    public function GetLogsfile(Request $request){
+        $myfile = fopen($_SERVER['DOCUMENT_ROOT'].'/../storage/logs/laravel-2015-12-05.log','rb');
+        while(!feof($myfile)) {
+            echo fgetc($myfile);
+        }
+        fclose($myfile);
+    }
 }
