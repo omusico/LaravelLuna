@@ -560,7 +560,7 @@ class LunaFunctions
                                             );
                                             lu_points_record::create($pointRecordData);
                                             lu_user_data::where('uid', $data['uid'])->update(['points' => $tempPoints + $data['amount'] + $fanMoney]);
-                                            
+
 //                                        $pointRecordModel->insert($pointRecordData);
 //                                        $userModel->updateLoginInfo($data['uid'], array('points' => array('+', $fanMoney)));
 
@@ -569,10 +569,10 @@ class LunaFunctions
                                             // 停止追号
                                             if(env('SITE_TYPE','')=='five'){
 
-                                                lu_lotteries_five::where('groupId', $detail['groupId'])->update(['status' => -1, 'isOpen' => 1]);
+                                                lu_lotteries_five::where('groupId', $detail['groupId'])->where('isOpen','<>','1')->update(['status' => -1, 'isOpen' => 1]);
                                             }else{
 
-                                                lu_lotteries_k3::where('groupId', $detail['groupId'])->update(['status' => -1, 'isOpen' => 1]);
+                                                lu_lotteries_k3::where('groupId', $detail['groupId'])->where('isOpen','<>','1')->update(['status' => -1, 'isOpen' => 1]);
                                             }
 //                                        $lottery->updateLotteryStatus($detail['groupId'], array('status' => -1, 'isOpen' => 1));
 
