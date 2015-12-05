@@ -21,8 +21,11 @@
                 @foreach ($lu_points_records as $lu_points_record)
                     <tr>
                         <td>{{ $lu_points_record->userName }}</td>
-                        {{--<td>{{ $point_types[$lu_points_record->addType] }}</td>--}}
-                        <td>{{ $lu_points_record->addType }}</td>
+                        @if(is_numeric($lu_points_record->addType))
+                            <td>{{ $point_types[$lu_points_record->addType] }}</td>
+                        @else
+                            <td>{{ $lu_points_record->addType }}</td>
+                        @endif
                         <td>{{ $lu_points_record->oldPoint }}</td>
                         <td>{{ $lu_points_record->changePoint }}</td>
                         <td>{{ $lu_points_record->newPoint }}</td>
@@ -49,7 +52,7 @@
         }
 
         function Search() {
-            url = "admin?userName=" + $("#userName").val() ;
+            url = "admin?userName=" + $("#userName").val();
             window.location.href = url;
         }
     </script>

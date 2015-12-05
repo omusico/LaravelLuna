@@ -544,12 +544,12 @@ class LunaFunctions
 
                                                 $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_k3s where groupId="' . $detail['groupId'] . '" and isopen =0 and noticed =0')[0]->sum;
                                             }
-// 										if( $fanMoney > 0){
+ 										if( $fanMoney > 0){
 
                                             $pointRecordData = array(
                                                 'uid' => $data['uid'],
-                                                'userName' => $userInfo['name'],
-                                                'addType' => '14', // 中奖
+                                                'userName' => lu_user::find($data['uid'])->name,
+                                                'addType' => '14', // 反本金
                                                 'lotteryType' => $lottery_type, //
                                                 'touSn' => $detail['groupId'],
                                                 'oldPoint' => $tempPoints + $data['amount'],
@@ -559,10 +559,11 @@ class LunaFunctions
                                                 'bz' => '追号'
                                             );
                                             lu_points_record::create($pointRecordData);
-
+                                            lu_user_data::where('uid', $data['uid'])->update(['points' => $tempPoints + $data['amount'] + $fanMoney]);
 //                                        $pointRecordModel->insert($pointRecordData);
 //                                        $userModel->updateLoginInfo($data['uid'], array('points' => array('+', $fanMoney)));
-// 										}
+
+ 										}
 
                                             // 停止追号
                                             if(env('SITE_TYPE','')=='five'){
