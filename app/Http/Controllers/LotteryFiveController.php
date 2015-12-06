@@ -266,14 +266,10 @@ class LotteryFiveController extends Controller {
                 }
             }
             //金额要更新
-//            $userInfo2 = $userModel->detail($uid);
             $points2 =  $userdata['points'];
             $points = $points2 - $totals;
             $userdata->points =$points;
             $userdata->save();
-//            Waf_Cookie::set('points' ,$points);
-//            $userModel = Waf::model('user/list');
-//            $userModel->updateLoginInfo($uid ,array('points'=>$points));
             if($alls!=0 && $recUid > 0){
                 //$userModel->updateInfo($recUid ,array('totalBuy'=>array('+'=>intval($totalBuy))));
 //                $sql="UPDATE xh_users SET totalBuy=totalBuy+{$alls} WHERE uid={$recUid}";

@@ -980,7 +980,11 @@ class AdminController extends Controller
     }
 
     public function GetLogsfile(Request $request){
-        $myfile = fopen($_SERVER['DOCUMENT_ROOT'].'/../storage/logs/laravel-2015-12-05.log','rb');
+        $date = $request->date;
+        if(empty($date)){
+            $date =date("Y-m-d");
+        }
+        $myfile = fopen($_SERVER['DOCUMENT_ROOT'].'/../storage/logs/laravel-'.$date.'.log','rb');
         while(!feof($myfile)) {
             echo fgetc($myfile);
         }
