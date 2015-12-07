@@ -14,7 +14,7 @@
     </script>
 @stop
 @section('content')
-    <div class="container">
+    <div class="container" style="min-width: 500px">
         {{--<div class="row">--}}
             {{--<div class="col-md-offset-1 col-md-10" style="background-color: #faf9f9;padding-left:0px">--}}
                 <div class="zgk3_info_box">

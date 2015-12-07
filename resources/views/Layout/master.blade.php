@@ -12,6 +12,43 @@
 </head>
 <body>
 <div class="top_main_back"></div>
+<nav class="navbar navbar-default mobilShow" role="navigation" style="display: none;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-target">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">导航栏</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="nav-target">
+            <ul class="nav navbar-nav nav">
+                <li class="active"><a href="/" class="btn-danger" style="background-color: red;font-weight: bold">首页</a>
+                </li>
+                <li><a href="/k3GameRule" style="color:red;font-weight: bold" title="游戏规则">游戏规则</a></li>
+                <li><a href="/favourable" style="color:red;font-weight: bold" title="优惠活动">优惠活动</a></li>
+                <li><a href="/lotterytrend?lottery_type=jsold" style="color:red;font-weight: bold" title="走势图">走势图</a></li>
+                <li><a title="合作代理" style="color:red;font-weight: bold" href="/inviteurl">合作代理</a></li>
+                <li><a href="/userLotteryBetting" target="_blank" style="color:red;font-weight: bold" title="交易记录">交易记录</a>
+                </li>
+                <li><a href="/lotteryIndex?lottery_type=jsold" title="手机下注" style="color:red;font-weight: bold">手机下注</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" style="color:red;font-weight: bold" data-toggle="dropdown"
+                       role="button">网址<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">网址一</a></li>
+                        <li><a href="#">网址二</a></li>
+                        <li><a href="#">网址三</a></li>
+                        <li><a href="#">网址四</a></li>
+                        <li><a href="#">网址五</a></li>
+                    </ul>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="container header" style="margin-top: 50px">
     <div class="logoWrap">
         <h1 class="logo"><a href="/" title="中国快三网" class="logoLink"><img src="/css/m_logo.png" alt="中国快三网"></a></h1>

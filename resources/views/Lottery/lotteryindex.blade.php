@@ -10,7 +10,7 @@
     </script>
 @stop
 @section('content')
-    <div class="container">
+    <div class="container" style="min-width:500px">
         <div class="banner_content">
             <div class="zgk3_info_box">
                 <div class="zgk3_top container">

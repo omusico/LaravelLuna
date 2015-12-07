@@ -43,14 +43,14 @@
                                     <td>{{ $lu_lotteries_k3->resultNum }}</td>
                                     <td>
                                         @if($lu_lotteries_k3->status == -2)
-                                            <a style="color: green">撤单</a>
+                                            <a style="color: #808080">撤单</a>
                                         @elseif($lu_lotteries_k3->status == -1)
                                             <a style="color: red">追号中奖结束</a>
                                         @elseif($lu_lotteries_k3->isOpen == 1 || $lu_lotteries_k3->dealing ==1)
                                             @if($lu_lotteries_k3->noticed==1)
                                                 <a style="color: red">中奖</a>
                                             @else
-                                                <a style="color: #808080">未中奖</a>
+                                                <a style="color: green">未中奖</a>
                                             @endif
                                         @else
                                             等待开奖

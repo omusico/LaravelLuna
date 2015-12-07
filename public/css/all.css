@@ -7656,7 +7656,7 @@ a:hover {
 }
 
 .totalsVal {
-    width: 70px
+    width: 55px
 }
 
 .nav-main .b_red {
@@ -9570,6 +9570,10 @@ strong.c_ba2636 {
     line-height: 18px
 }
 
+.has_add_ball{
+    padding: 0px;
+}
+
 .has_add_ball li {
     border-bottom: 1px solid #eeeceb;
     cursor: pointer;
@@ -9592,7 +9596,7 @@ strong.c_ba2636 {
 .has_add_ball li .txt-betsName {
     display: inline;
     float: left;
-    width: 60px
+    width: auto;
 }
 
 .has_add_ball li .txt-num {
@@ -9601,7 +9605,7 @@ strong.c_ba2636 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 120px
+    width: auto;
 }
 
 .has_add_ball li .txt-amount {
@@ -9609,7 +9613,7 @@ strong.c_ba2636 {
     float: left;
     padding: 0 5px;
     text-align: right;
-    width: 120px
+    width: auto;
 }
 
 .has_add_ball li .txt-delNum {
@@ -9617,12 +9621,12 @@ strong.c_ba2636 {
     float: right
 }
 
-.has_add_ball li .txt-betsName {
-    width: 90px
-}
+/*.has_add_ball li .txt-betsName {*/
+    /*width: 90px*/
+/*}*/
 
 .has_add_ball li .txt-num {
-    width: 100px
+    width: auto;
 }
 
 .has_add_ball li .txt-amount em {
