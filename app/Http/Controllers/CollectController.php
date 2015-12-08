@@ -1,11 +1,15 @@
 <?php namespace App\Http\Controllers;
 
 use App\lu_caiji_record;
+use App\lu_lotteries_five;
+use App\lu_lotteries_k3;
+use App\lu_points_record;
 use App\lu_user;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\lu_lotteries_result;
+use App\lu_user_data;
 use Illuminate\Http\Request;
 use App\LunaLib\Common\defaultCache;
 use App\LunaLib\Common\Lottery_CaiJi;
@@ -272,6 +276,78 @@ class CollectController extends Controller
         }
         $lunaFunction = new LunaFunctions();
         $result = $lunaFunction->lottery_kj($lotteryType, $prePeriod, $preOpenResult);
+
+        if (env('COLLECT') == "1") {
+//            exec('curl www.11x51.com/webkj?lottery_type=' . $lotteryType . '&proName='.$prePeriod . '&winCode=' . $preOpenResult);
+//            exec('curl www.k3558.com/webkj?lottery_type=' . $lotteryType . '&proName='.$prePeriod . '&winCode=' . $preOpenResult);
+            exec('curl 45.119.97.42/webkj?lottery_type=' . $lotteryType . '&proName='.$prePeriod . '&winCode=' . $preOpenResult);
+//            exec('curl localhost:8000/webkj?lottery_type=' . $lotteryType . '&proName='.$prePeriod . '&winCode=' . $preOpenResult);
+        }
+
+    }
+
+    public function webkj(Request $request){
+        $lottery_type = $request->lottery_type;
+        $winPre = trim($request->proName);
+        $winCode = trim($request->winCode);
+        $this->sdkjFromNotice($lottery_type, $winPre, $winCode);
+        return array('success');
+//        $lunaFunction = new LunaFunctions();
+//        $lunaFunction->get_lottery_type_code($lottery_type);
+    }
+
+    public function sdkjFromNotice($lottery_type, $winPre, $winCode)
+    {
+        if (empty($winPre)) {
+            echo '请填写开奖期号';
+            return;
+        }
+        if (empty($winCode)) {
+            echo '请填写开奖结果';
+            return;
+        }
+
+        // 如果是已撤单,则初始化相关状态
+        if (env('SITE_TYPE', '') == 'five') {
+            $cancelList = lu_lotteries_five::where("proName", $winPre)->where("province", strtolower($lottery_type))->where("status", -2)->get();
+        } else {
+            $cancelList = lu_lotteries_k3::where("proName", $winPre)->where("province", strtolower($lottery_type))->where("status", -2)->get();
+        }
+
+        foreach ($cancelList as $key => $lottery) {
+            // 扣掉钱.同时初始化
+
+            $userDetail = lu_user_data::where('uid', $lottery['uid'])->first();
+
+            $cancelPrice = $lottery['eachPrice'];
+
+            $pointRecordData = array(
+                'uid' => $lottery['uid'],
+                'userName' => $lottery['userName'],
+                'addType' => '1', // 投注
+                'lotteryType' => $lottery_type, // 彩种
+                'touSn' => $lottery['sn'],
+                'oldPoint' => $userDetail['points'],
+                'changePoint' => -$cancelPrice,
+                'newPoint' => $userDetail['points'] - $cancelPrice,
+                'created' => strtotime(date('Y-m-d H:i:s')),
+                'bz' => '撤单后又开奖自动扣钱'
+            );
+            lu_points_record::create($pointRecordData);
+
+            $userDetail->points = $userDetail['points'] - $cancelPrice;
+            $userDetail->save();
+            //todo down
+
+            // 资金明细记录
+        }
+
+        $lunaFunction = new LunaFunctions();
+        $result = $lunaFunction->lottery_kj($lottery_type, $winPre, $winCode);
+
+        $lunaFunction->sdkjAddRecord($lottery_type, $winPre, $winCode);
+        $result = var_export($result, true);
+        return $result;
 
     }
 

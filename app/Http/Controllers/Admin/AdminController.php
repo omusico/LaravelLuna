@@ -458,23 +458,15 @@ class AdminController extends Controller
         }
 
         // 如果是已撤单,则初始化相关状态
-//        $model = Waf::model('lottery/list',array('lottery_type' => $lottery_type));
-//        $params =  array("proName"=>$winPre,"province"=>strtolower($lottery_type),"status"=>"-2");
         if (env('SITE_TYPE', '') == 'five') {
             $cancelList = App\lu_lotteries_five::where("proName", $winPre)->where("province", strtolower($lottery_type))->where("status", -2)->get();
         } else {
             $cancelList = App\lu_lotteries_k3::where("proName", $winPre)->where("province", strtolower($lottery_type))->where("status", -2)->get();
         }
 
-//        $cancelList = $model->queryList($params);
-
-//        $pointRecordModel = Waf::model('lottery/pointrecord');
-//        $userModel = Waf::model("User/list");
-
         foreach ($cancelList as $key => $lottery) {
             // 扣掉钱.同时初始化
 
-//            $userDetail = $userModel->detail($lottery['uid']);
             $userDetail = lu_user_data::where('uid', $lottery['uid'])->first();
 
             $cancelPrice = $lottery['eachPrice'];
@@ -491,27 +483,21 @@ class AdminController extends Controller
                 'created' => strtotime(date('Y-m-d H:i:s')),
                 'bz' => '撤单后又开奖自动扣钱'
             );
-//            $pointRecordModel->insert($pointRecordData);
             App\lu_points_record::create($pointRecordData);
 
-//            $userModel->updateLoginInfo($lottery['uid'] ,array('points'=> $userDetail['points'] - $cancelPrice ));
             $userDetail->points = $userDetail['points'] - $cancelPrice;
             $userDetail->save();
             //todo down
 
             // 资金明细记录
-//            $whereCond = array("lotId"=>$lottery['lotId']);
-//            $model = $model->initOrder($whereCond);
         }
 
         $lunaFunction = new App\LunaLib\Common\LunaFunctions();
         $result = $lunaFunction->lottery_kj($lottery_type, $winPre, $winCode);
 
-//        $result = lottery_kj($lottery_type,$winPre,$winCode);
         $lunaFunction->sdkjAddRecord($lottery_type, $winPre, $winCode);
         $result = var_export($result, true);
         return $result;
-//        return get_site_name().'开奖成功...'.$result;
 
     }
 

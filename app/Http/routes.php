@@ -114,6 +114,8 @@ Route::get('GetLogsfile', 'Admin\AdminController@GetLogsfile');
 ####################################################
 Route::get('collectLotteryData', [
     'as' => 'collectLotteryData', 'uses' => 'CollectController@collectLotteryData']);
+Route::get('webkj', [
+    'as' => 'webkj', 'uses' => 'CollectController@webkj']);
 Route::get('lotteryIndex', [
     'as' => 'lotteryIndex', 'uses' => 'LotteryK3Controller@index']);
 Route::get('fivelotteryIndex', [
