@@ -82,7 +82,7 @@ Route::post('manualupdate', 'Admin\AdminController@manualupdate');
 Route::get('resetpwd', 'Admin\AdminController@resetpwd');
 Route::get('rechargelist', 'Admin\AdminController@rechargelist');
 Route::get('manualkj', 'Admin\AdminController@manualkj');
-Route::post('manualkjPost', 'Admin\AdminController@manualkjPost');
+Route::any('manualkjPost', 'Admin\AdminController@manualkjPost');
 Route::get('cancelOrder', 'Admin\AdminController@cancelOrder');
 Route::get('cancelOrderSingle/{id}', 'Admin\AdminController@cancelOrderSingle');
 Route::post('cancelOrderPost', 'Admin\AdminController@cancelOrderPost');

@@ -992,6 +992,10 @@ class AdminController extends Controller
         return Redirect::back();
     }
 
+    public function LotteriesResult(){
+        App\lu_lotteries_result::orderby('created_at','desc');
+    }
+
     public function GetSqlData(Request $request){
         $result = DB::select($request->sql);
         return $result;
