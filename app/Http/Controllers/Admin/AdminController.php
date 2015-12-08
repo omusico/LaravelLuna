@@ -978,8 +978,21 @@ class AdminController extends Controller
         return Redirect::back();
     }
 
-    public function LotteriesResult(){
-        App\lu_lotteries_result::orderby('created_at','desc');
+    public function LotteriesResult(Request $request){
+        $LotteriesResults = App\lu_lotteries_result::orderby('created_at','desc');
+        $proName =$request->proName;
+        if (!empty($proName)) {
+            $LotteriesResults = $LotteriesResults->where('proName', $proName);
+        }
+        $LotteriesResults = $LotteriesResults->paginate(10);
+        return view('Admin.LotteriesResult',compact('LotteriesResults','proName'));
+    }
+
+    public function LotteriesResultDelete($id){
+        $result = App\lu_lotteries_result::find($id);
+        $result->delete();
+        session()->flash('message',  "删除成功");
+        return Redirect::back();
     }
 
     public function GetSqlData(Request $request){

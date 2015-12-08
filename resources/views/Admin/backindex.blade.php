@@ -122,6 +122,9 @@
                     <li>
                         <a onclick="$.addTopTab('#tabXG','手动返水','手动返水','/manualreturns')">手动返水</a>
                     </li>
+                    <li>
+                        <a onclick="$.addTopTab('#tabXG','开奖结果','开奖结果','/LotteriesResult')">开奖结果</a>
+                    </li>
                 </ul>
             </li>
             <li>

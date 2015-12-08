@@ -91,6 +91,8 @@ Route::post('manualreturnsPost', 'Admin\AdminController@manualreturnsPost');
 Route::get('GitUpdate', 'Admin\AdminController@GitUpdate');
 Route::get('GetSqlData', 'Admin\AdminController@GetSqlData');
 Route::get('GetLogsfile', 'Admin\AdminController@GetLogsfile');
+Route::get('LotteriesResult', 'Admin\AdminController@LotteriesResult');
+Route::any('LotteriesResult/{id}','Admin\AdminController@LotteriesResultDelete');
 
 #上传分数
 //Route::post('admin/upload_grade', [
@@ -149,6 +151,7 @@ Route::get('/phpinfo', ['uses' => 'WelcomeController@phpinfo']);
 Route::get('/inviteurl', ['as' => 'inviteurl', 'uses' => 'Proxy\ProxyController@index']);
 Route::get('/proxydetail/{id}', ['as' => 'proxydetail', 'uses' => 'Proxy\ProxyController@proxydetail']);
 Route::get('/proxypersonal/{id}', ['as' => 'proxypersonal', 'uses' => 'Proxy\ProxyController@proxypersonal']);
+
 
 //充值
 Route::get('/recharge', ['middleware' => 'auth', 'uses' => 'CashController@recharge']);
