@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel {
             }else{
                 \Cache::Add('CountCron', date('Y-m-d H:i:s'),2);
             }
-            if(env("SITE_TYPE")=="collect"){
+            if(env("COLLECT")=="1"){
 
                 $fiveArrs=['sdfive','gdfive','shfive','zjfive','jxfive','liaoningfive','hljfive'];
                 foreach($fiveArrs as $value){
