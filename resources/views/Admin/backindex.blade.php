@@ -14,6 +14,7 @@
 </head>
 <body id="main" class="easyui-layout" style="background-color: #DFE8F6">
 <audio src="/css/2.mp3" id="audio1" controls="controls" style="display: none"></audio>
+<audio src="/css/deposit.mp3" id="audio2" controls="controls" style="display: none"></audio>
 <div data-options="region:'north',split:true" style="height: 60px; position: static">
     <div id="header" style="background: grey; background-color: white; color: white">
         {{--<div style="float: left">--}}
@@ -127,12 +128,13 @@
                 <span>网站设置</span>
                 <ul>
                     <li>
-                        {{--<a href="/marquee"><span>滚动文字</span></a>--}}
                         <a onclick="$.addTopTab('#tabXG','滚动文字','滚动文字','/marquee')">滚动文字</a>
                     </li>
                     <li>
-                        {{--<a href="/news"><span>优惠新闻</span></a>--}}
-                        <a onclick="$.addTopTab('#tabXG','优惠新闻','优惠新闻','/news')">优惠新闻</a>
+                        <a onclick="$.addTopTab('#tabXG','前台新闻','前台新闻','/news')">前台新闻</a>
+                    </li>
+                    <li>
+                        <a onclick="$.addTopTab('#tabXG','优惠活动','优惠活动','/favor')">优惠活动</a>
                     </li>
                     {{--<li>--}}
                     {{--<a href="/admin"><span>手机版提醒</span></a>--}}
@@ -203,6 +205,7 @@
 </script>
 <script type="text/javascript">
     audio = document.getElementById('audio1');
+    audio2 = document.getElementById('audio2');
     var applyUser = "";
     var rechargeUser = "";
     var rechargecompanyUser = "";
@@ -228,7 +231,7 @@
 //                    alert("会员" + applyUser + "申请提现，请马上处理");
                     applyUser = "会员" + applyUser + "申请提现，请马上处理/";
                     $("#backmar").html(applyUser + rechargecompanyUser + rechargeUser);
-                    audio.play();
+                    audio2.play();
                 }
             }
         });

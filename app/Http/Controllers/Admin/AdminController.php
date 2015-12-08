@@ -386,14 +386,14 @@ class AdminController extends Controller
         return Redirect::back();
     }
 
+    //提款申请
     public function checkapply()
     {
-//        Cache::forget('checkapply');
         if (!Cache::has("checkapply")) {
-            $result = App\lu_lottery_apply::where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-25 second')))->get();
-            Cache::add('checkapply', 1, 1);
-            return $result;
         }
+        $result = App\lu_lottery_apply::where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-10 minute')))->where('status','2')->get();
+        Cache::add('checkapply', 1, 1);
+        return $result;
     }
 
     public function checkrecharge()
@@ -584,6 +584,7 @@ class AdminController extends Controller
 
     public function news()
     {
+        $news="";
         if (Cache::has('news')) {
             $news = Cache::get('news');
         }
@@ -595,6 +596,23 @@ class AdminController extends Controller
         $news = $request->news;
         Cache::forever('news', $news);
         session()->flash('message', '前台优惠消息更新成功');
+        return Redirect::back();
+    }
+
+    public function favor()
+    {
+        $favor="";
+        if (Cache::has('favor')) {
+            $favor = Cache::get('favor');
+        }
+        return view('Admin.favor', compact('favor'));
+    }
+
+    public function savefavor(Request $request)
+    {
+        $favor = $request->favor;
+        Cache::forever('favor', $favor);
+        session()->flash('message', '优惠活动消息更新成功');
         return Redirect::back();
     }
 

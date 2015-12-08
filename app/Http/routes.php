@@ -65,6 +65,8 @@ Route::get('fiveodds', 'Admin\AdminController@fiveodds');
 Route::post('savefiveodds', 'Admin\AdminController@savefiveodds');
 Route::get('news', 'Admin\AdminController@news');
 Route::post('savenews', 'Admin\AdminController@savenews');
+Route::get('favor', 'Admin\AdminController@favor');
+Route::post('savefavor', 'Admin\AdminController@savefavor');
 Route::get('userreturns', 'Admin\AdminController@userreturns');
 Route::post('saveuserreturns', 'Admin\AdminController@saveuserreturns');
 Route::get('userlevel', 'Admin\AdminController@userlevel');
