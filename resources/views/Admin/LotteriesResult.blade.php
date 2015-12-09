@@ -10,7 +10,7 @@
         <hr>
         <div>
             <div style="float: left;">
-                <label>用户名:</label><input type="text" id="proName" name="proName" value="{{$proName}}">
+                <label>开奖期号:</label><input type="text" id="proName" name="proName" value="{{$proName}}">
             </div>
             {{--<div style="float: left">--}}
             {{--<select name="groupId" class="easyui-combobox" style="width: 215px" id="groupId">--}}
