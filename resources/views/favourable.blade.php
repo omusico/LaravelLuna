@@ -23,10 +23,11 @@
             {{--<div class="row">--}}
                 {{--<div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">--}}
                     {{--@endif--}}
-                    <div class="cm_wrapper clear">
-                        <div class="cm_w1000" style="width: 100%;background-color: transparent"><img src="/css/favourable.gif" alt="优惠活动"
-                                                   width="1000" height="100%"></div>
-                    </div>
+                    {{--<div class="cm_wrapper clear">--}}
+                        {{--<div class="cm_w1000" style="width: 100%;background-color: transparent"><img src="/css/favourable.gif" alt="优惠活动"--}}
+                                                   {{--width="1000" height="100%"></div>--}}
+                    {{--</div>--}}
+                    <textarea class="form-control" name="favor" rows="30" readonly>{{Cache::get('favor')}}</textarea>
                     {{--@if(env('SITE_TYPE','')=='five')--}}
                 {{--</div>--}}
             {{--</div>--}}
