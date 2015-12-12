@@ -143,8 +143,8 @@
                                             style="color:#ff6c00">100%中奖</b></a><br>
                             </p>
                         </li>
-                        <li><a href="/k3GameRule" style="padding-left: 30px;list-style: none">如何投注？&nbsp;</a><a
-                                    href="/k3GameRule">如何领奖？</a></li>
+                        <li><a href="/fiveGameRule" style="padding-left: 30px;list-style: none">如何投注？&nbsp;</a><a
+                                    href="/fiveGameRule">如何领奖？</a></li>
                     </ul>
                 </div>
             </div>
