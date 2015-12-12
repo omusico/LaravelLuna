@@ -33,8 +33,8 @@
             <div class="form-group">
                 {!! Form::label('groupId', '添加类型: ', ['class' => 'control-label col-md-2']) !!}
                 <div class="col-md-4">
-                    <select class="form-control" required="required" id="groupId" name="groupId">
-                        <?php $i = 0 ?>
+                    <select class="form-control" required="required" id="addType" name="addType">
+                        <?php $i = 1 ?>
                         @foreach ($point_types as $point_types)
                             <option value="{{ $i++ }}">{{ $point_types}}</option>
                         @endforeach
