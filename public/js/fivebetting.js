@@ -1953,8 +1953,7 @@ Number.prototype.toLeftTimeString = function () {
     e.push(c > 9 ? c.toString() : "0" + c.toString());
     e.push(f > 9 ? f.toString() : "0" + f.toString());
     return e[0] > 0 ? e[0] + "天" + parseInt(e[1], 10) + "小时" : e[1] + ":" + e[2] + ":" + e[3]
-}
-;
+};
 
 var betTime = 0;
 var awardIssuse = null;

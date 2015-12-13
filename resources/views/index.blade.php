@@ -103,12 +103,12 @@
                 </div>
             </div>
             <div class="col-md-6 mobilhide" style="padding-left: 0px;padding-right: 0px;margin-right: 0px">
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
+                <div id="carousel-generic" class="carousel slide" data-ride="carousel"
                      xmlns="http://www.w3.org/1999/html">
                     <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-generic" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
@@ -133,12 +133,12 @@
                             </div>
                         </div>
                     </div>
-                    <a class="left carousel-control" href="#carousel-example-generic" role="button"
+                    <a class="left carousel-control" href="#carousel-generic" role="button"
                        data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="right carousel-control" href="#carousel-example-generic" role="button"
+                    <a class="right carousel-control" href="#carousel-generic" role="button"
                        data-slide="next">
                         <span class="glyphicon glyphicon-chevron-right"></span>
                         <span class="sr-only">Next</span>

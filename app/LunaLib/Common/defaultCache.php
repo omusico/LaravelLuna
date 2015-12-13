@@ -2590,7 +2590,7 @@ class defaultCache
         );
     }
 
-    public static function Cache_ssc_odds()
+    public static function cache_ssc_odds()
     {
         return array(
             'TABSXZHIX_QSZHIX' =>
@@ -2994,4 +2994,214 @@ class defaultCache
                 ),
         );
     }
+
+    public static function cache_ssc_first_types(){
+        return array (
+            12 => array (
+                'typeId' => '12',
+                'name' => '三星直选',
+                'odds' => '90',
+                'slug' => 'TABSXZHIX'
+            ),
+            21 => array (
+                'typeId' => '21',
+                'name' => '三星组选',
+                'odds' => '90',
+                'slug' => 'TABSXZUX'
+            ),
+            22 => array (
+                'typeId' => '22',
+                'name' => '和值',
+                'odds' => '90',
+                'slug' => 'TABHZ'
+            ),
+            23 => array (
+                'typeId' => '23',
+                'name' => '二星',
+                'odds' => '90',
+                'slug' => 'TABEX'
+            ),
+            26 => array (
+                'typeId' => '26',
+                'name' => '定位胆',
+                'odds' => '90',
+                'slug' => 'TABDW'
+            ),
+            24 => array (
+                'typeId' => '24',
+                'name' => '五星',
+                'odds' => '90',
+                'slug' => 'TABWX'
+            ),
+            25 => array (
+                'typeId' => '25',
+                'name' => '牛牛',
+                'odds' => '90',
+                'slug' => 'TABNN'
+            )
+        );
+    }
+
+    public static function cache_ssc_types(){
+        return array (
+            1 => array (
+                'typeId' => '1',
+                'name' => '前三直选',
+                'odds' => '90',
+                'firsttype' => 'TABSXZHIX',
+                'slug' => 'TABSXZHIX_QSZHIX'
+            ),
+            2 => array (
+                'typeId' => '2',
+                'name' => '中三直选',
+                'firsttype' => 'TABSXZHIX',
+                'slug' => 'TABSXZHIX_ZSZHIX'
+            ),
+            3 => array (
+                'typeId' => '3',
+                'name' => '后三直选',
+                'firsttype' => 'TABSXZHIX',
+                'slug' => 'TABSXZHIX_HSZHIX'
+            ),
+            4 => array (
+                'typeId' => '4',
+                'name' => '前三组三',
+                'odds' => '90',
+                'firsttype' => 'TABSXZUX',
+                'slug' => 'TABSXZUX_QSZUX'
+            ),
+
+            5 => array (
+                'typeId' => '5',
+                'name' => '中三组三',
+                'firsttype' => 'TABSXZUX',
+                'slug' => 'TABSXZUX_ZSZUX'
+            ),
+            6 => array (
+                'typeId' => '6',
+                'name' => '后三组三',
+                'firsttype' => 'TABSXZUX',
+                'slug' => 'TABSXZUX_HSZUX'
+            ),
+            7 => array (
+                'typeId' => '7',
+                'name' => '前三组六',
+                'firsttype' => 'TABSXZUX',
+                'slug' => 'TABSXZUX_QSZUL'
+            ),
+            8 => array (
+                'typeId' => '8',
+                'name' => '中三组六',
+                'firsttype' => 'TABSXZUX',
+                'slug' => 'TABSXZUX_ZSZUL'
+            ),
+            9 => array (
+                'typeId' => '9',
+                'name' => '后三组六',
+                'firsttype' => 'TABSXZUX',
+                'slug' => 'TABSXZUX_HSZUL'
+            ),
+            10 => array (
+                'typeId' => '10',
+                'name' => '组三直选',
+                'odds' => '90',
+                'firsttype' => 'TABSXZUX',
+                'slug' => 'TABSXZUX_ZUSZHIX'
+            ),
+
+            12 => array (
+                'typeId' => '12',
+                'name' => '首尾和值',
+                'firsttype' => 'TABHZ',
+                'slug' => 'TABHZ_SWHZ'
+            ),
+            11 => array (
+                'typeId' => '11',
+                'name' => '三星和值',
+                'firsttype' => 'TABHZ',
+                'slug' => 'TABHZ_SXHZ'
+            ),
+
+            13 => array (
+                'typeId' => '13',
+                'name' => '二星和值',
+                'firsttype' => 'TABHZ',
+                'slug' => 'TABHZ_EXHZ'
+            ),
+            14 => array (
+                'typeId' => '14',
+                'name' => '前二直选',
+                'firsttype' => 'TABEX',
+                'slug' => 'TABEX_QEZHIX'
+            ),
+
+            15 => array (
+                'typeId' => '15',
+                'name' => '后二直选',
+                'firsttype' => 'TABEX',
+                'slug' => 'TABEX_HEZHIX'
+            ),
+            16 => array (
+                'typeId' => '16',
+                'name' => '前二组二',
+                'firsttype' => 'TABEX',
+                'slug' => 'TABEX_QEZUE'
+            ),
+            17 => array (
+                'typeId' => '17',
+                'name' => '后二组二',
+                'firsttype' => 'TABEX',
+                'slug' => 'TABEX_HEZUE'
+            ),
+            18 => array (
+                'typeId' => '18',
+                'name' => '五星直选',
+                'firsttype' => 'TABWX',
+                'slug' => 'TABWX_WXZHIX'
+            ),
+            19 => array (
+                'typeId' => '19',
+                'name' => '五星通选',
+                'firsttype' => 'TABWX',
+                'slug' => 'TABWX_WXTX'
+            ),
+            20 => array (
+                'typeId' => '20',
+                'name' => '牛牛玩法',
+                'firsttype' => 'TABNN',
+                'slug' => 'TABNN_NN'
+            ),
+            21 => array (
+                'typeId' => '21',
+                'name' => '第一位',
+                'firsttype' => 'TABDW',
+                'slug' => 'TABDW_YI'
+            ),
+            22 => array (
+                'typeId' => '22',
+                'name' => '第二位',
+                'firsttype' => 'TABDW',
+                'slug' => 'TABDW_ER'
+            ),
+            23 => array (
+                'typeId' => '23',
+                'name' => '第三位',
+                'firsttype' => 'TABDW',
+                'slug' => 'TABDW_SAN'
+            ),
+            24 => array (
+                'typeId' => '24',
+                'name' => '第四位',
+                'firsttype' => 'TABDW',
+                'slug' => 'TABDW_SI'
+            ),
+            25 => array (
+                'typeId' => '25',
+                'name' => '第五位',
+                'firsttype' => 'TABDW',
+                'slug' => 'TABDW_WU'
+            )
+        );
+    }
+
 }

@@ -1,6 +1,6 @@
-@extends('Layout.master')
+@extends('Layout.'.env("SITE_TYPE",'').'master')
 @section('title')
-    中国快三网-{{$czName}}
+    {{$czName}}
 @stop
 @section('css')
     {{--    <link rel="stylesheet" type="text/css" href="{{ asset('/css/betting.css') }}">--}}

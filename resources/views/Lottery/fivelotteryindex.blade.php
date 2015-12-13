@@ -1,6 +1,6 @@
-@extends('Layout.fivemaster')
+@extends('Layout.'.env("SITE_TYPE",'').'master')
 @section('title')
-    11x5娱乐平台-{{$czName}}
+    {{$czName}}
 @stop
 @section('css')
     <style type="text/css">

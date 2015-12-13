@@ -129,11 +129,11 @@ class LunaFunctions
     public function get_current_period($lottery_type)
     {
         $lottery_type = strtolower($lottery_type);
-//    if( $lottery_type == 'cqssc' ){
-//        return get_cqssc_period();
-//    } else if ( $lottery_type == 'xjssc'){
-//        return get_xjssc_period();
-//    }
+        if ($lottery_type == 'cqssc') {
+            return $this->get_cqssc_period();
+        } else if ($lottery_type == 'xjssc') {
+            return $this->get_xjssc_period();
+        }
         $config = $this->get_lottery_config($lottery_type);
         $beginTime = $config['beginTime'];
         $endTime = $config['endTime'];
@@ -223,11 +223,165 @@ class LunaFunctions
         return $result;
     }
 
+    // 获取重庆期数
+    function get_cqssc_period()
+    {
+        $lottery_type = strtolower('cqssc');
+        $config = $this->get_lottery_config('cqssc');
+        $beginTime = $config['beginTime'];
+        $endTime = $config['endTime'];
+        $num = $config['num'];
+        $fdTime = $config['fdTime']; // 判断当前期数的时候.是加上封单时间。如封单时间是2分钟. 那么在 8分钟的时候。就是下一期了。使用加上则对了.
+        $begin = strtotime(date('Y-m-d') . ' ' . $beginTime);
+        $now = strtotime("now");
+// 		$now = mktime(2,12,0,date('m'),date('d') ,date('Y'));
+// 		$now = mktime(23,59,0,date('m'),date('d'),date('Y')); //
+// 		$now = mktime(0,0,0,date('m'),date('d'),date('Y'));
+        $beginDay = mktime(2, 0, 0, date('m'), date('d'), date('Y')); //
+        $beginDay2 = mktime(10, 0, 0, date('m'), date('d'), date('Y')); //
+        $beginDay3 = mktime(22, 0, 0, date('m'), date('d'), date('Y')); //
+        $periodTime = 300;
+        if ($now <= $beginDay) { // 0--2点之前的期数
+
+            $fdTime = 70;
+            $kjTime = 85;
+            $qishu = ceil(($now - $begin + $fdTime) / $periodTime);
+            $currentPeriod = date('Ymd') . '-' . str_pad($qishu, 3, '0', STR_PAD_LEFT);
+            $pre = ceil(($now - $begin + $fdTime) / $periodTime) - 1;
+
+            if ($pre == 0) {
+                $preDate = strtotime("-1 day");
+                $pre = '120';
+                $prePeriod = date('Ymd', $preDate) . '-' . $num;
+            } else {
+                $prePeriod = date('Ymd') . '-' . str_pad($pre, 3, '0', STR_PAD_LEFT);
+            }
+            $leftTime = $periodTime - ($now + $fdTime - $begin) % $periodTime;
+            $kjTime = 30;
+            $formatLeftTime = floor($leftTime / 3600) . ':' . (floor(($leftTime % 3600) / 60)) . ':' . (floor(($leftTime % 3600) % 60));
+
+        } else if ($now > $beginDay && $now < $beginDay2) { // 2点至 10点
+
+            $currentPeriod = date('Ymd') . '-024';
+            $prePeriod = date('Ymd') . '-023';
+            $pre = '23';
+            $kjTime = 150;
+            $leftTime = ($beginDay2 - $now - $fdTime) + $periodTime;
+            $formatLeftTime = floor($leftTime / 3600) . ':' . (floor(($leftTime % 3600) / 60)) . ':' . (floor(($leftTime % 3600) % 60));
+        } else if ($now > $beginDay2 && $now < $beginDay3) { // 早上10点之后
+            $periodTime = 600;
+            $qishu = ceil(($now - $beginDay2 + $fdTime) / $periodTime) + 24;
+            $currentPeriod = date('Ymd') . '-' . str_pad($qishu, 3, '0', STR_PAD_LEFT);
+            $pre = $qishu - 1;
+            $prePeriod = date('Ymd') . '-' . str_pad($pre, 3, '0', STR_PAD_LEFT);
+            $leftTime = $periodTime - ($now + $fdTime - $begin) % $periodTime;
+            $kjTime = 150;
+            $formatLeftTime = floor($leftTime / 3600) . ':' . (floor(($leftTime % 3600) / 60)) . ':' . (floor(($leftTime % 3600) % 60));
+
+        } else if ($now > $beginDay3) { // 晚上10点之后
+            $periodTime = 300;
+            $fdTime2 = 70;
+            $kjTime = 85;
+
+            $qishu = ceil(($now - $beginDay3 + $fdTime2) / $periodTime) + 96;
+            if ($qishu == 121) {
+                $qishu = '001';
+                $pre = '120';
+                $currentPeriod = date('Ymd', strtotime('+1 day')) . '-' . str_pad($qishu, 3, '0', STR_PAD_LEFT);
+            } else {
+                $pre = $qishu - 1;
+                $currentPeriod = date('Ymd') . '-' . str_pad($qishu, 3, '0', STR_PAD_LEFT);
+            }
+
+
+            $prePeriod = date('Ymd') . '-' . str_pad($pre, 3, '0', STR_PAD_LEFT);
+            $leftTime = $periodTime - ($now + $fdTime2 - $beginDay3) % $periodTime;
+            $formatLeftTime = floor($leftTime / 3600) . ':' . (floor(($leftTime % 3600) / 60)) . ':' . (floor(($leftTime % 3600) % 60));
+
+
+        }
+
+        $result = array('currentPeriod' => $currentPeriod,
+            'prePeriod' => $prePeriod,
+            'pre' => $pre,
+            'leftTime' => $leftTime,
+            'kjTime' => $kjTime,
+            'formatLeftTime' => $formatLeftTime);
+
+        if ($num - $pre == 0) {
+            $needCaiji = 1;
+            $result['needCaiji'] = 1;
+        }
+
+        return $result;
+
+    }
+
+
+    // 获取新疆时时彩期数
+    function get_xjssc_period()
+    {
+        $lottery_type = strtolower('xjssc');
+        $config = $this->get_lottery_config('xjssc');
+        $beginTime = $config['beginTime'];
+        $endTime = $config['endTime'];
+        $num = $config['num'];
+        $fdTime = $config['fdTime']; // 判断当前期数的时候.是加上封单时间。如封单时间是2分钟. 那么在 8分钟的时候。就是下一期了。使用加上则对了.
+        $kjTime = $config['kjTime'];
+        $begin = strtotime(date('Y-m-d') . ' ' . $beginTime);
+        $now = strtotime("now");
+
+        $beginDay = mktime(2, 0, 0, date('m'), date('d'), date('Y')); //
+        $beginDay2 = mktime(0, 0, 0, date('m'), date('d'), date('Y')); //
+// 		$beginDay3 = mktime(22,0,0,date('m'),date('d'),date('Y')); //
+        $periodTime = 600;
+        if ($now <= $beginDay) { // 0--2点之前的期数
+
+            $qishu = ceil(($now - $beginDay2 + $fdTime) / $periodTime) + 84;
+            $currentPeriod = date('Ymd') . '-' . str_pad($qishu, 3, '0', STR_PAD_LEFT);
+            $pre = ceil(($now - $beginDay2 + $fdTime) / $periodTime) - 1 + 84;
+            $prePeriod = date('Ymd') . '-' . str_pad($pre, 3, '0', STR_PAD_LEFT);
+            $leftTime = $periodTime - ($now + $fdTime - $beginDay2) % $periodTime;
+
+            $formatLeftTime = floor($leftTime / 3600) . ':' . (floor(($leftTime % 3600) / 60)) . ':' . (floor(($leftTime % 3600) % 60));
+
+        } else if ($now > $begin) { // 早上10点之后
+
+            $qishu = ceil(($now - $begin + $fdTime) / $periodTime);
+            $currentPeriod = date('Ymd') . '-' . str_pad($qishu, 3, '0', STR_PAD_LEFT);
+            $pre = $qishu - 1;
+            $prePeriod = date('Ymd') . '-' . str_pad($pre, 3, '0', STR_PAD_LEFT);
+            $leftTime = $periodTime - ($now + $fdTime - $begin) % $periodTime;
+            $formatLeftTime = floor($leftTime / 3600) . ':' . (floor(($leftTime % 3600) / 60)) . ':' . (floor(($leftTime % 3600) % 60));
+        } else if ($now > $beginDay && $now <= $begin) {  // 2点至10点
+            $pre = $num;
+            $preDate = strtotime("-1 day");
+            $prePeriod = date('Ymd', $preDate) . '-0' . $num;
+            $currentPeriod = date('Ymd') . "-001";
+            $leftTime = ($begin - $now - $fdTime) + $periodTime;
+            $formatLeftTime = floor($leftTime / 3600) . ':' . (floor(($leftTime % 3600) / 60)) . ':' . (floor(($leftTime % 3600) % 60));
+        }
+
+
+        $result = array('currentPeriod' => $currentPeriod,
+            'prePeriod' => $prePeriod,
+            'pre' => $pre,
+            'leftTime' => $leftTime,
+            'kjTime' => $kjTime,
+            'formatLeftTime' => $formatLeftTime);
+        if ($num - $pre == 0) {
+            $needCaiji = 1;
+            $result['needCaiji'] = 1;
+        }
+
+        return $result;
+
+    }
+
+
     function create_order_no($id)
     {
-
         return date("Ymd") . str_pad($id, 6, '0', STR_PAD_LEFT) . str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
-
     }
 
     function get_lottery_type_code($lotteryType)
@@ -402,22 +556,22 @@ class LunaFunctions
 
     function lottery_kj($lottery_type, $winPre, $winCode)
     {
-        $Sitetype = env('SITE_TYPE','');
+        $Sitetype = env('SITE_TYPE', '');
         $type = $this->get_lottery_type_code($lottery_type);
         if ('k3' == $type) $type = 'lottery';
 //        Waf::moduleLib('Lottery_Result', $type, true);
         if ($winCode && $winPre) {
 //            $model = Waf::model('lottery/list', array('lottery_type' => $lottery_type));
             //获奖列表
-            if($Sitetype=='five'){
+            if ($Sitetype == 'five') {
                 $winlists = lu_lotteries_five::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
-            }else{
+            } else {
                 $winlists = lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
             }
             //获奖处理
-            if($Sitetype=='five'){
+            if ($Sitetype == 'five') {
                 lu_lotteries_five::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
-            }else{
+            } else {
                 lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
             }
             $args = array();
@@ -433,9 +587,9 @@ class LunaFunctions
 
                 if ($type == 'xy') {
                     $result = new Lottery_Result($winPre, $winArr);
-                }  else if($type=="five"){
+                } else if ($type == "five") {
                     $result = new FiveLottery_Result();
-                }else {
+                } else {
                     $result = new Lottery_Result();
                 }
 
@@ -477,18 +631,18 @@ class LunaFunctions
                         $data['province'] = $lottery_type;
                         $data['provinceName'] = $lunaFunction->get_lottery_name($lottery_type);
                         try {
-                            if(env('SITE_TYPE','')=='five'){
+                            if (env('SITE_TYPE', '') == 'five') {
                                 lu_lottery_notes_five::create($data);
-                            }else{
+                            } else {
                                 lu_lottery_notes_k3::create($data);
                             }
                             if (!isset($matchCount)) $matchCount = 1;
 // 							file_put_contents ( __WAF_ROOT__ . '/win33.log','$matchCount:'.$matchCount . '\n', FILE_APPEND );
 //                            $lottery->update($lotId, array('noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount));
-                            if($Sitetype=='five'){
+                            if ($Sitetype == 'five') {
 
                                 lu_lotteries_five::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
-                            }else{
+                            } else {
 
                                 lu_lotteries_k3::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
                             }
@@ -512,24 +666,24 @@ class LunaFunctions
                             lu_user_data::where('uid', $data['uid'])->update(['points' => $pointRecordData['newPoint']]);
                             // 取消 追号
                             if (!empty($lotId)) {
-                                if(env('SITE_TYPE','')=='five'){
+                                if (env('SITE_TYPE', '') == 'five') {
 
                                     $detail = lu_lotteries_five::where('id', $lotId)->first();
-                                }else{
+                                } else {
 
                                     $detail = lu_lotteries_k3::where('id', $lotId)->first();
                                 }
 
-                                if ($detail['groupId'] != null && $detail['groupId']!="0") {
+                                if ($detail['groupId'] != null && $detail['groupId'] != "0") {
                                     $groupId = explode('_', $detail['groupId']);
                                     $tingCount = intval($groupId[1]);
                                     //todo 取消追号逻辑
                                     if ($tingCount > 0) {
 //                                    $winCount = $lottery->queryNoticedCountByGroupId($detail['groupId']);
-                                        if(env('SITE_TYPE','')=='five'){
+                                        if (env('SITE_TYPE', '') == 'five') {
 
                                             $winCount = lu_lotteries_five::where('noticed', 1)->where('groupId', $detail['groupId'])->count();
-                                        }else{
+                                        } else {
 
                                             $winCount = lu_lotteries_k3::where('noticed', 1)->where('groupId', $detail['groupId'])->count();
                                         }
@@ -537,42 +691,42 @@ class LunaFunctions
 
                                             // 同时反本金
 //                                        $fanMoney = $lottery->queryFanMoney($detail['groupId']);
-                                            if(env('SITE_TYPE','')=='five'){
+                                            if (env('SITE_TYPE', '') == 'five') {
 
                                                 $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_fives where groupId="' . $detail['groupId'] . '" and isopen =0 and noticed =0')[0]->sum;
-                                            }else{
+                                            } else {
 
                                                 $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_k3s where groupId="' . $detail['groupId'] . '" and isopen =0 and noticed =0')[0]->sum;
                                             }
- 										if( $fanMoney > 0){
+                                            if ($fanMoney > 0) {
 
-                                            $pointRecordData = array(
-                                                'uid' => $data['uid'],
-                                                'userName' => lu_user::find($data['uid'])->name,
-                                                'addType' => '14', // 反本金
-                                                'lotteryType' => $lottery_type, //
-                                                'touSn' => $detail['sn'],
-                                                'oldPoint' => $tempPoints + $data['amount'],
-                                                'changePoint' => $fanMoney,
-                                                'newPoint' => $tempPoints + $data['amount'] + $fanMoney,
-                                                'created' => strtotime(date('Y-m-d H:i:s')),
-                                                'bz' => '追号'
-                                            );
-                                            lu_points_record::create($pointRecordData);
-                                            lu_user_data::where('uid', $data['uid'])->update(['points' => $tempPoints + $data['amount'] + $fanMoney]);
+                                                $pointRecordData = array(
+                                                    'uid' => $data['uid'],
+                                                    'userName' => lu_user::find($data['uid'])->name,
+                                                    'addType' => '14', // 反本金
+                                                    'lotteryType' => $lottery_type, //
+                                                    'touSn' => $detail['sn'],
+                                                    'oldPoint' => $tempPoints + $data['amount'],
+                                                    'changePoint' => $fanMoney,
+                                                    'newPoint' => $tempPoints + $data['amount'] + $fanMoney,
+                                                    'created' => strtotime(date('Y-m-d H:i:s')),
+                                                    'bz' => '追号'
+                                                );
+                                                lu_points_record::create($pointRecordData);
+                                                lu_user_data::where('uid', $data['uid'])->update(['points' => $tempPoints + $data['amount'] + $fanMoney]);
 
 //                                        $pointRecordModel->insert($pointRecordData);
 //                                        $userModel->updateLoginInfo($data['uid'], array('points' => array('+', $fanMoney)));
 
- 										}
+                                            }
 
                                             // 停止追号
-                                            if(env('SITE_TYPE','')=='five'){
+                                            if (env('SITE_TYPE', '') == 'five') {
 
-                                                lu_lotteries_five::where('groupId', $detail['groupId'])->where('isOpen','<>','1')->update(['status' => -1, 'isOpen' => 1]);
-                                            }else{
+                                                lu_lotteries_five::where('groupId', $detail['groupId'])->where('isOpen', '<>', '1')->update(['status' => -1, 'isOpen' => 1]);
+                                            } else {
 
-                                                lu_lotteries_k3::where('groupId', $detail['groupId'])->where('isOpen','<>','1')->update(['status' => -1, 'isOpen' => 1]);
+                                                lu_lotteries_k3::where('groupId', $detail['groupId'])->where('isOpen', '<>', '1')->update(['status' => -1, 'isOpen' => 1]);
                                             }
 //                                        $lottery->updateLotteryStatus($detail['groupId'], array('status' => -1, 'isOpen' => 1));
 
@@ -589,10 +743,10 @@ class LunaFunctions
                 }
             }
 //            $model->updateByProName($winPre, array('isOpen' => 1));
-            if(env('SITE_TYPE','')=='five'){
+            if (env('SITE_TYPE', '') == 'five') {
 
                 lu_lotteries_five::where('province', $lottery_type)->where('proName', $winPre)->update(['isOpen' => 1]);
-            }else{
+            } else {
 
                 lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['isOpen' => 1]);
             }

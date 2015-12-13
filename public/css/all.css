@@ -7325,6 +7325,7 @@ button.close {
 .nk3_center_left ul li {
     height: 27px;
     line-height: 27px;
+    padding-left: 27px;
 }
 
 ul, li {

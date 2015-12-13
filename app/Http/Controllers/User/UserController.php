@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\lu_lotteries_five;
 use App\lu_lotteries_k3;
+use App\lu_lotteries_ssc;
 use App\lu_lottery_return;
 use App\lu_lottery_user;
 use App\lu_user;
@@ -23,23 +24,40 @@ class UserController extends Controller
      */
     public function userBettingList(Request $request)
     {
-        if(env('SITE_TYPE','')=='five'){
+        $bettingType = "";
+        if (env('SITE_TYPE', '') == 'five') {
             $result = lu_lotteries_five::where('uid', \Auth::id())->orderby('created_at', 'desc');
-        }else{
+        } else if (env('SITE_TYPE', '') == 'gaopin') {
+            $bettingType = $request->bettingType;
+            if (empty($bettingType)) {
+                $bettingType = 'k3';
+            }
+            if ($bettingType == "k3") {
+                $result = lu_lotteries_k3::where('uid', \Auth::id())->orderby('created_at', 'desc');
+            } else if ($bettingType == 'five') {
+                $result = lu_lotteries_five::where('uid', \Auth::id())->orderby('created_at', 'desc');
+            } else if ($bettingType == 'ssc') {
+                $result = lu_lotteries_ssc::where('uid', \Auth::id())->orderby('created_at', 'desc');
+            }
+
+        } else {
             $result = lu_lotteries_k3::where('uid', \Auth::id())->orderby('created_at', 'desc');
         }
 //        $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_k3s where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ',[Auth::user()->id,Auth::user()->id]);
         $lu_lotteries_k3s = $result->paginate(10);
-        return view('User.usrBettingList', compact('lu_lotteries_k3s'));
+        return view('User.usrBettingList', compact('lu_lotteries_k3s', 'bettingType'));
     }
 
     public function getaccountdetail(Request $request)
     {
-        if(env('SITE_TYPE','')=='five'){
+        if (env('SITE_TYPE', '') == 'five') {
 
             $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_fives where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_fives where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ', [Auth::user()->id, Auth::user()->id]);
-        }else
-        {
+        } else if (env('SITE_TYPE', '') == 'gaopin') {
+            $lu_lotteries_k3s = \DB::select('select created_at, sum(eachPrice) as eachPrice,sum(bingoPrice) as bingoPrice from ( select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_fives where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_fives where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at '.
+                'union select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_k3s where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at '.
+                'union select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_sscs where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_sscs where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at ) t group by created_at', [Auth::user()->id, Auth::user()->id, Auth::user()->id, Auth::user()->id, Auth::user()->id, Auth::user()->id]);
+        } else {
             $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_k3s where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ', [Auth::user()->id, Auth::user()->id]);
         }
         $lu_lottery_applys = \DB::select('select left(created_at,10) as created_at,SUM(amounts) as applys  from lu_lottery_applies where uid =? group by left(created_at,10) ', [Auth::user()->id]);
@@ -102,16 +120,6 @@ class UserController extends Controller
         }
     }
 
-//    public function deposit()
-//    {
-//
-//        $bank = lu_lottery_user::where('uid', Auth::user()->id)->first();
-//        if (!isset($bank)) {
-//            return view('bank');
-//        }
-//        return view('Cash.deposit');
-//    }
-
     public function bank()
     {
         $bank = lu_lottery_user::where('uid', Auth::user()->id)->first();
@@ -150,10 +158,10 @@ class UserController extends Controller
 
     public function getLotteryWin()
     {
-        if(env('SITE_TYPE','')=='five'){
+        if (env('SITE_TYPE', '') == 'five') {
 
             $result = lu_lotteries_five::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
-        }else{
+        } else {
 
             $result = lu_lotteries_k3::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
         }
@@ -166,10 +174,10 @@ class UserController extends Controller
 //        \Cache::forget('personalwin');
         if (!Auth::guest()) {
             if (!\Cache::has("personalwin")) {
-                if(env('SITE_TYPE','')=='five'){
+                if (env('SITE_TYPE', '') == 'five') {
 
                     $result = lu_lotteries_five::where('uid', Auth::user()->id)->where('noticed', '1')->where('updated_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute -35 second')))->get();
-                }else{
+                } else {
 
                     $result = lu_lotteries_k3::where('uid', Auth::user()->id)->where('noticed', '1')->where('updated_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute -35 second')))->get();
                 }

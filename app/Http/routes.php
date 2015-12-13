@@ -122,12 +122,17 @@ Route::get('lotteryIndex', [
     'as' => 'lotteryIndex', 'uses' => 'LotteryK3Controller@index']);
 Route::get('fivelotteryIndex', [
     'as' => 'fivelotteryIndex', 'uses' => 'LotteryFiveController@index']);
+Route::get('ssclotteryIndex', [
+    'as' => 'ssclotteryIndex', 'uses' => 'LotterySscController@index']);
 Route::get('lotterytrend', [
     'as' => 'lotterytrend', 'uses' => 'LotteryK3Controller@trend']);
 Route::get('fivelotterytrend', [
     'as' => 'fivelotterytrend', 'uses' => 'LotteryFiveController@trend']);
+Route::get('ssclotterytrend', [
+    'as' => 'ssclotterytrend', 'uses' => 'LotterySscController@trend']);
 Route::any('/lotteryBetting', ['middleware' => 'auth', 'as' => 'lotteryBetting', 'uses' => 'LotteryK3Controller@betting']);
 Route::any('/fivelotteryBetting', ['middleware' => 'auth', 'as' => 'fivelotteryBetting', 'uses' => 'LotteryFiveController@betting']);
+Route::any('/ssclotteryBetting', ['middleware' => 'auth', 'as' => 'ssclotteryBetting', 'uses' => 'LotterySscController@betting']);
 Route::any('/zhuihao', ['middleware' => 'auth', 'as' => 'zhuihao', 'uses' => 'LotteryK3Controller@zhuihao']);
 Route::any('/userLotteryBetting', ['middleware' => 'auth', 'as' => 'userLotteryBetting', 'uses' => 'User\UserController@userBettingList']);
 Route::any('/getaccountdetail', ['middleware' => 'auth', 'as' => 'getaccountdetail', 'uses' => 'User\UserController@getaccountdetail']);

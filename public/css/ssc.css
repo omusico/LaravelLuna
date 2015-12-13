@@ -1,0 +1,178 @@
+.k_top{height:155px;}
+.k_bottom{ height:auto}
+.r_middle{ height:auto;}
+.opening{ text-align:center; font-size:14px;font-weight:bold;}
+.blank4{clear: both; display: block; height: 4px; overflow: hidden;}
+.kj_info_box { overflow: hidden;  width:1060px; border-bottom:1px solid rgb(218,218,218);}
+.kj_middle_box{ border-bottom:1px solid rgb(218,218,218);}
+.kj_bottom_box{ overflow: hidden;  width:770px; }
+.kj_open_box{ width:290px;padding: 0px; overflow: hidden;border-top:1px solid rgb(218,218,218);}
+.period-l{border-right:1px solid rgb(218,218,218);min-height:745px;}
+.kj_info_l { float: left; width: 245px; background: url('r_border.gif') no-repeat scroll right center transparent; height:155px}
+.kj_info_l .cz_name { line-height: 90px; color: rgb(204, 0, 0); text-align: center; font-weight: bold;height:40px }
+.kj_info_l .cz_name h1 { color: rgb(204, 0, 0); text-align: center; font-weight: bold; font-size:16px; margin-left:80px  }
+.kj_info_l .cz_ico { text-align: center; margin-left:-20px }
+.kj_info_l .cz_info {  text-align: center; margin-top:25px }
+.kj_info_l .jieshao{ font-size:14px;  line-height:28px;}
+.kj_info_c { float: left; width: 390px; background: url('r_border.gif') no-repeat scroll right center transparent; }
+.kj_info_c .djs_01 { text-align: center; font-size: 15px; font-weight: bold; line-height: 40px; }
+.kj_info_c .djs_02 { height: 104px; background: url('djs_ico.png') no-repeat scroll center top transparent; }
+.djs_time { color: rgb(255, 255, 255); font-family: Arial; font-weight: bold; font-size: 36px; line-height: 59px; height: 59px; text-align: center; }
+.djs_jz { line-height: 29px; height: 29px; text-align: center; font-size: 14px;font-weight:bold; }
+.kj_info_r { float: left; width: 415px; }
+.cz_ico .other { width: 75px; height: 75px; background: url('ks_ico.png') no-repeat scroll 0px 0px transparent; float: left; display: block; margin-left:30px }
+.cz_ico span.cqssc78 { background-position: 0px -308px; }
+.kj_hao {  }
+.kj_hao .kj_qs { text-align: center; font-size: 14px; font-weight: bold; line-height: 45px; }
+.kj_hao .ssc_nub { text-align: center; width:320px; margin:5px 0px 10px 50px; }
+.kj_hao .ssc_nub em { display: inline-block; width: 44px; height:44px; line-height: 41px;text-align: center; margin-right: 12px;  font-weight:700; font-size:16px; }
+.awardBallten1{ background: url('main_pic.png') no-repeat scroll -2px -102px transparent;  }
+.awardBallten2{ background: url('main_pic.png') no-repeat scroll -49px -102px transparent;  }
+.awardBallten3{ background: url('main_pic.png') no-repeat scroll -96px -102px transparent;  }
+.awardBallten4{ background: url('main_pic.png') no-repeat scroll -143px -102px transparent;  }
+.awardBallten5 { background: url('main_pic.png') no-repeat scroll -189px -102px transparent;  }
+.ball_1 { background: url('main_pic.png') no-repeat scroll -4px -48px transparent;  }
+.kjgg_box {  }
+.kjgg_box .kjgg_tit {  height: 29px; padding: 0px 10px; overflow: hidden;border-bottom:1px solid rgb(218,218,218); }
+.kjgg_box .kjgg_tit a{ color:#000; font-weight:bold;font-size:13px}
+.kjgg_box .kjgg_tit a:hover{ color:red;}
+.kjgg_tit .kjgg_name { float: left; line-height: 28px; font-weight: bold; z-index:1px; }
+.kjgg_tit .kjgg_name h3{  font-size: 15px; }
+.kjgg_tit .kjgg_more { float: right; line-height: 28px; }
+.kjgg_box .kjgg_con table { width: 100%; }
+.kjgg_box .kjgg_con tbody{ }
+.kjgg_con th, .kjgg_con td { border-bottom: 1px solid rgb(221, 221, 221); border-top: medium none; line-height: 30px; text-align: center; }
+.c_red{ color:rgb(193, 0, 0)}
+.hz_xt { text-align: center; line-height: 36px; font-size:15px;  }
+.da_ico, .shuang_ico, .xiao_ico, .dan_ico { display: inline-block; width: 16px; height: 16px; text-align: center; font-weight: bold; line-height: 16px; color: rgb(255, 255, 255); }
+.shuang_ico { background: url('d_x_d_x.gif') no-repeat scroll -57px 0px transparent; }
+.xiao_ico { background: url('d_x_d_x.gif') no-repeat scroll -19px 0px transparent; }
+.da_ico{ background: url('d_x_d_x.gif') no-repeat scroll 0px 0px transparent; }
+.dan_ico{ background: url('d_x_d_x.gif') no-repeat scroll -38px 0px transparent; }
+.right_top{ width:770px; }
+.right_middle{ width:770px;  }
+.TabTitle2 ul { display: block; height: 40px; width:760px; overflow: hidden;  line-height: 16px; }
+.TabTitle2 ul li { float: left; height: 31px; line-height: 21px; padding: 6px 25px; color: rgb(0, 0, 0); cursor: pointer; font-size:15px; }
+.TabTitle2 ul li.active {background: url('main_pic.png') no-repeat scroll 0px -0px transparent; color: rgb(255, 255, 255);  }
+.TabTitle2 ul li.normal { color: rgb(0, 0, 0); }
+.TabTitle1 ul { display: block; height: 40px; width:760px; overflow: hidden;  line-height: 16px; }
+.TabTitle1 ul li { float: left; height: 31px; line-height: 21px; padding: 6px 18px; color: rgb(0, 0, 0); cursor: pointer; font-size:14px }
+.TabTitle1 ul li.active {background: url('main_pic.png') no-repeat scroll 0px -0px transparent; color: rgb(255, 255, 255);  }
+.TabTitle1 ul li.normal { color: rgb(0, 0, 0); }
+.TabContent1{ display: block; padding-left:20px }
+.TabContent1 p { color:#000; padding: 10px 0px 10px; text-align:center; }
+.select_num2 ul li { float: left;  margin: 16px 10px 0px 16px; display: inline; color:#000; width:65px;  }
+/*.select_num2 ul li .num {cursor:pointer; background: url('main_pic.png') no-repeat scroll 0px -50px transparent; color: #000; font-size: 25px;  height: 61px; width:54px; line-height:52px; cursor: pointer;  text-align:center;  }*/
+/*.select_num2 ul li .OneNum_active { background: url(main_pic.png) no-repeat scroll -65px -50px transparent;color: #fff; font-size: 25px;  height: 61px; width:54px; line-height:52px; cursor: pointer;  text-align:center;  }*/
+/*.select_num1 ul li { float: left; background: url('main_pic.png') no-repeat scroll  -0px -50px transparent; color: #000; font-size: 22px;  height: 61px; width: 54px; line-height: 52px; text-align: center; margin: 16px 10px 0px 26px; display: inline; cursor: pointer; }*/
+/*.select_num1 ul li.OneNum_active { background: url(main_pic.png) no-repeat scroll -65px -50px transparent;color: #fff; font-size: 25px; height: 61px; width:54px; line-height:52px; text-align:center;  }*/
+.TabContent1 .content0 .select_txt1 { margin:auto 200px; height: 18px; line-height: 20px;  width:400px;}
+.select_txt1 ul li { float: left; width: 92px; color: #000; }
+.select_num ul .long_select_btn{ float: left; background: url('main_pic.png') repeat-x scroll 0px -121px transparent; font-size: 22px; height: 64px; width: 130px; line-height: 50px; text-align: center; margin: 7px 10px 0px 170px; display: inline; cursor: pointer; }
+.TabContent1 .content0  .select_num{ margin: 0px auto; height: 55px; overflow: hidden; width:700px;  }
+.TabContent1 .content0 .select_num1 { width: 385px;  margin: 0px auto; overflow: hidden; height:80px;}
+.select_num ul li { float: left; background: url('main_pic.png') repeat-x scroll 0px -50px transparent;  font-size: 22px;  height: 61px; width: 54px; line-height: 52px; text-align: center; margin: 7px 10px 0px 12px; display: inline; cursor: pointer; }
+.select_num ul{ width:760px;  margin:auto 135px}
+.TabContent1 .select_txt  { margin:auto 0;  line-height: 20px; width:500px }
+.select_txt ul li { float: left; width: 70px; color: #000;}
+.select_info_text { clear: both; font-size: 12px; text-align: center; }
+.select_info_text .addbtn_disabled
+{
+    height: 44px;
+    float: left;
+    /*background: no-repeat scroll 0px -195px transparent;*/
+    font-size: 14px;
+    width: 162px;
+    text-align: center;
+    color: white;
+    display: block;
+    font-weight: bolder;
+}
+strong.c_ba2636 { font-weight: normal; font-family: "微软雅黑"; color: rgb(255, 64, 0); }
+.select_info_text { text-align: center; width: 152px; margin: 0px auto; height:43px; line-height: 39px; }
+.select_list_box { padding: 10px; width: 700px; margin: 0px ; color:#000; border: 1px solid #dbbd75; }
+.select_list_box .selected_list { padding: 4px; border: 1px solid #dbbd75; background: none repeat scroll 0% 0% rgb(255, 255, 255); height: 133px; overflow-x: hidden; overflow-y: scroll; }
+.selected_list .select_list { height: 30px; line-height: 30px; padding-left: 5px; }
+.TabContent1 .select_txt { margin: 0px auto; height: 18px; line-height: 18px; }
+.paybox a{ color:#fff;  cursor: pointer; font-size: 25px;height: 49px; line-height: 49px;}
+.paybox { width: 234px; margin: 20px auto ; height: 50px; position:relative;}
+.paybox a:hover { text-decoration: none; color: #7a0a14;}
+.submit_btn{ border: medium none;width:192px; padding:10px 65px 10px 65px; }
+#TABSXZHIX, #TABSXZUX, #TABHZ, #TABEX, #TABWX,#TABNN,#TABYX,#TABDW { border-bottom: 1px solid rgb(218,218,218); width:auto;  }
+.Ball_Box{width:560px; float:left;margin-top:5px }
+.redBallBox { width:560px; float: left; }
+.redBallBox li {  margin-right: 10px; float: left; height: 40px; }
+.redBallBox li.OneNum {cursor:pointer; background: url('main_pic.png') no-repeat scroll -395px -48px transparent; display: inline-block; width: 34px; height: 34px; line-height: 33px;text-align: center; margin-right: 12px; color:#9f0417; font-weight:700; font-size:14px;}
+.redBallBox li.OneNum_active{background: url('main_pic.png') no-repeat scroll -4px -48px transparent;  display: inline-block; width: 34px; height: 34px; line-height: 33px;text-align: center; margin-right: 12px; color:#fff; font-weight:700; font-size:14px; }
+.redBallBox .selectTitle {color:#000; float:left; line-height:40px; margin-right:8px; font-size:14px; font-weight:bolder;}
+.hm-con { clear: both; overflow: hidden;}
+.hm-con li { float: left; height: 60px; line-height: 55px; border-bottom: 1px solid rgb(255, 255, 255); text-align: center; padding-left: 1px; font-size:15px; font-weight:bolder; }
+.w700 { width: 740px; margin: 8px auto 10px; }
+.kj_tab { width: 740px;}
+.kj-w110{ width:122px}
+.kj-w110 div{width: 44px; height: 44px; display: block; text-align: center; line-height: 39px; font-size: 16px; font-weight: 700; overflow: hidden; color:#9f0417; margin-top:7px; margin-left:40px}
+.kj-w110 .OneNum{cursor:pointer; background: url('main_pic.png') no-repeat scroll -451px -48px transparent; }
+.kj-w110 .OneNum_active{background: url('main_pic.png') no-repeat scroll -516px -48px transparent; color:#fff }
+.kj_title span { display: inline-block; width: 15px; margin: 180px 0px 0px 18px; }
+.kj_tab .hm-con { float: right; width: 740px; overflow: hidden; clear: none; }
+.kjgg_box h3, em, i { margin: 0px; padding: 0px; font-style: normal; }
+.open_Ball{background: url('main_pic.png') no-repeat scroll 23px -220px transparent;display: inline-block; font-size:18px;font-weight:bolder;color:#fff;}
+
+.btn_list li.clearBtn { width: 32px; background-position: -248px -210px; }
+.btn_box { float: left; width: 180px; display: inline; }
+.btn_box legend { font-size: 12px;color: rgb(176, 176, 176); width: 30%; display: block; text-align: center; margin-top: -13px; background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+.btn_list { height: 44px; width: 180px; }
+.btn_list li { margin-top: 6px; display: inline; float: left; background: url('main_pic.png') no-repeat scroll -226px -210px transparent; width: 20px; height: 20px; line-height: 20px; text-align: center; color: rgb(85, 85, 85); margin-right: 7px; cursor: pointer; }
+.has_add_ball li { border-bottom: 1px solid #EEECEB; cursor: pointer; font-size: 14px; height: 30px; line-height: 30px; padding-left: 5px; padding-right: 5px; }
+.has_add_ball .txt-delNum { float: left; width: 30px; }
+.has_add_ball li.on .txt-delNum { color: #FFCC00; }
+.has_add_ball li .txt-betsName { display: inline; float: left; width: 60px; }
+.has_add_ball li .txt-num { display: inline; float: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 180px; }
+.has_add_ball li .txt-amount { display: inline; float: left; padding: 0 5px; text-align: right; width: 120px; }
+.has_add_ball li .txt-delNum { color: #999999; float: right; }
+.has_add_ball li .txt-betsName { width: 90px; }
+.has_add_ball li .txt-num { width: 180px; }
+.has_add_ball li .txt-amount em{ font-weight:500}
+
+.pokerBig .OneNum_active div{border:1px solid #0291c4;box-shadow:0 0 15px #0291c4;margin-top:1px;}
+.pokerBig {  width:760px; margin:auto 30px; }
+.pokerBig li { float: left; width: 113px; height: 145px; }
+.pokerBig li div { width: 92px; height: 126px; background: url('poker_repeat.png') repeat-x scroll 0px -163px transparent; margin: 12px auto 0px; border-radius: 5px; color: rgb(68, 68, 68); text-align: center;  position: relative; cursor: pointer; box-shadow: 0px 4px 6px rgb(4, 51, 68); overflow: hidden; transition: margin-top 0.2s ease 0s, box-shadow 0.2s ease 0s, border 0.2s ease 0s; }
+.pokerBig li .hua { position: absolute; display: block; width: 92px; height: 50px; bottom: 5px; left: 5px;  background:url('main_pic.png') no-repeat scroll -600px -48px transparent; }
+.pokerBig li .shisan { position: absolute; display: block; width: 92px; height: 50px; bottom: 5px; left: 0px;  background:url('main_pic.png') no-repeat scroll -605px -238px transparent; }
+.pokerBig li div b { color: rgb(34, 34, 34); display: block; font: bold 16px/22px "微软雅黑"; padding-top: 8px; }
+.pokerBig li div i{ color:#000; font-weight:600; padding-top:4px;display:block; }
+
+@media (max-width: 640px) {
+    .redBallBox { width: 370px; float: left; margin-left:-10px;   }
+    .redBallBox li {  margin-right: 5px; float: left; height: 50px; cursor: pointer;  }
+    .redBallBox .selectTitle {color:#000; float:left; line-height:46px; margin-left:16px; font-size:13px; font-weight:bolder;}
+    .w700 { width: 370px; margin: auto 0px; }
+    .kj_tab,.pokerBig { width: 370px;margin-left:-10px;}
+    .kj-w110{ width:64px; }
+    .kj_tab .hm-con { float: right; width: 370px; overflow: hidden; clear: none; }
+    .open_Ball{background: none no-repeat scroll -170px -298px transparent;font-weight:normal;color:#000;margin-left:4px;}
+    .kj-w110 div{width: 44px; height: 44px; display: block; text-align: center; line-height: 44px; font-size: 16px; font-weight: 700; overflow: hidden; color:#000; margin-top:7px; margin-left:20px;}
+    #awerdNum_balls{width:365px}
+    .kj_hao .five_nub{ margin-left:10px}
+    .Ball_Box{ margin-left:-5px}
+    .kj_middle_box{ height:80px}
+    #TABSXZHIX,  #TABHZ, #TABEX, #TABWX,#TABNN { border-bottom: 1px solid rgb(218,218,218); margin-left: -15px; height:40px;width:370px }
+    #TABSXZUX{ height:80px;width:370px}
+    .opening{padding-left:70px;float:left}
+    .sscbox{
+        font-size: 12px;
+    }
+}
+
+.redBallBox ul{
+    padding: 0px;
+}
+.btn_box ul{
+    padding: 0px;
+    margin: 0px;
+}
+.btn_box legend{
+  font: 12px/1.5 arial,SimSun,helvetica,sans-serif;
+    margin: 0px;
+}
