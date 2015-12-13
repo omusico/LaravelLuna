@@ -43,6 +43,10 @@ class Kernel extends ConsoleKernel {
                 foreach($k3Arrs as $value){
                     exec('curl localhost/collectLotteryData?lottery_type='.$value);
                 }
+                $sscArrs=['cqssc','jxssc','tjssc','xjssc'];
+                foreach($sscArrs as $value){
+                    exec('curl localhost/collectLotteryData?lottery_type='.$value);
+                }
 
             }else{
                 if(env("SITE_TYPE")=="five"){
