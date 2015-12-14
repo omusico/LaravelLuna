@@ -15,6 +15,14 @@
         {{--投注列表</h3>--}}
         <hr/>
         <div>
+            @if(env('SITE_TYPE','')=='gaopin')
+                <ul class="nav navbar-nav" role="tablist">
+                    <li role="presentation" class="active"><a href="/bettingList?bettingType=k3">快三投注记录</a></li>
+                    <li role="presentation"><a href="/bettingList?bettingType=five">11选5投注记录</a></li>
+                    <li role="presentation"><a href="/bettingList?bettingType=ssc">时时彩投注记录</a></li>
+                </ul>
+                <input type="hidden" value="{{$bettingType}}">
+            @endif
             <div style="float: left;">
                 <label>用户名:</label><input type="text" id="userName" name="userName" value="{{$userName}}">
                 <label>开始时间:</label>
@@ -97,7 +105,7 @@
             @endif
         </table>
         {{--{{$lu_lotteries_k3->appends($input)->links()}}--}}
-        <?php echo $lu_lotteries_k3s->appends(['userName' => $userName, 'starttime' => $starttime, 'endtime' => $endtime])->render(); ?>
+        <?php echo $lu_lotteries_k3s->appends(['userName' => $userName, 'starttime' => $starttime, 'endtime' => $endtime,'bettingType' => $bettingType])->render(); ?>
     </div>
 @stop
 @section('script')
