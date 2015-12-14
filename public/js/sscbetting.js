@@ -434,7 +434,7 @@ Ssc.core = {
             var isCorrect = true;
             $.each(box_ball,function(n,value){
                 if(value.codeArray.length <= 0 ){
-                    Ssc.tip('您选的方案不足1注，请参考玩法说明选满1注后进行投注。');
+                    Common.tip('您选的方案不足1注，请参考玩法说明选满1注后进行投注。');
                     isCorrect = false;
                     return;
                 }
@@ -523,7 +523,7 @@ Ssc.core = {
             var slen = single.length;
 
             if(len<=0 || slen<=0){
-                Ssc.tip('您选的方案不足1注，请参考玩法说明选满1注后进行投注。');
+                Common.tip('您选的方案不足1注，请参考玩法说明选满1注后进行投注。');
                 return false;
             }else{
                 $('#getOdds').val($('#TABSXZUX_ZUSZHIX_getodds').text());
@@ -629,10 +629,10 @@ Ssc.core = {
 
 
         $(btn).bind('click',function(){
-            var c=Ssc.math.Cs(code,num);
+            var c=Common.math.Cs(code,num);
             var getcodes = Ssc.core.getCodes();
             if(code.length < num){
-                Ssc.tip('您选的方案不足1注，请至少选择'+num + '个号码进行投注');
+                Common.tip('您选的方案不足1注，请至少选择'+num + '个号码进行投注');
                 return false;
             }
 
@@ -696,10 +696,10 @@ Ssc.core = {
             });
         });
         $(btn).bind('click',function(){
-            var c=Ssc.math.Cs(code,num);
+            var c=Common.math.Cs(code,num);
 //            var getcodes = Ssc.core.getCodes();
             if(code.length < num){
-                Ssc.tip('您选的方案不足1注，请参考玩法说明选满1注后进行投注。');
+                Common.tip('您选的方案不足1注，请参考玩法说明选满1注后进行投注。');
                 return false;
             }
 
@@ -739,10 +739,10 @@ Ssc.core = {
             });
         });
         $(btn).bind('click',function(){
-            var c=Ssc.math.Cs(code,num);
+            var c=Common.math.Cs(code,num);
 //            var getcodes = Ssc.core.getCodes();
             if(code.length < num){
-                Ssc.tip('您选的方案不足1注，请参考玩法说明选满1注后进行投注。');
+                Common.tip('您选的方案不足1注，请参考玩法说明选满1注后进行投注。');
                 return false;
             }
 
@@ -905,7 +905,7 @@ Ssc.core = {
                 var isCorrect = true;
                 $.each(box_ball,function(n,value){
                     if(value.codeArray.length <= 0 ){
-                        Ssc.tip('您选的方案不足1注，请参考玩法说明选满1注后进行投注。');
+                        Common.tip('您选的方案不足1注，请参考玩法说明选满1注后进行投注。');
                         isCorrect = false;
                         return;
                     }
@@ -1080,15 +1080,15 @@ Ssc.formatIntVal = function(obj){
 }
 Ssc.submit = function(){
     //if(user.isLogin != '1'){
-    //    Ssc.tip('您还没有登录，请登录以后再进行投注！');
+    //    Common.tip('您还没有登录，请登录以后再进行投注！');
     //    return false;
     //}
     var tmpCodes = $('.tmpCodes');
     if(tmpCodes.size()<=0){
-        Ssc.tip('您还没有选择任何号码呀~~~');
+        Common.tip('您还没有选择任何号码呀~~~');
     }else{
         //if(user.agency == '3' || user.agency=='1'){
-        //    Ssc.tip('代理不可以投注！');
+        //    Common.tip('代理不可以投注！');
         //    return false;
         //}
         var countDownTime = $dom.countDownTime.text();
@@ -1101,11 +1101,11 @@ Ssc.submit = function(){
         var codes = '';
         var totals = Ssc.core.getTotals();
         if(!totals){
-            Ssc.tip('每一注都需要您输入投注金额！');
+            Common.tip('每一注都需要您输入投注金额！');
             return false;
         }
         //if(totals > user.points ){
-        //    Ssc.tip('您的余额不足，请充值！');
+        //    Common.tip('您的余额不足，请充值！');
         //    return false;
         //}
         var _limit_lowest = pt+'_chipin_l';
@@ -1115,11 +1115,11 @@ Ssc.submit = function(){
         if(!_chipin_l) _chipin_l = 0;
         if(!_chipin_h) _chipin_h = 0;
         if(_chipin_l>0 && totals < _chipin_l){
-            Ssc.tip('您的投注最低限额为“'+_chipin_l+'”元，但您目前的投注金额为“'+totals+'”元，请修改！');
+            Common.tip('您的投注最低限额为“'+_chipin_l+'”元，但您目前的投注金额为“'+totals+'”元，请修改！');
             return false;
         }
         if(_chipin_h>0 && totals > _chipin_h){
-            Ssc.tip('您的投注最高限额为“'+_chipin_h+'”元，但您目前的投注金额为“'+totals+'”元，请修改！');
+            Common.tip('您的投注最高限额为“'+_chipin_h+'”元，但您目前的投注金额为“'+totals+'”元，请修改！');
             return false;
         }
 
@@ -1160,8 +1160,7 @@ Ssc.submit = function(){
                                 window.location.href=baseUrl + "/index.php/Ssc/index/init?&lottery_type="+lottery_type;
                                 break;
                             case 'success':
-                                //Ssc.tip('您的投注信息已经成功提交，请等待开奖！【<a href="'+myLotteryUrl+'">查看我的购买信息</a>】');
-                                Ssc.tip('您的投注信息已经成功提交，请等待开奖！【<a href="/userLotteryBetting">查看我的购买信息</a>】');
+                                Common.tip('您的投注信息已经成功提交，请等待开奖！【<a href="/userLotteryBetting">查看我的购买信息</a>】');
                                 Ssc.core.clearAll();
                                 if($('.enter_digital').size()>0){
                                     $('.enter_digital').text(json.points);
@@ -1210,13 +1209,13 @@ Ssc.checkRepeatCodes = function(_code ,t ,val){
 
             if(val){
                 if($.inArray(val ,_t) > -1){
-                    Ssc.tip('投注列表内含有重复选号，系统暂不支持，请重新选号');
+                    Common.tip('投注列表内含有重复选号，系统暂不支持，请重新选号');
                     return false;
                 }
             }else{
 //            	 console.log(codes_ary);
                 if($.inArray(_code ,codes_ary) > -1){
-                    Ssc.tip('投注列表内含有重复选号，系统暂不支持，请重新选号');
+                    Common.tip('投注列表内含有重复选号，系统暂不支持，请重新选号');
                     return false;
                 }
             }
@@ -1249,7 +1248,7 @@ $(function(){
     Ssc.init();
 });
 
-Ssc.tip = function (content) {
+Common.tip = function (content) {
     $.typebox({
         'title': '温馨提示',
         'width': '360',
@@ -1465,5 +1464,3 @@ function loadRecentResult(){
         }
     });
 }
-
-

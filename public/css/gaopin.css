@@ -66,11 +66,12 @@ table { border-collapse: collapse; border-spacing: 0; }
 .clearfix:after{content:" ";font-size:0;display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .hidden{display: none;}
 .nospace{font-size: 0; height: 0; line-height: 0;}
-a:link, a:hover, a:visited {color: #005AA0;}
+a:hover, a:visited {color: #005AA0;}
 .colorRed{color:#F13131;}
 .color333{color: #333;}
 .color666{color: #666;}
 .color999{color: #999;}
+.colorWhite{color: white;}
 .mr10{margin-right:10px;}
 .mr20{margin-right:20px;}
 .m20{margin: 0 20px;}
@@ -90,7 +91,7 @@ a:link, a:hover, a:visited {color: #005AA0;}
 .red{color:red}
 input{display: inline-block;border:none;}
 #txtConfirmPayPwd{border:solid 1px #ccc;}
-/*.icon,.icon20{background: url(../images/index_optimize.png);_background: url(../images/index_optimize.gif);display: inline-block;}*/
+.icon,.icon20{background: url(index_optimize.png);_background: url(index_optimize.png);display: inline-block;}
 /*.code-icon{background: url(../images/index_code_bg.png);display: inline-block; }*/
 
 /*顶部*/
@@ -107,7 +108,7 @@ input{display: inline-block;border:none;}
 .header-toptray-plus li.m14{color:#d0d0d0;display: inline;}
 .toptray-plus{_position:relative;}
 .header-plus #toptray_not_login{float:right;}
-.header-plus .head-toptray-logo{position: relative;}
+.header-plus .head-toptray-logo{position: relative;background: url(gptop.png) no-repeat;width: 100%}
 .header-plus .logo-box h1{white-space: nowrap;text-indent: -100%;overflow: hidden;height: 0;width: 0;}
 .header-plus .logo-box .logo-index-hd{margin:15px 8px 15px 0;}
 .header-plus #wallet_container{position: relative;float: left;margin-right: 5px;}
@@ -649,7 +650,7 @@ input{display: inline-block;border:none;}
 #play_select_area{_margin-top:12px;}
 /*底部样式*/
 .jc-footer{width:100%; background:#f3f3f3;height:270px;}
-.footer-cn{width:990px; margin:0 auto; padding-top:32px; overflow:hidden; }
+.footer-cn{width:990px; overflow:hidden; }
 
 .cnLeft{width:288px; float:left;}
 .cnLeft h4{color:#666; font-size:16px; font-family:'微软雅黑','Microsoft Yahei';}
@@ -684,7 +685,7 @@ input{display: inline-block;border:none;}
 .jc-footer .footerBox{width:100%;border-top:none;margin-top: 10px;background: none;}
 .jc-footer .foot_box .about_box{border:none;margin-top: 0;}
 /*底部*/
-.jc-footer .about_box{ overflow:hidden; margin:0 auto; width:865px; padding-top:30px; text-align:center;}
+.jc-footer .about_box{ overflow:hidden; margin:0 auto; width:865px; text-align:center;}
 .jc-footer .about_box .about_link {line-height: 30px;color: #666;}
 .jc-footer .about_box .about_link a{margin: 0 10px;color: #666;}
 .jc-footer .about_box .about_mt{height: 26px; line-height:26px;color:#666;}

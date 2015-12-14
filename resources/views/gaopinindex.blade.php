@@ -67,23 +67,18 @@
             </div>
         </div>
     </div>
-    <div class="head-toptray-logo clearfix auto990">
+    <div class="head-toptray-logo clearfix auto990" style="padding-left: 20px">
         <div class="logo-box clearfix" style="width:420px;padding: 15px 0">
-            <a title="高频彩票吧" href="#">
-                <h1>高频彩票吧</h1>
-                <img title="高频彩票吧" alt="高频彩票吧" src="/css/gaopinlogo.png" class="logo-index-hd"
-                     style="width:122px;height:30px;margin:0 8px 0 0">
-            </a>
+            <a title="高频彩" href="#" style="color: white;font-size: 18px;padding-left: 20px">高频彩</a>
             <a><img alt="为梦想买单" src="/css/logo_dream.png"></a>
         </div>
-        <ul class="customerService-plus">
-            <li><i class="icon"></i><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=583893899&amp;site=qq&amp;menu=yes"
-                                       target="_blank" title="">QQ:583893899</a> &nbsp;</li>
-            <li class="online_service">
-                <a href="#" target="_blank" class="colorRed kf-top">在线客服</a>
-                <a href="#" target="_blank" class="colorRed kf-top">玩法</a>
-                <a href="#" target="_blank" class="colorRed kf-top">帮助</a>
-                <a href="#" target="_blank" class="colorRed">公益</a>
+        <ul class="customerService-plus" >
+            <li></i><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=583893899&amp;site=qq&amp;menu=yes"
+                                       target="_blank" style="color: white" title="">QQ:583893899</a> &nbsp;</li>
+            <li class="online_service" >
+                <a href="#" target="_blank" style="color: white" class="colorWhite kf-top">在线客服</a>
+                <a href="#" target="_blank" style="color: white" class="colorWhite kf-top">玩法</a>
+                <a href="#" target="_blank" style="color: white" class="colorWhite kf-top">帮助</a>
             </li>
         </ul>
     </div>
@@ -299,44 +294,6 @@
             </div>
         </div>
         <div class="cnRight">
-            <div class="cnTop">
-                <div class="cn-list">
-                    <h3>账户相关</h3>
-                    <ul>
-                        <li><a href="#" target="_blank" title="">如何注册账号</a></li>
-                        <li><a href="#" target="_blank" title="">怎么找回登录密码</a></li>
-                        <li><a href="#" target="_blank" title="">怎么找回支付密码</a></li>
-                        {{--<li><a href="#" target="_blank" title="">如何修改手机号码</a></li>--}}
-                    </ul>
-                </div>
-                <div class="cn-list">
-                    <h3>充值购彩</h3>
-                    <ul>
-                        <li><a href="#" target="_blank" title="">如何进行充值</a></li>
-                        <li><a href="#" target="_blank" title="">如何购买彩票</a></li>
-                        <li><a href="#" target="_blank" title="">如何查询购彩记录</a></li>
-                        <li><a href="#" target="_blank" title="">充值没到账怎么办</a></li>
-                    </ul>
-                </div>
-                <div class="cn-list">
-                    <h3>兑奖提款</h3>
-                    <ul>
-                        <li><a href="#" target="_blank" title="">怎样进行兑奖</a></li>
-                        <li><a href="#" target="_blank" title="">如何进行提款</a></li>
-                        <li><a href="#" target="_blank" title="">提款多久到账</a></li>
-                        <li><a href="#" target="_blank" title="">领奖是否收手续费</a></li>
-                    </ul>
-                </div>
-                <div class="cn-list service">
-                    <h3>在线客服</h3>
-                    <ul>
-                        <li>QQ咨询：<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=583893899&amp;site=qq&amp;menu=yes"
-                                    target="_blank" title="">583893899</a></li>
-                        <li></li>
-                        <li>工作时间：早08:30-凌晨00:30</li>
-                    </ul>
-                </div>
-            </div>
             <div class="cnBtn">
                 <p><span class="explain01 icon"></span>账户安全</p>
 
@@ -351,22 +308,6 @@
     <div class="clear nospace"></div>
     <div class="footerBox">
         <div class="about_box">
-            <ul class="clearfix">
-                <li class="color333">战略合作伙伴：</li>
-                <li><a target="_blank">百度</a></li>
-                <li><a target="_blank">hao123彩票</a></li>
-                <li><a target="_blank">虎扑篮球</a></li>
-                <li><a target="_blank">虎扑足球</a></li>
-                <li><a target="_blank">虎扑彩票</a></li>
-                <li><a target="_blank">最乐彩</a></li>
-                <li><a target="_blank">智胜彩票</a></li>
-                <li><a target="_blank">必发指数网</a></li>
-                <li><a target="_blank">中国足彩网</a></li>
-                <li><a target="_blank">足球魔方</a></li>
-                <li><a target="_blank">懒财网</a></li>
-                <li><a target="_blank">9188彩票</a></li>
-                <li><a target="_blank">彩票宝</a></li>
-            </ul>
             <p class="about_link">
                 <a target="_blank">关于我们</a>|
                 <a target="_blank">用户注册</a>|

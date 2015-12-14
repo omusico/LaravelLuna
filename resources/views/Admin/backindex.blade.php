@@ -104,6 +104,13 @@
                         <li>
                             <a onclick="$.addTopTab('#tabXG','11选5赔率管理','11选5赔率管理','/fiveodds')">11选5赔率管理</a>
                         </li>
+                    @elseif(env('SITE_TYPE','')=='gaopin')
+                        <li>
+                            <a onclick="$.addTopTab('#tabXG','11选5赔率管理','11选5赔率管理','/fiveodds')">11选5赔率管理</a>
+                        </li>
+                        <li>
+                            <a onclick="$.addTopTab('#tabXG','快三赔率管理','快三赔率管理','/k3odds')">快三赔率管理</a>
+                        </li>
                     @else
                         <li>
                             <a onclick="$.addTopTab('#tabXG','快三赔率管理','快三赔率管理','/k3odds')">快三赔率管理</a>

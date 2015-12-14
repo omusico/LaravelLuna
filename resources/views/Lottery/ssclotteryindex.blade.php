@@ -3002,6 +3002,7 @@
 @stop
 
 @section('script')
+    <script type="text/javascript" src="/js/common.js"></script>
     <script type="text/javascript" src="/js/sscbetting.js"></script>
     <script type="text/javascript">
         var currentsecond = "";

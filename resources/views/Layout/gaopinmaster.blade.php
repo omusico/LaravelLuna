@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="Keywords" content="高频彩票吧">
+    <meta name="Keywords" content="高频彩">
     <title> @yield('title') </title>
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/gaopin.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
@@ -23,7 +23,7 @@
                     @if(!Auth::guest())
                         {{Auth::user()->name}}
                     @endif
-                    欢迎来到高频彩票吧</span>
+                    欢迎来到高频彩</span>
             </div>
             <div class="toptray-right fr">
                 <ul id="toptray_login" class="hidden toptray clearfix">
@@ -86,22 +86,18 @@
             </div>
         </div>
     </div>
-    <div class="head-toptray-logo clearfix auto990">
+    <div class="head-toptray-logo clearfix auto990" style="padding-left: 20px">
         <div class="logo-box clearfix" style="width:420px;padding: 15px 0">
-            <a title="高频彩票吧" href="#">
-                <img title="高频彩票吧" alt="高频彩票吧" src="/css/gaopinlogo.png" class="logo-index-hd"
-                     style="width:122px;height:30px;margin:0 8px 0 0">
-            </a>
+            <a title="高频彩" href="#" style="color: white;font-size: 18px;padding-left: 20px">高频彩</a>
             <a><img alt="为梦想买单" src="/css/logo_dream.png"></a>
         </div>
-        <ul class="customerService-plus">
-            <li><i class="icon"></i><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=583893899&amp;site=qq&amp;menu=yes"
-                                       target="_blank" title="">QQ:583893899</a> &nbsp;</li>
-            <li class="online_service">
-                <a href="#" target="_blank" class="colorRed kf-top">在线客服</a>
-                <a href="#" target="_blank" class="colorRed kf-top">玩法</a>
-                <a href="#" target="_blank" class="colorRed kf-top">帮助</a>
-                <a href="#" target="_blank" class="colorRed">公益</a>
+        <ul class="customerService-plus" >
+            <li></i><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=583893899&amp;site=qq&amp;menu=yes"
+                       target="_blank" style="color: white" title="">QQ:583893899</a> &nbsp;</li>
+            <li class="online_service" >
+                <a href="#" target="_blank" style="color: white" class="colorWhite kf-top">在线客服</a>
+                <a href="#" target="_blank" style="color: white" class="colorWhite kf-top">玩法</a>
+                <a href="#" target="_blank" style="color: white" class="colorWhite kf-top">帮助</a>
             </li>
         </ul>
     </div>
@@ -124,7 +120,7 @@
 <div class="mobilShow" style="display: none">
     <div class="logo-box clearfix" style="width:auto;padding: 15px 0">
         <a href="#">
-            <img title="高频彩票吧" alt="高频彩票吧" src="/css/gaopinlogo.png" class="logo-index-hd"
+            <img title="高频彩" alt="高频彩" src="/css/gaopinlogo.png" class="logo-index-hd"
                  style="width:122px;height:30px;margin:0 8px 0 0">
         </a>
         <a><img alt="为梦想买单" src="/css/logo_dream.png"></a>
