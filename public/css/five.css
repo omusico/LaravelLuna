@@ -55,16 +55,16 @@
 }
 
 .w700 {
-    width: auto;
+    width: 740px;
     margin: 8px auto 10px;
 }
 
 .kj_tab {
-    width: auto;
+    width: 740px;
 }
 
 .kj-w110 {
-    width: auto
+    width: 100px
 }
 
 .kj-w110 div {
@@ -193,7 +193,7 @@
 .fivemologo{
     height: 117px;
     width: 100%;
-    background: url("fivemlogo.jpg") no-repeat;
+    background: url("mofivelogo.png") no-repeat;
 }
 
 .fiveNum {
@@ -265,3 +265,4 @@
 .awardBall5 {
     background: url('main_pic.png') no-repeat scroll -189px -102px transparent;
 }
+

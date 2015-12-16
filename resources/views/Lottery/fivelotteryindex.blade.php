@@ -175,7 +175,7 @@
                                     <div class="kj_tab">
                                         <div class="kj_szc">
                                             <div class="hmList">
-                                                <ul class="hm-con">
+                                                <ul class="hm-con mobilhide">
                                                     <li class="kj-w110 kongge"></li>
                                                     <li class="kj-w110 open_Ball">第一位</li>
                                                     <li class="kj-w110 open_Ball">第二位</li>

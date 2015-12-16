@@ -22,6 +22,17 @@
             width: 100%;
             background: url({{asset('/css/fivemlogo.jpg')}}) no-repeat;
         }
+
+        .hm-conmobile {
+            float: left;
+            width: auto;
+            overflow: hidden;
+            clear: none;
+            padding: 0px;
+        }
+        .kj-w110mobile {
+            width: auto;
+        }
     </style>
     @yield('css')
 </head>
@@ -252,6 +263,10 @@
             a = null;
             $(".mobilhide").hide();
             $(".mobilShow").show();
+            $(".kj_tab .hm-con").addClass("hm-conmobile");
+//            $(".kj_tab").css("width","500px");
+            $(".w700").css("width","500px");
+            $(".kj-w110").addClass("kj-w110mobile");
 
             $(".btn").addClass("btn-lg");
             <?php
