@@ -17,6 +17,11 @@
             width: 100%;
             background: url({{asset('/css/fivelogo1.png')}}) no-repeat;
         }
+        .fivemologo{
+            height: 100px;
+            width: 100%;
+            background: url({{asset('/css/fivemlogo.jpg')}}) no-repeat;
+        }
     </style>
     @yield('css')
 </head>
@@ -26,7 +31,7 @@
 {{--<div class="container mobilhide">--}}
 {{--<div class="col-md-12 fivelogo"></div>--}}
 {{--</div>--}}
-<div style="height: 100px;text-align: center;display: none" class="container mobilShow">
+<div style="height: 100px;text-align: center;display: none" class="contain-fluid mobilShow">
     <div class="col-md-12 fivemologo">
         {{--<a stylek="color: #f9d450" href="/">11选5娱乐平台</a>--}}
     </div>
