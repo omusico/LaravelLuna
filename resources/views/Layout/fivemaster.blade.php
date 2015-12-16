@@ -264,7 +264,9 @@
             $(".mobilhide").hide();
             $(".mobilShow").show();
             $(".kj_tab .hm-con").addClass("hm-conmobile");
-//            $(".kj_tab").css("width","500px");
+            $(".kj_tab .hm-con").css("width","auto").css("float","left");
+            $(".kj_tab .hm-con div").css("margin","0px");
+            $(".kj_tab").css("width","auto");
             $(".w700").css("width","500px");
             $(".kj-w110").addClass("kj-w110mobile");
 
