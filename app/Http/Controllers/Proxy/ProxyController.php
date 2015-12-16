@@ -64,22 +64,6 @@ class ProxyController extends Controller
                         //\DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
                 }
 
-
-                //-------------
-//                $result = lu_user::where('recId', Auth::user()->id);
-//                if (!empty($userName)) {
-//                    $result->where('name', $userName);
-//                }
-////                if (empty($starttime) && empty($endtime)) {
-////                    $result->where('left(created_at,10)',date('Y-m-d'));
-////                }
-//                if (!empty($starttime)) {
-//                    $result->where('created_at', '>=', $starttime);
-//                }
-//                if (!empty($endtime)) {
-//                    $result->where('created_at', '<=', $endtime);
-//                }
-//                $lu_users = $result->paginate(10);
                 $user_groups = CommonClass::cache("user_groups", 1);
                 $isdaili = true;
                 return view('User.inviteurl', compact('lu_lotteries_bettings', 'user_groups', 'isdaili', 'display', 'userName', 'starttime', 'endtime'));

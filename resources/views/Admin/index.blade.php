@@ -13,12 +13,12 @@
                 <label>用户名:</label><input type="text" id="userName" name="userName" value="{{$userName}}">
             </div>
             {{--<div style="float: left">--}}
-                {{--<select name="groupId" class="easyui-combobox" style="width: 215px" id="groupId">--}}
-                    {{--<option value="">选择要管理的组</option>--}}
-                    {{--@foreach($user_groups as $user_group)--}}
-                        {{--<option value="{{$user_group['groupId']}}">{{$user_group['name']}}</option>--}}
-                    {{--@endforeach--}}
-                {{--</select>--}}
+            {{--<select name="groupId" class="easyui-combobox" style="width: 215px" id="groupId">--}}
+            {{--<option value="">选择要管理的组</option>--}}
+            {{--@foreach($user_groups as $user_group)--}}
+            {{--<option value="{{$user_group['groupId']}}">{{$user_group['name']}}</option>--}}
+            {{--@endforeach--}}
+            {{--</select>--}}
             {{--</div>--}}
             <div style="float: right;margin-right: 50px">
                 <a class="btn btn-default btn-primary" onclick="Search()">查询</a>
@@ -62,13 +62,17 @@
                         <td>
                             {{--<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal{{$lu_user->id}}">更新分数</button>--}}
                             <a class="btn btn-sm btn-info" href="/admin/{{$lu_user->id}}/edit">编辑</a>
-                            <a class="btn btn-sm btn-default" href="/admindetail/{{$lu_user->id}}">资金明细</a>
+                            @if($groupid =="3")
+                                <a class="btn btn-sm btn-default" href="/adminproxydetail?id={{$lu_user->id}}">代理明细</a>
+                            @else
+                                <a class="btn btn-sm btn-default" href="/admindetail/{{$lu_user->id}}">资金明细</a>
+                            @endif
                             {{--<form action="{{ url('admin/'.$lu_user->id) }}" style='display: inline'--}}
-                                  {{--method="post">--}}
-                                {{--<input type="hidden" name="_method" value="DELETE">--}}
-                                {{--<input type="hidden" name="_token" value="{{csrf_token()}}">--}}
-                                {{--<button class="btn btn-sm btn-danger" onclick="return confirm('确定删除?')">删除--}}
-                                {{--</button>--}}
+                            {{--method="post">--}}
+                            {{--<input type="hidden" name="_method" value="DELETE">--}}
+                            {{--<input type="hidden" name="_token" value="{{csrf_token()}}">--}}
+                            {{--<button class="btn btn-sm btn-danger" onclick="return confirm('确定删除?')">删除--}}
+                            {{--</button>--}}
                             {{--</form>--}}
                         </td>
                         <td>
@@ -94,7 +98,7 @@
                 <h1>没有会员,请管理员添加</h1>
             @endif
         </table>
-        <?php echo $lu_users->appends(['userName' => $userName])->render(); ?>
+        <?php echo $lu_users->appends(['userName' => $userName,'groupid'=>$groupid])->render(); ?>
 
     </div>
 @stop
@@ -112,7 +116,7 @@
         }
 
         function Search() {
-            url = "admin?userName=" + $("#userName").val() ;
+            url = "admin?userName=" + $("#userName").val();
             window.location.href = url;
         }
     </script>

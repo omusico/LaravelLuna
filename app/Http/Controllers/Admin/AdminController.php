@@ -37,7 +37,7 @@ class AdminController extends Controller
         $count = $result->count();
         $lu_users = $result->paginate(10);
         $user_groups = CommonClass::cache("user_groups", 1);
-        return view('Admin.index', compact('lu_users', 'count', 'user_groups', 'groupname', 'userName'));
+        return view('Admin.index', compact('lu_users', 'count', 'user_groups', 'groupname', 'userName','groupid'));
     }
 
     public function adminindex()
@@ -791,6 +791,47 @@ class AdminController extends Controller
         $point_types = CommonClass::cache_point_type();
         $lu_points_records = App\lu_points_record::where('uid',$id)->orderby('created_at','desc')->paginate(10);
         return view('Admin.admindetail', compact('lu_points_records', 'point_types'));
+    }
+
+    public function adminproxydetail(Request $request)
+    {
+        $id = $request->id;
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+
+        $wheresql = ' where 1=1 ';
+        $RecUsers = 'select * from lu_users where recId = '.$id;
+        if (!empty($userName)) {
+            $wheresql .= ' and userName= "' . $userName . '"';
+            $RecUsers .= ' and name = "' . $userName . '"';
+        }
+        if (empty($starttime) && empty($endtime)) {
+            $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
+        }
+        if (!empty($starttime)) {
+            $starttime = substr($starttime,0,10);
+            $wheresql .= ' and created_at >="' . $starttime . '"';
+        }
+        if (!empty($endtime)) {
+            $endtime = substr($endtime,0,10);
+            $wheresql .= ' and created_at <="' . $endtime . '"';
+        }
+        if (env('SITE_TYPE', '') == 'five') {
+            $lu_lotteries_bettings = \DB::select('select recUser.id,recUser.name,countTable.bcount,countTable.eachPrice,countTable.bingoPrice, countTable.profit from ('.$RecUsers
+                .') recUser left join (  select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_fives ' . $wheresql
+                . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_fives ' . $wheresql
+                . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid) countTable on recUser.id = countTable.uid');
+        } else {
+            $lu_lotteries_bettings =\DB::select('select recUser.id,recUser.name,countTable.bcount,countTable.eachPrice,countTable.bingoPrice, countTable.profit from ('.$RecUsers
+                .') recUser left join (  select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s ' . $wheresql
+                . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' . $wheresql
+                . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid) countTable on recUser.id = countTable.uid');
+        }
+
+        $user_groups = CommonClass::cache("user_groups", 1);
+        return view('Admin.adminproxydetail', compact('lu_lotteries_bettings', 'user_groups','id','userName', 'starttime', 'endtime'));
+//        return view('Admin.adminproxydetail', compact('lu_points_records', 'point_types'));
     }
 
     public function manualupdate(Request $request)
