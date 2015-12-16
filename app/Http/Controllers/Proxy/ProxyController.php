@@ -94,6 +94,7 @@ class ProxyController extends Controller
 
     function proxydetail($id)
     {
+        $bettingType = "";
         if (lu_user::find($id)->recId == Auth::user()->id) {
             if(env('SITE_TYPE','')=='five') {
                 $result = lu_lotteries_five::where('uid', $id)->orderby('created_at', 'desc');
@@ -101,7 +102,7 @@ class ProxyController extends Controller
                 $result = lu_lotteries_k3::where('uid', $id)->orderby('created_at', 'desc');
             }
             $lu_lotteries_k3s = $result->paginate(10);
-            return view('User.usrBettingList', compact('lu_lotteries_k3s'));
+            return view('User.usrBettingList', compact('lu_lotteries_k3s','bettingType'));
         }
     }
 
