@@ -421,10 +421,10 @@ class AdminController extends Controller
     public function checkrecharge()
     {
         if (!Cache::has("checkrecharge")) {
-            $result = App\lu_lottery_recharge::where('status', 1)->where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute -15 second')))->get();
-            Cache::add('checkrecharge', 1, 1);
-            return $result;
         }
+        $result = App\lu_lottery_recharge::where('status', 1)->where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute')))->get();
+        Cache::add('checkrecharge', 1, 1);
+        return $result;
 
     }
 
