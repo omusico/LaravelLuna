@@ -30,7 +30,7 @@
         @if(env("SITE_TYPE")=="five")
             <div class="row">
                 <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
-                    <img src="/css/fivefav.png" alt="优惠活动" width="100%" height="100%"></div>
+                    <img src="/css/fivefav.jpg" alt="优惠活动" width="100%" height="100%"></div>
             </div>
         @else
             <textarea class="form-control" name="favor" rows="30" readonly>{{Cache::get('favor')}}</textarea>

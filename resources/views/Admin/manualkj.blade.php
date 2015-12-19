@@ -50,6 +50,10 @@
                             <option value="hubei">湖北快三</option>
                             <option value="fjk3">福建快三</option>
                             <option value="nmg">内蒙古快三</option>
+                            <option value="cqssc">重庆时时彩</option>
+                            <option value="jxssc">江西时时彩</option>
+                            <option value="tjssc">天津时时彩</option>
+                            <option value="xjssc">新疆时时彩</option>
                         </select>
                     </div>
 

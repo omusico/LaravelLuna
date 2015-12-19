@@ -4,8 +4,10 @@ namespace App\LunaLib\Common;
 use App\lu_lotteries_five;
 use App\lu_lotteries_k3;
 use App\lu_lotteries_result;
+use App\lu_lotteries_ssc;
 use App\lu_lottery_notes_five;
 use App\lu_lottery_notes_k3;
+use App\lu_lottery_notes_ssc;
 use App\lu_points_record;
 use App\lu_user;
 use App\lu_user_data;
@@ -556,23 +558,26 @@ class LunaFunctions
 
     function lottery_kj($lottery_type, $winPre, $winCode)
     {
-        $Sitetype = env('SITE_TYPE', '');
         $type = $this->get_lottery_type_code($lottery_type);
         if ('k3' == $type) $type = 'lottery';
 //        Waf::moduleLib('Lottery_Result', $type, true);
         if ($winCode && $winPre) {
 //            $model = Waf::model('lottery/list', array('lottery_type' => $lottery_type));
             //获奖列表
-            if ($Sitetype == 'five') {
+            if ($type == 'five') {
                 $winlists = lu_lotteries_five::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
-            } else {
+            } else if ($type == "lottery") {
                 $winlists = lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
+            } else if ($type == "ssc") {
+                $winlists = lu_lotteries_ssc::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
             }
             //获奖处理
-            if ($Sitetype == 'five') {
+            if ($type == 'five') {
                 lu_lotteries_five::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
-            } else {
+            } else if ($type == "lottery") {
                 lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
+            } else if ($type == "ssc") {
+                lu_lotteries_ssc::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
             }
             $args = array();
             if ($winlists) {
@@ -581,16 +586,20 @@ class LunaFunctions
                     $types = defaultCache::cache_lottery_type();//Waf::moduleData('lottery_type', 'lottery');
                     $types2 = defaultCache::cache_lottery_type2();//Waf::moduleData('lottery_type', 'lottery', 2);
                     $types = $types + $types2;
-                } else {
+                } else if ($type == 'five') {
                     $types = defaultCache::cache_five_types();//Waf::moduleData($type . '_type', $type);
+                } else if ($type == "ssc") {
+                    $types = defaultCache::cache_ssc_types();
                 }
 
                 if ($type == 'xy') {
                     $result = new Lottery_Result($winPre, $winArr);
                 } else if ($type == "five") {
                     $result = new FiveLottery_Result();
-                } else {
+                } else if ($type == 'lottery') {
                     $result = new Lottery_Result();
+                } else if ($type == "ssc") {
+                    $result = new SscLottery_Result();
                 }
 
                 foreach ($winlists as $row) {
@@ -631,20 +640,22 @@ class LunaFunctions
                         $data['province'] = $lottery_type;
                         $data['provinceName'] = $lunaFunction->get_lottery_name($lottery_type);
                         try {
-                            if (env('SITE_TYPE', '') == 'five') {
+                            if ($type == 'five') {
                                 lu_lottery_notes_five::create($data);
-                            } else {
+                            } else if ($type == "lottery") {
                                 lu_lottery_notes_k3::create($data);
+                            } else if ($type == "ssc") {
+                                lu_lottery_notes_ssc::create($data);
                             }
                             if (!isset($matchCount)) $matchCount = 1;
 // 							file_put_contents ( __WAF_ROOT__ . '/win33.log','$matchCount:'.$matchCount . '\n', FILE_APPEND );
 //                            $lottery->update($lotId, array('noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount));
-                            if ($Sitetype == 'five') {
-
+                            if ($type == 'five') {
                                 lu_lotteries_five::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
-                            } else {
-
+                            } else if ($type == "lottery") {
                                 lu_lotteries_k3::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
+                            } else if ($type == "ssc") {
+                                lu_lotteries_ssc::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
                             }
 //                            $userInfo = $userModel->detail($data['uid']);
                             $userInfo = lu_user_data::where('uid', $data['uid'])->first();
@@ -666,12 +677,12 @@ class LunaFunctions
                             lu_user_data::where('uid', $data['uid'])->update(['points' => $pointRecordData['newPoint']]);
                             // 取消 追号
                             if (!empty($lotId)) {
-                                if (env('SITE_TYPE', '') == 'five') {
-
+                                if ($type == 'five') {
                                     $detail = lu_lotteries_five::where('id', $lotId)->first();
-                                } else {
-
+                                } else if ($type == "lottery") {
                                     $detail = lu_lotteries_k3::where('id', $lotId)->first();
+                                } else if ($type == "ssc") {
+                                    $detail = lu_lotteries_ssc::where('id', $lotId)->first();
                                 }
 
                                 if ($detail['groupId'] != null && $detail['groupId'] != "0") {
@@ -680,23 +691,23 @@ class LunaFunctions
                                     //todo 取消追号逻辑
                                     if ($tingCount > 0) {
 //                                    $winCount = $lottery->queryNoticedCountByGroupId($detail['groupId']);
-                                        if (env('SITE_TYPE', '') == 'five') {
-
+                                        if ($type == "five") {
                                             $winCount = lu_lotteries_five::where('noticed', 1)->where('groupId', $detail['groupId'])->count();
-                                        } else {
-
+                                        } else if ($type == "lottery") {
                                             $winCount = lu_lotteries_k3::where('noticed', 1)->where('groupId', $detail['groupId'])->count();
+                                        } else if ($type == "ssc") {
+                                            $winCount = lu_lotteries_ssc::where('noticed', 1)->where('groupId', $detail['groupId'])->count();
                                         }
                                         if ($winCount >= $tingCount) {
 
                                             // 同时反本金
 //                                        $fanMoney = $lottery->queryFanMoney($detail['groupId']);
-                                            if (env('SITE_TYPE', '') == 'five') {
-
+                                            if ($type == "five") {
                                                 $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_fives where groupId="' . $detail['groupId'] . '" and isopen =0 and noticed =0')[0]->sum;
-                                            } else {
-
+                                            } else if ($type == "lottery") {
                                                 $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_k3s where groupId="' . $detail['groupId'] . '" and isopen =0 and noticed =0')[0]->sum;
+                                            } else if ($type == "ssc") {
+                                                $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_sscs where groupId="' . $detail['groupId'] . '" and isopen =0 and noticed =0')[0]->sum;
                                             }
                                             if ($fanMoney > 0) {
 
@@ -721,12 +732,12 @@ class LunaFunctions
                                             }
 
                                             // 停止追号
-                                            if (env('SITE_TYPE', '') == 'five') {
-
+                                            if ($type == "five") {
                                                 lu_lotteries_five::where('groupId', $detail['groupId'])->where('isOpen', '<>', '1')->update(['status' => -1, 'isOpen' => 1]);
-                                            } else {
-
+                                            } else if ($type == "lottery") {
                                                 lu_lotteries_k3::where('groupId', $detail['groupId'])->where('isOpen', '<>', '1')->update(['status' => -1, 'isOpen' => 1]);
+                                            } else if ($type == "ssc") {
+                                                lu_lotteries_ssc::where('groupId', $detail['groupId'])->where('isOpen', '<>', '1')->update(['status' => -1, 'isOpen' => 1]);
                                             }
 //                                        $lottery->updateLotteryStatus($detail['groupId'], array('status' => -1, 'isOpen' => 1));
 
@@ -743,12 +754,12 @@ class LunaFunctions
                 }
             }
 //            $model->updateByProName($winPre, array('isOpen' => 1));
-            if (env('SITE_TYPE', '') == 'five') {
-
+            if ($type == "five") {
                 lu_lotteries_five::where('province', $lottery_type)->where('proName', $winPre)->update(['isOpen' => 1]);
-            } else {
-
+            } else if ($type == "lottery") {
                 lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['isOpen' => 1]);
+            } else if ($type == "ssc") {
+                lu_lotteries_ssc::where('province', $lottery_type)->where('proName', $winPre)->update(['isOpen' => 1]);
             }
 
             // 如果是撤单在开奖.则需处理已经追号结束的.
@@ -798,6 +809,7 @@ class LunaFunctions
         $beginTime = $config['beginTime'];
         $begin = strtotime(date('Y-m-d') . ' ' . $beginTime);
         $now = strtotime("now");
+        $kjTime = $config["kjTime"];
 
         if ($lottery_type == 'cqssc') {
 
