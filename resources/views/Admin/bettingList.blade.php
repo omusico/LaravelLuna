@@ -16,11 +16,14 @@
         <hr/>
         <div>
             @if(env('SITE_TYPE','')=='gaopin')
-                <ul class="nav navbar-nav" role="tablist">
-                    <li role="presentation" class="active"><a href="/bettingList?bettingType=k3">快三投注记录</a></li>
-                    <li role="presentation"><a href="/bettingList?bettingType=five">11选5投注记录</a></li>
-                    <li role="presentation"><a href="/bettingList?bettingType=ssc">时时彩投注记录</a></li>
-                </ul>
+                <div style="display: inline-block;">
+                    <ul class="nav navbar-nav" role="tablist">
+                        <li role="presentation" class="active"><a href="/bettingList?bettingType=k3">快三投注记录</a></li>
+                        <li role="presentation"><a href="/bettingList?bettingType=five">11选5投注记录</a></li>
+                        <li role="presentation"><a href="/bettingList?bettingType=ssc">时时彩投注记录</a></li>
+                    </ul>
+                </div>
+                <br>
                 <input type="hidden" value="{{$bettingType}}">
             @endif
             <div style="float: left;">
@@ -95,17 +98,17 @@
                         <td>{{ $lu_lotteries_k3->created_at }}</td>
                         <td>
                             @if($lu_lotteries_k3->status != -2)
-                                <a class="btn btn-sm btn-warning" href="/cancelOrderSingle/{{$lu_lotteries_k3->id}}">撤单</a>
+                                <a class="btn btn-sm btn-warning"
+                                   href="/cancelOrderSingle/{{$lu_lotteries_k3->id}}">撤单</a>
                             @endif
                         </td>
                     </tr>
                 @endforeach
             @else
-                <h1>没有记录</h1>
             @endif
         </table>
         {{--{{$lu_lotteries_k3->appends($input)->links()}}--}}
-        <?php echo $lu_lotteries_k3s->appends(['userName' => $userName, 'starttime' => $starttime, 'endtime' => $endtime,'bettingType' => $bettingType])->render(); ?>
+        <?php echo $lu_lotteries_k3s->appends(['userName' => $userName, 'starttime' => $starttime, 'endtime' => $endtime, 'bettingType' => $bettingType])->render(); ?>
     </div>
 @stop
 @section('script')

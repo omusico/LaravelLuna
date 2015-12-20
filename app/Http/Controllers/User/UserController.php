@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\lu_lotteries_five;
 use App\lu_lotteries_k3;
 use App\lu_lotteries_ssc;
+use App\lu_lottery_notes_five;
+use App\lu_lottery_notes_k3;
+use App\lu_lottery_notes_ssc;
 use App\lu_lottery_return;
 use App\lu_lottery_user;
 use App\lu_user;
@@ -156,17 +159,29 @@ class UserController extends Controller
         return Redirect::back();
     }
 
-    public function getLotteryWin()
+    public function getLotteryWin(Request $request)
     {
+        $bettingType="";
         if (env('SITE_TYPE', '') == 'five') {
-
-            $result = lu_lotteries_five::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
+            $result = lu_lottery_notes_five::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
+        } else if (env('SITE_TYPE', '') == 'gaopin') {
+            $bettingType = $request->bettingType;
+            if (empty($bettingType)) {
+                $bettingType = 'k3';
+            }
+            if ($bettingType == "k3") {
+                $result = lu_lottery_notes_k3::where('uid', \Auth::id())->orderby('created_at', 'desc');
+            } else if ($bettingType == 'five') {
+                $result = lu_lottery_notes_five::where('uid', \Auth::id())->orderby('created_at', 'desc');
+            } else if ($bettingType == 'ssc') {
+                $result = lu_lottery_notes_ssc::where('uid', \Auth::id())->orderby('created_at', 'desc');
+            }
         } else {
 
-            $result = lu_lotteries_k3::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
+            $result = lu_lottery_notes_k3::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
         }
         $lu_lottery_note_k3s = $result->paginate(10);
-        return view('User.lotterywinlist', compact('lu_lottery_note_k3s'));
+        return view('User.lotterywinlist', compact('lu_lottery_note_k3s','bettingType'));
     }
 
     public function getPersonalwin()

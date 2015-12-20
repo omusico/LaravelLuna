@@ -14,9 +14,14 @@
                 <main class="col-md-9">
 
                     @include('errors.list')
-
-                    <h3 align="center">
-                        中奖记录</h3>
+                    @if(env('SITE_TYPE','')=='gaopin')
+                        <ul class="nav navbar-nav" role="tablist">
+                            <li role="presentation" class="active"><a href="/getLotteryWin?bettingType=k3">快三投注记录</a></li>
+                            <li role="presentation"><a href="/getLotteryWin?bettingType=five">11选5投注记录</a></li>
+                            <li role="presentation"><a href="/getLotteryWin?bettingType=ssc">时时彩投注记录</a></li>
+                        </ul>
+                        <input type="hidden" value="{{$bettingType}}">
+                    @endif
                     <table class="table table-hover">
                         <tr>
                             <td>类型</td>
@@ -43,10 +48,9 @@
                                 </tr>
                             @endforeach
                         @else
-                            <h1>没有记录</h1>
                         @endif
                     </table>
-                    <?php echo $lu_lottery_note_k3s->render(); ?>
+                    <?php echo $lu_lottery_note_k3s->appends(['bettingType' => $bettingType])->render(); ?>
                 </main>
                 {{--@if(env('SITE_TYPE','')=='five')--}}
             {{--</div>--}}
