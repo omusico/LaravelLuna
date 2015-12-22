@@ -8,14 +8,6 @@
             font-size: 150%;
         }
 
-        .h_l_cp {
-            border: 1px solid #e6c9a0;
-            /*background: #faf9f9;*/
-            float: none;
-            margin-bottom: 10px;
-            position: relative;
-        }
-
         .lottery_box .lottery_tit {
             float: left;
             display: block;
@@ -87,7 +79,7 @@
             border-bottom: dotted 1px #888;
             padding: 10px 0 10px 0;
             width: 341px;
-            color: #000000;
+            color: #8c8a8b;
             height: 200px;
         }
 
@@ -96,10 +88,16 @@
             color: #d80000;
         }
 
-        .navbar-nav > li {
-            padding-left: 15px;
-            padding-right: 15px;
+        .nk3_kjgg li strong {
+            color: #e26f28;
+            font-size: larger;
         }
+
+        .navbar-nav > li {
+            padding-left: 18px;
+            padding-right: 18px;
+        }
+
         .nav > li > a:focus, .nav > li > a:hover {
             text-decoration: none;
             background-color: #70c3ab;
@@ -120,13 +118,10 @@
             </div>
             <div class="fivefav"></div>
             <div style="background-color: white;min-height: 150px;padding: 10px">
-                @if(null!==Cache::get('news'))
-                @foreach(Cache::get('news') as $key=>$value)
-                <li><a style="width: 205px;"
-                href="{{isset($value['url'])?$value['url']:'#'}}"
-                target="_blank">{{isset($value['title'])?$value['title']:''}}</a><span
-                class="time"></span></li>
-                @endforeach
+                @if(null!==Cache::get('marquee'))
+                    <li><a style="width: 205px;"
+                           target="_blank">{{Cache::get('marquee','请到后台设置滚动文字')}}</a><span
+                                class="time"></span></li>
                 @endif
             </div>
             <div class="fivenews"></div>
@@ -143,7 +138,7 @@
         </div>
         <div class="row" style="margin: 0px 0px 0px 10px;">
             <div class="col-md-8 mobilhide">
-                <div id="carousel-generic" class="carousel slide" data-ride="carousel" style="padding-left: 15px"
+                <div id="carousel-generic" class="carousel slide" data-ride="carousel"
                      xmlns="http://www.w3.org/1999/html">
                     <ol class="carousel-indicators">
                         <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
@@ -201,9 +196,12 @@
                 <div class="distance nk3_kjgg" style="border-right: none;background-color: white">
                     <ul class="col-md-4">
                         @if(null !=$recentArray['SDFIVE'])
-                            <li><strong>山东11选5</strong> 第<em>{{$recentArray['SDFIVE']->proName}}</em>期开奖号码<br>
+                            <li>
                                 开奖时间：{{$recentArray['SDFIVE']->created_at}}
                                 <br>
+                                <strong>山东11选5</strong>
+                                <br>
+                                第<em>{{$recentArray['SDFIVE']->proName}}</em>期开奖号码<br>
 
                                 <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[0]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[1]}}"></div>
@@ -215,9 +213,13 @@
                             </li>
                         @endif
                         @if(null !=$recentArray['GDFIVE'])
-                            <li><strong>广东11选5</strong> 第<em>{{$recentArray['GDFIVE']->proName}}</em>期开奖号码<br>
+                            <li>
+
                                 开奖时间：{{$recentArray['GDFIVE']->created_at}}
                                 <br>
+                                <strong>广东11选5</strong>
+                                <br>
+                                第<em>{{$recentArray['GDFIVE']->proName}}</em>期开奖号码<br>
 
                                 <div class="fiveNum{{explode(',', $recentArray['GDFIVE']->codes)[0]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['GDFIVE']->codes)[1]}}"></div>
@@ -229,9 +231,12 @@
                             </li>
                         @endif
                         @if(null !=$recentArray['SHFIVE'])
-                            <li><strong>上海11选5</strong> 第<em>{{$recentArray['SHFIVE']->proName}}</em>期开奖号码<br>
+                            <li>
                                 开奖时间：{{$recentArray['SHFIVE']->created_at}}
                                 <br>
+                                <strong>上海11选5</strong>
+                                <br>
+                                第<em>{{$recentArray['SHFIVE']->proName}}</em>期开奖号码<br>
 
                                 <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[0]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[1]}}"></div>
@@ -249,9 +254,12 @@
                 <div class="distance nk3_kjgg" style="border-right: none;background-color: white">
                     <ul class="col-md-4">
                         @if(null !=$recentArray['JXFIVE'])
-                            <li><strong>江西11选5</strong> 第<em>{{$recentArray['JXFIVE']->proName}}</em>期开奖号码<br>
+                            <li>
                                 开奖时间：{{$recentArray['JXFIVE']->created_at}}
                                 <br>
+                                <strong>江西11选5</strong>
+                                <br>
+                                第<em>{{$recentArray['JXFIVE']->proName}}</em>期开奖号码<br>
 
                                 <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[0]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[1]}}"></div>
@@ -263,9 +271,13 @@
                             </li>
                         @endif
                         @if(null !=$recentArray['ZJFIVE'])
-                            <li><strong>浙江11选5</strong> 第<em>{{$recentArray['ZJFIVE']->proName}}</em>期开奖号码<br>
+                            <li>
+
                                 开奖时间：{{$recentArray['ZJFIVE']->created_at}}
                                 <br>
+                                <strong>浙江11选5</strong>
+                                <br>
+                                第<em>{{$recentArray['ZJFIVE']->proName}}</em>期开奖号码<br>
 
                                 <div class="fiveNum{{explode(',', $recentArray['ZJFIVE']->codes)[0]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['ZJFIVE']->codes)[1]}}"></div>
@@ -277,9 +289,12 @@
                             </li>
                         @endif
                         @if(null !=$recentArray['LIAONINGFIVE'])
-                            <li><strong>辽宁11选5</strong> 第<em>{{$recentArray['LIAONINGFIVE']->proName}}</em>期开奖号码<br>
+                            <li>
                                 开奖时间：{{$recentArray['LIAONINGFIVE']->created_at}}
                                 <br>
+                                <strong>辽宁11选5</strong>
+                                <br>
+                                第<em>{{$recentArray['LIAONINGFIVE']->proName}}</em>期开奖号码<br>
 
                                 <div class="fiveNum{{explode(',', $recentArray['LIAONINGFIVE']->codes)[0]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['LIAONINGFIVE']->codes)[1]}}"></div>
@@ -295,8 +310,11 @@
             </div>
         </div>
     </div>
-    <div class="container" style="margin-top: 10px;">
-        <div class="fivebottom">
+    <div class="container">
+        <div class="row"
+             style="padding-top: 10px;padding-bottom: 10px;background-color: white;margin-right: 8px;margin-left:8px">
+            <div class="fivebottom">
+            </div>
         </div>
     </div>
 @stop

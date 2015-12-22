@@ -27,6 +27,15 @@
         .kj-w110mobile {
             width: auto;
         }
+        .navbar-nav > li {
+            padding-left: 18px;
+            padding-right: 18px;
+        }
+
+        .nav > li > a:focus, .nav > li > a:hover {
+            text-decoration: none;
+            background-color: #70c3ab;
+        }
     </style>
     @yield('css')
 </head>
