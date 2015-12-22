@@ -37,7 +37,7 @@
         <div class="form-group">
             <div class="col-md-5" style="padding: 0px">
                 <input class="form-control"
-                       name="news[3][titlel]"
+                       name="news[3][title]"
                        value="{{isset($news[3]['title'])?$news[3]['title']:''}}" placeholder="输入新闻标题">
             </div>
             <div class="col-md-5" style="padding: 0px">
