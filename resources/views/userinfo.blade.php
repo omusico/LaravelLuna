@@ -1,4 +1,4 @@
-<div>
+<div xmlns="http://www.w3.org/1999/html">
     @if(!Auth::guest())
         <div class="distance nk3_login">
             <div class="nk3_login_top"></div>
@@ -11,7 +11,8 @@
                     @elseif(Auth::user()->groupId ==2)
                         <a>会员</a>
                     @endif
-                    <a style="color:red;font-size: large;font-family: bold" href="account">{{Auth::user()->name}}</a></span><a
+                    <a style="color:red;font-size: large;font-family: bold"
+                       href="account">{{Auth::user()->name}}</a></span><a
                         href="/logout">&nbsp;&nbsp;&nbsp;&nbsp;[退出]</a>
             </h4>
             <h4 class="h_money1">用户余额：<span class="h_m_h" onclick="$(this).hide(); $('.h_money1 .h_m_s').show();"
@@ -31,19 +32,48 @@
             <div class="nk3_login_bottom"></div>
         </div>
     @else
-        <div style="margin-top: 20px">
-            {!! Form::open(['url' => '/login', 'class' => 'navbar-form navbar-right', 'role' => 'search']) !!}
-            <div class="form-group">
-                {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder'
-                =>'用户名...','required']) !!}
-                {!! Form::password('password', ['class' => 'form-control', 'placeholder'=>'密码...','required','style'=>'margin-top:10px;margin-bottom:10px'])
-                !!}
+        @if(env("SITE_TYPE","")=="five")
+            <div style="padding-top: 30px">
+                {!! Form::open(['url' => '/login', 'class' => 'navbar-form navbar-right', 'role' => 'search']) !!}
+                <div class="form-group col-md-offset-1">
+                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder'
+                    =>'用户名...','required']) !!}
+                    {!! Form::password('password', ['class' => 'form-control',
+                    'placeholder'=>'密码...','required','style'=>'margin-top:10px;margin-bottom:10px'])
+                    !!}
+                </div>
+                <br>
+                <br>
+                {!! Form::submit('', ['class' => 'fivebtnlogin col-md-offset-2']) !!}
+                <br>
+                <br>
+
+                <div class="form-group">
+                    <a href="{{ url('/register') }}"><input class="fivebtnreg">
+                    </a>
+                    <a href="{{ url('/dailiregister') }}">
+                        <input class="fivebtndreg">
+                    </a>
+                </div>
+                {!! Form::close() !!}
             </div>
-            {!! Form::submit('登陆', ['class' => 'btn btn-sm btn-primary']) !!}
-            <a class="btn btn-sm btn-info" href="{{ url('/register') }}" >免费注册</a>
-            <a class="btn btn-sm btn-warning" href="{{ url('/dailiregister') }}" >代理注册</a>
-            {!! Form::close() !!}
-        </div>
-        <div class="nk3_login_bottom"></div>
+            <div class="nk3_login_bottom"></div>
+        @else
+            <div style="margin-top: 20px">
+                {!! Form::open(['url' => '/login', 'class' => 'navbar-form navbar-right', 'role' => 'search']) !!}
+                <div class="form-group">
+                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder'
+                    =>'用户名...','required']) !!}
+                    {!! Form::password('password', ['class' => 'form-control',
+                    'placeholder'=>'密码...','required','style'=>'margin-top:10px;margin-bottom:10px'])
+                    !!}
+                </div>
+                {!! Form::submit('登陆', ['class' => 'btn btn-sm btn-primary']) !!}
+                <a class="btn btn-sm btn-info" href="{{ url('/register') }}">免费注册</a>
+                <a class="btn btn-sm btn-warning" href="{{ url('/dailiregister') }}">代理注册</a>
+                {!! Form::close() !!}
+            </div>
+            <div class="nk3_login_bottom"></div>
+        @endif
     @endif
 </div>

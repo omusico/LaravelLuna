@@ -11,6 +11,12 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/five.css') }}">
     <link rel="icon" href="fivefavicon.ico" type="image/x-icon"/>
     <style type="text/css">
+        .fivelogo {
+            margin: 0px;
+            height: 117px;
+            width: 100%;
+            background: url({{asset('/css/fivelogo1.png')}}) no-repeat;
+        }
         .fivemologo{
             height: 100px;
             width: 100%;
@@ -30,7 +36,7 @@
     </style>
     @yield('css')
 </head>
-<body style="background-color: #e9f4fd">
+<body>
 <div class="fivelogo mobilhide"></div>
 {{--<div class="top_main_back_five"></div>--}}
 {{--<div class="container mobilhide">--}}
@@ -41,10 +47,10 @@
         {{--<a stylek="color: #f9d450" href="/">11选5娱乐平台</a>--}}
     </div>
 </div>
-{{--<div class="mobilhide" style="width: 100%;height: 15px;background-color:#f9f2f4;text-align: center "></div>--}}
-{{--<div class="container fiveheader mobilhide" style="background-color: #f9f2f4;">--}}
+<div class="mobilhide" style="width: 100%;height: 15px;background-color:#f9f2f4;text-align: center "></div>
+<div class="container fiveheader mobilhide" style="background-color: #f9f2f4;">
     {{--<div class="col-md-12" style="background-color: #EFE697;height: 3px"></div>--}}
-{{--</div>--}}
+</div>
 <nav class="navbar navbar-default mobilShow" role="navigation" style="display: none;">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -84,23 +90,24 @@
         </div>
     </div>
 </nav>
-<div style="width: 100%;background-color:#87CCC8 ">
-    <div class="container" style="background-color: #87CCC8;">
-        <div class="collapse navbar-collapse navbar-responsive-collapse" >
+<div style="width: 100%;background-color:#ffe48d ">
+    <div class="container">
+        <div class="collapse navbar-collapse navbar-responsive-collapse"
+             style="position: absolute;">
             <ul class="nav navbar-nav nav">
-                <li><a href="/" style="color:white;font-weight: bold">网站首页</a></li>
-                <li><a href="/fiveGameRule" style="color:white;font-weight: bold" title="游戏规则">游戏规则</a></li>
-                <li><a href="/favourable" style="color:white;font-weight: bold" title="优惠活动">优惠活动</a></li>
-                <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:white;font-weight: bold"
+                <li><a href="/" style="color:red;font-weight: bold">网站首页</a></li>
+                <li><a href="/fiveGameRule" style="color:red;font-weight: bold" title="游戏规则">游戏规则</a></li>
+                <li><a href="/favourable" style="color:red;font-weight: bold" title="优惠活动">优惠活动</a></li>
+                <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:red;font-weight: bold"
                        title="走势图">走势图</a>
                 </li>
-                <li><a title="合作代理" target="_blank" style="color:white;font-weight: bold" href="/inviteurl">合作代理</a></li>
-                <li><a href="/userLotteryBetting" target="_blank" style="color:white;font-weight: bold"
+                <li><a title="合作代理" target="_blank" style="color:red;font-weight: bold" href="/inviteurl">合作代理</a></li>
+                <li><a href="/userLotteryBetting" target="_blank" style="color:red;font-weight: bold"
                        title="交易记录">交易记录</a>
                 </li>
-                <li><a href="/fivelotteryIndex?lottery_type=sdfive" title="手机下注" style="color:white;font-weight: bold">手机下注</a></li>
+                <li><a href="/fivelotteryIndex?lottery_type=sdfive" title="手机下注" style="color:red;font-weight: bold">手机下注</a></li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" style="color:white;font-weight: bold" data-toggle="dropdown"
+                    <a class="dropdown-toggle" style="color:red;font-weight: bold" data-toggle="dropdown"
                        role="button">网址<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#">网址一</a></li>
@@ -113,7 +120,7 @@
         </div>
     </div>
 </div>
-{{--<div class="col-md-12 mobilhide" style="height: 0px;margin-top: 50px;background-color: #87CCC8"></div>--}}
+<div class="col-md-12 mobilhide" style="height: 0px;margin-top: 50px"></div>
 <div class="container mobilShow" style="display: none">
     @if(!Auth::guest())
         <label class="form-control" style="text-align: center">余额：{{Auth::user()->lu_user_data->points}}</label>

@@ -185,12 +185,13 @@
 }
 
 .fivelogo {
-    /*margin-top: 30px;*/
-    height: 117px;
+    margin: 0px;
+    height: 230px;
     width: 100%;
-    background: url('fivelogo1.png') no-repeat;
+    background: url("11fivelogo.jpg") no-repeat center;
 }
-.fivemologo{
+
+.fivemologo {
     height: 117px;
     width: 100%;
     background: url("mofivelogo.png") no-repeat;
@@ -235,10 +236,10 @@
     text-decoration: none;
 }
 
-
-.nk3_center_left h2{
+.nk3_center_left h2 {
     padding-left: 0px;
 }
+
 .zgk3_hao .zgk3_nub em {
     display: inline-block;
     width: 44px;
@@ -250,19 +251,156 @@
     font-weight: 700;
     font-size: 16px;
 }
+
 .awardBall1 {
     background: url('main_pic.png') no-repeat scroll -2px -102px transparent;
 }
+
 .awardBall2 {
     background: url('main_pic.png') no-repeat scroll -49px -102px transparent;
 }
+
 .awardBall3 {
     background: url('main_pic.png') no-repeat scroll -96px -102px transparent;
 }
+
 .awardBall4 {
     background: url('main_pic.png') no-repeat scroll -143px -102px transparent;
 }
+
 .awardBall5 {
     background: url('main_pic.png') no-repeat scroll -189px -102px transparent;
+}
+
+.fivebtnlogin {
+    border: none;
+    background: url('115main.png') no-repeat scroll -235px -96px transparent;
+    width: 118px;
+    height: 35px;
+}
+
+.fivebtnreg {
+    border: none;
+    background: url('115main.png') no-repeat scroll -381px -96px transparent;
+    width: 116px;
+    height: 35px;
+}
+
+.fivebtndreg {
+    border: none;
+    background: url('115main.png') no-repeat scroll -523px -96px transparent;
+    width: 116px;
+    height: 35px;
+}
+
+.fivefav {
+    border: none;
+    background: url('115main.png') no-repeat scroll -472px -171px transparent;
+    width: 205px;
+    height: 45px;
+    margin: 15px auto 15px auto;
+}
+
+.fivenews {
+    border: none;
+    background: url('115main.png') no-repeat scroll -237px -171px transparent;
+    width: 205px;
+    height: 45px;
+    margin: 15px auto 15px auto;
+}
+
+.fiveNum01{
+    border: none;
+    display: inline-block;
+    background: url('115main.png') no-repeat scroll -25px -20px transparent;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto 15px auto;
+}
+.fiveNum02{
+    border: none;
+    display: inline-block;
+    background: url('115main.png') no-repeat scroll -100px -20px transparent;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto 15px auto;
+}
+.fiveNum03{
+    border: none;
+    display: inline-block;
+    background: url('115main.png') no-repeat scroll -175px -20px transparent;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto 15px auto;
+}
+.fiveNum04{
+    border: none;
+    display: inline-block;
+    background: url('115main.png') no-repeat scroll -252px -20px transparent;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto 15px auto;
+}
+.fiveNum05{
+    border: none;
+    display: inline-block;
+    background: url('115main.png') no-repeat scroll -325px -20px transparent;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto 15px auto;
+}
+.fiveNum06{
+    border: none;
+    display: inline-block;
+    background: url('115main.png') no-repeat scroll -401px -20px transparent;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto 15px auto;
+}
+.fiveNum07{
+    border: none;
+    display: inline-block;
+    background: url('115main.png') no-repeat scroll -476px -20px transparent;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto 15px auto;
+}
+.fiveNum08{
+    border: none;
+    display: inline-block;
+    background: url('115main.png') no-repeat scroll -550px -20px transparent;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto 15px auto;
+}
+.fiveNum09{
+    border: none;
+    display: inline-block;
+    background: url('115main.png') no-repeat scroll -627px -20px transparent;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto 15px auto;
+}
+.fiveNum10{
+    border: none;
+    display: inline-block;
+    background: url('115main.png') no-repeat scroll -700px -20px transparent;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto 15px auto;
+}
+.fiveNum11{
+    border: none;
+    display: inline-block;
+    background: url('115main.png') no-repeat scroll -774px -20px transparent;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto 15px auto;
+}
+.fivebottom{
+    margin: 0px;
+    height: 230px;
+    width: auto;
+    background: url("11fivebottom.png") no-repeat center;
 }
 
