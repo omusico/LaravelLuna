@@ -96,6 +96,14 @@
             color: #d80000;
         }
 
+        .navbar-nav > li {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .nav > li > a:focus, .nav > li > a:hover {
+            text-decoration: none;
+            background-color: #70c3ab;
+        }
     </style>
 @stop
 @section('content')
@@ -106,7 +114,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="col-md-4 mobilhide" style="padding: 15px">
+        <div class="col-md-4 mobilhide" style="padding: 15px;">
             <div class="mobilhide" style="background-color: white;height: 330px;">
                 @include('userinfo')
             </div>
@@ -189,7 +197,7 @@
             {{--</div>--}}
             {{--</div>--}}
             {{--</div>--}}
-            <div class="col-md-4" style="padding-right: 0px;padding-left: 0px">
+            <div class="col-md-4" style="padding-right: 0px;padding-left: 0px;border-right: solid 1px #EAEAEA">
                 <div class="distance nk3_kjgg" style="border-right: none;background-color: white">
                     <ul class="col-md-4">
                         @if(null !=$recentArray['SDFIVE'])

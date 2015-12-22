@@ -276,28 +276,28 @@
     border: none;
     background: url('115main.png') no-repeat scroll -235px -96px transparent;
     width: 118px;
-    height: 35px;
+    height: 40px;
 }
 
 .fivebtnreg {
     border: none;
     background: url('115main.png') no-repeat scroll -381px -96px transparent;
     width: 116px;
-    height: 35px;
+    height: 40px;
 }
 
 .fivebtndreg {
     border: none;
     background: url('115main.png') no-repeat scroll -523px -96px transparent;
     width: 116px;
-    height: 35px;
+    height: 40px;
 }
 
 .fivefav {
     border: none;
     background: url('115main.png') no-repeat scroll -472px -171px transparent;
     width: 205px;
-    height: 45px;
+    height: 50px;
     margin: 15px auto 15px auto;
 }
 
@@ -305,7 +305,7 @@
     border: none;
     background: url('115main.png') no-repeat scroll -237px -171px transparent;
     width: 205px;
-    height: 45px;
+    height: 50px;
     margin: 15px auto 15px auto;
 }
 
