@@ -80,7 +80,7 @@
             padding: 10px 0 10px 0;
             width: 341px;
             color: #8c8a8b;
-            height: 200px;
+            height: 230px;
         }
 
         .nk3_kjgg li em {
@@ -132,6 +132,7 @@
                                href="{{isset($value['url'])?$value['url']:'#'}}"
                                target="_blank">{{isset($value['title'])?$value['title']:''}}</a><span
                                     class="time"></span></li>
+                        <br>
                     @endforeach
                 @endif
             </div>
