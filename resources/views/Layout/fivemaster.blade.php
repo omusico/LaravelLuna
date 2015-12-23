@@ -48,10 +48,11 @@
                     hi，
                     @if(!Auth::guest())
                         <span style="color: red">  {{Auth::user()->name}}</span>
+                        欢迎回到11选5娱乐平台
                     @else
                         亲爱的游客
+                        欢迎来到11选5娱乐平台
                     @endif
-                    欢迎来到高频彩
                 </div>
                 <div style="float: right">
                     @if(!Auth::guest())
