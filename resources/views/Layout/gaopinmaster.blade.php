@@ -43,7 +43,7 @@
                                 style="color: red">{{ Auth::user()->lu_user_data->points}}元</a>&nbsp;&nbsp;<a href="userLotteryBetting" style="color: #666">我的彩票</a>&nbsp;&nbsp;<a href="recharge"
                                 style="color: #666">充值</a>&nbsp;&nbsp;<a href="deposit" style="color: #666">提款</a>
                     @else
-                        <a style="color: red">登陆</a>&nbsp;<a style="color: red">注册</a>
+                        <a href="login" style="color: red">登陆</a>&nbsp;<a href="register" style="color: red">注册</a>
                     @endif
                 </div>
             </div>

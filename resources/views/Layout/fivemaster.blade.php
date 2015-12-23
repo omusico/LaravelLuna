@@ -59,7 +59,7 @@
                                 style="color: red">{{ Auth::user()->lu_user_data->points}}元</a>&nbsp;&nbsp;<a href="userLotteryBetting" style="color: #666">我的彩票</a>&nbsp;&nbsp;<a href="recharge"
                                                                                                                                                                                    style="color: #666">充值</a>&nbsp;&nbsp;<a href="deposit" style="color: #666">提款</a>
                     @else
-                        <a style="color: red">登陆</a>&nbsp;<a style="color: red">注册</a>
+                        <a href="login" style="color: red">登陆</a>&nbsp;<a href="register" style="color: red">注册</a>
                     @endif
                 </div>
             </div>
@@ -149,8 +149,8 @@
 {{--隐藏登陆框--}}
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="background-color: #242001">
-        <div class="modal-content" style="background-color: #242001">
+    <div class="modal-dialog">
+        <div class="modal-content" >
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" style="color: #242001"
                         aria-hidden="true">×
