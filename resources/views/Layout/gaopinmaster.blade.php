@@ -20,6 +20,10 @@
             text-decoration: none;
             background-color: #E49617;
         }
+
+        .footer {
+            border-top: 0px solid #fdc124;
+        }
     </style>
     @yield('css')
 </head>
@@ -281,11 +285,6 @@
             @if(Auth::guest() && empty($islogin) && empty($isregister))
             location.replace('/login');
             @endif
-
-
-
-
-
         }
     })(navigator.userAgent);
 
@@ -308,16 +307,6 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
-
-
-
-
-
-
-
-
-
-
                 }
             }
 

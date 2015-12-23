@@ -171,6 +171,30 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10" style="padding-top: 3px;background-color:#fdc124;"></div>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 20px">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="row">
+
+                <div class="col-md-3" style="text-align: center">
+                    <span class="gp_secure"></span><a style="color: #ee7732;font-size: 18px;">账户安全</a>
+                </div>
+                <div class="col-md-3" style="text-align: center">
+                    <span class="gp_time"></span><a style="color: #ee7732;font-size: 18px;">购彩便捷</a>
+                </div>
+                <div class="col-md-3" style="text-align: center">
+                    <span class="gp_exchange"></span><a style="color: #ee7732;font-size: 18px;">兑换简单</a>
+                </div>
+                <div class="col-md-3" style="text-align: center">
+                    <span class="gp_deposit"></span><a style="color: #ee7732;font-size: 18px;">提款快捷</a>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop
 @section('script')
     <script type="text/javascript">

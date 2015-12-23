@@ -219,3 +219,31 @@
     width: 120px;
     height: 40px;
 }
+.gp_secure{
+    border: none;
+    background: url('gaopinmain.png') no-repeat scroll -713px -685px transparent;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+}
+.gp_time{
+    border: none;
+    background: url('gaopinmain.png') no-repeat scroll -780px -685px transparent;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+}
+.gp_exchange{
+    border: none;
+    background: url('gaopinmain.png') no-repeat scroll -846px -685px transparent;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+}
+.gp_deposit{
+    border: none;
+    background: url('gaopinmain.png') no-repeat scroll -915px -685px transparent;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+}
