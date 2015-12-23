@@ -40,20 +40,37 @@
     @yield('css')
 </head>
 <body style="background-color: #e9f4fd">
-<div class="fivelogo mobilhide"></div>
-{{--<div class="top_main_back_five"></div>--}}
-{{--<div class="container mobilhide">--}}
-{{--<div class="col-md-12 fivelogo"></div>--}}
-{{--</div>--}}
-<div style="height: 100px;text-align: center;display: none" class="contain-fluid mobilShow">
-    <div class="col-md-12 fivemologo">
-        {{--<a stylek="color: #f9d450" href="/">11选5娱乐平台</a>--}}
+<div class="mobilhide" style="width: 100%;height: 30px;background-color: white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10" style="padding-top: 5px">
+                <div style="float: left">
+                    hi，
+                    @if(!Auth::guest())
+                        <span style="color: red">  {{Auth::user()->name}}</span>
+                    @else
+                        亲爱的游客
+                    @endif
+                    欢迎来到高频彩
+                </div>
+                <div style="float: right">
+                    @if(!Auth::guest())
+                        <a style="color: red" href="logout">退出</a>&nbsp;&nbsp;<a style="color: #666">余额:&nbsp;</a> <a
+                                style="color: red">{{ Auth::user()->lu_user_data->points}}元</a>&nbsp;&nbsp;<a href="userLotteryBetting" style="color: #666">我的彩票</a>&nbsp;&nbsp;<a href="recharge"
+                                                                                                                                                                                   style="color: #666">充值</a>&nbsp;&nbsp;<a href="deposit" style="color: #666">提款</a>
+                    @else
+                        <a style="color: red">登陆</a>&nbsp;<a style="color: red">注册</a>
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-{{--<div class="mobilhide" style="width: 100%;height: 15px;background-color:#f9f2f4;text-align: center "></div>--}}
-{{--<div class="container fiveheader mobilhide" style="background-color: #f9f2f4;">--}}
-    {{--<div class="col-md-12" style="background-color: #EFE697;height: 3px"></div>--}}
-{{--</div>--}}
+<div class="fivelogo mobilhide"></div>
+<div style="height: 100px;text-align: center;display: none" class="contain-fluid mobilShow">
+    <div class="col-md-12 fivemologo">
+    </div>
+</div>
 <nav class="navbar navbar-default mobilShow" role="navigation" style="display: none;">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -122,7 +139,6 @@
         </div>
     </div>
 </div>
-{{--<div class="col-md-12 mobilhide" style="height: 0px;margin-top: 50px;background-color: #87CCC8"></div>--}}
 <div class="container mobilShow" style="display: none">
     @if(!Auth::guest())
         <label class="form-control" style="text-align: center">余额：{{Auth::user()->lu_user_data->points}}</label>

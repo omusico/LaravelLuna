@@ -11,46 +11,112 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/ssc.css') }}">
     <link rel="icon" href="gaopinfavicon.ico" type="image/x-icon"/>
     <style type="text/css">
-        .navbar-responsive-collapse > .navbar-nav > li {
-            padding-left: 18px;
-            padding-right: 18px;
-        }
-
-        .nav > li > a:focus, .nav > li > a:hover {
-            text-decoration: none;
-            background-color: #E49617;
-        }
     </style>
     @yield('css')
 </head>
-<body style="background-color: #f2fcfd">
-<div style="width: 100%;height: 30px;background-color: white">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-1 col-md-10" style="padding-top: 5px">
-                <div style="float: left">
-                    hi，
+<body>
+<div class="header-plus mobilhide">
+    <div class="header-toptray-plus">
+        <div class="toptray-plus clearfix auto990">
+            <div class="toptray-left fl">
+                <span>hi，
                     @if(!Auth::guest())
-                        <span style="color: red">  {{Auth::user()->name}}</span>
-                    @else
-                        亲爱的游客
+                        {{Auth::user()->name}}
                     @endif
-                    欢迎来到高频彩
-                </div>
-                <div style="float: right">
-                    @if(!Auth::guest())
-                        <a style="color: red" href="logout">退出</a>&nbsp;&nbsp;<a style="color: #666">余额:&nbsp;</a> <a
-                                style="color: red">{{ Auth::user()->lu_user_data->points}}元</a>&nbsp;&nbsp;<a href="userLotteryBetting" style="color: #666">我的彩票</a>&nbsp;&nbsp;<a href="recharge"
-                                style="color: #666">充值</a>&nbsp;&nbsp;<a href="deposit" style="color: #666">提款</a>
-                    @else
-                        <a style="color: red">登陆</a>&nbsp;<a style="color: red">注册</a>
-                    @endif
-                </div>
+                    欢迎来到高频彩</span>
+            </div>
+            <div class="toptray-right fr">
+                <ul id="toptray_login" class="hidden toptray clearfix">
+                    <li><span id="toptray_username"></span><a href="#" class="exit-btn ml14 color666 js-trigger-logout">退出</a>
+                    </li>
+                    <li class="m14">|</li>
+                    <li class="header-show-money">
+                        <div id="wallet_container">
+                            <span class="span-login-rmb colorRed" style="font-family: Verdana,Arial;">￥</span>
+                            <span id="header_user_money" class="colorRed">*****</span><input type="hidden"
+                                                                                             id="header_user_money_hidden"
+                                                                                             value="">
+
+                            <div id="wallet_detail" style="display:none;"></div>
+                        </div>
+                        <a href="#" id="header_show_money" class="color666">显示余额</a>
+                        <i id="header_money_refresh" class="img-login-refresh icon"></i>
+                    </li>
+                    <li class="mylottery" id="mylottery">
+                        <a href="#" target="_blank" class="my-lottery color666"><i class="nosign-hd"
+                                                                                   id="header_sign"></i>我的彩票<em
+                                    class="icon"></em></a>
+
+                        <div id="mylottery_dropdown" style="display: none;" class="lot_list">
+                            <ul>
+                                <li><a href="#" target="_blank">投注记录</a></li>
+                                <li><a href="#" target="_blank">中奖记录</a></li>
+                                <li><a href="#" target="_blank">我的战绩</a></li>
+                                <li><a href="#" target="_blank">我的彩贝</a></li>
+                                <li><a href="#" target="_blank">账户信息</a></li>
+                                <li><a href="#" target="_blank">未支付订单</a><span id="header_notpaid_counter_hd"
+                                                                               class="notpaid"></span></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#" target="_blank" class="mr10 color666 mr">充值</a><a href="#" target="_blank"
+                                                                                      class="color666">提款</a></li>
+                    <li class="toptray-r-hd ml14">
+                        <div id="unread_count_num">
+                            <a class="message-nums-hd color666" href="#" target="_blank">消息<em id="unread_num_new"
+                                                                                               class="icon"></em></a>
+                        </div>
+                    </li>
+                </ul>
+                <ul id="toptray_not_login" class="toptray-plus clearfix">
+                    <li>
+                        @if(Auth::guest())
+                            <a href="/login" class="colorRed">登录</a> &nbsp;
+                            <a href="/register" class="colorRed">注册</a>
+                        @endif
+                    </li>
+                    <li class="m14">|</li>
+                    <li class="mylottery"><a href="/userLotteryBetting" target="_blank" class="my-lottery color666">我的彩票<em
+                                    class="icon"></em></a></li>
+                    <li>
+                        <a href="/recharge" target="_blank" class="color666 mr10">充值</a>
+                        <a href="/deposit" target="_blank" class="color666">提款</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+    <div class="head-toptray-logo clearfix auto990" style="padding-left: 20px">
+        <div class="logo-box clearfix" style="width:420px;padding: 15px 0">
+            <a title="高频彩" href="#" style="color: white;font-size: 18px;padding-left: 20px">高频彩</a>
+            <a><img alt="为梦想买单" src="/css/logo_dream.png"></a>
+        </div>
+        <ul class="customerService-plus" >
+            <li></i><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=583893899&amp;site=qq&amp;menu=yes"
+                       target="_blank" style="color: white" title="">QQ:583893899</a> &nbsp;</li>
+            <li class="online_service" >
+                <a href="#" target="_blank" style="color: white" class="colorWhite kf-top">在线客服</a>
+                <a href="#" target="_blank" style="color: white" class="colorWhite kf-top">玩法</a>
+                <a href="#" target="_blank" style="color: white" class="colorWhite kf-top">帮助</a>
+            </li>
+        </ul>
+    </div>
+    <div class="header-navbar-plus">
+        <div class="auto990 clearfix " id="header_box">
+            {{--<div class="lottery-plus mr20" id="lotterys">--}}
+            {{--<h2>全部彩种</h2>--}}
+            {{--</div>--}}
+            <ul class="nav-plus clearfix">
+                <li class="navw1 on"><a href="/">首页</a></li>
+                <li class="navw2 "><a href="/lotteryIndex?lottery_type=jsold">购彩大厅</a></li>
+                <li class="navw2 "><a href="/favourable" class="dropdown-desc">优惠活动</a></li>
+                <li class="navw2 "><a href="/lotterytrend?lottery_type=jsold">走势图表</a></li>
+                <li class="navw2 "><a href="/inviteurl">合作代理</a></li>
+                <li class="navw2 "><a href="/userLotteryBetting" target="_blank">交易记录</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
-<div class="gaopinlogo mobilhide"></div>
 <div class="mobilShow" style="display: none">
     <div class="logo-box clearfix" style="width:auto;padding: 15px 0">
         <a href="#">
@@ -58,35 +124,6 @@
                  style="width:122px;height:30px;margin:0 8px 0 0">
         </a>
         <a><img alt="为梦想买单" src="/css/logo_dream.png"></a>
-    </div>
-</div>
-<div style="width: 100%;background-color:#FCAB1D ">
-    <div class="container" style="background-color: #FCAB1D;">
-        <div class="collapse navbar-collapse navbar-responsive-collapse" >
-            <ul class="nav navbar-nav nav">
-                <li><a href="/" style="color:white;font-weight: bold">网站首页</a></li>
-                <li><a href="/fiveGameRule" style="color:white;font-weight: bold" title="游戏规则">游戏规则</a></li>
-                <li><a href="/favourable" style="color:white;font-weight: bold" title="优惠活动">优惠活动</a></li>
-                <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:white;font-weight: bold"
-                       title="走势图">走势图</a>
-                </li>
-                <li><a title="合作代理" target="_blank" style="color:white;font-weight: bold" href="/inviteurl">合作代理</a></li>
-                <li><a href="/userLotteryBetting" target="_blank" style="color:white;font-weight: bold"
-                       title="交易记录">交易记录</a>
-                </li>
-                <li><a href="/fivelotteryIndex?lottery_type=sdfive" title="手机下注" style="color:white;font-weight: bold">手机下注</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" style="color:white;font-weight: bold" data-toggle="dropdown"
-                       role="button">网址<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">网址一</a></li>
-                        <li><a href="#">网址二</a></li>
-                        <li><a href="#">网址三</a></li>
-                        <li><a href="#">网址四</a></li>
-                        <li><a href="#">网址五</a></li>
-                    </ul>
-            </ul>
-        </div>
     </div>
 </div>
 <div class="container mobilShow" style="display: none">
@@ -99,25 +136,25 @@
 {{--隐藏登陆框--}}
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog" style="background-color: #242001">
+        <div class="modal-content" style="background-color: #242001">
             <div class="modal-header" style="text-align: center">
-                <button type="button" class="close" data-dismiss="modal"
+                <button type="button" class="close" data-dismiss="modal" style="color: #242001"
                         aria-hidden="true">×
                 </button>
-                <h4 class="modal-title" id="myModalLabel" style="color: red;font-family: bold">
+                <h4 class="modal-title" id="myModalLabel" style="color: #f9d450;font-family: bold">
                     尊敬的用户,您当前还未登陆，请先登陆再操作
                 </h4>
             </div>
             {!! Form::open(['url' => '/login', 'class' => 'form-horizontal', 'role' => 'form']) !!}
             <div class="form-group">
-                {!! Form::label('name', '用户名', ['class' => 'col-md-4 control-label']) !!}
+                {!! Form::label('name', '用户名', ['class' => 'col-md-4 control-label','style'=>'color:white']) !!}
                 <div class="col-md-6">
                     {!! Form::text('name', old('name'), ['class' => 'form-control', 'required']) !!}
                 </div>
             </div>
             <div class="form-group">
-                {!! Form::label('password', '密码', ['class' => 'col-md-4 control-label']) !!}
+                {!! Form::label('password', '密码', ['class' => 'col-md-4 control-label','style'=>'color:white']) !!}
                 <div class="col-md-6">
                     {!! Form::password('password', ['class' => 'form-control', 'required']) !!}
                 </div>
@@ -125,7 +162,7 @@
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">
                     <div class="checkbox">
-                        <label>
+                        <label style="color: white">
                             <input type="checkbox" name="remember">记住我
                         </label>
                     </div>
@@ -133,7 +170,8 @@
             </div>
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">
-                    {!! Form::submit('登陆', ['class' => 'btn btn-lg btn-primary']) !!}
+                    {!! Form::submit('登陆', ['class' => 'btn btn-default
+                    btn-primary','style'=>'background-color:#f9d450']) !!}
                 </div>
             </div>
             {!! Form::close() !!}
@@ -163,8 +201,7 @@
     @if(!empty(strstr($_SERVER['REQUEST_URI'],'lotterytrend')))
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6"
-                     style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
+                <div class="col-md-6" style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
                     <ul class="nav navbar-nav">
                         <li><a href="/lotterytrend?lottery_type=jsold">江苏快三</a></li>
                         <li><a href="/lotterytrend?lottery_type=beijin">北京快三</a></li>
@@ -176,8 +213,7 @@
                         <li><a href="/lotterytrend?lottery_type=nmg">内蒙快三</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4"
-                     style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
+                <div class="col-md-4" style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
                     <ul class="nav navbar-nav">
                         <li><a href="/fivelotterytrend?lottery_type=sdfive">山东11选5</a></li>
                         <li><a href="/fivelotterytrend?lottery_type=gdfive">广东11选5</a></li>
@@ -188,8 +224,7 @@
                         <li><a href="/fivelotterytrend?lottery_type=hljfive">黑龙江11选5</a></li>
                     </ul>
                 </div>
-                <div class="col-md-2"
-                     style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
+                <div class="col-md-2" style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
                     <ul class="nav navbar-nav">
                         <li><a href="/ssclotterytrend?lottery_type=cqssc">重庆时时彩</a></li>
                         <li><a href="/ssclotterytrend?lottery_type=jxssc">江西时时彩</a></li>
@@ -202,8 +237,7 @@
     @else
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6"
-                     style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
+                <div class="col-md-6" style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
                     <ul class="nav navbar-nav">
                         <li><a href="/lotteryIndex?lottery_type=jsold">江苏快三</a></li>
                         <li><a href="/lotteryIndex?lottery_type=beijin">北京快三</a></li>
@@ -215,8 +249,7 @@
                         <li><a href="/lotteryIndex?lottery_type=nmg">内蒙快三</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4"
-                     style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
+                <div class="col-md-4" style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
                     <ul class="nav navbar-nav">
                         <li><a href="/fivelotteryIndex?lottery_type=sdfive">山东11选5</a></li>
                         <li><a href="/fivelotteryIndex?lottery_type=gdfive">广东11选5</a></li>
@@ -227,8 +260,7 @@
                         <li><a href="/fivelotteryIndex?lottery_type=hljfive">黑龙江11选5</a></li>
                     </ul>
                 </div>
-                <div class="col-md-2"
-                     style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
+                <div class="col-md-2" style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
                     <ul class="nav navbar-nav">
                         <li><a href="/ssclotteryIndex?lottery_type=cqssc">重庆时时彩</a></li>
                         <li><a href="/ssclotteryIndex?lottery_type=jxssc">江西时时彩</a></li>
@@ -286,6 +318,11 @@
 
 
 
+
+
+
+
+
         }
     })(navigator.userAgent);
 
@@ -313,11 +350,6 @@
 
 
 
-
-
-
-
-
                 }
             }
 
@@ -325,6 +357,7 @@
         setTimeout('checkwin()', 30000);
     }
 </script>
+<script language="javascript" src="http://dft.zoosnet.net/JS/LsJS.aspx?siteid=DFT68330066&float=1&lng=cn"></script>
 @yield('script')
 </body>
 </html>

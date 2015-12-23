@@ -268,7 +268,7 @@
                                 <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[3]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[4]}}"></div>
                                 <br>
-                                <a href="/fivelotteryIndex?lottery_type=SHFIVE">立即购买</a>
+                                <a href="/fivelotteryIndex?lottery_type=jxfive">立即购买</a>
                             </li>
                         @endif
                         @if(null !=$recentArray['ZJFIVE'])

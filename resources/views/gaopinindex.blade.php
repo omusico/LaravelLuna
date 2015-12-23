@@ -1,170 +1,71 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/gaopin.css') }}">
-    <link rel="icon" href="gaopinfavicon.ico" type="image/x-icon"/>
-    <title>高频彩票吧</title>
-<body>
-<div class="header-plus" id="header_plus">
-    <div class="header-toptray-plus">
-        <div class="toptray-plus clearfix auto990">
-            <div class="toptray-left fl">
-                <span>hi，
-                    @if(!Auth::guest())
-                        {{Auth::user()->name}}
-                    @endif
-                    欢迎来到高频彩票吧</span>
-            </div>
-            <div class="toptray-right fr">
-                <ul id="toptray_login" class="hidden toptray clearfix">
-                    <li><span id="toptray_username"></span><a href="#" class="exit-btn ml14 color666 js-trigger-logout">退出</a>
-                    </li>
-                    <li class="m14">|</li>
-                    <li class="header-show-money">
-                        <div id="wallet_container">
-                            <span class="span-login-rmb colorRed" style="font-family: Verdana,Arial;">￥</span>
-                            <span id="header_user_money" class="colorRed">*****</span><input type="hidden"
-                                                                                             id="header_user_money_hidden"
-                                                                                             value="">
+@extends('Layout.gaopinmaster')
+@section('title')
+    高频彩
+@stop
+@section('css')
+    <style type="text/css">
+        .carousel-caption p {
+            font-size: 150%;
+        }
 
-                            <div id="wallet_detail" style="display:none;"></div>
-                        </div>
-                        <a href="#" id="header_show_money" class="color666">显示余额</a>
-                        <i id="header_money_refresh" class="img-login-refresh icon"></i>
-                    </li>
-                    <li class="mylottery" id="mylottery">
-                        <a href="#" target="_blank" class="my-lottery color666"><i class="nosign-hd"
-                                                                                   id="header_sign"></i>我的彩票<em
-                                    class="icon"></em></a>
-                    </li>
-                    <li><a href="#" target="_blank" class="mr10 color666 mr">充值</a><a href="#" target="_blank"
-                                                                                      class="color666">提款</a></li>
-                    <li class="toptray-r-hd ml14">
-                        <div id="unread_count_num">
-                            <a class="message-nums-hd color666" href="#" target="_blank">消息<em id="unread_num_new"
-                                                                                               class="icon"></em></a>
-                        </div>
-                    </li>
-                </ul>
-                <ul id="toptray_not_login" class="toptray-plus clearfix">
-                    <li>
-                        @if(Auth::guest())
-                            <a href="/login" class="colorRed">登录</a> &nbsp;
-                            <a href="/register" class="colorRed">注册</a>
-                        @endif
-                    </li>
-                    <li class="m14">|</li>
-                    <li class="mylottery"><a href="/userLotteryBetting" target="_blank" class="my-lottery color666">我的彩票<em
-                                    class="icon"></em></a></li>
-                    <li>
-                        <a href="/recharge" target="_blank" class="color666 mr10">充值</a>
-                        <a href="/deposit" target="_blank" class="color666">提款</a>
-                    </li>
-                </ul>
-            </div>
+    </style>
+@stop
+@section('content')
+
+    <div class="row" style="display: none">
+        <div class="col-md-10 col-md-offset-1">
+            <marquee scrollamount=3 style="color:white">{{Cache::get('marquee','请到后台设置滚动文字')}}</marquee>
         </div>
     </div>
-    <div class="head-toptray-logo clearfix auto990" style="padding-left: 20px">
-        <div class="logo-box clearfix" style="width:420px;padding: 15px 0">
-            <a title="高频彩" href="#" style="color: white;font-size: 18px;padding-left: 20px">高频彩</a>
-            <a><img alt="为梦想买单" src="/css/logo_dream.png"></a>
+    <div class="container">
+        <div class="col-md-4 mobilhide" style="padding: 15px;">
+            <div class="gp_new_guide mobilhide" style="background-color: white;">
+            </div>
         </div>
-        <ul class="customerService-plus" >
-            <li></i><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=583893899&amp;site=qq&amp;menu=yes"
-                                       target="_blank" style="color: white" title="">QQ:583893899</a> &nbsp;</li>
-            <li class="online_service" >
-                <a href="#" target="_blank" style="color: white" class="colorWhite kf-top">在线客服</a>
-                <a href="#" target="_blank" style="color: white" class="colorWhite kf-top">玩法</a>
-                <a href="#" target="_blank" style="color: white" class="colorWhite kf-top">帮助</a>
-            </li>
-        </ul>
+        <div class="col-md-8 mobilhide" style="margin-top: 30px">
+            <div class="gp_first"></div>
+        </div>
     </div>
-    <div class="header-navbar-plus">
-        <div class="auto990 clearfix" id="header_box">
-            <div class="lottery-plus mr20" id="lotterys">
-                <h2>全部彩种</h2>
+    <div class="container" style="background-color: white;padding-top: 20px">
+        <div class="col-md-4">
+            <div class="gp_lottery_routes">
+            </div>
 
-                <div class="lotterys-list-hd" id="lotterysList">
-                    <ul class="lottery-list-box">
-                        <li class="mainGame" style="padding-top:16px;">
-                            <a href="/ssclotteryIndex?lottery_type=cqssc" target="_blank" class="mainA"><i class="icon nav40-ssq"></i><span
-                                        class="color333">重庆时时彩</span></a>
-                        </li>
-                        <li class="mainGame">
-                            <a href="/ssclotteryIndex?lottery_type=xjssc" target="_blank" class="mainA"><i class="icon nav40-dlt"></i><span
-                                        class="color333">新疆时时彩</span></a>
-                        </li>
-                        <li class="mainGame">
-                            <a href="/ssclotteryIndex?lottery_type=jxssc" target="_blank" class="mainA"><i class="icon nav40-jczq"></i><span
-                                        class="color333">江西时时彩</span></a>
-                        </li>
-                        <li class="mainGame">
-                            <a href="/lotteryIndex?lottery_type=jsnew" target="_blank" class="mainA"><i class="icon nav40-sd11x5"></i><span
-                                        class="color333">新快3</span></a>
-                        </li>
-                        <li class="mainGame">
-                            <a href="/lotteryIndex?lottery_type=jsold" target="_blank" class="mainA"><i class="icon nav40-jxssc"></i><span
-                                        class="color333">老快3</span></a>
-                        </li>
-                        <li class="mainGame">
-                            <a href="/fivelotteryIndex?lottery_type=gdfive" target="_blank" class="mainA"><i class="icon nav40-3D"></i><span
-                                        class="color333">广东11选5</span></a>
-                        </li>
-                        <li class="mainGame" style="margin-bottom: 25px">
-                            <a href="/lotteryIndex?lottery_type=jsold" target="_blank" class="mainA"><i class="icon nav40-qlc"></i><span
-                                        class="color333">山东11选5</span></a>
-                        </li>
-                        <li class="allGames clearfix" data-type="1" >
-                            <h3><span>时时彩</span></h3>
-                            <ul class="clearfix game-list">
-                                <li><a href="/ssclotteryIndex?lottery_type=cqssc" target="_blank">重庆</a></li>
-                                <li><a href=/ssclotteryIndex?lottery_type=jxssc" target="_blank">江西</a></li>
-                                <li style="margin-right: 0"><a href="/ssclotteryIndex?lottery_type=tjssc" target="_blank">天津</a></li>
-                                <li><a href="/ssclotteryIndex?lottery_type=xjssc" target="_blank">新疆</a></li>
-                            </ul>
-                        </li>
-                        <li class="allGames" data-type="2">
-                            <h3><span>11选5</span></h3>
-                            <ul class="clearfix game-list">
-                                <li><a href=/fivelotteryIndex?lottery_type=sdfive" target="_blank">山东</a></li>
-                                <li><a href="/fivelotteryIndex?lottery_type=gdfive" target="_blank">广东</a></li>
-                                <li style="margin-right: 0"><a href="/fivelotteryIndex?lottery_type=shfive" target="_blank">上海</a></li>
-                                <li><a href="/fivelotteryIndex?lottery_type=zjfive" target="_blank" class="colorRed">浙江</a></li>
-                                <li><a href="/fivelotteryIndex?lottery_type=jxfive" target="_blank" class="colorRed">江西</a></li>
-                                <li style="margin-right: 0"><a href="/fivelotteryIndex?lottery_type=liaoningfive" target="_blank">辽宁</a></li>
-                            </ul>
-                        </li>
-                        <li class="allGames clearfix" data-type="3">
-                            <h3><span style="top:10px">快3</span></h3>
-                            <ul class="clearfix game-list">
-                                <li><a href="/lotteryIndex?lottery_type=jsold" target="_blank" class="colorRed">江苏</a></li>
-                                <li><a href="/lotteryIndex?lottery_type=beijin" target="_blank">北京</a></li>
-                                <li style="margin-right: 0"><a href="/lotteryIndex?lottery_type=anhui" target="_blank" class="colorRed">安徽</a></li>
-                                <li><a href="/lotteryIndex?lottery_type=jilin" target="_blank">吉林</a></li>
-                                <li style="width: 54px;margin-right: 4px;"><a href="/lotteryIndex?lottery_type=jsnew" target="_blank">广西</a></li>
-                                <li style="margin-right: 0"><a href="/lotteryIndex?lottery_type=hubei" target="_blank">湖北</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+        </div>
+        <div class="col-md-8" style="padding-left: 20px">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="gp_lottery_cq"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gp_lottery_xj"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gp_lottery_jx"></div>
                 </div>
             </div>
-            <ul class="nav-plus clearfix">
-                <li class="navw1 on"><a href="/">首页</a></li>
-                <li class="navw2 "><a href="/lotteryIndex?lottery_type=jsold">购彩大厅</a></li>
-                <li class="navw2 "><a href="/favourable" class="dropdown-desc">优惠活动</a></li>
-                <li class="navw2 "><a href="/lotterytrend?lottery_type=jsold">走势图表</a></li>
-                <li class="navw2 "><a href="/inviteurl">合作代理</a></li>
-                <li class="navw2 "><a href="/userLotteryBetting" target="_blank">交易记录</a></li>
-            </ul>
+        </div>
+        <div class="col-md-1">
+            <div class="gp_lottery_all" style="margin-top: 20px;margin-left: 20px"></div>
+        </div>
+        <div class="col-md-11">
+
+            <div class="col-md-3" style="padding-right: 0px">
+                <div class="gp_lottery_xk3" style="float: right"></div>
+            </div>
+            <div class="col-md-3" style="padding-right: 0px">
+                <div class="gp_lottery_lk3" style="float: right"></div>
+            </div>
+            <div class="col-md-3" style="padding-right: 0px">
+                <div class="gp_lottery_gd" style="float: right"></div>
+            </div>
+            <div class="col-md-3" style="padding-right: 0px">
+                <div class="gp_lottery_sd" style="float: right;"></div>
+            </div>
         </div>
     </div>
-</div>
-<div class="main-box clearfix auto990" id="main">
-    <div class="part-1 clearfix">
-        <div class="part-1-cont-left mr20">
+    <div class="container">
+        <div class="col-md-4">
             <div id="carousel-generic" class="carousel slide" data-ride="carousel"
                  xmlns="http://www.w3.org/1999/html">
                 <ol class="carousel-indicators">
@@ -174,24 +75,63 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <img src="/css/001.png" alt="...">
+                        <div class="gp_lottery_result">
+                            开奖时间：{{$recentArray['JXFIVE']->created_at}}
+                            <br>
+                            <br>
+                            <strong>江西11选5</strong>
+                            <br>
+                            第<em>{{$recentArray['JXFIVE']->proName}}</em>期开奖号码<br><br>
 
-                        <div class="carousel-caption">
-                            {{--<p>中奖率高、赔率高、信誉100%</p>--}}
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[0]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[1]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[2]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[3]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[4]}}"></div>
+                            <br>
+                            <a href="/fivelotteryIndex?lottery_type=jxfive" class="gp_lottery_sure">
+                                <img class="gp_lottery_sure">
+                            </a>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="/css/002.png" alt="...">
+                        <div class="gp_lottery_result">
+                            开奖时间：{{$recentArray['JXFIVE']->created_at}}
+                            <br>
+                            <br>
+                            <strong>江西11选5</strong>
+                            <br>
+                            第<em>{{$recentArray['JXFIVE']->proName}}</em>期开奖号码<br><br>
 
-                        <div class="carousel-caption">
-                            {{--<p>优惠多多、取款5分钟内到帐</p>--}}
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[0]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[1]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[2]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[3]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[4]}}"></div>
+                            <br>
+                            <a href="/fivelotteryIndex?lottery_type=jxfive" class="gp_lottery_sure">
+                                <img class="gp_lottery_sure">
+                            </a>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="/css/003.png" alt="...">
+                        <div class="gp_lottery_result">
+                            开奖时间：{{$recentArray['JXFIVE']->created_at}}
+                            <br>
+                            <br>
+                            <strong>江西11选5</strong>
+                            <br>
+                            第<em>{{$recentArray['JXFIVE']->proName}}</em>期开奖号码<br><br>
 
-                        <div class="carousel-caption">
-                            {{--<p>中奖金额免税收</p>--}}
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[0]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[1]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[2]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[3]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[4]}}"></div>
+                            <br>
+                            <a href="/fivelotteryIndex?lottery_type=jxfive" class="gp_lottery_sure">
+                                <img class="gp_lottery_sure">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -206,134 +146,54 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-            <div class="quick-buy-box mt15">
-                <div class="quick-tpis">
-                    <i class="icon-lb"></i>
-                    <b>最新中奖：</b>
+        </div>
+        <div class="col-md-8" style="padding: 0px">
+            <div class="gp_second">
 
-                    <div class="quick-list" id="scroll" style="width: 380px; height: 30px; overflow: hidden;">
-                        <ul class="claearfix" style="width: 1140px;">
-                            <li style="width: 190px; display: inline-block; height: 30px;"><a
-                                        href="#"
-                                        title="高频彩神单赏析：独占鳌头">高频彩神单赏析：290万独占鳌头</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="quick-buy">
-                    <ul class="quick-tab-list">
-                        <li lottery_type="fc3d" class="on"><a href="/lotteryIndex?lottery_type=jsnew" target="_blank">新快三</a>
-                        </li>
-                    </ul>
-                    <div class="qb-box-list">
-                        <!--快速购彩 ssq-->
-                        <!--快速购彩-dlt-->
-                        <!--快速购彩-fc3d-->
-                        <div class="qb" id="qb_fc3d" style="">
-                            <ul class="qb-info clearfix">
-                                <li style="border-bottom:none; padding-bottom:0;"><strong>广西快3</strong>
-                                    第<em>{{$recentArray['JSNEW']->proName}}</em>期开奖号码<br>
-                                    开奖时间：{{$recentArray['JSNEW']->created_at}}
-                                    <br>
-                                    <a href="/lotteryIndex?lottery_type=jsnew">立即购买</a>
-                                    <img style="display: inline;margin: 3px 5px;"
-                                         src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSNEW']->codes)[0]}}x24.png"><img
-                                            style="display: inline;margin: 3px 5px;"
-                                            src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSNEW']->codes)[1]}}x24.png"><img
-                                            style="display: inline;margin: 3px 5px;"
-                                            src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSNEW']->codes)[2]}}x24.png">
-                                </li>
-                            </ul>
-                        </div>
-                        <!--快速购彩-jczq-->
-                        {{--<div class="qb-tz-box clearfix">--}}
-                            {{--<span class="fl-l bei-box clearfix"><a href="javascript:;" class="tz_bei_sub"--}}
-                                                                   {{--data-type="fc3d">−</a><input type="text" value="1"--}}
-                                                                                                {{--class="multiple"--}}
-                                                                                                {{--id="fc3d_multiple"--}}
-                                                                                                {{--name="input"--}}
-                                                                                                {{--maxlength="3"--}}
-                                                                                                {{--data-type="fc3d"><a--}}
-                                        {{--href="javascript:;" class="tz_bei_add" data-type="fc3d">+</a><span class="mr10">倍</span>共 <strong--}}
-                                        {{--class="money colorRed" id="fc3d_amount">2</strong> 元&nbsp;</span>--}}
-                            {{--<span class="dg-btn-box"><a href="#" class="change-btn" id="fc3d_random"><i--}}
-                                            {{--class="icon"></i> 换一注</a><a href="#" id="fc3d_submit_index"--}}
-                                                                        {{--class="dg-tz-btn icon"></a> </span>--}}
-                        {{--</div>--}}
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="part-1-cont-right">
-            <div class="login-box">
-                <div class="not-login">
-                    @include('userinfo')
-                </div>
-            </div>
-            <div class="help-tab-box">
-                <ul class="help-tab">
-                    <li class="on"><a href="#" class="user-help">新手引导</a></li>
-                </ul>
-                <ul class="user-help-box help-ul">
-                    <li><a href="#" target="_blank">如何注册成为高频彩票吧会员？</a></li>
-                    <li><a href="#" target="_blank">2元如何揽入1000万</a><span class="icon20"></span></li>
-                    <li><a href="#" target="_blank">新手如何玩转竞彩足球？</a></li>
-                </ul>
-            </div>
-            <div class="phone-box">
-                {{--<div class="phone-box-text">扫我下载，畅享极致购彩体验!</div>--}}
-                {{--<i class="code-icon"></i>--}}
+
+    </div>
+    <div class="container" style="background-color: white">
+        <div class="col-md-1">
+            <div class="gp_news_all" style="margin-top: 20px;margin-left: 20px"></div>
+        </div>
+        <div class="col-md-11">
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row"
+             style="padding-top: 10px;padding-bottom: 10px;background-color: white;margin-right: 8px;margin-left:8px">
+            <div class="gp_bottom">
             </div>
         </div>
     </div>
-</div>
-<div class="jc-footer">
-    <div class="footer-cn js-lazy">
-        <div class="cnLeft">
+@stop
+@section('script')
+    <script type="text/javascript">
+        function userclick(type) {
+            if (type == 1) {
 
-            <div style="width: 108px;height: 108px">
-            </div>
-        </div>
-        <div class="cnRight">
-            <div class="cnBtn">
-                <p><span class="explain01 icon"></span>账户安全</p>
+                window.location.href = 'register';
+            }
+            if (type == 2) {
 
-                <p><span class="explain02 icon"></span>购彩便捷</p>
+                window.location.href = 'recharge';
+            }
+            if (type == 3) {
 
-                <p><span class="explain03 icon"></span>兑奖简单</p>
+                window.location.href = 'deposit';
+            }
+            if (type == 4) {
 
-                <p><span class="explain04 icon"></span>提款快速</p>
-            </div>
-        </div>
-    </div>
-    <div class="clear nospace"></div>
-    <div class="footerBox">
-        <div class="about_box">
-            <p class="about_link">
-                <a target="_blank">关于我们</a>|
-                <a target="_blank">用户注册</a>|
-                <a target="_blank">联系我们</a>|
-                <a target="_blank">合作伙伴</a>|
-                <a target="_blank">人才招聘</a>|
-                <a target="_blank">友情链接</a>|
-                <a target="_blank">网站地图</a>|
-                <a target="_blank">公益</a>
-            </p>
-
-            <p class="about_mt">2009-2015 © <a target="_blank">高频彩票吧</a> 京ICP备12008186号 京公网安备110105011135号</p>
-
-            <p class="about_mt"><a target="_blank">电信与信息服务业务经营许可证100831号</a> <a target="_blank">电子公告服务许可证</a></p>
-
-            <p class="about_mt remind">提醒：购买彩票有风险，在线投注需谨慎，不向未满18周岁的青少年出售彩票！</p>
-
-            <p class="about_img">
-                <a target="_blank" class="a-police"></a>
-                <a target="_blank" class="a-beian"></a>
-                <a target="_blank" class="a-kexin"></a>
-                <a target="_blank" class="a-baidu"></a>
-                <a target="_blank" class="a-baifubao"></a>
-            </p>
-        </div>
-    </div>
-    <script type="text/javascript" src="/js/all.js"></script>
-</div>
-
+                window.location.href = 'dailiregister';
+            }
+            if (type == 5) {
+                $('#myModal').modal('show');
+            }
+        }
+    </script>
+@stop
