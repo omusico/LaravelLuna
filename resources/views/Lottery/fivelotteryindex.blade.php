@@ -325,14 +325,12 @@
                                 <ul>
                                     <?php $i = 1;?>
                                     @foreach($fiveOdds['RX1'] as $key => $value)
-                                        @if(is_numeric($key))
 
                                             <li class="OneNum"><span
                                                 <?php if ($i == 1) echo ' id="RX1_getodds"';?>><?php echo $value;?></span>
                                             </li>
 
                                             <?php $i += 1;?>
-                                        @endif
                                     @endforeach
                                 </ul>
 
