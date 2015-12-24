@@ -67,6 +67,9 @@
             display: inline;
             font-size: 12px;
         }
+        .nk3_kjgg li a{
+            float: left;
+        }
 
         .nk3_kjgg ul {
             margin: 3px 0 10px 0;
