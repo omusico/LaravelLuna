@@ -177,7 +177,6 @@
                                    href="{{isset($value['url'])?$value['url']:'#'}}"
                                    target="_blank">{{isset($value['title'])?$value['title']:''}}</a><span
                                         class="time"></span></li>
-                            <br>
                         @endforeach
                     @endif
                 </div>
