@@ -86,6 +86,51 @@ class AdminController extends Controller
         return view('Admin.bettingList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime', 'bettingType'));
     }
 
+    public function winningList(Request $request)
+    {
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+        $bettingType = "";
+        if (env('SITE_TYPE', '') == 'five') {
+
+            $result = App\lu_lotteries_five::orderby('created_at', 'desc');
+        } else if (env('SITE_TYPE', '') == 'gaopin') {
+            $bettingType = $request->bettingType;
+            if (empty($bettingType)) {
+                $bettingType = 'k3';
+            }
+            if ($bettingType == "k3") {
+                $result = App\lu_lotteries_k3::orderby('created_at', 'desc');
+            } else if ($bettingType == 'five') {
+                $result = App\lu_lotteries_five::orderby('created_at', 'desc');
+            } else if ($bettingType == 'ssc') {
+                $result = App\lu_lotteries_ssc::orderby('created_at', 'desc');
+            }
+
+        } else {
+            $result = App\lu_lotteries_k3::orderby('created_at', 'desc');
+        }
+        if (!empty($userName)) {
+            $result->where('userName', $userName);
+        }
+        if (!empty($starttime)) {
+            $starttime = substr($starttime, 0, 10);
+            $result->where('created_at', '>=', $starttime);
+        }
+        if (!empty($endtime)) {
+            $endtime = substr($endtime, 0, 10);
+            $result->where('created_at', '<=', $endtime);
+        }
+//        $result = $result->orderby('created_at', 'desc');
+        $lu_lotteries_k3s = $result->where('noticed',1)->paginate(10);
+        return view('Admin.winningList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime', 'bettingType'));
+    }
+
+    public function lotteryswitch(){
+        return view("Admin.lotteryswitch");
+    }
+
     public function bettingcountList(Request $request)
     {
         $userName = $request->userName;

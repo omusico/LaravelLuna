@@ -36,7 +36,11 @@
                     <select class="form-control" required="required" id="addType" name="addType">
                         <?php $i = 1 ?>
                         @foreach ($point_types as $point_types)
-                            <option value="{{ $i++ }}">{{ $point_types}}</option>
+                            @if($i==11)
+                                <option value="{{ $i++ }}" selected>{{ $point_types}}</option>
+                            @else
+                                <option value="{{ $i++ }}">{{ $point_types}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>

@@ -50,6 +50,7 @@ Route::resource('companybank', 'CbankController');
 
 Route::get('adminindex', 'Admin\AdminController@adminindex');
 Route::get('bettingList', 'Admin\AdminController@bettingList');
+Route::get('winningList', 'Admin\AdminController@winningList');
 Route::get('bettingcountList', 'Admin\AdminController@bettingcountList');
 
 Route::get('marquee', 'Admin\AdminController@marquee');
@@ -93,6 +94,7 @@ Route::get('GitUpdate', 'Admin\AdminController@GitUpdate');
 Route::get('GetSqlData', 'Admin\AdminController@GetSqlData');
 Route::get('GetLogsfile', 'Admin\AdminController@GetLogsfile');
 Route::get('LotteriesResult', 'Admin\AdminController@LotteriesResult');
+Route::get('lotteryswitch', 'Admin\AdminController@lotteryswitch');
 Route::any('LotteriesResult/{id}','Admin\AdminController@LotteriesResultDelete');
 
 #上传分数

@@ -34,12 +34,16 @@
 
         .nav > li > a:focus, .nav > li > a:hover {
             text-decoration: none;
-            background-color: #70c3ab;
+            background-color: #808080;
+        }
+
+        .footer {
+            border-top: 0px solid #3C7EC8;
         }
     </style>
     @yield('css')
 </head>
-<body style="background-color: #e9f4fd">
+<body style="background-color: #fefced">
 <div class="mobilhide" style="width: 100%;height: 30px;background-color: white">
     <div class="container">
         <div class="row">
@@ -111,8 +115,8 @@
         </div>
     </div>
 </nav>
-<div style="width: 100%;background-color:#87CCC8 ">
-    <div class="container" style="background-color: #87CCC8;">
+<div style="width: 100%;background-color:#FCAB1D ">
+    <div class="container" style="background-color: #FCAB1D;">
         <div class="collapse navbar-collapse navbar-responsive-collapse" >
             <ul class="nav navbar-nav nav">
                 <li><a href="/" style="color:white;font-weight: bold">网站首页</a></li>

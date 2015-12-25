@@ -35,25 +35,27 @@
         @if(env("SITE_TYPE","")=="five")
             <div style="padding-top: 30px">
                 {!! Form::open(['url' => '/login', 'class' => 'navbar-form navbar-right', 'role' => 'search']) !!}
-                <div class="form-group col-md-offset-1">
+                <div class="form-group col-md-offset-2">
                     {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder'
                     =>'用户名...','required']) !!}
+
                     {!! Form::password('password', ['class' => 'form-control',
                     'placeholder'=>'密码...','required','style'=>'margin-top:10px;margin-bottom:10px'])
                     !!}
                 </div>
                 <br>
                 <br>
-                {!! Form::submit('', ['class' => 'fivebtnlogin col-md-offset-2']) !!}
-                <br>
-                <br>
 
                 <div class="form-group">
-                    <a href="{{ url('/register') }}"><input class="fivebtnreg">
-                    </a>
-                    <a href="{{ url('/dailiregister') }}">
-                        <input class="fivebtndreg">
-                    </a>
+                    <div style="display: inline-block;margin-top: 15px">
+                        {!! Form::submit('', ['class' => 'fivebtnlogin']) !!}
+                        <a href="{{ url('/register') }}">
+                        <input class="fivebtnreg" type="button">
+                        </a>
+                        <a href="{{ url('/dailiregister') }}">
+                        <input class="fivebtndreg" type="button">
+                        </a>
+                    </div>
                 </div>
                 {!! Form::close() !!}
             </div>

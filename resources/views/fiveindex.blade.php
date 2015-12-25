@@ -67,7 +67,8 @@
             display: inline;
             font-size: 12px;
         }
-        .nk3_kjgg li a{
+
+        .nk3_kjgg li a {
             float: left;
         }
 
@@ -83,7 +84,7 @@
             padding: 10px 0 10px 0;
             width: 341px;
             color: #8c8a8b;
-            height: 230px;
+            height: 203px;
         }
 
         .nk3_kjgg li em {
@@ -101,10 +102,10 @@
             padding-right: 18px;
         }
 
-        .nav > li > a:focus, .nav > li > a:hover {
-            text-decoration: none;
-            background-color: #70c3ab;
-        }
+        /*.nav > li > a:focus, .nav > li > a:hover {*/
+        /*text-decoration: none;*/
+        /*background-color: #70c3ab;*/
+        /*}*/
     </style>
 @stop
 @section('content')
@@ -114,88 +115,73 @@
             <marquee scrollamount=3 style="color:white">{{Cache::get('marquee','请到后台设置滚动文字')}}</marquee>
         </div>
     </div>
-    <div class="container">
-        <div class="col-md-4 mobilhide" style="padding: 15px;">
-            <div class="mobilhide" style="background-color: white;height: 330px;">
+    <div class="container" style="padding-top: 20px">
+        <div class="col-md-offset-1 col-md-4 mobilhide" style="padding: 15px;">
+            <div class="mobilhide" style="background-color: white;height: 280px;">
                 @include('userinfo')
             </div>
-            <div class="fivefav"></div>
-            <div style="background-color: white;min-height: 150px;padding: 10px">
-                @if(null!==Cache::get('marquee'))
-                    <li><a style="width: 205px;"
-                           target="_blank">{{Cache::get('marquee','请到后台设置滚动文字')}}</a><span
-                                class="time"></span></li>
-                @endif
-            </div>
-            <div class="fivenews"></div>
-            <div style="background-color: white;min-height: 150px;padding: 10px">
-                @if(null!==Cache::get('news'))
-                    @foreach(Cache::get('news') as $key=>$value)
-                        <li><a style="width: 205px;"
-                               href="{{isset($value['url'])?$value['url']:'#'}}"
-                               target="_blank">{{isset($value['title'])?$value['title']:''}}</a><span
-                                    class="time"></span></li>
-                        <br>
-                    @endforeach
-                @endif
-            </div>
         </div>
-        <div class="row" style="margin: 0px 0px 0px 10px;">
-            <div class="col-md-8 mobilhide">
-                <div id="carousel-generic" class="carousel slide" data-ride="carousel"
-                     xmlns="http://www.w3.org/1999/html">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-generic" data-slide-to="1"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img src="/css/five1.jpg" alt="...">
+        <div class="col-md-6 mobilhide">
+            <div id="carousel-generic" class="carousel slide" data-ride="carousel"
+                 xmlns="http://www.w3.org/1999/html">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-generic" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="/css/11501.png" alt="...">
 
-                            <div class="carousel-caption">
-                                {{--<p>中奖率高、赔率高、信誉100%</p>--}}
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="/css/five2.jpg" alt="...">
-
-                            <div class="carousel-caption">
-                                {{--<p>优惠多多、取款5分钟内到帐</p>--}}
-                            </div>
+                        <div class="carousel-caption">
+                            {{--<p>中奖率高、赔率高、信誉100%</p>--}}
                         </div>
                     </div>
-                    <a class="left carousel-control" href="#carousel-generic" role="button"
-                       data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-generic" role="button"
-                       data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                    <div class="item">
+                        <img src="/css/11502.png" alt="...">
+
+                        <div class="carousel-caption">
+                            {{--<p>优惠多多、取款5分钟内到帐</p>--}}
+                        </div>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#carousel-generic" role="button"
+                   data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-generic" role="button"
+                   data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-offset-1 col-md-10 row">
+
+            <div class="col-md-4 mobilhide">
+                <div class="fivefav"></div>
+                <div style="background-color: white;min-height: 210px;padding: 10px">
+                    @if(null!==Cache::get('marquee'))
+                        <li><a style="width: 205px;"
+                               target="_blank">{{Cache::get('marquee','请到后台设置滚动文字')}}</a><span
+                                    class="time"></span></li>
+                    @endif
+                </div>
+                <div class="fivenews"></div>
+                <div style="background-color: white;min-height: 230px;padding: 10px">
+                    @if(null!==Cache::get('news'))
+                        @foreach(Cache::get('news') as $key=>$value)
+                            <li><a style="width: 205px;"
+                                   href="{{isset($value['url'])?$value['url']:'#'}}"
+                                   target="_blank">{{isset($value['title'])?$value['title']:''}}</a><span
+                                        class="time"></span></li>
+                            <br>
+                        @endforeach
+                    @endif
                 </div>
             </div>
-            {{--<div class="col-md-3 mobilhide" style="margin-left: 0px;padding-left: 0px">--}}
-            {{--<div class="notice m_b10" id="notice" style="border: 3px solid #f5f5f5">--}}
-            {{--<ul class="tabs-nav notice_nav" style="background-color: transparent">--}}
-            {{--<li class="cur" style="background-color: transparent"><a href="#" style="color: #000000">最新优惠</a>--}}
-            {{--</li>--}}
-            {{--</ul>--}}
-            {{--<div class="tabs-cnt notice_cont" style="height: 210px;background-color: transparent">--}}
-            {{--<ul class="list_icon" style="padding-left: 0px;color: red;">--}}
-            {{--@if(null!==Cache::get('news'))--}}
-            {{--@foreach(Cache::get('news') as $key=>$value)--}}
-            {{--<li><a style="width: 205px;color: red;"--}}
-            {{--href="{{isset($value['url'])?$value['url']:'#'}}"--}}
-            {{--target="_blank">{{isset($value['title'])?$value['title']:''}}</a><span--}}
-            {{--class="time"></span></li>--}}
-            {{--@endforeach--}}
-            {{--@endif--}}
-            {{--</ul>--}}
-            {{--</div>--}}
-            {{--</div>--}}
-            {{--</div>--}}
             <div class="col-md-4" style="padding-right: 0px;padding-left: 0px;border-right: solid 1px #EAEAEA">
                 <div class="distance nk3_kjgg" style="border-right: none;background-color: white">
                     <ul class="col-md-4">
@@ -312,13 +298,18 @@
                     </ul>
                 </div>
             </div>
+
         </div>
     </div>
     <div class="container">
-        <div class="row"
-             style="padding-top: 10px;padding-bottom: 10px;background-color: white;margin-right: 8px;margin-left:8px">
+        <div class="col-md-offset-1 col-md-10">
             <div class="fivebottom">
             </div>
+        </div>
+    </div>
+    <div class="container" style="padding-top: 30px">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10" style="padding-top: 3px;background-color:#fdc124;"></div>
         </div>
     </div>
 @stop

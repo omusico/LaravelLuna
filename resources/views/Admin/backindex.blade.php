@@ -55,6 +55,9 @@
                     <li>
                         <a onclick="$.addTopTab('#tabXG','会员投注列表','会员投注列表','/bettingList')"><span>会员投注列表</span></a>
                     </li>
+                    <li>
+                        <a onclick="$.addTopTab('#tabXG','会员中奖列表','会员中奖列表','/winningList')"><span>会员中奖列表</span></a>
+                    </li>
                     {{--<li>--}}
                     {{--<a href="/admin"><span>反水统计</span></a>--}}
                     {{--</li>--}}
