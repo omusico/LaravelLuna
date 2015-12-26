@@ -84,8 +84,8 @@
             @endif
         </table>
         <div>
-            <a>投注总金额：<span style="color: red">{{$sumamounts}}</span> 充值金额：<span
-                        style="color: red"> {{$sumleft}}</span>会员剩余金额：<span
+            <a>充值金额：<span style="color: red">{{$sumamounts}}</span> 会员剩余金额：<span
+                        style="color: red"> {{$sumleft}}</span></a>
         </div>
         {{--{{$moneycount->appends($input)->links()}}--}}
 
