@@ -249,7 +249,7 @@ class AdminController extends Controller
         $moneycounts = \DB::select('select t.* from (select uid,userName,count(*) as count,sum(amounts) as amounts from lu_lottery_recharges' . $wheresql . ' group by uid) t left join lu_users on t.uid =lu_users.id where lu_users.groupId <> 7');
         $downlist = array();
         foreach ($moneycounts as $moneycount) {
-            array_push($downlist,(array)$moneycount);
+            array_push($downlist, (array)$moneycount);
         }
         Excel::create('会员充值表' . $starttime . '-' . $endtime, function ($excel) use ($downlist) {
 
@@ -300,7 +300,7 @@ class AdminController extends Controller
 
         $downlist = array();
         foreach ($applycounts as $applycount) {
-            array_push($downlist,(array)$applycount);
+            array_push($downlist, (array)$applycount);
         }
         Excel::create('会员充值表' . $starttime . '-' . $endtime, function ($excel) use ($downlist) {
 
@@ -1001,6 +1001,32 @@ class AdminController extends Controller
         $point_types = CommonClass::cache_point_type();
         $lu_points_records = App\lu_points_record::where('uid', $id)->orderby('created_at', 'desc')->paginate(10);
         return view('Admin.admindetail', compact('lu_points_records', 'point_types'));
+    }
+
+    public function admindetailmoney(Request $request)
+    {
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+        $addtype = $request->addtype;
+        $point_types = CommonClass::cache_point_type();
+        $result = App\lu_points_record::orderby('created_at', 'desc');
+        if (!empty($userName)) {
+            $result->where('userName', $userName);
+        }
+        if (!empty($starttime)) {
+            $starttime = substr($starttime, 0, 10);
+            $result->where('created_at', '>=', $starttime);
+        }
+        if (!empty($endtime)) {
+            $endtime = substr($endtime, 0, 10);
+            $result->where('created_at', '<=', $endtime);
+        }
+        if (!empty($addtype)) {
+            $result->where('addType', '=', $addtype);
+        }
+        $lu_points_records = $result->paginate(10);
+        return view('Admin.admindetailmoney', compact('lu_points_records', 'userName', 'starttime', 'endtime', 'addtype','point_types'));
     }
 
     public function adminproxydetail(Request $request)
