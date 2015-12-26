@@ -7,6 +7,7 @@ use Redirect;
 use Hash;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Excel;
 
 use Illuminate\Http\Request;
 use App;
@@ -123,11 +124,12 @@ class AdminController extends Controller
             $result->where('created_at', '<=', $endtime);
         }
 //        $result = $result->orderby('created_at', 'desc');
-        $lu_lotteries_k3s = $result->where('noticed',1)->paginate(10);
+        $lu_lotteries_k3s = $result->where('noticed', 1)->paginate(10);
         return view('Admin.winningList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime', 'bettingType'));
     }
 
-    public function lotteryswitch(){
+    public function lotteryswitch()
+    {
         return view("Admin.lotteryswitch");
     }
 
@@ -166,6 +168,160 @@ class AdminController extends Controller
         }
 
         return view('Admin.bettingcountList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime'));
+    }
+
+    public function moneycount(Request $request)
+    {
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+
+
+        $wheresql = ' where status=1';
+        if (!empty($userName)) {
+            $wheresql .= ' and userName= "' . $userName . '"';
+        }
+        if (empty($starttime) && empty($endtime)) {
+            $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
+        }
+        if (!empty($starttime)) {
+            $starttime = substr($starttime, 0, 10);
+            $wheresql .= ' and created_at >="' . $starttime . '"';
+        }
+        if (!empty($endtime)) {
+            $endtime = substr($endtime, 0, 10);
+            $wheresql .= ' and created_at <="' . $endtime . '"';
+        }
+        $moneycounts = \DB::select('select t.* from (select uid,userName,count(*) as count,sum(amounts) as amounts from lu_lottery_recharges' . $wheresql . ' group by uid) t left join lu_users on t.uid =lu_users.id where lu_users.groupId <> 7');
+
+        return view('Admin.moneycount', compact('moneycounts', 'userName', 'starttime', 'endtime'));
+    }
+
+    public function applycount(Request $request)
+    {
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+
+
+        $wheresql = ' where status=1';
+        if (!empty($userName)) {
+            $wheresql .= ' and userName= "' . $userName . '"';
+        }
+        if (empty($starttime) && empty($endtime)) {
+            $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
+        }
+        if (!empty($starttime)) {
+            $starttime = substr($starttime, 0, 10);
+            $wheresql .= ' and created_at >="' . $starttime . '"';
+        }
+        if (!empty($endtime)) {
+            $endtime = substr($endtime, 0, 10);
+            $wheresql .= ' and created_at <="' . $endtime . '"';
+        }
+        $applycounts = \DB::select('select t.* from (select uid,userName,count(*) as count,sum(amounts) as amounts from lu_lottery_applies ' . $wheresql . ' group by uid) t left join lu_users on t.uid =lu_users.id where lu_users.groupId <> 7');
+
+        return view('Admin.applycount', compact('applycounts', 'userName', 'starttime', 'endtime'));
+    }
+
+    public function downloadmoneys(Request $request)
+    {
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+
+
+        $wheresql = ' where status=1';
+        if (!empty($userName)) {
+            $wheresql .= ' and userName= "' . $userName . '"';
+        }
+        if (empty($starttime) && empty($endtime)) {
+            $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
+        }
+        if (!empty($starttime)) {
+            $starttime = substr($starttime, 0, 10);
+            $wheresql .= ' and created_at >="' . $starttime . '"';
+        }
+        if (!empty($endtime)) {
+            $endtime = substr($endtime, 0, 10);
+            $wheresql .= ' and created_at <="' . $endtime . '"';
+        }
+        $moneycounts = \DB::select('select t.* from (select uid,userName,count(*) as count,sum(amounts) as amounts from lu_lottery_recharges' . $wheresql . ' group by uid) t left join lu_users on t.uid =lu_users.id where lu_users.groupId <> 7');
+        $downlist = array();
+        foreach ($moneycounts as $moneycount) {
+            array_push($downlist,(array)$moneycount);
+        }
+        Excel::create('会员充值表' . $starttime . '-' . $endtime, function ($excel) use ($downlist) {
+
+            $excel->sheet('sheetName', function ($sheet) use ($downlist) {
+
+                $sheet->fromArray($downlist, null, 'A1', false, false);
+
+                $sheet->prependRow(1, array(
+                    '用户ID', '用户名', '次数', '金额'
+                ));
+                $sheet->setWidth([
+                    'A' => 11,
+                    'B' => 8,
+                    'C' => 5,
+                    'D' => 12,
+                ]);
+                $sheet->getDefaultStyle();
+
+            });
+
+        })->export('xls');
+//        return view('Admin.moneycount', compact('moneycounts', 'userName', 'starttime', 'endtime'));
+    }
+
+    public function downloadapplys(Request $request)
+    {
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+
+
+        $wheresql = ' where status=1';
+        if (!empty($userName)) {
+            $wheresql .= ' and userName= "' . $userName . '"';
+        }
+        if (empty($starttime) && empty($endtime)) {
+            $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
+        }
+        if (!empty($starttime)) {
+            $starttime = substr($starttime, 0, 10);
+            $wheresql .= ' and created_at >="' . $starttime . '"';
+        }
+        if (!empty($endtime)) {
+            $endtime = substr($endtime, 0, 10);
+            $wheresql .= ' and created_at <="' . $endtime . '"';
+        }
+        $applycounts = \DB::select('select t.* from (select uid,userName,count(*) as count,sum(amounts) as amounts from lu_lottery_applies ' . $wheresql . ' group by uid) t left join lu_users on t.uid =lu_users.id where lu_users.groupId <> 7');
+
+        $downlist = array();
+        foreach ($applycounts as $applycount) {
+            array_push($downlist,(array)$applycount);
+        }
+        Excel::create('会员充值表' . $starttime . '-' . $endtime, function ($excel) use ($downlist) {
+
+            $excel->sheet('sheetName', function ($sheet) use ($downlist) {
+
+                $sheet->fromArray($downlist, null, 'A1', false, false);
+
+                $sheet->prependRow(1, array(
+                    '用户ID', '用户名', '次数', '金额'
+                ));
+                $sheet->setWidth([
+                    'A' => 11,
+                    'B' => 8,
+                    'C' => 5,
+                    'D' => 12,
+                ]);
+                $sheet->getDefaultStyle();
+
+            });
+
+        })->export('xls');
     }
 
 

@@ -52,6 +52,10 @@ Route::get('adminindex', 'Admin\AdminController@adminindex');
 Route::get('bettingList', 'Admin\AdminController@bettingList');
 Route::get('winningList', 'Admin\AdminController@winningList');
 Route::get('bettingcountList', 'Admin\AdminController@bettingcountList');
+Route::get('moneycount', 'Admin\AdminController@moneycount');
+Route::get('applycount', 'Admin\AdminController@applycount');
+Route::get('downloadmoneys', 'Admin\AdminController@downloadmoneys');
+Route::get('downloadapplys', 'Admin\AdminController@downloadapplys');
 
 Route::get('marquee', 'Admin\AdminController@marquee');
 Route::get('checkapply', 'Admin\AdminController@checkapply');

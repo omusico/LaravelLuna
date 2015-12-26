@@ -90,6 +90,12 @@
                         <a onclick="$.addTopTab('#tabXG','在线充值','在线充值','/rechargelist')">在线充值</a>
                     </li>
                     <li>
+                        <a onclick="$.addTopTab('#tabXG','提现统计','提现统计','/applycount')">提现统计</a>
+                    </li>
+                    <li>
+                        <a onclick="$.addTopTab('#tabXG','在线充值统计','在线充值统计','/moneycount')">在线充值统计</a>
+                    </li>
+                    <li>
                         <a onclick="$.addTopTab('#tabXG','添加公司充值账户','添加公司充值账户','/companybank/create')">添加公司充值账户</a>
                     </li>
                     <li>
