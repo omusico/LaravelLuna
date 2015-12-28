@@ -28,23 +28,30 @@
             <ul class="nav navbar-nav nav">
                 <li class="active"><a href="/" class="btn-danger" style="background-color: red;font-weight: bold">首页</a>
                 </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle " style="color:red;font-weight: bold" data-toggle="dropdown"
+                       role="button">玩法<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/lotteryIndex?lottery_type=jsold">江苏快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=beijin">北京快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=anhui">安徽快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=hebei">河北快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=jilin">吉林快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=jsnew">广西快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=hubei">湖北快三</a></li>
+                        <li><a href="/lotteryIndex?lottery_type=nmg">内蒙古快三</a></li>
+                    </ul>
+                </li>
                 <li><a href="/k3GameRule" style="color:red;font-weight: bold" title="游戏规则">游戏规则</a></li>
                 <li><a href="/favourable" style="color:red;font-weight: bold" title="优惠活动">优惠活动</a></li>
-                <li><a href="/lotterytrend?lottery_type=jsold" style="color:red;font-weight: bold" title="走势图">走势图</a></li>
-                <li><a title="合作代理" style="color:red;font-weight: bold" href="/inviteurl">合作代理</a></li>
-                <li><a href="/userLotteryBetting" target="_blank" style="color:red;font-weight: bold" title="交易记录">交易记录</a>
+                <li><a href="/lotterytrend?lottery_type=jsold" style="color:red;font-weight: bold" title="走势图">走势图</a>
                 </li>
-                <li><a href="/lotteryIndex?lottery_type=jsold" title="手机下注" style="color:red;font-weight: bold">手机下注</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" style="color:red;font-weight: bold" data-toggle="dropdown"
-                       role="button">网址<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">网址一</a></li>
-                        <li><a href="#">网址二</a></li>
-                        <li><a href="#">网址三</a></li>
-                        <li><a href="#">网址四</a></li>
-                        <li><a href="#">网址五</a></li>
-                    </ul>
+                <li><a title="合作代理" style="color:red;font-weight: bold" href="/inviteurl">合作代理</a></li>
+                <li><a href="/userLotteryBetting" target="_blank" style="color:red;font-weight: bold"
+                       title="交易记录">交易记录</a>
+                </li>
+                <li><a href="/lotteryIndex?lottery_type=jsold" title="手机下注" style="color:red;font-weight: bold">手机下注</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -202,7 +209,7 @@
 </div>
 @yield('content')
 <div class="footer mobilhide">
-    <div class="f-link"><a title="关于我们" href="#">关于我们</a> | <a title="用户注册" target="_blank" href="/register">用户注册</a> |
+    <div class="f-link"><a title="关于我们" href="#">关于我们</a> | <a title="用户注册" href="/register">用户注册</a> |
         <a title="加盟合作" href="#">加盟合作</a> | <a href="#" title="进入网盟">进入网盟</a> | <a title="网站地图">网站地图</a> | <a
                 title="友情链接" href="" id="link431">友情链接</a></div>
 </div>
@@ -229,6 +236,7 @@
             @if(Auth::guest() && empty($islogin) && empty($isregister))
             location.replace('/login');
             @endif
+
         }
     })(navigator.userAgent);
 
@@ -252,6 +260,7 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
+
 
                 }
             }

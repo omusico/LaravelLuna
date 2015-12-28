@@ -8,9 +8,14 @@
         var lottery_type = '{{$config['lotterytype']}}';
         var num ={{$lotterystatus[$config['lotterytype']]['num']}};
     </script>
+    <style type="text/css">
+        .all_box ul{
+            padding: 0px;
+        }
+    </style>
 @stop
 @section('content')
-    <div class="container" style="min-width:500px">
+    <div class="container" style="min-width:450px">
         <div class="banner_content">
             <div class="zgk3_info_box">
                 <div class="zgk3_top container">
@@ -63,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <div class="container" style="padding: 0px;">
                 <main class="col-md-8" style="border-right: 1px solid rgb(218, 218, 218)">
                     <ul class="nav nav-tabs" role="tablist" id="myTab"> 
                         <li class="active"><a href="#HZ" role="tab" data-toggle="tab">和值</a></li>

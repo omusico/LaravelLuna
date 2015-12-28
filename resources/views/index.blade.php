@@ -179,33 +179,33 @@
                             <br/>
 
                             <p class="sub_lottery">
-                                <a target="_blank" href="/lotteryIndex?lottery_type=jsold"
+                                <a  href="/lotteryIndex?lottery_type=jsold"
                                    style="font-weight: bold; color: #E60010;" title="江苏快三" id="link116">江苏快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
                                             style="color:#00a1ff;">中奖贼简单</b></a><br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=beijin" title="北京快三"
+                                <a  href="/lotteryIndex?lottery_type=beijin" title="北京快三"
                                    id="link117">北京快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
                                             style="color:#47ff36">摇骰子,易中奖</b></a><br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=anhui" title="安徽快三"
+                                <a  href="/lotteryIndex?lottery_type=anhui" title="安徽快三"
                                    id="link119">安徽快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a> <br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=hebei" title="河北快三"
+                                <a  href="/lotteryIndex?lottery_type=hebei" title="河北快三"
                                    id="link119">河北快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a> <br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=jilin" title="吉林快三"
+                                <a  href="/lotteryIndex?lottery_type=jilin" title="吉林快三"
                                    id="link120">吉林快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b>一天77期(中奖容易)</b></a><br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=jsnew" title="广西快三"
+                                <a  href="/lotteryIndex?lottery_type=jsnew" title="广西快三"
                                    id="link121">广西快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><b>一天78期</b><br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=hubei" title="湖北快三"
+                                <a  href="/lotteryIndex?lottery_type=hubei" title="湖北快三"
                                    id="link122">湖北快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span></a><br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=fjk3" title="福建快三">福建快三<span
+                                <a  href="/lotteryIndex?lottery_type=fjk3" title="福建快三">福建快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
                                             style="color:#ff44dc">买三个号就中</b></a><br>
-                                <a target="_blank" href="/lotteryIndex?lottery_type=nmg" title="内蒙古快三" id="link123">内蒙快三<span
+                                <a  href="/lotteryIndex?lottery_type=nmg" title="内蒙古快三">内蒙快三<span
                                             style="color: red">&nbsp;&nbsp;进入 &gt;&gt;</span><b
                                             style="color:#ff6c00">100%中奖</b></a>
                             </p>
