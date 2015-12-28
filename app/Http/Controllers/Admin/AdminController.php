@@ -146,15 +146,15 @@ class AdminController extends Controller
             $wheresql .= ' and userName= "' . $userName . '"';
         }
         if (empty($starttime) && empty($endtime)) {
-            $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
+            $wheresql .= ' and left(updated_at,10) ="' . date('Y-m-d') . '"';
         }
         if (!empty($starttime)) {
             $starttime = substr($starttime, 0, 10);
-            $wheresql .= ' and created_at >="' . $starttime . '"';
+            $wheresql .= ' and updated_at >="' . $starttime . '"';
         }
         if (!empty($endtime)) {
             $endtime = substr($endtime, 0, 10);
-            $wheresql .= ' and created_at <="' . $endtime . '"';
+            $wheresql .= ' and updated_at <="' . $endtime . '"';
         }
         if (env('SITE_TYPE', '') == 'five') {
             $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_fives ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_fives ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
@@ -867,17 +867,17 @@ class AdminController extends Controller
                 return Redirect::back();
             } else {
 
-                $wheresql .= ' and left(created_at,10) ="' . $returnDay . '"';
+                $wheresql .= ' and left(updated_at,10) ="' . $returnDay . '"';
             }
         } else {
             session()->flash('message', '返水失败，请选中日期');
             return Redirect::back();
         }
         if (!empty($starttime)) {
-            $wheresql .= ' and created_at >="' . $starttime . '"';
+            $wheresql .= ' and updated_at >="' . $starttime . '"';
         }
         if (!empty($endtime)) {
-            $wheresql .= ' and created_at <="' . $endtime . '"';
+            $wheresql .= ' and updated_at <="' . $endtime . '"';
         }
         if (env('SITE_TYPE', '') == 'five') {
             $bettings = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,' .
