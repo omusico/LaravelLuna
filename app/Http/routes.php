@@ -84,6 +84,7 @@ Route::post('refusedeposit', 'Admin\AdminController@refusedeposit');
 Route::get('manualrecharge/{id}', 'Admin\AdminController@manualrecharge');
 Route::get('admindetail/{id}', 'Admin\AdminController@admindetail');
 Route::get('admindetailmoney', 'Admin\AdminController@admindetailmoney');
+Route::get('downloadadmindetail', 'Admin\AdminController@downloadadmindetail');
 Route::get('adminproxydetail', 'Admin\AdminController@adminproxydetail');
 Route::post('manualupdate', 'Admin\AdminController@manualupdate');
 Route::get('resetpwd', 'Admin\AdminController@resetpwd');

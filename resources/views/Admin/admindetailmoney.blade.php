@@ -7,6 +7,8 @@
 @section('content')
     <div>
         @include('errors.list')
+        <h3 align="center">
+            统计列表(日期没选，默认统计当天金额</h3>
         <hr>
         <div>
             <div style="float: left;">
@@ -59,6 +61,7 @@
             </div>
             <div style="float: left;margin-left: 10px">
                 <a class="btn btn-default btn-primary" onclick="Search()">查询</a>
+                <a class="btn btn-default btn-danger" onclick="Download()">下载</a>
             </div>
         </div>
         <table class="table table-hover">
@@ -140,5 +143,11 @@
             url = "admindetailmoney?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&addtype=" + $("#addType option:selected").val();
             window.location.href = url;
         }
+
+        function Download() {
+            url = "downloadadmindetail?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&addtype=" + $("#addType option:selected").val();
+            window.location.href = url;
+        }
+        ;
     </script>
 @stop

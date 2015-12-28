@@ -1026,7 +1026,64 @@ class AdminController extends Controller
             $result->where('addType', '=', $addtype);
         }
         $lu_points_records = $result->paginate(10);
-        return view('Admin.admindetailmoney', compact('lu_points_records', 'userName', 'starttime', 'endtime', 'addtype','point_types'));
+        return view('Admin.admindetailmoney', compact('lu_points_records', 'userName', 'starttime', 'endtime', 'addtype', 'point_types'));
+    }
+
+    public function downloadadmindetail(Request $request)
+    {
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+        $addtype = $request->addtype;
+        $point_types = CommonClass::cache_point_type();
+        $result = App\lu_points_record::orderby('created_at', 'desc');
+        $wheresql = ' where 1 = 1 ';
+        if (!empty($userName)) {
+            $wheresql .= ' and userName= "' . $userName . '"';
+        }
+        if (empty($starttime) && empty($endtime)) {
+            $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
+        }
+        if (!empty($starttime)) {
+            $starttime = substr($starttime, 0, 10);
+            $wheresql .= ' and created_at >="' . $starttime . '"';
+        }
+        if (!empty($endtime)) {
+            $endtime = substr($endtime, 0, 10);
+            $wheresql .= ' and created_at <="' . $endtime . '"';
+        }
+        if (!empty($addtype)) {
+            $wheresql .= ' and addType ="' . $addtype . '"';
+        } else {
+            session()->flash('message_warning', '请选择明细类型');
+            return Redirect::back();
+        }
+
+        $lu_points_records = DB::select('select uid,userName,sum(changePoint) as changePoint,addType from lu_points_records' . $wheresql . ' group by uid');
+        $downlist = array();
+        foreach ($lu_points_records as $lu_points_record) {
+            array_push($downlist, (array)$lu_points_record);
+        }
+        Excel::create('会员' . $point_types[$addtype] . '明细表' . $starttime . '-' . $endtime, function ($excel) use ($downlist) {
+
+            $excel->sheet('sheetName', function ($sheet) use ($downlist) {
+
+                $sheet->fromArray($downlist, null, 'A1', false, false);
+
+                $sheet->prependRow(1, array(
+                    '用户ID', '用户名', '金额', '明细类型'
+                ));
+                $sheet->setWidth([
+                    'A' => 11,
+                    'B' => 8,
+                    'C' => 5,
+                    'D' => 12,
+                ]);
+                $sheet->getDefaultStyle();
+
+            });
+
+        })->export('xls');
     }
 
     public function adminproxydetail(Request $request)
