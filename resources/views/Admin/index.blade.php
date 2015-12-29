@@ -34,6 +34,8 @@
                 <td>手机</td>
                 <td>邮箱</td>
                 <td>权限组</td>
+                <td>QQ</td>
+                <td>ip</td>
                 <td>余额</td>
                 <td>邀请码</td>
                 <td>注册时间</td>
@@ -56,6 +58,8 @@
                                 @endif
                             @endforeach
                         </td>
+                        <td>{{ $lu_user->qq}}</td>
+                        <td>{{ $lu_user->lu_user_data->loginIp }}</td>
                         <td>{{ $lu_user->lu_user_data->points }}</td>
                         <td>{{ $lu_user->invite }}</td>
                         <td>{{ $lu_user->created_at}}</td>
