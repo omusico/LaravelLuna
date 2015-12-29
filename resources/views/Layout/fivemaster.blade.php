@@ -149,6 +149,21 @@
         <label class="form-control" style="text-align: center">余额：{{Auth::user()->lu_user_data->points}}</label>
         <a class="btn-danger btn-lg form-control" href="/logout" style="text-align: center;background-color: #f9d450">退出登陆</a>
         <input type="hidden" id="isLogin">
+        <div class="dropdown">
+            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                玩法选择
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/fivelotteryIndex?lottery_type=sdfive">山东11选5</a></li>
+                <li><a href="/fivelotteryIndex?lottery_type=gdfive">广东11选5</a></li>
+                <li><a href="/fivelotteryIndex?lottery_type=shfive">上海11选5</a></li>
+                <li><a href="/fivelotteryIndex?lottery_type=zjfive">浙江11选5</a></li>
+                <li><a href="/fivelotteryIndex?lottery_type=jxfive">江西11选5</a></li>
+                <li><a href="/fivelotteryIndex?lottery_type=liaoningfive">辽宁11选5</a></li>
+                <li><a href="/fivelotteryIndex?lottery_type=hljfive">黑龙江11选5</a></li>
+            </ul>
+        </div>
     @endif
 </div>
 {{--隐藏登陆框--}}
