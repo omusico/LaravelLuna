@@ -101,7 +101,24 @@
     @if(!Auth::guest())
         <label class="form-control" style="text-align: center">余额：{{Auth::user()->lu_user_data->points}}</label>
         <a class="btn-danger btn-lg form-control" href="/logout" style="text-align: center">退出登陆</a>
+
         <input type="hidden" id="isLogin">
+        <div class="dropdown">
+            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                玩法选择
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/lotteryIndex?lottery_type=jsold">江苏快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=beijin">北京快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=anhui">安徽快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=hebei">河北快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=jilin">吉林快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=jsnew">广西快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=hubei">湖北快三</a></li>
+                <li><a href="/lotteryIndex?lottery_type=nmg">内蒙古快三</a></li>
+            </ul>
+        </div>
     @endif
 </div>
 {{--隐藏登陆框--}}
