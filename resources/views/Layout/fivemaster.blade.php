@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/five.css') }}">
     <link rel="icon" href="fivefavicon.ico" type="image/x-icon"/>
     <style type="text/css">
-        .fivemologo{
+        .fivemologo {
             height: 100px;
             width: 100%;
             background: url({{asset('/css/fivemlogo.jpg')}}) no-repeat;
@@ -24,9 +24,11 @@
             clear: none;
             padding: 0px;
         }
+
         .kj-w110mobile {
             width: auto;
         }
+
         .navbar-nav > li {
             padding-left: 18px;
             padding-right: 18px;
@@ -61,8 +63,10 @@
                 <div style="float: right">
                     @if(!Auth::guest())
                         <a style="color: red" href="logout">退出</a>&nbsp;&nbsp;<a style="color: #666">余额:&nbsp;</a> <a
-                                style="color: red">{{ Auth::user()->lu_user_data->points}}元</a>&nbsp;&nbsp;<a href="userLotteryBetting" style="color: #666">我的彩票</a>&nbsp;&nbsp;<a href="recharge"
-                                                                                                                                                                                   style="color: #666">充值</a>&nbsp;&nbsp;<a href="deposit" style="color: #666">提款</a>
+                                style="color: red">{{ Auth::user()->lu_user_data->points}}元</a>&nbsp;&nbsp;<a
+                                href="userLotteryBetting" style="color: #666">我的彩票</a>&nbsp;&nbsp;<a href="recharge"
+                                                                                                     style="color: #666">充值</a>
+                        &nbsp;&nbsp;<a href="deposit" style="color: #666">提款</a>
                     @else
                         <a href="login" style="color: red">登陆</a>&nbsp;<a href="register" style="color: red">注册</a>
                     @endif
@@ -100,7 +104,8 @@
                 <li><a href="/userLotteryBetting" target="_blank" style="color:red;font-weight: bold"
                        title="交易记录">交易记录</a>
                 </li>
-                <li><a href="/fivelotteryIndex?lottery_type=sdfive" title="手机下注" style="color:red;font-weight: bold">手机下注</a></li>
+                <li><a href="/fivelotteryIndex?lottery_type=sdfive" title="手机下注" style="color:red;font-weight: bold">手机下注</a>
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" style="color:red;font-weight: bold" data-toggle="dropdown"
                        role="button">网址<span class="caret"></span></a>
@@ -117,7 +122,7 @@
 </nav>
 <div style="width: 100%;background-color:#FCAB1D ">
     <div class="container" style="background-color: #FCAB1D;">
-        <div class="collapse navbar-collapse navbar-responsive-collapse" >
+        <div class="collapse navbar-collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav nav">
                 <li><a href="/" style="color:white;font-weight: bold">网站首页</a></li>
                 <li><a href="/fiveGameRule" style="color:white;font-weight: bold" title="游戏规则">游戏规则</a></li>
@@ -125,11 +130,13 @@
                 <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:white;font-weight: bold"
                        title="走势图">走势图</a>
                 </li>
-                <li><a title="合作代理" target="_blank" style="color:white;font-weight: bold" href="/inviteurl">合作代理</a></li>
+                <li><a title="合作代理" target="_blank" style="color:white;font-weight: bold" href="/inviteurl">合作代理</a>
+                </li>
                 <li><a href="/userLotteryBetting" target="_blank" style="color:white;font-weight: bold"
                        title="交易记录">交易记录</a>
                 </li>
-                <li><a href="/fivelotteryIndex?lottery_type=sdfive" title="手机下注" style="color:white;font-weight: bold">手机下注</a></li>
+                <li><a href="/fivelotteryIndex?lottery_type=sdfive" title="手机下注" style="color:white;font-weight: bold">手机下注</a>
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" style="color:white;font-weight: bold" data-toggle="dropdown"
                        role="button">网址<span class="caret"></span></a>
@@ -150,19 +157,34 @@
         <a class="btn-danger btn-lg form-control" href="/logout" style="text-align: center;background-color: #f9d450">退出登陆</a>
         <input type="hidden" id="isLogin">
         <div class="dropdown">
-            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
                 玩法选择
                 <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="/fivelotteryIndex?lottery_type=sdfive">山东11选5</a></li>
-                <li><a href="/fivelotteryIndex?lottery_type=gdfive">广东11选5</a></li>
-                <li><a href="/fivelotteryIndex?lottery_type=shfive">上海11选5</a></li>
-                <li><a href="/fivelotteryIndex?lottery_type=zjfive">浙江11选5</a></li>
-                <li><a href="/fivelotteryIndex?lottery_type=jxfive">江西11选5</a></li>
-                <li><a href="/fivelotteryIndex?lottery_type=liaoningfive">辽宁11选5</a></li>
-                <li><a href="/fivelotteryIndex?lottery_type=hljfive">黑龙江11选5</a></li>
-            </ul>
+            @if(!empty(strstr($_SERVER['REQUEST_URI'],'fivelotterytrend')))
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="/fivelotterytrend?lottery_type=sdfive">山东11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=gdfive">广东11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=shfive">上海11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=zjfive">浙江11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=jxfive">江西11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=liaoningfive">辽宁11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=hljfive">黑龙江11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=cqfive">重庆11选5</a></li>
+                </ul>
+
+            @else
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="/fivelotteryIndex?lottery_type=sdfive">山东11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=gdfive">广东11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=shfive">上海11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=zjfive">浙江11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=jxfive">江西11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=liaoningfive">辽宁11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=hljfive">黑龙江11选5</a></li>
+                </ul>
+            @endif
         </div>
     @endif
 </div>
@@ -170,7 +192,7 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content" >
+        <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" style="color: #242001"
                         aria-hidden="true">×
@@ -302,10 +324,10 @@
             $(".mobilhide").hide();
             $(".mobilShow").show();
             $(".kj_tab .hm-con").addClass("hm-conmobile");
-            $(".kj_tab .hm-con").css("width","auto").css("float","left");
-            $(".kj_tab .hm-con div").css("margin","0px");
-            $(".kj_tab").css("width","auto");
-            $(".w700").css("width","500px");
+            $(".kj_tab .hm-con").css("width", "auto").css("float", "left");
+            $(".kj_tab .hm-con div").css("margin", "0px");
+            $(".kj_tab").css("width", "auto");
+            $(".w700").css("width", "500px");
             $(".kj-w110").addClass("kj-w110mobile");
 
             $(".btn").addClass("btn-lg");
@@ -316,6 +338,8 @@
             @if(Auth::guest() && empty($islogin) && empty($isregister))
             location.replace('/login');
             @endif
+
+
 
 
 
@@ -343,6 +367,8 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
+
+
                 }
             }
 

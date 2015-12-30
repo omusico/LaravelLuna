@@ -7,6 +7,9 @@
         .fiveNum {
             padding: 5px;
         }
+        .all_box ul{
+            padding: 0px;
+        }
     </style>
     <script type="text/javascript">
         var lottery_type = '{{$config['lotterytype']}}';
@@ -14,7 +17,7 @@
     </script>
 @stop
 @section('content')
-    <div class="container" style="min-width: 500px">
+    <div class="container" style="min-width: 450px">
         <div class="zgk3_info_box">
             <div class=" zgk3_top row">
                 <div class="zgk3_info_l col-md-4">
