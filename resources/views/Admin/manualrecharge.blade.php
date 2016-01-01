@@ -52,17 +52,24 @@
                 </div>
             </div>
             <?php
-            $users = \App\lu_user_data::where("loginIp", $user->lu_user_data->loginIp)->get();
+            if (!is_null($user->lu_user_data->loginIp)) {
+                $users = \App\lu_user_data::where("loginIp", $user->lu_user_data->loginIp)->get();
+                $count = $users->count();
+            } else {
+                $count = 0;
+            }
             ?>
-            @if($users->count()>1)
-                <div class="form-group">
-                    <div class="col-md-4 col-md-offset-2" style="color: red;font-size: larger">
-                        @foreach($users as $user)
-                            {{\App\lu_user::find($user->uid)->name}}
-                        @endforeach
-                        共用一个ip，请知悉
+            @if(isset($count))
+                @if($count>1)
+                    <div class="form-group">
+                        <div class="col-md-4 col-md-offset-2" style="color: red;font-size: larger">
+                            @foreach($users as $user)
+                                {{\App\lu_user::find($user->uid)->name}}
+                            @endforeach
+                            共用一个ip，请知悉
+                        </div>
                     </div>
-                </div>
+                @endif
             @endif
             <div class="form-group">
                 <div class="col-md-4 col-md-offset-2">
