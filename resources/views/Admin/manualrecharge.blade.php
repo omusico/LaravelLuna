@@ -51,6 +51,19 @@
                     {!! Form::text('points', $user->lu_user_data->points, ['class' => 'form-control','readonly']) !!}
                 </div>
             </div>
+            <?php
+            $users = \App\lu_user_data::where("loginIp", $user->lu_user_data->loginIp)->get();
+            ?>
+            @if($users->count()>1)
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2" style="color: red;font-size: larger">
+                        @foreach($users as $user)
+                            {{\App\lu_user::find($user->uid)->name}}
+                        @endforeach
+                        共用一个ip，请知悉
+                    </div>
+                </div>
+            @endif
             <div class="form-group">
                 <div class="col-md-4 col-md-offset-2">
                     {!! Form::submit('完成,创建', ['class' => 'btn btn-success form-control']) !!}
