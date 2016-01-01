@@ -101,6 +101,7 @@ Route::get('GetSqlData', 'Admin\AdminController@GetSqlData');
 Route::get('GetLogsfile', 'Admin\AdminController@GetLogsfile');
 Route::get('LotteriesResult', 'Admin\AdminController@LotteriesResult');
 Route::get('lotteryswitch', 'Admin\AdminController@lotteryswitch');
+Route::get('updateAdmin', 'Admin\AdminController@updateAdmin');
 Route::any('LotteriesResult/{id}','Admin\AdminController@LotteriesResultDelete');
 
 #上传分数

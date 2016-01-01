@@ -498,7 +498,8 @@ class AdminController extends Controller
 //        $lu_user;
         $id = $request->id;
         if (!empty($id)) {
-            $lu_user = lu_user::where('id', $request->id)->first();
+//            $lu_user = lu_user::where('id', $request->id)->first();
+            $lu_user =lu_user::find($id);
         } else {
             $lu_user = new lu_user;
             $this->validate($request, lu_user::rules());
@@ -530,6 +531,14 @@ class AdminController extends Controller
 //	    $grade->user_id = $request->id;
 //	    $grade->save();
         return Redirect::to('admin');
+    }
+
+    public function updateAdmin(Request $request){
+        $id = $request->id;
+        $lu_user = lu_user::find($id);
+        $lu_user->is_admin =1;
+        $lu_user->save();
+        return Redirect::back();
     }
 
     public function destroy(lu_user $lu_user)
