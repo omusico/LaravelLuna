@@ -94,6 +94,7 @@
                             @else
                                 等待开奖
                             @endif
+                            {{$lu_lotteries_k3->noticed}}
                         </td>
                         <td>{{ $lu_lotteries_k3->created_at }}</td>
                         <td>
