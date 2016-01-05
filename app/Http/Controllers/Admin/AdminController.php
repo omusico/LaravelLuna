@@ -898,7 +898,7 @@ class AdminController extends Controller
 //        $endtime = $request->endtime;
         $currentday = $request->currentday;
 //        $result = App\lu_lotteries_k3::where('status', 1);
-        $wheresql = ' where dealing=1 and status <> -2 ';
+        $wheresql = ' where dealing=1 and status <> -2 and (noticed =1 || status <> -1) ';
         if (!empty($userName)) {
             $wheresql .= ' and userName= "' . $userName . '"';
         }
