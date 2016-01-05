@@ -1102,7 +1102,7 @@ class AdminController extends Controller
             return Redirect::back();
         }
 
-        $lu_points_records = DB::select('select uid,userName,sum(changePoint) as changePoint,addType from lu_points_records' . $wheresql . ' group by uid');
+        $lu_points_records = DB::select('select uid,userName,sum(ABS(changePoint)) as changePoint,addType from lu_points_records' . $wheresql . ' group by uid');
         $downlist = array();
         foreach ($lu_points_records as $lu_points_record) {
             array_push($downlist, (array)$lu_points_record);
@@ -1117,10 +1117,10 @@ class AdminController extends Controller
                     '用户ID', '用户名', '金额', '明细类型'
                 ));
                 $sheet->setWidth([
-                    'A' => 11,
-                    'B' => 8,
-                    'C' => 5,
-                    'D' => 12,
+                    'A' => 21,
+                    'B' => 18,
+                    'C' => 15,
+                    'D' => 22,
                 ]);
                 $sheet->getDefaultStyle();
 

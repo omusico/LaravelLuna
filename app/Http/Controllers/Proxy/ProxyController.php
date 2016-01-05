@@ -35,7 +35,7 @@ class ProxyController extends Controller
                 $endtime = $request->endtime;
 
 //                $wheresql = ' where 1=1 ';
-                $wheresql = ' where dealing=1 and status <> -2 ';
+                $wheresql = ' where dealing=1 and status <> -2 and (noticed =1 || status <> -1) ';
                 $RecUsers = 'select * from lu_users where recId = '.Auth::user()->id;
                 if (!empty($userName)) {
                     $wheresql .= ' and userName= "' . $userName . '"';
