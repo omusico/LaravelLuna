@@ -772,13 +772,15 @@ class LunaFunctions
         }
     }
 
-    function sdkjAddRecord($lotteryType, $winPre, $winCode)
+    function sdkjAddRecord($lotteryType, $winPre, $winCode,$source)
     {
         $lotteryType = strtoupper($lotteryType);
 //        $lotteryResult = Waf::model('lottery/result');
 //        $count = $lotteryResult->isExistsProName($winPre,$lotteryType);
         $count = lu_lotteries_result::where('proName', $winPre)->where('typeName', $lotteryType)->count();
-
+        if(empty($source)){
+            $source ="manual";
+        }
 
         if ($lotteryType == 'CHE' || $lotteryType == 'BEIJIN') {
             $peroid = $winPre;
@@ -795,7 +797,7 @@ class LunaFunctions
                 'typeName' => $lotteryType,
                 'codes' => $winCode,
                 'created' => $kjTime,
-                'source' => 'manual'
+                'source' => $source
             );
 //            $lotteryResult->insert($data);
             lu_lotteries_result::create($data);

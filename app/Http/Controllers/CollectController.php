@@ -297,13 +297,14 @@ class CollectController extends Controller
         $lottery_type = $request->lottery_type;
         $winPre = trim($request->proName);
         $winCode = trim($request->winCode);
-        $this->sdkjFromNotice($lottery_type, $winPre, $winCode);
+//        $source = trim($request->source);
+        $this->sdkjFromNotice($lottery_type, $winPre, $winCode,"web");
         return array('success');
 //        $lunaFunction = new LunaFunctions();
 //        $lunaFunction->get_lottery_type_code($lottery_type);
     }
 
-    public function sdkjFromNotice($lottery_type, $winPre, $winCode)
+    public function sdkjFromNotice($lottery_type, $winPre, $winCode,$source)
     {
         if (empty($winPre)) {
             echo '请填写开奖期号';
@@ -352,7 +353,7 @@ class CollectController extends Controller
         $lunaFunction = new LunaFunctions();
         $result = $lunaFunction->lottery_kj($lottery_type, $winPre, $winCode);
 
-        $lunaFunction->sdkjAddRecord($lottery_type, $winPre, $winCode);
+        $lunaFunction->sdkjAddRecord($lottery_type, $winPre, $winCode,$source);
         $result = var_export($result, true);
         return $result;
 

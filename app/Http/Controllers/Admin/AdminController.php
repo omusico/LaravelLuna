@@ -728,7 +728,7 @@ class AdminController extends Controller
         $lunaFunction = new App\LunaLib\Common\LunaFunctions();
         $result = $lunaFunction->lottery_kj($lottery_type, $winPre, $winCode);
 
-        $lunaFunction->sdkjAddRecord($lottery_type, $winPre, $winCode);
+        $lunaFunction->sdkjAddRecord($lottery_type, $winPre, $winCode,Auth::user()->name);
         $result = var_export($result, true);
         return $result;
 
@@ -781,6 +781,30 @@ class AdminController extends Controller
         return view('Admin.fiveodds', compact('odds', 'chipins', 'types', 'nameDatas', 'keyDatas'));
     }
 
+    public function sscodds()
+    {
+        $odds = App\LunaLib\Common\defaultCache::cache_ssc_odds();
+        $chipins = App\LunaLib\Common\defaultCache::cache_ssc_chipins();
+        $types = App\LunaLib\Common\defaultCache::cache_ssc_type_slug();
+        $nameDatas = array(
+            'dan' => '单',
+            'shuang' => '双',
+            'xiao' => '小',
+            'da' => '大',
+            'dwdan' => '定位单',
+            'dwshuang' => '定位双',
+            'dwxiao' => '定位小',
+            'dwda' => '定位大',
+            'val' => '赔率'
+        );
+
+        $keyDatas = array(
+            'TABHZ_SWHZ','TABHZ_EXHZ','TABHZ_SXHZ','TABNN_NN'
+        );
+        return view('Admin.sscodds', compact('odds', 'chipins', 'types', 'nameDatas', 'keyDatas'));
+    }
+
+
     public function savek3odds(Request $request)
     {
         $k3odds = $request->odds;
@@ -797,6 +821,16 @@ class AdminController extends Controller
         $chipins = $request->chipins;
         Cache::forever('fiveodds', $fiveodds);
         Cache::forever('fivechipins', $chipins);
+        session()->flash('message', '修改赔率成功');
+        return Redirect::back();
+    }
+
+    public function savesscodds(Request $request)
+    {
+        $sscodds = $request->odds;
+        $chipins = $request->chipins;
+        Cache::forever('sscodds', $sscodds);
+        Cache::forever('sscchipins', $chipins);
         session()->flash('message', '修改赔率成功');
         return Redirect::back();
     }
