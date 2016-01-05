@@ -73,7 +73,8 @@
             @endif
             <div class="form-group">
                 <div class="col-md-4 col-md-offset-2">
-                    {!! Form::submit('完成,创建', ['class' => 'btn btn-success form-control']) !!}
+                    {{--{!! Form::submit('完成,创建', ['class' => 'btn btn-success form-control']) !!}--}}
+                    <button class="btn btn-success form-control" onclick="return confirm('确定添加?')">添加金额</button>
                 </div>
             </div>
             {!! Form::close() !!}
