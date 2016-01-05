@@ -728,7 +728,7 @@ class AdminController extends Controller
         $lunaFunction = new App\LunaLib\Common\LunaFunctions();
         $result = $lunaFunction->lottery_kj($lottery_type, $winPre, $winCode);
 
-        $lunaFunction->sdkjAddRecord($lottery_type, $winPre, $winCode,Auth::user()->name);
+        $lunaFunction->sdkjAddRecord($lottery_type, $winPre, $winCode,\Auth::user()->name);
         $result = var_export($result, true);
         return $result;
 
