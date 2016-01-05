@@ -234,6 +234,8 @@ class LotteryK3Controller extends Controller
 
                     $totals = $totals + $eachPrice;
 
+                    $allprice =  lu_lotteries_k3::where('uid',Auth::user()->id)->where("typeid",intval($types[$slug]['typeId']))->where("proName",$proName)->where("province",$lottery_type)->sum("eachPrice");
+
                     if ($slug == 'HZ' && in_array($code, array('单', '双', '大', '小'))) {
                         $buyedMondy[$code] += $eachPrice;
                         $highest = $chipins['HZ']['dsdx_hight'];//get_tz_dsdx_highest('lottery', 'HZ');
@@ -243,8 +245,8 @@ class LotteryK3Controller extends Controller
                             return array('tip' => 'error', 'msg' => '当前有单注投注金额小于' . $lowest . '块,请重新投注');
                         }
 //
-                        if ($buyedMondy[$code] > $highest) {
-                            return array('tip' => 'error', 'msg' => '您该期所下注金额' . $code . '超过最大限额' . $highest . ',请重新下注', 'points' => $points);
+                        if ($buyedMondy[$code] + $allprice > $highest) {
+                            return array('tip' => 'error', 'msg' => '您该期所下注金额' . $code . '超过当期最大限额' . $highest . ',请重新下注', 'points' => $points);
                         }
                     } else {
                         $highest = $chipins[$slug]['hight'];
@@ -254,8 +256,8 @@ class LotteryK3Controller extends Controller
                             return array('tip' => 'error', 'msg' => '当前有单注投注金额小于' . $lowest . '块,请重新投注');
                         }
 
-                        if ($price > $highest) {
-                            return array('tip' => 'error', 'msg' => '您该期所下注金额' . $code . '超过最大限额' . $highest . ',请重新下注', 'points' => $points);
+                        if ($price + $allprice > $highest) {
+                            return array('tip' => 'error', 'msg' => '您该期所下注金额' . $code . '超过当期最大限额' . $highest . ',请重新下注', 'points' => $points);
                         }
                     }
                 }
