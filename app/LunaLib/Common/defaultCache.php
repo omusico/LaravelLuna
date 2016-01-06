@@ -912,7 +912,7 @@ class defaultCache
                         array(
                             'url' => 'http://www.cailele.com/static/11yun/newlyopenlist.xml',
                             'status' => '1',
-                            'priority' => 1,
+                            'priority' => 3,
                             'touUrl' => '',
                             'kjTime' => 150,
                             'fdTime' => 120,
@@ -1075,7 +1075,7 @@ class defaultCache
                         array(
                             'url' => 'http://www.cailele.com/static/sh11x5/newlyopenlist.xml',
                             'status' => '1',
-                            'priority' => 0,
+                            'priority' => 2,
                             'touUrl' => '',
                             'kjTime' => 150,
                             'fdTime' => 120,
@@ -2453,6 +2453,9 @@ class defaultCache
 
     public static function cache_ssc_chipins()
     {
+        if (\Cache::has('sscchipins')) {
+            return \Cache::get('sscchipins');
+        }
         return array(
             'TABSXZHIX_QSZHIX' =>
                 array(
@@ -2592,6 +2595,9 @@ class defaultCache
 
     public static function cache_ssc_odds()
     {
+        if (\Cache::has('sscodds')) {
+            return \Cache::get('sscodds');
+        }
         return array(
             'TABSXZHIX_QSZHIX' =>
                 array(
@@ -2995,45 +3001,46 @@ class defaultCache
         );
     }
 
-    public static function cache_ssc_first_types(){
-        return array (
-            12 => array (
+    public static function cache_ssc_first_types()
+    {
+        return array(
+            12 => array(
                 'typeId' => '12',
                 'name' => '三星直选',
                 'odds' => '90',
                 'slug' => 'TABSXZHIX'
             ),
-            21 => array (
+            21 => array(
                 'typeId' => '21',
                 'name' => '三星组选',
                 'odds' => '90',
                 'slug' => 'TABSXZUX'
             ),
-            22 => array (
+            22 => array(
                 'typeId' => '22',
                 'name' => '和值',
                 'odds' => '90',
                 'slug' => 'TABHZ'
             ),
-            23 => array (
+            23 => array(
                 'typeId' => '23',
                 'name' => '二星',
                 'odds' => '90',
                 'slug' => 'TABEX'
             ),
-            26 => array (
+            26 => array(
                 'typeId' => '26',
                 'name' => '定位胆',
                 'odds' => '90',
                 'slug' => 'TABDW'
             ),
-            24 => array (
+            24 => array(
                 'typeId' => '24',
                 'name' => '五星',
                 'odds' => '90',
                 'slug' => 'TABWX'
             ),
-            25 => array (
+            25 => array(
                 'typeId' => '25',
                 'name' => '牛牛',
                 'odds' => '90',
@@ -3042,28 +3049,29 @@ class defaultCache
         );
     }
 
-    public static function cache_ssc_types(){
-        return array (
-            1 => array (
+    public static function cache_ssc_types()
+    {
+        return array(
+            1 => array(
                 'typeId' => '1',
-                'name' => '前三直选',
+                'name' => '特码',
                 'odds' => '90',
                 'firsttype' => 'TABSXZHIX',
                 'slug' => 'TABSXZHIX_QSZHIX'
             ),
-            2 => array (
+            2 => array(
                 'typeId' => '2',
                 'name' => '中三直选',
                 'firsttype' => 'TABSXZHIX',
                 'slug' => 'TABSXZHIX_ZSZHIX'
             ),
-            3 => array (
+            3 => array(
                 'typeId' => '3',
                 'name' => '后三直选',
                 'firsttype' => 'TABSXZHIX',
                 'slug' => 'TABSXZHIX_HSZHIX'
             ),
-            4 => array (
+            4 => array(
                 'typeId' => '4',
                 'name' => '前三组三',
                 'odds' => '90',
@@ -3071,37 +3079,37 @@ class defaultCache
                 'slug' => 'TABSXZUX_QSZUX'
             ),
 
-            5 => array (
+            5 => array(
                 'typeId' => '5',
                 'name' => '中三组三',
                 'firsttype' => 'TABSXZUX',
                 'slug' => 'TABSXZUX_ZSZUX'
             ),
-            6 => array (
+            6 => array(
                 'typeId' => '6',
                 'name' => '后三组三',
                 'firsttype' => 'TABSXZUX',
                 'slug' => 'TABSXZUX_HSZUX'
             ),
-            7 => array (
+            7 => array(
                 'typeId' => '7',
                 'name' => '前三组六',
                 'firsttype' => 'TABSXZUX',
                 'slug' => 'TABSXZUX_QSZUL'
             ),
-            8 => array (
+            8 => array(
                 'typeId' => '8',
                 'name' => '中三组六',
                 'firsttype' => 'TABSXZUX',
                 'slug' => 'TABSXZUX_ZSZUL'
             ),
-            9 => array (
+            9 => array(
                 'typeId' => '9',
                 'name' => '后三组六',
                 'firsttype' => 'TABSXZUX',
                 'slug' => 'TABSXZUX_HSZUL'
             ),
-            10 => array (
+            10 => array(
                 'typeId' => '10',
                 'name' => '组三直选',
                 'odds' => '90',
@@ -3109,93 +3117,93 @@ class defaultCache
                 'slug' => 'TABSXZUX_ZUSZHIX'
             ),
 
-            12 => array (
+            12 => array(
                 'typeId' => '12',
                 'name' => '首尾和值',
                 'firsttype' => 'TABHZ',
                 'slug' => 'TABHZ_SWHZ'
             ),
-            11 => array (
+            11 => array(
                 'typeId' => '11',
                 'name' => '三星和值',
                 'firsttype' => 'TABHZ',
                 'slug' => 'TABHZ_SXHZ'
             ),
 
-            13 => array (
+            13 => array(
                 'typeId' => '13',
                 'name' => '二星和值',
                 'firsttype' => 'TABHZ',
                 'slug' => 'TABHZ_EXHZ'
             ),
-            14 => array (
+            14 => array(
                 'typeId' => '14',
                 'name' => '前二直选',
                 'firsttype' => 'TABEX',
                 'slug' => 'TABEX_QEZHIX'
             ),
 
-            15 => array (
+            15 => array(
                 'typeId' => '15',
                 'name' => '后二直选',
                 'firsttype' => 'TABEX',
                 'slug' => 'TABEX_HEZHIX'
             ),
-            16 => array (
+            16 => array(
                 'typeId' => '16',
                 'name' => '前二组二',
                 'firsttype' => 'TABEX',
                 'slug' => 'TABEX_QEZUE'
             ),
-            17 => array (
+            17 => array(
                 'typeId' => '17',
                 'name' => '后二组二',
                 'firsttype' => 'TABEX',
                 'slug' => 'TABEX_HEZUE'
             ),
-            18 => array (
+            18 => array(
                 'typeId' => '18',
                 'name' => '五星直选',
                 'firsttype' => 'TABWX',
                 'slug' => 'TABWX_WXZHIX'
             ),
-            19 => array (
+            19 => array(
                 'typeId' => '19',
                 'name' => '五星通选',
                 'firsttype' => 'TABWX',
                 'slug' => 'TABWX_WXTX'
             ),
-            20 => array (
+            20 => array(
                 'typeId' => '20',
                 'name' => '牛牛玩法',
                 'firsttype' => 'TABNN',
                 'slug' => 'TABNN_NN'
             ),
-            21 => array (
+            21 => array(
                 'typeId' => '21',
                 'name' => '第一位',
                 'firsttype' => 'TABDW',
                 'slug' => 'TABDW_YI'
             ),
-            22 => array (
+            22 => array(
                 'typeId' => '22',
                 'name' => '第二位',
                 'firsttype' => 'TABDW',
                 'slug' => 'TABDW_ER'
             ),
-            23 => array (
+            23 => array(
                 'typeId' => '23',
                 'name' => '第三位',
                 'firsttype' => 'TABDW',
                 'slug' => 'TABDW_SAN'
             ),
-            24 => array (
+            24 => array(
                 'typeId' => '24',
                 'name' => '第四位',
                 'firsttype' => 'TABDW',
                 'slug' => 'TABDW_SI'
             ),
-            25 => array (
+            25 => array(
                 'typeId' => '25',
                 'name' => '第五位',
                 'firsttype' => 'TABDW',
@@ -3204,4 +3212,313 @@ class defaultCache
         );
     }
 
+    public static function cache_6he_first_types()
+    {
+        return array(
+            1 => array(
+                'typeId' => '1',
+                'name' => '特码/正码/正码特',
+                'odds' => '90',
+                'slug' => 'TM'
+            ),
+//            2 => array(
+//                'typeId' => '2',
+//                'name' => '生肖',
+//                'odds' => '90',
+//                'slug' => 'SX'
+//            ),
+//            3 => array(
+//                'typeId' => '3',
+//                'name' => '连码',
+//                'odds' => '90',
+//                'slug' => 'LM'
+//            ),
+//            4 => array(
+//                'typeId' => '4',
+//                'name' => '自选不中',
+//                'odds' => '90',
+//                'slug' => 'ZXBZ'
+//            )
+        );
+    }
+
+    public static function cache_6he_types()
+    {
+        return array(
+            1 => array(
+                'typeId' => '1',
+                'name' => '特码',
+                'odds' => '48.5',
+                'firsttype' => 'TM',
+                'wei' => '7',
+                'slug' => 'TM_TM'
+            ),
+            2 => array(
+                'typeId' => '2',
+                'name' => '特码B',
+                'odds' => '48.5',
+                'firsttype' => 'TM',
+                'wei' => '7B',
+                'slug' => 'TM_TMB'
+            ),
+            3 => array(
+                'typeId' => '3',
+                'name' => '正码',
+                'odds' => '48.5',
+                'firsttype' => 'TM',
+                'wei' => '正码',
+                'slug' => 'TM_ZM'
+            ),
+            4 => array(
+                'typeId' => '4',
+                'name' => '正码一',
+                'odds' => '48.5',
+                'firsttype' => 'TM',
+                'wei' => '1',
+                'slug' => 'TM_ZMYI'
+            ),
+            5 => array(
+                'typeId' => '5',
+                'name' => '正码二',
+                'odds' => '48.5',
+                'firsttype' => 'TM',
+                'wei' => '2',
+                'slug' => 'TM_ZMER'
+            ),
+            6 => array(
+                'typeId' => '6',
+                'name' => '正码三',
+                'odds' => '48.5',
+                'firsttype' => 'TM',
+                'wei' => '3',
+                'slug' => 'TM_ZMSAN'
+            ),
+            7 => array(
+                'typeId' => '7',
+                'name' => '正码四',
+                'odds' => '48.5',
+                'firsttype' => 'TM',
+                'wei' => '4',
+                'slug' => 'TM_SI'
+            ),
+            8 => array(
+                'typeId' => '8',
+                'name' => '正码五',
+                'odds' => '48.5',
+                'firsttype' => 'TM',
+                'wei' => '5',
+                'slug' => 'TM_WU'
+            ),
+            9 => array(
+                'typeId' => '9',
+                'name' => '正码六',
+                'odds' => '48.5',
+                'firsttype' => 'TM',
+                'wei' => '6',
+                'slug' => 'TM_LIU'
+            ),
+            10 => array(
+                'typeId' => '10',
+                'name' => '半波',
+                'odds' => '48.5',
+                'firsttype' => 'TM',
+                'wei' => '半波',
+                'slug' => 'TM_BANPO'
+            ),
+            11 => array(
+                'typeId' => '11',
+                'name' => '特码生肖',
+                'odds' => '11.3',
+                'firsttype' => 'SX',
+                'wei' => '特码生肖',
+                'slug' => 'SX_TEMA'
+            ),
+            12 => array(
+                'typeId' => '12',
+                'name' => '一肖',
+                'odds' => '11.3',
+                'firsttype' => 'SX',
+                'wei' => '一肖[中]',
+                'slug' => 'SX_YIX'
+            ),
+            13 => array(
+                'typeId' => '13',
+                'name' => '正肖',
+                'odds' => '11.3',
+                'firsttype' => 'SX',
+                'wei' => '正肖',
+                'slug' => 'SX_ZX'
+            ),
+            14 => array(
+                'typeId' => '14',
+                'name' => '连肖',
+                'odds' => '11.3',
+                'firsttype' => 'SX',
+                'wei' => '连肖',
+                'slug' => 'SX_LX'
+            ),
+            15 => array(
+                'typeId' => '15',
+                'name' => '连尾',
+                'odds' => '11.3',
+                'firsttype' => 'SX',
+                'wei' => '连尾',
+                'slug' => 'SX_LW'
+            ),
+            16 => array(
+                'typeId' => '16',
+                'name' => '多肖',
+                'odds' => '11.3',
+                'firsttype' => 'SX',
+                'wei' => '多肖',
+                'slug' => 'SX_DS'
+            ),
+            17 => array(
+                'typeId' => '17',
+                'name' => '四全中',
+                'odds' => '10000',
+                'firsttype' => 'LM',
+                'wei' => '四全中',
+                'slug' => 'LM_SIQZ'
+            ),
+            18 => array(
+                'typeId' => '18',
+                'name' => '三全中',
+                'odds' => '650',
+                'firsttype' => 'LM',
+                'wei' => '三全中',
+                'slug' => 'LM_SANQZ'
+            ),
+            19 => array(
+                'typeId' => '19',
+                'name' => '三中二',
+                'odds' => '20,100',
+                'firsttype' => 'LM',
+                'wei' => '三全二',
+                'slug' => 'LM_SANZER'
+            ),
+            20 => array(
+                'typeId' => '20',
+                'name' => '二全中',
+                'odds' => '63',
+                'firsttype' => 'LM',
+                'wei' => '二全中',
+                'slug' => 'LM_ERQZ'
+            ),
+            21 => array(
+                'typeId' => '21',
+                'name' => '二中特',
+                'odds' => '31，51',
+                'firsttype' => 'LM',
+                'wei' => '二中特',
+                'slug' => 'LM_ERZTE'
+            ),
+            22 => array(
+                'typeId' => '22',
+                'name' => '特串',
+                'odds' => '155',
+                'firsttype' => 'LM',
+                'wei' => '特串',
+                'slug' => 'LM_TECHUAN'
+            ),
+            23 => array(
+                'typeId' => '23',
+                'name' => '三中一',
+                'odds' => '2.5',
+                'firsttype' => 'ZXBZ',
+                'wei' => '3中一',
+                'slug' => 'ZXBZ_SANZYI'
+            ),
+            24 => array(
+                'typeId' => '24',
+                'name' => '四中一',
+                'odds' => '1.97',
+                'firsttype' => 'ZXBZ',
+                'wei' => '4中一',
+                'slug' => 'ZXBZ_SIZYI'
+            ),
+            25 => array(
+                'typeId' => '25',
+                'name' => '五中一',
+                'odds' => '1.8',
+                'firsttype' => 'ZXBZ',
+                'wei' => '5中一',
+                'slug' => 'ZXBZ_WUZYI'
+            ),
+            26 => array(
+                'typeId' => '26',
+                'name' => '六中一',
+                'odds' => '1.65',
+                'firsttype' => 'ZXBZ',
+                'wei' => '6中一',
+                'slug' => 'ZXBZ_LIUZYI'
+            ),
+            27 => array(
+                'typeId' => '27',
+                'name' => '五不中',
+                'odds' => '1.98',
+                'firsttype' => 'ZXBZ',
+                'wei' => '5不中',
+                'slug' => 'ZXBZ_WUBUZ'
+            ),
+            28 => array(
+                'typeId' => '28',
+                'name' => '六不中',
+                'odds' => '2.6',
+                'firsttype' => 'ZXBZ',
+                'wei' => '6不中',
+                'slug' => 'ZXBZ_LIUBUZ'
+            ),
+            29 => array(
+                'typeId' => '29',
+                'name' => '七不中',
+                'odds' => '3.2',
+                'firsttype' => 'ZXBZ',
+                'wei' => '7不中',
+                'slug' => 'ZXBZ_QIBUZ'
+            ),
+            30 => array(
+                'typeId' => '30',
+                'name' => '八不中',
+                'odds' => '3.6',
+                'firsttype' => 'ZXBZ',
+                'wei' => '8不中',
+                'slug' => 'ZXBZ_BABUZ'
+            ),
+            31 => array(
+                'typeId' => '31',
+                'name' => '九不中',
+                'odds' => '4.3',
+                'firsttype' => 'ZXBZ',
+                'wei' => '9不中',
+                'slug' => 'ZXBZ_JIUBUZ'
+            ),
+            32 => array(
+                'typeId' => '32',
+                'name' => '十不中',
+                'odds' => '5.2',
+                'firsttype' => 'ZXBZ',
+                'wei' => '10不中',
+                'slug' => 'ZXBZ_SHIBUZ'
+            ),
+            33 => array(
+                'typeId' => '33',
+                'name' => '十一不中',
+                'odds' => '6.35',
+                'firsttype' => 'ZXBZ',
+                'wei' => '11不中',
+                'slug' => 'ZXBZ_SHIYIBUZ'
+            ),
+            34 => array(
+                'typeId' => '34',
+                'name' => '十二不中',
+                'odds' => '7.8',
+                'firsttype' => 'ZXBZ',
+                'wei' => '12不中',
+                'slug' => 'ZXBZ_SHIERBUZ'
+            ),
+
+        );
+
+    }
 }
