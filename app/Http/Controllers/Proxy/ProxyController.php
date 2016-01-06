@@ -42,15 +42,15 @@ class ProxyController extends Controller
                     $RecUsers .= ' and name = "' . $userName . '"';
                 }
                 if (empty($starttime) && empty($endtime)) {
-                    $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
+                    $wheresql .= ' and left(updated_at,10) ="' . date('Y-m-d') . '"';
                 }
                 if (!empty($starttime)) {
                     $starttime = substr($starttime,0,10);
-                    $wheresql .= ' and created_at >="' . $starttime . '"';
+                    $wheresql .= ' and updated_at >="' . $starttime . '"';
                 }
                 if (!empty($endtime)) {
                     $endtime = substr($endtime,0,10);
-                    $wheresql .= ' and created_at <="' . $endtime . '"';
+                    $wheresql .= ' and updated_at <="' . $endtime . '"';
                 }
                 if (env('SITE_TYPE', '') == 'five') {
                     $lu_lotteries_bettings = \DB::select('select recUser.id,recUser.name,countTable.bcount,countTable.eachPrice,countTable.bingoPrice, countTable.profit from ('.$RecUsers
