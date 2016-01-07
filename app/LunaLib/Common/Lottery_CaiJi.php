@@ -166,7 +166,7 @@ class Lottery_CaiJi{
 		$endTime =  date('Y/m/d').' 23:59:59';
 
 // 		<b>5</b><b>4</b><b>9</b><b>1</b><b>9</b>
-		$xx = Waf_Common::postByCurl("http://www.tjflcpw.com/Handlers/WinMessageHandler.ashx",
+		$xx = $this->postByCurl("http://www.tjflcpw.com/Handlers/WinMessageHandler.ashx",
 				array("currentPage"=>1,
 						"pageSize"=>13,
 						'playType' => 4,
@@ -176,7 +176,8 @@ class Lottery_CaiJi{
 						'endTime' => $endTime));
 		//     	var_dump($xx);
 
-		$str = mb_convert_encoding($xx, "utf-8", "gb2321");
+//		$str = mb_convert_encoding($xx, "utf-8", "gb2321");
+        $str = $xx;
 		$json  = json_decode($str,true);
 		$var = $json['WinNumList'][0]['BasicCode'];
 		$termCode =$json['WinNumList'][0]['TermCode'];  // 20150607015
@@ -298,10 +299,10 @@ class Lottery_CaiJi{
 
 		$preOpenResult = $result['preOpenResult'];
 
-		$result['preTerm'] = Waf_Common::strfilter($result['preTerm']);
+		$result['preTerm'] = $this->strfilter($result['preTerm']);
 
 		$result['preOpenResult'] = str_replace(" ", ",", $result['preOpenResult']);
-		$result['preOpenResult'] =  Waf_Common::strfilter($result['preOpenResult']);
+		$result['preOpenResult'] =  $this->strfilter($result['preOpenResult']);
 		$r = explode("," , $result['preOpenResult']);
 		$temp = array();
 		foreach ($r as $k=>$v){
@@ -331,10 +332,10 @@ class Lottery_CaiJi{
 
 		$preOpenResult = $result['preOpenResult'];
 
-		$result['preTerm'] = Waf_Common::strfilter($result['preTerm']);
+		$result['preTerm'] = $this->strfilter($result['preTerm']);
 
 		$result['preOpenResult'] = str_replace(" ", ",", $result['preOpenResult']);
-		$result['preOpenResult'] =  Waf_Common::strfilter($result['preOpenResult']);
+		$result['preOpenResult'] =  $this->strfilter($result['preOpenResult']);
 		$r = explode("," , $result['preOpenResult']);
 
 		return $result;
@@ -463,6 +464,12 @@ class Lottery_CaiJi{
 		$pre = $timeData['pre'];
 
 	}
+
+    public static function strfilter($str){
+        $qian=array(" ","　","\t","\n","\r");$hou=array("","","","","");
+        $str = str_replace($qian,$hou,$str);
+        return $str;
+    }
 
 
 /* 	public function getTimeFromWY($url){
