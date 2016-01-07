@@ -742,6 +742,7 @@ class AdminController extends Controller
     public function k3odds()
     {
         $odds = App\LunaLib\Common\defaultCache::cache_k3_odds();
+        $k3baoziodds = App\LunaLib\Common\defaultCache::cache_k3_baozi_odds();
 //        Cache::forget('chipins');
         $chipins = App\LunaLib\Common\defaultCache::cache_chipin();
         $types = App\LunaLib\Common\defaultCache::cache_lottery_type_slug();
@@ -755,7 +756,7 @@ class AdminController extends Controller
         $keyDatas = array(
             'HZ', 'HLL', 'JQYS', '5X', 'DNXB', 'CXQD'
         );
-        return view('Admin.k3odds', compact('odds', 'chipins', 'types', 'nameDatas', 'keyDatas'));
+        return view('Admin.k3odds', compact('odds','k3baoziodds', 'chipins', 'types', 'nameDatas', 'keyDatas'));
     }
 
     public function fiveodds()
@@ -1079,7 +1080,7 @@ class AdminController extends Controller
         $endtime = $request->endtime;
         $addtype = $request->addtype;
         $point_types = CommonClass::cache_point_type();
-        $result = App\lu_points_record::orderby('created_at', 'desc');
+//        $result = App\lu_points_record::orderby('created_at', 'desc');
         $wheresql = ' where 1 = 1 ';
         if (!empty($userName)) {
             $wheresql .= ' and userName= "' . $userName . '"';
@@ -1392,11 +1393,19 @@ class AdminController extends Controller
     {
         $LotteriesResults = App\lu_lotteries_result::orderby('created_at', 'desc');
         $proName = $request->proName;
+        $codes = $request->codes;
+        $typeName = $request->typeName;
         if (!empty($proName)) {
             $LotteriesResults = $LotteriesResults->where('proName', $proName);
         }
+        if (!empty($codes)) {
+            $LotteriesResults = $LotteriesResults->where('codes', $codes);
+        }
+        if (!empty($typeName)) {
+            $LotteriesResults = $LotteriesResults->where('typeName', strtoupper($typeName));
+        }
         $LotteriesResults = $LotteriesResults->paginate(10);
-        return view('Admin.LotteriesResult', compact('LotteriesResults', 'proName'));
+        return view('Admin.LotteriesResult', compact('LotteriesResults', 'proName','codes','typeName'));
     }
 
     public function LotteriesResultDelete($id)
