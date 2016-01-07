@@ -530,6 +530,7 @@ BET.core = {
                             var val = $(this).text();
                             var _id = $(this).attr("id");
                             _get_odds = $("#3THDX_getodds").text();
+                            //_get_odds = $("#3THDX_getodds"+val).text();
                             BET.core.removeBall(code, val, _type);
                             $(this).addClass("OneNum_active");
                             BET.core.addBall(code, val, _type);

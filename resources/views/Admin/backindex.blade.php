@@ -123,6 +123,9 @@
                         <li>
                             <a onclick="$.addTopTab('#tabXG','快三赔率管理','快三赔率管理','/k3odds')">快三赔率管理</a>
                         </li>
+                        <li>
+                            <a onclick="$.addTopTab('#tabXG','时时彩赔率管理','时时彩赔率管理','/sscodds')">时时彩赔率管理</a>
+                        </li>
                     @else
                         <li>
                             <a onclick="$.addTopTab('#tabXG','快三赔率管理','快三赔率管理','/k3odds')">快三赔率管理</a>

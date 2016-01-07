@@ -772,14 +772,14 @@ class LunaFunctions
         }
     }
 
-    function sdkjAddRecord($lotteryType, $winPre, $winCode,$source)
+    function sdkjAddRecord($lotteryType, $winPre, $winCode, $source)
     {
         $lotteryType = strtoupper($lotteryType);
 //        $lotteryResult = Waf::model('lottery/result');
 //        $count = $lotteryResult->isExistsProName($winPre,$lotteryType);
         $count = lu_lotteries_result::where('proName', $winPre)->where('typeName', $lotteryType)->count();
-        if(empty($source)){
-            $source ="manual";
+        if (empty($source)) {
+            $source = "manual";
         }
 
         if ($lotteryType == 'CHE' || $lotteryType == 'BEIJIN') {
@@ -799,9 +799,45 @@ class LunaFunctions
                 'created' => $kjTime,
                 'source' => $source
             );
-//            $lotteryResult->insert($data);
             lu_lotteries_result::create($data);
+            $this->updatek3baoziodds($lotteryType, false);
         }
+    }
+
+    function updatek3baoziodds($lottery_type, $isall)
+    {
+        $k3baoziodds = defaultCache::cache_k3_baozi_odds();
+        $baozis = array(
+            "1,1,1", "2,2,2", "3,3,3", "4,4,4", "5,5,5", "6,6,6"
+        );
+        if ($isall) {
+            $lottery_types = array("jsold", "beijin", "anhui", "jilin", "jsnew", "hubei", "hebei", "fjk3", "nmg");
+            foreach ($lottery_types as $lottery_type) {
+                foreach ($baozis as $baozi) {
+                    $hasbaozi = \DB::select("select * from (select * from lu_lotteries_results  where typeName='" . $lottery_type . "' order by created_at desc limit 500) t where codes = '" . $baozi ."'");
+                    if (count($hasbaozi) == 0) {
+                        $k3baoziodds[$lottery_type][$baozi] = "120";
+                    } else {
+
+                        $k3baoziodds[$lottery_type][$baozi] = "180";
+                    }
+                }
+            }
+
+        } else {
+            $lottery_type = strtolower($lottery_type);
+            if ($lottery_type == "jsold" || $lottery_type == "beijin" || $lottery_type = "anhui" || $lottery_type == "jilin" || $lottery_type == "jsnew" || $lottery_type == "hubei" || $lottery_type == "hebei" || $lottery_type == "fjk3" || $lottery_type == "nmg") {
+                foreach ($baozis as $baozi) {
+                    $hasbaozi = \DB::select("select * from (select * from lu_lotteries_results  where typeName='" . $lottery_type . "' order by created_at desc limit 600) t where  codes = '" . $baozi ."'");
+                    if (count($hasbaozi) == 0) {
+                        $k3baoziodds[$lottery_type][$baozi] = "120";
+                    } else {
+                        $k3baoziodds[$lottery_type][$baozi] = "180";
+                    }
+                }
+            }
+        }
+        \Cache::forever('k3baoziodds', $k3baoziodds);
     }
 
     function getTimeByPeriod($lottery_type, $period)

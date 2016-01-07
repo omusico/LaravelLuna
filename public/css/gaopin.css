@@ -105,16 +105,37 @@
 }
 
 .gp_new_guide {
-    background: url('gaopinmain.png') no-repeat scroll -50px -44px transparent;
+    background: url('gaopinmain2.png') no-repeat scroll -848px -14px transparent;
     width: 305px;
-    height: 265px;
+    height: 294px;
 }
 
 .gp_lottery_routes {
     border: none;
-    background: url('gaopinmain.png') no-repeat scroll -144px -563px transparent;
-    width: 387px;
-    height: 240px;
+    background: url('gaopinmain2.png') no-repeat scroll -456px -740px transparent;
+    width: 698px;
+    height: 275px;
+}
+
+.gp_route_overlay {
+    background-color: transparent;
+    float: left;
+    width: 145px;
+    height: 200px
+}
+
+.gp_route_word {
+    background-color: transparent;
+    margin:auto;
+    margin-left: 200px;
+    width: auto;
+    height: 80px;
+    display: table;
+}
+.gp_route_word a{
+    color: red;
+    font-size:larger;
+    font-family: bold;
 }
 
 .gp_lottery_cq {
@@ -193,54 +214,73 @@
     height: 407px;
 
 }
-.gp_bottom{
+
+.gp_bottom {
     margin: 0px;
     height: 302px;
     width: auto;
-    background: url("gaopinthird.jpg") no-repeat center;
+    background: url("6he.jpg") no-repeat center;
+}
+
+.gaopinLotAll {
+    border: none;
+    background: url('gaopinmain2.png') no-repeat scroll -106px -534px transparent;
+    width: 1036px;
+    height: 204px;
+}
+
+.gaopinLotOver {
+    border: none;
+    background: url('gaopinmain2.png') no-repeat scroll -106px -340px transparent;
+    width: 1036px;
+    height: 190px;
 }
 
 .gp_lottery_result {
     margin: auto;
-    padding-top: 100px;
     color: #8c8a8b;
     text-align: center;
     background-color: white;
-    height: 407px;
+    height: 240px;
 }
-.gp_lottery_result strong{
+
+.gp_lottery_result strong {
     font-size: larger;
     color: red;
 }
 
-.gp_lottery_sure{
+.gp_lottery_sure {
     border: none;
     background: url('gaopinmain.png') no-repeat scroll -143px -818px transparent;
     width: 120px;
     height: 40px;
 }
-.gp_secure{
+
+.gp_secure {
     border: none;
     background: url('gaopinmain.png') no-repeat scroll -713px -685px transparent;
     width: 35px;
     height: 35px;
     display: inline-block;
 }
-.gp_time{
+
+.gp_time {
     border: none;
     background: url('gaopinmain.png') no-repeat scroll -780px -685px transparent;
     width: 35px;
     height: 35px;
     display: inline-block;
 }
-.gp_exchange{
+
+.gp_exchange {
     border: none;
     background: url('gaopinmain.png') no-repeat scroll -846px -685px transparent;
     width: 35px;
     height: 35px;
     display: inline-block;
 }
-.gp_deposit{
+
+.gp_deposit {
     border: none;
     background: url('gaopinmain.png') no-repeat scroll -915px -685px transparent;
     width: 35px;

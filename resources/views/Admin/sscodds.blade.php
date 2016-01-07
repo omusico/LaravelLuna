@@ -1,7 +1,7 @@
 @extends('Layout.backmaster')
 
 @section('title')
-    快三赔率
+    时时彩赔率
 @stop
 
 @section('content')
@@ -11,10 +11,10 @@
             <div class="panel-body">
                 @include('errors.list')
                 <div class="form-group">
-                    {!! Form::open(['url' => '/savek3odds', 'class' => 'form-horizontal', 'role' => 'form'])
+                    {!! Form::open(['url' => '/savesscodds', 'class' => 'form-horizontal', 'role' => 'form'])
                     !!}
                     @foreach($odds as $key=>$value)
-                        @if($key=='HZ')
+                        @if(in_array($key,$keyDatas))
                             <h2 class="col-md-offset-5">{{$types[$key]['name']}}</h2>
                             <hr/>
                             <div class="form-group">
@@ -28,63 +28,28 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="display: none">
                                 <label class="control-label col-md-2">单双大小</label>
                                 <label class="control-label col-md-2">最低单期下注</label>
 
                                 <div class="col-md-1" style="padding: 0px">
-                                    <input class="form-control" required="required"
-                                           name="chipins[{{$key}}][dsdx_low]"
-                                           value="{{$chipins[$key]['dsdx_low']}}">
+                                    <input class="form-control"
+                                           name="chipins[{{$key}}][other_low]"
+                                           value="{{$chipins[$key]['other_low']}}">
                                 </div>
                                 <label class="control-label col-md-2">最高单期下注</label>
 
                                 <div class="col-md-1" style="padding: 0px">
-                                    <input class="form-control" required="required"
-                                           name="chipins[{{$key}}][dsdx_hight]"
-                                           value="{{$chipins[$key]['dsdx_hight']}}">
+                                    <input class="form-control"
+                                           name="chipins[{{$key}}][other_hight]"
+                                           value="{{$chipins[$key]['other_hight']}}">
                                 </div>
                             </div>
-                        @elseif($key=='TX')
-                            <h2 class="col-md-offset-5">{{$types[$key]['name']}}</h2>
-                            <hr/>
-                            <div class="form-group">
-                                @foreach($value as $k=>$v)
-                                    <label class="control-label col-md-1">{{$k}}</label>
-                                    <div class="col-md-1" style="padding: 0px">
-                                        <input class="form-control" required="required"
-                                               name="odds[{{$key}}][{{$k}}]"
-                                               type="text" value="{{$v}}">
-                                    </div>
-                                @endforeach
-                            </div>
-                        {{--@elseif($key=='3THDX')--}}
-                            {{--<h2 class="col-md-offset-5">{{$types[$key]['name']}}</h2>--}}
-                            {{--<hr/>--}}
-                            {{--<div class="form-group">--}}
-                                {{--<label class="control-label col-md-1">赔率在最下面</label>--}}
-
-                                {{--<div class="col-md-1" style="padding: 0px;display: none;">--}}
-                                    {{--<input class="form-control" required="required"--}}
-                                           {{--name="odds[{{$key}}][value]"--}}
-                                           {{--type="text" value="{{$value['value']}}">--}}
-                                {{--</div>--}}
-                                {{--@foreach($value as $k=>$v)--}}
-                                    {{--@if($k!='value')--}}
-                                        {{--<div class="col-md-1" style="padding: 0px;display: none">--}}
-                                            {{--<input class="form-control" required="required"--}}
-                                                   {{--name="odds[{{$key}}][{{$k}}]"--}}
-                                                   {{--type="text" value="{{$v}}">--}}
-                                        {{--</div>--}}
-                                    {{--@endif--}}
-                                {{--@endforeach--}}
-                            {{--</div>--}}
                         @else
                             <h2 class="col-md-offset-5">{{$types[$key]['name']}}</h2>
                             <hr/>
                             <div class="form-group">
                                 <label class="control-label col-md-1">赔率</label>
-
                                 <div class="col-md-1" style="padding: 0px">
                                     <input class="form-control" required="required"
                                            name="odds[{{$key}}][value]"
@@ -124,25 +89,9 @@
                 </div>
                 {!! Form::close() !!}
             </div>
-            <div class="form-group">
-                <h2 class="col-md-offset-5">三同号单选(新算法</h2>
-                <hr/>
-                <?php
-                $lunaFunctions = new \App\LunaLib\Common\LunaFunctions();
-                ?>
-                {{--<div class="form-group">--}}
-                    {{--@foreach($k3baoziodds as $k=>$v)--}}
-                        {{--<label class="control-label col-md-1">{{$lunaFunctions->get_lottery_name($k)}}</label>--}}
-                        {{--<div class="col-md-1" style="padding: 0px">--}}
-                            {{--<input class="form-control" required="required"--}}
-                                   {{--name="odds[{{$key}}][{{$k}}]"--}}
-                                   {{--type="text" value="{{$v}}">--}}
-                        {{--</div>--}}
-                    {{--@endforeach--}}
-                {{--</div>--}}
-            </div>
         </div>
-        @stop
-        @section('script')
-            {{--<script type="text/javascript" src="/js/collect.js"></script>--}}
+    </div>
+@stop
+@section('script')
+    {{--<script type="text/javascript" src="/js/collect.js"></script>--}}
 @stop

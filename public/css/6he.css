@@ -1,0 +1,392 @@
+.bColorR {
+    background: url('6hemain.png') no-repeat scroll -357px -184px transparent;
+    height: 37px;
+    width: 37px;
+    font-weight: bold;
+}
+
+.bColorR label {
+    margin: auto;
+}
+
+.bColorB {
+    background: url('6hemain.png') no-repeat scroll -357px -232px transparent;
+    height: 37px;
+    width: 37px;
+    font-weight: bold;
+}
+
+.bColorB label {
+    margin: auto;
+}
+
+.bColorG {
+    background: url('6hemain.png') no-repeat scroll -357px -279px transparent;
+    height: 37px;
+    width: 37px;
+    font-weight: bold;
+}
+
+.bColorG label {
+    margin: auto;
+}
+
+.type_nav {
+    width: 700px;
+    padding-left: 20px;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+}
+
+.type_nav .selected {
+    cursor: pointer;
+    background-color: lightyellow;
+    color: gray;
+}
+
+.type_nav li {
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    margin-left: 5px;
+    float: left;
+    border: 1px solid rgb(208, 208, 208);
+    cursor: pointer;
+}
+
+.content_left {
+    float: left;
+    padding-top: 10px;
+    width: 510px;
+}
+
+.content_right {
+    margin-left: 5px;
+    padding-top: 10px;
+    float: left;
+    width: 200px;
+    height: 371px;
+}
+
+.ball, .banball {
+    width: 500px;
+    padding-left: 5px;
+    float: left;
+}
+
+#NUM_1, #NUM_2, #NUM_7, #NUM_8, #NUM_12, #NUM_13, #NUM_18, #NUM_19, #NUM_23, #NUM_24, #NUM_29, #NUM_30, #NUM_34, #NUM_35, #NUM_40, #NUM_45, #NUM_46 {
+    color: #D50000;
+    /*background: url(../Images/r.png) no-repeat;*/
+    background: url('6hemain.png') no-repeat scroll -384px -489px transparent;
+}
+
+#NUM_3, #NUM_4, #NUM_9, #NUM_10, #NUM_14, #NUM_15, #NUM_20, #NUM_25, #NUM_26, #NUM_31, #NUM_36, #NUM_37, #NUM_41, #NUM_42, #NUM_47, #NUM_48 {
+    color: #001762;
+    /*background: url(../Images/b.png) no-repeat;*/
+    background: url('6hemain.png') no-repeat scroll -564px -489px transparent;
+}
+
+#NUM_5, #NUM_6, #NUM_11, #NUM_16, #NUM_17, #NUM_21, #NUM_22, #NUM_27, #NUM_28, #NUM_32, #NUM_33, #NUM_38, #NUM_39, #NUM_43, #NUM_44, #NUM_49 {
+    color: #0D3D01;
+    /*background: url(../Images/g.png) no-repeat;*/
+    background: url('6hemain.png') no-repeat scroll -687px -489px transparent;
+}
+
+.ball a {
+    /*background: url("../images/r.png") no-repeat;*/
+    border: 1px solid #817272;
+    width: 48px;
+    height: 67px;
+    display: block;
+    float: left;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.ball a span, .banball a span {
+    display: block;
+    float: left;
+    width: 48px;
+    height: 47px;
+    line-height: 47px;
+    font-weight: bold;
+    color: Black;
+    text-align: center;
+    font-family: "Arial";
+}
+
+.ball a label, .banball a label {
+    /*color: #ECECEC;*/
+    font-weight: bold;
+    font-family: "Arial";
+    font-size: 12px;
+    width: 48px;
+    float: left;
+    text-align: center;
+    line-height: 20px;
+}
+
+#HKMS-DSDX div, #HKMS-BANBO div {
+    width: 220px;
+    height: 50px;
+    margin: 5px auto;
+    margin-top: 0px;
+}
+
+#HKMS-DSDX div a, #HKMS-BANBO div a {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 42px;
+}
+
+#NOE_1 {
+    /*background: url(../Images/single.png) no-repeat;*/
+    background: url('6hemain.png') no-repeat scroll -110px -424px transparent;
+}
+
+#NOE_2 {
+    /*background: url(../Images/double.png) no-repeat;*/
+    background: url('6hemain.png') no-repeat scroll -110px -424px transparent;
+}
+
+#HONG-D,#HONG-S,#HONG-DA,#HONG-X {
+    background: url('6hemain.png') no-repeat scroll -110px -424px transparent;
+}
+#LANG-D,#LANG-S,#LANG-DA,#LANG-X  {
+    background: url('6hemain.png') no-repeat scroll -110px -477px transparent;
+}
+#LU-D,#LU-S,#LU-DA,#LU-X  {
+    background: url('6hemain.png') no-repeat scroll -110px -532px transparent;
+}
+
+#HKMS-DSDX div a, #HKMS-BANBO div a {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 42px;
+}
+
+#NOU_1 {
+    /*background: url(../Images/big.png) no-repeat;*/
+    background: url('6hemain.png') no-repeat scroll -110px -477px transparent;
+}
+
+#NOU_2 {
+    /*background: url(../Images/small.png) no-repeat;*/
+    background: url('6hemain.png') no-repeat scroll -110px -477px transparent;
+}
+
+#HKMS-DSDX label, #HKMS-BANBO label {
+    width: 50px;
+    float: left;
+    text-align: center;
+    line-height: 42px;
+    float: right;
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: bolder;
+    color: Yellow;
+}
+
+#HKMS-DSDX div a, #HKMS-BANBO div a {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 42px;
+}
+
+#DSOE_1 {
+    /*background: url(../Images/single_mach.png) no-repeat;*/
+    background: url('6hemain.png') no-repeat scroll -110px -532px transparent;
+}
+
+#DSOE_2 {
+    /*background: url(../Images/double_mach.png) no-repeat;*/
+    background: url('6hemain.png') no-repeat scroll -110px -532px transparent
+}
+
+#HKMS-COR {
+    float: left;
+    width: 200px;
+}
+
+#HKMS-COR a {
+    display: block;
+    float: left;
+    width: 160px;
+    height: 62px;
+}
+
+#COR_R {
+    /*background: url(../Images/red.png) 0 0 no-repeat;*/
+    background: url('6hemain.png') no-repeat scroll -106px -584px transparent
+}
+
+#COR_G {
+    /*background: url(../Images/green.png) 0 0 no-repeat;*/
+    background: url('6hemain.png') no-repeat scroll -106px -649px transparent
+}
+
+#COR_B {
+    /*background: url(../Images/blue.png) 0 0 no-repeat;*/
+    background: url('6hemain.png') no-repeat scroll -106px -717px transparent
+}
+
+#Mask {
+    width: 500px;
+    height: 342px;
+    position: absolute;
+    background: #000;
+    opacity: 0.5;
+    z-index: 5;
+}
+
+.banball a {
+    border: 1px solid #817272;
+    width: 48px;
+    height: 55px;
+    display: block;
+    float: left;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    text-decoration: none;
+    cursor: initial;
+    outline: none;
+}
+
+.ball a span, .banball a span {
+    display: block;
+    float: left;
+    width: 48px;
+    height: 47px;
+    line-height: 47px;
+    font-weight: bold;
+    color: Black;
+    text-align: center;
+    font-family: "Arial";
+}
+
+.select_info_text {
+    text-align: center;
+    width: 152px;
+    margin: 0px auto;
+    height: 43px;
+    line-height: 39px;
+    background-color: #d9534f;
+}
+.select_info_text a{
+    color: white;
+}
+
+
+.lianwei a, #SXDP a, .xiao a, .lianxiao a, .duoxiao a {
+    border: 1px solid rgb(208, 208, 208);
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 220px;
+    height: 50px;
+    display: block;
+    float: left;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+}
+.lianwei a span, #SXDP a span, .xiao a span, .lianxiao a span, .duoxiao a span {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    /*color: white;*/
+    text-align: left;
+    margin-left: 60px;
+}
+.lianwei a label, .xiao a label, .lianxiao a label, .duoxiao a label {
+    width: 50px;
+    float: right;
+    text-align: center;
+    line-height: 50px;
+    font-size: 14px;
+    /*color: Yellow;*/
+    cursor: pointer;
+}
+
+.xiao_shu {
+    background: url("SX/shu.png") no-repeat;
+}
+.xiao_niu {
+    background: url("SX/niu.png") no-repeat;
+}
+.xiao_hu {
+    background: url("SX/hu.png") no-repeat;
+}
+.xiao_tu {
+    background: url("SX/tu.png") no-repeat;
+}
+.xiao_long {
+    background: url("SX/long.png") no-repeat;
+}
+.xiao_she {
+    background: url("SX/she.png") no-repeat;
+}
+.xiao_ma {
+    background: url("SX/ma.png") no-repeat;
+}
+.xiao_yang {
+    background: url("SX/yang.png") no-repeat;
+}
+.xiao_hou {
+    background: url("SX/hou.png") no-repeat;
+}
+.xiao_ji {
+    background: url("SX/ji.png") no-repeat;
+}
+.xiao_gou {
+    background: url("SX/gou.png") no-repeat;
+}
+.xiao_zhu {
+    background: url("SX/zhu.png") no-repeat;
+}
+.lianwei a, #SXDP a, .xiao a, .lianxiao a, .duoxiao a {
+    border: 1px solid rgb(208, 208, 208);
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 220px;
+    height: 50px;
+    display: block;
+    float: left;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+}
+.lianwei a span, #SXDP a span, .xiao a span, .lianxiao a span, .duoxiao a span {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 60px;
+}
+.lianwei a label, .xiao a label, .lianxiao a label, .duoxiao a label {
+    width: 50px;
+    float: right;
+    text-align: center;
+    line-height: 50px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.lianwei a span {
+    width: 135px;
+    margin-left: 25px;
+}

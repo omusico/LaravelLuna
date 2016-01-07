@@ -3,6 +3,7 @@
     {{$czName}}
 @stop
 @section('css')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/five.css') }}">
     <style type="text/css">
         .fiveNum {
             padding: 5px;

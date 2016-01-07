@@ -280,13 +280,13 @@ class CollectController extends Controller
         if (env('COLLECT') == "1") {
             if (strripos($lotteryType, 'FIVE')) {
 //                exec('curl www.11x51.com/webkj?lottery_type=' . $lotteryType . '&proName=' . $prePeriod . '&winCode=' . $preOpenResult);
-                exec("curl 'www.11x51.com/webkj?lottery_type=" . $lotteryType . "&proName=" . $prePeriod . "&winCode=" . $preOpenResult."'");
+                exec("curl 'www.11x51.com/webkj?lottery_type=" . $lotteryType . "&proName=" . $prePeriod . "&winCode=" . $preOpenResult . "'");
             } else {
 //                exec('curl www.k3558.com/webkj?lottery_type=' . $lotteryType . '&proName=' . $prePeriod . '&winCode=' . $preOpenResult);
-                exec("curl 'www.k3558.com/webkj?lottery_type=" . $lotteryType . "&proName=" . $prePeriod . "&winCode=" . $preOpenResult."'");
+                exec("curl 'www.k3558.com/webkj?lottery_type=" . $lotteryType . "&proName=" . $prePeriod . "&winCode=" . $preOpenResult . "'");
             }
 
-            exec("curl '45.119.97.42:88/webkj?lottery_type=" . $lotteryType . "&proName=" . $prePeriod . "&winCode=" . $preOpenResult."'");
+            exec("curl '45.119.97.42:88/webkj?lottery_type=" . $lotteryType . "&proName=" . $prePeriod . "&winCode=" . $preOpenResult . "'");
 //            exec('curl localhost:8000/webkj?lottery_type=' . $lotteryType . '&proName='.$prePeriod . '&winCode=' . $preOpenResult);
         }
 
@@ -298,13 +298,13 @@ class CollectController extends Controller
         $winPre = trim($request->proName);
         $winCode = trim($request->winCode);
 //        $source = trim($request->source);
-        $this->sdkjFromNotice($lottery_type, $winPre, $winCode,"web");
+        $this->sdkjFromNotice($lottery_type, $winPre, $winCode, "web");
         return array('success');
 //        $lunaFunction = new LunaFunctions();
 //        $lunaFunction->get_lottery_type_code($lottery_type);
     }
 
-    public function sdkjFromNotice($lottery_type, $winPre, $winCode,$source)
+    public function sdkjFromNotice($lottery_type, $winPre, $winCode, $source)
     {
         if (empty($winPre)) {
             echo '请填写开奖期号';
@@ -353,10 +353,16 @@ class CollectController extends Controller
         $lunaFunction = new LunaFunctions();
         $result = $lunaFunction->lottery_kj($lottery_type, $winPre, $winCode);
 
-        $lunaFunction->sdkjAddRecord($lottery_type, $winPre, $winCode,$source);
+        $lunaFunction->sdkjAddRecord($lottery_type, $winPre, $winCode, $source);
         $result = var_export($result, true);
         return $result;
 
+    }
+
+    function updatek3baoziodds()
+    {
+        $lunaFunction = new LunaFunctions();
+        $lunaFunction->updatek3baoziodds("", true);
     }
 
 }

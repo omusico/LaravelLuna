@@ -3,13 +3,13 @@
     {{$czName}}
 @stop
 @section('css')
-{{--    <link rel="stylesheet" type="text/css" href="{{ asset('/css/betting.css') }}">--}}
+    {{--    <link rel="stylesheet" type="text/css" href="{{ asset('/css/betting.css') }}">--}}
     <script type="text/javascript">
         var lottery_type = '{{$config['lotterytype']}}';
         var num ={{$lotterystatus[$config['lotterytype']]['num']}};
     </script>
     <style type="text/css">
-        .all_box ul{
+        .all_box ul {
             padding: 0px;
         }
     </style>
@@ -96,6 +96,7 @@
                                 </p>
                                 <br/>
                                 <br/>
+
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -162,6 +163,7 @@
                                     倍。</p>
                                 <br/>
                                 <br/>
+
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -201,6 +203,7 @@
                                 <p>投注说明：至少选择1个三同号投注，选号与开奖号码一致即中奖{{$k3Odds['3THDX']['value']}}倍。</p>
                                 <br/>
                                 <br/>
+
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -237,6 +240,11 @@
                                             </li>
                                             {{$i += 1}}
                                         @endforeach
+                                        {{--@foreach($k3baoziodds[$lottery_type] as $key => $value)--}}
+                                            {{--<li class="OneNum">--}}
+                                                {{--赔率：<span id="3THDX_getodds{{str_replace(",","",$key)}}" >{{$value}}</span>--}}
+                                            {{--</li>--}}
+                                        {{--@endforeach--}}
                                     </ul>
                                 </div>
                             </div>
@@ -249,6 +257,7 @@
                                 <p>投注说明：至少选择3个号码投注，选号与开奖号码一致即中奖{{$k3Odds['3BTH']['value']}}倍。</p>
                                 <br/>
                                 <br/>
+
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -300,6 +309,7 @@
                                 <p>投注说明：10元购买4个三连号（123、234、345、456）投注，选号与开奖号码一致即中奖{{$k3Odds['3LHTX']['value']}}倍。</p>
                                 <br/>
                                 <br/>
+
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -339,6 +349,7 @@
                                     倍。</p>
                                 <br/>
                                 <br/>
+
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -379,6 +390,7 @@
                                 <p>投注说明：选择1个相同号码和1个不同号码投注，选号与开奖号码一致即中奖{{$k3Odds['2THDX']['value']}}倍。</p>
                                 <br/>
                                 <br/>
+
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>
@@ -438,6 +450,7 @@
                                 <p>投注说明：至少选择2个号码投注，选号与开奖号码一致即中奖{{$k3Odds['2BTH']['value']}}倍。</p>
                                 <br/>
                                 <br/>
+
                                 <div class="menu">
                                     <ul class="menucon">
                                         <li>

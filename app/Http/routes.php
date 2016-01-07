@@ -68,6 +68,8 @@ Route::get('k3odds', 'Admin\AdminController@k3odds');
 Route::post('savek3odds', 'Admin\AdminController@savek3odds');
 Route::get('fiveodds', 'Admin\AdminController@fiveodds');
 Route::post('savefiveodds', 'Admin\AdminController@savefiveodds');
+Route::get('sscodds', 'Admin\AdminController@sscodds');
+Route::post('savesscodds', 'Admin\AdminController@savesscodds');
 Route::get('news', 'Admin\AdminController@news');
 Route::post('savenews', 'Admin\AdminController@savenews');
 Route::get('favor', 'Admin\AdminController@favor');
@@ -126,10 +128,16 @@ Route::any('LotteriesResult/{id}','Admin\AdminController@LotteriesResultDelete')
 ####################################################
 Route::get('collectLotteryData', [
     'as' => 'collectLotteryData', 'uses' => 'CollectController@collectLotteryData']);
+Route::get('updatek3baoziodds', [
+    'as' => 'updatek3baoziodds', 'uses' => 'CollectController@updatek3baoziodds']);
 Route::get('webkj', [
     'as' => 'webkj', 'uses' => 'CollectController@webkj']);
 Route::get('lotteryIndex', [
     'as' => 'lotteryIndex', 'uses' => 'LotteryK3Controller@index']);
+Route::get('6helotteryIndex', [
+    'as' => 'lotteryIndex', 'uses' => 'Lottery6heController@index']);
+Route::post('get6heodds', [
+    'as' => 'get6heodds', 'uses' => 'Lottery6heController@get6heodds']);
 Route::get('fivelotteryIndex', [
     'as' => 'fivelotteryIndex', 'uses' => 'LotteryFiveController@index']);
 Route::get('ssclotteryIndex', [
@@ -140,6 +148,7 @@ Route::get('fivelotterytrend', [
     'as' => 'fivelotterytrend', 'uses' => 'LotteryFiveController@trend']);
 Route::get('ssclotterytrend', [
     'as' => 'ssclotterytrend', 'uses' => 'LotterySscController@trend']);
+Route::any('/6helotteryBetting', ['middleware' => 'auth', 'as' => '6helotteryBetting', 'uses' => 'Lottery6heController@betting']);
 Route::any('/lotteryBetting', ['middleware' => 'auth', 'as' => 'lotteryBetting', 'uses' => 'LotteryK3Controller@betting']);
 Route::any('/fivelotteryBetting', ['middleware' => 'auth', 'as' => 'fivelotteryBetting', 'uses' => 'LotteryFiveController@betting']);
 Route::any('/ssclotteryBetting', ['middleware' => 'auth', 'as' => 'ssclotteryBetting', 'uses' => 'LotterySscController@betting']);

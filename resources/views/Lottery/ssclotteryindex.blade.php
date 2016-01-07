@@ -1,8 +1,9 @@
-@extends('Layout.gaopinmaster')
+@extends('Layout.'.env("SITE_TYPE",'').'master')
 @section('title')
     {{$czName}}
 @stop
 @section('css')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/ssc.css') }}">
     <style type="text/css">
     </style>
     <script type="text/javascript">

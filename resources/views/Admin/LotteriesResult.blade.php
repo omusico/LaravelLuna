@@ -13,7 +13,7 @@
                 <label>开奖期号:</label><input type="text" id="proName" name="proName" value="{{$proName}}">
             </div>
             <div style="float: left;">
-                <label>明细类型:</label>
+                <label>类型:</label>
                 <select required="required" id="typeName" name="typeName">
                     @if(env('SITE_TYPE','')=='five')
                         <option value=""></option>
