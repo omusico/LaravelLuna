@@ -176,3 +176,14 @@ strong.c_ba2636 { font-weight: normal; font-family: "微软雅黑"; color: rgb(2
   font: 12px/1.5 arial,SimSun,helvetica,sans-serif;
     margin: 0px;
 }
+.zgk3_hao .ssc_nub em {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    line-height: 41px;
+    text-align: center;
+    margin-right: 10px;
+    color: #000;
+    font-weight: 700;
+    font-size: 16px;
+}
