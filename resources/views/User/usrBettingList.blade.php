@@ -16,17 +16,18 @@
             @include('errors.list')
 
             @if(env('SITE_TYPE','')=='gaopin')
-                <ul class="nav navbar-nav" role="tablist">
+                <ul class="nav navbar-nav" role="tablist" id="SwitchBList">
                     <li role="presentation" class="active"><a href="/userLotteryBetting?bettingType=k3">快三投注记录</a></li>
                     <li role="presentation"><a href="/userLotteryBetting?bettingType=five">11选5投注记录</a></li>
                     <li role="presentation"><a href="/userLotteryBetting?bettingType=ssc">时时彩投注记录</a></li>
+                    <li role="presentation"><a href="/userLotteryBetting?bettingType=6he">六合彩投注记录</a></li>
                 </ul>
                 <input type="hidden" value="{{$bettingType}}">
             @endif
             <br/>
             <br/>
             {{--<h3 align="center">--}}
-                {{--交易记录</h3>--}}
+            {{--交易记录</h3>--}}
             <table class="table table-hover">
                 <tr>
                     <td>类型</td>
@@ -80,4 +81,6 @@
         {{--</div>--}}
         {{--@endif--}}
     </div>
+@stop
+@section("script")
 @stop

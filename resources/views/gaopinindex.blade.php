@@ -85,19 +85,19 @@
                 <a href="/lotteryIndex?lottery_type=jsnew">
                     <div class="gp_route_overlay"></div>
                 </a>
-                <a href="/lotteryIndex?lottery_type=jxssc">
+                <a href="/ssclotteryIndex?lottery_type=jxssc">
                     <div class="gp_route_overlay"></div>
                 </a>
-                <a href="/lotteryIndex?lottery_type=cqssc">
+                <a href="/ssclotteryIndex?lottery_type=cqssc">
                     <div class="gp_route_overlay"></div>
                 </a>
-                <a href="/lotteryIndex?lottery_type=xjssc">
+                <a href="/ssclotteryIndex?lottery_type=xjssc">
                     <div class="gp_route_overlay"></div>
                 </a>
-                <a href="/lotteryIndex?lottery_type=gdfive">
+                <a href="/fivelotteryIndex?lottery_type=gdfive">
                     <div class="gp_route_overlay"></div>
                 </a>
-                <a href="/lotteryIndex?lottery_type=sdfive">
+                <a href="/fivelotteryIndex?lottery_type=sdfive">
                     <div class="gp_route_overlay"></div>
                 </a>
             </div>

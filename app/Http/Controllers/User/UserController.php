@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\lu_lotteries_6he;
 use App\lu_lotteries_five;
 use App\lu_lotteries_k3;
 use App\lu_lotteries_ssc;
@@ -41,6 +42,8 @@ class UserController extends Controller
                 $result = lu_lotteries_five::where('uid', \Auth::id())->orderby('created_at', 'desc');
             } else if ($bettingType == 'ssc') {
                 $result = lu_lotteries_ssc::where('uid', \Auth::id())->orderby('created_at', 'desc');
+            } else if ($bettingType == '6he') {
+                $result = lu_lotteries_6he::where('uid', \Auth::id())->orderby('created_at', 'desc');
             }
 
         } else {
@@ -54,7 +57,6 @@ class UserController extends Controller
     public function getaccountdetail(Request $request)
     {
         if (env('SITE_TYPE', '') == 'five') {
-
             $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_fives where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_fives where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ', [Auth::user()->id, Auth::user()->id]);
         } else if (env('SITE_TYPE', '') == 'gaopin') {
             $lu_lotteries_k3s = \DB::select('select created_at, sum(eachPrice) as eachPrice,sum(bingoPrice) as bingoPrice from ( select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_fives where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_fives where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at '.

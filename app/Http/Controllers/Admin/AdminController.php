@@ -66,6 +66,8 @@ class AdminController extends Controller
                 $result = App\lu_lotteries_five::orderby('created_at', 'desc');
             } else if ($bettingType == 'ssc') {
                 $result = App\lu_lotteries_ssc::orderby('created_at', 'desc');
+            } else if ($bettingType == '6he') {
+                $result = App\lu_lotteries_6he::orderby('created_at', 'desc');
             }
 
         } else {
@@ -107,6 +109,8 @@ class AdminController extends Controller
                 $result = App\lu_lotteries_five::orderby('created_at', 'desc');
             } else if ($bettingType == 'ssc') {
                 $result = App\lu_lotteries_ssc::orderby('created_at', 'desc');
+            } else if ($bettingType == '6he') {
+                $result = App\lu_lotteries_6he::orderby('created_at', 'desc');
             }
 
         } else {

@@ -21,6 +21,7 @@
                         <li role="presentation" class="active"><a href="/bettingList?bettingType=k3">快三投注记录</a></li>
                         <li role="presentation"><a href="/bettingList?bettingType=five">11选5投注记录</a></li>
                         <li role="presentation"><a href="/bettingList?bettingType=ssc">时时彩投注记录</a></li>
+                        <li role="presentation"><a href="/bettingList?bettingType=6he">六合彩投注记录</a></li>
                     </ul>
                 </div>
                 <br>
