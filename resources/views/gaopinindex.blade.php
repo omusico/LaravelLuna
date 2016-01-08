@@ -17,7 +17,7 @@
             <marquee scrollamount=3 style="color:white">{{Cache::get('marquee','请到后台设置滚动文字')}}</marquee>
         </div>
     </div>
-    <div class="container">
+    <div class="container" style="background-color: #ffffff">
         <div class="col-md-8 mobilhide" style="margin-top: 30px">
             <div id="carousel-generic" class="carousel slide" data-ride="carousel"
                  xmlns="http://www.w3.org/1999/html">
@@ -105,102 +105,22 @@
     </div>
     <div class="container" style="background-color: white;padding-top: 20px">
         <div class="col-md-4">
-            <div id="carousel-lottery" class="carousel slide" data-ride="carousel"
-                 xmlns="http://www.w3.org/1999/html">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-lottery" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-lottery" data-slide-to="1"></li>
-                    <li data-target="#carousel-lottery" data-slide-to="2"></li>
-                    <li data-target="#carousel-lottery" data-slide-to="3"></li>
-                    <li data-target="#carousel-lottery" data-slide-to="4"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <div class="gp_lottery_result">
-                            开奖时间：{{$recentArray['JXFIVE']->created_at}}
-                            <br>
-                            <br>
-                            <strong>江西11选5</strong>
-                            <br>
-                            第<em>{{$recentArray['JXFIVE']->proName}}</em>期开奖号码<br><br>
+            <div class="gp_lottery_result">
+                开奖时间：{{$recentArray['SDFIVE']->created_at}}
+                <br>
+                <br>
+                <strong>山东11选5</strong>
+                <br>
+                第<em>{{$recentArray['JXFIVE']->proName}}</em>期开奖号码<br><br>
 
-                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[0]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[1]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[2]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[3]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[4]}}"></div>
-                            <br>
-                            <a href="/fivelotteryIndex?lottery_type=jxfive" class="gp_lottery_sure">
-                                <img class="gp_lottery_sure">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="gp_lottery_result">
-                            开奖时间：{{$recentArray['SHFIVE']->created_at}}
-                            <br>
-                            <br>
-                            <strong>上海11选5</strong>
-                            <br>
-                            第<em>{{$recentArray['SHFIVE']->proName}}</em>期开奖号码<br><br>
-
-                            <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[0]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[1]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[2]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[3]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[4]}}"></div>
-                            <br>
-                            <a href="/fivelotteryIndex?lottery_type=shfive" class="gp_lottery_sure">
-                                <img class="gp_lottery_sure">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="gp_lottery_result">
-                            开奖时间：{{$recentArray['JSOLD']->created_at}}
-                            <br>
-                            <br>
-                            <strong>江苏快三</strong>
-                            <br>
-                            第<em>{{$recentArray['JSOLD']->proName}}</em>期开奖号码<br><br>
-
-                            <div class="fiveNum0{{explode(',', $recentArray['JSOLD']->codes)[0]}}"></div>
-                            <div class="fiveNum0{{explode(',', $recentArray['JSOLD']->codes)[1]}}"></div>
-                            <div class="fiveNum0{{explode(',', $recentArray['JSOLD']->codes)[2]}}"></div>
-                            <br>
-                            <a href="/lotteryIndex?lottery_type=jsold" class="gp_lottery_sure">
-                                <img class="gp_lottery_sure">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="gp_lottery_result">
-                            开奖时间：{{$recentArray['JSNEW']->created_at}}
-                            <br>
-                            <br>
-                            <strong>广西快三</strong>
-                            <br>
-                            第<em>{{$recentArray['JSNEW']->proName}}</em>期开奖号码<br><br>
-
-                            <div class="fiveNum0{{explode(',', $recentArray['JSNEW']->codes)[0]}}"></div>
-                            <div class="fiveNum0{{explode(',', $recentArray['JSNEW']->codes)[1]}}"></div>
-                            <div class="fiveNum0{{explode(',', $recentArray['JSNEW']->codes)[2]}}"></div>
-                            <br>
-                            <a href="/lotteryIndex?lottery_type=jsnew" class="gp_lottery_sure">
-                                <img class="gp_lottery_sure">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <a class="left carousel-control" href="#carousel-lottery" role="button"
-                   data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-lottery" role="button"
-                   data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
+                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[0]}}"></div>
+                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[1]}}"></div>
+                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[2]}}"></div>
+                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[3]}}"></div>
+                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[4]}}"></div>
+                <br>
+                <a href="/fivelotteryIndex?lottery_type=jxfive" class="gp_lottery_sure">
+                    <img class="gp_lottery_sure">
                 </a>
             </div>
         </div>
@@ -241,7 +161,7 @@
 
         </div>
     </div>
-    <div class="container">
+    <div class="container" style="background-color: #ffffff">
         <div class="row"
              style="padding-top: 10px;padding-bottom: 10px;background-color: white;margin-right: 8px;margin-left:8px">
             <a href="/6helotteryIndex">

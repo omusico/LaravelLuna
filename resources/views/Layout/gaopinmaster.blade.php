@@ -43,8 +43,10 @@
                 <div style="float: right">
                     @if(!Auth::guest())
                         <a style="color: red" href="logout">退出</a>&nbsp;&nbsp;<a style="color: #666">余额:&nbsp;</a> <a
-                                style="color: red">{{ Auth::user()->lu_user_data->points}}元</a>&nbsp;&nbsp;<a href="userLotteryBetting" style="color: #666">我的彩票</a>&nbsp;&nbsp;<a href="recharge"
-                                style="color: #666">充值</a>&nbsp;&nbsp;<a href="deposit" style="color: #666">提款</a>
+                                style="color: red">{{ Auth::user()->lu_user_data->points}}元</a>&nbsp;&nbsp;<a
+                                href="recharge"
+                                style="color: #666">充值</a>&nbsp;&nbsp;<a href="deposit" style="color: #666">提款</a>&nbsp;
+                        &nbsp;<a href="userLotteryBetting" style="color: #666">我的账户</a>
                     @else
                         <a href="login" style="color: red">登陆</a>&nbsp;<a href="register" style="color: red">注册</a>
                     @endif
@@ -65,7 +67,7 @@
 </div>
 <div style="width: 100%;background-color:#FCAB1D ">
     <div class="container" style="background-color: #FCAB1D;">
-        <div class="collapse navbar-collapse navbar-responsive-collapse" >
+        <div class="collapse navbar-collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav nav">
                 <li><a href="/" style="color:white;font-weight: bold">网站首页</a></li>
                 <li class="dropdown">
@@ -82,11 +84,13 @@
                 <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:white;font-weight: bold"
                        title="走势图">走势图</a>
                 </li>
-                <li><a title="合作代理" target="_blank" style="color:white;font-weight: bold" href="/inviteurl">合作代理</a></li>
+                <li><a title="合作代理" target="_blank" style="color:white;font-weight: bold" href="/inviteurl">合作代理</a>
+                </li>
                 <li><a href="/userLotteryBetting" target="_blank" style="color:white;font-weight: bold"
                        title="交易记录">交易记录</a>
                 </li>
-                <li><a href="/fivelotteryIndex?lottery_type=sdfive" title="手机下注" style="color:white;font-weight: bold">手机下注</a></li>
+                <li><a href="/fivelotteryIndex?lottery_type=sdfive" title="手机下注" style="color:white;font-weight: bold">手机下注</a>
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" style="color:white;font-weight: bold" data-toggle="dropdown"
                        role="button">网址<span class="caret"></span></a>
@@ -174,81 +178,57 @@
 @if($_SERVER['REQUEST_URI']=='/index' || $_SERVER['REQUEST_URI']=='/')
 @else
     @if(!empty(strstr($_SERVER['REQUEST_URI'],'lotterytrend')))
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6"
-                     style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/lotterytrend?lottery_type=jsold">江苏快三</a></li>
-                        <li><a href="/lotterytrend?lottery_type=beijin">北京快三</a></li>
-                        <li><a href="/lotterytrend?lottery_type=anhui">安徽快三</a></li>
-                        <li><a href="/lotterytrend?lottery_type=jilin">吉林快三</a></li>
-                        <li><a href="/lotterytrend?lottery_type=jsnew">广西快三</a></li>
-                        <li><a href="/lotterytrend?lottery_type=hubei">湖北快三</a></li>
-                        <li><a href="/lotterytrend?lottery_type=hebei">河北快三</a></li>
-                        <li><a href="/lotterytrend?lottery_type=nmg">内蒙快三</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4"
-                     style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/fivelotterytrend?lottery_type=sdfive">山东11选5</a></li>
-                        <li><a href="/fivelotterytrend?lottery_type=gdfive">广东11选5</a></li>
-                        <li><a href="/fivelotterytrend?lottery_type=shfive">上海11选5</a></li>
-                        <li><a href="/fivelotterytrend?lottery_type=zjfive">浙江11选5</a></li>
-                        <li><a href="/fivelotterytrend?lottery_type=jxfive">江西11选5</a></li>
-                        <li><a href="/fivelotterytrend?lottery_type=liaoningfive">辽宁11选5</a></li>
-                        <li><a href="/fivelotterytrend?lottery_type=hljfive">黑龙江11选5</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2"
-                     style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/ssclotterytrend?lottery_type=cqssc">重庆时时彩</a></li>
-                        <li><a href="/ssclotterytrend?lottery_type=jxssc">江西时时彩</a></li>
-                        <li><a href="/ssclotterytrend?lottery_type=tjssc">天津时时彩</a></li>
-                        <li><a href="/ssclotterytrend?lottery_type=xjssc">新疆时时彩</a></li>
-                    </ul>
-                </div>
+        <div class="container mobilhide">
+            <div class="row"
+                 style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
+                <ul class="nav navbar-nav">
+                    <li><a href="/lotterytrend?lottery_type=jsold">江苏快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=beijin">北京快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=anhui">安徽快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=jilin">吉林快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=jsnew">广西快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=hubei">湖北快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=hebei">河北快三</a></li>
+                    <li><a href="/lotterytrend?lottery_type=nmg">内蒙快三</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=sdfive">山东11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=gdfive">广东11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=shfive">上海11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=zjfive">浙江11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=jxfive">江西11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=liaoningfive">辽宁11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=hljfive">黑龙江11选5</a></li>
+                    <li><a href="/ssclotterytrend?lottery_type=cqssc">重庆时时彩</a></li>
+                    <li><a href="/ssclotterytrend?lottery_type=jxssc">江西时时彩</a></li>
+                    <li><a href="/ssclotterytrend?lottery_type=tjssc">天津时时彩</a></li>
+                    <li><a href="/ssclotterytrend?lottery_type=xjssc">新疆时时彩</a></li>
+                </ul>
             </div>
         </div>
     @else
-        <div class="container-fluid mobilhide">
-            <div class="row">
-                <div class="col-md-6"
-                     style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/lotteryIndex?lottery_type=jsold">江苏快三</a></li>
-                        <li><a href="/lotteryIndex?lottery_type=beijin">北京快三</a></li>
-                        <li><a href="/lotteryIndex?lottery_type=anhui">安徽快三</a></li>
-                        <li><a href="/lotteryIndex?lottery_type=jilin">吉林快三</a></li>
-                        <li><a href="/lotteryIndex?lottery_type=jsnew">广西快三</a></li>
-                        <li><a href="/lotteryIndex?lottery_type=hubei">湖北快三</a></li>
-                        <li><a href="/lotteryIndex?lottery_type=hebei">河北快三</a></li>
-                        <li><a href="/lotteryIndex?lottery_type=nmg">内蒙快三</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4"
-                     style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/fivelotteryIndex?lottery_type=sdfive">山东11选5</a></li>
-                        <li><a href="/fivelotteryIndex?lottery_type=gdfive">广东11选5</a></li>
-                        <li><a href="/fivelotteryIndex?lottery_type=shfive">上海11选5</a></li>
-                        <li><a href="/fivelotteryIndex?lottery_type=zjfive">浙江11选5</a></li>
-                        <li><a href="/fivelotteryIndex?lottery_type=jxfive">江西11选5</a></li>
-                        <li><a href="/fivelotteryIndex?lottery_type=liaoningfive">辽宁11选5</a></li>
-                        <li><a href="/fivelotteryIndex?lottery_type=hljfive">黑龙江11选5</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2"
-                     style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/ssclotteryIndex?lottery_type=cqssc">重庆时时彩</a></li>
-                        <li><a href="/ssclotteryIndex?lottery_type=jxssc">江西时时彩</a></li>
-                        <li><a href="/ssclotteryIndex?lottery_type=tjssc">天津时时彩</a></li>
-                        <li><a href="/ssclotteryIndex?lottery_type=xjssc">新疆时时彩</a></li>
-                    </ul>
-                </div>
+        <div class="container mobilhide">
+            <div class="row"
+                 style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
+                <ul class="nav navbar-nav">
+                    <li><a href="/lotteryIndex?lottery_type=jsold">江苏快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=beijin">北京快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=anhui">安徽快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=jilin">吉林快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=jsnew">广西快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=hubei">湖北快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=hebei">河北快三</a></li>
+                    <li><a href="/lotteryIndex?lottery_type=nmg">内蒙快三</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=sdfive">山东11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=gdfive">广东11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=shfive">上海11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=zjfive">浙江11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=jxfive">江西11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=liaoningfive">辽宁11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=hljfive">黑龙江11选5</a></li>
+                    <li><a href="/ssclotteryIndex?lottery_type=cqssc">重庆时时彩</a></li>
+                    <li><a href="/ssclotteryIndex?lottery_type=jxssc">江西时时彩</a></li>
+                    <li><a href="/ssclotteryIndex?lottery_type=tjssc">天津时时彩</a></li>
+                    <li><a href="/ssclotteryIndex?lottery_type=xjssc">新疆时时彩</a></li>
+                </ul>
             </div>
         </div>
     @endif
@@ -294,6 +274,9 @@
             @if(Auth::guest() && empty($islogin) && empty($isregister))
             location.replace('/login');
             @endif
+
+
+
         }
     })(navigator.userAgent);
 
@@ -316,6 +299,9 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
+
+
+
                 }
             }
 
