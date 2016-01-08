@@ -105,14 +105,14 @@
     </div>
     <div class="container" style="background-color: white;padding-top: 20px">
         <div class="col-md-4">
-            <div id="carousel-generic" class="carousel slide" data-ride="carousel"
+            <div id="carousel-lottery" class="carousel slide" data-ride="carousel"
                  xmlns="http://www.w3.org/1999/html">
                 <ol class="carousel-indicators">
-                    <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-generic" data-slide-to="2"></li>
-                    <li data-target="#carousel-generic" data-slide-to="3"></li>
-                    <li data-target="#carousel-generic" data-slide-to="4"></li>
+                    <li data-target="#carousel-lottery" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-lottery" data-slide-to="1"></li>
+                    <li data-target="#carousel-lottery" data-slide-to="2"></li>
+                    <li data-target="#carousel-lottery" data-slide-to="3"></li>
+                    <li data-target="#carousel-lottery" data-slide-to="4"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
@@ -164,9 +164,9 @@
                             <br>
                             第<em>{{$recentArray['JSOLD']->proName}}</em>期开奖号码<br><br>
 
-                            <div class="fiveNum{{explode(',', $recentArray['JSOLD']->codes)[0]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['JSOLD']->codes)[1]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['JSOLD']->codes)[2]}}"></div>
+                            <div class="fiveNum0{{explode(',', $recentArray['JSOLD']->codes)[0]}}"></div>
+                            <div class="fiveNum0{{explode(',', $recentArray['JSOLD']->codes)[1]}}"></div>
+                            <div class="fiveNum0{{explode(',', $recentArray['JSOLD']->codes)[2]}}"></div>
                             <br>
                             <a href="/lotteryIndex?lottery_type=jsold" class="gp_lottery_sure">
                                 <img class="gp_lottery_sure">
@@ -182,9 +182,9 @@
                             <br>
                             第<em>{{$recentArray['JSNEW']->proName}}</em>期开奖号码<br><br>
 
-                            <div class="fiveNum{{explode(',', $recentArray['JSNEWE']->codes)[0]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['JSNEW']->codes)[1]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['JSNEW']->codes)[2]}}"></div>
+                            <div class="fiveNum0{{explode(',', $recentArray['JSNEW']->codes)[0]}}"></div>
+                            <div class="fiveNum0{{explode(',', $recentArray['JSNEW']->codes)[1]}}"></div>
+                            <div class="fiveNum0{{explode(',', $recentArray['JSNEW']->codes)[2]}}"></div>
                             <br>
                             <a href="/lotteryIndex?lottery_type=jsnew" class="gp_lottery_sure">
                                 <img class="gp_lottery_sure">
@@ -192,12 +192,12 @@
                         </div>
                     </div>
                 </div>
-                <a class="left carousel-control" href="#carousel-generic" role="button"
+                <a class="left carousel-control" href="#carousel-lottery" role="button"
                    data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="right carousel-control" href="#carousel-generic" role="button"
+                <a class="right carousel-control" href="#carousel-lottery" role="button"
                    data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                     <span class="sr-only">Next</span>
