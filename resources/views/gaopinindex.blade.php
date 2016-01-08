@@ -1,6 +1,6 @@
 @extends('Layout.gaopinmaster')
 @section('title')
-    高频彩吧
+    高频彩吧ba
 @stop
 @section('css')
     <style type="text/css">
