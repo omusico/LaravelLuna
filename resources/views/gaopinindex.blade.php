@@ -111,6 +111,8 @@
                     <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
                     <li data-target="#carousel-generic" data-slide-to="1"></li>
                     <li data-target="#carousel-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-generic" data-slide-to="3"></li>
+                    <li data-target="#carousel-generic" data-slide-to="4"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
@@ -155,20 +157,36 @@
                     </div>
                     <div class="item">
                         <div class="gp_lottery_result">
-                            开奖时间：{{$recentArray['SDFIVE']->created_at}}
+                            开奖时间：{{$recentArray['JSOLD']->created_at}}
                             <br>
                             <br>
-                            <strong>山东11选5</strong>
+                            <strong>江苏快三</strong>
                             <br>
-                            第<em>{{$recentArray['SDFIVE']->proName}}</em>期开奖号码<br><br>
+                            第<em>{{$recentArray['JSOLD']->proName}}</em>期开奖号码<br><br>
 
-                            <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[0]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[1]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[2]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[3]}}"></div>
-                            <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[4]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JSOLD']->codes)[0]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JSOLD']->codes)[1]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JSOLD']->codes)[2]}}"></div>
                             <br>
-                            <a href="/fivelotteryIndex?lottery_type=sdfive" class="gp_lottery_sure">
+                            <a href="/lotteryIndex?lottery_type=jsold" class="gp_lottery_sure">
+                                <img class="gp_lottery_sure">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="gp_lottery_result">
+                            开奖时间：{{$recentArray['JSNEW']->created_at}}
+                            <br>
+                            <br>
+                            <strong>广西快三</strong>
+                            <br>
+                            第<em>{{$recentArray['JSNEW']->proName}}</em>期开奖号码<br><br>
+
+                            <div class="fiveNum{{explode(',', $recentArray['JSNEWE']->codes)[0]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JSNEW']->codes)[1]}}"></div>
+                            <div class="fiveNum{{explode(',', $recentArray['JSNEW']->codes)[2]}}"></div>
+                            <br>
+                            <a href="/lotteryIndex?lottery_type=jsnew" class="gp_lottery_sure">
                                 <img class="gp_lottery_sure">
                             </a>
                         </div>

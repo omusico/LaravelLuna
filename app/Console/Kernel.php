@@ -55,6 +55,20 @@ class Kernel extends ConsoleKernel {
                         exec('curl www.11x51.com/collectLotteryData?lottery_type='.$value);
                     }
                 }
+                if(env("SITE_TYPE")=="gaopin"){
+                    $fiveArrs=['sdfive','gdfive','shfive','zjfive','jxfive','liaoningfive','hljfive'];
+                    foreach($fiveArrs as $value){
+                        exec('curl www.gpccpw.com/collectLotteryData?lottery_type='.$value);
+                    }
+                    $k3Arrs=['jsold','beijin','anhui','jilin','jsnew','hubei','hebei','nmg'];
+                    foreach($k3Arrs as $value){
+                        exec('curl www.gpccpw.com/collectLotteryData?lottery_type='.$value);
+                    }
+                    $sscArrs=['cqssc','jxssc','tjssc','xjssc'];
+                    foreach($sscArrs as $value){
+                        exec('curl www.gpccpw.com/collectLotteryData?lottery_type='.$value);
+                    }
+                }
                 else{
                     $k3Arrs=['jsold','beijin','anhui','jilin','jsnew','hubei','hebei','nmg'];
                     foreach($k3Arrs as $value){
