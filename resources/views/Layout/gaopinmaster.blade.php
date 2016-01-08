@@ -68,7 +68,16 @@
         <div class="collapse navbar-collapse navbar-responsive-collapse" >
             <ul class="nav navbar-nav nav">
                 <li><a href="/" style="color:white;font-weight: bold">网站首页</a></li>
-                <li><a href="/fiveGameRule" style="color:white;font-weight: bold" title="游戏规则">游戏规则</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" style="color:white;font-weight: bold" data-toggle="dropdown"
+                       role="button">游戏规则<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/k3GameRule">快三</a></li>
+                        <li><a href="/fiveGameRule">11选5</a></li>
+                        <li><a href="#">时时彩</a></li>
+                        <li><a href="#">六合彩</a></li>
+                    </ul>
+                </li>
                 <li><a href="/favourable" style="color:white;font-weight: bold" title="优惠活动">优惠活动</a></li>
                 <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:white;font-weight: bold"
                        title="走势图">走势图</a>
@@ -88,6 +97,7 @@
                         <li><a href="#">网址四</a></li>
                         <li><a href="#">网址五</a></li>
                     </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -203,7 +213,7 @@
             </div>
         </div>
     @else
-        <div class="container-fluid">
+        <div class="container-fluid mobilhide">
             <div class="row">
                 <div class="col-md-6"
                      style="padding: 0px;margin: 0px;border: solid #d3d3d3 1px;background-color: #fafafa">
