@@ -187,6 +187,9 @@ Route::post('/apply', ['as' => 'apply', 'uses' => 'CashController@apply']);
 Route::post('/zfReturn_Url', ['as' => 'zfReturn_Url', 'uses' => 'CashController@zfReturn_Url']);
 Route::post('/zfNotify_Url', ['as' => 'zfNotify_Url', 'uses' => 'CashController@zfNotify_Url']);
 
+//宝付，接口数据返回
+Route::post('/bfReturn_Url', ['as' => 'bfReturn_Url', 'uses' => 'CashController@bfReturn_Url']);
+Route::post('/bfNotify_Url', ['as' => 'bfNotify_Url', 'uses' => 'CashController@bfNotify_Url']);
 
 //five
 Route::get('/five', 'WelcomeController@five');

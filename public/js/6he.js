@@ -184,9 +184,11 @@ function addClicks() {
         var wei = $(this).attr("wei");
         if (wei === "7" || wei === "7B") {
             $("#tema_type").show();
+            $("#QuickBar").show();
             $("#btnksms").click();
         } else {
             $("#tema_type").hide();
+            $("#QuickBar").hide();
             $("#tm_ybms").show();
             $("#tm_ksms").hide();
         }
@@ -362,8 +364,8 @@ function initWf(obj) {
         case "5":
         case "6":
             $("#HKMS-DSOE a").attr("wf", "合单双");
-            nowWei = "正码" + wei;
-            nowZWF = "正" + wei + "特";
+            nowWei = "平码" + wei;
+            nowZWF = "平" + wei + "特";
             pls = getPLS();
             initTP3();
             initPL();
@@ -372,7 +374,7 @@ function initWf(obj) {
             $("#HKMS-DSOE a").attr("wf", "合码单双");
             pls = "合码单双,合码大小,单双,大小,色波";
             nowWei = "特码";
-            nowZWF = "特码";
+            nowZWF = "特码A";
             pls = getPLS();
             initTP3();
             initPL();
@@ -385,10 +387,10 @@ function initWf(obj) {
             initTP3();
             initPL();
             break;
-        case "正码":
-            nowWei = "正码";
-            nowZWF = "正码";
-            pls = "正码";
+        case "平码":
+            nowWei = "平码";
+            nowZWF = "平码";
+            pls = "平码";
             initTP3();
             initPL();
             break;
@@ -485,7 +487,7 @@ function setGameContentDisplay(wei) {
             $(".content_right #HKMS-DSDX,.content_right #HKMS-COR").show();
             $(".content_right #HKMS-BANBO").hide();
             break;
-        case "正码":
+        case "平码":
             $(".content_left").show(100);
             $(".content_right").hide(100);
             break;
@@ -701,6 +703,7 @@ function initPL() {
 
         },
         success: function (dt) {
+            //dt = JSON.parse(dt);
             bindpl(dt);
             //$(".right_content").unblock();
         }
@@ -711,17 +714,17 @@ function initPL() {
 //绑定赔率
 function bindpl(obj) {
 
-    var pls = $.parseJSON(obj);
-    if (!pls.Success) {
-        showMassage(pls.Massage);
-        return;
-    }
-    if (!pls.Data) {
-        //showMassage("获取赔率超时,请重试");
-        $(".right_content").unblock();
-        return;
-    }
-    var jobj = $.parseJSON(pls.Data);
+    var jobj = $.parseJSON(obj);
+    //if (!pls.Success) {
+    //    showMassage(pls.Massage);
+    //    return;
+    //}
+    //if (!pls.Data) {
+    //    //showMassage("获取赔率超时,请重试");
+    //    $(".right_content").unblock();
+    //    return;
+    //}
+    //var jobj = $.parseJSON(pls.Data);
 
     var lmwf = ",四全中,三全中,二全中,特串,二中特,三中二,";
     if (lmwf.indexOf("," + nowZWF + ",") >= 0) {
@@ -733,9 +736,9 @@ function bindpl(obj) {
         bindpl_zxbz(jobj);
         return;
     }
-    var tmwf = ",特码,特码B,";
+    var tmwf = ",特码A,特码B,";
     if (tmwf.indexOf("," + nowZWF + ",") >= 0) {
-        bindpl_tm(jobj);
+        bindpl_tm(jobj.TMA);
         return;
     }
 
@@ -755,12 +758,16 @@ function bindpl(obj) {
 
 }
 function bindpl_tm(jobj) {
-    for (var i = 0; i < jobj.length; i++) {
-        var rateinfo = jobj[i];
-        var tp2 = rateinfo.tp2;
-        var tp3 = rateinfo.tp3;
-        var rate = rateinfo.rate;
-        if (nowZWF === "特码B" && tp3 == "特码") {
+    //for (var i = 0; i < jobj.length; i++) {
+    for (var key in jobj) {
+        //var rateinfo = jobj[i];
+        //var tp2 = rateinfo.tp2;
+        //var tp3 = rateinfo.tp3;
+        //var rate = rateinfo.rate;
+        var tp2 = key;
+        var tp3 = nowZWF;
+        var rate = jobj[key];
+        if (nowZWF === "特码B") {
             tp3 = "特码B";
             rate = rate - tbmplus;
         }

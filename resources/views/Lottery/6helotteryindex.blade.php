@@ -30,7 +30,7 @@
                         <span class="other cqssc78"></span>
                     </div>
                     <div class="zgk3_info">
-                        <span class="yaoshao">10分钟一期,返奖率80%</span> <span class="yaoshao">销售时间：
+                        <span class="yaoshao"></span> <span class="yaoshao">销售时间：
                             {{--                            {{$config ['beginTime'] . '-' . $config ['endTime']}}--}}
                             </span>
                     </div>
@@ -64,7 +64,6 @@
 
         </div>
         <div class="row">
-
             <div class="col-md-9" style="border-right: 1px solid rgb(218, 218, 218)">
                 <!--彩种nav开始-->
                 <ul class="nav nav-tabs" role="tablist" id="firstTab"> 

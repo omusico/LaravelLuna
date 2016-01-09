@@ -16,7 +16,11 @@ class loginController extends Controller
      */
     public function loginGet()
     {
-        return view('login');
+        if(env("SITE_TYPE","")=="gaopin"){
+            return view('gplogin');
+        }else{
+            return view('login');
+        }
     }
 
     /**

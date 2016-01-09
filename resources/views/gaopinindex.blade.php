@@ -1,6 +1,6 @@
 @extends('Layout.gaopinmaster')
 @section('title')
-    高频彩吧ba
+    高频彩
 @stop
 @section('css')
     <style type="text/css">
@@ -111,15 +111,15 @@
                 <br>
                 <strong>山东11选5</strong>
                 <br>
-                第<em>{{$recentArray['JXFIVE']->proName}}</em>期开奖号码<br><br>
+                第<em>{{$recentArray['SDFIVE']->proName}}</em>期开奖号码<br><br>
 
-                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[0]}}"></div>
-                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[1]}}"></div>
-                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[2]}}"></div>
-                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[3]}}"></div>
-                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[4]}}"></div>
+                <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[0]}}"></div>
+                <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[1]}}"></div>
+                <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[2]}}"></div>
+                <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[3]}}"></div>
+                <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[4]}}"></div>
                 <br>
-                <a href="/fivelotteryIndex?lottery_type=jxfive" class="gp_lottery_sure">
+                <a href="/fivelotteryIndex?lottery_type=sdfive" class="gp_lottery_sure">
                     <img class="gp_lottery_sure">
                 </a>
             </div>

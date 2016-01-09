@@ -215,7 +215,6 @@ class CashController extends Controller
         if (Auth::user()->cashPwd == $cashPwd) {
             //打码量限制
 
-
             $lu_lottery_apply = new lu_lottery_apply();
             $lu_lottery_apply->sn = $request->sn;
             $lu_lottery_apply->amounts = $request->amounts;
@@ -274,22 +273,40 @@ class CashController extends Controller
                 ->withInput()
                 ->withErrors($errormessage);
         } else {
-            $data = array(
-                'sn' => $request->order_no,
-                'uid' => $request->uid,
-                'siteId' => 1,
-                'amounts' => $request->amounts,
-                'created' => $_SERVER['REQUEST_TIME'],
-                'type' => $levelkey,
-                'status' => 2, //未付款状态
-                'userName' => $request->name
-            );
-            lu_lottery_recharge::create($data);
-            return view('Cash.lotteryorderzf');
-//            if ($paytype == 'zf') {
-//            } else {
+
+            if ($paytype == 'zf') {
+                $data = array(
+                    'sn' => $request->order_no,
+                    'uid' => $request->uid,
+                    'siteId' => 1,
+                    'amounts' => $request->amounts,
+                    'created' => $_SERVER['REQUEST_TIME'],
+                    'type' => $levelkey,
+                    'status' => 2, //未付款状态
+                    'userName' => $request->name
+                );
+                lu_lottery_recharge::create($data);
+                return view('Cash.lotteryorderzf');
+            } elseif ($paytype = "bf") {
+                $data = array(
+                    'sn' => $request->order_no,
+                    'uid' => $request->uid,
+                    'siteId' => 1,
+                    'amounts' => $request->amounts,
+                    'created' => $_SERVER['REQUEST_TIME'],
+                    'type' => $levelkey,
+                    'status' => 2, //未付款状态
+                    'userName' => $request->name
+                );
+                lu_lottery_recharge::create($data);
+
+                return view('Cash.lotteryorderbf');
 //                return view('Cash.lotteryorderkjt');
-//            }
+            } else {
+                return Redirect::route('recharge')
+                    ->withInput()
+                    ->withErrors("未知支付方式");
+            }
         }
 
     }
@@ -304,4 +321,13 @@ class CashController extends Controller
         return view('Cash.zfNotify_Url');
     }
 
+    public function bfReturn_Url()
+    {
+        return view('Cash.bfReturn_Url');
+    }
+
+    public function bfNotify_Url()
+    {
+        return view('Cash.bfNotify_Url');
+    }
 }

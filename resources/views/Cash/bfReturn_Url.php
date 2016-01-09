@@ -1,134 +1,133 @@
-<? header("content-Type: text/html; charset=UTF-8"); ?>
-<?php
+<?php session_start(); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>充值接口-商户充值结果</title>
+    <?php
+    $MemberID=$_REQUEST['MemberID'];//商户号
+    $TerminalID =$_REQUEST['TerminalID'];//商户终端号
+    $TransID =$_REQUEST['TransID'];//商户流水号
+    $Result=$_REQUEST['Result'];//支付结果
+    $ResultDesc=$_REQUEST['ResultDesc'];//支付结果描述
+    $FactMoney=$_REQUEST['FactMoney'];//实际成功金额
+    $AdditionalInfo=$_REQUEST['AdditionalInfo'];//订单附加消息
+    $SuccTime=$_REQUEST['SuccTime'];//支付完成时间
+    $Md5Sign=$_REQUEST['Md5Sign'];//md5签名
+    $lrecharge = \App\lu_lottery_recharge::where('sn', $TransID)->first();
+    $levelkey = $lrecharge->type;
+    $userlevels = \App\LunaLib\Common\defaultCache::userlevel();
+    $level = $userlevels[$levelkey];
+    $Md5key = $level['key']; ///////////md5密钥（KEY）
+    $MARK = "~|~";
+    //MD5签名格式
+    $WaitSign=md5('MemberID='.$MemberID.$MARK.'TerminalID='.$TerminalID.$MARK.'TransID='.$TransID.$MARK.'Result='.$Result.$MARK.'ResultDesc='.$ResultDesc.$MARK.'FactMoney='.$FactMoney.$MARK.'AdditionalInfo='.$AdditionalInfo.$MARK.'SuccTime='.$SuccTime.$MARK.'Md5Sign='.$Md5key);
 
-//////////////////////////		接收智付返回通知数据  /////////////////////////////////
-////////////////////////// To receive notification data from Dinpay ////////////////////
+    if(isset($_SESSION['OrderMoney'])){
+        $OrderMoney =$_SESSION['OrderMoney'];//获取提交金额的Session
+    }
+    if($Md5Sign == $WaitSign){
+        //校验通过开始处理订单
+        if($OrderMoney == $FactMoney){
 
-$merchant_code = $_POST["merchant_code"];
-$interface_version = $_POST["interface_version"];
-$sign_type = $_POST["sign_type"];
-$dinpaySign = $_POST["sign"];
-$notify_type = $_POST["notify_type"];
-$notify_id = $_POST["notify_id"];
-$order_no = $_POST["order_no"];
-$order_time = $_POST["order_time"];
-$order_amount = $_POST["order_amount"];
-$trade_status = $_POST["trade_status"];
-$trade_time = $_POST["trade_time"];
-$trade_no = $_POST["trade_no"];
-if (isset($_POST["bank_seq_no"])) {
-    $bank_seq_no = $_POST["bank_seq_no"];
-} else {
-    $bank_seq_no = "";
-}
-if (isset($_POST["extra_return_param"])) {
-    $extra_return_param = $_POST["extra_return_param"];
-} else {
-    $extra_return_param = "";
-}
+            if ($lrecharge->status == '2') {
+                $ldata = \App\lu_user_data::where('uid', $lrecharge->uid)->first();
+                $tmp = $ldata->points;
+                $points = $ldata->points;
+                $points = $points + $FactMoney;
+                $ldata->points = $points;
+                $ldata->save();
+                //状态修改为已经付款
+                $lrecharge->status = 1;
+                $lrecharge->amounts = $order_amount;
+                $lrecharge->save();
+                $data = array(
+                    'uid' => $lrecharge->uid,
+                    'userName' => $lrecharge->userName,
+                    'addType' => '3', // 在线充值
+                    'lotteryType' => '', // 中奖
+                    'winSn' => $order_no,
+                    'oldPoint' => $tmp,
+                    'changePoint' => $order_amount,
+                    'newPoint' => $points,
+                    'created' => strtotime(date('Y-m-d H:i:s'))
+                );
+                \App\lu_points_record::create($data);
+                echo $order_no . "充值成功" . $FactMoney . "元";
 
-/////////////////////////////   数据签名  /////////////////////////////////
-////////////////////////////  Data signature  ////////////////////////////
-
-/**
- * 签名规则定义如下：
- * （1）参数列表中，除去sign_type、sign两个参数外，其它所有非空的参数都要参与签名，值为空的参数不用参与签名；
- * （2）签名顺序按照参数名a到z的顺序排序，若遇到相同首字母，则看第二个字母，以此类推，同时将商家支付密钥key放在最后参与签名，组成规则如下：
- * 参数名1=参数值1&参数名2=参数值2&……&参数名n=参数值n&key=key值
- */
-
-/**
- * The definition of signature rule is as follows :
- * （1） In the list of parameters, except the two parameters of sign_type and sign, all the other parameters that are not in blank shall be signed, the parameter with value as blank doesn’t need to be signed;
- * （2） The sequence of signature shall be in the sequence of parameter name from a to z, in case of same first letter, then in accordance with the second letter, so on so forth, meanwhile, the merchant payment key shall be put at last for signature, and the composition rule is as follows :
- * Parameter name 1 = parameter value 1& parameter name 2 = parameter value 2& ......& parameter name N = parameter value N & key = key value
- */
-
-
-$signStr = "";
-
-if ($bank_seq_no != "") {
-    $signStr = $signStr . "bank_seq_no=" . $bank_seq_no . "&";
-}
-if ($extra_return_param != "") {
-    $signStr = $signStr . "extra_return_param=" . $extra_return_param . "&";
-}
-
-$signStr = $signStr . "interface_version=" . $interface_version . "&";
-$signStr = $signStr . "merchant_code=" . $merchant_code . "&";
-$signStr = $signStr . "notify_id=" . $notify_id . "&";
-$signStr = $signStr . "notify_type=" . $notify_type . "&";
-$signStr = $signStr . "order_amount=" . $order_amount . "&";
-$signStr = $signStr . "order_no=" . $order_no . "&";
-$signStr = $signStr . "order_time=" . $order_time . "&";
-$signStr = $signStr . "trade_no=" . $trade_no . "&";
-$signStr = $signStr . "trade_status=" . $trade_status . "&";
-
-if ($trade_time != "") {
-    $signStr = $signStr . "trade_time=" . $trade_time . "&";
-}
-
-//注：以下的key值必须与商家后台设置的支付密钥保持一致
-//Note：The key value must be consistent with which you had set on Dinpay's Merchant System.
-
-$lrecharge = \App\lu_lottery_recharge::where('sn', $order_no)->first();
-$levelkey = $lrecharge->type;
-$userlevels = \App\LunaLib\Common\defaultCache::userlevel();
-$level = $userlevels[$levelkey];
-
-$key = $level['key'];//"zxcvbnm890123_890123zxcvbnm";
-
-$signStr = $signStr . "key=" . $key;
-$sign = md5($signStr);
-
-if ($dinpaySign == $sign) {
-
-    //验签成功（Signature correct）
-    if ($lrecharge->status == '2') {
-        $ldata = \App\lu_user_data::where('uid', $lrecharge->uid)->first();
-        $tmp = $ldata->points;
-        $points = $ldata->points;
-//            $odd = $user['returnOdds'];
-//            $newOdd = $amount * $odd;
-        $points = $points + $order_amount;
-        $ldata->points = $points;
-        $ldata->save();
-        //状态修改为已经付款
-        $lrecharge->status = 1;
-        $lrecharge->amounts =$order_amount;
-        $lrecharge->save();
-        $data = array(
-            'uid' => $lrecharge->uid,
-            'userName' => $lrecharge->userName,
-            'addType' => '3', // 在线充值
-            'lotteryType' => '', // 中奖
-            'winSn' => $order_no,
-            'oldPoint' => $tmp,
-            'changePoint' => $order_amount,
-            'newPoint' => $points,
-            'created' => strtotime(date('Y-m-d H:i:s'))
-        );
-        \App\lu_points_record::create($data);
-        echo $order_no . "充值成功" . $order_amount . "元";
+                //卡面金额与用户提交金额一致
+                echo("<script>alert('支付成功');</script>");//全部正确了输出OK
+            }
+        }else{
+            if ($lrecharge->status == '2') {
+                $lrecharge->status = 3;
+                $lrecharge->save();
+            }
+            echo("<script>alert('实际成交金额与您提交的订单金额不一致，请接收到支付结果后仔细核对实际成交金额，以免造成订单金额处理差错。');</script>");	//实际成交金额与商户提交的订单金额不一致
+        }
+    }else{
+        echo("<script>alert('Md5CheckFail');</script>");//MD5校验失败，订单信息不显示
+        $TransID=$WaitSign;
+        $ResultDesc="";
+        $FactMoney="";
+        $AdditionalInfo="";
+        $SuccTime="";
     }
 
-} else {
-    echo "充值失败";
-    //验签失败，业务结束（End of the business）
-}
-?>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script type="text/javascript">
-        function directtohome() {
-            setTimeout(window.location.href = "index", 3000);
-        }
-    </script>
+    ?>
+
 </head>
-<body onload="directtohome();">
-<!-- 页面展示（Page will show message）  -->
-<br/>
-3秒后将返回主界面
+
+<body>
+<form id="form1">
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td height="30" align="center">
+                <h1>
+                    ※ 宝付在线支付完成 ※
+                </h1>
+            </td>
+        </tr>
+    </table>
+    <table bordercolor="#cccccc" cellspacing="5" cellpadding="0" width="400" align="center"
+           border="0">
+        <tr>
+            <td class="text_12" bordercolor="#ffffff" align="right" width="150" height="20">
+                订单号：</td>
+            <td class="text_12" bordercolor="#ffffff" align="left">
+                <input  name='TransID' value= "<?php echo $TransID;?>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="text_12" bordercolor="#ffffff" align="right" width="150" height="20">
+                支付结果描述：</td>
+            <td class="text_12" bordercolor="#ffffff" align="left">
+                <input  name='ResultDesc' value= "<?php echo $ResultDesc;?>"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="text_12" bordercolor="#ffffff" align="right" width="150" height="20">
+                实际成功金额：</td>
+            <td class="text_12" bordercolor="#ffffff" align="left">
+                <input  name='FactMoney'  value= "<?php echo $FactMoney;?>"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="text_12" bordercolor="#ffffff" align="right" width="150" height="20">
+                订单附加消息：</td>
+            <td class="text_12" bordercolor="#ffffff" align="left">
+                <input  name='AdditionalInfo' value= "<?php echo $AdditionalInfo;?>"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="text_12" bordercolor="#ffffff" align="right" width="150" height="20">
+                交易成功时间：</td>
+            <td class="text_12" bordercolor="#ffffff" align="left">
+                <input  name='SuccTime' value= "<?php echo $SuccTime;?>"/>
+            </td>
+        </tr>
+    </table>
+
+</form>
 </body>
 </html>
