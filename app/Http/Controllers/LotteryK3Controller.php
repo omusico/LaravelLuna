@@ -441,6 +441,12 @@ class LotteryK3Controller extends Controller
             if($now!=$proName){
                 $this->response->throwJson(array('tip'=>'timeout','msg'=>'第'.$proName.'期已经截止下注,请稍后'));
             } */
+            $lottery_type = $request->lottery_type;
+            $now = $this->getCurrentTerm($lottery_type);
+
+            if ($now != $proName) {
+                return array('tip' => 'timeout', 'msg' => '第' . $proName . '期已经截止下注,请稍后');
+            }
 
 
             $codeArgs = explode('<waf>', $codes);
