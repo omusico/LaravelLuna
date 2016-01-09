@@ -16,7 +16,7 @@
 
         <div>
             <div style="float: left;">
-                <label>代理名:</label><input type="text" id="userName" name="userName" value="{{$userName}}">
+                {{--<label>代理名:</label><input type="text" id="userName" name="userName" value="{{$userName}}">--}}
                 <label>开始时间:</label>
             </div>
             <div style="float: left;margin-left: 10px">

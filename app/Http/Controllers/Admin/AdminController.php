@@ -1445,14 +1445,14 @@ class AdminController extends Controller
         $bigproxyid = $request->bigproxyid;
         $secondproxyid = $request->secondproxyid;
 
-        $bigProxyList = lu_user::where("groupId", "5")->where("status", "1")->get();
+        $bigProxyList = lu_user::where("groupId", "5")->get();
 
         $userName = $request->userName;
         $starttime = $request->starttime;
         $endtime = $request->endtime;
         if(!empty($bigproxyid)){
             $bigProxy = lu_user::find($bigproxyid);
-            $secondProxyList = lu_user::where('recId',$bigProxy->id)->where("status", "1")->get();
+            $secondProxyList = lu_user::where('recId',$bigProxy->id)->get();
         }
 
 //        $result = App\lu_lotteries_k3::where('status', 1);
