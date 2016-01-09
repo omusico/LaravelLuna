@@ -203,17 +203,17 @@
         });
 
         function Search() {
-            url = "proxyList?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val();
+            url = "proxyList?starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val();
             window.location.href = url;
         }
 
         function SwitchBigProxy(uid) {
-            url = "proxyList?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&bigproxyid=" + uid;
+            url = "proxyList?starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&bigproxyid=" + uid;
             window.location.href = url;
         }
 
         function SwitchSecondProxy(suid) {
-            url = "proxyList?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&secondproxyid=" + suid;
+            url = "proxyList?&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&secondproxyid=" + suid;
             window.location.href = url;
 
         }
