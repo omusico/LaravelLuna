@@ -917,7 +917,7 @@
                                         <td>
                                             <input type="text" value="" size="4" tabindex="49" maxlength="5"
                                                    name="SP_ODD" id="SP_ODD" style="border: 1px solid black;" tp3="特码单双"
-                                                   tp2="单" rate="1.96" autocomplete="off">
+                                                   tp2="单" rate="" autocomplete="off">
                                         </td>
                                         <td class="title_td">
                                             <label for="SP_EVEN">
@@ -930,7 +930,7 @@
                                         <td>
                                             <input type="text" value="" size="4" tabindex="50" maxlength="5"
                                                    name="SP_EVEN" id="SP_EVEN" style="border: 1px solid black;"
-                                                   tp3="特码单双" tp2="双" rate="1.96" autocomplete="off">
+                                                   tp3="特码单双" tp2="双" rate="" autocomplete="off">
                                         </td>
                                         <td class="title_td">
                                             <label for="SP_OVER">
@@ -943,7 +943,7 @@
                                         <td>
                                             <input type="text" value="" size="4" tabindex="51" maxlength="5"
                                                    name="SP_OVER" id="SP_OVER" style="border: 1px solid black;"
-                                                   tp3="特码大小" tp2="大" rate="1.96" autocomplete="off">
+                                                   tp3="特码大小" tp2="大" rate="" autocomplete="off">
                                         </td>
                                         <td class="title_td">
                                             <label for="SP_UNDER">
@@ -956,7 +956,7 @@
                                         <td>
                                             <input type="text" value="" size="4" tabindex="52" maxlength="5"
                                                    name="SP_UNDER" id="SP_UNDER" style="border: 1px solid black;"
-                                                   tp3="特码大小" tp2="小" rate="1.96" autocomplete="off">
+                                                   tp3="特码大小" tp2="小" rate="" autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr style="text-align: center;">
@@ -971,7 +971,7 @@
                                         <td>
                                             <input type="text" value="" size="4" tabindex="53" maxlength="5"
                                                    name="SP_SODD" id="SP_SODD" style="border: 1px solid black;"
-                                                   tp3="特码合码单双" tp2="合单" rate="1.96" autocomplete="off">
+                                                   tp3="特码合码单双" tp2="合单" rate="" autocomplete="off">
                                         </td>
                                         <td class="title_td">
                                             <label for="SP_SEVEN">
@@ -984,7 +984,7 @@
                                         <td>
                                             <input type="text" value="" size="4" tabindex="54" maxlength="5"
                                                    name="SP_SEVEN" id="SP_SEVEN" style="border: 1px solid black;"
-                                                   tp3="特码合码单双" tp2="合双" rate="1.96" autocomplete="off">
+                                                   tp3="特码合码单双" tp2="合双" rate="" autocomplete="off">
                                         </td>
                                         <td class="title_td">
                                             <label for="SP_SOVER">
@@ -997,7 +997,7 @@
                                         <td>
                                             <input type="text" value="" size="4" tabindex="55" maxlength="5"
                                                    name="SP_SOVER" id="SP_SOVER" style="border: 1px solid black;"
-                                                   tp3="特码合码大小" tp2="合大" rate="1.96" autocomplete="off">
+                                                   tp3="特码合码大小" tp2="合大" rate="" autocomplete="off">
                                         </td>
                                         <td class="title_td">
                                             <label for="SP_SUNDER">
@@ -1010,7 +1010,7 @@
                                         <td>
                                             <input type="text" value="" size="4" tabindex="56" maxlength="5"
                                                    name="SP_SUNDER" id="SP_SUNDER" style="border: 1px solid black;"
-                                                   tp3="特码合码大小" tp2="合小" rate="1.96" autocomplete="off">
+                                                   tp3="特码合码大小" tp2="合小" rate="" autocomplete="off">
                                         </td>
                                     </tr>
 
@@ -1507,40 +1507,40 @@
 
                                         <div id="HKMS-NOE">
                                             <a href="javascript:void(0);" id="NOE_1" wf="单双" tp2="单" tp3="特码单双"
-                                               rate="1.96">
+                                               rate="">
                                                 <span> </span>
-                                                <label>1.96</label>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="NOE_2" wf="单双" tp2="双" tp3="特码单双"
-                                               rate="1.96">
+                                               rate="">
                                                 <span> </span>
-                                                <label>1.96</label>
+                                                <label></label>
                                             </a>
 
                                         </div>
                                         <div id="HKMS-NOU" style="width:220px; margin:10px auto;">
                                             <a href="javascript:void(0);" id="NOU_1" wf="大小" tp2="大" tp3="特码大小"
-                                               rate="1.96">
+                                               rate="">
                                                 <span> </span>
-                                                <label>1.96</label>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="NOU_2" wf="大小" tp2="小" tp3="特码大小"
-                                               rate="1.96">
+                                               rate="">
                                                 <span> </span>
-                                                <label>1.96</label>
+                                                <label></label>
                                             </a>
 
                                         </div>
                                         <div id="HKMS-DSOE" style="width:220px; margin:5px auto;  ">
                                             <a href="javascript:void(0);" id="DSOE_1" wf="合码单双" tp2="合单" tp3="特码合码单双"
-                                               rate="1.96">
+                                               rate="">
                                                 <span> </span>
-                                                <label>1.96</label>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="DSOE_2" wf="合码单双" tp2="合双" tp3="特码合码单双"
-                                               rate="1.96">
+                                               rate="">
                                                 <span> </span>
-                                                <label>1.96</label>
+                                                <label></label>
                                             </a>
 
                                         </div>

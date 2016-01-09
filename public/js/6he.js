@@ -355,7 +355,7 @@ function initWf(obj) {
         $('#lianma_type li').show(100);
 
     setGameContentDisplay(wei);
-    pls = "合单双,单双,大小,色波";
+    pls = wei;
     switch (wei) {
         case "1":
         case "2":
@@ -366,22 +366,24 @@ function initWf(obj) {
             $("#HKMS-DSOE a").attr("wf", "合单双");
             nowWei = "平码" + wei;
             nowZWF = "平" + wei + "特";
-            pls = getPLS();
+            //pls = getPLS();
+            pls = wei;
             initTP3();
             initPL();
             break;
         case "7":
             $("#HKMS-DSOE a").attr("wf", "合码单双");
-            pls = "合码单双,合码大小,单双,大小,色波";
+            //pls = "合码单双,合码大小,单双,大小,色波";
             nowWei = "特码";
             nowZWF = "特码A";
-            pls = getPLS();
+            pls = "TMA";
             initTP3();
             initPL();
             break;
         case "7B":
             $("#HKMS-DSOE a").attr("wf", "合码单双");
-            pls = "特码,特码合码单双,特码合码大小,特码单双,特码大小,特码色波";
+            //pls = "特码,特码合码单双,特码合码大小,特码单双,特码大小,特码色波";
+            pls = "TMA";
             nowWei = "特码";
             nowZWF = "特码B";
             initTP3();
@@ -390,7 +392,7 @@ function initWf(obj) {
         case "平码":
             nowWei = "平码";
             nowZWF = "平码";
-            pls = "平码";
+            pls = "PM";
             initTP3();
             initPL();
             break;
@@ -425,7 +427,8 @@ function initWf(obj) {
         case "半波":
             nowWei = wei;
             nowZWF = wei;
-            pls = wei + "单双," + wei + "大小";
+            //pls = wei + "单双," + wei + "大小";
+            pls = "BANBO";
             $(".banball a label").html("");
             initBANBO();
             initPL();
@@ -658,7 +661,8 @@ function initTP3() {
     $("#ksms_ball input").attr("TP3", nowZWF);
     $("#HKMS-NUM a").attr("TP3", nowZWF);
     $(".content_right a").each(function () {
-        var tp3 = nowWei + $(this).attr("wf");
+        //var tp3 = nowWei + $(this).attr("wf");
+        var tp3 = nowZWF ;
         $(this).attr("TP3", tp3);
 
     });
@@ -667,7 +671,8 @@ function initTP3() {
 }
 function initBANBO() {
     $("#HKMS-BANBO a").each(function () {
-        var tp3 = nowWei + $(this).attr("wf");
+        //var tp3 = nowWei + $(this).attr("wf");
+        var tp3 = nowZWF;
         $(this).attr("TP3", tp3);
     });
 }
@@ -738,16 +743,19 @@ function bindpl(obj) {
     }
     var tmwf = ",特码A,特码B,";
     if (tmwf.indexOf("," + nowZWF + ",") >= 0) {
-        bindpl_tm(jobj.TMA);
+        bindpl_tm(jobj);
         return;
     }
 
-    for (var i = 0; i < jobj.length; i++) {
-        var rateinfo = jobj[i];
-        var tp2 = rateinfo.tp2;
-        var tp3 = rateinfo.tp3;
-        var rate = rateinfo.rate;
-
+    //for (var i = 0; i < jobj.length; i++) {
+    for (var key in jobj) {
+        //var rateinfo = jobj[i];
+        //var tp2 = rateinfo.tp2;
+        //var tp3 = rateinfo.tp3;
+        //var rate = rateinfo.rate;
+        var tp2 = key;
+        var tp3 = nowZWF;
+        var rate = jobj[key];
 
         var taget = $("a[tp3='" + tp3 + "'][tp2='" + tp2 + "']");
         taget.attr("rate", rate);

@@ -28,10 +28,14 @@ class Lottery6heController extends Controller
         return view("Lottery.6helotteryindex", compact("lotterytypes", "lotterysecondtypes"));
     }
 
-    public function get6heodds()
+    public function get6heodds(Request $request)
     {
+        $wf = $request->WF;
         $sixheodds = defaultCache::cache_6he_odds();
-        return $sixheodds;
+        if (is_numeric($wf)) {
+            $wf = "PM" . $wf;
+        }
+        return $sixheodds[$wf];
     }
 
     public function betting(Request $request)
@@ -236,8 +240,9 @@ class Lottery6heController extends Controller
         }
     }
 
-    private function _formatCode($code){
-        switch($code){
+    private function _formatCode($code)
+    {
+        switch ($code) {
             case '3THTX':
                 $code = '111,222,333,444,555,666';
                 break;
@@ -245,7 +250,7 @@ class Lottery6heController extends Controller
                 $code = '123,234,345,456';
                 break;
             default :
-                $code = str_replace ( " ", "", $code);
+                $code = str_replace(" ", "", $code);
         }
         return $code;
     }
