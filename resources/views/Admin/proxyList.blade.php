@@ -62,7 +62,7 @@
                     @if(!empty($secondProxyList))
                         @foreach($secondProxyList as $secondProxy)
                             @if($secondProxy->id == $secondproxyid)
-                                <option value="{{$secondProxy->id}}" selected>{{$secondProxyy->name}}</option>
+                                <option value="{{$secondProxy->id}}" selected>{{$secondProxy->name}}</option>
                             @else
                                 <option value="{{$secondProxy->id}}">{{$secondProxy->name}}</option>
                             @endif
