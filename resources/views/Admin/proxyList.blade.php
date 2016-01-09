@@ -107,7 +107,7 @@
                     $thisuser = \App\lu_user::find($lu_lotteries_k3->uid)
                     ?>
                     @if($thisuser->groupId <> 7)
-                        @if($second && $thisuser->recId == $secondproxyid)
+                        @if($second && ($thisuser->recId == $secondproxyid))
                             <?php
                             $sumeach += $lu_lotteries_k3->eachPrice;
                             $sumbingo += $lu_lotteries_k3->bingoPrice;
