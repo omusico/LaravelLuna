@@ -73,7 +73,7 @@
                 <span>代理管理</span>
                 <ul>
                     <li>
-                        <a onclick="$.addTopTab('#tabXG','代理列表','代理列表','/admin?groupid=3')">代理列表</a>
+                        <a onclick="$.addTopTab('#tabXG','代理列表','代理列表','/proxyList')">代理列表</a>
                     </li>
                     <li>
                         <a onclick="$.addTopTab('#tabXG','代理条款设置','代理条款设置','/proxycert')">代理条款设置</a>
@@ -86,9 +86,9 @@
                     <li>
                         <a onclick="$.addTopTab('#tabXG','提现审批申请','提现审批申请','/getdepositlist')">提现审批申请</a>
                     </li>
-                    <li>
-                        <a onclick="$.addTopTab('#tabXG','公司充值','公司充值','/company')">公司充值</a>
-                    </li>
+                    {{--<li>--}}
+                        {{--<a onclick="$.addTopTab('#tabXG','公司充值','公司充值','/company')">公司充值</a>--}}
+                    {{--</li>--}}
                     <li>
                         <a onclick="$.addTopTab('#tabXG','在线充值','在线充值','/rechargelist')">在线充值</a>
                     </li>
@@ -98,12 +98,12 @@
                     <li>
                         <a onclick="$.addTopTab('#tabXG','在线充值统计','在线充值统计','/moneycount')">在线充值统计</a>
                     </li>
-                    <li>
-                        <a onclick="$.addTopTab('#tabXG','添加公司充值账户','添加公司充值账户','/companybank/create')">添加公司充值账户</a>
-                    </li>
-                    <li>
-                        <a onclick="$.addTopTab('#tabXG','公司充值账户','公司充值账户','/companybank')">公司充值账户</a>
-                    </li>
+                    {{--<li>--}}
+                        {{--<a onclick="$.addTopTab('#tabXG','添加公司充值账户','添加公司充值账户','/companybank/create')">添加公司充值账户</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a onclick="$.addTopTab('#tabXG','公司充值账户','公司充值账户','/companybank')">公司充值账户</a>--}}
+                    {{--</li>--}}
                     <li>
                         <a onclick="$.addTopTab('#tabXG','支付方式','支付方式','/userlevel')">支付方式</a>
                     </li>
