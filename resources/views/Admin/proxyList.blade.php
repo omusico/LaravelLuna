@@ -107,36 +107,40 @@
                     $thisuser = \App\lu_user::find($lu_lotteries_k3->uid)
                     ?>
                     @if($thisuser->groupId <> 7)
-                        @if($second && ($thisuser->recId == $secondproxyid))
-                            <?php
-                            $sumeach += $lu_lotteries_k3->eachPrice;
-                            $sumbingo += $lu_lotteries_k3->bingoPrice;
-                            ?>
-                            <tr>
-                                {{--                                <td>{{ $lu_lotteries_k3->uid }}</td>--}}
-                                <td>{{ $lu_lotteries_k3->userName }}</td>
-                                <td>{{ $lu_lotteries_k3->eachPrice }}</td>
-                                <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
-                                <td>{{ $lu_lotteries_k3->profit }}</td>
-                                <td>{{ $lu_lotteries_k3->bcount }}</td>
-                                <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->points }}</td>
-                                <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->loginIp }}</td>
-                            </tr>
-                        @elseif($big && strpos($secondstr,",".$thisuser->recId.","))
-                            <?php
-                            $sumeach += $lu_lotteries_k3->eachPrice;
-                            $sumbingo += $lu_lotteries_k3->bingoPrice;
-                            ?>
-                            <tr>
-                                {{--                                <td>{{ $lu_lotteries_k3->uid }}</td>--}}
-                                <td>{{ $lu_lotteries_k3->userName }}</td>
-                                <td>{{ $lu_lotteries_k3->eachPrice }}</td>
-                                <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
-                                <td>{{ $lu_lotteries_k3->profit }}</td>
-                                <td>{{ $lu_lotteries_k3->bcount }}</td>
-                                <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->points }}</td>
-                                <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->loginIp }}</td>
-                            </tr>
+                        @if($second )
+                            @if($thisuser->recId == $secondproxyid)
+                                <?php
+                                $sumeach += $lu_lotteries_k3->eachPrice;
+                                $sumbingo += $lu_lotteries_k3->bingoPrice;
+                                ?>
+                                <tr>
+                                    {{--                                <td>{{ $lu_lotteries_k3->uid }}</td>--}}
+                                    <td>{{ $lu_lotteries_k3->userName }}</td>
+                                    <td>{{ $lu_lotteries_k3->eachPrice }}</td>
+                                    <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
+                                    <td>{{ $lu_lotteries_k3->profit }}</td>
+                                    <td>{{ $lu_lotteries_k3->bcount }}</td>
+                                    <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->points }}</td>
+                                    <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->loginIp }}</td>
+                                </tr>
+                            @endif
+                        @elseif($big )
+                            @if(strpos($secondstr,",".$thisuser->recId.",")>0)
+                                <?php
+                                $sumeach += $lu_lotteries_k3->eachPrice;
+                                $sumbingo += $lu_lotteries_k3->bingoPrice;
+                                ?>
+                                <tr>
+                                    {{--                                <td>{{ $lu_lotteries_k3->uid }}</td>--}}
+                                    <td>{{ $lu_lotteries_k3->userName }}</td>
+                                    <td>{{ $lu_lotteries_k3->eachPrice }}</td>
+                                    <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
+                                    <td>{{ $lu_lotteries_k3->profit }}</td>
+                                    <td>{{ $lu_lotteries_k3->bcount }}</td>
+                                    <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->points }}</td>
+                                    <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->loginIp }}</td>
+                                </tr>
+                            @endif
                         @else
                             <?php
                             $sumeach += $lu_lotteries_k3->eachPrice;
