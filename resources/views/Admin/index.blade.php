@@ -71,13 +71,13 @@
                             @else
                                 <a class="btn btn-sm btn-default" href="/admindetail/{{$lu_user->id}}">资金明细</a>
                             @endif
-                            <form action="{{ url('admin/'.$lu_user->id) }}" style='display: inline'
-                            method="post">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="_token" value="{{csrf_token()}}">
-                            <button class="btn btn-sm btn-danger" onclick="return confirm('确定删除?')">删除
-                            </button>
-                            </form>
+                            {{--<form action="{{ url('admin/'.$lu_user->id) }}" style='display: inline'--}}
+                            {{--method="post">--}}
+                            {{--<input type="hidden" name="_method" value="DELETE">--}}
+                            {{--<input type="hidden" name="_token" value="{{csrf_token()}}">--}}
+                            {{--<button class="btn btn-sm btn-danger" onclick="return confirm('确定删除?')">删除--}}
+                            {{--</button>--}}
+                            {{--</form>--}}
                         </td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="/manualrecharge/{{$lu_user->id}}">手动充值</a>
