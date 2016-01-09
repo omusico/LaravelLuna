@@ -58,6 +58,7 @@
                 <label>二级代理:</label>
                 <select required="required" id="secondProxyList" name="secondProxyList"
                         onchange="SwitchSecondProxy(this.options[this.options.selectedIndex].value)">
+                    <option value=""></option>
                     @if(!empty($secondProxyList))
                         @foreach($secondProxyList as $secondProxy)
                             @if($secondProxy->id == $secondproxyid)
@@ -94,9 +95,8 @@
                 $second = true;
             } elseif (!empty($bigproxyid)) {
                 $big = true;
-                foreach($secondProxyList as $secondproxy)
-                {
-                    $secondstr .= $secondproxy->id .",";
+                foreach ($secondProxyList as $secondproxy) {
+                    $secondstr .= $secondproxy->id . ",";
                 }
 
             }
@@ -107,7 +107,7 @@
                     $thisuser = \App\lu_user::find($lu_lotteries_k3->uid)
                     ?>
                     @if($thisuser->groupId <> 7)
-                        @if($second && $thisuser->recId ==$secondproxyid)
+                        @if($second && $thisuser->recId == $secondproxyid)
                             <?php
                             $sumeach += $lu_lotteries_k3->eachPrice;
                             $sumbingo += $lu_lotteries_k3->bingoPrice;
@@ -213,7 +213,7 @@
         }
 
         function SwitchSecondProxy(suid) {
-            url = "proxyList?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&bigproxyid=" + uid + "&secondproxyid=" + suid;
+            url = "proxyList?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&secondproxyid=" + suid;
             window.location.href = url;
 
         }
