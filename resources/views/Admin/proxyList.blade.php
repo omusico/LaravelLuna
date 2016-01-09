@@ -94,9 +94,11 @@
                 $second = true;
             } elseif (!empty($bigproxyid)) {
                 $big = true;
-                foreach ($secondproxylist as $secondproxy) {
-                    $secondstr += $secondproxy->id + ","
+                foreach($secondProxyList as $secondproxy)
+                {
+                    $secondstr .= $secondproxy->id .",";
                 }
+
             }
             ?>
             @if (count($lu_lotteries_k3s))
