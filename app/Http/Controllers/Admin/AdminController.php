@@ -1445,7 +1445,7 @@ class AdminController extends Controller
         $bigproxyid = $request->bigproxyid;
         $secondproxyid = $request->secondproxyid;
 
-        $bigProxyList = lu_user::where("groupId", "5")->get();
+        $secondProxyList = lu_user::where("groupId", "3")->get();
 
         $userName = $request->userName;
         $starttime = $request->starttime;
