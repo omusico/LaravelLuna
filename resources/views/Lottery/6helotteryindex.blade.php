@@ -8,16 +8,49 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/ssc.css') }}">
     {{--<link rel="stylesheet" type="text/css" href="{{ asset('/css/jquery-ui.min.css') }}">--}}
     <style type="text/css">
+        .datagrid-mask-msg {
+            background: #ffffff;
+        }
+
+        .datagrid-mask-msg {
+            border-style: solid;
+            border-width: 0px;
+            display: none;
+            height: 12px;
+            margin-top: 20%;
+            color: red;
+            padding: 5px 2px 5px 2px;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            font-size: 20px;
+        }
+
+        .datagrid-mask {
+            background: #ccc;
+        }
+
+        .datagrid-mask {
+            margin-top: 20%;
+            display: none;
+            filter: alpha(opacity=30);
+            height: 100%;
+            left: 0;
+            opacity: 0.3;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
     </style>
     <script type="text/javascript">
         var lottery_type = '6he';
         {{--var num ={{$lotterystatus[$config['lotterytype']]['num']}};--}}
-        tbmplus=5.5 ;
-        XiaoNums="[{&#39;xiao&#39;:&#39;鼠&#39;,&#39;nums&#39;:&#39;08.20.32.44&#39;},{&#39;xiao&#39;:&#39;牛&#39;,&#39;nums&#39;:&#39;07.19.31.43&#39;},{&#39;xiao&#39;:&#39;虎&#39;,&#39;nums&#39;:&#39;06.18.30.42&#39;},{&#39;xiao&#39;:&#39;兔&#39;,&#39;nums&#39;:&#39;05.17.29.41&#39;},{&#39;xiao&#39;:&#39;龙&#39;,&#39;nums&#39;:&#39;04.16.28.40&#39;},{&#39;xiao&#39;:&#39;蛇&#39;,&#39;nums&#39;:&#39;03.15.27.39&#39;},{&#39;xiao&#39;:&#39;马&#39;,&#39;nums&#39;:&#39;02.14.26.38&#39;},{&#39;xiao&#39;:&#39;羊&#39;,&#39;nums&#39;:&#39;01.13.25.37.49&#39;},{&#39;xiao&#39;:&#39;猴&#39;,&#39;nums&#39;:&#39;12.24.36.48&#39;},{&#39;xiao&#39;:&#39;鸡&#39;,&#39;nums&#39;:&#39;11.23.35.47&#39;},{&#39;xiao&#39;:&#39;狗&#39;,&#39;nums&#39;:&#39;10.22.34.46&#39;},{&#39;xiao&#39;:&#39;猪&#39;,&#39;nums&#39;:&#39;09.21.33.45&#39;}]";
+        tbmplus = 5.5;
+        XiaoNums = "[{&#39;xiao&#39;:&#39;鼠&#39;,&#39;nums&#39;:&#39;08.20.32.44&#39;},{&#39;xiao&#39;:&#39;牛&#39;,&#39;nums&#39;:&#39;07.19.31.43&#39;},{&#39;xiao&#39;:&#39;虎&#39;,&#39;nums&#39;:&#39;06.18.30.42&#39;},{&#39;xiao&#39;:&#39;兔&#39;,&#39;nums&#39;:&#39;05.17.29.41&#39;},{&#39;xiao&#39;:&#39;龙&#39;,&#39;nums&#39;:&#39;04.16.28.40&#39;},{&#39;xiao&#39;:&#39;蛇&#39;,&#39;nums&#39;:&#39;03.15.27.39&#39;},{&#39;xiao&#39;:&#39;马&#39;,&#39;nums&#39;:&#39;02.14.26.38&#39;},{&#39;xiao&#39;:&#39;羊&#39;,&#39;nums&#39;:&#39;01.13.25.37.49&#39;},{&#39;xiao&#39;:&#39;猴&#39;,&#39;nums&#39;:&#39;12.24.36.48&#39;},{&#39;xiao&#39;:&#39;鸡&#39;,&#39;nums&#39;:&#39;11.23.35.47&#39;},{&#39;xiao&#39;:&#39;狗&#39;,&#39;nums&#39;:&#39;10.22.34.46&#39;},{&#39;xiao&#39;:&#39;猪&#39;,&#39;nums&#39;:&#39;09.21.33.45&#39;}]";
     </script>
 @stop
 @section('content')
-    <div class="container" style="min-width: 500px">
+    <div class="container" id="cc" style="min-width: 500px">
         <div class="zgk3_info_box">
             <div class="zgk3_top row">
                 <div class="zgk3_info_l col-md-4">
@@ -1508,12 +1541,12 @@
                                         <div id="HKMS-NOE">
                                             <a href="javascript:void(0);" id="NOE_1" wf="单双" tp2="单" tp3="特码单双"
                                                rate="">
-                                                <span> </span>
+                                                <span>单</span>
                                                 <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="NOE_2" wf="单双" tp2="双" tp3="特码单双"
                                                rate="">
-                                                <span> </span>
+                                                <span>双</span>
                                                 <label></label>
                                             </a>
 
@@ -1521,12 +1554,12 @@
                                         <div id="HKMS-NOU" style="width:220px; margin:10px auto;">
                                             <a href="javascript:void(0);" id="NOU_1" wf="大小" tp2="大" tp3="特码大小"
                                                rate="">
-                                                <span> </span>
+                                                <span>大</span>
                                                 <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="NOU_2" wf="大小" tp2="小" tp3="特码大小"
                                                rate="">
-                                                <span> </span>
+                                                <span>小</span>
                                                 <label></label>
                                             </a>
 
@@ -1534,12 +1567,12 @@
                                         <div id="HKMS-DSOE" style="width:220px; margin:5px auto;  ">
                                             <a href="javascript:void(0);" id="DSOE_1" wf="合码单双" tp2="合单" tp3="特码合码单双"
                                                rate="">
-                                                <span> </span>
+                                                <span>合单</span>
                                                 <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="DSOE_2" wf="合码单双" tp2="合双" tp3="特码合码单双"
                                                rate="">
-                                                <span> </span>
+                                                <span>合双</span>
                                                 <label></label>
                                             </a>
 
@@ -1547,17 +1580,17 @@
                                     </div>
                                     <div id="HKMS-COR" align="center" style="display: block;">
                                         <a href="javascript:void(0);" id="COR_R" wf="色波" tp2="红波" tp3="特码色波" rate="2.7">
-                                            <span> </span>
+                                            <span>红波</span>
                                             <label>2.7</label>
                                         </a>
                                         <a href="javascript:void(0);" id="COR_G" wf="色波" tp2="绿波" tp3="特码色波"
                                            rate="2.85">
-                                            <span> </span>
+                                            <span>绿波</span>
                                             <label>2.85</label>
                                         </a>
                                         <a href="javascript:void(0);" id="COR_B" wf="色波" tp2="蓝波" tp3="特码色波"
                                            rate="2.85">
-                                            <span> </span>
+                                            <span>蓝波</span>
                                             <label>2.85</label>
                                         </a>
 
@@ -1567,75 +1600,75 @@
                                         <div>
                                             <a href="javascript:void(0)" id="HONG-D" wf="单双" tp2="红单" tp3="特码单双"
                                                rate="5.61">
-                                                <span> </span>
+                                                <span>红单</span>
                                                 <label>5.61</label>
                                             </a>
                                             <a href="javascript:void(0)" id="HONG-S" wf="单双" tp2="红双" tp3="特码单双"
                                                rate="5.06">
-                                                <span> </span>
+                                                <span>红双</span>
                                                 <label>5.06</label>
                                             </a>
                                         </div>
                                         <div>
                                             <a href="javascript:void(0)" id="HONG-DA" wf="大小" tp2="红大" tp3="特码大小"
                                                rate="6.51">
-                                                <span> </span>
+                                                <span>红大</span>
                                                 <label>6.51</label>
                                             </a>
                                             <a href="javascript:void(0)" id="HONG-X" wf="大小" tp2="红小" tp3="特码大小"
                                                rate="4.51">
-                                                <span> </span>
+                                                <span>红小</span>
                                                 <label>4.51</label>
                                             </a>
                                         </div>
 
                                         <div>
                                             <a href="javascript:void(0)" id="LANG-D" wf="单双" tp2="蓝单" tp3="特码单双"
-                                               rate="5.61">
-                                                <span> </span>
-                                                <label>5.61</label>
+                                               rate="">
+                                                <span>蓝单</span>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0)" id="LANG-S" wf="单双" tp2="蓝双" tp3="特码单双"
-                                               rate="5.61">
-                                                <span> </span>
-                                                <label>5.61</label>
+                                               rate="">
+                                                <span>蓝双</span>
+                                                <label></label>
                                             </a>
                                         </div>
                                         <div>
                                             <a href="javascript:void(0)" id="LANG-DA" wf="大小" tp2="蓝大" tp3="特码大小"
-                                               rate="5.06">
-                                                <span> </span>
-                                                <label>5.06</label>
+                                               rate="">
+                                                <span>蓝大</span>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0)" id="LANG-X" wf="大小" tp2="蓝小" tp3="特码大小"
-                                               rate="6.51">
-                                                <span> </span>
-                                                <label>6.51</label>
+                                               rate="">
+                                                <span>蓝小</span>
+                                                <label></label>
                                             </a>
                                         </div>
 
                                         <div>
                                             <a href="javascript:void(0)" id="LU-D" wf="单双" tp2="绿单" tp3="特码单双"
-                                               rate="5.61">
-                                                <span> </span>
-                                                <label>5.61</label>
+                                               rate="">
+                                                <span>绿单</span>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0)" id="LU-S" wf="单双" tp2="绿双" tp3="特码单双"
-                                               rate="6.51">
-                                                <span> </span>
-                                                <label>6.51</label>
+                                               rate="">
+                                                <span>绿双</span>
+                                                <label></label>
                                             </a>
                                         </div>
                                         <div>
                                             <a href="javascript:void(0)" id="LU-DA" wf="大小" tp2="绿大" tp3="特码大小"
-                                               rate="5.61">
-                                                <span> </span>
-                                                <label>5.61</label>
+                                               rate="">
+                                                <span>绿大</span>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0)" id="LU-X" wf="大小" tp2="绿小" tp3="特码大小"
-                                               rate="6.61">
-                                                <span> </span>
-                                                <label>6.61</label>
+                                               rate="">
+                                                <span>绿小</span>
+                                                <label></label>
                                             </a>
                                         </div>
                                     </div>

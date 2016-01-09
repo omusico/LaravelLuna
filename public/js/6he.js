@@ -39,7 +39,7 @@ $(document).ready(function () {
     //setTimeout(function () { getSYED(); }, 1000);
 
 
-    //initWf($(".game_list_bar .radioset_tm label").get(0));
+    initWf($("#TM ul li a").get(0));
 
 
 });
@@ -695,6 +695,8 @@ function initTP3_lianwei() {
 //取赔率
 function initPL() {
 
+    $("#cc").append("<div class='jloading datagrid-mask' style='display:block;z-index:9999'></div>");
+    $("#cc").append("<div class=\"jloading datagrid-mask-msg\" style=\"display:block;left:50%;top: 50%\">正在加载赔率，请稍候</div>");
     //$(".right_content").block({ message: "正在获取赔率..." });
     var data = {"GameType": getGameType(), "WF": pls};
 
@@ -709,6 +711,7 @@ function initPL() {
         },
         success: function (dt) {
             //dt = JSON.parse(dt);
+            $("#cc > div.jloading").remove();
             bindpl(dt);
             //$(".right_content").unblock();
         }
@@ -775,7 +778,7 @@ function bindpl_tm(jobj) {
         var tp2 = key;
         var tp3 = nowZWF;
         var rate = jobj[key];
-        if (nowZWF === "特码B") {
+        if (nowZWF === "特码B" && !isNaN(key)) {
             tp3 = "特码B";
             rate = rate - tbmplus;
         }

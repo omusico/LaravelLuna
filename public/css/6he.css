@@ -193,6 +193,40 @@
     font-weight: bolder;
     color: Yellow;
 }
+#HKMS-COR label {
+    width: 50px;
+    float: left;
+    text-align: center;
+    line-height: 62px;
+    float: right;
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: bolder;
+    color: Yellow;
+}
+
+#HKMS-DSDX span, #HKMS-BANBO span {
+    width: 50px;
+    float: left;
+    text-align: center;
+    line-height: 42px;
+    float: left;
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: bolder;
+    color: Yellow;
+}
+#HKMS-COR span {
+    width: 50px;
+    float: left;
+    text-align: center;
+    line-height: 62px;
+    float: left;
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: bolder;
+    color: Yellow;
+}
 
 #HKMS-DSDX div a, #HKMS-BANBO div a {
     display: block;
