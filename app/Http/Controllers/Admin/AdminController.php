@@ -1445,7 +1445,8 @@ class AdminController extends Controller
         $bigproxyid = $request->bigproxyid;
         $secondproxyid = $request->secondproxyid;
 
-        $secondProxyList = lu_user::where("groupId", "3")->get();
+        $bigProxyList = lu_user::where("groupId", "5")->get();
+
 
         $userName = $request->userName;
         $starttime = $request->starttime;
@@ -1455,6 +1456,7 @@ class AdminController extends Controller
             $secondProxyList = lu_user::where('recId',$bigProxy->id)->get();
         }
 
+        $secondProxyList = lu_user::where("groupId", "3")->get();
 //        $result = App\lu_lotteries_k3::where('status', 1);
         $wheresql = ' where dealing=1 and status <> -2 ';
         if (!empty($userName)) {
