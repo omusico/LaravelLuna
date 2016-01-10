@@ -599,10 +599,12 @@ class LotteryK3Controller extends Controller
                                     $key = trim($code);
                             }
                             $odds = $this->typeDatas[$slug][$key];
-                        } elseif ($slug == "3THDX") {
-                            $k3baoziodds = defaultCache::cache_k3_baozi_odds();
-                            $odds = $k3baoziodds[strtolower($request->lottery_type)];
-                        } else {
+                        }
+//                        elseif ($slug == "3THDX") {
+//                            $k3baoziodds = defaultCache::cache_k3_baozi_odds();
+//                            $odds = $k3baoziodds[strtolower($request->lottery_type)];
+//                        }
+                        else {
                             $odds = $this->typeDatas[$slug]['value'];
                         }
 
