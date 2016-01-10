@@ -50,6 +50,8 @@ Route::resource('companybank', 'CbankController');
 
 Route::get('adminindex', 'Admin\AdminController@adminindex');
 Route::get('bettingList', 'Admin\AdminController@bettingList');
+Route::get('sixhemanual', 'Admin\AdminController@sixhemanual');
+Route::post('savesixhemanual', 'Admin\AdminController@savesixhemanual');
 Route::get('proxyList', 'Admin\AdminController@proxyList');
 Route::get('winningList', 'Admin\AdminController@winningList');
 Route::get('bettingcountList', 'Admin\AdminController@bettingcountList');

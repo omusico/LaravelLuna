@@ -1453,9 +1453,9 @@ class AdminController extends Controller
         $userName = $request->userName;
         $starttime = $request->starttime;
         $endtime = $request->endtime;
-        if(!empty($bigproxyid)){
+        if (!empty($bigproxyid)) {
             $bigProxy = lu_user::find($bigproxyid);
-            $secondProxyList = lu_user::where('recId',$bigProxy->id)->get();
+            $secondProxyList = lu_user::where('recId', $bigProxy->id)->get();
         }
 
         $secondProxyList = lu_user::where("groupId", "3")->get();
@@ -1486,6 +1486,22 @@ class AdminController extends Controller
             $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(ABS(eachPrice)) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s ' . $wheresql . ' and (noticed =1 || status <> -1) group  by uid) betting left join (select uid,userName,sum(ABS(bingoPrice)) as bingoPrice from lu_lotteries_k3s ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
         }
 
-        return view('Admin.proxyList',compact('bigProxyList','secondProxyList','bigproxyid','secondproxyid','userName','starttime','endtime','lu_lotteries_k3s'));
+        return view('Admin.proxyList', compact('bigProxyList', 'secondProxyList', 'bigproxyid', 'secondproxyid', 'userName', 'starttime', 'endtime', 'lu_lotteries_k3s'));
+    }
+
+    public function sixhemanual()
+    {
+        if (Cache::has('sixhe')) {
+            $sixhe = Cache::get('sixhe');
+        }
+        return view('Admin.sixhemanual',compact('sixhe'));
+    }
+
+    public function savesixhemanual(Request $request)
+    {
+        $sixhe = $request->sixhe;
+        Cache::forever('sixhe', $sixhe);
+        session()->flash('message', '字修改成功');
+        return Redirect::back();
     }
 }

@@ -615,7 +615,7 @@ class LunaFunctions
 
                 foreach ($winlists as $row) {
                     if ($type == "6he") {
-                        $action = 'type' . $types[$sixhetypeId]['slug'];
+                        $action = 'type' . $types[$this->return6hetype($row['typeId'])]['slug'];
                     } else {
                         $action = 'type' . $types[$row['typeId']]['slug'];
                     }
@@ -712,6 +712,8 @@ class LunaFunctions
                                             $winCount = lu_lotteries_k3::where('noticed', 1)->where('groupId', $detail['groupId'])->count();
                                         } else if ($type == "ssc") {
                                             $winCount = lu_lotteries_ssc::where('noticed', 1)->where('groupId', $detail['groupId'])->count();
+                                        } else if ($type == "6he") {
+                                            $winCount = lu_lotteries_6he::where('noticed', 1)->where('groupId', $detail['groupId'])->count();
                                         }
                                         if ($winCount >= $tingCount) {
 
@@ -723,6 +725,8 @@ class LunaFunctions
                                                 $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_k3s where groupId="' . $detail['groupId'] . '" and isopen =0 and noticed =0')[0]->sum;
                                             } else if ($type == "ssc") {
                                                 $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_sscs where groupId="' . $detail['groupId'] . '" and isopen =0 and noticed =0')[0]->sum;
+                                            } else if ($type == "6he") {
+                                                $fanMoney = \DB::select('SELECT SUM(eachPrice) as sum FROM lu_lotteries_6hes where groupId="' . $detail['groupId'] . '" and isopen =0 and noticed =0')[0]->sum;
                                             }
                                             if ($fanMoney > 0) {
 
@@ -753,6 +757,8 @@ class LunaFunctions
                                                 lu_lotteries_k3::where('groupId', $detail['groupId'])->where('isOpen', '<>', '1')->update(['status' => -1, 'isOpen' => 1]);
                                             } else if ($type == "ssc") {
                                                 lu_lotteries_ssc::where('groupId', $detail['groupId'])->where('isOpen', '<>', '1')->update(['status' => -1, 'isOpen' => 1]);
+                                            } else if ($type == "6he") {
+                                                lu_lotteries_6he::where('groupId', $detail['groupId'])->where('isOpen', '<>', '1')->update(['status' => -1, 'isOpen' => 1]);
                                             }
 //                                        $lottery->updateLotteryStatus($detail['groupId'], array('status' => -1, 'isOpen' => 1));
 
@@ -775,6 +781,8 @@ class LunaFunctions
                 lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['isOpen' => 1]);
             } else if ($type == "ssc") {
                 lu_lotteries_ssc::where('province', $lottery_type)->where('proName', $winPre)->update(['isOpen' => 1]);
+            } else if ($type == "6he") {
+                lu_lotteries_6he::where('province', $lottery_type)->where('proName', $winPre)->update(['isOpen' => 1]);
             }
 
             // 如果是撤单在开奖.则需处理已经追号结束的.

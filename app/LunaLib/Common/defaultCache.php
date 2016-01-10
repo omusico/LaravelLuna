@@ -3437,7 +3437,7 @@ class defaultCache
                 'odds' => '48.5',
                 'firsttype' => 'TM',
                 'wei' => '1',
-                'slug' => 'TM_PMYI'
+                'slug' => 'TM_PM1'
             ),
             'PM2' => array(
                 'typeId' => '5',
@@ -3445,7 +3445,7 @@ class defaultCache
                 'odds' => '48.5',
                 'firsttype' => 'TM',
                 'wei' => '2',
-                'slug' => 'TM_PMER'
+                'slug' => 'TM_PM2'
             ),
             'PM3' => array(
                 'typeId' => '6',
@@ -3453,7 +3453,7 @@ class defaultCache
                 'odds' => '48.5',
                 'firsttype' => 'TM',
                 'wei' => '3',
-                'slug' => 'TM_PMSAN'
+                'slug' => 'TM_PM3'
             ),
             'PM4' => array(
                 'typeId' => '7',
@@ -3461,7 +3461,7 @@ class defaultCache
                 'odds' => '48.5',
                 'firsttype' => 'TM',
                 'wei' => '4',
-                'slug' => 'TM_PMSI'
+                'slug' => 'TM_PM4'
             ),
             'PM5' => array(
                 'typeId' => '8',
@@ -3469,7 +3469,7 @@ class defaultCache
                 'odds' => '48.5',
                 'firsttype' => 'TM',
                 'wei' => '5',
-                'slug' => 'TM_PMWU'
+                'slug' => 'TM_PM5'
             ),
             'PM6' => array(
                 'typeId' => '9',
@@ -3477,7 +3477,7 @@ class defaultCache
                 'odds' => '48.5',
                 'firsttype' => 'TM',
                 'wei' => '6',
-                'slug' => 'TM_LIU'
+                'slug' => 'TM_PM6'
             ),
             'BANBO' => array(
                 'typeId' => '10',
