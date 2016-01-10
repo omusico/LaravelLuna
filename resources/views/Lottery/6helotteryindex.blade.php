@@ -13,11 +13,11 @@
         }
 
         .datagrid-mask-msg {
-            border-style: solid;
+            /*border-style: solid;*/
             border-width: 0px;
             display: none;
             height: 12px;
-            margin-top: 20%;
+            margin-top: 10%;
             color: red;
             padding: 5px 2px 5px 2px;
             position: absolute;
@@ -43,9 +43,14 @@
         }
     </style>
     <script type="text/javascript">
+        <?php
+        $sixhe = Cache::get('sixhe');
+        $gaptime = strtotime($sixhe['endtime']) - strtotime(date('Y-m-d H:i:s'));
+        ?>
+        betTime ={{$gaptime}};
         var lottery_type = '6he';
         {{--var num ={{$lotterystatus[$config['lotterytype']]['num']}};--}}
-        tbmplus = 5.5;
+        tbmplus = {{$sixhe['plus']}};
         XiaoNums = "[{&#39;xiao&#39;:&#39;鼠&#39;,&#39;nums&#39;:&#39;08.20.32.44&#39;},{&#39;xiao&#39;:&#39;牛&#39;,&#39;nums&#39;:&#39;07.19.31.43&#39;},{&#39;xiao&#39;:&#39;虎&#39;,&#39;nums&#39;:&#39;06.18.30.42&#39;},{&#39;xiao&#39;:&#39;兔&#39;,&#39;nums&#39;:&#39;05.17.29.41&#39;},{&#39;xiao&#39;:&#39;龙&#39;,&#39;nums&#39;:&#39;04.16.28.40&#39;},{&#39;xiao&#39;:&#39;蛇&#39;,&#39;nums&#39;:&#39;03.15.27.39&#39;},{&#39;xiao&#39;:&#39;马&#39;,&#39;nums&#39;:&#39;02.14.26.38&#39;},{&#39;xiao&#39;:&#39;羊&#39;,&#39;nums&#39;:&#39;01.13.25.37.49&#39;},{&#39;xiao&#39;:&#39;猴&#39;,&#39;nums&#39;:&#39;12.24.36.48&#39;},{&#39;xiao&#39;:&#39;鸡&#39;,&#39;nums&#39;:&#39;11.23.35.47&#39;},{&#39;xiao&#39;:&#39;狗&#39;,&#39;nums&#39;:&#39;10.22.34.46&#39;},{&#39;xiao&#39;:&#39;猪&#39;,&#39;nums&#39;:&#39;09.21.33.45&#39;}]";
     </script>
 @stop
@@ -64,11 +69,10 @@
                     </div>
                     <div class="zgk3_info">
                         <span class="yaoshao"></span> <span class="yaoshao">销售时间：
-                            <?php
-                            $sixhe = Cache::get('sixhe');
-                            ?>
                             {{$sixhe ['todaystart'] . '-' . $sixhe ['todayend']}}
-
+                            </span>
+                        <span class="yaoshao"></span> <span class="yaoshao">封盘时间：
+                            {{$sixhe ['endtime']}}
                             </span>
                     </div>
                 </div>
@@ -1830,7 +1834,7 @@
 
         });
         $(function () {
-//            setOutTime();
+            setOutTime();
 //            setTimeout("loadRecent()", 2500);
         });
     </script>

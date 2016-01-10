@@ -79,6 +79,28 @@ var $dom = {
     countDownTime: $('#countDownTime')
 };
 
+function setOutTime(){
+    if(betTime < 1){
+        betTime = 600; //防止在未返回数据前不断重复执行
+        $("#theCur").html("");
+        loadWinInfo();
+        waitAward();
+    }else{
+        betTime = betTime - 1;
+
+        // 下一期自动刷新页面
+        if( betTime < 1){
+            setTimeout("refresh()", 5000);
+        }
+
+        gameHasEnd = 0;
+        var str = betTime.toLeftTimeString();
+
+        if($('#countDownTime').size()>0) $('#countDownTime').html(str);
+    }
+    setTimeout("setOutTime()", 1000);
+}
+
 function render(obj, name, FiveName, _id) {
     var _out = [];
     _out.push('<li id="li_' + obj.type + '_' + obj.code + '" data-type="' + obj.type + '" data-zhushu="' + obj.zhushu + '" data-code="' + obj.code + '" data-id="' + _id + '">');

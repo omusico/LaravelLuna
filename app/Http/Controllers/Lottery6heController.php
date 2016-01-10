@@ -25,6 +25,7 @@ class Lottery6heController extends Controller
         //
         $lotterytypes = defaultCache::cache_6he_first_types();
         $lotterysecondtypes = defaultCache::cache_6he_types();
+//        $sixhe = \Cache::get("sixhe");
         return view("Lottery.6helotteryindex", compact("lotterytypes", "lotterysecondtypes"));
     }
 
