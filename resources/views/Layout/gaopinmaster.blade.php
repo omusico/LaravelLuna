@@ -306,11 +306,6 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
-
-
-
-
-
                 }
             }
 
@@ -318,6 +313,8 @@
         setTimeout('checkwin()', 30000);
     }
 </script>
+{{--<script language="javascript" src="http://dft.zoosnet.net/JS/LsJS.aspx?siteid=DHT65019353&float=1&lng=cn"></script>--}}
+<script language="javascript" src="http://dht.zoosnet.net/JS/LsJS.aspx?siteid=DHT65019353&float=1&lng=cn"></script>
 @yield('script')
 </body>
 </html>

@@ -260,7 +260,7 @@ class LotteryK3Controller extends Controller
 
                     $totals = $totals + $eachPrice;
 
-                    $allprice = lu_lotteries_k3::where('uid', Auth::user()->id)->where("typeid", intval($types[$slug]['typeId']))->where("proName", $proName)->where("province", $lottery_type)->sum("eachPrice");
+                    $allprice = lu_lotteries_k3::where('uid', Auth::user()->id)->where("typeid", intval($types[$slug]['typeId']))->where("proName", $proName)->where("province", $lottery_type)->where('codes',$this->_formatCode($code))->sum("eachPrice");
 
                     if ($slug == 'HZ' && in_array($code, array('单', '双', '大', '小'))) {
                         $buyedMondy[$code] += $eachPrice;
