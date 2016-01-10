@@ -21,6 +21,7 @@ class SixheLottery_Result
         $this->_odds = defaultCache::cache_6he_types();
     }
 
+    //处理大小，单双
     public function specialOpera($wei,$value){
 
     }
