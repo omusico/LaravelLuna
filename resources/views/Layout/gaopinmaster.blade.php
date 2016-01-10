@@ -259,6 +259,11 @@
         if ($("#isLogin").val() != undefined) {
             checkwin();
         }
+
+        @if(Auth::guest() && empty($islogin) && empty($isregister))
+        location.replace('/login');
+        @endif
+
     });
 
 
@@ -273,10 +278,6 @@
             $islogin = strstr($_SERVER['REQUEST_URI'],'login');
             $isregister = strstr($_SERVER['REQUEST_URI'],'register');
              ?>
-            @if(Auth::guest() && empty($islogin) && empty($isregister))
-            location.replace('/login');
-            @endif
-
 
 
         }
@@ -301,6 +302,7 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
+
 
 
 

@@ -64,17 +64,22 @@ class Lottery6heController extends Controller
             $points = $userdata['points'];
 
             $codes = $request->codes;
-            $proName = $request->proName;
-            $proName = "20160105-002";
+
+            $sixhe = \Cache::get('sixhe');
+            $proName = $sixhe['proName'];
             if (empty($playType) || empty($zhushu) || empty($codes) || empty($proName)) {
                 return array('tip' => 'error', 'msg' => '参数错误');
             }
 
             //todo add this constraint
 //            $now = $this->getCurrentTerm($lottery_type);
-//            if ($now != $proName) {
+//            if ($sixhe["proName"] != $proName) {
 //                return array('tip' => 'timeout', 'msg' => '第' . $proName . '期已经截止下注,请稍后');
 //            }
+            if (strtotime($sixhe['endtime']) < strtotime(date('Y-m-d H:i:s'))) {
+                return array('tip' => 'timeout', 'msg' => '第' . $proName . '期已经截止下注,请稍后');
+            }
+
 
             $codeArgs = explode('<waf>', $codes);
 

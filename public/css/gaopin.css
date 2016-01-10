@@ -126,15 +126,16 @@
 
 .gp_route_word {
     background-color: transparent;
-    margin:auto;
+    margin: auto;
     margin-left: 200px;
     width: auto;
     height: 80px;
     display: table;
 }
-.gp_route_word a{
+
+.gp_route_word a {
     color: red;
-    font-size:larger;
+    font-size: larger;
     font-family: bold;
 }
 
@@ -285,5 +286,13 @@
     background: url('gaopinmain.png') no-repeat scroll -915px -685px transparent;
     width: 35px;
     height: 35px;
+    display: inline-block;
+}
+
+.gp_login_back {
+    border: none;
+    background: url('gplogin.png') no-repeat scroll -95px -137px transparent;
+    width: 930px;
+    height: 385px;
     display: inline-block;
 }
