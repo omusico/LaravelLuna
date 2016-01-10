@@ -21,6 +21,10 @@ class SixheLottery_Result
         $this->_odds = defaultCache::cache_6he_types();
     }
 
+    public function specialOpera($wei,$value){
+
+    }
+
     public function typeTM_TMA($codeArr,$winPre ,$row){
         $codes =  $this->transValue($row['codes']);
         $handle = 0;

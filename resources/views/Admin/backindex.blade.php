@@ -50,7 +50,7 @@
                         <a onclick="$.addTopTab('#tabXG','添加会员','添加会员','/admin/create')"><span>添加会员</span></a>
                     </li>
                     {{--<li>--}}
-                        {{--<a onclick="$.addTopTab('#tabXG','会员投注统计','会员投注统计','/bettingcountList')"><span>会员投注统计</span></a>--}}
+                    {{--<a onclick="$.addTopTab('#tabXG','会员投注统计','会员投注统计','/bettingcountList')"><span>会员投注统计</span></a>--}}
                     {{--</li>--}}
                     <li>
                         <a onclick="$.addTopTab('#tabXG','会员投注列表','会员投注列表','/bettingList')"><span>会员投注列表</span></a>
@@ -87,7 +87,7 @@
                         <a onclick="$.addTopTab('#tabXG','提现审批申请','提现审批申请','/getdepositlist')">提现审批申请</a>
                     </li>
                     {{--<li>--}}
-                        {{--<a onclick="$.addTopTab('#tabXG','公司充值','公司充值','/company')">公司充值</a>--}}
+                    {{--<a onclick="$.addTopTab('#tabXG','公司充值','公司充值','/company')">公司充值</a>--}}
                     {{--</li>--}}
                     <li>
                         <a onclick="$.addTopTab('#tabXG','在线充值','在线充值','/rechargelist')">在线充值</a>
@@ -99,10 +99,10 @@
                         <a onclick="$.addTopTab('#tabXG','在线充值统计','在线充值统计','/moneycount')">在线充值统计</a>
                     </li>
                     {{--<li>--}}
-                        {{--<a onclick="$.addTopTab('#tabXG','添加公司充值账户','添加公司充值账户','/companybank/create')">添加公司充值账户</a>--}}
+                    {{--<a onclick="$.addTopTab('#tabXG','添加公司充值账户','添加公司充值账户','/companybank/create')">添加公司充值账户</a>--}}
                     {{--</li>--}}
                     {{--<li>--}}
-                        {{--<a onclick="$.addTopTab('#tabXG','公司充值账户','公司充值账户','/companybank')">公司充值账户</a>--}}
+                    {{--<a onclick="$.addTopTab('#tabXG','公司充值账户','公司充值账户','/companybank')">公司充值账户</a>--}}
                     {{--</li>--}}
                     <li>
                         <a onclick="$.addTopTab('#tabXG','支付方式','支付方式','/userlevel')">支付方式</a>
@@ -164,9 +164,9 @@
                     <li>
                         <a onclick="$.addTopTab('#tabXG','优惠活动','优惠活动','/favor')">优惠活动</a>
                     </li>
-                    {{--<li>--}}
-                    {{--<a href="/admin"><span>手机版提醒</span></a>--}}
-                    {{--</li>--}}
+                    <li>
+                        <a href="/admin"><span>手机版提醒</span></a>
+                    </li>
                     {{--<li>--}}
                     {{--<a href="/admin"><span>线路</span></a>--}}
                     {{--</li>--}}

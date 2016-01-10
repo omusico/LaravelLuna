@@ -171,8 +171,7 @@ class AdminController extends Controller
             $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(ABS(eachPrice)) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s ' . $wheresql . ' and (noticed =1 || status <> -1) group  by uid) betting left join (select uid,userName,sum(ABS(bingoPrice)) as bingoPrice from lu_lotteries_k3s ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
         }
 
-
-
+//        $moneycounts = \DB::select('select t.* from (select uid,userName,count(*) as count,sum(amounts) as amounts from lu_lottery_recharges' . $wheresql . ' group by uid) t left join lu_users on t.uid =lu_users.id where lu_users.groupId <> 7');
         return view('Admin.bettingcountList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime'));
     }
 
