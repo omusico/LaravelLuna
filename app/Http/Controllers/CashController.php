@@ -289,7 +289,7 @@ class CashController extends Controller
                 return view('Cash.lotteryorderzf');
             } elseif ($paytype = "bf") {
                 $data = array(
-                    'sn' => $request->order_no,
+                    'sn' => $request->TransID,
                     'uid' => $request->uid,
                     'siteId' => 1,
                     'amounts' => $request->amounts,
