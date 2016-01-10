@@ -13,6 +13,9 @@
 <body>
 <div class="container">
     <div class="gp_login_back" style="margin-top:25%">
+        <a href="#">
+            <div style="background-color: transparent;position: absolute;width: 53px;height: 130px;margin-top: 150px"></div>
+        </a>
         {!! Form::open(['url' => '/login', 'class' => 'form-horizontal', 'role' => 'form']) !!}
         <div class="form-group" style="padding-top: 80px">
             <div class="col-md-offset-1 col-md-3" style="padding-left: 100px">
@@ -21,7 +24,8 @@
         </div>
         <div class="form-group" style="padding-top: 25px">
             <div class="col-md-offset-1 col-md-3" style="padding-left: 100px">
-                <input class="form-control" required="required" name="password" type="password" value="" style="width: 205px">
+                <input class="form-control" required="required" name="password" type="password" value=""
+                       style="width: 205px">
             </div>
         </div>
         <div class="form-group" style="padding-top: 30px">

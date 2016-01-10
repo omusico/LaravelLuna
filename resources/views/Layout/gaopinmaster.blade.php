@@ -261,8 +261,12 @@
         }
 
         @if(Auth::guest() && empty($islogin) && empty($isregister))
+        @if($_SERVER['REQUEST_URI']=='/register' || $_SERVER['REQUEST_URI']=='/dailiregister')
+        @else
         location.replace('/login');
         @endif
+        @endif
+
 
     });
 
@@ -302,6 +306,7 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
+
 
 
 
