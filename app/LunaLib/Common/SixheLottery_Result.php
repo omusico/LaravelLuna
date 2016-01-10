@@ -61,9 +61,78 @@ class SixheLottery_Result
 
     public function typeTM_TMB($codeArr,$winPre ,$row){
 
+        $codes =  $this->transValue($row['codes']);
+        $handle = 0;
+        $data = array();
+        $value = 0;
+
+        $codeArr = implode(",", $codeArr);
+
+        $postion = stripos($codeArr,$codes);
+
+        // 必须都不相同
+        if( $postion === 0){
+            $handle = true;
+        }
+        $lunaFunction = new LunaFunctions();
+        if($handle){ //中了
+            //$eachPrice = $row['eachPrice'] * $this->_perOdds($odds);
+            $amount = $row['bingoPrice'];
+            $data=array(
+                'userName'=>CommonClass::safeString($row['userName']),
+                'amount'=>CommonClass::price($amount),
+                'created'=>$_SERVER['REQUEST_TIME'],
+                '2'=>2,
+                'dateSn'=>$lunaFunction->create_order_no($row['uid']),
+                'code'=>$row['codes'],
+                'uid'=>$row['uid'],
+                'sumVal'=>(int)$value,
+                'typeId'=>(int)$row['typeId'],
+                'proName'=>trim($winPre),
+                'eachPrice'=>$row['eachPrice'],
+                'bingoPrice'=>$row['bingoPrice']
+            );
+            return $data;
+        }
+        return false;
+
     }
 
     public function typeTM_PM($codeArr,$winPre ,$row){
+        $codes =  $this->transValue($row['codes']);
+        $handle = 0;
+        $data = array();
+        $value = 0;
+
+        $codeArr = implode(",", $codeArr);
+
+        $postion = stripos($codeArr,$codes);
+
+        // 必须都不相同
+        if( $postion === 0){
+            $handle = true;
+        }
+        $lunaFunction = new LunaFunctions();
+        if($handle){ //中了
+            //$eachPrice = $row['eachPrice'] * $this->_perOdds($odds);
+            $amount = $row['bingoPrice'];
+            $data=array(
+                'userName'=>CommonClass::safeString($row['userName']),
+                'amount'=>CommonClass::price($amount),
+                'created'=>$_SERVER['REQUEST_TIME'],
+                '2'=>2,
+                'dateSn'=>$lunaFunction->create_order_no($row['uid']),
+                'code'=>$row['codes'],
+                'uid'=>$row['uid'],
+                'sumVal'=>(int)$value,
+                'typeId'=>(int)$row['typeId'],
+                'proName'=>trim($winPre),
+                'eachPrice'=>$row['eachPrice'],
+                'bingoPrice'=>$row['bingoPrice']
+            );
+            return $data;
+        }
+        return false;
 
     }
 

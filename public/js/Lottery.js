@@ -106,8 +106,8 @@ function render(obj, name, FiveName, _id) {
     _out.push('<li id="li_' + obj.type + '_' + obj.code + '" data-type="' + obj.type + '" data-zhushu="' + obj.zhushu + '" data-code="' + obj.code + '" data-id="' + _id + '">');
     _out.push('<span class="txt-betsName">[' + FiveName + ']</span>');
     _out.push('<span title="' + obj.code + '" class="txt-num js-code">' + name + '</span>');
-    val = obj.value * obj.odd;
-    _out.push('<span class="txt-amount js-money" style="width:230px;float:none">下注金额<input value="' + obj.value + '" type="number" onkeyup="formatIntVal(this)" data-odd="' + obj.odd + '" onafterpaste="Five.formatIntVal(this)" name="totals[]" class="totalsVal" size="6" />元&nbsp;&nbsp;<em>可赢金额：<span class="bingoMoney">' + val + '</span> 元</em></span>');
+    var winval = obj.value * obj.odd;
+    _out.push('<span class="txt-amount js-money" style="width:230px;float:none">下注金额<input value="' + obj.value + '" type="number" onkeyup="formatIntVal(this)" data-odd="' + obj.odd + '" onafterpaste="Five.formatIntVal(this)" name="totals[]" class="totalsVal" size="6" />元&nbsp;&nbsp;<em>可赢金额：<span class="bingoMoney">' + winval.toFixed(2) + '</span> 元</em></span>');
     _out.push('<a href="javascript:void(0);" class="txt-delNum js-del">删除</a>');
     var val = obj.code + '|' + pls + '|' + obj.type;
     _out.push('<input type="hidden" name="tmpCodes[]" class="tmpCodes" value="' + val + '" />');

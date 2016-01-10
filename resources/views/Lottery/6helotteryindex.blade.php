@@ -8,6 +8,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/ssc.css') }}">
     {{--<link rel="stylesheet" type="text/css" href="{{ asset('/css/jquery-ui.min.css') }}">--}}
     <style type="text/css">
+        .has_add_ball li .txt-betsName {
+            width: 100px;
+        }
+
         .datagrid-mask-msg {
             background: #ffffff;
         }
