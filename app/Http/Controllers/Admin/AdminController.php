@@ -520,6 +520,7 @@ class AdminController extends Controller
         $lu_user->groupId = $request->groupId;
         $lu_user->status = $request->status;
         $lu_user->level = $request->level;
+        $lu_user->invite = $request->invite;
         $depositOdds = $request->depositOdds;
         if (!empty($depositOdds)) {
             $lu_user->depositOdds = $request->depositOdds;

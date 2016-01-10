@@ -49,6 +49,12 @@
                 </div>
             </div>
             <div class="form-group">
+                {!! Form::label('invite', '邀请码: ', ['class' => 'control-label col-md-1']) !!}
+                <div class="col-md-4">
+                    {!! Form::text('invite', $lu_user->invite, ['class' => 'form-control']) !!}
+                </div>
+            </div>
+            <div class="form-group">
                 {!! Form::label('groupId', '权限组: ', ['class' => 'control-label col-md-1']) !!}
                 <div class="col-md-4">
                     <select class="form-control" required="required" id="groupId" name="groupId">
