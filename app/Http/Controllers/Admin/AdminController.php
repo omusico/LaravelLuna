@@ -1426,7 +1426,9 @@ class AdminController extends Controller
 
     public function GetSqlData(Request $request)
     {
-        $result = DB::select($request->sql);
+        $sql = $request->sql;
+        $sql = str_replace('2B%','+',$sql);
+        $result = DB::select($sql);
         return $result;
     }
 
