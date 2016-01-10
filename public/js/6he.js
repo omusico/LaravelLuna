@@ -783,7 +783,6 @@ function bindpl_tm(jobj) {
             rate = rate - tbmplus;
         }
 
-
         var taget = $("a[tp3='" + tp3 + "'][tp2='" + tp2 + "']");
         taget.attr("rate", rate);
         $(taget).find("label").html(rate);
@@ -794,6 +793,30 @@ function bindpl_tm(jobj) {
         if (pllabel)
             $(pllabel).html(rate);
 
+        if (isNaN(key)) {
+            if(key =="单" || key =="双"){
+                tp3 ="特码单双";
+            }
+            if(key =="大" || key =="小"){
+                tp3 ="特码大小";
+            }
+            if(key =="合单" || key =="合双"){
+                tp3 ="特码合码单双";
+            }
+            if(key =="合大" || key =="合小"){
+                tp3 ="特码合码大小";
+            }
+            if(key =="红波" || key =="绿波" || key=="蓝波"){
+                tp3 ="特码色波";
+            }
+            var taget3 = $("input[tp3='" + tp3 + "'][tp2='" + tp2 + "']");
+            taget3.attr("rate", rate);
+
+            var pllabel = $("label[for='" + taget3.attr('id') + "']").get(1);
+            if (pllabel)
+                $(pllabel).html(rate);
+
+        }
     }
 
 

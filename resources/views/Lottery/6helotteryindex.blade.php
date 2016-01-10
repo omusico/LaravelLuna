@@ -73,7 +73,7 @@
                         距<span class="c_red" id="theCur">...</span>期投注截止还有：
                     </div>
                     <div class="zgk3_li">
-                        <div class="zgk3_jusecond" id="countDownTime">00:00</div>
+                        <div class="zgk3_jusecond" id="countDownTime">00:00:00</div>
                     </div>
                 </div>
                 <input type="hidden" id="proName"/> <input type="hidden"
@@ -241,13 +241,13 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP01">48.5</label>
+                                            <label for="SP01"></label>
                                         </td>
                                         <td>
 
                                             <input type="text" value="" size="4" tabindex="1" maxlength="5"
                                                    name="num[SP01]" id="SP01" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="01" rate="48.5" autocomplete="off">
+                                                   tp2="01" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP11">
@@ -255,12 +255,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP11">48.5</label>
+                                            <label for="SP11"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="11" maxlength="5"
                                                    name="num[SP11]" id="SP11" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="11" rate="48.5" autocomplete="off">
+                                                   tp2="11" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP21">
@@ -268,12 +268,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP21">48.5</label>
+                                            <label for="SP21"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="21" maxlength="5"
                                                    name="num[SP21]" id="SP21" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="21" rate="48.5" autocomplete="off">
+                                                   tp2="21" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorB">
                                             <label for="SP31">
@@ -281,12 +281,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP31">48.5</label>
+                                            <label for="SP31"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="31" maxlength="5"
                                                    name="num[SP31]" id="SP31" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="31" rate="48.5" autocomplete="off">
+                                                   tp2="31" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorB">
                                             <label for="SP41">
@@ -294,12 +294,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP41">48.5</label>
+                                            <label for="SP41"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="41" maxlength="5"
                                                    name="num[SP41]" id="SP41" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="41" rate="48.5" autocomplete="off">
+                                                   tp2="41" rate="" autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr style="text-align: center;">
@@ -309,12 +309,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP02">48.5</label>
+                                            <label for="SP02"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="2" maxlength="5"
                                                    name="num[SP02]" id="SP02" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="02" rate="48.5" autocomplete="off">
+                                                   tp2="02" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorR">
                                             <label for="SP12">
@@ -322,12 +322,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP12">48.5</label>
+                                            <label for="SP12"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="12" maxlength="5"
                                                    name="num[SP12]" id="SP12" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="12" rate="48.5" autocomplete="off">
+                                                   tp2="12" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP22">
@@ -335,12 +335,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP22">48.5</label>
+                                            <label for="SP22"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="22" maxlength="5"
                                                    name="num[SP22]" id="SP22" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="22" rate="48.5" autocomplete="off">
+                                                   tp2="22" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP32">
@@ -348,12 +348,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP32">48.5</label>
+                                            <label for="SP32"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="32" maxlength="5"
                                                    name="num[SP32]" id="SP32" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="32" rate="48.5" autocomplete="off">
+                                                   tp2="32" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorB">
                                             <label for="SP42">
@@ -361,12 +361,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP42">48.5</label>
+                                            <label for="SP42"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="42" maxlength="5"
                                                    name="num[SP42]" id="SP42" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="42" rate="48.5" autocomplete="off">
+                                                   tp2="42" rate="" autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr style="text-align: center;">
@@ -376,12 +376,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP03">48.5</label>
+                                            <label for="SP03"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="3" maxlength="5"
                                                    name="num[SP03]" id="SP03" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="03" rate="48.5" autocomplete="off">
+                                                   tp2="03" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorR">
                                             <label for="SP13">
@@ -389,12 +389,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP13">48.5</label>
+                                            <label for="SP13"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="13" maxlength="5"
                                                    name="num[SP13]" id="SP13" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="13" rate="48.5" autocomplete="off">
+                                                   tp2="13" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorR">
                                             <label for="SP23">
@@ -402,12 +402,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP23">48.5</label>
+                                            <label for="SP23"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="23" maxlength="5"
                                                    name="num[SP23]" id="SP23" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="23" rate="48.5" autocomplete="off">
+                                                   tp2="23" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP33">
@@ -415,12 +415,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP33">48.5</label>
+                                            <label for="SP33"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="33" maxlength="5"
                                                    name="num[SP33]" id="SP33" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="33" rate="48.5" autocomplete="off">
+                                                   tp2="33" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP43">
@@ -428,12 +428,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP43">48.5</label>
+                                            <label for="SP43"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="43" maxlength="5"
                                                    name="num[SP43]" id="SP43" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="43" rate="48.5" autocomplete="off">
+                                                   tp2="43" rate="" autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr style="text-align: center;">
@@ -443,12 +443,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP04">48.5</label>
+                                            <label for="SP04"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="4" maxlength="5"
                                                    name="num[SP04]" id="SP04" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="04" rate="48.5" autocomplete="off">
+                                                   tp2="04" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorB">
                                             <label for="SP14">
@@ -456,12 +456,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP14">48.5</label>
+                                            <label for="SP14"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="14" maxlength="5"
                                                    name="num[SP14]" id="SP14" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="14" rate="48.5" autocomplete="off">
+                                                   tp2="14" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorR">
                                             <label for="SP24">
@@ -469,12 +469,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP24">48.5</label>
+                                            <label for="SP24"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="24" maxlength="5"
                                                    name="num[SP24]" id="SP24" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="24" rate="48.5" autocomplete="off">
+                                                   tp2="24" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorR">
                                             <label for="SP34">
@@ -482,12 +482,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP34">48.5</label>
+                                            <label for="SP34"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="34" maxlength="5"
                                                    name="num[SP34]" id="SP34" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="34" rate="48.5" autocomplete="off">
+                                                   tp2="34" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP44">
@@ -495,12 +495,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP44">48.5</label>
+                                            <label for="SP44"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="44" maxlength="5"
                                                    name="num[SP44]" id="SP44" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="44" rate="48.5" autocomplete="off">
+                                                   tp2="44" rate="" autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr style="text-align: center;">
@@ -510,12 +510,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP05">48.5</label>
+                                            <label for="SP05"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="5" maxlength="5"
                                                    name="num[SP05]" id="SP05" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="05" rate="48.5" autocomplete="off">
+                                                   tp2="05" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorB">
                                             <label for="SP15">
@@ -523,12 +523,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP15">48.5</label>
+                                            <label for="SP15"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="15" maxlength="5"
                                                    name="num[SP15]" id="SP15" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="15" rate="48.5" autocomplete="off">
+                                                   tp2="15" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorB">
                                             <label for="SP25">
@@ -536,12 +536,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP25">48.5</label>
+                                            <label for="SP25"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="25" maxlength="5"
                                                    name="num[SP25]" id="SP25" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="25" rate="48.5" autocomplete="off">
+                                                   tp2="25" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorR">
                                             <label for="SP35">
@@ -549,12 +549,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP35">48.5</label>
+                                            <label for="SP35"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="35" maxlength="5"
                                                    name="num[SP35]" id="SP35" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="35" rate="48.5" autocomplete="off">
+                                                   tp2="35" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorR">
                                             <label for="SP45">
@@ -562,12 +562,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP45">48.5</label>
+                                            <label for="SP45"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="45" maxlength="5"
                                                    name="num[SP45]" id="SP45" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="45" rate="48.5" autocomplete="off">
+                                                   tp2="45" rate="" autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr style="text-align: center;">
@@ -577,12 +577,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP06">48.5</label>
+                                            <label for="SP06"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="6" maxlength="5"
                                                    name="num[SP06]" id="SP06" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="06" rate="48.5" autocomplete="off">
+                                                   tp2="06" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP16">
@@ -590,12 +590,12 @@
                                             </label>
                                         </td>
                                         <td style="">
-                                            <label for="SP16">48.5</label>
+                                            <label for="SP16"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="16" maxlength="5"
                                                    name="num[SP16]" id="SP16" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="16" rate="48.5" autocomplete="off">
+                                                   tp2="16" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorB">
                                             <label for="SP26">
@@ -603,12 +603,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP26">48.5</label>
+                                            <label for="SP26"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="26" maxlength="5"
                                                    name="num[SP26]" id="SP26" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="26" rate="48.5" autocomplete="off">
+                                                   tp2="26" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorB">
                                             <label for="SP36">
@@ -616,12 +616,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP36">48.5</label>
+                                            <label for="SP36"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="36" maxlength="5"
                                                    name="num[SP36]" id="SP36" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="36" rate="48.5" autocomplete="off">
+                                                   tp2="36" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorR">
                                             <label for="SP46">
@@ -629,12 +629,12 @@
                                             </label>
                                         </td>
                                         <td style="">
-                                            <label for="SP46">48.5</label>
+                                            <label for="SP46"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="46" maxlength="5"
                                                    name="num[SP46]" id="SP46" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="46" rate="48.5" autocomplete="off">
+                                                   tp2="46" rate="" autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr style="text-align: center;">
@@ -644,12 +644,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP07">48.5</label>
+                                            <label for="SP07"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="7" maxlength="5"
                                                    name="num[SP07]" id="SP07" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="07" rate="48.5" autocomplete="off">
+                                                   tp2="07" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP17">
@@ -657,12 +657,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP17">48.5</label>
+                                            <label for="SP17"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="17" maxlength="5"
                                                    name="num[SP17]" id="SP17" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="17" rate="48.5" autocomplete="off">
+                                                   tp2="17" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP27">
@@ -670,12 +670,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP27">48.5</label>
+                                            <label for="SP27"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="27" maxlength="5"
                                                    name="num[SP27]" id="SP27" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="27" rate="48.5" autocomplete="off">
+                                                   tp2="27" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorB" style="">
                                             <label for="SP37">
@@ -683,12 +683,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP37">48.5</label>
+                                            <label for="SP37"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="37" maxlength="5"
                                                    name="num[SP37]" id="SP37" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="37" rate="48.5" autocomplete="off">
+                                                   tp2="37" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorB">
                                             <label for="SP47">
@@ -696,12 +696,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP47">48.5</label>
+                                            <label for="SP47"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="47" maxlength="5"
                                                    name="num[SP47]" id="SP47" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="47" rate="48.5" autocomplete="off">
+                                                   tp2="47" rate="" autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr style="text-align: center;">
@@ -711,12 +711,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP08">48.5</label>
+                                            <label for="SP08"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="8" maxlength="5"
                                                    name="num[SP08]" id="SP08" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="08" rate="48.5" autocomplete="off">
+                                                   tp2="08" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorR">
                                             <label for="SP18">
@@ -724,12 +724,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP18">48.5</label>
+                                            <label for="SP18"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="18" maxlength="5"
                                                    name="num[SP18]" id="SP18" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="18" rate="48.5" autocomplete="off">
+                                                   tp2="18" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP28">
@@ -737,12 +737,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP28">48.5</label>
+                                            <label for="SP28"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="28" maxlength="5"
                                                    name="num[SP28]" id="SP28" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="28" rate="48.5" autocomplete="off">
+                                                   tp2="28" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP38">
@@ -750,12 +750,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP38">48.5</label>
+                                            <label for="SP38"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="38" maxlength="5"
                                                    name="num[SP38]" id="SP38" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="38" rate="48.5" autocomplete="off">
+                                                   tp2="38" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorB">
                                             <label for="SP48">
@@ -763,12 +763,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP48">48.5</label>
+                                            <label for="SP48"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="48" maxlength="5"
                                                    name="num[SP48]" id="SP48" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="48" rate="48.5" autocomplete="off">
+                                                   tp2="48" rate="" autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr style="text-align: center;">
@@ -778,12 +778,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP09">48.5</label>
+                                            <label for="SP09"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="9" maxlength="5"
                                                    name="num[SP09]" id="SP09" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="09" rate="48.5" autocomplete="off">
+                                                   tp2="09" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorR">
                                             <label for="SP19">
@@ -791,12 +791,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP19">48.5</label>
+                                            <label for="SP19"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="19" maxlength="5"
                                                    name="num[SP19]" id="SP19" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="19" rate="48.5" autocomplete="off">
+                                                   tp2="19" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorR">
                                             <label for="SP29">
@@ -804,12 +804,12 @@
                                             </label>
                                         </td>
                                         <td style="">
-                                            <label for="SP29">48.5</label>
+                                            <label for="SP29"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="29" maxlength="5"
                                                    name="num[SP29]" id="SP29" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="29" rate="48.5" autocomplete="off">
+                                                   tp2="29" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP39">
@@ -817,12 +817,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP39">48.5</label>
+                                            <label for="SP39"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="39" maxlength="5"
                                                    name="num[SP39]" id="SP39" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="39" rate="48.5" autocomplete="off">
+                                                   tp2="39" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorG">
                                             <label for="SP49">
@@ -830,12 +830,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP49">48.5</label>
+                                            <label for="SP49"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="49" maxlength="5"
                                                    name="num[SP49]" id="SP49" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="49" rate="48.5" autocomplete="off">
+                                                   tp2="49" rate="" autocomplete="off">
                                         </td>
                                     </tr>
                                     <tr style="text-align: center;">
@@ -845,12 +845,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP10">48.5</label>
+                                            <label for="SP10"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="10" maxlength="5"
                                                    name="num[SP10]" id="SP10" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="10" rate="48.5" autocomplete="off">
+                                                   tp2="10" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorB">
                                             <label for="SP20">
@@ -858,12 +858,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP20">48.5</label>
+                                            <label for="SP20"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="20" maxlength="5"
                                                    name="num[SP20]" id="SP20" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="20" rate="48.5" autocomplete="off">
+                                                   tp2="20" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorR">
                                             <label for="SP30">
@@ -871,12 +871,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP30">48.5</label>
+                                            <label for="SP30"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="30" maxlength="5"
                                                    name="num[SP30]" id="SP30" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="30" rate="48.5" autocomplete="off">
+                                                   tp2="30" rate="" autocomplete="off">
                                         </td>
                                         <td class="bColorR">
                                             <label for="SP40">
@@ -884,12 +884,12 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <label for="SP40">48.5</label>
+                                            <label for="SP40"></label>
                                         </td>
                                         <td>
                                             <input type="text" value="" size="4" tabindex="40" maxlength="5"
                                                    name="num[SP40]" id="SP40" style="border: 1px solid black;" tp3="特码"
-                                                   tp2="40" rate="48.5" autocomplete="off">
+                                                   tp2="40" rate="" autocomplete="off">
                                         </td>
                                         <td colspan="3"></td>
                                     </tr>
@@ -1112,209 +1112,209 @@
                                     <div id="HKMS-NUM">
                                         <div class="ball" style="display: block;">
                                             <a href="javascript:void(0);" id="NUM_1" wf="定位" tp2="01" tp3="特码"
-                                               rate="48.5">
+                                               rate="">
                                                 <span>01</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_2" wf="定位" tp2="02" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>02</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_3" wf="定位" tp2="03" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>03</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_4" wf="定位" tp2="04" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>04</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_5" wf="定位" tp2="05" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>05</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_6" wf="定位" tp2="06" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>06</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_7" wf="定位" tp2="07" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>07</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_8" wf="定位" tp2="08" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>08</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_9" wf="定位" tp2="09" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>09</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="NUM_10" wf="定位" tp2="10" tp3="特码"
-                                               rate="48.5">
+                                               rate="">
                                                 <span>10</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="NUM_11" wf="定位" tp2="11" tp3="特码"
-                                               rate="48.5">
+                                               rate="">
                                                 <span>11</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_12" wf="定位" tp2="12" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>12</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_13" wf="定位" tp2="13" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>13</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_14" wf="定位" tp2="14" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>14</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_15" wf="定位" tp2="15" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>15</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_16" wf="定位" tp2="16" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>16</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_17" wf="定位" tp2="17" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>17</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_18" wf="定位" tp2="18" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>18</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_19" wf="定位" tp2="19" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>19</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="NUM_20" wf="定位" tp2="20" tp3="特码"
-                                               rate="48.5">
+                                               rate="">
                                                 <span>20</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="NUM_21" wf="定位" tp2="21" tp3="特码"
-                                               rate="48.5">
+                                               rate="">
                                                 <span>21</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_22" wf="定位" tp2="22" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>22</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_23" wf="定位" tp2="23" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>23</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_24" wf="定位" tp2="24" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>24</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_25" wf="定位" tp2="25" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>25</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_26" wf="定位" tp2="26" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>26</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_27" wf="定位" tp2="27" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>27</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_28" wf="定位" tp2="28" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>28</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_29" wf="定位" tp2="29" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>29</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="NUM_30" wf="定位" tp2="30" tp3="特码"
-                                               rate="48.5">
+                                               rate="">
                                                 <span>30</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="NUM_31" wf="定位" tp2="31" tp3="特码"
-                                               rate="48.5">
+                                               rate="">
                                                 <span>31</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_32" wf="定位" tp2="32" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>32</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_33" wf="定位" tp2="33" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>33</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_34" wf="定位" tp2="34" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>34</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_35" wf="定位" tp2="35" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>35</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_36" wf="定位" tp2="36" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>36</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_37" wf="定位" tp2="37" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>37</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_38" wf="定位" tp2="38" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>38</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_39" wf="定位" tp2="39" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>39</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="NUM_40" wf="定位" tp2="40" tp3="特码"
-                                               rate="48.5">
+                                               rate="">
                                                 <span>40</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a>
                                             <a href="javascript:void(0);" id="NUM_41" wf="定位" tp2="41" tp3="特码"
-                                               rate="48.5">
+                                               rate="">
                                                 <span>41</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_42" wf="定位" tp2="42" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>42</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_43" wf="定位" tp2="43" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>43</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_44" wf="定位" tp2="44" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>44</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_45" wf="定位" tp2="45" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>45</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_46" wf="定位" tp2="46" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>46</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_47" wf="定位" tp2="47" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>47</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_48" wf="定位" tp2="48" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>48</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a><a href="javascript:void(0);" id="NUM_49" wf="定位" tp2="49" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                 <span>49</span>
-                                                <label>48.5</label>
+                                                <label></label>
                                             </a>
 
                                         </div>
@@ -1323,76 +1323,76 @@
                                             <div id="Mask"></div>
                                             <div>
                                                 <a href="javascript:void(0);" id="NUM_1" wf="定位" tp2="01" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                     <span>01</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_2" wf="定位" tp2="02" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>02</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_7" wf="定位" tp2="07" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>07</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_8" wf="定位" tp2="08" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>08</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_12" wf="定位" tp2="12" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>12</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_13" wf="定位" tp2="13" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>13</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_18" wf="定位" tp2="18" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>18</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_19" wf="定位" tp2="19" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>19</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_23" wf="定位" tp2="23" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>23</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a>
                                                 <a href="javascript:void(0);" id="NUM_24" wf="定位" tp2="24" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                     <span>24</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a>
                                                 <a href="javascript:void(0);" id="NUM_29" wf="定位" tp2="29" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                     <span>29</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a>
                                                 <a href="javascript:void(0);" id="NUM_30" wf="定位" tp2="30" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                     <span>30</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_34" wf="定位" tp2="34" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>34</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_35" wf="定位" tp2="35" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>35</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_40" wf="定位" tp2="40" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>40</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_45" wf="定位" tp2="45" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>45</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_46" wf="定位" tp2="46" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>46</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a>
                                             </div>
                                             <div style="clear:both;">
@@ -1407,60 +1407,60 @@
                                                     <label>0</label>
                                                 </a>
                                                 <a href="javascript:void(0);" id="NUM_10" wf="定位" tp2="10" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                     <span>10</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a>
                                                 <a href="javascript:void(0);" id="NUM_14" wf="定位" tp2="14" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                     <span>14</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_15" wf="定位" tp2="15" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>15</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_20" wf="定位" tp2="20" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>20</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_25" wf="定位" tp2="25" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>25</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_26" wf="定位" tp2="26" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>26</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_31" wf="定位" tp2="31" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>31</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_36" wf="定位" tp2="36" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>36</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_37" wf="定位" tp2="37" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>37</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_41" wf="定位" tp2="41" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>41</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a>
                                                 <a href="javascript:void(0);" id="NUM_42" wf="定位" tp2="42" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                     <span>42</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a>
                                                 <a href="javascript:void(0);" id="NUM_47" wf="定位" tp2="47" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                     <span>47</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_48" wf="定位" tp2="48" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>48</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a>
                                             </div>
                                             <div style="clear:both;">
@@ -1471,63 +1471,63 @@
                                                     <span>6</span>
                                                     <label>0</label>
                                                 </a><a href="javascript:void(0);" id="NUM_11" wf="定位" tp2="11" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>11</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_16" wf="定位" tp2="16" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>16</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_17" wf="定位" tp2="17" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>17</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_21" wf="定位" tp2="21" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>21</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_22" wf="定位" tp2="22" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>22</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a>
                                                 <a href="javascript:void(0);" id="NUM_27" wf="定位" tp2="27" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                     <span>27</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a>
                                                 <a href="javascript:void(0);" id="NUM_28" wf="定位" tp2="28" tp3="特码"
-                                                   rate="48.5">
+                                                   rate="">
                                                     <span>28</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_32" wf="定位" tp2="32" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>32</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_33" wf="定位" tp2="33" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>33</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_38" wf="定位" tp2="38" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>38</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_39" wf="定位" tp2="39" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>39</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_43" wf="定位" tp2="43" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>43</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_44" wf="定位" tp2="44" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>44</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a><a href="javascript:void(0);" id="NUM_49" wf="定位" tp2="49" tp3="特码"
-                                                       rate="48.5">
+                                                       rate="">
                                                     <span>49</span>
-                                                    <label>48.5</label>
+                                                    <label></label>
                                                 </a>
                                             </div>
                                         </div>

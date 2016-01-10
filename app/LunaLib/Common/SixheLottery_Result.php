@@ -1,7 +1,7 @@
 <?php
 namespace App\LunaLib\Common;
 
-class SscLottery_Result
+class SixheLottery_Result
 {
     private $_odds = array();
 

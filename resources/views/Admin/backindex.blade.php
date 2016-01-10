@@ -49,9 +49,9 @@
                     <li>
                         <a onclick="$.addTopTab('#tabXG','添加会员','添加会员','/admin/create')"><span>添加会员</span></a>
                     </li>
-                    <li>
-                        <a onclick="$.addTopTab('#tabXG','会员投注统计','会员投注统计','/bettingcountList')"><span>会员投注统计</span></a>
-                    </li>
+                    {{--<li>--}}
+                        {{--<a onclick="$.addTopTab('#tabXG','会员投注统计','会员投注统计','/bettingcountList')"><span>会员投注统计</span></a>--}}
+                    {{--</li>--}}
                     <li>
                         <a onclick="$.addTopTab('#tabXG','会员投注列表','会员投注列表','/bettingList')"><span>会员投注列表</span></a>
                     </li>

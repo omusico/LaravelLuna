@@ -140,49 +140,12 @@ class Lottery6heController extends Controller
                     list($code, $slug, $name, $eachPrice, $bingoPrice) = explode('|', $value);
                     if (isset($types[$slug]) && !empty($types[$slug])) {
 
-                        if ($slug == 'TM_TM') {
+                        if ($slug == 'TMB') {
                             $key = trim($code);
-
-//                            switch ($code) {
-//                                case '单':
-//                                    $key = 'dan';
-//                                    break;
-//                                case '双':
-//                                    $key = 'shuang';
-//                                    break;
-//                                case '大':
-//                                    $key = 'da';
-//                                    break;
-//                                case '小':
-//                                    $key = 'xiao';
-//                                    break;
-//                                default:
-//                                    $key = trim($code);
-//                            }
-
-                            if (strstr($code, "#")) {
-                                list($qiantype, $qiancode) = explode("#", $code);
-
-//                                switch ($qiancode) {
-//                                    case '单':
-//                                        $key = 'qdan';
-//                                        break;
-//                                    case '双':
-//                                        $key = 'qshuang';
-//                                        break;
-//                                    case '大':
-//                                        $key = 'qda';
-//                                        break;
-//                                    case '小':
-//                                        $key = 'qxiao';
-//                                        break;
-//                                }
-                            }
-
-
-                            $odds = $this->typeDatas[$slug][$key];
+                            $odds = $this->typeDatas['TMA'][$key];
                         } else {
-                            $odds = $this->typeDatas[$slug]['value'];
+                            $key = trim($code);
+                            $odds = $this->typeDatas[$slug][$key];
                         }
                         $new_bingoPrice = $eachPrice * $odds;
                         $totals = CommonClass::price($totals);

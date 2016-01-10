@@ -1456,9 +1456,9 @@ class defaultCache
                     'status' => '1',
                     'kjType' => '1',
                     'fdTime' => 120,
-                    'beginTime' => '8:31',
-                    'endTime' => '22:10',
-                    'num' => 82,
+                    'beginTime' => '10:00',
+                    'endTime' => '21:30',
+                    'num' => 1,
                     'kjTime' => 60,
                 ),
             'jsold' =>
@@ -3407,15 +3407,15 @@ class defaultCache
     public static function cache_6he_types()
     {
         return array(
-            '特码' => array(
+            'TMA' => array(
                 'typeId' => '1',
                 'name' => '特码A',
                 'odds' => '48.5',
                 'firsttype' => 'TM',
                 'wei' => '7',
-                'slug' => 'TM_TM'
+                'slug' => 'TM_TMA'
             ),
-            2 => array(
+            'TMB' => array(
                 'typeId' => '2',
                 'name' => '特码B',
                 'odds' => '48.5',
@@ -3423,7 +3423,7 @@ class defaultCache
                 'wei' => '7B',
                 'slug' => 'TM_TMB'
             ),
-            3 => array(
+            'PM' => array(
                 'typeId' => '3',
                 'name' => '平码',
                 'odds' => '48.5',
@@ -3431,7 +3431,7 @@ class defaultCache
                 'wei' => '平码',
                 'slug' => 'TM_PM'
             ),
-            4 => array(
+            'PM1' => array(
                 'typeId' => '4',
                 'name' => '平码一',
                 'odds' => '48.5',
@@ -3439,7 +3439,7 @@ class defaultCache
                 'wei' => '1',
                 'slug' => 'TM_PMYI'
             ),
-            5 => array(
+            'PM2' => array(
                 'typeId' => '5',
                 'name' => '平码二',
                 'odds' => '48.5',
@@ -3447,7 +3447,7 @@ class defaultCache
                 'wei' => '2',
                 'slug' => 'TM_PMER'
             ),
-            6 => array(
+            'PM3' => array(
                 'typeId' => '6',
                 'name' => '平码三',
                 'odds' => '48.5',
@@ -3455,7 +3455,7 @@ class defaultCache
                 'wei' => '3',
                 'slug' => 'TM_PMSAN'
             ),
-            7 => array(
+            'PM4' => array(
                 'typeId' => '7',
                 'name' => '平码四',
                 'odds' => '48.5',
@@ -3463,7 +3463,7 @@ class defaultCache
                 'wei' => '4',
                 'slug' => 'TM_PMSI'
             ),
-            8 => array(
+            'PM5' => array(
                 'typeId' => '8',
                 'name' => '平码五',
                 'odds' => '48.5',
@@ -3471,7 +3471,7 @@ class defaultCache
                 'wei' => '5',
                 'slug' => 'TM_PMWU'
             ),
-            9 => array(
+            'PM6' => array(
                 'typeId' => '9',
                 'name' => '平码六',
                 'odds' => '48.5',
@@ -3479,7 +3479,7 @@ class defaultCache
                 'wei' => '6',
                 'slug' => 'TM_LIU'
             ),
-            10 => array(
+            'BANBO' => array(
                 'typeId' => '10',
                 'name' => '半波',
                 'odds' => '48.5',
@@ -3746,6 +3746,8 @@ class defaultCache
                     '双' => '1.95',
                     '大' => '1.95',
                     '小' => '1.95',
+                    '合大' => '1.95',
+                    '合小' => '1.95',
                     '合单' => '1.95',
                     '合双' => '1.95',
                     '红波' => '2.66',

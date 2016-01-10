@@ -33,6 +33,7 @@
                     <div class="col-md-4">
                         <select class="form-control" required="required" id="lottery_type" name="lottery_type">
                             <option value=""></option>
+                            <option value="6he">香港六合彩</option>
                             <option value="sdfive">山东11选5</option>
                             <option value="gdfive">广东11选5</option>
                             <option value="shfive">上海11选5</option>
@@ -92,6 +93,10 @@
             <div class="form-group">
                 @if(env('SITE_TYPE','')=='five')
                     <label class="col-md-4 col-md-offset-2">格式: 0,09,05,11,03 </label>
+                @elseif(env('SITE_TYPE','')=='gaopin')
+                    <label class="col-md-4 col-md-offset-2">六合彩格式: 29,11,09.47,43,06,08 </label><br>
+                    <label class="col-md-10 col-md-offset-2">11选5格式: 0,09,05,11,03 </label><br>
+                    <label class="col-md-4 col-md-offset-2">快三格式: 3,2,3 </label><br>
                 @else
                     <label class="col-md-4 col-md-offset-2">格式: 3,2,3 </label>
                 @endif

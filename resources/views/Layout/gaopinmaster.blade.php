@@ -201,6 +201,7 @@
                     <li><a href="/ssclotterytrend?lottery_type=jxssc">江西时时彩</a></li>
                     <li><a href="/ssclotterytrend?lottery_type=tjssc">天津时时彩</a></li>
                     <li><a href="/ssclotterytrend?lottery_type=xjssc">新疆时时彩</a></li>
+                    <li><a href="/6helotterytrend">香港六合彩</a></li>
                 </ul>
             </div>
         </div>
@@ -228,6 +229,7 @@
                     <li><a href="/ssclotteryIndex?lottery_type=jxssc">江西时时彩</a></li>
                     <li><a href="/ssclotteryIndex?lottery_type=tjssc">天津时时彩</a></li>
                     <li><a href="/ssclotteryIndex?lottery_type=xjssc">新疆时时彩</a></li>
+                    <li><a href="/6helotteryIndex">香港六合彩</a></li>
                 </ul>
             </div>
         </div>

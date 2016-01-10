@@ -700,6 +700,8 @@ class AdminController extends Controller
             $cancelList = App\lu_lotteries_ssc::where("proName", $winPre)->where("province", strtolower($lottery_type))->where("status", -2)->get();
         } else if ($type == "lottery") {
             $cancelList = App\lu_lotteries_k3::where("proName", $winPre)->where("province", strtolower($lottery_type))->where("status", -2)->get();
+        } else if ($type == "6he") {
+            $cancelList = App\lu_lotteries_6he::where("proName", $winPre)->where("province", strtolower($lottery_type))->where("status", -2)->get();
         }
 
         foreach ($cancelList as $key => $lottery) {

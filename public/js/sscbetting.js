@@ -1091,6 +1091,10 @@ Ssc.submit = function(){
         //    Common.tip('代理不可以投注！');
         //    return false;
         //}
+        if ($("#isLogin").val() == undefined) {
+            $('#myModal').modal('show');
+            return false;
+        }
         var countDownTime = $dom.countDownTime.text();
         /*if(gameHasEnd == 1 || countDownTime == '00:00:00'){
          Le.tip('您好，'+$.cookie('theIssuse')+' 期已截止，请等待下一期投注开始。');

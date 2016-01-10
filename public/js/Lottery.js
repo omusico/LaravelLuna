@@ -87,7 +87,7 @@ function render(obj, name, FiveName, _id) {
     val = obj.value * obj.odd;
     _out.push('<span class="txt-amount js-money" style="width:230px;float:none">下注金额<input value="' + obj.value + '" type="number" onkeyup="formatIntVal(this)" data-odd="' + obj.odd + '" onafterpaste="Five.formatIntVal(this)" name="totals[]" class="totalsVal" size="6" />元&nbsp;&nbsp;<em>可赢金额：<span class="bingoMoney">' + val + '</span> 元</em></span>');
     _out.push('<a href="javascript:void(0);" class="txt-delNum js-del">删除</a>');
-    var val = obj.code + '|' + obj.type + '|' + name;
+    var val = obj.code + '|' + pls + '|' + obj.type;
     _out.push('<input type="hidden" name="tmpCodes[]" class="tmpCodes" value="' + val + '" />');
     _out.push('</li>');
     $dom.has_add_box.prepend(_out.join(''));
@@ -148,6 +148,10 @@ Sixhe.submit = function(){
     if(tmpCodes.size()<=0){
         Common.tip('您还没有选择任何号码呀~~~');
     }else{
+        if ($("#isLogin").val() == undefined) {
+            $('#myModal').modal('show');
+            return false;
+        }
         //if(user.agency == '3' || user.agency=='1'){
         //    Common.tip('代理不可以投注！');
         //    return false;
@@ -857,8 +861,8 @@ function addBETContentRow(tp3, content, disContent, PL, BetTotle) {
 }
 function addBETContentRow2(tp3, content, disContent, PL, BetTotle, je) {
     if (!PL || PL == 0) {
-        $('#betContent').dialog('close');
-        showMassage("赔率为 0 ,无法下注.");
+        //$('#betContent').dialog('close');
+        alert("赔率为 0 ,无法下注.");
         return false;
     }
     addToBETContent2(tp3, content, disContent, PL, BetTotle, je);

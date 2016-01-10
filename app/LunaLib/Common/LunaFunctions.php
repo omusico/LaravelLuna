@@ -1,6 +1,7 @@
 <?php
 namespace App\LunaLib\Common;
 
+use App\lu_lotteries_6he;
 use App\lu_lotteries_five;
 use App\lu_lotteries_k3;
 use App\lu_lotteries_result;
@@ -406,6 +407,8 @@ class LunaFunctions
             return 'ssc';
         } else if (strstr($lotteryType, "xy")) {
             return 'xy';
+        } else if (strstr($lotteryType, "6he")) {
+            return '6he';
         } else {
             return '';
         }
@@ -570,6 +573,8 @@ class LunaFunctions
                 $winlists = lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
             } else if ($type == "ssc") {
                 $winlists = lu_lotteries_ssc::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
+            } else if ($type == "6he") {
+                $winlists = lu_lotteries_6he::where('province', $lottery_type)->where('proName', $winPre)->where('noticed', 0)->where('status', '<>', '-1')->where('status', '<>', '-2')->get();
             }
             //获奖处理
             if ($type == 'five') {
@@ -578,6 +583,8 @@ class LunaFunctions
                 lu_lotteries_k3::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
             } else if ($type == "ssc") {
                 lu_lotteries_ssc::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
+            } else if ($type == "6he") {
+                lu_lotteries_6he::where('province', $lottery_type)->where('proName', $winPre)->update(['dealing' => 1, 'resultNum' => $winCode]);
             }
             $args = array();
             if ($winlists) {
@@ -590,6 +597,8 @@ class LunaFunctions
                     $types = defaultCache::cache_five_types();//Waf::moduleData($type . '_type', $type);
                 } else if ($type == "ssc") {
                     $types = defaultCache::cache_ssc_types();
+                } else if ($type == "6he") {
+                    $types = defaultCache::cache_6he_types();
                 }
 
                 if ($type == 'xy') {
@@ -600,10 +609,16 @@ class LunaFunctions
                     $result = new Lottery_Result();
                 } else if ($type == "ssc") {
                     $result = new SscLottery_Result();
+                } else if ($type == "6he") {
+                    $result = new SixheLottery_Result();
                 }
 
                 foreach ($winlists as $row) {
-                    $action = 'type' . $types[$row['typeId']]['slug'];
+                    if ($type == "6he") {
+                        $action = 'type' . $types[$sixhetypeId]['slug'];
+                    } else {
+                        $action = 'type' . $types[$row['typeId']]['slug'];
+                    }
 
                     // 增加抽奖 addChouJiangRecord($uid,$eachPrice);
 
@@ -800,7 +815,7 @@ class LunaFunctions
                 'source' => $source
             );
             lu_lotteries_result::create($data);
-            $this->updatek3baoziodds($lotteryType, false);
+//            $this->updatek3baoziodds($lotteryType, false);
         }
     }
 
@@ -814,7 +829,7 @@ class LunaFunctions
             $lottery_types = array("jsold", "beijin", "anhui", "jilin", "jsnew", "hubei", "hebei", "fjk3", "nmg");
             foreach ($lottery_types as $lottery_type) {
                 foreach ($baozis as $baozi) {
-                    $hasbaozi = \DB::select("select * from (select * from lu_lotteries_results  where typeName='" . $lottery_type . "' order by created_at desc limit 500) t where codes = '" . $baozi ."'");
+                    $hasbaozi = \DB::select("select * from (select * from lu_lotteries_results  where typeName='" . $lottery_type . "' order by created_at desc limit 500) t where codes = '" . $baozi . "'");
                     if (count($hasbaozi) == 0) {
                         $k3baoziodds[$lottery_type][$baozi] = "120";
                     } else {
@@ -828,7 +843,7 @@ class LunaFunctions
             $lottery_type = strtolower($lottery_type);
             if ($lottery_type == "jsold" || $lottery_type == "beijin" || $lottery_type = "anhui" || $lottery_type == "jilin" || $lottery_type == "jsnew" || $lottery_type == "hubei" || $lottery_type == "hebei" || $lottery_type == "fjk3" || $lottery_type == "nmg") {
                 foreach ($baozis as $baozi) {
-                    $hasbaozi = \DB::select("select * from (select * from lu_lotteries_results  where typeName='" . $lottery_type . "' order by created_at desc limit 600) t where  codes = '" . $baozi ."'");
+                    $hasbaozi = \DB::select("select * from (select * from lu_lotteries_results  where typeName='" . $lottery_type . "' order by created_at desc limit 600) t where  codes = '" . $baozi . "'");
                     if (count($hasbaozi) == 0) {
                         $k3baoziodds[$lottery_type][$baozi] = "120";
                     } else {
@@ -888,5 +903,33 @@ class LunaFunctions
             $kjTime = $begin + $period * 600;
         }
         return $kjTime;
+    }
+
+    function return6hetype($typeId)
+    {
+        $sixhetypeId = "TMA";
+        if ($typeId == "1") {
+            $sixhetypeId = "TMA";
+        } elseif ($typeId == "2") {
+            $sixhetypeId = "TMB";
+        } elseif ($typeId == "3") {
+            $sixhetypeId = "PM";
+        } elseif ($typeId == "4") {
+            $sixhetypeId = "PM1";
+        } elseif ($typeId == "5") {
+            $sixhetypeId = "PM2";
+        } elseif ($typeId == "6") {
+            $sixhetypeId = "PM3";
+        } elseif ($typeId == "7") {
+            $sixhetypeId = "PM4";
+        } elseif ($typeId == "8") {
+            $sixhetypeId = "PM5";
+        } elseif ($typeId == "9") {
+            $sixhetypeId = "PM6";
+        } elseif ($typeId == "10") {
+            $sixhetypeId = "BANBO";
+        }
+
+        return $sixhetypeId;
     }
 }
