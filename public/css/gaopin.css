@@ -225,7 +225,8 @@
 
 .gaopinLotAll {
     border: none;
-    background: url('gaopinmain2.png') no-repeat scroll -106px -534px transparent;
+    /*background: url('gaopinmain2.png') no-repeat scroll -106px -534px transparent;*/
+    background: url("alllot.jpg") no-repeat center;
     width: 1036px;
     height: 204px;
 }
@@ -291,8 +292,50 @@
 
 .gp_login_back {
     border: none;
-    background: url('gplogin.png') no-repeat scroll -34px -137px transparent;
+    background: url('gplogin.png') no-repeat scroll -34px -137px  transparent;
     width: 990px;
     height: 385px;
     display: inline-block;
+    position: fixed;
+    min-width: 1020px;
+
+}
+.gp_btnlogin {
+    border: none;
+    background: url('gplogin.png') no-repeat scroll -394px -32px transparent;
+    width: 259px;
+    height: 42px;
+}
+
+.gp_btnreg {
+    border: none;
+    background: url('gplogin.png') no-repeat scroll -394px -81px transparent;
+    width: 130px;
+    height: 42px;
+}
+
+.gp_btndreg {
+    border: none;
+    background: url('gplogin.png') no-repeat scroll -531px -81px transparent;
+    width: 130px;
+    height: 42px;
+}
+
+
+.gp_title {
+    border: none;
+    display: inline-block;
+    background: url('gplogin.png') no-repeat scroll -111px -68px transparent;
+    width: 180px;
+    height: 52px;
+    margin-bottom: 0px;
+}
+.gp_question {
+    margin-left: 400px;
+    display: inline-block;
+    border: none;
+    background: url('gplogin.png') no-repeat scroll -698px -78px transparent;
+    width: 320px;
+    height: 52px;
+    margin-bottom: 0px;
 }

@@ -66,7 +66,7 @@
                 <div style="padding-top: 35px;width: 250px">
                     @if(null!==Cache::get('news'))
                         @foreach(Cache::get('news') as $key=>$value)
-                            <a style="width: auto;color: #808080;font-size: larger"
+                            <a style="width: auto;color: #808080;font-size: 15px;height: 30px;"
                                href="{{isset($value['url'])?$value['url']:'#'}}"
                                target="_blank">{{isset($value['title'])?$value['title']:''}}</a><span
                                     class="time"></span>
@@ -78,7 +78,7 @@
     </div>
     <div class="container" style="background-color: white;padding-top: 20px;">
         <div class="gaopinLotAll">
-            <div class="gaopinLotOver">
+            <div class="">
                 <a href="/lotteryIndex?lottery_type=jsold">
                     <div class="gp_route_overlay"></div>
                 </a>
@@ -97,7 +97,7 @@
                 <a href="/fivelotteryIndex?lottery_type=gdfive">
                     <div class="gp_route_overlay"></div>
                 </a>
-                <a href="/fivelotteryIndex?lottery_type=sdfive">
+                <a href="/6helotteryIndex">
                     <div class="gp_route_overlay"></div>
                 </a>
             </div>

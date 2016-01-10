@@ -11,33 +11,59 @@
     <link rel="icon" href="gaopinfavicon.ico" type="image/x-icon"/>
 </head>
 <body>
-<div class="container">
-    <div class="gp_login_back" style="margin-top:25%">
-        <a href="#">
-            <div style="background-color: transparent;position: absolute;width: 53px;height: 130px;margin-top: 150px"></div>
-        </a>
-        {!! Form::open(['url' => '/login', 'class' => 'form-horizontal', 'role' => 'form']) !!}
-        <div class="form-group" style="padding-top: 80px">
-            <div class="col-md-offset-1 col-md-3" style="padding-left: 100px">
-                <input class="form-control" required="required" name="name" type="text" style="width: 205px">
-            </div>
+<div class="container" style="margin: 0 auto">
+    <div>
+
+        <div style="margin-top: 10%">
+            <div class="gp_title"></div>
+            <a onclick="openZoosUrl('chatwin');">
+                <div class="gp_question"></div>
+            </a>
         </div>
-        <div class="form-group" style="padding-top: 25px">
-            <div class="col-md-offset-1 col-md-3" style="padding-left: 100px">
-                <input class="form-control" required="required" name="password" type="password" value=""
-                       style="width: 205px">
+        <div class="gp_login_back">
+            <a href="#">
+                <div style="background-color: transparent;position: absolute;width: 53px;height: 130px;margin-top: 150px"></div>
+            </a>
+            {!! Form::open(['url' => '/login', 'class' => 'form-horizontal', 'role' => 'form']) !!}
+            <div class="form-group" style="padding-top: 80px">
+                <div style="padding-left: 175px">
+                    <input class="form-control" required="required" name="name" type="text" style="width: 215px">
+                </div>
             </div>
-        </div>
-        <div class="form-group" style="padding-top: 30px">
-            <div class="col-md-6 col-md-offset-1" style="padding-left: 40px">
-                {!! Form::submit('登陆', ['class' => 'btn btn-default btn-primary']) !!}
-                <a class="btn btn-default btn-info" href="{{ url('/register') }}">免费注册</a>
-                <a class="btn btn-default btn-warning" href="{{ url('/dailiregister') }}">代理注册</a>
+            <div class="form-group" style="padding-top: 25px">
+                <div style="padding-left: 175px">
+                    <input class="form-control" required="required" name="password" type="password" value=""
+                           style="width: 215px">
+                </div>
             </div>
+            <div class="form-group" style="padding-top: 30px">
+                <div style="padding-left: 138px">
+                    {!! Form::submit('', ['class' => 'gp_btnlogin']) !!}
+                    <br>
+                    <a href="{{ url('/register') }}">
+                        <input class="gp_btnreg" type="button">
+                    </a>
+                    <a href="{{ url('/dailiregister') }}">
+                        <input class="gp_btndreg" type="button">
+                    </a>
+                    {{--{!! Form::submit('登陆', ['class' => 'btn btn-default btn-primary']) !!}--}}
+                    {{--<a class="btn btn-default btn-info" href="{{ url('/register') }}">免费注册</a>--}}
+                    {{--<a class="btn btn-default btn-warning" href="{{ url('/dailiregister') }}">代理注册</a>--}}
+                </div>
+            </div>
+            {!! Form::close() !!}
         </div>
-        {!! Form::close() !!}
     </div>
 </div>
 <script type="text/javascript" src="/js/all.js"></script>
+<script language="javascript" src="http://dht.zoosnet.net/JS/LsJS.aspx?siteid=DHT65019353&float=1&lng=cn"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#LRdiv0").hide();
+        }, 1000);
+    })
+</script>
 </body>
 </html>
