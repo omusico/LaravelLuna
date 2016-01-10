@@ -64,13 +64,17 @@
                     </div>
                     <div class="zgk3_info">
                         <span class="yaoshao"></span> <span class="yaoshao">销售时间：
-                            {{--                            {{$config ['beginTime'] . '-' . $config ['endTime']}}--}}
+                            <?php
+                            $sixhe = Cache::get('sixhe');
+                            ?>
+                            {{$sixhe ['todaystart'] . '-' . $sixhe ['todayend']}}
+
                             </span>
                     </div>
                 </div>
                 <div class="zgk3_info_c col-md-4">
                     <div class="zgk3_ju">
-                        距<span class="c_red" id="theCur">...</span>期投注截止还有：
+                        距<span class="c_red" id="theCur">{{$sixhe['proName']}}</span>期投注截止还有：
                     </div>
                     <div class="zgk3_li">
                         <div class="zgk3_jusecond" id="countDownTime">00:00:00</div>
