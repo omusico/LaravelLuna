@@ -15,17 +15,17 @@
     <div class="gp_login_back" style="margin-top:25%">
         {!! Form::open(['url' => '/login', 'class' => 'form-horizontal', 'role' => 'form']) !!}
         <div class="form-group" style="padding-top: 80px">
-            <div class="col-md-offset-1 col-md-3" style="padding-left: 40px">
-                {!! Form::text('name', old('name'), ['class' => 'form-control', 'required']) !!}
+            <div class="col-md-offset-1 col-md-3" style="padding-left: 100px">
+                <input class="form-control" required="required" name="name" type="text" style="width: 205px">
             </div>
         </div>
         <div class="form-group" style="padding-top: 25px">
-            <div class="col-md-offset-1 col-md-3" style="padding-left: 40px">
-                {!! Form::password('password', ['class' => 'form-control', 'required']) !!}
+            <div class="col-md-offset-1 col-md-3" style="padding-left: 100px">
+                <input class="form-control" required="required" name="password" type="password" value="" style="width: 205px">
             </div>
         </div>
         <div class="form-group" style="padding-top: 30px">
-            <div class="col-md-6 col-md-offset-1">
+            <div class="col-md-6 col-md-offset-1" style="padding-left: 40px">
                 {!! Form::submit('登陆', ['class' => 'btn btn-default btn-primary']) !!}
                 <a class="btn btn-default btn-info" href="{{ url('/register') }}">免费注册</a>
                 <a class="btn btn-default btn-warning" href="{{ url('/dailiregister') }}">代理注册</a>
