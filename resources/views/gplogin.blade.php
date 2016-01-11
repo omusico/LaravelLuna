@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container" style="margin: 0 auto">
-    <div>
+    <div class="col-md-offset-1 col-md-10">
         <div style="margin-top: 10%">
             <div class="gp_title"></div>
             <a onclick="openZoosUrl('chatwin');">
