@@ -102,9 +102,9 @@ class SixheLottery_Result
 //        $value = $codeArr[0]+$codeArr[1]+$codeArr[2] + $codeArr[3] + $codeArr[4];
         $value = 0;
 
-        $codeArr = implode(",", $codeArr);
+//        $codeArr = implode(",", $codeArr);
 
-        $postion = stripos($codeArr, $codes);
+        $postion = stripos($codeArr[6], $codes);
 
         // 必须都不相同
         if ($postion === 0) {
@@ -112,7 +112,7 @@ class SixheLottery_Result
         }
         //特码
         if ($handle == false) {
-            $handle = $this->specialOpera($codeArr[0], $codes);
+            $handle = $this->specialOpera($codeArr[6], $codes);
         }
         $lunaFunction = new LunaFunctions();
         if ($handle) { //中了
@@ -146,9 +146,9 @@ class SixheLottery_Result
         $data = array();
         $value = 0;
 
-        $codeArr = implode(",", $codeArr);
+//        $codeArr = implode(",", $codeArr);
 
-        $postion = stripos($codeArr, $codes);
+        $postion = stripos($codeArr[6], $codes);
 
         // 必须都不相同
         if ($postion === 0) {
@@ -156,7 +156,7 @@ class SixheLottery_Result
         }
         //特码
         if ($handle == false) {
-            $handle = $this->specialOpera($codeArr[0], $codes);
+            $handle = $this->specialOpera($codeArr[6], $codes);
         }
         $lunaFunction = new LunaFunctions();
         if ($handle) { //中了
@@ -195,7 +195,7 @@ class SixheLottery_Result
         $postion = stripos($codeArr, $codes);
 
         // 必须都不相同
-        if ($postion >= 0) {
+        if ($postion >= 0 && $postion < 17) {
             $handle = true;
         }
 //        if ($handle == false) {
@@ -233,16 +233,16 @@ class SixheLottery_Result
         $data = array();
         $value = 0;
 
-        $codeArr = implode(",", $codeArr);
+//        $codeArr = implode(",", $codeArr);
 
-        $postion = stripos($codeArr[1], $codes);
+        $postion = stripos($codeArr[0], $codes);
 
         // 必须都不相同
         if ($postion === 0) {
             $handle = true;
         }
         if ($handle == false) {
-            $handle = $this->specialOpera($codeArr[1], $codes);
+            $handle = $this->specialOpera($codeArr[0], $codes);
         }
 
         $lunaFunction = new LunaFunctions();
@@ -276,16 +276,16 @@ class SixheLottery_Result
         $data = array();
         $value = 0;
 
-        $codeArr = implode(",", $codeArr);
+//        $codeArr = implode(",", $codeArr);
 
-        $postion = stripos($codeArr[2], $codes);
+        $postion = stripos($codeArr[1], $codes);
 
         // 必须都不相同
         if ($postion === 0) {
             $handle = true;
         }
         if ($handle == false) {
-            $handle = $this->specialOpera($codeArr[2], $codes);
+            $handle = $this->specialOpera($codeArr[1], $codes);
         }
 
         $lunaFunction = new LunaFunctions();
@@ -320,16 +320,16 @@ class SixheLottery_Result
         $data = array();
         $value = 0;
 
-        $codeArr = implode(",", $codeArr);
+        //$codeArr = implode(",", $codeArr);
 
-        $postion = stripos($codeArr[3], $codes);
+        $postion = stripos($codeArr[2], $codes);
 
         // 必须都不相同
         if ($postion === 0) {
             $handle = true;
         }
         if ($handle == false) {
-            $handle = $this->specialOpera($codeArr[3], $codes);
+            $handle = $this->specialOpera($codeArr[2], $codes);
         }
 
         $lunaFunction = new LunaFunctions();
@@ -363,7 +363,51 @@ class SixheLottery_Result
         $data = array();
         $value = 0;
 
-        $codeArr = implode(",", $codeArr);
+        //$codeArr = implode(",", $codeArr);
+
+        $postion = stripos($codeArr[3], $codes);
+
+        // 必须都不相同
+        if ($postion === 0) {
+            $handle = true;
+        }
+        if ($handle == false) {
+            $handle = $this->specialOpera($codeArr[3], $codes);
+        }
+
+        $lunaFunction = new LunaFunctions();
+        if ($handle) { //中了
+            //$eachPrice = $row['eachPrice'] * $this->_perOdds($odds);
+            $amount = $row['bingoPrice'];
+            $data = array(
+                'userName' => CommonClass::safeString($row['userName']),
+                'amount' => CommonClass::price($amount),
+                'created' => $_SERVER['REQUEST_TIME'],
+                '2' => 2,
+                'dateSn' => $lunaFunction->create_order_no($row['uid']),
+                'code' => $row['codes'],
+                'uid' => $row['uid'],
+                'sumVal' => (int)$value,
+                'typeId' => (int)$row['typeId'],
+                'proName' => trim($winPre),
+                'eachPrice' => $row['eachPrice'],
+                'bingoPrice' => $row['bingoPrice']
+            );
+            return $data;
+        }
+        return false;
+
+    }
+
+    public
+    function typeTM_PM5($codeArr, $winPre, $row)
+    {
+        $codes = $this->transValue($row['codes']);
+        $handle = 0;
+        $data = array();
+        $value = 0;
+
+        //$codeArr = implode(",", $codeArr);
 
         $postion = stripos($codeArr[4], $codes);
 
@@ -400,14 +444,14 @@ class SixheLottery_Result
     }
 
     public
-    function typeTM_PM5($codeArr, $winPre, $row)
+    function typeTM_PM6($codeArr, $winPre, $row)
     {
         $codes = $this->transValue($row['codes']);
         $handle = 0;
         $data = array();
         $value = 0;
 
-        $codeArr = implode(",", $codeArr);
+        //$codeArr = implode(",", $codeArr);
 
         $postion = stripos($codeArr[5], $codes);
 
@@ -444,50 +488,6 @@ class SixheLottery_Result
     }
 
     public
-    function typeTM_PM6($codeArr, $winPre, $row)
-    {
-        $codes = $this->transValue($row['codes']);
-        $handle = 0;
-        $data = array();
-        $value = 0;
-
-        $codeArr = implode(",", $codeArr);
-
-        $postion = stripos($codeArr[6], $codes);
-
-        // 必须都不相同
-        if ($postion === 0) {
-            $handle = true;
-        }
-        if ($handle == false) {
-            $handle = $this->specialOpera($codeArr[6], $codes);
-        }
-
-        $lunaFunction = new LunaFunctions();
-        if ($handle) { //中了
-            //$eachPrice = $row['eachPrice'] * $this->_perOdds($odds);
-            $amount = $row['bingoPrice'];
-            $data = array(
-                'userName' => CommonClass::safeString($row['userName']),
-                'amount' => CommonClass::price($amount),
-                'created' => $_SERVER['REQUEST_TIME'],
-                '2' => 2,
-                'dateSn' => $lunaFunction->create_order_no($row['uid']),
-                'code' => $row['codes'],
-                'uid' => $row['uid'],
-                'sumVal' => (int)$value,
-                'typeId' => (int)$row['typeId'],
-                'proName' => trim($winPre),
-                'eachPrice' => $row['eachPrice'],
-                'bingoPrice' => $row['bingoPrice']
-            );
-            return $data;
-        }
-        return false;
-
-    }
-
-    public
     function typeTM_BANBO($codeArr, $winPre, $row)
     {
         $codes = $this->transValue($row['codes']);
@@ -495,9 +495,9 @@ class SixheLottery_Result
         $data = array();
         $value = 0;
 
-        $codeArr = implode(",", $codeArr);
+        //$codeArr = implode(",", $codeArr);
 
-        $postion = stripos($codeArr[0], $codes);
+        $postion = stripos($codeArr[6], $codes);
 
         // 必须都不相同
         if ($postion === 0) {
@@ -505,7 +505,7 @@ class SixheLottery_Result
         }
 
         if ($handle == false) {
-            $handle = $this->banboOpera($codeArr[0], $codes);
+            $handle = $this->banboOpera($codeArr[6], $codes);
         }
 
         $lunaFunction = new LunaFunctions();

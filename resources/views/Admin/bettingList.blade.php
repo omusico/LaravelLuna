@@ -117,6 +117,7 @@
                 <td>订单</td>
                 <td>姓名</td>
                 <td>期号</td>
+                <td>类型</td>
                 <td>号码</td>
                 <td>投注金额</td>
                 <td>中奖金额</td>
@@ -125,6 +126,10 @@
                 <td>投注时间</td>
                 <td>操作</td>
             </tr>
+
+            <?php
+            $lunaFunctions = new \App\LunaLib\Common\LunaFunctions();
+            ?>
             @if (count($lu_lotteries_k3s))
                 @foreach ($lu_lotteries_k3s as $lu_lotteries_k3)
                     <tr>
@@ -132,6 +137,11 @@
                         <td>{{ $lu_lotteries_k3->sn }}</td>
                         <td>{{ $lu_lotteries_k3->userName }}</td>
                         <td>{{ $lu_lotteries_k3->proName }}</td>
+                        @if($bettingType=="6he")
+                            <td>{{$lunaFunctions->return6hetype($lu_lotteries_k3->typeId)}}</td>
+                        @else
+                            <td>{{ $lu_lotteries_k3->typeId }}</td>
+                        @endif
                         <td>{{ $lu_lotteries_k3->codes }}</td>
                         <td>{{ $lu_lotteries_k3->eachPrice }}</td>
                         <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
@@ -160,13 +170,14 @@
                         <td>
                             @if($lu_lotteries_k3->status != -2)
                                 {{--<a class="btn btn-sm btn-warning"--}}
-                                   {{--href="/cancelOrderSingle/{{$lu_lotteries_k3->id}}">撤单</a>--}}
-                                <form action="{{ url('cancelOrderSingle/'.$lu_lotteries_k3->id) }}" style='display: inline'
-                                method="get">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                <button class="btn btn-sm btn-danger" onclick="return confirm('确定撤单?')">撤单
-                                </button>
+                                {{--href="/cancelOrderSingle/{{$lu_lotteries_k3->id}}">撤单</a>--}}
+                                <form action="{{ url('cancelOrderSingle/'.$lu_lotteries_k3->id) }}"
+                                      style='display: inline'
+                                      method="get">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                    <button class="btn btn-sm btn-danger" onclick="return confirm('确定撤单?')">撤单
+                                    </button>
                                 </form>
                             @endif
                         </td>
@@ -176,7 +187,7 @@
             @endif
         </table>
         {{--{{$lu_lotteries_k3->appends($input)->links()}}--}}
-        <?php echo $lu_lotteries_k3s->appends(['proName' => $proName, 'codes' => $codes,'bettingType'=>$bettingType,'typeName' =>$typeName])->render(); ?>
+        <?php echo $lu_lotteries_k3s->appends(['proName' => $proName, 'codes' => $codes, 'bettingType' => $bettingType, 'typeName' => $typeName])->render(); ?>
     </div>
 @stop
 @section('script')
@@ -218,7 +229,8 @@
             $("#typeName").val("{{$typeName}}")
         });
         function Search() {
-            url = "bettingList?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() +"&proName=" + $("#proName").val() + "&codes=" + $("#codes").val() + "&typeName=" + $("#typeName option:selected").val();;
+            url = "bettingList?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&proName=" + $("#proName").val() + "&codes=" + $("#codes").val() + "&typeName=" + $("#typeName option:selected").val();
+            ;
             window.location.href = url;
         }
         ;
