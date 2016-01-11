@@ -661,6 +661,8 @@ class LunaFunctions
                                 lu_lottery_notes_k3::create($data);
                             } else if ($type == "ssc") {
                                 lu_lottery_notes_ssc::create($data);
+                            } else if ($type == "6he") {
+                                lu_lotteries_6he::create($data);
                             }
                             if (!isset($matchCount)) $matchCount = 1;
 // 							file_put_contents ( __WAF_ROOT__ . '/win33.log','$matchCount:'.$matchCount . '\n', FILE_APPEND );
@@ -671,6 +673,8 @@ class LunaFunctions
                                 lu_lotteries_k3::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
                             } else if ($type == "ssc") {
                                 lu_lotteries_ssc::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
+                            } else if ($type == "6he") {
+                                lu_lotteries_6he::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
                             }
 //                            $userInfo = $userModel->detail($data['uid']);
                             $userInfo = lu_user_data::where('uid', $data['uid'])->first();
@@ -698,7 +702,7 @@ class LunaFunctions
                                     $detail = lu_lotteries_k3::where('id', $lotId)->first();
                                 } else if ($type == "ssc") {
                                     $detail = lu_lotteries_ssc::where('id', $lotId)->first();
-                                }else if ($type == "6he") {
+                                } else if ($type == "6he") {
                                     $detail = lu_lotteries_6he::where('id', $lotId)->first();
                                 }
 
