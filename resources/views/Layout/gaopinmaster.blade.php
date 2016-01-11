@@ -45,8 +45,9 @@
                         <a style="color: red" href="logout">退出</a>&nbsp;&nbsp;<a style="color: #666">余额:&nbsp;</a> <a
                                 style="color: red">{{ Auth::user()->lu_user_data->points}}元</a>&nbsp;&nbsp;<a
                                 href="recharge"
-                                style="color: #666">充值</a>&nbsp;&nbsp;<a href="deposit" style="color: #666">提款</a>&nbsp;
-                        &nbsp;<a href="userLotteryBetting" style="color: #666">我的账户</a>
+                                style="color: #666">充值</a>&nbsp;&nbsp;
+                        {{--<a href="deposit" style="color: #666">提款</a>&nbsp; &nbsp;--}}
+                        <a href="userLotteryBetting" style="color: #666">我的账户</a>
                     @else
                         <a href="login" style="color: red">登陆</a>&nbsp;<a href="register" style="color: red">注册</a>
                     @endif
