@@ -51,6 +51,9 @@ class AdminController extends Controller
         $userName = $request->userName;
         $starttime = $request->starttime;
         $endtime = $request->endtime;
+        $proName = $request->proName;
+        $codes = $request->codes;
+        $typeName = $request->typeName;
         $bettingType = "";
         if (env('SITE_TYPE', '') == 'five') {
 
@@ -84,9 +87,18 @@ class AdminController extends Controller
             $endtime = substr($endtime, 0, 10);
             $result->where('created_at', '<=', $endtime);
         }
+        if (!empty($proName)) {
+            $result = $result->where('proName', $proName);
+        }
+        if (!empty($codes)) {
+            $result = $result->where('codes', $codes);
+        }
+        if (!empty($typeName)) {
+            $result = $result->where('province', strtoupper($typeName));
+        }
 //        $result = $result->orderby('created_at', 'desc');
         $lu_lotteries_k3s = $result->paginate(10);
-        return view('Admin.bettingList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime', 'bettingType'));
+        return view('Admin.bettingList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime', 'bettingType','proName','codes','typeName'));
     }
 
     public function winningList(Request $request)
