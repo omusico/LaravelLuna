@@ -6,6 +6,7 @@ use App\lu_lotteries_five;
 use App\lu_lotteries_k3;
 use App\lu_lotteries_result;
 use App\lu_lotteries_ssc;
+use App\lu_lottery_notes_6he;
 use App\lu_lottery_notes_five;
 use App\lu_lottery_notes_k3;
 use App\lu_lottery_notes_ssc;
@@ -662,7 +663,7 @@ class LunaFunctions
                             } else if ($type == "ssc") {
                                 lu_lottery_notes_ssc::create($data);
                             } else if ($type == "6he") {
-                                lu_lotteries_6he::create($data);
+                                lu_lottery_notes_6he::create($data);
                             }
                             if (!isset($matchCount)) $matchCount = 1;
 // 							file_put_contents ( __WAF_ROOT__ . '/win33.log','$matchCount:'.$matchCount . '\n', FILE_APPEND );

@@ -11,7 +11,7 @@
         <hr/>
         {!! Form::open(['url' => '/savesixhemanual', 'class' => 'form-horizontal', 'role' => 'form']) !!}
         <div class="form-group">
-            <div class="col-md-1 col-md-offset-2" style="padding: 0px">
+            <div class="col-md-2 col-md-offset-2" style="padding: 0px">
                 <label class="form-control" >当期六合彩期号:</label>
             </div>
             <div class="col-md-5" style="padding: 0px">
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-1 col-md-offset-2" style="padding: 0px">
+            <div class="col-md-2 col-md-offset-2" style="padding: 0px">
                 <label class="form-control" >AB盘赔率差:</label>
             </div>
             <div class="col-md-5" style="padding: 0px">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-1 col-md-offset-2" style="padding: 0px">
+            <div class="col-md-2 col-md-offset-2" style="padding: 0px">
                 <label class="form-control" >开盘时间:</label>
             </div>
             <div class="col-md-5" style="padding: 0px">
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-1 col-md-offset-2" style="padding: 0px">
+            <div class="col-md-2 col-md-offset-2" style="padding: 0px">
                 <label class="form-control" >封盘时间:</label>
             </div>
             <div class="col-md-5" style="padding: 0px">
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-1 col-md-offset-2" style="padding: 0px">
+            <div class="col-md-2 col-md-offset-2" style="padding: 0px">
                 <label class="form-control" >每天开封盘时间:</label>
             </div>
             <div class="col-md-5" style="padding: 0px">

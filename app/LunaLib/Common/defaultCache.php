@@ -3485,7 +3485,7 @@ class defaultCache
                 'odds' => '48.5',
                 'firsttype' => 'TM',
                 'wei' => '半波',
-                'slug' => 'TM_BANPO'
+                'slug' => 'TM_BANBO'
             ),
             11 => array(
                 'typeId' => '11',
