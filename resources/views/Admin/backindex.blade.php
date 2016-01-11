@@ -164,9 +164,9 @@
                     <li>
                         <a onclick="$.addTopTab('#tabXG','优惠活动','优惠活动','/favor')">优惠活动</a>
                     </li>
-                    <li>
-                        <a href="/admin"><span>手机版提醒</span></a>
-                    </li>
+                    {{--<li>--}}
+                        {{--<a href="/admin"><span>手机版提醒</span></a>--}}
+                    {{--</li>--}}
                     {{--<li>--}}
                     {{--<a href="/admin"><span>线路</span></a>--}}
                     {{--</li>--}}
