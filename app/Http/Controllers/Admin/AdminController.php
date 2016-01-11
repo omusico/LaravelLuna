@@ -98,7 +98,7 @@ class AdminController extends Controller
         }
 //        $result = $result->orderby('created_at', 'desc');
         $lu_lotteries_k3s = $result->paginate(10);
-        return view('Admin.bettingList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime', 'bettingType','proName','codes','typeName'));
+        return view('Admin.bettingList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime', 'bettingType', 'proName', 'codes', 'typeName'));
     }
 
     public function winningList(Request $request)
@@ -532,7 +532,9 @@ class AdminController extends Controller
         $lu_user->groupId = $request->groupId;
         $lu_user->status = $request->status;
         $lu_user->level = $request->level;
-        $lu_user->invite = $request->invite;
+        if (!empty($request->invite)) {
+            $lu_user->invite = $request->invite;
+        }
         $depositOdds = $request->depositOdds;
         if (!empty($depositOdds)) {
             $lu_user->depositOdds = $request->depositOdds;
@@ -1440,7 +1442,7 @@ class AdminController extends Controller
     public function GetSqlData(Request $request)
     {
         $sql = $request->sql;
-        $sql = str_replace('2B%','+',$sql);
+        $sql = str_replace('2B%', '+', $sql);
         $result = DB::select($sql);
         return $result;
     }
@@ -1510,7 +1512,7 @@ class AdminController extends Controller
         if (Cache::has('sixhe')) {
             $sixhe = Cache::get('sixhe');
         }
-        return view('Admin.sixhemanual',compact('sixhe'));
+        return view('Admin.sixhemanual', compact('sixhe'));
     }
 
     public function savesixhemanual(Request $request)
