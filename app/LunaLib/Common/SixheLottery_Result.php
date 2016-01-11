@@ -11,10 +11,10 @@ class SixheLottery_Result
         'shuang' => array('02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30', '32', '34', '36', '38', '40', '42', '44', '46', '48'),
         'hedan' => array('01', '03', '05', '07', '09', '12', '14', '16', '18', '21', '23', '25', '27', '29', '30', '32', '34', '36', '38', '41', '43', '45', '47', '49'),
         'heshuang' => array('02', '04', '06', '08', '10', '11', '13', '15', '17', '19', '20', '22', '24', '26', '28', '31', '33', '35', '37', '39', '40', '42', '44', '46', '48'),
-        'da' => array('25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49'),
-        'xiao' => array('01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24'),
-        'heda' => array('07','08','09','16','17','18','19','25','26','27','28','29','34','35','36','37','38','39','43','44','45','46','47','48','49'),
-        'hexiao' => array('01','02','03','04','05','06','10','11','12','13','14','15','20','21','22','23','24','30','31','32','33','40','41','42'),
+        'da' => array('25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49'),
+        'xiao' => array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'),
+        'heda' => array('07', '08', '09', '16', '17', '18', '19', '25', '26', '27', '28', '29', '34', '35', '36', '37', '38', '39', '43', '44', '45', '46', '47', '48', '49'),
+        'hexiao' => array('01', '02', '03', '04', '05', '06', '10', '11', '12', '13', '14', '15', '20', '21', '22', '23', '24', '30', '31', '32', '33', '40', '41', '42'),
     );
 
     private $_odds = array();
@@ -53,6 +53,39 @@ class SixheLottery_Result
         } elseif ($value == "蓝波" && in_array($weiValue, $this->_BOSE_codes['b'])) {
             return true;
         } elseif ($value == "绿波" && in_array($weiValue, $this->_BOSE_codes['g'])) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    //处理半波
+    public function banboOpera($weiValue, $value)
+    {
+        if ($value == "红小" && in_array($weiValue, $this->_BOSE_codes['xiao']) && in_array($weiValue, $this->_BOSE_codes['r'])) {
+            return true;
+        } elseif ($value == "红大" && in_array($weiValue, $this->_BOSE_codes['da']) && in_array($weiValue, $this->_BOSE_codes['r'])) {
+            return true;
+        } elseif ($value == "红单" && in_array($weiValue, $this->_BOSE_codes['dan']) && in_array($weiValue, $this->_BOSE_codes['r'])) {
+            return true;
+        } elseif ($value == "红双" && in_array($weiValue, $this->_BOSE_codes['shuang']) && in_array($weiValue, $this->_BOSE_codes['r'])) {
+            return true;
+        } elseif ($value == "蓝小" && in_array($weiValue, $this->_BOSE_codes['xiao']) && in_array($weiValue, $this->_BOSE_codes['b'])) {
+            return true;
+        } elseif ($value == "蓝大" && in_array($weiValue, $this->_BOSE_codes['da']) && in_array($weiValue, $this->_BOSE_codes['b'])) {
+            return true;
+        } elseif ($value == "蓝单" && in_array($weiValue, $this->_BOSE_codes['dan']) && in_array($weiValue, $this->_BOSE_codes['b'])) {
+            return true;
+        } elseif ($value == "蓝双" && in_array($weiValue, $this->_BOSE_codes['shuang']) && in_array($weiValue, $this->_BOSE_codes['b'])) {
+            return true;
+        } elseif ($value == "绿小" && in_array($weiValue, $this->_BOSE_codes['xiao']) && in_array($weiValue, $this->_BOSE_codes['g'])) {
+            return true;
+        } elseif ($value == "绿大" && in_array($weiValue, $this->_BOSE_codes['da']) && in_array($weiValue, $this->_BOSE_codes['g'])) {
+            return true;
+        } elseif ($value == "绿单" && in_array($weiValue, $this->_BOSE_codes['dan']) && in_array($weiValue, $this->_BOSE_codes['g'])) {
+            return true;
+        } elseif ($value == "绿双" && in_array($weiValue, $this->_BOSE_codes['shuang']) && in_array($weiValue, $this->_BOSE_codes['g'])) {
             return true;
         } else {
             return false;
@@ -464,14 +497,15 @@ class SixheLottery_Result
 
         $codeArr = implode(",", $codeArr);
 
-        $postion = stripos($codeArr[3], $codes);
+        $postion = stripos($codeArr[0], $codes);
 
         // 必须都不相同
         if ($postion === 0) {
             $handle = true;
         }
+
         if ($handle == false) {
-            $handle = $this->specialOpera($codeArr[3], $codes);
+            $handle = $this->banboOpera($codeArr[0], $codes);
         }
 
         $lunaFunction = new LunaFunctions();
