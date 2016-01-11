@@ -13,7 +13,6 @@
 <body>
 <div class="container" style="margin: 0 auto">
     <div>
-
         <div style="margin-top: 10%">
             <div class="gp_title"></div>
             <a onclick="openZoosUrl('chatwin');">

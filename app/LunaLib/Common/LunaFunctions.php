@@ -698,6 +698,8 @@ class LunaFunctions
                                     $detail = lu_lotteries_k3::where('id', $lotId)->first();
                                 } else if ($type == "ssc") {
                                     $detail = lu_lotteries_ssc::where('id', $lotId)->first();
+                                }else if ($type == "6he") {
+                                    $detail = lu_lotteries_6he::where('id', $lotId)->first();
                                 }
 
                                 if ($detail['groupId'] != null && $detail['groupId'] != "0") {
