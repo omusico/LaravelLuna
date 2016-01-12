@@ -1183,7 +1183,7 @@ class AdminController extends Controller
             return Redirect::back();
         }
 
-        $lu_points_records = DB::select('select uid,userName,ABS(changePoint) as changePoint,addType from lu_points_records' . $wheresql .' limit 1000');
+        $lu_points_records = DB::select('select uid,userName,ABS(changePoint) as changePoint,addType,created_at from lu_points_records' . $wheresql .' order by created_at desc limit 1000');
         $downlist = array();
         foreach ($lu_points_records as $lu_points_record) {
             array_push($downlist, (array)$lu_points_record);
@@ -1195,13 +1195,14 @@ class AdminController extends Controller
                 $sheet->fromArray($downlist, null, 'A1', false, false);
 
                 $sheet->prependRow(1, array(
-                    '用户ID', '用户名', '改变金额', '明细类型'
+                    '用户ID', '用户名', '改变金额', '明细类型','时间'
                 ));
                 $sheet->setWidth([
                     'A' => 21,
                     'B' => 28,
                     'C' => 15,
                     'D' => 22,
+                    'E' => 28,
                 ]);
                 $sheet->getDefaultStyle();
 
