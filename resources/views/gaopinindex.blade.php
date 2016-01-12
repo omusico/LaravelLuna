@@ -91,10 +91,10 @@
                 <a href="/ssclotteryIndex?lottery_type=cqssc">
                     <div class="gp_route_overlay"></div>
                 </a>
-                <a href="/ssclotteryIndex?lottery_type=xjssc">
+                <a href="/ssclotteryIndex?lottery_type=sdfive">
                     <div class="gp_route_overlay"></div>
                 </a>
-                <a href="/fivelotteryIndex?lottery_type=gdfive">
+                <a href="/fivelotteryIndex?lottery_type=sdfive">
                     <div class="gp_route_overlay"></div>
                 </a>
                 <a href="/6helotteryIndex">
