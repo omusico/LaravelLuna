@@ -168,7 +168,8 @@ function addClicks() {
         //}
         if (wei === "7" || wei === "7B") {
             $("#tema_type").show();
-            $("#btnksms").click();
+            //$("#btnksms").click();
+            $("#btnybms").click();
         } else {
             $("#tema_type").hide();
             $("#tm_ybms").show();
