@@ -185,7 +185,7 @@
                         <div class="tm_content">
                             <div id="tema_type" class="type_nav" style="display: block;">
                                 <ul style="list-style:none">
-                                    <li id="btnybms" disid="tm_ybms"  class="selected">
+                                    <li id="btnybms" disid="tm_ybms" class="selected">
                                         一般模式
                                     </li>
                                     <li id="btnksms" disid="tm_ksms" class="">
@@ -1840,6 +1840,10 @@
         $(function () {
             setOutTime();
 //            setTimeout("loadRecent()", 2500);
+            setTimeout(function () {
+
+                $("#btnybms").click();
+            }, 500);
         });
     </script>
 @stop
