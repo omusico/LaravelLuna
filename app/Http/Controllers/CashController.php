@@ -296,7 +296,7 @@ class CashController extends Controller
                     'created' => $_SERVER['REQUEST_TIME'],
                     'type' => $levelkey,
                     'status' => 2, //未付款状态
-                    'userName' => $request->name
+                    'userName' => $request->Username
                 );
                 lu_lottery_recharge::create($data);
 
