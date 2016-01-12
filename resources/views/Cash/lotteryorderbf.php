@@ -24,7 +24,7 @@
     $MARK = "|";
     //MD5签名格式
     $Signature = md5($MemberID . $MARK . $PayID . $MARK . $TradeDate . $MARK . $TransID . $MARK . $OrderMoney . $MARK . $PageUrl . $MARK . $ReturnUrl . $MARK . $NoticeType . $MARK . $Md5key);
-    $payUrl = "http://vgw.baofoo.com/payindex";//借贷混合
+    $payUrl = "http://gw.baofoo.com/payindex";//借贷混合
     $TerminalID = "27573";
     $InterfaceVersion = "4.0";
     $KeyType = "1";
