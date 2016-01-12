@@ -185,11 +185,11 @@
                         <div class="tm_content">
                             <div id="tema_type" class="type_nav" style="display: block;">
                                 <ul style="list-style:none">
-                                    <li id="btnksms" disid="tm_ksms" class="selected">
-                                        快速模式
-                                    </li>
-                                    <li disid="tm_ybms" class="">
+                                    <li disid="tm_ybms"  class="selected">
                                         一般模式
+                                    </li>
+                                    <li id="btnksms" disid="tm_ksms" class="">
+                                        快速模式
                                     </li>
                                 </ul>
 
