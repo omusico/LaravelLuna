@@ -62,6 +62,7 @@
             <div style="float: left;margin-left: 10px">
                 <a class="btn btn-default btn-primary" onclick="Search()">查询</a>
                 <a class="btn btn-default btn-danger" onclick="Download()">下载</a>
+                <a class="btn btn-default btn-danger" onclick="DownloadDetail()">下载明细</a>
             </div>
         </div>
         <table class="table table-hover">
@@ -148,6 +149,10 @@
             url = "downloadadmindetail?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&addtype=" + $("#addType option:selected").val();
             window.location.href = url;
         }
-        ;
+
+        function DownloadDetail() {
+            url = "downloadadmindetails?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&addtype=" + $("#addType option:selected").val();
+            window.location.href = url;
+        }
     </script>
 @stop

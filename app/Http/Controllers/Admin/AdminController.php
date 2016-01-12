@@ -1153,6 +1153,63 @@ class AdminController extends Controller
         })->export('xls');
     }
 
+    public function downloadadmindetails(Request $request)
+    {
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+        $addtype = $request->addtype;
+        $point_types = CommonClass::cache_point_type();
+//        $result = App\lu_points_record::orderby('created_at', 'desc');
+        $wheresql = ' where 1 = 1 ';
+        if (!empty($userName)) {
+            $wheresql .= ' and userName= "' . $userName . '"';
+        }
+        if (empty($starttime) && empty($endtime)) {
+            $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
+        }
+        if (!empty($starttime)) {
+            $starttime = substr($starttime, 0, 10);
+            $wheresql .= ' and created_at >="' . $starttime . '"';
+        }
+        if (!empty($endtime)) {
+            $endtime = substr($endtime, 0, 10);
+            $wheresql .= ' and created_at <="' . $endtime . '"';
+        }
+        if (!empty($addtype)) {
+            $wheresql .= ' and addType ="' . $addtype . '"';
+        } else {
+            session()->flash('message_warning', '请选择明细类型');
+            return Redirect::back();
+        }
+
+        $lu_points_records = DB::select('select uid,userName,ABS(changePoint) as changePoint,addType from lu_points_records' . $wheresql .' limit 1000');
+        $downlist = array();
+        foreach ($lu_points_records as $lu_points_record) {
+            array_push($downlist, (array)$lu_points_record);
+        }
+        Excel::create('会员' . $point_types[$addtype] . '明细表' . $starttime . '-' . $endtime, function ($excel) use ($downlist) {
+
+            $excel->sheet('sheetName', function ($sheet) use ($downlist) {
+
+                $sheet->fromArray($downlist, null, 'A1', false, false);
+
+                $sheet->prependRow(1, array(
+                    '用户ID', '用户名', '改变金额', '明细类型'
+                ));
+                $sheet->setWidth([
+                    'A' => 21,
+                    'B' => 28,
+                    'C' => 15,
+                    'D' => 22,
+                ]);
+                $sheet->getDefaultStyle();
+
+            });
+
+        })->export('xls');
+    }
+
     public function adminproxydetail(Request $request)
     {
         $id = $request->id;
