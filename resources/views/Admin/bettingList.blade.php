@@ -230,7 +230,6 @@
         });
         function Search() {
             url = "bettingList?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&proName=" + $("#proName").val() + "&codes=" + $("#codes").val() + "&typeName=" + $("#typeName option:selected").val();
-            ;
             window.location.href = url;
         }
         ;
