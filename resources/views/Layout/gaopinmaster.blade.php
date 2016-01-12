@@ -262,24 +262,13 @@
             checkwin();
         }
 
-        <?php
-        $islogin = strstr($_SERVER['REQUEST_URI'],'login');
-        $isregister = strstr($_SERVER['REQUEST_URI'],'register');
-         ?>
-        @if(Auth::guest() && empty($islogin) && empty($isregister))
-        @if($_SERVER['REQUEST_URI']=='/register' || $_SERVER['REQUEST_URI']=='/dailiregister' || $_SERVER['HTTP_ORIGIN'] = 'http://pay.kaitu87.com')
+        @if(Auth::guest())
+        @if($_SERVER['REQUEST_URI']=='/register' || $_SERVER['REQUEST_URI']=='/dailiregister' || $_SERVER['REQUEST_URI']=='/recharge')
 
         @else
         location.replace('/login');
         @endif
         @endif
-
-
-
-
-
-
-
     });
 
 
@@ -291,6 +280,10 @@
 
             $(".btn").addClass("btn-lg");
 
+            <?php
+            $islogin = strstr($_SERVER['REQUEST_URI'],'login');
+            $isregister = strstr($_SERVER['REQUEST_URI'],'register');
+             ?>
 
         }
     })(navigator.userAgent);
