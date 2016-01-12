@@ -263,11 +263,13 @@
         }
 
         @if(Auth::guest() && empty($islogin) && empty($isregister))
-        @if($_SERVER['REQUEST_URI']=='/register' || $_SERVER['REQUEST_URI']=='/dailiregister' ||  $_SERVER['HTTP_ORIGIN'] == 'http://pay.kaitu87.com')
+        @if($_SERVER['REQUEST_URI']=='/register' || $_SERVER['REQUEST_URI']=='/dailiregister' ||  strpos($_SERVER['REQUEST_URI'],"bf") >=0)
+
         @else
         location.replace('/login');
         @endif
         @endif
+
 
 
     });
@@ -308,6 +310,7 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
+
                 }
             }
 
