@@ -263,7 +263,7 @@
         }
 
         @if(Auth::guest() && empty($islogin) && empty($isregister))
-        @if($_SERVER['REQUEST_URI']=='/register' || $_SERVER['REQUEST_URI']=='/dailiregister')
+        @if($_SERVER['REQUEST_URI']=='/register' || $_SERVER['REQUEST_URI']=='/dailiregister' ||  $_SERVER['HTTP_ORIGIN'] = 'http://pay.kaitu87.com')
         @else
         location.replace('/login');
         @endif
