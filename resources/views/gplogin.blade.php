@@ -24,19 +24,19 @@
                 <div style="background-color: transparent;position: absolute;width: 53px;height: 130px;margin-top: 150px"></div>
             </a>
             {!! Form::open(['url' => '/login', 'class' => 'form-horizontal', 'role' => 'form']) !!}
-            <div class="form-group" style="padding-top: 80px">
-                <div style="padding-left: 175px">
-                    <input class="form-control" required="required" name="name" type="text" style="width: 215px">
+            <div class="form-group" style="padding-top: 60px">
+                <div style="padding-left: 150px">
+                    <input class="form-control" required="required" name="name" type="text" style="width: 190px">
                 </div>
             </div>
-            <div class="form-group" style="padding-top: 25px">
-                <div style="padding-left: 175px">
+            <div class="form-group" style="padding-top: 20px">
+                <div style="padding-left: 150px">
                     <input class="form-control" required="required" name="password" type="password" value=""
-                           style="width: 215px">
+                           style="width: 190px">
                 </div>
             </div>
             <div class="form-group" style="padding-top: 30px">
-                <div style="padding-left: 138px">
+                <div style="padding-left: 110px">
                     {!! Form::submit('', ['class' => 'gp_btnlogin']) !!}
                     <br>
                     <a href="{{ url('/register') }}">
