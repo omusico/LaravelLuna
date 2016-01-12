@@ -237,7 +237,7 @@
                                 {{--</tr>--}}
                                 <tr>
                                     <td>商品名称:</td>
-                                    <td><input type="text" name="ProductName"/></td>
+                                    <td><input type="text" name="ProductName"/>测温仪</td>
                                 </tr>
                                 <tr>
                                     <td>商品数量:</td>
