@@ -220,7 +220,7 @@
                                 {{--</tr>--}}
                                 <tr>
                                     <td>商户号:</td>
-                                    <td><input name="MemberID" value="654895"/></td>
+                                    <td><input name="MemberID" value="{{$level['id']}}"/></td>
                                 </tr>
                                 <tr>
                                     <td>交易流水号:</td>
