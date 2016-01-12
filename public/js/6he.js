@@ -186,7 +186,7 @@ function addClicks() {
         if (wei === "7" || wei === "7B") {
             $("#tema_type").show();
             $("#QuickBar").show();
-            $("#btnksms").click();
+            $("#btnybms").click();
         } else {
             $("#tema_type").hide();
             $("#QuickBar").hide();
