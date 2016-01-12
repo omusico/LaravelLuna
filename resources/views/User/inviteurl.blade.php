@@ -9,13 +9,19 @@
         @include('errors.list')
 
         <div class="form-group col-md-10 col-md-offset-1" style="text-align: center">
-            {{--<a class="btn btn-default btn-primary" href="#">代理中心</a>--}}
             <a class="btn btn-default btn-info" href="/dailiregister">代理注册</a>
             <a class="btn btn-default btn-warning" href="/login">代理登陆</a>
         </div>
+        @if(env("SITE_TYPE","")=="")
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
+                    <img src="/css/k3proxy2.jpg" alt="优惠活动" width="100%" height="100%"></div>
+            </div>
+        @else
             <textarea class="form-control" name="proxycert" rows="25" readonly
                       style="display: {{$display}}">{{Cache::get('proxycert')}}</textarea>
 
+        @endif
         @if(isset($isdaili))
             @if($isdaili)
                 <div class="form-group">
