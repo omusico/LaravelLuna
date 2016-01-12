@@ -1179,8 +1179,8 @@ class AdminController extends Controller
         if (!empty($addtype)) {
             $wheresql .= ' and addType ="' . $addtype . '"';
         } else {
-            session()->flash('message_warning', '请选择明细类型');
-            return Redirect::back();
+//            session()->flash('message_warning', '请选择明细类型');
+//            return Redirect::back();
         }
 
         $lu_points_records = DB::select('select uid,userName,ABS(changePoint) as changePoint,addType,created_at from lu_points_records' . $wheresql .' order by created_at desc limit 1000');
