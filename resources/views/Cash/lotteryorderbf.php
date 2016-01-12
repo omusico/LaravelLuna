@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>充值接口-提交信息处理</title>
     <?php
+    $level = $userlevels[$_POST['levelkey']];
     $MemberID=$_POST['MemberID'];//商户号
     $TransID=$_POST['TransID'];//流水号
     $PayID=$_POST['PayID'];//支付方式
@@ -17,12 +18,12 @@
     $PageUrl=$_POST['PageUrl'];//通知商户页面端地址
     $ReturnUrl=$_POST['ReturnUrl'];//服务器底层通知地址
     $NoticeType=$_POST['NoticeType'];//通知类型
-    $Md5key="abcdefg";//md5密钥（KEY）
+    $Md5key=$level['key'];//md5密钥（KEY）
     $MARK = "|";
     //MD5签名格式
     $Signature=md5($MemberID.$MARK.$PayID.$MARK.$TradeDate.$MARK.$TransID.$MARK.$OrderMoney.$MARK.$PageUrl.$MARK.$ReturnUrl.$MARK.$NoticeType.$MARK.$Md5key);
     $payUrl="http://vgw.baofoo.com/payindex";//借贷混合
-    $TerminalID = "10000001";
+    $TerminalID = "27573";
     $InterfaceVersion = "4.0";
     $KeyType = "1";
 
