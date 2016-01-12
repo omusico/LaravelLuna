@@ -292,7 +292,7 @@ class CashController extends Controller
                     'sn' => $request->TransID,
                     'uid' => $request->uid,
                     'siteId' => 1,
-                    'amounts' => $request->amounts,
+                    'amounts' => $request->OrderMoney,
                     'created' => $_SERVER['REQUEST_TIME'],
                     'type' => $levelkey,
                     'status' => 2, //未付款状态
