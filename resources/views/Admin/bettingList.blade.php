@@ -187,7 +187,7 @@
             @endif
         </table>
         {{--{{$lu_lotteries_k3->appends($input)->links()}}--}}
-        <?php echo $lu_lotteries_k3s->appends(['proName' => $proName, 'codes' => $codes, 'bettingType' => $bettingType, 'typeName' => $typeName])->render(); ?>
+        <?php echo $lu_lotteries_k3s->appends(['userName' => $userName,'proName' => $proName, 'codes' => $codes, 'bettingType' => $bettingType, 'typeName' => $typeName])->render(); ?>
     </div>
 @stop
 @section('script')
