@@ -7,6 +7,7 @@ use App\lu_lotteries_6he;
 use App\lu_lotteries_five;
 use App\lu_lotteries_k3;
 use App\lu_lotteries_ssc;
+use App\lu_lottery_notes_6he;
 use App\lu_lottery_notes_five;
 use App\lu_lottery_notes_k3;
 use App\lu_lottery_notes_ssc;
@@ -177,6 +178,8 @@ class UserController extends Controller
                 $result = lu_lottery_notes_five::where('uid', \Auth::id())->orderby('created_at', 'desc');
             } else if ($bettingType == 'ssc') {
                 $result = lu_lottery_notes_ssc::where('uid', \Auth::id())->orderby('created_at', 'desc');
+            } else if ($bettingType == '6he') {
+                $result = lu_lottery_notes_6he::where('uid', \Auth::id())->orderby('created_at', 'desc');
             }
         } else {
 
