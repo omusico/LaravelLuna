@@ -160,9 +160,9 @@ class LotteryFiveController extends Controller
                     $totals = $totals + $eachPrice;
 
                     $allprice = lu_lotteries_five::where('uid', Auth::user()->id)->where("typeid", intval($types[$slug]['typeId']))->where("proName", $proName)->where("province", $lottery_type)->where('codes', $this->_formatCode($code))->sum("eachPrice");
-//                    if ($n[$code] + $allprice > $highest) {
-//                        return array('tip' => 'error', 'msg' => '您该期所下注金额' . $code . '超过当期最大限额' . $highest . ',请重新下注', 'points' => $points);
-//                    }
+                    if ($totals + $allprice > $highest) {
+                        return array('tip' => 'error', 'msg' => '您该期所下注金额' . $code . '超过当期最大限额' . $highest . ',请重新下注', 'points' => $points);
+                    }
 //                $n[$code] += $eachPrice;
 //                if( $n[$code] > $userInfo['highest'] ){
 //                    return array('tip'=>'error','msg'=>'您该期所下注金额'.$code .'超过最大限额'.$userInfo['highest'].',请重新下注','points'=>$points);
