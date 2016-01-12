@@ -1188,13 +1188,12 @@ class AdminController extends Controller
 //            return Redirect::back();
         }
 
-        $lu_points_records = DB::select('select uid,userName,ABS(changePoint) as changePoint,addType,created_at from lu_points_records' . $wheresql . ' order by created_at desc limit 1000');
+        $lu_points_records = DB::select('select uid,userName,oldPoint,ABS(changePoint) as changePoint,newPoint,addType,created_at from lu_points_records' . $wheresql . ' order by created_at desc limit 1000');
         $downlist = array();
         $point_types = CommonClass::cache_point_type();
         foreach ($lu_points_records as $lu_points_record) {
             $lu_points_record = (array)$lu_points_record;
-            if(!empty($lu_points_record['addType']))
-            {
+            if (!empty($lu_points_record['addType'])) {
                 $lu_points_record['addType'] = $point_types[$lu_points_record['addType']];
             }
             array_push($downlist, $lu_points_record);
@@ -1206,14 +1205,16 @@ class AdminController extends Controller
                 $sheet->fromArray($downlist, null, 'A1', false, false);
 
                 $sheet->prependRow(1, array(
-                    '用户ID', '用户名', '改变金额', '明细类型', '时间'
+                    '用户ID', '用户名', '旧的金额', '改变金额', '新的金额', '明细类型', '时间'
                 ));
                 $sheet->setWidth([
                     'A' => 21,
                     'B' => 28,
                     'C' => 15,
-                    'D' => 22,
-                    'E' => 28,
+                    'D' => 15,
+                    'E' => 15,
+                    'F' => 22,
+                    'G' => 28,
                 ]);
                 $sheet->getDefaultStyle();
 
