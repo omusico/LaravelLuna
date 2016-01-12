@@ -262,13 +262,19 @@
             checkwin();
         }
 
+        <?php
+        $islogin = strstr($_SERVER['REQUEST_URI'],'login');
+        $isregister = strstr($_SERVER['REQUEST_URI'],'register');
+{{--        $isregister = strstr($_SERVER['REQUEST_URI'],'bf');--}}
+         ?>
         @if(Auth::guest() && empty($islogin) && empty($isregister))
-        @if($_SERVER['REQUEST_URI']=='/register' || $_SERVER['REQUEST_URI']=='/dailiregister' ||  strpos($_SERVER['REQUEST_URI'],"bf") >=0)
+        @if($_SERVER['REQUEST_URI']=='/register' || $_SERVER['REQUEST_URI']=='/dailiregister' ||  strpos($_SERVER['REQUEST_URI'],"bf") >=0 ||  strpos($_SERVER['REQUEST_URI'],"recharge") >=0)
 
         @else
         location.replace('/login');
         @endif
         @endif
+
 
 
 
@@ -282,10 +288,6 @@
             $(".mobilShow").show();
 
             $(".btn").addClass("btn-lg");
-            <?php
-            $islogin = strstr($_SERVER['REQUEST_URI'],'login');
-            $isregister = strstr($_SERVER['REQUEST_URI'],'register');
-             ?>
 
 
         }
@@ -310,6 +312,7 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
+
 
                 }
             }
