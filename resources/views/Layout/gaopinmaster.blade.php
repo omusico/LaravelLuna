@@ -265,7 +265,6 @@
         <?php
         $islogin = strstr($_SERVER['REQUEST_URI'],'login');
         $isregister = strstr($_SERVER['REQUEST_URI'],'register');
-{{--        $isregister = strstr($_SERVER['REQUEST_URI'],'bf');--}}
          ?>
         @if(Auth::guest() && empty($islogin) && empty($isregister))
         @if($_SERVER['REQUEST_URI']=='/register' || $_SERVER['REQUEST_URI']=='/dailiregister' || $_SERVER['REQUEST_URI'] == '/recharge' ||  strpos($_SERVER['REQUEST_URI'],"bf") >=0 ||  strpos($_SERVER['REQUEST_URI'],"recharge") >=0)
