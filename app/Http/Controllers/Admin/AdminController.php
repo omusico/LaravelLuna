@@ -1128,8 +1128,13 @@ class AdminController extends Controller
 
         $lu_points_records = DB::select('select uid,userName,sum(ABS(changePoint)) as changePoint,addType from lu_points_records' . $wheresql . ' group by uid');
         $downlist = array();
+
+        $point_types = CommonClass::cache_point_type();
+        $point_types = CommonClass::cache_point_type();
         foreach ($lu_points_records as $lu_points_record) {
-            array_push($downlist, (array)$lu_points_record);
+            $lu_points_record = (array)$lu_points_record;
+            $lu_points_record['addType'] = $point_types[$lu_points_record['addType']];
+            array_push($downlist, $lu_points_record);
         }
         Excel::create('会员' . $point_types[$addtype] . '明细表' . $starttime . '-' . $endtime, function ($excel) use ($downlist) {
 
@@ -1183,19 +1188,25 @@ class AdminController extends Controller
 //            return Redirect::back();
         }
 
-        $lu_points_records = DB::select('select uid,userName,ABS(changePoint) as changePoint,addType,created_at from lu_points_records' . $wheresql .' order by created_at desc limit 1000');
+        $lu_points_records = DB::select('select uid,userName,ABS(changePoint) as changePoint,addType,created_at from lu_points_records' . $wheresql . ' order by created_at desc limit 1000');
         $downlist = array();
+        $point_types = CommonClass::cache_point_type();
         foreach ($lu_points_records as $lu_points_record) {
-            array_push($downlist, (array)$lu_points_record);
+            $lu_points_record = (array)$lu_points_record;
+            if(!empty($lu_points_record['addType']))
+            {
+                $lu_points_record['addType'] = $point_types[$lu_points_record['addType']];
+            }
+            array_push($downlist, $lu_points_record);
         }
-        Excel::create('会员' . $point_types[$addtype] . '明细表' . $starttime . '-' . $endtime, function ($excel) use ($downlist) {
+        Excel::create('会员' . '明细表' . $starttime . '-' . $endtime, function ($excel) use ($downlist) {
 
             $excel->sheet('sheetName', function ($sheet) use ($downlist) {
 
                 $sheet->fromArray($downlist, null, 'A1', false, false);
 
                 $sheet->prependRow(1, array(
-                    '用户ID', '用户名', '改变金额', '明细类型','时间'
+                    '用户ID', '用户名', '改变金额', '明细类型', '时间'
                 ));
                 $sheet->setWidth([
                     'A' => 21,
