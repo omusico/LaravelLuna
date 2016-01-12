@@ -57,6 +57,10 @@
     </div>
 </nav>
 <div class="container header" style="margin-top: 50px">
+    {{--<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=&site=qq&menu=yes"><img border="0"--}}
+                                                                                     {{--src="http://wpa.qq.com/pa?p=2::53"--}}
+                                                                                     {{--alt="点击这里给我发消息" title="点击这里给我发消息"/></a>--}}
+
     <div class="logoWrap">
         <h1 class="logo"><a href="/" title="中国快三网" class="logoLink"><img src="/css/m_logo.png" alt="中国快三网"></a></h1>
     </div>
@@ -269,6 +273,7 @@
             @endif
 
 
+
         }
     })(navigator.userAgent);
 
@@ -292,6 +297,7 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
+
 
 
 

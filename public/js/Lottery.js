@@ -1163,4 +1163,35 @@ function changeLeftContentHeight() {
     $(".scrollcontent").height(scrollcontent_hght);
 
 }
+function loadRecent() {
+    if ($("#awardNumBody").has("tr").length == 0) {
+        loadRecentResult()
+    }
+}
 
+function loadRecentResult(){
+    var csrf_token = $("input[name=_token]").val();
+    if (typeof (recentNum) == "undefined") {
+        recentNum = 15
+    }
+    var url = "/loadRecentResult?lottery_type=" + lottery_type + "&recentNum=" + recentNum;
+    $.ajax({
+        type: "GET",
+        data: "_token=" + csrf_token,
+        url: url,
+        dataType: "json",
+        data:{},
+        cache : false,
+        success: function(json){
+            if(json){
+                html='';
+                if( typeof(recentNum) == "undefined" ) recentNum = 15;
+                for(var w=0;w<json.length && w< recentNum ;w++){
+                    var data = json[w];
+                    html += '<tr data-period="' + data.proName + '"><td align="center">'+data.proName + '</td> <td align="center"> <span class="c_red">'+ data.codes + "</span></td></tr>";
+                }
+                $('#awardNumBody').html(html);
+            }
+        }
+    });
+}

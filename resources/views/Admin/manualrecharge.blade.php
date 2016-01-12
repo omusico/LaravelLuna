@@ -71,6 +71,11 @@
                     </div>
                 @endif
             @endif
+
+            <div class="form-group">
+                <div class="col-md-4">
+                </div>
+            </div>
             <div class="form-group">
                 <div class="col-md-4 col-md-offset-2">
                     {{--{!! Form::submit('完成,创建', ['class' => 'btn btn-success form-control']) !!}--}}
