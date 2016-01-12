@@ -47,7 +47,7 @@
                                 <input name="uid" value="{{Auth::user()->id}}" type="hidden">
                                 <input name="name" value="{{Auth::user()->name}}" type="hidden">
                             </div>
-                            <input name="paytype" value="{{$level['typeName']}}" type="hidden">
+                            <input name="levelpaytype" value="{{$level['typeName']}}" type="hidden">
                             <input name="levelkey" value="{{$levelkey}}" type="hidden">
 
                             <div class="form-group" style="margin-top: 50px">
@@ -159,7 +159,7 @@
                                 <input name="uid" value="{{Auth::user()->id}}" type="hidden">
                                 {{--第三方要的用户名--}}
                                 <input name="Username" value="{{Auth::user()->name}}" type="hidden">
-                                <input name="paytype" value="{{$level['typeName']}}" type="hidden">
+                                <input name="levelpaytype" value="{{$level['typeName']}}" type="hidden">
                                 <input name="levelkey" value="{{$levelkey}}" type="hidden">
                             </div>
                             <div class="form-group">

@@ -263,7 +263,7 @@ class CashController extends Controller
     public function rechargePost(Request $request)
     {
         $errormessage = "";
-        $paytype = $request->paytype;
+        $paytype = $request->levelpaytype;
         $levelkey = $request->levelkey;
         if (empty($paytype)) {
             $errormessage = "请选择一种支付方式";
