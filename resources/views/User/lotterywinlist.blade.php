@@ -17,8 +17,9 @@
                     @if(env('SITE_TYPE','')=='gaopin')
                         <ul class="nav navbar-nav" role="tablist">
                             <li role="presentation" class="active"><a href="/getLotteryWin?bettingType=k3">快三投注记录</a></li>
-                            <li role="presentation"><a href="/getLotteryWin?bettingType=five">11选5投注记录</a></li>
-                            <li role="presentation"><a href="/getLotteryWin?bettingType=ssc">时时彩投注记录</a></li>
+                            <li role="presentation"><a href="/getLotteryWin?bettingType=five">11选5中奖记录</a></li>
+                            <li role="presentation"><a href="/getLotteryWin?bettingType=ssc">时时彩中奖记录</a></li>
+                            <li role="presentation"><a href="/getLotteryWin?bettingType=6he">六合彩中奖记录</a></li>
                         </ul>
                         <input type="hidden" value="{{$bettingType}}">
                     @endif
