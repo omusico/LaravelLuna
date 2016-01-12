@@ -42,6 +42,9 @@
                     <td>状态</td>
                     <td>投注时间</td>
                 </tr>
+                <?php
+                $lunaFunctions = new \App\LunaLib\Common\LunaFunctions();
+                ?>
                 @if (count($lu_lotteries_k3s))
                     @foreach ($lu_lotteries_k3s as $lu_lotteries_k3)
                         <tr>
