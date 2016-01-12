@@ -288,11 +288,12 @@ class CashController extends Controller
                 lu_lottery_recharge::create($data);
                 return view('Cash.lotteryorderzf');
             } elseif ($paytype = "bf") {
+                $amouts = $request->OrderMoney;
                 $data = array(
                     'sn' => $request->TransID,
                     'uid' => $request->uid,
                     'siteId' => 1,
-                    'amounts' => $request->OrderMoney,
+                    'amounts' => $amouts,
                     'created' => $_SERVER['REQUEST_TIME'],
                     'type' => $levelkey,
                     'status' => 2, //未付款状态
