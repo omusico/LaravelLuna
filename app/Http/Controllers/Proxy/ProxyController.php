@@ -74,7 +74,7 @@ class ProxyController extends Controller
             }
 
         }
-        return view('User.inviteurl', compact('display'));
+        return view('User.inviteurl', compact('display','isdaili'));
     }
 
     function proxydetail($id)

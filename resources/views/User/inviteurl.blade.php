@@ -13,16 +13,27 @@
             <a class="btn btn-default btn-warning" href="/login">代理登陆</a>
         </div>
         @if(!$isdaili)
-        @if(env("SITE_TYPE","")=="")
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
-                    <img src="/css/k3proxy2.jpg" alt="优惠活动" width="100%" height="100%"></div>
-            </div>
-        @else
-            <textarea class="form-control" name="proxycert" rows="25" readonly
-                      style="display: {{$display}}">{{Cache::get('proxycert')}}</textarea>
+            @if(env("SITE_TYPE","")=="")
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
+                        <img src="/css/k3proxy2.jpg" alt="优惠活动" width="100%" height="100%"></div>
+                </div>
+            @elseif(env("SITE_TYPE","")=="five")
 
-        @endif
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
+                        <img src="/css/fiveproxy.jpg" alt="优惠活动" width="100%" height="100%"></div>
+                </div>
+            @elseif(env("SITE_TYPE","")=="gaopin")
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
+                        <img src="/css/gaopinproxy.jpg" alt="优惠活动" width="100%" height="100%"></div>
+                </div>
+            {{--@else--}}
+                {{--<textarea class="form-control" name="proxycert" rows="25" readonly--}}
+                          {{--style="display: {{$display}}">{{Cache::get('proxycert')}}</textarea>--}}
+
+            @endif
         @endif
         @if(isset($isdaili))
             @if($isdaili)

@@ -19,17 +19,9 @@
 @stop
 @section('content')
     <div class="container" style="text-align: center;">
-        <div class="cm_wrapper clear">
-            <div class="cm_w1000"><img src="/css/cm_banner.jpg" alt="拿起3枚骰子 快3号就有了"
-                                       width="1000" height="441"></div>
-        </div>
-        <div class="cm_wrapper clear">
-            <div class="cm_w1000"><img src="/css/middlerule.png" alt="拿起3枚骰子 快3号就有了"
-                                       width="1000" height="auto"></div>
-        </div>
-        <div class="cm_wrapper clear" style="margin-bottom: 10px;border-bottom: 1px solid">
-            <div class="cm_w1000"><img src="/css/bottomrule.png" alt="拿起3枚骰子 快3号就有了"
-                                       width="1000" height="auto"></div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
+                <img src="/css/k3rule2.jpg" alt="优惠活动" width="100%" height="100%"></div>
         </div>
     </div>
 @stop
