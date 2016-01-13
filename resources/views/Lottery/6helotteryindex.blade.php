@@ -45,6 +45,36 @@
             top: 0;
             width: 100%;
         }
+
+        .rkj_num {
+            /* background: url("../images/r.png") no-repeat; */
+            width: 48px;
+            height: 48px;
+            display: block;
+            float: left;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            text-decoration: none;
+            cursor: pointer;
+            outline: none;
+            text-align: center;
+        }
+
+        .rkj_num a {
+            width: 48px;
+            height: 48px;
+        }
+
+        .rkj_num a span {
+            display: block;
+            width: 48px;
+            height: 47px;
+            line-height: 47px;
+            font-weight: bold;
+            color: Black;
+            text-align: center;
+            font-family: "Arial";
+        }
     </style>
     <script type="text/javascript">
         <?php
@@ -76,7 +106,7 @@
                             {{$sixhe ['todaystart'] . '-' . $sixhe ['todayend']}}
                             </span>
                         <span class="yaoshao"></span> <span class="yaoshao">封盘时间：
-                            {{$sixhe ['endtime']}}
+                            {{date('Y-m-d H:i',strtotime($sixhe ['endtime']))}}
                             </span>
                     </div>
                 </div>
@@ -90,15 +120,45 @@
                 </div>
                 <input type="hidden" id="proName"/> <input type="hidden"
                                                            id="getOdds"/>
+                <?php
+                $lastResult = \App\lu_lotteries_result::where('typeName', '6he')->orderBy('proName', 'desc')->first();
+                $arrcodes = explode(',', $lastResult->codes);
+                $_BOSE_codes = array(
+                        'r' => array('01', '02', '07', '08', '12', '13', '18', '19', '23', '24', '29', '30', '34', '35', '40', '45', '46'),
+                        'b' => array('03', '04', '09', '10', '14', '15', '20', '25', '26', '31', '36', '37', '41', '42', '47', '48'),
+                        'g' => array('05', '06', '11', '16', '17', '21', '22', '27', '28', '32', '33', '38', '39', '43', '44', '49')
+                );
 
+                ?>
                 <div class="zgk3_info_r col-md-4">
                     <div class="zgk3_hao" id="kjjxz">
                         <div class="zgk3_qs" id="kjz">
-                            第<span class="c_red" id="prevWin">...</span>期开奖号码:
+                            第<span class="c_red" id="prevWin">{{$lastResult->proName}}</span>期开奖号码:
                         </div>
-                        <div class="ssc_nub" id="awerdNum_balls">
-                            <span class="hm_3"></span>&nbsp;&nbsp;<span class="hm_6"></span>&nbsp;&nbsp;<span
-                                    class="hm_6"></span>&nbsp;&nbsp;
+                        <div class="6he_nub" id="awerdNum_balls" style="display: inline-block">
+                            <a class="rkj_num" id="OPNUM_{{$arrcodes[0]}}">
+                                <span>{{$arrcodes[0]}}</span>
+                            </a>
+                            <a class="rkj_num" id="OPNUM_{{$arrcodes[1]}}">
+                                <span>{{$arrcodes[1]}}</span>
+                            </a>
+                            <a class="rkj_num" id="OPNUM_{{$arrcodes[2]}}">
+                                <span>{{$arrcodes[2]}}</span>
+                            </a>
+                            <a class="rkj_num" id="OPNUM_{{$arrcodes[3]}}">
+                                <span>{{$arrcodes[3]}}</span>
+                            </a>
+                            <a class="rkj_num" id="OPNUM_{{$arrcodes[4]}}">
+                                <span>{{$arrcodes[4]}}</span>
+                            </a>
+                            <a class="rkj_num" id="OPNUM_{{$arrcodes[5]}}">
+                                <span>{{$arrcodes[5]}}</span>
+                            </a>
+                            <a class="rkj_num" id="OPNUM_{{$arrcodes[6]}}">
+                                <span>{{$arrcodes[6]}}</span>
+                            </a>
+                            {{--<span class="hm_3"></span>&nbsp;&nbsp;<span class="hm_6"></span>&nbsp;&nbsp;<span--}}
+                            {{--class="hm_6"></span>&nbsp;&nbsp;--}}
                         </div>
                         <div style="display: none;" id="kjzimg" class="kj_nub">
                             <img src=" " alt="开奖中" height="63" width="259"/>

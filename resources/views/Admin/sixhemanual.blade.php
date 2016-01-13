@@ -35,7 +35,7 @@
                 <label class="form-control" >开盘时间:</label>
             </div>
             <div class="col-md-5" style="padding: 0px">
-                <input class="easyui-datetimebox" style="width: 200px;" id="startsixhetime" value="{{isset($sixhe['starttime'])?$sixhe['starttime']:''}}" type="text" name="sixhe[starttime]" data-options="formatter:myformatter" />
+                <input class="easyui-datetimebox" style="width: 200px;" id="startsixhetime" value="{{isset($sixhe['starttime'])?$sixhe['starttime']:''}}" type="text" name="sixhe[starttime]" data-options="" />
 
             </div>
         </div>
@@ -44,7 +44,7 @@
                 <label class="form-control" >封盘时间:</label>
             </div>
             <div class="col-md-5" style="padding: 0px">
-                <input class="easyui-datetimebox" style="width: 200px;" id="endsixhetime" value="{{isset($sixhe['endtime'])?$sixhe['endtime']:''}}" type="text" name="sixhe[endtime]" data-options="formatter:myformatter" />
+                <input class="easyui-datetimebox" style="width: 200px;" id="endsixhetime" value="{{isset($sixhe['endtime'])?$sixhe['endtime']:''}}" type="text" name="sixhe[endtime]" data-options="" />
 
             </div>
         </div>
@@ -81,6 +81,19 @@
                 return (value < 10 ? '0' : '') + value;
             }
             return y+'-'+m+'-'+d+' '+ formatNumber(h)+':'+formatNumber(M)+':'+formatNumber(s);
+        }
+        function w4(s){
+            var reg=/[\u4e00-\u9fa5]/  //利用正则表达式分隔
+            var ss = (s.split(reg));
+            var y = parseInt(ss[0],10);
+            var m = parseInt(ss[1],10);
+            var d = parseInt(ss[2],10);
+            var h = parseInt(ss[3],10);
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d) && !isNaN(h)){
+                return new Date(y,m-1,d,h);
+            } else {
+                return new Date();
+            }
         }
     </script>
 @stop

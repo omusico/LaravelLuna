@@ -78,19 +78,32 @@
 
 #NUM_1, #NUM_2, #NUM_7, #NUM_8, #NUM_12, #NUM_13, #NUM_18, #NUM_19, #NUM_23, #NUM_24, #NUM_29, #NUM_30, #NUM_34, #NUM_35, #NUM_40, #NUM_45, #NUM_46 {
     color: #D50000;
-    /*background: url(../Images/r.png) no-repeat;*/
     background: url('6hemain.png') no-repeat scroll -384px -489px transparent;
 }
 
 #NUM_3, #NUM_4, #NUM_9, #NUM_10, #NUM_14, #NUM_15, #NUM_20, #NUM_25, #NUM_26, #NUM_31, #NUM_36, #NUM_37, #NUM_41, #NUM_42, #NUM_47, #NUM_48 {
     color: #001762;
-    /*background: url(../Images/b.png) no-repeat;*/
     background: url('6hemain.png') no-repeat scroll -564px -489px transparent;
 }
 
 #NUM_5, #NUM_6, #NUM_11, #NUM_16, #NUM_17, #NUM_21, #NUM_22, #NUM_27, #NUM_28, #NUM_32, #NUM_33, #NUM_38, #NUM_39, #NUM_43, #NUM_44, #NUM_49 {
     color: #0D3D01;
-    /*background: url(../Images/g.png) no-repeat;*/
+    background: url('6hemain.png') no-repeat scroll -687px -489px transparent;
+}
+
+/*openNum*/
+#OPNUM_01, #OPNUM_02, #OPNUM_07, #OPNUM_08, #OPNUM_12, #OPNUM_13, #OPNUM_18, #OPNUM_19, #OPNUM_23, #OPNUM_24, #OPNUM_29, #OPNUM_30, #OPNUM_34, #OPNUM_35, #OPNUM_40, #OPNUM_45, #OPNUM_46 {
+    color: #D50000;
+    background: url('6hemain.png') no-repeat scroll -384px -489px transparent;
+}
+
+#OPNUM_03, #OPNUM_04, #OPNUM_09, #OPNUM_10, #OPNUM_14, #OPNUM_15, #OPNUM_20, #OPNUM_25, #OPNUM_26, #OPNUM_31, #OPNUM_36, #OPNUM_37, #OPNUM_41, #OPNUM_42, #OPNUM_47, #OPNUM_48 {
+    color: #001762;
+    background: url('6hemain.png') no-repeat scroll -564px -489px transparent;
+}
+
+#OPNUM_05, #OPNUM_06, #OPNUM_11, #OPNUM_16, #OPNUM_17, #OPNUM_21, #OPNUM_22, #OPNUM_27, #OPNUM_28, #OPNUM_32, #OPNUM_33, #OPNUM_38, #OPNUM_39, #OPNUM_43, #OPNUM_44, #OPNUM_49 {
+    color: #0D3D01;
     background: url('6hemain.png') no-repeat scroll -687px -489px transparent;
 }
 
