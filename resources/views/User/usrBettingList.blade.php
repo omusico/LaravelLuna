@@ -34,7 +34,9 @@
                     {{--<td>订单</td>--}}
                     {{--<td>姓名</td>--}}
                     <td>期号</td>
+                    @if($bettingType=="6he")
                     <td>类型</td>
+                    @endif
                     <td>号码</td>
                     <td>投注金额</td>
                     <td>中奖金额</td>
@@ -54,8 +56,7 @@
                             <td>{{ $lu_lotteries_k3->proName }}</td>
                             @if($bettingType=="6he")
                                 <td>{{$lunaFunctions->return6hetype($lu_lotteries_k3->typeId)}}</td>
-                            @else
-                                <td>{{ $lu_lotteries_k3->typeId }}</td>
+                                {{--<td>{{ $lu_lotteries_k3->typeId }}</td>--}}
                             @endif
                             <td>{{ $lu_lotteries_k3->codes }}</td>
                             <td>{{ $lu_lotteries_k3->eachPrice }}</td>
