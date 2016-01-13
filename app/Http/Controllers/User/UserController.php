@@ -57,14 +57,18 @@ class UserController extends Controller
 
     public function getaccountdetail(Request $request)
     {
+        $userid = Auth::user()->id;
         if (env('SITE_TYPE', '') == 'five') {
-            $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_fives where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_fives where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ', [Auth::user()->id, Auth::user()->id]);
+            $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_fives where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_fives where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ', [$userid, $userid]);
         } else if (env('SITE_TYPE', '') == 'gaopin') {
-            $lu_lotteries_k3s = \DB::select('select created_at, sum(eachPrice) as eachPrice,sum(bingoPrice) as bingoPrice from ( select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_fives where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_fives where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at '.
-                'union select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_k3s where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at '.
-                'union select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_sscs where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_sscs where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at ) t group by created_at', [Auth::user()->id, Auth::user()->id, Auth::user()->id, Auth::user()->id, Auth::user()->id, Auth::user()->id]);
+            $lu_lotteries_k3s = \DB::select('select created_at, sum(eachPrice) as eachPrice,sum(bingoPrice) as bingoPrice from ( select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_fives where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_fives where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at ' .
+                'union select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_k3s where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at ' .
+                'union select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_sscs where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_sscs where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at ' .
+                'union select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_6hes where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_sscs where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at ) t group by created_at'
+                ,
+                [$userid, $userid, $userid, $userid, $userid, $userid, $userid, $userid]);
         } else {
-            $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_k3s where uid=? and (noticed =1 || status <> -1)  group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ', [Auth::user()->id, Auth::user()->id]);
+            $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_k3s where uid=? and (noticed =1 || status <> -1)  group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ', [$userid, $userid]);
         }
         $lu_lottery_applys = \DB::select('select left(created_at,10) as created_at,SUM(amounts) as applys  from lu_lottery_applies where uid =? group by left(created_at,10) ', [Auth::user()->id]);
 
@@ -164,7 +168,7 @@ class UserController extends Controller
 
     public function getLotteryWin(Request $request)
     {
-        $bettingType="";
+        $bettingType = "";
         if (env('SITE_TYPE', '') == 'five') {
             $result = lu_lottery_notes_five::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
         } else if (env('SITE_TYPE', '') == 'gaopin') {
@@ -186,7 +190,7 @@ class UserController extends Controller
             $result = lu_lottery_notes_k3::where('uid', Auth::user()->id)->orderby('created_at', 'desc');
         }
         $lu_lottery_note_k3s = $result->paginate(10);
-        return view('User.lotterywinlist', compact('lu_lottery_note_k3s','bettingType'));
+        return view('User.lotterywinlist', compact('lu_lottery_note_k3s', 'bettingType'));
     }
 
     public function getPersonalwin()
