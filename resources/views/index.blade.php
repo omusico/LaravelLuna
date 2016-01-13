@@ -109,9 +109,17 @@
                         <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
                         <li data-target="#carousel-generic" data-slide-to="1"></li>
                         <li data-target="#carousel-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-generic" data-slide-to="3"></li>
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
+                            <img src="/css/004.jpg" alt="...">
+
+                            <div class="carousel-caption">
+                                {{--<p>中奖率高、赔率高、信誉100%</p>--}}
+                            </div>
+                        </div>
+                        <div class="item">
                             <img src="/css/001.png" alt="...">
 
                             <div class="carousel-caption">
