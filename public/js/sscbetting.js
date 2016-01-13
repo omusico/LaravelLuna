@@ -291,6 +291,8 @@ Ssc.core = {
     clearAll:function(){
         $data.codes.length = 0;
 //        $dom.box_ball_BX.removeClass('OneNum_active');
+
+        $("#box_ball_TABNN_NN_num").find(".OneNum").removeClass('OneNum_active');
         $("#box_ball_SWHZ_num").find(".num").removeClass('OneNum_active');
         $("#box_ball_QSHZ_num").find(".num").removeClass('OneNum_active');
 
