@@ -1,5 +1,5 @@
 *{padding:0;margin:0;}
-html,body{font-size:12px;font-family:"΢���ź�";outline:none;color:#666;background:#fff;}
+/*html,body{font-size:12px;font-family:"΢���ź�";outline:none;color:#666;background:#fff;}*/
 ul,ol{list-style:none;}
 img{border:none;outline:none;}
 a{color:#666;text-decoration:none;outline:none;}
@@ -17,5 +17,5 @@ a:hover{color:#e8431f;}
 #floatDivBoxs .floatDtel img{display:block;}
 #floatDivBoxs .floatDbg{width:100%;height:20px;background:url('online_botbg.jpg') no-repeat;box-shadow:-2px 0 3px rgba(0,0,0,0.25);}
 .floatShadow{ background:#fff;box-shadow:-2px 0 3px rgba(0,0,0,0.25);}
-#rightArrow{width:50px;height:45px;background:url('online_arrow.jpg') no-repeat;position:fixed;top:250px;right:0;z-index:999;}
+#rightArrow{width:50px;height:45px;background:url('side_icon04.png') no-repeat;position:fixed;top:250px;right:0;z-index:999;}
 #rightArrow a{display:block;height:45px;}

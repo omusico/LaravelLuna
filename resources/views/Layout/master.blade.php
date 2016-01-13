@@ -20,8 +20,6 @@
                             src="{{ asset('/css/qq.png')}}" align="absmiddle">在线客服1号</a></li>
             <li><a target="_blank" href="tencent://message/?uin=67276099&Site=k3558.com&Menu=yes"><img
                             src="{{ asset('/css/qq.png')}}" align="absmiddle">在线客服2号</a></li>
-            <li><a target="_blank" href="tencent://message/?uin=67276099&Site=k3558.com&Menu=yes"><img
-                            src="{{ asset('/css/qq.png')}}" align="absmiddle">在线客服3号</a></li>
         </ul>
     </div>
 </div>
@@ -277,12 +275,12 @@
             if (flag == 1) {
                 $("#floatDivBoxs").animate({right: '-175px'}, 300);
                 $(this).animate({right: '-5px'}, 300);
-                $(this).css('background-position', '-50px 0');
+//                $(this).css('background-position', '-50px 0');
                 flag = 0;
             } else {
                 $("#floatDivBoxs").animate({right: '0'}, 300);
                 $(this).animate({right: '170px'}, 300);
-                $(this).css('background-position', '0px 0');
+//                $(this).css('background-position', '0px 0');
                 flag = 1;
             }
         });
@@ -331,12 +329,6 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
-
-
-
-
-
-
                 }
             }
 
