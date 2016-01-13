@@ -27,6 +27,7 @@
                         <option value="cqfive">重庆11选5</option>
                     @elseif(env('SITE_TYPE','')=='gaopin')
                         <option value=""></option>
+                        <option value="6he">香港六合彩</option>
                         <option value="sdfive">山东11选5</option>
                         <option value="gdfive">广东11选5</option>
                         <option value="shfive">上海11选5</option>
