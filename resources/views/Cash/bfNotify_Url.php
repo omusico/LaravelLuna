@@ -16,18 +16,19 @@ $Md5key = $level['key']; ///////////md5密钥（KEY）
 $MARK = "~|~";
 //MD5签名格式
 $WaitSign=md5('MemberID='.$MemberID.$MARK.'TerminalID='.$TerminalID.$MARK.'TransID='.$TransID.$MARK.'Result='.$Result.$MARK.'ResultDesc='.$ResultDesc.$MARK.'FactMoney='.$FactMoney.$MARK.'AdditionalInfo='.$AdditionalInfo.$MARK.'SuccTime='.$SuccTime.$MARK.'Md5Sign='.$Md5key);
+$reallymoney = $FactMoney / 100;
 if ($Md5Sign == $WaitSign) {
     //校验通过开始处理订单
     if ($lrecharge->status == '2') {
         $ldata = \App\lu_user_data::where('uid', $lrecharge->uid)->first();
         $tmp = $ldata->points;
         $points = $ldata->points;
-        $points = $points + $FactMoney;
+        $points = $points + $reallymoney;
         $ldata->points = $points;
         $ldata->save();
         //状态修改为已经付款
         $lrecharge->status = 1;
-        $lrecharge->amounts = $FactMoney;
+        $lrecharge->amounts = $reallymoney;
         $lrecharge->save();
         $data = array(
             'uid' => $lrecharge->uid,
@@ -36,7 +37,7 @@ if ($Md5Sign == $WaitSign) {
             'lotteryType' => '', // 中奖
             'winSn' => $TransID,
             'oldPoint' => $tmp,
-            'changePoint' => $FactMoney,
+            'changePoint' => $reallymoney,
             'newPoint' => $points,
             'created' => strtotime(date('Y-m-d H:i:s'))
         );
