@@ -46,8 +46,7 @@
             width: 100%;
         }
 
-        .rkj_num {
-            /* background: url("../images/r.png") no-repeat; */
+        .kj_num {
             width: 48px;
             height: 48px;
             display: block;
@@ -58,14 +57,15 @@
             cursor: pointer;
             outline: none;
             text-align: center;
+            padding: 10px;
         }
 
-        .rkj_num a {
+        .kj_num a {
             width: 48px;
             height: 48px;
         }
 
-        .rkj_num a span {
+        .kj_num a span {
             display: block;
             width: 48px;
             height: 47px;
@@ -136,25 +136,25 @@
                             第<span class="c_red" id="prevWin">{{$lastResult->proName}}</span>期开奖号码:
                         </div>
                         <div class="6he_nub" id="awerdNum_balls" style="display: inline-block">
-                            <a class="rkj_num" id="OPNUM_{{$arrcodes[0]}}">
+                            <a class="kj_num" id="OPNUM_{{$arrcodes[0]}}">
                                 <span>{{$arrcodes[0]}}</span>
                             </a>
-                            <a class="rkj_num" id="OPNUM_{{$arrcodes[1]}}">
+                            <a class="kj_num" id="OPNUM_{{$arrcodes[1]}}">
                                 <span>{{$arrcodes[1]}}</span>
                             </a>
-                            <a class="rkj_num" id="OPNUM_{{$arrcodes[2]}}">
+                            <a class="kj_num" id="OPNUM_{{$arrcodes[2]}}">
                                 <span>{{$arrcodes[2]}}</span>
                             </a>
-                            <a class="rkj_num" id="OPNUM_{{$arrcodes[3]}}">
+                            <a class="kj_num" id="OPNUM_{{$arrcodes[3]}}">
                                 <span>{{$arrcodes[3]}}</span>
                             </a>
-                            <a class="rkj_num" id="OPNUM_{{$arrcodes[4]}}">
+                            <a class="kj_num" id="OPNUM_{{$arrcodes[4]}}">
                                 <span>{{$arrcodes[4]}}</span>
                             </a>
-                            <a class="rkj_num" id="OPNUM_{{$arrcodes[5]}}">
+                            <a class="kj_num" id="OPNUM_{{$arrcodes[5]}}">
                                 <span>{{$arrcodes[5]}}</span>
                             </a>
-                            <a class="rkj_num" id="OPNUM_{{$arrcodes[6]}}">
+                            <a class="kj_num" id="OPNUM_{{$arrcodes[6]}}">
                                 <span>{{$arrcodes[6]}}</span>
                             </a>
                             {{--<span class="hm_3"></span>&nbsp;&nbsp;<span class="hm_6"></span>&nbsp;&nbsp;<span--}}
