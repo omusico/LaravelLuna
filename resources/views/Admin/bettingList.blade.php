@@ -176,7 +176,16 @@
                                       method="get">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                    <button class="btn btn-sm btn-danger" onclick="return confirm('确定撤单?')">撤单
+                                    <button class="btn btn-sm btn-confirm" onclick="return confirm('确定撤单?')">撤单
+                                    </button>
+                                </form>
+                            @else
+                                <form action="{{ url('deleteCancelOrder/'.$lu_lotteries_k3->id) }}"
+                                      style='display: inline'
+                                      method="get">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                    <button class="btn btn-sm btn-danger" onclick="return confirm('确定删除撤单?')">删除撤单
                                     </button>
                                 </form>
                             @endif
@@ -188,7 +197,7 @@
             @endif
         </table>
         {{--{{$lu_lotteries_k3->appends($input)->links()}}--}}
-        <?php echo $lu_lotteries_k3s->appends(['userName' => $userName,'proName' => $proName, 'codes' => $codes, 'bettingType' => $bettingType, 'typeName' => $typeName])->render(); ?>
+        <?php echo $lu_lotteries_k3s->appends(['userName' => $userName, 'proName' => $proName, 'codes' => $codes, 'bettingType' => $bettingType, 'typeName' => $typeName])->render(); ?>
     </div>
 @stop
 @section('script')

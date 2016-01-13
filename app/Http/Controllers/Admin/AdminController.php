@@ -1315,12 +1315,27 @@ class AdminController extends Controller
     }
 
     //单一撤单
+    public function deleteCancelOrder($id)
+    {
+        if (env('SITE_TYPE', '') == 'five') {
+
+            $lottery = App\lu_lotteries_five::find($id);
+        } else if (env('SITE_TYPE', '') == '') {
+
+            $lottery = App\lu_lotteries_k3::find($id);
+        }
+        $lottery->delete();
+        session()->flash('message', '删除成功');
+        return Redirect::back();
+    }
+
+    //单一撤单
     public function cancelOrderSingle($id)
     {
         if (env('SITE_TYPE', '') == 'five') {
 
             $lottery = App\lu_lotteries_five::find($id);
-        } else {
+        } else if (env('SITE_TYPE', '') == '') {
 
             $lottery = App\lu_lotteries_k3::find($id);
         }
@@ -1361,7 +1376,6 @@ class AdminController extends Controller
 
             // 查看是否有追号截止的。如果有追号，则恢复.
             if ($lottery['groupId'] != null) {
-//                $params = array("groupId" => $lottery['groupId'], "province" => strtolower($type), "status" => "-1");
                 if (env('SITE_TYPE', '') == 'five') {
 
                     $zhuihaoList = App\lu_lotteries_five::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
