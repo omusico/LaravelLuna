@@ -16,11 +16,11 @@
     <div class="floatDtt">在线客服</div>
     <div class="floatShadow">
         <ul class="floatDqq">
-            <li><a target="_blank" href="tencent://message/?uin=67276099&Site=sc.chinaz.com&Menu=yes"><img
+            <li><a target="_blank" href="tencent://message/?uin=67276099&Site=k3558.com&Menu=yes"><img
                             src="{{ asset('/css/qq.png')}}" align="absmiddle">在线客服1号</a></li>
-            <li><a target="_blank" href="tencent://message/?uin=67276099&Site=sc.chinaz.com&Menu=yes"><img
+            <li><a target="_blank" href="tencent://message/?uin=67276099&Site=k3558.com&Menu=yes"><img
                             src="{{ asset('/css/qq.png')}}" align="absmiddle">在线客服2号</a></li>
-            <li><a target="_blank" href="tencent://message/?uin=67276099&Site=sc.chinaz.com&Menu=yes"><img
+            <li><a target="_blank" href="tencent://message/?uin=67276099&Site=k3558.com&Menu=yes"><img
                             src="{{ asset('/css/qq.png')}}" align="absmiddle">在线客服3号</a></li>
         </ul>
     </div>
