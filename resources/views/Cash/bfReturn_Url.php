@@ -39,7 +39,7 @@
                 $ldata->save();
                 //状态修改为已经付款
                 $lrecharge->status = 1;
-                $lrecharge->amounts = $order_amount;
+                $lrecharge->amounts = $FactMoney;
                 $lrecharge->save();
                 $data = array(
                     'uid' => $lrecharge->uid,
