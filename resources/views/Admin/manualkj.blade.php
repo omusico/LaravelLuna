@@ -95,7 +95,7 @@
                     <label class="col-md-4 col-md-offset-2">格式: 0,09,05,11,03 </label>
                 @elseif(env('SITE_TYPE','')=='gaopin')
                     <label class="col-md-4 col-md-offset-2">六合彩格式: 29,11,09,47,43,06,08 </label><br>
-                    <label class="col-md-9 col-md-offset-2">11选5格式: 0,09,05,11,03 </label><br>
+                    <label class="col-md-7 col-md-offset-2">11选5格式: 0,09,05,11,03 </label><br>
                     <label class="col-md-4 col-md-offset-2">快三格式: 3,2,3 </label><br>
                 @else
                     <label class="col-md-4 col-md-offset-2">格式: 3,2,3 </label>

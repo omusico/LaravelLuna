@@ -3284,31 +3284,31 @@ class defaultCache
             ),
             21 => array(
                 'typeId' => '21',
-                'name' => '第一位',
+                'name' => '第一位(万位)',
                 'firsttype' => 'TABDW',
                 'slug' => 'TABDW_YI'
             ),
             22 => array(
                 'typeId' => '22',
-                'name' => '第二位',
+                'name' => '第二位(千位)',
                 'firsttype' => 'TABDW',
                 'slug' => 'TABDW_ER'
             ),
             23 => array(
                 'typeId' => '23',
-                'name' => '第三位',
+                'name' => '第三位(百位)',
                 'firsttype' => 'TABDW',
                 'slug' => 'TABDW_SAN'
             ),
             24 => array(
                 'typeId' => '24',
-                'name' => '第四位',
+                'name' => '第四位(十位)',
                 'firsttype' => 'TABDW',
                 'slug' => 'TABDW_SI'
             ),
             25 => array(
                 'typeId' => '25',
-                'name' => '第五位',
+                'name' => '第五位(个位)',
                 'firsttype' => 'TABDW',
                 'slug' => 'TABDW_WU'
             )

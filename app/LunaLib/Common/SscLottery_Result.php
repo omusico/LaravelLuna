@@ -57,16 +57,16 @@ class SscLottery_Result
             $qiancode = $row['codes'];
 
             if ($qiancode == '单' && $v % 2 == 1) {
-                $odds = $this->_odds['EXHZ']['dan'];
+                $odds = $this->_odds['TABHZ_EXHZ']['dan'];
                 $handle = true;
             } elseif ($qiancode == '双' && $v % 2 == 0) {
-                $odds = $this->_odds['EXHZ']['shuang'];
+                $odds = $this->_odds['TABHZ_EXHZ']['shuang'];
                 $handle = true;
             } elseif ($qiancode == '小' && $v <= 9) {
-                $odds = $this->_odds['EXHZ']['xiao'];
+                $odds = $this->_odds['TABHZ_EXHZ']['xiao'];
                 $handle = true;
             } elseif ($qiancode == '大' && $v > 9) {
-                $odds = $this->_odds['EXHZ']['da'];
+                $odds = $this->_odds['TABHZ_EXHZ']['da'];
                 $handle = true;
             }
         }
@@ -99,16 +99,16 @@ class SscLottery_Result
             $qiancode = $row['codes'];
             if (in_array($qiancode, array('单', '双', '大', '小'))) {
                 if ($qiancode == '单' && $value % 2 == 1) {
-                    $odds = $this->_odds['SWHZ']['dan'];
+                    $odds = $this->_odds['TABHZ_SWHZ']['dan'];
                     $handle = true;
                 } elseif ($qiancode == '双' && $value % 2 == 0) {
-                    $odds = $this->_odds['SWHZ']['shuang'];
+                    $odds = $this->_odds['TABHZ_SWHZ']['shuang'];
                     $handle = true;
                 } elseif ($qiancode == '小' && $value <= 9) {
-                    $odds = $this->_odds['SWHZ']['xiao'];
+                    $odds = $this->_odds['TABHZ_SWHZ']['xiao'];
                     $handle = true;
                 } elseif ($qiancode == '大' && $value > 9) {
-                    $odds = $this->_odds['SWHZ']['da'];
+                    $odds = $this->_odds['TABHZ_SWHZ']['da'];
                     $handle = true;
                 }
             } else if (strstr($row['codes'], "#")) {
@@ -119,16 +119,16 @@ class SscLottery_Result
                 $v = (int)$codeArr[$i - 1];
 
                 if ($dwcode == '单' && $v % 2 == 1) {
-                    $odds = $this->_odds['SWHZ']['dwdan'];
+                    $odds = $this->_odds['TABHZ_SWHZ']['dwdan'];
                     $handle = true;
                 } elseif ($dwcode == '双' && $v % 2 == 0) {
-                    $odds = $this->_odds['SWHZ']['dwshuang'];
+                    $odds = $this->_odds['TABHZ_SWHZ']['dwshuang'];
                     $handle = true;
                 } elseif ($dwcode == '小' && $v < 5) {
-                    $odds = $this->_odds['SWHZ']['dwxiao'];
+                    $odds = $this->_odds['TABHZ_SWHZ']['dwxiao'];
                     $handle = true;
                 } elseif ($dwcode == '大' && $v >= 5) {
-                    $odds = $this->_odds['SWHZ']['dwda'];
+                    $odds = $this->_odds['TABHZ_SWHZ']['dwda'];
                     $handle = true;
                 }
             }
@@ -164,16 +164,16 @@ class SscLottery_Result
             $qiancode = $row['codes'];
 
             if ($qiancode == '单' && $v % 2 == 1) {
-                $odds = $this->_odds['SXHZ']['dan'];
+                $odds = $this->_odds['TABHZ_SXHZ']['dan'];
                 $handle = true;
             } elseif ($qiancode == '双' && $v % 2 == 0) {
-                $odds = $this->_odds['SXHZ']['shuang'];
+                $odds = $this->_odds['TABHZ_SXHZ']['shuang'];
                 $handle = true;
             } elseif ($qiancode == '小' && $v <= 13) {
-                $odds = $this->_odds['SXHZ']['xiao'];
+                $odds = $this->_odds['TABHZ_SXHZ']['xiao'];
                 $handle = true;
             } elseif ($qiancode == '大' && $v > 13) {
-                $odds = $this->_odds['SXHZ']['da'];
+                $odds = $this->_odds['TABHZ_SXHZ']['da'];
                 $handle = true;
             }
         }

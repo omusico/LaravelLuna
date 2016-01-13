@@ -5,6 +5,18 @@
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/ssc.css') }}">
     <style type="text/css">
+        .kj_tab .hm-con {
+            float: right;
+            width: 740px;
+            overflow: hidden;
+            clear: none;
+        }
+        .tab-content ul {
+            padding: 0px;
+        }
+        .kj-w110 {
+            width: 100px;
+        }
     </style>
     <script type="text/javascript">
         var lottery_type = '{{$config['lotterytype']}}';
