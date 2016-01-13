@@ -290,9 +290,7 @@ Ssc.core = {
     },
     clearAll:function(){
         $data.codes.length = 0;
-        //$dom.box_ball_BX.removeClass('OneNum_active');
-        //$(".tab-content .tab-pane")
-        $("#box_ball_TABHZ_SWHZ_num").find(".num").removeClass('OneNum_active');
+//        $dom.box_ball_BX.removeClass('OneNum_active');
         $("#box_ball_SWHZ_num").find(".num").removeClass('OneNum_active');
         $("#box_ball_QSHZ_num").find(".num").removeClass('OneNum_active');
 

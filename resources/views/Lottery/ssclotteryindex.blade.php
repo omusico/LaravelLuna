@@ -11,9 +11,11 @@
             overflow: hidden;
             clear: none;
         }
+
         .tab-content ul {
             padding: 0px;
         }
+
         .kj-w110 {
             width: 100px;
         }
@@ -2934,7 +2936,60 @@
                     </div>
                     {{--牛牛--}}
                     <div class="tab-pane" id="TABNN_NN">
+                        <?php
+                        $playType = 'TABNN_NN';
+                        $firstType = 'TABNN';
+                        ?>
 
+
+                        <input type="hidden" id="<?php echo $playType?>_chipin_l"
+                               value="<?php echo $chipins[$playType]['low']?>"/>
+
+                        <input type="hidden" id="<?php echo $playType?>_chipin_h"
+                               value="<?php echo $chipins[$playType]['hight']?>"/>
+
+                        <input type="hidden" id="<?php echo $playType?>_other_chipin_l"
+                               value="<?php echo $chipins[$playType]['other_low']?>"/>
+
+                        <input type="hidden" id="<?php echo $playType?>_other_chipin_h"
+                               value="<?php echo $chipins[$playType]['other_hight']?>"/>
+
+                        <div class="content0 <?php echo $firstType?>_all_box" id="box_ball_<?php echo $playType?>">
+                            <p>投注说明：至少选择一种形态进行投注(10元可包选此形态)，所包形态和当期开奖号码形态一致即中奖</p>
+
+                            <div class="blank10"></div>
+                            <div class="menu">
+                                <ul class="menucon">
+                                    <li>
+                                        <a>实例说明：</a>
+                                        <ul>
+                                            <li><a>选号：牛九</a></li>
+                                            <li><a>开奖：01,06,03,04,05</a></li>
+                                            <li><a>中奖：赔率9.5</a></li>
+                                            <li class="last"></li>
+                                        </ul>
+
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="box_ball_<?php echo $playType?>_num">
+                                <ul class="pokerBig">
+                                    <?php $i = 0;
+                                    foreach($sscOdds[$playType] as $key=>$value): ;?>
+
+                                    <li class="OneNum" id="ball_nn_<?php  echo $i++;?>">
+                                        <div>
+                                            <b class="num"> <?php echo $key?></b><i>赔率<span
+                                                        class="peilv"><?php echo $value?></span></i><span
+                                                    class="hua"></span>
+                                        </div>
+                                    </li>
+
+                                    <?php endforeach;?>
+                                </ul>
+                            </div>
+                            <div class="blank10"></div>
+                        </div>
                     </div>
 
                 </div>
