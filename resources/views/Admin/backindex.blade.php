@@ -124,7 +124,7 @@
                             <a onclick="$.addTopTab('#tabXG','11选5赔率管理','11选5赔率管理','/fiveodds')">11选5赔率管理</a>
                         </li>
                         <li>
-                            <a onclick="$.addTopTab('#tabXG','快三赔率管理','快三赔率管理','/k3odds')">快三赔率管理</a>
+                            <a onclick="$.addTopTab('#tabXG','赔率管理','快三赔率管理','/k3odds')">快三赔率管理</a>
                         </li>
                         <li>
                             <a onclick="$.addTopTab('#tabXG','时时彩赔率管理','时时彩赔率管理','/sscodds')">时时彩赔率管理</a>
@@ -135,7 +135,7 @@
                         </li>
                     @endif
                     <li>
-                        <a onclick="$.addTopTab('#tabXG','快三手动开奖','快三手动开奖','/manualkj')">手动开奖</a>
+                        <a onclick="$.addTopTab('#tabXG','手动开奖','手动开奖','/manualkj')">手动开奖</a>
                     </li>
                     <li>
                         <a onclick="$.addTopTab('#tabXG','撤单','撤单','/cancelOrder')">撤单</a>
