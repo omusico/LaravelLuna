@@ -254,7 +254,7 @@
                                 <tr>
                                     <td>页面跳转地址:</td>
                                     <td><input type="text" name="PageUrl"
-                                               value="{{$level['returnurl']}}/bfNotify_Url"/>
+                                               value="{{$level['returnurl']}}/bfReturn_Url"/>
                                         <font color="red"><b>此地址注意更换成你们可用的通知地址</b></font>
                                     </td>
                                     <!--页面跳转连接的商户页面地址-->
@@ -262,7 +262,7 @@
                                 <tr>
                                     <td>底层访问地址:</td>
                                     <td><input type="text" name="ReturnUrl"
-                                               value="{{$level['returnurl']}}/bfReturn_Url"/>
+                                               value="{{$level['returnurl']}}/bfNotify_Url"/>
                                         <font color="red"><b>此地址注意更换成你们可用的通知地址</b></font>
                                     </td>
                                     <!--通知服务器底层地址-->
