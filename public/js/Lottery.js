@@ -242,7 +242,7 @@ Sixhe.submit = function(){
                                 window.location.href=baseUrl + "/index.php/Ssc/index/init?&lottery_type="+lottery_type;
                                 break;
                             case 'success':
-                                Common.tip('您的投注信息已经成功提交，请等待开奖！【<a href="/userLotteryBetting">查看我的购买信息</a>】');
+                                Common.tip('您的投注信息已经成功提交，请等待开奖！【<a href="/userLotteryBetting?bettingType=6he">查看我的购买信息</a>】');
                                 clearAll();
                                 //if($('.enter_digital').size()>0){
                                 //    $('.enter_digital').text(json.points);

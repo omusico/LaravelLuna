@@ -40,6 +40,7 @@
             </tr>
             @if (count($userreturns))
                 @foreach ($userreturns as $userreturn)
+                    @if(\App\lu_user::find($userreturn->uid)->groupId <> 7)
                     <tr>
                         <td>{{ $userreturn->returnDay }}</td>
                         <td>{{ $userreturn->userName }}</td>
@@ -48,6 +49,7 @@
                         <td>{{ $userreturn->optUser }}</td>
                         <td>{{ $userreturn->created_at }}</td>
                     </tr>
+                    @endif
                 @endforeach
             @else
                 <h1>没有记录</h1>

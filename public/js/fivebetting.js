@@ -1513,7 +1513,7 @@ Five.submit = function () {
                                     window.location.href = baseUrl + "/index.php/user/home/init?lottery_type=" + lottery_type;
                                     break;
                                 case 'success':
-                                    Five.tip('您的投注信息已经成功提交，请等待开奖！【<a href="/userLotteryBetting">查看我的购买信息</a>】');
+                                    Five.tip('您的投注信息已经成功提交，请等待开奖！【<a href="/userLotteryBetting?bettingType=five">查看我的购买信息</a>】');
                                     Five.core.clearAll();
                                     if ($('.enter_digital').size() > 0) {
                                         $('.enter_digital').text(json.points);
