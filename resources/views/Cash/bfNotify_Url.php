@@ -34,9 +34,9 @@ if ($Md5Sign == $WaitSign) {
             'userName' => $lrecharge->userName,
             'addType' => '3', // 在线充值
             'lotteryType' => '', // 中奖
-            'winSn' => $order_no,
+            'winSn' => $TransID,
             'oldPoint' => $tmp,
-            'changePoint' => $order_amount,
+            'changePoint' => $FactMoney,
             'newPoint' => $points,
             'created' => strtotime(date('Y-m-d H:i:s'))
         );
