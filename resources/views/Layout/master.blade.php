@@ -8,10 +8,25 @@
     <meta name="Description" content="快三娱乐平台。">
     <title> @yield('title') </title>
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/online.css') }}">
     @yield('css')
 </head>
 <body>
+<div id="floatDivBoxs">
+    <div class="floatDtt">在线客服</div>
+    <div class="floatShadow">
+        <ul class="floatDqq">
+            <li><a target="_blank" href="tencent://message/?uin=67276099&Site=sc.chinaz.com&Menu=yes"><img
+                            src="{{ asset('/css/qq.png')}}" align="absmiddle">在线客服1号</a></li>
+            <li><a target="_blank" href="tencent://message/?uin=67276099&Site=sc.chinaz.com&Menu=yes"><img
+                            src="{{ asset('/css/qq.png')}}" align="absmiddle">在线客服2号</a></li>
+            <li><a target="_blank" href="tencent://message/?uin=67276099&Site=sc.chinaz.com&Menu=yes"><img
+                            src="{{ asset('/css/qq.png')}}" align="absmiddle">在线客服3号</a></li>
+        </ul>
+    </div>
+</div>
 <div class="top_main_back"></div>
+<div id="rightArrow"><a href="javascript:;" title="在线客户"></a></div>
 <nav class="navbar navbar-default mobilShow" role="navigation" style="display: none;">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -58,8 +73,8 @@
 </nav>
 <div class="container header" style="margin-top: 50px">
     {{--<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=&site=qq&menu=yes"><img border="0"--}}
-                                                                                     {{--src="http://wpa.qq.com/pa?p=2::53"--}}
-                                                                                     {{--alt="点击这里给我发消息" title="点击这里给我发消息"/></a>--}}
+    {{--src="http://wpa.qq.com/pa?p=2::53"--}}
+    {{--alt="点击这里给我发消息" title="点击这里给我发消息"/></a>--}}
 
     <div class="logoWrap">
         <h1 class="logo"><a href="/" title="中国快三网" class="logoLink"><img src="/css/m_logo.png" alt="中国快三网"></a></h1>
@@ -256,6 +271,23 @@
         }
     });
 
+    $(function () {
+        var flag = 0;
+        $('#rightArrow').on("click", function () {
+            if (flag == 1) {
+                $("#floatDivBoxs").animate({right: '-175px'}, 300);
+                $(this).animate({right: '-5px'}, 300);
+                $(this).css('background-position', '-50px 0');
+                flag = 0;
+            } else {
+                $("#floatDivBoxs").animate({right: '0'}, 300);
+                $(this).animate({right: '170px'}, 300);
+                $(this).css('background-position', '0px 0');
+                flag = 1;
+            }
+        });
+    });
+
 
     (function (a) {
         if (/Mobile|Android|iPhone|iPod|Nokia|WP7|Symbian|MIDP|UCWEB|Minimo|Opera M(ob|in)i/.test(a) && !/iPad/.test(a) && !/(^|\s)mobi_redi=1(;|$)/.test(document.cookie)) {
@@ -271,6 +303,8 @@
             @if(Auth::guest() && empty($islogin) && empty($isregister))
             location.replace('/login');
             @endif
+
+
 
 
 
@@ -297,6 +331,8 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
+
+
 
 
 
