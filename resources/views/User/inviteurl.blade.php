@@ -12,6 +12,7 @@
             <a class="btn btn-default btn-info" href="/dailiregister">代理注册</a>
             <a class="btn btn-default btn-warning" href="/login">代理登陆</a>
         </div>
+        @if(!$isdaili)
         @if(env("SITE_TYPE","")=="")
             <div class="row">
                 <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
@@ -21,6 +22,7 @@
             <textarea class="form-control" name="proxycert" rows="25" readonly
                       style="display: {{$display}}">{{Cache::get('proxycert')}}</textarea>
 
+        @endif
         @endif
         @if(isset($isdaili))
             @if($isdaili)
