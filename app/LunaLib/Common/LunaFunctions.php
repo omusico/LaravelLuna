@@ -831,7 +831,7 @@ class LunaFunctions
             );
             lu_lotteries_result::create($data);
 //            $this->updatek3baoziodds($lotteryType, false);
-            $this->updatefivedanshuangodds($lotteryType, false);
+//            $this->updatefivedanshuangodds($lotteryType, false);
         }
     }
 
