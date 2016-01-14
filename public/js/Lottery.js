@@ -2,7 +2,7 @@
     return '	<div id="typebox" style="display:none"><div id="typeboxWrapper">         <div id="typeboxHeader"> 			<span id="typeboxClose"></span><span id="typeboxTitle"></span> 		</div> 		<div id="typeboxContent"></div> 		<div id="typeboxFooter"> 			<button class="button" value="true" id="typeboxSubmit"> 			' + $.typebox.settings.buttonText.submit + ' 			</button>             <button class="button" value="false" id="typeboxCancel"> 			' + $.typebox.settings.buttonText.cancel + " 			</button> 		</div> 			</div></div>"
 }
 
-function clearAll(){
+function clearAll() {
     //$data.codes.length = 0;
     $("#box_ball_SWHZ_num").find(".num").removeClass('OneNum_active');
     $("#box_ball_QSHZ_num").find(".num").removeClass('OneNum_active');
@@ -79,24 +79,24 @@ var $dom = {
     countDownTime: $('#countDownTime')
 };
 
-function setOutTime(){
-    if(betTime < 1){
-        betTime = 600; //防止在未返回数据前不断重复执行
+function setOutTime() {
+    if (betTime < 1) {
+        betTime = 0; //防止在未返回数据前不断重复执行
         $("#theCur").html("");
-        loadWinInfo();
-        waitAward();
-    }else{
+        //loadWinInfo();
+        //waitAward();
+    } else {
         betTime = betTime - 1;
 
         // 下一期自动刷新页面
-        if( betTime < 1){
+        if (betTime < 1) {
             setTimeout("refresh()", 5000);
         }
 
         gameHasEnd = 0;
         var str = betTime.toLeftTimeString();
 
-        if($('#countDownTime').size()>0) $('#countDownTime').html(str);
+        if ($('#countDownTime').size() > 0) $('#countDownTime').html(str);
     }
     setTimeout("setOutTime()", 1000);
 }
@@ -107,7 +107,7 @@ function render(obj, name, FiveName, _id) {
     _out.push('<span class="txt-betsName">[' + FiveName + ']</span>');
     _out.push('<span title="' + obj.code + '" class="txt-num js-code">' + name + '</span>');
     var winval = obj.value * obj.odd;
-    _out.push('<span class="txt-amount js-money" style="width:230px;float:none">下注金额<input value="' + obj.value + '" type="number" onkeyup="formatIntVal(this)" data-odd="' + obj.odd + '" onafterpaste="Five.formatIntVal(this)" name="totals[]" class="totalsVal" size="6" />元&nbsp;&nbsp;<em>可赢金额：<span class="bingoMoney">' + winval.toFixed(2) + '</span> 元</em></span>');
+    _out.push('<span class="txt-amount js-money" style="width:230px;float:none">下注金额<input value="' + (obj.value == 0 ? "" : obj.value) + '" type="number" onkeyup="formatIntVal(this)" data-odd="' + obj.odd + '" onafterpaste="Five.formatIntVal(this)" name="totals[]" class="totalsVal" size="6" />元&nbsp;&nbsp;<em>可赢金额：<span class="bingoMoney">' + winval.toFixed(2) + '</span> 元</em></span>');
     _out.push('<a href="javascript:void(0);" class="txt-delNum js-del">删除</a>');
     var val = obj.code + '|' + pls + '|' + obj.type;
     _out.push('<input type="hidden" name="tmpCodes[]" class="tmpCodes" value="' + val + '" />');
@@ -122,7 +122,7 @@ function render(obj, name, FiveName, _id) {
         });
     })
 }
-function showGetPrice (that, json) {
+function showGetPrice(that, json) {
     var odds = that.attr('data-odd');
     var val = that.val();
     val = val * odds;
@@ -149,7 +149,7 @@ function bindDelete() {
     });
 }
 
-function getTotals () {
+function getTotals() {
     var totals = 0, v = 0, _error = 0;
     $('.totalsVal').each(function () {
         v = $.trim($(this).val());
@@ -165,11 +165,11 @@ function getTotals () {
     return totals;
 }
 
-Sixhe.submit = function(){
+Sixhe.submit = function () {
     var tmpCodes = $('.tmpCodes');
-    if(tmpCodes.size()<=0){
+    if (tmpCodes.size() <= 0) {
         Common.tip('您还没有选择任何号码呀~~~');
-    }else{
+    } else {
         if ($("#isLogin").val() == undefined) {
             $('#myModal').modal('show');
             return false;
@@ -182,7 +182,7 @@ Sixhe.submit = function(){
             proName = $('#proName').val();
         var codes = '';
         var totals = getTotals();
-        if(!totals){
+        if (!totals) {
             Common.tip('每一注都需要您输入投注金额！');
             return false;
         }
@@ -190,56 +190,57 @@ Sixhe.submit = function(){
         //    Common.tip('您的余额不足，请充值！');
         //    return false;
         //}
-        var _limit_lowest = pt+'_chipin_l';
-        var _limit_highest = pt+'_chipin_h';
-        var _chipin_l = $('#'+_limit_lowest).val();
-        var _chipin_h = $('#'+_limit_highest).val();
-        if(!_chipin_l) _chipin_l = 0;
-        if(!_chipin_h) _chipin_h = 0;
-        if(_chipin_l>0 && totals < _chipin_l){
-            Common.tip('您的投注最低限额为“'+_chipin_l+'”元，但您目前的投注金额为“'+totals+'”元，请修改！');
+        var _limit_lowest = pt + '_chipin_l';
+        var _limit_highest = pt + '_chipin_h';
+        var _chipin_l = $('#' + _limit_lowest).val();
+        var _chipin_h = $('#' + _limit_highest).val();
+        if (!_chipin_l) _chipin_l = 0;
+        if (!_chipin_h) _chipin_h = 0;
+        if (_chipin_l > 0 && totals < _chipin_l) {
+            Common.tip('您的投注最低限额为“' + _chipin_l + '”元，但您目前的投注金额为“' + totals + '”元，请修改！');
             return false;
         }
-        if(_chipin_h>0 && totals > _chipin_h){
-            Common.tip('您的投注最高限额为“'+_chipin_h+'”元，但您目前的投注金额为“'+totals+'”元，请修改！');
+        if (_chipin_h > 0 && totals > _chipin_h) {
+            Common.tip('您的投注最高限额为“' + _chipin_h + '”元，但您目前的投注金额为“' + totals + '”元，请修改！');
             return false;
         }
 
-        $(".submit_btn").attr("disabled","true");
+        $(".submit_btn").attr("disabled", "true");
 
-        var totalVal = $('.totalsVal') ,eachPrice = 0 ,bingoMoney=$('.bingoMoney');
-        tmpCodes.each(function(i){
+        var totalVal = $('.totalsVal'), eachPrice = 0, bingoMoney = $('.bingoMoney');
+        tmpCodes.each(function (i) {
             eachPrice = $.trim(totalVal.eq(i).val());
-            codes+=$(this).val()+'|'+eachPrice+'|'+bingoMoney.eq(i).text()+'<waf>';
+            codes += $(this).val() + '|' + eachPrice + '|' + bingoMoney.eq(i).text() + '<waf>';
         });
         var gameName = $dom.gameName.val();
         var zhushu = $('.tmpCodes').size();
-        var msg = '您下注了<strong>'+ "" + '</strong>的'+gameName+'，共<strong>'+totals+'</strong>元，是否下注？';
+        var msg = '您下注了<strong>' + "" + '</strong>的' + gameName + '，共<strong>' + totals + '</strong>元，是否下注？';
 
         $.typebox({
-            'title' : '温馨提示',
+            'title': '温馨提示',
             'width': '360',
-            'height' : '150',
-            'content' : msg,
-            'padding' : 10,
-            'type' : 'text',
-            'call' :function(){
-                $('#typeboxSubmit').attr('disabled',true).html('数据提交中...');
-                $.ajax({type: "POST",
+            'height': '150',
+            'content': msg,
+            'padding': 10,
+            'type': 'text',
+            'call': function () {
+                $('#typeboxSubmit').attr('disabled', true).html('数据提交中...');
+                $.ajax({
+                    type: "POST",
                     //url: baseUrl+"/index.php?m=ssc&c=index&a=sendCode&rand="+Math.random() + "&lottery_type="+lottery_type,
                     url: "/6helotteryBetting?rand=" + Math.random() + "&lottery_type=" + lottery_type,
-                    data:"playType="+pt+'&zhushu='+zhushu+'&proName='+proName+'&totals='+totals+'&codes='+encodeURIComponent(codes),
-                    dataType: "json" ,
-                    cache : false,
-                    success: function(json){
+                    data: "playType=" + pt + '&zhushu=' + zhushu + '&proName=' + proName + '&totals=' + totals + '&codes=' + encodeURIComponent(codes),
+                    dataType: "json",
+                    cache: false,
+                    success: function (json) {
                         $.typebox.close();
-                        switch(json.tip){
+                        switch (json.tip) {
                             case 'login':
-                                window.location.href=loginUrl;
+                                //window.location.href=loginUrl;
                                 break;
                             case 'timeout':
                                 alert(json.msg);
-                                window.location.href=baseUrl + "/index.php/Ssc/index/init?&lottery_type="+lottery_type;
+                                //window.location.href=baseUrl + "/index.php/Ssc/index/init?&lottery_type="+lottery_type;
                                 break;
                             case 'success':
                                 Common.tip('您的投注信息已经成功提交，请等待开奖！【<a href="/userLotteryBetting?bettingType=6he">查看我的购买信息</a>】');
@@ -1169,7 +1170,7 @@ function loadRecent() {
     }
 }
 
-function loadRecentResult(){
+function loadRecentResult() {
     var csrf_token = $("input[name=_token]").val();
     if (typeof (recentNum) == "undefined") {
         recentNum = 15
@@ -1180,15 +1181,15 @@ function loadRecentResult(){
         data: "_token=" + csrf_token,
         url: url,
         dataType: "json",
-        data:{},
-        cache : false,
-        success: function(json){
-            if(json){
-                html='';
-                if( typeof(recentNum) == "undefined" ) recentNum = 15;
-                for(var w=0;w<json.length && w< recentNum ;w++){
+        data: {},
+        cache: false,
+        success: function (json) {
+            if (json) {
+                html = '';
+                if (typeof(recentNum) == "undefined") recentNum = 15;
+                for (var w = 0; w < json.length && w < recentNum; w++) {
                     var data = json[w];
-                    html += '<tr data-period="' + data.proName + '"><td align="center">'+data.proName + '</td> <td align="center"> <span class="c_red">'+ data.codes + "</span></td></tr>";
+                    html += '<tr data-period="' + data.proName + '"><td align="center">' + data.proName + '</td> <td align="center"> <span class="c_red">' + data.codes + "</span></td></tr>";
                 }
                 $('#awardNumBody').html(html);
             }
