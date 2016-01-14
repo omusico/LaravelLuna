@@ -104,7 +104,7 @@
         </div>
     </div>
     <div class="container" style="background-color: white;padding-top: 20px">
-        <div class="col-md-4">
+        <div class="col-md-4 mobilhide">
             <div class="gp_lottery_result">
                 开奖时间：{{$recentArray['SDFIVE']->created_at}}
                 <br>
@@ -161,7 +161,7 @@
 
         </div>
     </div>
-    <div class="container" style="background-color: #ffffff">
+    <div class="container mobilhide" style="background-color: #ffffff">
         <div class="row"
              style="padding-top: 10px;padding-bottom: 10px;background-color: white;margin-right: 8px;margin-left:8px">
             <a href="/6helotteryIndex">
@@ -175,7 +175,7 @@
             <div class="col-md-offset-1 col-md-10" style="padding-top: 3px;background-color:#fdc124;"></div>
         </div>
     </div>
-    <div class="container" style="margin-top: 20px">
+    <div class="container mobilhide" style="margin-top: 20px">
         <div class="col-md-offset-1 col-md-10">
             <div class="row">
 
