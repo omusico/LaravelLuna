@@ -841,28 +841,54 @@ class LunaFunctions
         $fivestr = 'sdfive,gdfive,shfive,zjfive,jxfive,liaoningfive,hljfive';
         if (strrpos($fivestr, strtolower($lottery_type)) > 0) {
             $fiveresults = lu_lotteries_result::where("typeName", strtoupper($lottery_type))->orderby('proName', 'desc')->take(5);
-            $count = 1;
-            $ds = "";
+            $countdans = 1;
+            $countdax = 1;
+            $dans = "";
+            $dax = "";
             foreach ($fiveresults as $fiveresult) {
                 $codeArr = explode(',', $fiveresult->codes);
                 $value = intval($codeArr[0]) + intval($codeArr[1]) + intval($codeArr[2]) + intval($codeArr[3]) + intval($codeArr[4]); //值
+
+                //同一个大小出现的次数
                 if ($value >= 30) {
-                    $tmpds = "da";
+                    $tmpdax = "da";
                 } else {
-                    $tmpds = "xiao";
+                    $tmpdax = "xiao";
                 }
-                if ($ds == "") {
-                    $count++;
-                    $ds = $tmpds;
-                } else if ($ds == $tmpds) {
-                    $count++;
+                if ($dax == "") {
+                    $countdax++;
+                    $dax = $tmpdax;
+                } else if ($dax == $tmpdax) {
+                    $countdax++;
                 } else {
-                    $count = 1;
-                    $ds = $tmpds;
+                    $countdax = 1;
+                    $ds = $tmpdax;
                 }
-                if ($count >= 5) {
-                    $fiveodds = defaultCache::cache_five_odds();
-//                    $fiveodds["HZ"][$ds] =
+
+                //单双出现的机率
+                if (fmod($value, 2) > 0) {
+                    $tmpdans = "dan";
+                } else {
+                    $tmpdans = "shuang";
+                }
+                if ($dans == "") {
+                    $countdans++;
+                    $dax = $tmpdans;
+                } else if ($dans == $tmpdans) {
+                    $countdans++;
+                } else {
+                    $countdans = 1;
+                    $dans = $tmpdax;
+                }
+
+            }
+
+            $fiveodds = defaultCache::cache_five_odds();
+            if ($countdax >= 5) {
+
+            }
+            if ($countdans >= 5) {
+                if (floatval($fiveodds["HZ"][$dans]) > 1.5) {
 
                 }
 
