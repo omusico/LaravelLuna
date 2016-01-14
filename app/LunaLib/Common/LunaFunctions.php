@@ -831,8 +831,49 @@ class LunaFunctions
             );
             lu_lotteries_result::create($data);
 //            $this->updatek3baoziodds($lotteryType, false);
-            $this->updatefivedanshuangodds($lotteryType, false);
+            $this->restorefiveodds($lotteryType, false);
         }
+    }
+
+    function restorefiveodds()
+    {
+
+        $fiveodds = defaultCache::cache_five_odds();
+
+        if (floatval($fiveodds["HZ"]["da"]) <= 1.6) {
+            if (floatval($fiveodds["HZ"]["tmpda"]) > floatval($fiveodds["HZ"]["da"])) {
+                $fiveodds["HZ"]["da"] = $fiveodds["HZ"]["tmpda"];
+            } else {
+                $fiveodds["HZ"]["da"] = "1.85";
+            }
+        }
+
+        if (floatval($fiveodds["HZ"]["xiao"]) <= 1.6) {
+            if (floatval($fiveodds["HZ"]["tmpxiao"]) > floatval($fiveodds["HZ"]["xiao"])) {
+                $fiveodds["HZ"]["xiao"] = $fiveodds["HZ"]["tmpxiao"];
+            } else {
+                $fiveodds["HZ"]["xiao"] = "1.85";
+            }
+
+        }
+
+        if (floatval($fiveodds["HZ"]["dan"]) <= 1.6) {
+            if (floatval($fiveodds["HZ"]["tmpdan"]) > $fiveodds["HZ"]["dan"]) {
+                $fiveodds["HZ"]["dan"] = $fiveodds["HZ"]["tmpdan"];
+            } else {
+                $fiveodds["HZ"]["dan"] = "1.85";
+            }
+        }
+
+        if (floatval($fiveodds["HZ"]["shuang"]) <= 1.6) {
+            if (floatval($fiveodds["HZ"]["tmpshuang"]) > $fiveodds["HZ"]["shuang"]) {
+                $fiveodds["HZ"]["shuang"] = $fiveodds["HZ"]["tmpshuang"];
+            } else {
+                $fiveodds["HZ"]["shuang"] = "1.85";
+            }
+
+        }
+
     }
 
     //11选5连续五期开出相同的单双，赔率降为60%
@@ -890,22 +931,22 @@ class LunaFunctions
                 } else {
                     $dax = "da";
                 }
-                if (floatval($fiveodds["HZ"][$dax]) > 1.5) {
+                if (floatval($fiveodds["HZ"][$dax]) > 1.6) {
                     // 缓存全倍率的数据
                     $fiveodds["HZ"]["tmp" . $dax] = $fiveodds["HZ"][$dax];
-                    $fiveodds["HZ"][$dax] = number_format(floatval($fiveodds["HZ"][$dax]) * 0.6, 2);
+                    $fiveodds["HZ"][$dax] = "1.6";
                 }
             } else {
-                if (floatval($fiveodds["HZ"]["da"]) < 1.5) {
-                    if (floatval($fiveodds["HZ"]["tmpda"]) > 1.5) {
+                if (floatval($fiveodds["HZ"]["da"]) <= 1.6) {
+                    if (floatval($fiveodds["HZ"]["tmpda"]) > floatval($fiveodds["HZ"]["da"])) {
                         $fiveodds["HZ"]["da"] = $fiveodds["HZ"]["tmpda"];
                     } else {
                         $fiveodds["HZ"]["da"] = "1.85";
                     }
                 }
 
-                if (floatval($fiveodds["HZ"]["xiao"]) < 1.5) {
-                    if (floatval($fiveodds["HZ"]["tmpxiao"]) > 1.5) {
+                if (floatval($fiveodds["HZ"]["xiao"]) <= 1.6) {
+                    if (floatval($fiveodds["HZ"]["tmpxiao"]) > floatval($fiveodds["HZ"]["xiao"])) {
                         $fiveodds["HZ"]["xiao"] = $fiveodds["HZ"]["tmpxiao"];
                     } else {
                         $fiveodds["HZ"]["xiao"] = "1.85";
@@ -915,27 +956,27 @@ class LunaFunctions
             }
 
             if ($countdans >= 5) {
-                if($dans == "dan"){
-                    $dans ="shuang";
-                }else{
-                    $dans ="dan";
+                if ($dans == "dan") {
+                    $dans = "shuang";
+                } else {
+                    $dans = "dan";
                 }
-                if (floatval($fiveodds["HZ"][$dans]) > 1.5) {
+                if (floatval($fiveodds["HZ"][$dans]) > 1.6) {
                     $fiveodds["HZ"]["tmp" . $dans] = $fiveodds["HZ"][$dans];
-                    $fiveodds["HZ"][$dans] = number_format(floatval($fiveodds["HZ"][$dans]) * 0.6, 2);
+                    $fiveodds["HZ"][$dans] = "1.6";
                 }
 
             } else {
-                if (floatval($fiveodds["HZ"]["dan"]) < 1.5) {
-                    if (floatval($fiveodds["HZ"]["tmpdan"]) > 1.5) {
+                if (floatval($fiveodds["HZ"]["dan"]) <= 1.6) {
+                    if (floatval($fiveodds["HZ"]["tmpdan"]) > $fiveodds["HZ"]["dan"]) {
                         $fiveodds["HZ"]["dan"] = $fiveodds["HZ"]["tmpdan"];
                     } else {
                         $fiveodds["HZ"]["dan"] = "1.85";
                     }
                 }
 
-                if (floatval($fiveodds["HZ"]["shuang"]) < 1.5) {
-                    if (floatval($fiveodds["HZ"]["tmpshuang"]) > 1.5) {
+                if (floatval($fiveodds["HZ"]["shuang"]) <= 1.6) {
+                    if (floatval($fiveodds["HZ"]["tmpshuang"]) > $fiveodds["HZ"]["shuang"]) {
                         $fiveodds["HZ"]["shuang"] = $fiveodds["HZ"]["tmpshuang"];
                     } else {
                         $fiveodds["HZ"]["shuang"] = "1.85";
