@@ -978,7 +978,7 @@ class defaultCache
                             'touUrl' => 'http://caipiao.163.com/order/11xuan5/',
                             'status' => '1',
                             'kjTime' => 90,
-                            'priority' => 1,
+                            'priority' => 2,
                             'fdTime' => 30,
                             'rule' =>
                                 array(
@@ -992,7 +992,7 @@ class defaultCache
                             'status' => '1',
                             'kjTime' => 90,
                             'fdTime' => 80,
-                            'priority' => 2,
+                            'priority' => 3,
                             'rule' =>
                                 array(
                                     'preTerm' => '<em class="red" id="open_issue">(.*?)</em> 期 开奖</h3><div class="ball-num clearfix">',
@@ -1003,7 +1003,7 @@ class defaultCache
                         array(
                             'url' => 'http://www.cailele.com/static/11yun/newlyopenlist.xml',
                             'status' => '1',
-                            'priority' => 3,
+                            'priority' => 1,
                             'touUrl' => '',
                             'kjTime' => 150,
                             'fdTime' => 120,
