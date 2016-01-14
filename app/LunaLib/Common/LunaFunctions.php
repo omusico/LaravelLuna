@@ -831,7 +831,7 @@ class LunaFunctions
             );
             lu_lotteries_result::create($data);
 //            $this->updatek3baoziodds($lotteryType, false);
-//            $this->updatefivedanshuangodds($lotteryType, false);
+            $this->updatefivedanshuangodds($lotteryType, false);
         }
     }
 
@@ -839,10 +839,10 @@ class LunaFunctions
     function updatefivedanshuangodds($lottery_type, $isall)
     {
         $fivestr = 'sdfive,gdfive,shfive,zjfive,jxfive,liaoningfive,hljfive';
-        if (strrpos($fivestr, strtolower($lottery_type)) > 0) {
-            $fiveresults = lu_lotteries_result::where("typeName", strtoupper($lottery_type))->orderby('proName', 'desc')->take(5);
-            $countdans = 1;
-            $countdax = 1;
+        if (strrpos($fivestr, strtolower($lottery_type)) >= 0) {
+            $fiveresults = lu_lotteries_result::where("typeName", strtoupper($lottery_type))->orderby('proName', 'desc')->take(5)->get();
+            $countdans = 0;
+            $countdax = 0;
             $dans = "";
             $dax = "";
             foreach ($fiveresults as $fiveresult) {
@@ -861,8 +861,8 @@ class LunaFunctions
                 } else if ($dax == $tmpdax) {
                     $countdax++;
                 } else {
-                    $countdax = 1;
-                    $ds = $tmpdax;
+                    $countdax = 0;
+                    $dax = $tmpdax;
                 }
 
                 //单双出现的机率
@@ -873,11 +873,11 @@ class LunaFunctions
                 }
                 if ($dans == "") {
                     $countdans++;
-                    $dax = $tmpdans;
+                    $dans = $tmpdans;
                 } else if ($dans == $tmpdans) {
                     $countdans++;
                 } else {
-                    $countdans = 1;
+                    $countdans = 0;
                     $dans = $tmpdax;
                 }
 
@@ -885,14 +885,56 @@ class LunaFunctions
 
             $fiveodds = defaultCache::cache_five_odds();
             if ($countdax >= 5) {
-
-            }
-            if ($countdans >= 5) {
-                if (floatval($fiveodds["HZ"][$dans]) > 1.5) {
-
+                // 缓存全倍率的数据
+                if (floatval($fiveodds["HZ"][$dax]) > 1.5) {
+                    $fiveodds["HZ"]["tmp" . $dax] = $fiveodds["HZ"][$dax];
+                    $fiveodds["HZ"][$dax] = number_format(floatval($fiveodds["HZ"][$dax]) * 0.6, 2);
+                }
+            } else {
+                if (floatval($fiveodds["HZ"]["da"]) < 1.5) {
+                    if (floatval($fiveodds["HZ"]["tmpda"]) > 1.5) {
+                        $fiveodds["HZ"]["da"] = $fiveodds["HZ"]["tmpda"];
+                    }else{
+                        $fiveodds["HZ"]["da"] = "1.85";
+                    }
                 }
 
+                if (floatval($fiveodds["HZ"]["xiao"]) < 1.5) {
+                    if (floatval($fiveodds["HZ"]["tmpxiao"]) > 1.5) {
+                        $fiveodds["HZ"]["xiao"] = $fiveodds["HZ"]["tmpxiao"];
+                    }else{
+                        $fiveodds["HZ"]["xiao"] = "1.85";
+                    }
+
+                }
             }
+
+            if ($countdans >= 5) {
+                if (floatval($fiveodds["HZ"][$dans]) > 1.5) {
+                    $fiveodds["HZ"]["tmp" . $dans] = $fiveodds["HZ"][$dans];
+                    $fiveodds["HZ"][$dans] = number_format(floatval($fiveodds["HZ"][$dans]) * 0.6, 2);
+                }
+
+            } else {
+                if (floatval($fiveodds["HZ"]["dan"]) < 1.5) {
+                    if (floatval($fiveodds["HZ"]["tmpdan"]) > 1.5) {
+                        $fiveodds["HZ"]["dan"] = $fiveodds["HZ"]["tmpdan"];
+                    }else{
+                        $fiveodds["HZ"]["dan"] = "1.85";
+                    }
+                }
+
+                if (floatval($fiveodds["HZ"]["shuang"]) < 1.5) {
+                    if (floatval($fiveodds["HZ"]["tmpshuang"]) > 1.5) {
+                        $fiveodds["HZ"]["shuang"] = $fiveodds["HZ"]["tmpshuang"];
+                    }else{
+                        $fiveodds["HZ"]["shuang"] = "1.85";
+                    }
+
+                }
+            }
+
+            \Cache::forever('fiveodds', $fiveodds);
         }
 
     }
