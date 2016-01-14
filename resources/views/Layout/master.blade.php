@@ -8,7 +8,7 @@
     <meta name="Description" content="快三娱乐平台。">
     <title> @yield('title') </title>
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/online.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/online2.css') }}">
     @yield('css')
 </head>
 <body>
