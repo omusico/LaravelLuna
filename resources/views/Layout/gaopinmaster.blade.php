@@ -263,7 +263,7 @@
         }
 
         @if(Auth::guest())
-        @if($_SERVER['REQUEST_URI']=='/register' || $_SERVER['REQUEST_URI']=='/dailiregister' || $_SERVER['REQUEST_URI']=='/recharge')
+        @if($_SERVER['REQUEST_URI']=='/register' || strrpos($_SERVER['REQUEST_URI'],'register') >0 || $_SERVER['REQUEST_URI']=='/dailiregister' || $_SERVER['REQUEST_URI']=='/recharge')
 
         @else
         location.replace('/login');

@@ -831,7 +831,44 @@ class LunaFunctions
             );
             lu_lotteries_result::create($data);
 //            $this->updatek3baoziodds($lotteryType, false);
+            $this->updatefivedanshuangodds($lotteryType, false);
         }
+    }
+
+    //11选5连续五期开出相同的单双，赔率降为60%
+    function updatefivedanshuangodds($lottery_type, $isall)
+    {
+        $fivestr = 'sdfive,gdfive,shfive,zjfive,jxfive,liaoningfive,hljfive';
+        if (strrpos($fivestr, strtolower($lottery_type)) > 0) {
+            $fiveresults = lu_lotteries_result::where("typeName", strtoupper($lottery_type))->orderby('proName', 'desc')->take(5);
+            $count = 1;
+            $ds = "";
+            foreach ($fiveresults as $fiveresult) {
+                $codeArr = explode(',', $fiveresult->codes);
+                $value = intval($codeArr[0]) + intval($codeArr[1]) + intval($codeArr[2]) + intval($codeArr[3]) + intval($codeArr[4]); //值
+                if ($value >= 30) {
+                    $tmpds = "da";
+                } else {
+                    $tmpds = "xiao";
+                }
+                if ($ds == "") {
+                    $count++;
+                    $ds = $tmpds;
+                } else if ($ds == $tmpds) {
+                    $count++;
+                } else {
+                    $count = 1;
+                    $ds = $tmpds;
+                }
+                if ($count >= 5) {
+                    $fiveodds = defaultCache::cache_five_odds();
+//                    $fiveodds["HZ"][$ds] =
+
+                }
+
+            }
+        }
+
     }
 
     function updatek3baoziodds($lottery_type, $isall)
