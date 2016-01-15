@@ -38,6 +38,38 @@
                             </div>
                         </div>
                     @endforeach
+                    <?php
+                        if(isset($userreturns[6])){
+
+                        }else{
+                            $userreturns[6]["min"]="";
+                            $userreturns[6]["max"]="";
+                            $userreturns[6]["rate"]="";
+                        }
+                    ?>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">最小金额</label>
+
+                        <div class="col-md-1" style="padding: 0px">
+                            <input class="form-control" required="required"
+                                   name="userreturns[6][min]"
+                                   value="{{$userreturns[6]['min']}}">
+                        </div>
+                        <label class="control-label col-md-2">最大金额</label>
+
+                        <div class="col-md-1" style="padding: 0px">
+                            <input class="form-control" required="required"
+                                   name="userreturns[6][max]"
+                                   value="{{$userreturns[6]['max']}}">
+                        </div>
+                        <label class="control-label col-md-1">赔率</label>
+
+                        <div class="col-md-1" style="padding: 0px">
+                            <input class="form-control" required="required"
+                                   name="userreturns[6][rate]"
+                                   type="text" value="{{$userreturns[6]['rate']}}">
+                        </div>
+                    </div>
                     <div class="form-group col-md-5 col-md-offset-4">
                         {!! Form::submit('修改', ['class' => 'btn btn-success form-control col-md-offset-4']) !!}
                     </div>
