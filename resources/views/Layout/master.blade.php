@@ -8,7 +8,7 @@
     <meta name="Description" content="快三娱乐平台。">
     <title> @yield('title') </title>
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/online2.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/online4.css') }}">
     @yield('css')
 </head>
 <body>
@@ -271,16 +271,14 @@
 
     $(function () {
         var flag = 0;
-        $('#rightArrow').on("click", function () {
+        $('#rightArrow').on("mouseover", function () {
             if (flag == 1) {
                 $("#floatDivBoxs").animate({right: '-175px'}, 300);
                 $(this).animate({right: '-5px'}, 300);
-//                $(this).css('background-position', '-50px 0');
                 flag = 0;
             } else {
                 $("#floatDivBoxs").animate({right: '0'}, 300);
                 $(this).animate({right: '170px'}, 300);
-//                $(this).css('background-position', '0px 0');
                 flag = 1;
             }
         });

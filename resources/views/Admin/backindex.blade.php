@@ -141,7 +141,7 @@
                         <a onclick="$.addTopTab('#tabXG','撤单','撤单','/cancelOrder')">撤单</a>
                     </li>
                     <li>
-                        <a onclick="$.addTopTab('#tabXG','返水管理','返水管理','/userreturns')">返水管理</a>
+                        <a onclick="$.addTopTab('#tabXG','返水级别管理','返水级别管理','/userreturns')">返水级别管理</a>
                     </li>
 
                     <li>

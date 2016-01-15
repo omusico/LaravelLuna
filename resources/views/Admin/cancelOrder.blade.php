@@ -34,6 +34,7 @@
                     <div class="col-md-4">
                         <select class="form-control" required="required" id="lottery_type" name="lottery_type">
                             <option value=""></option>
+                            <option value="6he">香港六合彩</option>
                             <option value="sdfive">山东11选5</option>
                             <option value="gdfive">广东11选5</option>
                             <option value="shfive">上海11选5</option>
