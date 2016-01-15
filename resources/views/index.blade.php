@@ -120,7 +120,7 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img src="/css/001.png" alt="...">
+                            <img src="/css/005.jpg" alt="...">
 
                             <div class="carousel-caption">
                                 {{--<p>中奖率高、赔率高、信誉100%</p>--}}

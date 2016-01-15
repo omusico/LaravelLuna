@@ -256,10 +256,18 @@
     @include('flash')
 </div>
 @yield('content')
-<div class="footer mobilhide">
+<div class="footer mobilhide" style="display: none">
     <div class="f-link"><a title="关于我们" href="#">关于我们</a> | <a title="用户注册" href="/register">用户注册</a> |
         <a title="加盟合作" href="#">加盟合作</a> | <a href="#" title="进入网盟">进入网盟</a> | <a title="网站地图">网站地图</a> | <a
                 title="友情链接" href="" id="link431">友情链接</a></div>
+</div>
+
+<div class="container mobilhide">
+    <div class="row">
+        <div class="col-md-12" style="background-color: red"></div>
+        <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
+            <img src="/css/k3bottom.png" alt="底部" width="100%" height="100%"></div>
+    </div>
 </div>
 <script type="text/javascript" src="/js/all.js"></script>
 <script type="text/javascript">
@@ -301,9 +309,6 @@
             @endif
 
 
-
-
-
         }
     })(navigator.userAgent);
 
@@ -327,6 +332,7 @@
                     $("#winText").html(content);
                     $('#winDialog').modal('show');
                     @endif
+
                 }
             }
 
