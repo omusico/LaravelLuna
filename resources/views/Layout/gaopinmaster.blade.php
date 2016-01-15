@@ -78,8 +78,8 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/k3GameRule">快三</a></li>
                         <li><a href="/fiveGameRule">11选5</a></li>
-                        <li><a href="#">时时彩</a></li>
-                        <li><a href="#">六合彩</a></li>
+                        <li><a href="/sscGameRule">时时彩</a></li>
+                        <li><a href="/sixheGameRule">六合彩</a></li>
                     </ul>
                 </li>
                 <li><a href="/favourable" style="color:white;font-weight: bold" title="优惠活动">优惠活动</a></li>

@@ -829,6 +829,17 @@ class AdminController extends Controller
         return view('Admin.sscodds', compact('odds', 'chipins', 'types', 'nameDatas', 'keyDatas'));
     }
 
+    public function sixheodds()
+    {
+        $odds = App\LunaLib\Common\defaultCache::cache_6he_odds();
+//        $chipins = App\LunaLib\Common\defaultCache::cache_();
+        $types = App\LunaLib\Common\defaultCache::cache_6he_types();
+        $keyDatas = array(
+            'TABHZ_SWHZ', 'TABHZ_EXHZ', 'TABHZ_SXHZ', 'TABNN_NN'
+        );
+        return view('Admin.sscodds', compact('odds', 'types', 'keyDatas'));
+    }
+
 
     public function savek3odds(Request $request)
     {

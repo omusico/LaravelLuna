@@ -36,6 +36,10 @@ class LotterySscController extends Controller {
         return view('Lottery.ssclotteryindex', compact('czName', 'config', 'chipins', 'sscOdds', 'lotterystatus','lotterytypes','lotterysecondtypes'));
 	}
 
+    public function sscGameRule(){
+        return view('Lottery.sscgamerule');
+    }
+
     public function betting(Request $request) {
 
         try{

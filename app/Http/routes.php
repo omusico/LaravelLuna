@@ -175,6 +175,8 @@ Route::get('/getPersonalwin', ['middleware' => 'auth', 'as' => 'getPersonalwin',
 //规则明细
 Route::get('/k3GameRule', ['uses' => 'LotteryK3Controller@k3GameRule']);
 Route::get('/fiveGameRule', ['uses' => 'LotteryFiveController@fiveGameRule']);
+Route::get('/sscGameRule', ['uses' => 'LotterySscController@sscGameRule']);
+Route::get('/sixheGameRule', ['uses' => 'Lottery6heController@sixheGameRule']);
 Route::get('/favourable', ['uses' => 'LotteryK3Controller@favourable']);
 Route::get('/phpinfo', ['uses' => 'WelcomeController@phpinfo']);
 Route::get('/inviteurl', ['as' => 'inviteurl', 'uses' => 'Proxy\ProxyController@index']);

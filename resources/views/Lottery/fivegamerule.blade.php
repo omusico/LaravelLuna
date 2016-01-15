@@ -1,7 +1,7 @@
 @extends('Layout.'.env("SITE_TYPE",'').'master')
 
 @section('title')
-    代理推广链接
+    11选5游戏规则
 @stop
 
 @section('content')

@@ -1,6 +1,6 @@
 @extends('Layout.'.env("SITE_TYPE",'').'master')
 @section('title')
-    快三游戏规则
+    时时彩游戏规则
 @stop
 @section('css')
     <style type="text/css">
@@ -21,7 +21,7 @@
     <div class="container" style="text-align: center;">
         <div class="row">
             <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
-                <img src="/css/k3rule2.jpg" alt="优惠活动" width="100%" height="100%"></div>
+                <img src="/css/sscrule.jpg" alt="优惠活动" width="100%" height="100%"></div>
         </div>
     </div>
 @stop

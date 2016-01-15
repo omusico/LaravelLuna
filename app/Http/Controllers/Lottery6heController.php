@@ -29,6 +29,10 @@ class Lottery6heController extends Controller
         return view("Lottery.6helotteryindex", compact("lotterytypes", "lotterysecondtypes"));
     }
 
+    public function sixheGameRule(){
+        return view('Lottery.sixhegamerule');
+    }
+
     public function get6heodds(Request $request)
     {
         $wf = $request->WF;
