@@ -298,6 +298,8 @@
             a = null;
             $(".mobilhide").hide();
             $(".mobilShow").show();
+            $("#floatDivBoxs").hide();
+            $('#rightArrow').hide();
 
             $(".btn").addClass("btn-lg");
             <?php
