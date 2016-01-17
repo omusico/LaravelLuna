@@ -80,7 +80,7 @@
                     </ul>
                 </div>
                 <br>
-                <input type="hidden" value="{{$bettingType}}">
+                <input id="bettingType" type="hidden" value="{{$bettingType}}">
             @endif
             <div style="float: left;">
                 <label>用户名:</label><input type="text" id="userName" name="userName" value="{{$userName}}">
@@ -239,7 +239,7 @@
             $("#typeName").val("{{$typeName}}")
         });
         function Search() {
-            url = "bettingList?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&proName=" + $("#proName").val() + "&codes=" + $("#codes").val() + "&typeName=" + $("#typeName option:selected").val();
+            url = "bettingList?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&proName=" + $("#proName").val() + "&codes=" + $("#codes").val()+"&bettingType=" + $("#bettingType").val() + "&typeName=" + $("#typeName option:selected").val();
             window.location.href = url;
         }
         ;
