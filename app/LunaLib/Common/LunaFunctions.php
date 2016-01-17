@@ -673,7 +673,7 @@ class LunaFunctions
                             } else if ($type == "lottery") {
                                 lu_lotteries_k3::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
                             } else if ($type == "ssc") {
-                                lu_lotteries_ssc::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
+                                lu_lotteries_ssc::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => 1]);
                             } else if ($type == "6he") {
                                 lu_lotteries_6he::where('id', $lotId)->update(['noticed' => 1, 'bingoPrice' => $data['amount'], 'dealing' => $matchCount]);
                             }
