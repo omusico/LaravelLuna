@@ -76,6 +76,7 @@ Route::post('savesscodds', 'Admin\AdminController@savesscodds');
 Route::get('news', 'Admin\AdminController@news');
 Route::post('savenews', 'Admin\AdminController@savenews');
 Route::get('favor', 'Admin\AdminController@favor');
+Route::get('updatesscdealing', 'Admin\AdminController@updatesscdealing');
 Route::post('savefavor', 'Admin\AdminController@savefavor');
 Route::get('userreturns', 'Admin\AdminController@userreturns');
 Route::post('saveuserreturns', 'Admin\AdminController@saveuserreturns');

@@ -1620,4 +1620,9 @@ class AdminController extends Controller
         session()->flash('message', '字修改成功');
         return Redirect::back();
     }
+
+    public function updatesscdealing()
+    {
+        App\lu_lotteries_ssc::where('noticed', 1)->update(['dealing' => 1]);
+    }
 }
