@@ -3077,7 +3077,7 @@
         $("#firstTab").find("li").bind("click", function () {
             var current = $(this).first().find("a").attr('name');
             $("#secondTab").find('.active').each(function () {
-                console.log($(this).first().find("a").attr("href"));
+//                console.log($(this).first().find("a").attr("href"));
                 if ($(this).first().find("a").attr("href").indexOf(current) > 0) {
                     $(this).first().removeClass("active");
                     currentsecond = $(this).first().find("a").attr("id");
