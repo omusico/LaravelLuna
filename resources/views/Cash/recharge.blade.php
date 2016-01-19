@@ -194,20 +194,20 @@
                                         <option value="3036">广发银行(借)</option>
                                         <option value="3039">中信银行(借)</option>
 
-                                        <option value="4001">招商银行(贷)</option>
-                                        <option value="4002">工商银行(贷)</option>
-                                        <option value="4003">建设银行(贷)</option>
-                                        <option value="4004">浦发银行(贷)</option>
-                                        <option value="4005">农业银行(贷)</option>
-                                        <option value="4006">民生银行(贷)</option>
-                                        <option value="4009">兴业银行(贷)</option>
-                                        <option value="4020">交通银行(贷)</option>
-                                        <option value="4022">光大银行(贷)</option>
-                                        <option value="4026">中国银行(贷)</option>
-                                        <option value="4032">北京银行(贷)</option>
-                                        <option value="4035">平安银行(贷)</option>
-                                        <option value="4036">广发银行(贷)</option>
-                                        <option value="4039">中信银行(贷)</option>
+                                        {{--<option value="4001">招商银行(贷)</option>--}}
+                                        {{--<option value="4002">工商银行(贷)</option>--}}
+                                        {{--<option value="4003">建设银行(贷)</option>--}}
+                                        {{--<option value="4004">浦发银行(贷)</option>--}}
+                                        {{--<option value="4005">农业银行(贷)</option>--}}
+                                        {{--<option value="4006">民生银行(贷)</option>--}}
+                                        {{--<option value="4009">兴业银行(贷)</option>--}}
+                                        {{--<option value="4020">交通银行(贷)</option>--}}
+                                        {{--<option value="4022">光大银行(贷)</option>--}}
+                                        {{--<option value="4026">中国银行(贷)</option>--}}
+                                        {{--<option value="4032">北京银行(贷)</option>--}}
+                                        {{--<option value="4035">平安银行(贷)</option>--}}
+                                        {{--<option value="4036">广发银行(贷)</option>--}}
+                                        {{--<option value="4039">中信银行(贷)</option>--}}
                                     </select></div>
                             </div>
                             <div class="form-group" style="margin-top: 50px">
