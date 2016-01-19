@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/easyui.css') }}">
     @if(env('SITE_TYPE','')=='five')
         <link rel="icon" href="fivefavicon.ico" type="image/x-icon"/>
+    @elseif(env('SITE_TYPE','')=='gaopin')
+        <link rel="icon" href="gaopinfavicon.ico" type="image/x-icon"/>
     @endif
 </head>
 <body id="main" class="easyui-layout" style="background-color: #DFE8F6">
@@ -171,7 +173,7 @@
                         <a onclick="$.addTopTab('#tabXG','优惠活动','优惠活动','/favor')">优惠活动</a>
                     </li>
                     {{--<li>--}}
-                        {{--<a href="/admin"><span>手机版提醒</span></a>--}}
+                    {{--<a href="/admin"><span>手机版提醒</span></a>--}}
                     {{--</li>--}}
                     {{--<li>--}}
                     {{--<a href="/admin"><span>线路</span></a>--}}
