@@ -24,10 +24,19 @@ Route::get('login', [
     'middleware' => 'guest', 'as' => 'login', 'uses' => 'loginController@loginGet']);
 Route::post('login', [
     'middleware' => 'guest', 'uses' => 'loginController@loginPost']);
-Route::get('back/adminlogin', [
+Route::get('luna/adminlogin', [
     'middleware' => 'guest', 'as' => 'adminlogin', 'uses' => 'loginController@adminloginGet']);
-Route::post('back/adminlogin', [
+Route::post('luna/adminlogin', [
     'middleware' => 'guest', 'uses' => 'loginController@adminloginPost']);
+
+Route::get('k3/adminlogin', [
+    'middleware' => 'guest', 'as' => 'backlogin', 'uses' => 'loginController@backloginGet']);
+Route::get('five/adminlogin', [
+    'middleware' => 'guest', 'as' => 'backlogin', 'uses' => 'loginController@backloginGet']);
+Route::get('gp/adminlogin', [
+    'middleware' => 'guest', 'as' => 'backlogin', 'uses' => 'loginController@backloginGet']);
+Route::post('back/backlogin', [
+    'middleware' => 'guest', 'uses' => 'loginController@backloginPost']);
 Route::get('logout', [
     'middleware' => 'auth', 'as' => 'logout', 'uses' => 'loginController@logout']);
 Route::get('register', 'registerController@index');

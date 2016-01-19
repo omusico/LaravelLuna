@@ -16,9 +16,9 @@ class loginController extends Controller
      */
     public function loginGet()
     {
-        if(env("SITE_TYPE","")=="gaopin"){
+        if (env("SITE_TYPE", "") == "gaopin") {
             return view('gplogin');
-        }else{
+        } else {
             return view('login');
         }
     }
@@ -32,12 +32,12 @@ class loginController extends Controller
         $name = $request->get('name');
         $password = $request->get('password');
         if (Auth::attempt(['name' => $name, 'password' => $password], $request->get('remember'))) {
-            $lu_user_data = lu_user_data::where('uid',Auth::user()->id)->first();
+            $lu_user_data = lu_user_data::where('uid', Auth::user()->id)->first();
             $lu_user_data->loginIp = $request->ip();
-            $lu_user_data->loginNum = $lu_user_data->loginNum +1;
+            $lu_user_data->loginNum = $lu_user_data->loginNum + 1;
             $lu_user_data->save();
 //            return Redirect::action('WelcomeController@index');
-            if(Auth::user()->groupId == 3 || Auth::user()->groupId ==5){
+            if (Auth::user()->groupId == 3 || Auth::user()->groupId == 5) {
                 return Redirect::route('inviteurl');
             }
             return Redirect::route('index');
@@ -49,8 +49,41 @@ class loginController extends Controller
         }
     }
 
-    public function adminloginGet(){
+    public function adminloginGet()
+    {
         return view('Admin.adminlogin');
+    }
+
+
+    public function backloginGet()
+    {
+        return view('Admin.backlogin');
+    }
+
+    public function backloginPost(Request $request)
+    {
+        $name = $request->get('name');
+        $password = $request->get('password');
+        $random = $request->get('random');
+        if (Auth::attempt(['name' => $name, 'password' => $password], $request->get('remember'))) {
+
+            if (Auth::user()->invite == $random) {
+                if (!Auth::user()->is_admin) {
+                    return Redirect::action('WelcomeController@index');
+                } else {
+                    return Redirect::action('Admin\AdminController@adminindex');
+                }
+            } else {
+                return Redirect::route('logout')
+                    ->withInput()
+                    ->withErrors('用户名或者密码不正确，请重试！');
+            }
+
+        } else {
+            return Redirect::route('login')
+                ->withInput()
+                ->withErrors('用户名或者密码不正确，请重试！');
+        }
     }
 
     public function adminloginPost(Request $request)

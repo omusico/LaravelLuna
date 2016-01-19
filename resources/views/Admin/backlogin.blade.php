@@ -13,7 +13,7 @@
                     <div class="panel-body">
 
                         @include('errors.list')
-                        {!! Form::open(['url' => 'luna/adminlogin', 'class' => 'form-horizontal', 'role' => 'form']) !!}
+                        {!! Form::open(['url' => 'back/backlogin', 'class' => 'form-horizontal', 'role' => 'form']) !!}
                         <div class="form-group">
                             {!! Form::label('name', '用户名', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
@@ -24,6 +24,12 @@
                             {!! Form::label('password', '密码', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
                                 {!! Form::password('password', ['class' => 'form-control', 'required']) !!}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('random', '随机码', ['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-6">
+                                {!! Form::password('random', ['class' => 'form-control', 'required']) !!}
                             </div>
                         </div>
                         <div class="form-group">
