@@ -35,6 +35,7 @@
                 <td>邮箱</td>
                 <td>权限组</td>
                 <td>QQ</td>
+                <td>是否激活</td>
                 <td>ip</td>
                 <td>余额</td>
                 <td>邀请码</td>
@@ -59,6 +60,11 @@
                             @endforeach
                         </td>
                         <td>{{ $lu_user->qq}}</td>
+                        @if($lu_user->status ==1)
+                            <td>激活</td>
+                        @else
+                            <td>锁定</td>
+                        @endif
                         <td>{{ $lu_user->lu_user_data->loginIp }}</td>
                         <td>{{ $lu_user->lu_user_data->points }}</td>
                         <td>{{ $lu_user->invite }}</td>
@@ -102,7 +108,7 @@
                 <h1>没有会员,请管理员添加</h1>
             @endif
         </table>
-        <?php echo $lu_users->appends(['userName' => $userName,'groupid'=>$groupid])->render(); ?>
+        <?php echo $lu_users->appends(['userName' => $userName, 'groupid' => $groupid])->render(); ?>
 
     </div>
 @stop

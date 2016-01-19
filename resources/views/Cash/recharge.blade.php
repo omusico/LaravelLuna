@@ -182,7 +182,7 @@
                                         <option value="3001">招商银行(借)</option>
                                         <option value="3002">工商银行(借)</option>
                                         <option value="3003">建设银行(借)</option>
-                                        <option value="3004">浦发银行(借)</option>
+                                        {{--<option value="3004">浦发银行(借)</option>--}}
                                         <option value="3005">农业银行(借)</option>
                                         <option value="3006">民生银行(借)</option>
                                         <option value="3009">兴业银行(借)</option>
