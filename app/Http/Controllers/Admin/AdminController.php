@@ -837,7 +837,7 @@ class AdminController extends Controller
         $keyDatas = array(
             'TABHZ_SWHZ', 'TABHZ_EXHZ', 'TABHZ_SXHZ', 'TABNN_NN'
         );
-        return view('Admin.sscodds', compact('odds', 'types', 'keyDatas'));
+        return view('Admin.sixheodds', compact('odds', 'types', 'keyDatas'));
     }
 
 
@@ -857,6 +857,16 @@ class AdminController extends Controller
         $chipins = $request->chipins;
         Cache::forever('fiveodds', $fiveodds);
         Cache::forever('fivechipins', $chipins);
+        session()->flash('message', '修改赔率成功');
+        return Redirect::back();
+    }
+
+    public function savesixheodds(Request $request)
+    {
+        $sixheodds = $request->odds;
+//        $chipins = $request->chipins;
+        Cache::forever('sixheodds', $sixheodds);
+//        Cache::forever('sixhechipins', $chipins);
         session()->flash('message', '修改赔率成功');
         return Redirect::back();
     }

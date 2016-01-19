@@ -71,6 +71,8 @@ Route::get('k3odds', 'Admin\AdminController@k3odds');
 Route::post('savek3odds', 'Admin\AdminController@savek3odds');
 Route::get('fiveodds', 'Admin\AdminController@fiveodds');
 Route::post('savefiveodds', 'Admin\AdminController@savefiveodds');
+Route::get('sixheodds', 'Admin\AdminController@sixheodds');
+Route::post('savesixheodds', 'Admin\AdminController@savesixheodds');
 Route::get('sscodds', 'Admin\AdminController@sscodds');
 Route::post('savesscodds', 'Admin\AdminController@savesscodds');
 Route::get('news', 'Admin\AdminController@news');

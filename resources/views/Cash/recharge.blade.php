@@ -169,14 +169,14 @@
                                     <select name="PayID" id="PayID" required="required">
                                         <!--充值方式，神州行101 联通102 电信103 盛大111 完美112 征途114 骏网一卡通115 网易 116-->
                                         <option value=""></option>
-                                        <option value="101">神州行</option>
-                                        <option value="1022">联通卡</option>
-                                        <option value="1033">电信卡</option>
-                                        <option value="111">盛大卡</option>
-                                        <option value="112">完美卡</option>
-                                        <option value="114">征途卡</option>
-                                        <option value="115">骏网一卡通</option>
-                                        <option value="116">网易卡</option>
+                                        {{--<option value="101">神州行</option>--}}
+                                        {{--<option value="1022">联通卡</option>--}}
+                                        {{--<option value="1033">电信卡</option>--}}
+                                        {{--<option value="111">盛大卡</option>--}}
+                                        {{--<option value="112">完美卡</option>--}}
+                                        {{--<option value="114">征途卡</option>--}}
+                                        {{--<option value="115">骏网一卡通</option>--}}
+                                        {{--<option value="116">网易卡</option>--}}
 
 
                                         <option value="3001">招商银行(借)</option>

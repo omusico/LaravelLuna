@@ -121,6 +121,9 @@
                             <a onclick="$.addTopTab('#tabXG','六合彩开封盘','六合彩开封盘','/sixhemanual')">六合彩开封盘</a>
                         </li>
                         <li>
+                            <a onclick="$.addTopTab('#tabXG','六合彩赔率管理','六合彩赔率管理','/sixheodds')">六合彩赔率管理盘</a>
+                        </li>
+                        <li>
                             <a onclick="$.addTopTab('#tabXG','11选5赔率管理','11选5赔率管理','/fiveodds')">11选5赔率管理</a>
                         </li>
                         <li>

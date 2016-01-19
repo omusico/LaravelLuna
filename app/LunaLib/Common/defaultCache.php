@@ -3686,9 +3686,9 @@ class defaultCache
 
     public static function cache_6he_odds()
     {
-//        if (\Cache::has('6heodds')) {
-//            return \Cache::get('6heodds');
-//        }
+        if (\Cache::has('sixheodds')) {
+            return \Cache::get('sixheodds');
+        }
         return array(
             'TMA' =>
                 array(
