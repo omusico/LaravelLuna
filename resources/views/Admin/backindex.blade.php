@@ -76,7 +76,7 @@
                         <a onclick="$.addTopTab('#tabXG','代理统计','代理统计','/proxyList')">代理统计表</a>
                     </li>
                     <li>
-                        <a onclick="$.addTopTab('#tabXG','代理列表','代理列表','/admin?$groupid=3')">代理列表</a>
+                        <a onclick="$.addTopTab('#tabXG','代理列表','代理列表','/admin?groupid=3')">代理列表</a>
                     </li>
                     <li>
                         <a onclick="$.addTopTab('#tabXG','代理条款设置','代理条款设置','/proxycert')">代理条款设置</a>
