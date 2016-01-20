@@ -68,6 +68,8 @@ class AdminController extends Controller
             if ($bettingType == "k3") {
                 $result = App\lu_lotteries_k3::orderby('created_at', 'desc');
                 $types = App\LunaLib\Common\defaultCache::cache_lottery_type();
+                $types2 = App\LunaLib\Common\defaultCache::cache_lottery_type2();
+                $types = $types + $types2;
             } else if ($bettingType == 'five') {
                 $result = App\lu_lotteries_five::orderby('created_at', 'desc');
                 $types = App\LunaLib\Common\defaultCache::cache_five_types();
@@ -82,6 +84,8 @@ class AdminController extends Controller
         } else {
             $result = App\lu_lotteries_k3::orderby('created_at', 'desc');
             $types = App\LunaLib\Common\defaultCache::cache_lottery_type();
+            $types2 = App\LunaLib\Common\defaultCache::cache_lottery_type2();
+            $types = $types + $types2;
         }
         if (!empty($userName)) {
             $result->where('userName', $userName);

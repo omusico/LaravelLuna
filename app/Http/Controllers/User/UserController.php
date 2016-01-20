@@ -41,7 +41,9 @@ class UserController extends Controller
             }
             if ($bettingType == "k3") {
                 $result = lu_lotteries_k3::where('uid', \Auth::id())->orderby('created_at', 'desc');
-                $types = defaultCache::cache_lottery_type();
+                $types = defaultCache::cache_lottery_type();//Waf::moduleData('lottery_type', 'lottery');
+                $types2 = defaultCache::cache_lottery_type2();//Waf::moduleData('lottery_type', 'lottery', 2);
+                $types = $types + $types2;
             } else if ($bettingType == 'five') {
                 $result = lu_lotteries_five::where('uid', \Auth::id())->orderby('created_at', 'desc');
                 $types = defaultCache::cache_five_types();
@@ -55,7 +57,10 @@ class UserController extends Controller
 
         } else {
             $result = lu_lotteries_k3::where('uid', \Auth::id())->orderby('created_at', 'desc');
-            $types = defaultCache::cache_lottery_type();
+//            $types = defaultCache::cache_lottery_type();
+            $types = defaultCache::cache_lottery_type();//Waf::moduleData('lottery_type', 'lottery');
+            $types2 = defaultCache::cache_lottery_type2();//Waf::moduleData('lottery_type', 'lottery', 2);
+            $types = $types + $types2;
         }
 //        $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_k3s where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ',[Auth::user()->id,Auth::user()->id]);
         $lu_lotteries_k3s = $result->paginate(10);
