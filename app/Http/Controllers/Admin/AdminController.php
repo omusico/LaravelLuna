@@ -59,6 +59,7 @@ class AdminController extends Controller
         if (env('SITE_TYPE', '') == 'five') {
 
             $result = App\lu_lotteries_five::orderby('created_at', 'desc');
+            $types = App\LunaLib\Common\defaultCache::cache_five_types();
         } else if (env('SITE_TYPE', '') == 'gaopin') {
             $bettingType = $request->bettingType;
             if (empty($bettingType)) {
@@ -66,16 +67,21 @@ class AdminController extends Controller
             }
             if ($bettingType == "k3") {
                 $result = App\lu_lotteries_k3::orderby('created_at', 'desc');
+                $types = App\LunaLib\Common\defaultCache::cache_lottery_type();
             } else if ($bettingType == 'five') {
                 $result = App\lu_lotteries_five::orderby('created_at', 'desc');
+                $types = App\LunaLib\Common\defaultCache::cache_five_types();
             } else if ($bettingType == 'ssc') {
                 $result = App\lu_lotteries_ssc::orderby('created_at', 'desc');
+                $types = App\LunaLib\Common\defaultCache::cache_ssc_types();
             } else if ($bettingType == '6he') {
                 $result = App\lu_lotteries_6he::orderby('created_at', 'desc');
+                $types = App\LunaLib\Common\defaultCache::cache_6he_types();
             }
 
         } else {
             $result = App\lu_lotteries_k3::orderby('created_at', 'desc');
+            $types = App\LunaLib\Common\defaultCache::cache_lottery_type();
         }
         if (!empty($userName)) {
             $result->where('userName', $userName);
@@ -99,7 +105,7 @@ class AdminController extends Controller
         }
 //        $result = $result->orderby('created_at', 'desc');
         $lu_lotteries_k3s = $result->paginate(10);
-        return view('Admin.bettingList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime', 'bettingType', 'proName', 'codes', 'typeName'));
+        return view('Admin.bettingList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime', 'bettingType', 'proName', 'codes', 'typeName','types'));
     }
 
     public function winningList(Request $request)

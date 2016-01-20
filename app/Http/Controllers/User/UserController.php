@@ -15,6 +15,7 @@ use App\lu_lottery_return;
 use App\lu_lottery_user;
 use App\lu_user;
 use App\LunaLib\Common\CommonClass;
+use App\LunaLib\Common\defaultCache;
 use Illuminate\Http\Request;
 use Auth;
 use Redirect;
@@ -32,6 +33,7 @@ class UserController extends Controller
         $bettingType = "";
         if (env('SITE_TYPE', '') == 'five') {
             $result = lu_lotteries_five::where('uid', \Auth::id())->orderby('created_at', 'desc');
+            $types = defaultCache::cache_five_types();
         } else if (env('SITE_TYPE', '') == 'gaopin') {
             $bettingType = $request->bettingType;
             if (empty($bettingType)) {
@@ -39,20 +41,25 @@ class UserController extends Controller
             }
             if ($bettingType == "k3") {
                 $result = lu_lotteries_k3::where('uid', \Auth::id())->orderby('created_at', 'desc');
+                $types = defaultCache::cache_lottery_type();
             } else if ($bettingType == 'five') {
                 $result = lu_lotteries_five::where('uid', \Auth::id())->orderby('created_at', 'desc');
+                $types = defaultCache::cache_five_types();
             } else if ($bettingType == 'ssc') {
                 $result = lu_lotteries_ssc::where('uid', \Auth::id())->orderby('created_at', 'desc');
+                $types = defaultCache::cache_ssc_types();
             } else if ($bettingType == '6he') {
                 $result = lu_lotteries_6he::where('uid', \Auth::id())->orderby('created_at', 'desc');
+                $types = defaultCache::cache_6he_types();
             }
 
         } else {
             $result = lu_lotteries_k3::where('uid', \Auth::id())->orderby('created_at', 'desc');
+            $types = defaultCache::cache_lottery_type();
         }
 //        $lu_lotteries_k3s = \DB::select('select betting.created_at,betting.eachPrice,bingo.bingoPrice  from (select left(created_at,10) as created_at,sum(eachPrice) as eachPrice from lu_lotteries_k3s where uid=? group  by left(created_at,10)) betting left join (select left(created_at,10) as created_at,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s where uid=? and noticed=1 group  by left(created_at,10)) bingo on betting.created_at = bingo.created_at order by created_at desc ',[Auth::user()->id,Auth::user()->id]);
         $lu_lotteries_k3s = $result->paginate(10);
-        return view('User.usrBettingList', compact('lu_lotteries_k3s', 'bettingType'));
+        return view('User.usrBettingList', compact('lu_lotteries_k3s', 'bettingType','types'));
     }
 
     public function getaccountdetail(Request $request)

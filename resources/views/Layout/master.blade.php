@@ -266,7 +266,7 @@
     <div class="row">
         <div class="col-md-12" style="background-color: red;height: 3px;margin-top: 20px"></div>
         <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
-            <img src="/css/k3bottom.png" alt="底部" width="100%" height="100%"></div>
+            <img src="/css/k3bottom2.jpg" alt="底部" width="100%" height="100%"></div>
     </div>
 </div>
 <script type="text/javascript" src="/js/all.js"></script>

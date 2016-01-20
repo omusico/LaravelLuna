@@ -138,9 +138,9 @@
                         <td>{{ $lu_lotteries_k3->userName }}</td>
                         <td>{{ $lu_lotteries_k3->proName }}</td>
                         @if($bettingType=="6he")
-                            <td>{{$lunaFunctions->return6hetype($lu_lotteries_k3->typeId)}}</td>
+                            <td>{{$types[$lunaFunctions->return6hetype($lu_lotteries_k3->typeId)]['name']}}</td>
                         @else
-                            <td>{{ $lu_lotteries_k3->typeId }}</td>
+                            <td>{{$types[$lu_lotteries_k3->typeId]['name']}}</td>
                         @endif
                         <td>{{ $lu_lotteries_k3->codes }}</td>
                         <td>{{ $lu_lotteries_k3->eachPrice }}</td>
