@@ -57,6 +57,8 @@ class ProxyController extends Controller
                         . ') recUser left join (  select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_fives ' . $wheresql
                         . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_fives ' . $wheresql
                         . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid) countTable on recUser.id = countTable.uid');
+
+                    $types = defaultCache::cache_five_types();
 //                } else if (env('SITE_TYPE', '') == 'gaopin') {
 //                    $lu_lotteries_bettings  = \DB::select('select uid,userName,sum(bcount) as bcount,sum(eachPrice) as eachPrice,sum(bingoPrice) as bingoPrice,sum(profit) as profit from ' .
 //                        '( select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s  ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s  ' . $wheresql . 'and noticed=1 group  by uid) bingo on betting.uid = bingo.uid' .
@@ -68,12 +70,15 @@ class ProxyController extends Controller
                         . ') recUser left join (  select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s ' . $wheresql
                         . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' . $wheresql
                         . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid) countTable on recUser.id = countTable.uid');
+                    $types = defaultCache::cache_lottery_type();//Waf::moduleData('lottery_type', 'lottery');
+                    $types2 = defaultCache::cache_lottery_type2();//Waf::moduleData('lottery_type', 'lottery', 2);
+                    $types = $types + $types2;
                     //\DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
                 }
 
                 $user_groups = CommonClass::cache("user_groups", 1);
                 $isdaili = true;
-                return view('User.inviteurl', compact('lu_lotteries_bettings', 'user_groups', 'isdaili', 'display', 'userName', 'starttime', 'endtime'));
+                return view('User.inviteurl', compact('lu_lotteries_bettings', 'user_groups', 'isdaili', 'display', 'userName', 'starttime', 'endtime', 'types'));
 
 //            } else if ($groupId == 5) {
 //                $secondProxyList = lu_user::where('recId', Auth::user()->id)->get();
