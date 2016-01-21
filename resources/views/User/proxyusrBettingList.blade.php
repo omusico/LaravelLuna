@@ -13,10 +13,10 @@
 
             @if(env('SITE_TYPE','')=='gaopin')
                 <ul class="nav navbar-nav" role="tablist" id="SwitchBList">
-                    <li role="presentation" class="active"><a href="/userLotteryBetting?bettingType=k3">快三投注记录</a></li>
-                    <li role="presentation"><a href="/userLotteryBetting?bettingType=five">11选5投注记录</a></li>
-                    <li role="presentation"><a href="/userLotteryBetting?bettingType=ssc">时时彩投注记录</a></li>
-                    <li role="presentation"><a href="/userLotteryBetting?bettingType=6he">六合彩投注记录</a></li>
+                    <li role="presentation" class="active"><a href="/proxyuserLotteryBetting?bettingType=k3">快三投注记录</a></li>
+                    <li role="presentation"><a href="/proxyuserLotteryBetting?bettingType=five">11选5投注记录</a></li>
+                    <li role="presentation"><a href="/proxyuserLotteryBetting?bettingType=ssc">时时彩投注记录</a></li>
+                    <li role="presentation"><a href="/proxyuserLotteryBetting?bettingType=6he">六合彩投注记录</a></li>
                 </ul>
                 <input type="hidden" value="{{$bettingType}}">
             @endif

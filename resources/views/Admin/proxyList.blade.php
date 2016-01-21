@@ -166,8 +166,6 @@
                         style="color: red"> {{$sumbingo}}</span>盈利金额：<span
                         style="color: red"> {{$sumeach -$sumbingo}}</span></a>
         </div>
-        {{--{{$lu_lotteries_k3->appends($input)->links()}}--}}
-
     </div>
 @stop
 @section('script')
