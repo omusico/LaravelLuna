@@ -7,6 +7,7 @@ use App\lu_lotteries_five;
 use App\lu_lotteries_k3;
 use App\lu_user;
 use App\LunaLib\Common\CommonClass;
+use App\LunaLib\Common\defaultCache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
