@@ -1383,7 +1383,7 @@ class defaultCache
                             'url' => 'http://caipiao.163.com/award/getAwardNumberInfo.html?gameEn=jxssc&cache=1422365420687&periodNum=1',
                             'status' => '1',
                             'kjTime' => 70,
-                            'priority' => 0,
+                            'priority' => 2,
                             'fdTime' => 60,
                             'rule' =>
                                 array(
@@ -1396,7 +1396,7 @@ class defaultCache
                             'url' => 'http://cp.360.cn/sscjx/?menu&r_a=eMj6Nj',
                             'status' => '1',
                             'kjTime' => 70,
-                            'priority' => 1,
+                            'priority' => 3,
                             'fdTime' => 60,
                             'rule' =>
                                 array(
