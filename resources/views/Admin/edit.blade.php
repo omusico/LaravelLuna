@@ -108,7 +108,8 @@
                     {!! Form::label('depositOdds', '打码量: ', ['class' => 'control-label col-md-1']) !!}
                     <div class="col-md-4">
                         {{--{!! Form::text('depositOdds', $lu_user->depositOdds, ['class' => 'form-control']) !!}--}}
-                        {!! Form::input('number','depositOdds', $lu_user->depositOdds, ['class' => 'form-control', 'required']) !!}
+                        {!! Form::input('number','depositOdds', $lu_user->depositOdds, ['class' => 'form-control',
+                        'required']) !!}
                     </div>
                 </div>
                 <div class="form-group">
@@ -133,6 +134,44 @@
                 </div>
             </div>
         </div>
+        <br>
+        <br>
+        <hr>
+        @if(isset($bank))
+            银行信息
+            {!! Form::open(['url' => '/savebank', 'class' => 'form-horizontal', 'role' => 'form']) !!}
+            <div class="form-group">
+                {!! Form::label('bankName', '银行名称: ', ['class' => 'control-label col-md-1']) !!}
+                <div class="col-md-4">
+                    {!! Form::text('bankName', $bank->bankName, ['class' => 'form-control']) !!}
+                    {!! Form::input('hidden','id', $bank->id, ['class' => 'form-control']) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                {!! Form::label('openBank', '开户行: ', ['class' => 'control-label col-md-1']) !!}
+                <div class="col-md-4">
+                    {!! Form::text('openBank', $bank->openBank, ['class' => 'form-control']) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                {!! Form::label('bankCode', '银行账号: ', ['class' => 'control-label col-md-1']) !!}
+                <div class="col-md-4">
+                    {!! Form::text('bankCode', $bank->bankCode, ['class' => 'form-control']) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                {!! Form::label('userName', '开户人姓名: ', ['class' => 'control-label col-md-1']) !!}
+                <div class="col-md-4">
+                    {!! Form::text('userName', $bank->userName, ['class' => 'form-control']) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-1">
+                    {!! Form::submit('完成,修改', ['class' => 'btn btn-success form-control']) !!}
+                </div>
+            </div>
+            {!! Form::close() !!}
+        @endif
     </div>
 @stop
 @section('script')

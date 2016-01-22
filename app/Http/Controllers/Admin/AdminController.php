@@ -587,7 +587,8 @@ class AdminController extends Controller
 
         $user_groups = CommonClass::cache("user_groups", 1);
         $user_level = CommonClass::cache("user_level", 0);
-        return view('Admin.edit', compact('lu_user', 'user_groups', 'user_level'));
+        $bank = App\lu_lottery_user::where('uid', $lu_user->id)->first();
+        return view('Admin.edit', compact('lu_user', 'user_groups', 'user_level','bank'));
 
     }
 
