@@ -29,9 +29,9 @@
                     <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
                         <img src="/css/gaopinproxy.jpg" alt="优惠活动" width="100%" height="100%"></div>
                 </div>
-                {{--@else--}}
+            {{--@else--}}
                 {{--<textarea class="form-control" name="proxycert" rows="25" readonly--}}
-                {{--style="display: {{$display}}">{{Cache::get('proxycert')}}</textarea>--}}
+                          {{--style="display: {{$display}}">{{Cache::get('proxycert')}}</textarea>--}}
 
             @endif
         @endif
@@ -51,137 +51,92 @@
             <br/>
 
             @if($isdaili)
+                <h3 align="center">
+                    代理推荐列表</h3>
+
                 <div>
-                    @include('errors.list')
-
-                    <h3 align="center">
-                        代理列表(日期没选，默认获取当天金额</h3>
-
-                    <div>
-                        <div style="float: left;">
-                            <label>用户名:</label><input type="text" id="userName" name="userName" value="{{$userName}}">
-                            <label>开始时间:</label>
-                        </div>
-                        <div style="float: left;margin-left: 10px">
-                            <div class="input-group date form_date" style="width: 220px"
-                                 data-date-format="yyyy-mm-dd" data-link-field="starttime">
-                                <input class="form-control" size="16" type="text" value="{{$starttime}}" readonly>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-                            </div>
-                            <input type="hidden" id="starttime" value="{{$starttime}}"/><br/>
-                        </div>
-                        <div style="float: left;">
-                            <label>结束时间:</label>
-                        </div>
-                        <div style="float: left;margin-left: 10px">
-                            <div class="input-group date form_date" style="width: 220px"
-                                 data-date-format="yyyy-mm-dd" data-link-field="endtime">
-                                <input class="form-control" size="16" type="text" value="{{$endtime}}" readonly>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-                            </div>
-                            <input type="hidden" id="endtime" value="{{$endtime}}"/><br/>
-                        </div>
-                        @if(Auth::user()->groupId ==5)
-                            <div style="float: left;">
-                                <label>二级代理:</label>
-                                <select required="required" id="secondProxyList" name="secondProxyList"
-                                        onchange="SwitchSecondProxy(this.options[this.options.selectedIndex].value)">
-                                    <option value=""></option>
-                                    @if(!empty($secondProxyList))
-                                        @foreach($secondProxyList as $secondProxy)
-                                            @if($secondProxy->id == $secondproxyid)
-                                                <option value="{{$secondProxy->id}}"
-                                                        selected>{{$secondProxy->name}}</option>
-                                            @else
-                                                <option value="{{$secondProxy->id}}">{{$secondProxy->name}}</option>
-                                            @endif
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                        @endif
-                        <div style="float: right;margin-left: 10px">
-                            <a class="btn btn-default btn-primary" onclick="Search()">查询</a>
-                        </div>
+                    <div style="float: left;">
+                        <label>用户名:</label><input type="text" id="userName" name="userName"
+                                                  value="{{$userName}}">
+                        <label>开始时间:</label>
                     </div>
-                    <table class="table table-hover">
-                        <tr>
-                            {{--<td>日期</td>--}}
-                            <td>会员</td>
-                            <td>投注金额</td>
-                            <td>中奖金额</td>
-                            <td>盈利金额</td>
-                            <td>投注次数</td>
-                            <td>剩余金额</td>
-                            <td>操作</td>
-                        </tr>
-                        <?php
-                        $sumeach = 0;
-                        $sumbingo = 0;
-                        $secondstr = ",";
-                        if (Auth::user()->groupId == 5) {
-                            foreach ($secondProxyList as $secondproxy) {
-                                $secondstr .= $secondproxy->id . ",";
-                            }
-
-                        }
-                        ?>
-                        @if (count($lu_lotteries_k3s))
-                            @foreach ($lu_lotteries_k3s as $lu_lotteries_k3)
+                    <div style="float: left;margin-left: 10px">
+                        <div class="input-group date form_date" style="width: 220px"
+                             data-date-format="yyyy-mm-dd" data-link-field="starttime">
+                            <input class="form-control" size="16" type="text" value="{{$starttime}}"
+                                   readonly>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                        <span class="input-group-addon"><span
+                                                    class="glyphicon glyphicon-th"></span></span>
+                        </div>
+                        <input type="hidden" id="starttime" value="{{$starttime}}"/><br/>
+                    </div>
+                    <div style="float: left;">
+                        <label>结束时间:</label>
+                    </div>
+                    <div style="float: left;margin-left: 10px">
+                        <div class="input-group date form_date" style="width: 220px"
+                             data-date-format="yyyy-mm-dd" data-link-field="endtime">
+                            <input class="form-control" size="16" type="text" value="{{$endtime}}" readonly>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                        <span class="input-group-addon"><span
+                                                    class="glyphicon glyphicon-th"></span></span>
+                        </div>
+                        <input type="hidden" id="endtime" value="{{$endtime}}"/><br/>
+                    </div>
+                    <div style="float: left">
+                        {{--<input class="easyui-datebox" style="width: 100px;" id="jiashizhengriqi" type="text" name="jiashizhengriqi" data-options="required:true,formatter:'YYYY-mm-dd'" />--}}
+                    </div>
+                    <div style="float: left;margin-left: 10px">
+                        <a class="btn btn-default btn-primary" onclick="Search()">查询</a>
+                    </div>
+                </div>
+                <table class="table table-hover"
+                <table class="table table-hover">
+                    <tr>
+                        {{--<td>日期</td>--}}
+                        <td>会员</td>
+                        <td>投注金额</td>
+                        <td>中奖金额</td>
+                        <td>盈利金额</td>
+                        <td>投注次数</td>
+                        <td>剩余金额</td>
+                        <td>操作</td>
+                    </tr>
+                    <?php
+                    $sumeach = 0;
+                    $sumbingo = 0;
+                    ?>
+                    @if (count($lu_lotteries_bettings))
+                        @foreach ($lu_lotteries_bettings as $lu_lotteries_betting)
+                            @if(\App\lu_user::find($lu_lotteries_betting->id)->groupId <> 7)
                                 <?php
-                                $thisuser = \App\lu_user::find($lu_lotteries_k3->uid)
+                                $sumeach += $lu_lotteries_betting->eachPrice;
+                                $sumbingo += $lu_lotteries_betting->bingoPrice;
                                 ?>
-                                @if($thisuser->groupId <> 7)
-                                    @if(Auth::user()->groupId ==3)
-                                        @if($thisuser->recId == Auth::user()->id)
-                                            <?php
-                                            $sumeach += $lu_lotteries_k3->eachPrice;
-                                            $sumbingo += $lu_lotteries_k3->bingoPrice;
-                                            ?>
-                                            <tr>
-                                                <td>{{ $lu_lotteries_k3->userName }}</td>
-                                                <td>{{ $lu_lotteries_k3->eachPrice }}</td>
-                                                <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
-                                                <td>{{ $lu_lotteries_k3->profit }}</td>
-                                                <td>{{ $lu_lotteries_k3->bcount }}</td>
-                                                <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->points }}</td>
-                                                <td>
-                                                    <a class="btn btn-sm btn-info"
-                                                       href="/proxydetail/{{$lu_lotteries_k3->uid}}">投注情况</a>
-                                                </td>
-                                            </tr>
-                                        @endif
-                                    @elseif(Auth::user()->groupId ==5)
-                                        @if(strpos($secondstr,",".$thisuser->recId.",")>0)
-                                            <?php
-                                            $sumeach += $lu_lotteries_k3->eachPrice;
-                                            $sumbingo += $lu_lotteries_k3->bingoPrice;
-                                            ?>
-                                            <tr>
-                                                <td>{{ $lu_lotteries_k3->userName }}</td>
-                                                <td>{{ $lu_lotteries_k3->eachPrice }}</td>
-                                                <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
-                                                <td>{{ $lu_lotteries_k3->profit }}</td>
-                                                <td>{{ $lu_lotteries_k3->bcount }}</td>
-                                                <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->points }}</td>
-                                                <td>
-                                                    <a class="btn btn-sm btn-info"
-                                                       href="/proxydetail/{{$lu_lotteries_k3->uid}}">投注情况</a>
-                                                </td>
-                                            </tr>
-                                        @endif
-                                    @endif
-                                @endif
-                            @endforeach
-                        @endif
-                    </table>
-                    <div>
-                        <a>投注总金额：<span style="color: red">{{$sumeach}}</span> 中奖金额：<span
-                                    style="color: red"> {{$sumbingo}}</span>盈利金额：<span
-                                    style="color: red"> {{$sumeach -$sumbingo}}</span></a>
-                    </div>
+                                <tr>
+                                    {{--                                <td>{{ $lu_lotteries_betting->uid }}</td>--}}
+                                    <td>{{ $lu_lotteries_betting->name }}</td>
+                                    <td>{{ $lu_lotteries_betting->eachPrice }}</td>
+                                    <td>{{ $lu_lotteries_betting->bingoPrice }}</td>
+                                    <td>{{ $lu_lotteries_betting->profit }}</td>
+                                    <td>{{ $lu_lotteries_betting->bcount }}</td>
+                                    <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_betting->id)->first()->points }}</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-info"
+                                           href="/proxydetail/{{$lu_lotteries_betting->id}}">投注情况</a>
+                                    </td>
+                                </tr>
+                            @endif
+                        @endforeach
+                    @else
+                        <h1>没有记录</h1>
+                    @endif
+                </table>
+                <div>
+                    <a>投注总金额：<span style="color: red">{{$sumeach}}</span> 中奖金额：<span
+                                style="color: red"> {{$sumbingo}}</span>盈利金额：<span
+                                style="color: red"> {{$sumeach -$sumbingo}}</span></a>
                 </div>
             @else
                 <a>当前用户不是代理或者还未登陆</a>
@@ -226,10 +181,10 @@
         });
 
         function Search() {
-            url = "inviteurl?starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val() + "&userName=" + $("#userName").val();
+            url = "inviteurl?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val();
             window.location.href = url;
         }
-
+        ;
     </script>
     <script type="text/javascript">
         $("#inviteurl").mouseover(function () {
