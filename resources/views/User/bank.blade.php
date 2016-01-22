@@ -36,6 +36,7 @@
                 {!! Form::label('bankCode', '银行账号: ', ['class' => 'control-label col-md-4']) !!}
                 <div class="col-md-4">
                     @if(!empty($bank->bankCode))
+                        如果要修改卡号，请联系客服更改
                         {!! Form::text('bankCode', $bank->bankCode, ['class' => 'form-control','readonly']) !!}
                     @else
                         {!! Form::text('bankCode', $bank->bankCode, ['class' => 'form-control']) !!}
