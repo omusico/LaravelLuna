@@ -60,7 +60,7 @@ class LotteryK3Controller extends Controller
 //        \Cache::forever('k3baoziodds', $k3baoziodds);
         $lotterystatus = defaultCache::cache_lottery_status();
 //        return view('errors.maintance');
-        if (strtolower($request->lottery_type) == 'fjk3') {
+        if (strtolower($request->lottery_type) == 'fjk3' || strtolower($request->lottery_type) == 'hebei') {
             return view('errors.maintance');
         }
 
