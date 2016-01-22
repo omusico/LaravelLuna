@@ -1408,7 +1408,7 @@ class defaultCache
                         array(
                             'url' => 'http://www.cailele.com/static/jxssc/newlyopenlist.xml',
                             'status' => '1',
-                            'priority' => 2,
+                            'priority' => 1,
                             'touUrl' => '',
                             'kjTime' => 150,
                             'fdTime' => 120,
