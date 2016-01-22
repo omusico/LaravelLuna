@@ -49,7 +49,8 @@ class ProxyController extends Controller
                     $wheresql .= ' and username= "' . $userName . '"';
                 }
                 if (empty($starttime) && empty($endtime)) {
-                    $wheresql .= ' and left(updated_at,10) ="' . date('y-m-d') . '"';
+//                    $wheresql .= ' and left(updated_at,10) ="' . date('y-m-d') . '"';
+                    $wheresql .= ' and updated_at >="2015-11-15"';
                 }
                 if (!empty($starttime)) {
                     $starttime = substr($starttime, 0, 10);
