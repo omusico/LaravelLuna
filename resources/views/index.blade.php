@@ -233,7 +233,7 @@
                         <li><strong>安徽快3</strong> 第<em>{{$recentArray['ANHUI']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['ANHUI']->created_at}}
                             <br>
-                            <a href="/lotteryIndex?lottery_type=anhui">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=anhui"></a>
                             <img style="display: inline;margin: 3px 5px;"
                                  src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['ANHUI']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
@@ -244,7 +244,7 @@
                         <li><strong>江苏快3</strong> 第<em>{{$recentArray['JSOLD']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['JSOLD']->created_at}}
                             <br>
-                            <a href="/lotteryIndex?lottery_type=jsold">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=jsold"></a>
                             <img style="display: inline;margin: 3px 5px;"
                                  src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSOLD']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
@@ -256,7 +256,7 @@
                             第<em>{{$recentArray['FJK3']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['FJK3']->created_at}}
                             <br>
-                            <a href="/lotteryIndex?lottery_type=fjk3">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=fjk3"></a>
                             <img style="display: inline;margin: 3px 5px;"
                                  src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['FJK3']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
@@ -276,7 +276,7 @@
                         <li><strong>湖北快3</strong> 第<em>{{$recentArray['HUBEI']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['HUBEI']->created_at}}
                             <br>
-                            <a href="/lotteryIndex?lottery_type=hubei">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=hubei"></a>
                             <img style="display: inline;margin: 3px 5px;"
                                  src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HUBEI']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
@@ -287,7 +287,7 @@
                         <li><strong>吉林快3</strong> 第<em>{{$recentArray['JILIN']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['JILIN']->created_at}}
                             <br>
-                            <a href="/lotteryIndex?lottery_type=jilin">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=jilin"></a>
                             <img style="display: inline;margin: 3px 5px;"
                                  src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JILIN']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
@@ -299,7 +299,7 @@
                             第<em>{{$recentArray['JSNEW']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['JSNEW']->created_at}}
                             <br>
-                            <a href="/lotteryIndex?lottery_type=jsnew">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=jsnew"></a>
                             <img style="display: inline;margin: 3px 5px;"
                                  src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['JSNEW']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
@@ -321,7 +321,7 @@
                         <li><strong>北京快3</strong> 第<em>{{$recentArray['BEIJIN']->proName}}</em>期开奖号码<br><br>
                             开奖时间：{{$recentArray['BEIJIN']->created_at}}
                             <br>
-                            <a href="/lotteryIndex?lottery_type=beijin">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=beijin"></a>
                             <img style="display: inline;margin: 3px 5px;"
                                  src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['BEIJIN']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
@@ -332,7 +332,7 @@
                         <li><strong>内蒙古快3</strong> 第<em>{{$recentArray['NMG']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['NMG']->created_at}}
                             <br>
-                            <a href="/lotteryIndex?lottery_type=nmg">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=nmg"></a>
                             <img style="display: inline;margin: 3px 5px;"
                                  src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['NMG']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
@@ -344,7 +344,7 @@
                             第<em>{{$recentArray['HEBEI']->proName}}</em>期开奖号码<br>
                             开奖时间：{{$recentArray['HEBEI']->created_at}}
                             <br>
-                            <a href="/lotteryIndex?lottery_type=hebei">立即购买</a>
+                            <a href="/lotteryIndex?lottery_type=hebei"></a>
                             <img style="display: inline;margin: 3px 5px;"
                                  src="http://res.kuai3.com/resources/kuai3/images/sz/{{explode(',', $recentArray['HEBEI']->codes)[0]}}x24.png"><img
                                     style="display: inline;margin: 3px 5px;"
