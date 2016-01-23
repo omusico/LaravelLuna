@@ -38,9 +38,9 @@ class LotteryFiveController extends Controller
         if (strtolower($request->lottery_type) == 'cqfive') {
             return view('errors.maintance');
         }
-        if (strtolower($request->lottery_type) == 'zjfive') {
-            return view('errors.maintance');
-        }
+//        if (strtolower($request->lottery_type) == 'zjfive') {
+//            return view('errors.maintance');
+//        }
         return view('Lottery.fivelotteryindex', compact('czName', 'config', 'chipins', 'fiveOdds', 'lotterystatus', 'lotterytypes'));
     }
 
