@@ -30,7 +30,7 @@ class LotterySscController extends Controller {
         $lotterystatus = defaultCache::cache_lottery_status();
         $lotterytypes = defaultCache::cache_ssc_first_types();
         $lotterysecondtypes = defaultCache::cache_ssc_types();
-        if (strtolower($request->lottery_type) == 'jxssc') {
+        if (strtolower($request->lottery_type) == 'xjssc') {
             return view('errors.maintance');
         }
         return view('Lottery.ssclotteryindex', compact('czName', 'config', 'chipins', 'sscOdds', 'lotterystatus','lotterytypes','lotterysecondtypes'));

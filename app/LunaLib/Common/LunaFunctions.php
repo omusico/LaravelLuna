@@ -339,7 +339,7 @@ class LunaFunctions
         $beginDay2 = mktime(0, 0, 0, date('m'), date('d'), date('Y')); //
 // 		$beginDay3 = mktime(22,0,0,date('m'),date('d'),date('Y')); //
         $periodTime = 600;
-        if ($now <= $beginDay) { // 0--2点之前的期数
+        if ($now <= $beginDay2) { // 0--2点之前的期数
 
             $qishu = ceil(($now - $beginDay2 + $fdTime) / $periodTime) + 84;
             $currentPeriod = date('Ymd') . '-' . str_pad($qishu, 3, '0', STR_PAD_LEFT);
@@ -357,11 +357,13 @@ class LunaFunctions
             $prePeriod = date('Ymd') . '-' . str_pad($pre, 3, '0', STR_PAD_LEFT);
             $leftTime = $periodTime - ($now + $fdTime - $begin) % $periodTime;
             $formatLeftTime = floor($leftTime / 3600) . ':' . (floor(($leftTime % 3600) / 60)) . ':' . (floor(($leftTime % 3600) % 60));
-        } else if ($now > $beginDay && $now <= $begin) {  // 2点至10点
+        } else if ($now > $beginDay2 && $now <= $beginDay) {  // 2点至10点
             $pre = $num;
             $preDate = strtotime("-1 day");
             $prePeriod = date('Ymd', $preDate) . '-0' . $num;
-            $currentPeriod = date('Ymd') . "-001";
+            $qishu = ceil(($now - $beginDay2 + $fdTime) / $periodTime) + 84;
+            $currentPeriod = date('Ymd') . '-' . str_pad($qishu, 3, '0', STR_PAD_LEFT);
+//            $currentPeriod = date('Ymd') . "-001";
             $leftTime = ($begin - $now - $fdTime) + $periodTime;
             $formatLeftTime = floor($leftTime / 3600) . ':' . (floor(($leftTime % 3600) / 60)) . ':' . (floor(($leftTime % 3600) % 60));
         }
