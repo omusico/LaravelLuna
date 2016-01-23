@@ -25,12 +25,12 @@
     $WaitSign = md5('MemberID=' . $MemberID . $MARK . 'TerminalID=' . $TerminalID . $MARK . 'TransID=' . $TransID . $MARK . 'Result=' . $Result . $MARK . 'ResultDesc=' . $ResultDesc . $MARK . 'FactMoney=' . $FactMoney . $MARK . 'AdditionalInfo=' . $AdditionalInfo . $MARK . 'SuccTime=' . $SuccTime . $MARK . 'Md5Sign=' . $Md5key);
     $reallymoney = $FactMoney / 100;
 
-    if (isset($_SESSION['OrderMoney'])) {
-        $OrderMoney = $_SESSION['OrderMoney'];//获取提交金额的Session
-    }
+//    if (isset($_SESSION['OrderMoney'])) {
+//        $OrderMoney = $_SESSION['OrderMoney'];//获取提交金额的Session
+//    }
     if ($Md5Sign == $WaitSign) {
         //校验通过开始处理订单
-        if ($OrderMoney == $FactMoney) {
+//        if ($OrderMoney == $FactMoney) {
 
             if ($lrecharge->status == '2') {
                 $ldata = \App\lu_user_data::where('uid', $lrecharge->uid)->first();
@@ -60,13 +60,13 @@
                 //卡面金额与用户提交金额一致
                 echo("<script>alert('支付成功');</script>");//全部正确了输出OK
             }
-        } else {
-            if ($lrecharge->status == '2') {
-                $lrecharge->status = 3;
-                $lrecharge->save();
-            }
-            echo("<script>alert('实际成交金额与您提交的订单金额不一致，请接收到支付结果后仔细核对实际成交金额，以免造成订单金额处理差错。');</script>");    //实际成交金额与商户提交的订单金额不一致
-        }
+//        } else {
+//            if ($lrecharge->status == '2') {
+//                $lrecharge->status = 3;
+//                $lrecharge->save();
+//            }
+//            echo("<script>alert('实际成交金额与您提交的订单金额不一致，请接收到支付结果后仔细核对实际成交金额，以免造成订单金额处理差错。');</script>");    //实际成交金额与商户提交的订单金额不一致
+//        }
     } else {
         echo("<script>alert('Md5CheckFail');</script>");//MD5校验失败，订单信息不显示
         $TransID = $WaitSign;
