@@ -896,23 +896,38 @@ class defaultCache
                 ),
             'hebei' =>
                 array(
+                //这条线的数据完全错误
+//                    'icaile' =>
+//                        array(
+//                            'url' => 'http://pub.icaile.com/hebk3kjjg.php',
+//                            'kjTime' => 150,
+//                            'fdTime' => 120,
+//                            'status' => '1',
+//                            'priority' => 2,
+//                            'rule' =>
+//                                array(
+////                        'preTerm' => '<th class="last-child">合值</th></tr><tr><td class="nth-child-1">(.*?)</td><td class="nth-child-2">',
+//                                    'preTerm' => '<th class="last-child">和值</th></tr><tr><td class="nth-child-1">(.*?)</td>',
+//                                    'preOpenResult' => '<td class="nth-child-3"><em class="ball">(.*?)</em><em class="ball">(.*?)</em><em class="ball">(.*?)</em></td>',
+//                                ),
+//                        ),
                     'icaile' =>
-                    array (
-                      'url' => 'http://pub.icaile.com/hebk3kjjg.php',
-                      'kjTime' => 150,
-                      'fdTime' => 120,
-                      'status' => '0',
-                      'priority' => 2,
-                      'rule' =>
-                      array (
-                        'preTerm' => '<th class="last-child">合值</th></tr><tr><td class="nth-child-1">(.*?)</td><td class="nth-child-2">',
-                        'preOpenResult' => '<td class="nth-child-3"><em class="ball">(.*?)</em><em class="ball">(.*?)</em><em class="ball">(.*?)</em></td>',
-                      ),
-                    ),
+                        array (
+                            'url' => 'http://www.1816cp.cn/index.php/Ks/index/type/hebks',
+                            'kjTime' => 150,
+                            'fdTime' => 120,
+                            'status' => '1',
+                            'priority' => 2,
+                            'rule' =>
+                                array (
+                                    'preTerm' => '<tbody id="awardNumBody"><tr data-period="(.*?)">',
+                                    'preOpenResult' => '<td align="center"><span class="c_red">(.*?),(.*?),(.*?)</span></td>',
+                                ),
+                        ),
                     'k39' =>
                         array(
                             'url' => 'http://www.k3918.com/hebei/GetInfo/?d=1411566206564',
-                            'status' => '1',
+                            'status' => '0',
                             'priority' => 1,
                         )
                 ),

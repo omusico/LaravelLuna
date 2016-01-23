@@ -73,7 +73,7 @@ class MultiHttpRequest
         	if("" != $error && strpos($error, "out")){
         		
         		$text[$k] = false;
-        		$cache = Waf::model('Common/cache');
+//        		$cache = Waf::model('Common/cache');
 
         		$data = array(
         			$k => array(
@@ -82,7 +82,7 @@ class MultiHttpRequest
         		)
         		);
 
-        		$cache->updateXlNetInfo($data);
+//        		$cache->updateXlNetInfo($data);
         		curl_multi_remove_handle($handle, $curl[$k]);
         		continue;
         	} 
