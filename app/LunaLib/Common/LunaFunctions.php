@@ -367,6 +367,14 @@ class LunaFunctions
             $leftTime = ($begin - $now - $fdTime) + $periodTime;
             $formatLeftTime = floor($leftTime / 3600) . ':' . (floor(($leftTime % 3600) / 60)) . ':' . (floor(($leftTime % 3600) % 60));
         }
+        else{
+            $pre = $num;
+            $preDate = strtotime("-1 day");
+            $prePeriod = date('Ymd', $preDate) . '-0' . $num;
+            $currentPeriod = date('Ymd') . "-001";
+            $leftTime = ($begin - $now - $fdTime) + $periodTime;
+            $formatLeftTime = floor($leftTime / 3600) . ':' . (floor(($leftTime % 3600) / 60)) . ':' . (floor(($leftTime % 3600) % 60));
+        }
 
 
         $result = array('currentPeriod' => $currentPeriod,
