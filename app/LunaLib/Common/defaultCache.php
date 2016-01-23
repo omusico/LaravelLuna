@@ -896,19 +896,19 @@ class defaultCache
                 ),
             'hebei' =>
                 array(
-                    /* 'icaile' =>
+                    'icaile' =>
                     array (
                       'url' => 'http://pub.icaile.com/hebk3kjjg.php',
                       'kjTime' => 150,
                       'fdTime' => 120,
                       'status' => '0',
-                      'priority' => 1,
+                      'priority' => 2,
                       'rule' =>
                       array (
                         'preTerm' => '<th class="last-child">合值</th></tr><tr><td class="nth-child-1">(.*?)</td><td class="nth-child-2">',
                         'preOpenResult' => '<td class="nth-child-3"><em class="ball">(.*?)</em><em class="ball">(.*?)</em><em class="ball">(.*?)</em></td>',
                       ),
-                    ), */
+                    ),
                     'k39' =>
                         array(
                             'url' => 'http://www.k3918.com/hebei/GetInfo/?d=1411566206564',
