@@ -1483,7 +1483,7 @@ class defaultCache
                     'status' => '1',
                     'kjType' => '1',
                     'fdTime' => 120,
-                    'beginTime' => '8:31',
+                    'beginTime' => '8:29',
                     'endTime' => '22:10',
                     'num' => 82,
                     'kjTime' => 60,
