@@ -98,4 +98,11 @@ class WelcomeController extends Controller {
         return view('phpinfo');
     }
 
+    public function mobile(){
+        return view('mobile');
+    }
+
+    public function mobileindex(){
+        return view('mobileindex');
+    }
 }

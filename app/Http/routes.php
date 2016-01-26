@@ -15,6 +15,8 @@ Route::get('users', 'TestController@users');
 
 #主页
 Route::get('/', 'WelcomeController@index');
+Route::get('/mobile', 'WelcomeController@mobile');
+Route::get('/mobileindex', 'WelcomeController@mobileindex');
 Route::get('index', ['as' => 'index', 'uses' => 'WelcomeController@index']);
 
 ####################################################

@@ -27,7 +27,7 @@
         @elseif(env("SITE_TYPE","")=="gaopin")
             <div class="row">
                 <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
-                    <img src="/css/gpfav.jpg" alt="优惠活动" width="100%" height="100%"></div>
+                    <img src="/css/gpfav1.jpg" alt="优惠活动" width="100%" height="100%"></div>
             </div>
         @else
             <div class="row">
