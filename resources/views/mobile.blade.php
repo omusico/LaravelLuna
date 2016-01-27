@@ -25,7 +25,7 @@
     <!--导航菜单 开始-->
     <header>
         <nav role="navigation">
-            <ul class="row text-center" >
+            <ul class="row text-center">
                 <li class="col-xs-3"><a href="./车联万物_files/车联万物.html">首页</a></li>
                 <li class="col-xs-3"><a href="http://m.tescar.cn/list.aspx?did=1">新品上架</a></li>
                 <li class="col-xs-3"><a href="http://m.tescar.cn/list.aspx?did=1&amp;cateid=8">积分专区</a></li>
@@ -44,7 +44,8 @@
             <!--商品循环列表-->
 
             <div class="col-xs-6">
-                <div> <a href="http://m.tescar.cn/detail.aspx?did=1&amp;itemid=2"></a>
+                <div><a href="http://m.tescar.cn/detail.aspx?did=1&amp;itemid=2"></a>
+
                     <div class="txt">
                         <div class="name"><a href="http://m.tescar.cn/detail.aspx?did=1&amp;itemid=2">腾兴迷宝</a></div>
                         <div class="col-xs-3 price">￥10.00</div>
@@ -69,6 +70,34 @@
             <div class="clearfix"></div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="gp_mobile_recharge"></div>
+        </div>
+        <div class="col-xs-3">
+            <div class="gp_mobile_deposit"></div>
+        </div>
+        <div class="col-xs-3">
+            <div class="gp_mobile_proxy"></div>
+        </div>
+        <div class="col-xs-3">
+            <div class="gp_mobile_trend"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="gp_mobile_personal"></div>
+        </div>
+        <div class="col-xs-3">
+            <div class="gp_mobile_pdetail"></div>
+        </div>
+        <div class="col-xs-3">
+            <div class="gp_mobile_record"></div>
+        </div>
+        <div class="col-xs-3">
+            <div class="gp_mobile_drecord"></div>
+        </div>
+    </div>
     <!--商品列表 结束-->
     <!--底部菜单 开始-->
     <div id="footer">
@@ -86,4 +115,7 @@
 
 <script type="text/javascript" src="/js/all.js"></script>
 
-</body><div></div><div></div></html>
+</body>
+<div></div>
+<div></div>
+</html>
