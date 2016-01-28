@@ -8,6 +8,7 @@
     <title> @yield('title') </title>
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/gaopin.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/gpcmobile.css') }}">
     <link rel="icon" href="gaopinfavicon.ico" type="image/x-icon"/>
     <style type="text/css">
         .navbar-responsive-collapse > .navbar-nav > li {

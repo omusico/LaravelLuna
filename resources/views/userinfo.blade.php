@@ -21,13 +21,15 @@
                       style="display: inline;">￥{{ Auth::user()->lu_user_data->points}}元&nbsp;&nbsp;<a>隐藏余额</a></span>
             </h4>
 
-            <div class="nk3_cztx">
-                <a href="/recharge">充 值</a> <a href="/deposit" class="nk3_tx">提 现</a>
-            </div>
-            <div style="text-align: center">
-                <a href="/userLotteryBetting">我的投注</a> <a href="#">追号记录</a><br/>
-                <a href="/getLotteryWin">中奖记录</a> <a href="/getaccountdetail">账户明细</a><br/>
-                <a href="/account">我的账户</a> <a href="#">站内信(0)</a>
+            <div class="mobilhide">
+                <div class="nk3_cztx">
+                    <a href="/recharge">充 值</a> <a href="/deposit" class="nk3_tx">提 现</a>
+                </div>
+                <div style="text-align: center">
+                    <a href="/userLotteryBetting">我的投注</a> <a href="#">追号记录</a><br/>
+                    <a href="/getLotteryWin">中奖记录</a> <a href="/getaccountdetail">账户明细</a><br/>
+                    <a href="/account">我的账户</a> <a href="#">站内信(0)</a>
+                </div>
             </div>
             <div class="nk3_login_bottom"></div>
         </div>
@@ -50,10 +52,10 @@
                     <div style="display: inline-block;margin-top: 15px">
                         {!! Form::submit('', ['class' => 'fivebtnlogin']) !!}
                         <a href="{{ url('/register') }}">
-                        <input class="fivebtnreg" type="button">
+                            <input class="fivebtnreg" type="button">
                         </a>
                         <a href="{{ url('/dailiregister') }}">
-                        <input class="fivebtndreg" type="button">
+                            <input class="fivebtndreg" type="button">
                         </a>
                     </div>
                 </div>

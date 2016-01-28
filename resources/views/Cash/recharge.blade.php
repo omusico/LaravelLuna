@@ -6,9 +6,10 @@
 
 @section('content')
     <div class="container" id="lotteryContainer">
-        <aside class="col-md-3" style="padding-left: 0px">
+        <aside class="col-md-3 mobilhide" style="padding-left: 0px">
             @include('User.left_bar')
         </aside>
+        @include('User.topbar')
         <main class="col-md-9" style="border-right: 1px solid rgb(218, 218, 218)">
             <ul class="nav nav-tabs" role="tablist" id="myTab"> 
                 <li class="active col-md-4" style="text-align: center"><a href="#DSF" role="tab"
@@ -667,6 +668,7 @@
                 </div>
             </div>
         </main>
+        @include('User.mobilebottom')
     </div>
 @stop
 @section('script')

@@ -7220,7 +7220,7 @@ button.close {
 
 /* userinfo */
 .nk3_login {
-    height: 220px;
+    /*height: 220px;*/
     position: relative;
     margin-top: 0;
     /*background: url("login_bg.jpg") repeat-y;*/

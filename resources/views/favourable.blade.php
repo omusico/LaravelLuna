@@ -36,4 +36,5 @@
             </div>
         @endif
     </div>
+    @include('User.mobilebottom')
 @stop

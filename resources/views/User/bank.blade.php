@@ -6,13 +6,10 @@
 
 @section('content')
     <div class="container">
-        {{--@if(env('SITE_TYPE','')=='five')--}}
-        {{--<div class="row">--}}
-        {{--<div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">--}}
-        {{--@endif--}}
-        <aside class="col-md-3" style="padding-left: 0px">
+        <aside class="col-md-3 mobilhide" style="padding-left: 0px">
             @include('User.left_bar')
         </aside>
+        @include('User.topbar')
         <main class="col-md-9">
             @include('errors.list')
             <h2 class="col-md-offset-4">银行账户信息</h2><br><br>
@@ -56,9 +53,6 @@
             </div>
             {!! Form::close() !!}
         </main>
-        {{--@if(env('SITE_TYPE','')=='five')--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--@endif--}}
+        @include('User.mobilebottom')
     </div>
 @stop

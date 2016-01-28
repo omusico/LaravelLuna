@@ -32,9 +32,9 @@
             <li><a href="/bank">绑定银行卡</a></li>
             {{--<li><a href="/member/realnameauth/">实名认证</a></li>--}}
         </ul>
-        <h3>站内信</h3>
-        <ul class="end">
-            <li><a href="#">站内信</a></li>
-        </ul>
+        {{--<h3>站内信</h3>--}}
+        {{--<ul class="end">--}}
+            {{--<li><a href="#">站内信</a></li>--}}
+        {{--</ul>--}}
     </div>
 </div>
