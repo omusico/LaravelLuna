@@ -68,6 +68,7 @@
                 <td>开奖结果</td>
                 <td>状态</td>
                 <td>投注时间</td>
+                <td>更改时间</td>
                 <td>操作</td>
             </tr>
             @if (count($lu_lotteries_k3s))
@@ -97,6 +98,7 @@
                             @endif
                         </td>
                         <td>{{ $lu_lotteries_k3->created_at }}</td>
+                        <td>{{ $lu_lotteries_k3->updated_at }}</td>
                         <td>
                             @if($lu_lotteries_k3->status != -2)
                                 <a class="btn btn-sm btn-warning"
