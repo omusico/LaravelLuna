@@ -121,6 +121,7 @@
                 @include('userinfo')
             </div>
         </div>
+        @include('User.topbar')
         <div class="col-md-6 mobilhide">
             <div id="carousel-generic" class="carousel slide" data-ride="carousel"
                  xmlns="http://www.w3.org/1999/html">
@@ -198,7 +199,7 @@
                                 <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[3]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[4]}}"></div>
                                 <br>
-                                <a href="/fivelotteryIndex?lottery_type=sdfive">立即购买</a>
+                                <a href="/fivelotteryIndex?lottery_type=sdfive"></a>
                             </li>
                         @endif
                         @if(null !=$recentArray['GDFIVE'])
@@ -216,7 +217,7 @@
                                 <div class="fiveNum{{explode(',', $recentArray['GDFIVE']->codes)[3]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['GDFIVE']->codes)[4]}}"></div>
                                 <br>
-                                <a href="/fivelotteryIndex?lottery_type=gdfive">立即购买</a>
+                                <a href="/fivelotteryIndex?lottery_type=gdfive"></a>
                             </li>
                         @endif
                         @if(null !=$recentArray['SHFIVE'])
@@ -233,7 +234,7 @@
                                 <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[3]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[4]}}"></div>
                                 <br>
-                                <a href="/fivelotteryIndex?lottery_type=shfive">立即购买</a>
+                                <a href="/fivelotteryIndex?lottery_type=shfive"></a>
                             </li>
                         @endif
                     </ul>
@@ -256,7 +257,7 @@
                                 <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[3]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[4]}}"></div>
                                 <br>
-                                <a href="/fivelotteryIndex?lottery_type=jxfive">立即购买</a>
+                                <a href="/fivelotteryIndex?lottery_type=jxfive"></a>
                             </li>
                         @endif
                         @if(null !=$recentArray['ZJFIVE'])
@@ -274,7 +275,7 @@
                                 <div class="fiveNum{{explode(',', $recentArray['ZJFIVE']->codes)[3]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['ZJFIVE']->codes)[4]}}"></div>
                                 <br>
-                                <a href="/fivelotteryIndex?lottery_type=zjfive">立即购买</a>
+                                <a href="/fivelotteryIndex?lottery_type=zjfive"></a>
                             </li>
                         @endif
                         @if(null !=$recentArray['LIAONINGFIVE'])
@@ -291,7 +292,7 @@
                                 <div class="fiveNum{{explode(',', $recentArray['LIAONINGFIVE']->codes)[3]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['LIAONINGFIVE']->codes)[4]}}"></div>
                                 <br>
-                                <a href="/fivelotteryIndex?lottery_type=liaoningfive">立即购买</a>
+                                <a href="/fivelotteryIndex?lottery_type=liaoningfive"></a>
                             </li>
                         @endif
                     </ul>
@@ -300,7 +301,7 @@
 
         </div>
     </div>
-    <div class="container">
+    <div class="container mobilhide">
         <div class="col-md-offset-1 col-md-10">
             <div class="fivebottom">
             </div>
@@ -311,6 +312,7 @@
             <div class="col-md-offset-1 col-md-10" style="padding-top: 3px;background-color:#fdc124;"></div>
         </div>
     </div>
+    @include('User.mobilebottom')
 @stop
 @section('script')
     <script type="text/javascript">
