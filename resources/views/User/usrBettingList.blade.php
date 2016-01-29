@@ -27,8 +27,8 @@
                 <tr>
                     <td>类型</td>
                     <td>期号</td>
-                    <td>类型</td>
-                    <td class="mobilhide">号码</td>
+                    <td class="mobilhide">类型</td>
+                    <td>号码</td>
                     <td>投注金额</td>
                     <td>中奖金额</td>
                     <td>开奖号码</td>
@@ -44,11 +44,11 @@
                             <td>{{ $lu_lotteries_k3->provinceName }}</td>
                             <td>{{ $lu_lotteries_k3->proName }}</td>
                             @if($bettingType=="6he")
-                                <td>{{$types[$lunaFunctions->return6hetype($lu_lotteries_k3->typeId)]['name']}}</td>
+                                <td class="mobilhide">{{$types[$lunaFunctions->return6hetype($lu_lotteries_k3->typeId)]['name']}}</td>
                             @else
-                                <td>{{$types[$lu_lotteries_k3->typeId]['name']}}</td>
+                                <td class="mobilhide">{{$types[$lu_lotteries_k3->typeId]['name']}}</td>
                             @endif
-                            <td class="mobilhide">{{ $lu_lotteries_k3->codes }}</td>
+                            <td >{{ $lu_lotteries_k3->codes }}</td>
                             <td>{{ $lu_lotteries_k3->eachPrice }}</td>
                             <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
                             <td>{{ $lu_lotteries_k3->resultNum }}</td>
