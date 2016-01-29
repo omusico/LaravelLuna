@@ -312,6 +312,7 @@
             <div class="col-md-offset-1 col-md-10" style="padding-top: 3px;background-color:#fdc124;"></div>
         </div>
     </div>
+    @include('User.mobilebottom')
 @stop
 @section('script')
     <script type="text/javascript">
