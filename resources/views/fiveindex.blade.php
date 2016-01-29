@@ -199,7 +199,7 @@
                                 <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[3]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[4]}}"></div>
                                 <br>
-                                <a href="/fivelotteryIndex?lottery_type=sdfive">立即购买</a>
+                                <a href="/fivelotteryIndex?lottery_type=sdfive"></a>
                             </li>
                         @endif
                         @if(null !=$recentArray['GDFIVE'])
@@ -217,7 +217,7 @@
                                 <div class="fiveNum{{explode(',', $recentArray['GDFIVE']->codes)[3]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['GDFIVE']->codes)[4]}}"></div>
                                 <br>
-                                <a href="/fivelotteryIndex?lottery_type=gdfive">立即购买</a>
+                                <a href="/fivelotteryIndex?lottery_type=gdfive"></a>
                             </li>
                         @endif
                         @if(null !=$recentArray['SHFIVE'])
@@ -234,7 +234,7 @@
                                 <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[3]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[4]}}"></div>
                                 <br>
-                                <a href="/fivelotteryIndex?lottery_type=shfive">立即购买</a>
+                                <a href="/fivelotteryIndex?lottery_type=shfive"></a>
                             </li>
                         @endif
                     </ul>
@@ -257,7 +257,7 @@
                                 <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[3]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[4]}}"></div>
                                 <br>
-                                <a href="/fivelotteryIndex?lottery_type=jxfive">立即购买</a>
+                                <a href="/fivelotteryIndex?lottery_type=jxfive"></a>
                             </li>
                         @endif
                         @if(null !=$recentArray['ZJFIVE'])
@@ -275,7 +275,7 @@
                                 <div class="fiveNum{{explode(',', $recentArray['ZJFIVE']->codes)[3]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['ZJFIVE']->codes)[4]}}"></div>
                                 <br>
-                                <a href="/fivelotteryIndex?lottery_type=zjfive">立即购买</a>
+                                <a href="/fivelotteryIndex?lottery_type=zjfive"></a>
                             </li>
                         @endif
                         @if(null !=$recentArray['LIAONINGFIVE'])
@@ -292,7 +292,7 @@
                                 <div class="fiveNum{{explode(',', $recentArray['LIAONINGFIVE']->codes)[3]}}"></div>
                                 <div class="fiveNum{{explode(',', $recentArray['LIAONINGFIVE']->codes)[4]}}"></div>
                                 <br>
-                                <a href="/fivelotteryIndex?lottery_type=liaoningfive">立即购买</a>
+                                <a href="/fivelotteryIndex?lottery_type=liaoningfive"></a>
                             </li>
                         @endif
                     </ul>
