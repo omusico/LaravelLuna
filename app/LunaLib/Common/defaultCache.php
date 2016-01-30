@@ -738,7 +738,7 @@ class defaultCache
                             'kjTime' => 120,
                             'fdTime' => 120,
                             'status' => '1',
-                            'priority' => 3,
+                            'priority' => 2,
                             'rule' =>
                                 array(
                                     'preTerm' => '<em class="red" id="open_issue">(.*?)</em> 期 开奖</h3><div class="ball-num clearfix">',
@@ -753,6 +753,19 @@ class defaultCache
                             'touUrl' => '',
                             'kjTime' => 150,
                             'fdTime' => 120,
+                        ),
+                    'icaile' =>
+                        array (
+                            'url' => 'http://www.1816cp.cn/index.php/Ks/index/type/jsks',
+                            'kjTime' => 150,
+                            'fdTime' => 120,
+                            'status' => '1',
+                            'priority' => 3,
+                            'rule' =>
+                                array (
+                                    'preTerm' => '<tbody id="awardNumBody"><tr data-period="(.*?)">',
+                                    'preOpenResult' => '<td align="center"><span class="c_red">(.*?),(.*?),(.*?)</span></td>',
+                                ),
                         ),
                 ),
             'jsnew' =>
@@ -852,6 +865,19 @@ class defaultCache
                             'touUrl' => '',
                             'kjTime' => 150,
                             'fdTime' => 120,
+                        ),
+                    'icaile' =>
+                        array (
+                            'url' => 'http://www.1816cp.cn/index.php/Ks/index/type/jlks',
+                            'kjTime' => 150,
+                            'fdTime' => 120,
+                            'status' => '1',
+                            'priority' => 3,
+                            'rule' =>
+                                array (
+                                    'preTerm' => '<tbody id="awardNumBody"><tr data-period="(.*?)">',
+                                    'preOpenResult' => '<td align="center"><span class="c_red">(.*?),(.*?),(.*?)</span></td>',
+                                ),
                         ),
 
                 ),
