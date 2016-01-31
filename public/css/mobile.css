@@ -151,6 +151,12 @@ header {
     width: 73px;
     height: 73px;
 }
+.gp_mobile_lh {
+    display: inline-block;
+    background: url('mobileback.png') no-repeat scroll -140px -114px transparent;
+    width: 73px;
+    height: 73px;
+}
 
 .gp_mobile_text {
     display: inline-block;

@@ -8,7 +8,7 @@
     <title> @yield('title') </title>
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/gaopin.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/all.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/gpcmobile.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/mobile.css') }}">
     <link rel="icon" href="gaopinfavicon.ico" type="image/x-icon"/>
     <style type="text/css">
         .navbar-responsive-collapse > .navbar-nav > li {
@@ -28,11 +28,16 @@
     @yield('css')
 </head>
 <body style="background-color: #f2fcfd">
+
+<div class="container-fluid mobilShow" style="display: none;padding: 0px">
+    <div class="col-xs-12 mobiletop"></div>
+</div>
 <div style="width: 100%;height: 30px;background-color: white">
     <div class="container">
+
         <div class="row">
             <div class="col-md-offset-1 col-md-10" style="padding-top: 5px">
-                <div style="float: left">
+                <div class="mobilhide" style="float: left">
                     hi，
                     @if(!Auth::guest())
                         <span style="color: red">  {{Auth::user()->name}}</span>
@@ -59,15 +64,6 @@
     </div>
 </div>
 <div class="gaopinlogo mobilhide"></div>
-<div class="mobilShow" style="display: none">
-    <div class="logo-box clearfix" style="width:auto;padding: 15px 0">
-        <a href="#">
-            <img title="高频彩" alt="高频彩" src="/css/gaopinlogo.png" class="logo-index-hd"
-                 style="width:122px;height:30px;margin:0 8px 0 0">
-        </a>
-        <a><img alt="为梦想买单" src="/css/logo_dream.png"></a>
-    </div>
-</div>
 <div style="width: 100%;background-color:#FCAB1D ">
     <div class="container" style="background-color: #FCAB1D;">
         <div class="collapse navbar-collapse navbar-responsive-collapse">
@@ -87,7 +83,7 @@
                 <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:white;font-weight: bold"
                        title="走势图">走势图</a>
                 </li>
-                <li><a title="合作代理" target="_blank" style="color:white;font-weight: bold" href="/inviteurl">合作代理</a>
+                <li><a title="合作代理" style="color:white;font-weight: bold" href="/inviteurl">合作代理</a>
                 </li>
                 <li><a href="/userLotteryBetting" target="_blank" style="color:white;font-weight: bold"
                        title="交易记录">交易记录</a>
@@ -109,6 +105,55 @@
         </div>
     </div>
 </div>
+<nav class="navbar navbar-default mobilShow" role="navigation" style="display: none;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-target">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">导航栏</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="nav-target">
+            <ul class="nav navbar-nav nav">
+                <li><a href="/" style="color:red;font-weight: bold">网站首页</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" style="color:red;font-weight: bold" data-toggle="dropdown"
+                       role="button">游戏规则<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/k3GameRule">快三</a></li>
+                        <li><a href="/fiveGameRule">11选5</a></li>
+                        <li><a href="/sscGameRule">时时彩</a></li>
+                        <li><a href="/sixheGameRule">六合彩</a></li>
+                    </ul>
+                </li>
+                <li><a href="/favourable" style="color:red;font-weight: bold" title="优惠活动">优惠活动</a></li>
+                <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:red;font-weight: bold"
+                       title="走势图">走势图</a>
+                </li>
+                <li><a title="合作代理" style="color:red;font-weight: bold" href="/inviteurl">合作代理</a></li>
+                <li><a href="/userLotteryBetting" target="_blank" style="color:red;font-weight: bold"
+                       title="交易记录">交易记录</a>
+                </li>
+                <li><a href="/fivelotteryIndex?lottery_type=sdfive" title="手机下注" style="color:red;font-weight: bold">手机下注</a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" style="color:red;font-weight: bold" data-toggle="dropdown"
+                       role="button">网址<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">网址一</a></li>
+                        <li><a href="#">网址二</a></li>
+                        <li><a href="#">网址三</a></li>
+                        <li><a href="#">网址四</a></li>
+                        <li><a href="#">网址五</a></li>
+                    </ul>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="container mobilShow" style="display: none">
     @if(!Auth::guest())
         <label class="form-control" style="text-align: center">余额：{{Auth::user()->lu_user_data->points}}</label>

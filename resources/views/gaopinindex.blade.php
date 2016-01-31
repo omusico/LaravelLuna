@@ -61,6 +61,7 @@
                 </a>
             </div>
         </div>
+
         <div class="col-md-4 mobilhide" style="padding-top: 30px;">
             <div class="gp_new_guide mobilhide" style="background-color: white;">
                 <div style="padding-top: 35px;width: 250px">
@@ -77,7 +78,7 @@
         </div>
     </div>
     <div class="container" style="background-color: white;padding-top: 20px;">
-        <div class="gaopinLotAll">
+        <div class="gaopinLotAll mobilhide">
             <div class="">
                 <a href="/lotteryIndex?lottery_type=jsold">
                     <div class="gp_route_overlay"></div>
@@ -103,7 +104,7 @@
             </div>
         </div>
     </div>
-    <div class="container" style="background-color: white;padding-top: 20px">
+    <div class="container mobilhide" style="background-color: white;padding-top: 20px">
         <div class="col-md-4 mobilhide">
             <div class="gp_lottery_result">
                 开奖时间：{{$recentArray['SDFIVE']->created_at}}
@@ -174,6 +175,156 @@
         <div class="row">
             <div class="col-md-offset-1 col-md-10" style="padding-top: 3px;background-color:#fdc124;"></div>
         </div>
+    </div>
+    <div class="container-fluid mobilShow" style="display: none">
+        <!--导航菜单 结束-->
+        <!--商品列表 开始-->
+        <div class="row gp_person" style="">
+            <div class="col-xs-3">
+                <a href="recharge">
+                    <div class="gp_mobile_recharge"></div>
+                    <span>充值</span>
+                </a>
+            </div>
+
+            <div class="col-xs-3">
+                <a href="deposit">
+                    <div class="gp_mobile_deposit"></div>
+                    <span>提款</span>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href="inviteurl">
+                    <div class="gp_mobile_proxy"></div>
+                    <span>代理</span>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href="fivelotterytrend?lottery_type=sdfive">
+                    <div class="gp_mobile_trend"></div>
+                    <span>走势</span>
+                </a>
+            </div>
+        </div>
+        <div class="row gp_person" style="padding-top: 10px;padding-bottom: 10px">
+            <div class="col-xs-3">
+                <a href="account">
+                    <div class="gp_mobile_personal"></div>
+                    <span>个人资料</span>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href="getaccountdetail">
+                    <div class="gp_mobile_pdetail"></div>
+                    <span>账户明细</span>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href="editpwd">
+                    <div class="gp_mobile_record"></div>
+                    <span>修改密码</span>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href="bank">
+                    <div class="gp_mobile_drecord"></div>
+                    <span>绑定银行卡</span>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12" style="height: 1px;background-color: #808080"></div>
+        </div>
+        <div class="row" style="padding-top: 10px">
+            <div class="col-xs-3">
+                <a href="ssclotteryIndex?lottery_type=cqssc">
+                    <div class="gp_mobile_cq"></div>
+                </a>
+            </div>
+            <div class="col-xs-3" style="padding-left: 0px;padding-right: 0px;border-right: solid #000000 1px;">
+                <a href="ssclotteryIndex?lottery_type=cqssc">
+                    <div class="gp_mobile_text"><span>重庆时时彩</span></div>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href="ssclotteryIndex?lottery_type=xjssc">
+                    <div class="gp_mobile_xj"></div>
+                </a>
+            </div>
+            <div class="col-xs-3" style="padding-left: 0px;padding-right: 0px;">
+                <a href="ssclotteryIndex?lottery_type=xjssc">
+                    <div class="gp_mobile_text"><span>新疆时时彩</span></div>
+                </a>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px">
+            <div class="col-xs-3">
+                <a href="ssclotteryIndex?lottery_type=jxssc">
+                    <div class="gp_mobile_jx"></div>
+                </a>
+            </div>
+            <div class="col-xs-3" style="padding-left: 0px;padding-right: 0px;border-right: solid #000000 1px;">
+                <a href="ssclotteryIndex?lottery_type=jxssc">
+                    <div class="gp_mobile_text"><span>江西时时彩</span></div>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href="lotteryIndex?lottery_type=jsnew">
+                    <div class="gp_mobile_xk3"></div>
+                </a>
+            </div>
+            <div class="col-xs-3" style="padding-left: 0px;padding-right: 0px;">
+                <a href="lotteryIndex?lottery_type=jsnew">
+                    <div class="gp_mobile_text"><span>新快3</span></div>
+                </a>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px">
+            <div class="col-xs-3">
+                <a href="lotteryIndex?lottery_type=jsold">
+                    <div class="gp_mobile_lk3"></div>
+                </a>
+            </div>
+            <div class="col-xs-3" style="padding-left: 0px;padding-right: 0px;border-right: solid #000000 1px;">
+                <a href="lotteryIndex?lottery_type=jsold">
+                    <div class="gp_mobile_text"><span>老快3</span></div>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href="fivelotteryIndex?lottery_type=gdfive">
+                    <div class="gp_mobile_gd"></div>
+                </a>
+            </div>
+            <div class="col-xs-3" style="padding-left: 0px;padding-right: 0px;">
+                <a href="fivelotteryIndex?lottery_type=gdfive">
+                    <div class="gp_mobile_text"><span>广东11选5</span></div>
+                </a>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 10px">
+            <div class="col-xs-3">
+                <a href="fivelotteryIndex?lottery_type=sdfive">
+                    <div class="gp_mobile_sd"></div>
+                </a>
+            </div>
+            <div class="col-xs-3" style="padding-left: 0px;padding-right: 0px;border-right: solid #000000 1px;">
+                <a href="fivelotteryIndex?lottery_type=sdfive">
+                    <div class="gp_mobile_text"><span>山东11选5</span></div>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href="6helotteryIndex">
+                    <div class="gp_mobile_lh"></div>
+                </a>
+            </div>
+            <div class="col-xs-3" style="padding-left: 0px;padding-right: 0px;">
+                <a href="6helotteryIndex">
+                    <div class="gp_mobile_text"><span>香港六合彩</span></div>
+                </a>
+            </div>
+        </div>
+        @include('User.mobilebottom')
+        <!--底部菜单 结束-->
     </div>
     <div class="container mobilhide" style="margin-top: 20px">
         <div class="col-md-offset-1 col-md-10">
