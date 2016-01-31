@@ -60,7 +60,7 @@ class LotteryK3Controller extends Controller
 //        \Cache::forever('k3baoziodds', $k3baoziodds);
         $lotterystatus = defaultCache::cache_lottery_status();
 //        return view('errors.maintance');
-        if (strtolower($request->lottery_type) == 'fjk3' || strtolower($request->lottery_type) == 'beijin') {
+        if (strtolower($request->lottery_type) == 'fjk3') {
             return view('errors.maintance');
         }
 
@@ -73,7 +73,7 @@ class LotteryK3Controller extends Controller
         $lunaFunctions = new LunaFunctions();
         $czName = $lunaFunctions->get_lottery_name($lottery_type);
         $config = $lunaFunctions->get_lottery_config($lottery_type);
-        $datas = lu_lotteries_result::where('typeName', $lottery_type)->orderby('created_at', 'desc')->take(50)->get();
+        $datas = lu_lotteries_result::where('typeName', $lottery_type)->orderby('proName', 'desc')->take(50)->get();
         return view('Lottery.lotterytrend', compact('datas', 'czName', 'config'));
     }
 
