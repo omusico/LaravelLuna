@@ -112,7 +112,7 @@ Route::get('rechargelist', 'Admin\AdminController@rechargelist');
 Route::get('manualkj', 'Admin\AdminController@manualkj');
 Route::any('manualkjPost', 'Admin\AdminController@manualkjPost');
 Route::get('cancelOrder', 'Admin\AdminController@cancelOrder');
-Route::get('cancelOrderSingle/{id}', 'Admin\AdminController@cancelOrderSingle');
+Route::get('cancelOrderSingle', 'Admin\AdminController@cancelOrderSingle');
 Route::get('deleteCancelOrder/{id}', 'Admin\AdminController@deleteCancelOrder');
 Route::post('cancelOrderPost', 'Admin\AdminController@cancelOrderPost');
 Route::get('manualreturns', 'Admin\AdminController@manualreturns');
