@@ -109,7 +109,7 @@ class AdminController extends Controller
         }
 //        $result = $result->orderby('created_at', 'desc');
         $lu_lotteries_k3s = $result->paginate(10);
-        return view('Admin.bettingList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime', 'bettingType', 'proName', 'codes', 'typeName','types'));
+        return view('Admin.bettingList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime', 'bettingType', 'proName', 'codes', 'typeName', 'types'));
     }
 
     public function winningList(Request $request)
@@ -588,7 +588,7 @@ class AdminController extends Controller
         $user_groups = CommonClass::cache("user_groups", 1);
         $user_level = CommonClass::cache("user_level", 0);
         $bank = App\lu_lottery_user::where('uid', $lu_user->id)->first();
-        return view('Admin.edit', compact('lu_user', 'user_groups', 'user_level','bank'));
+        return view('Admin.edit', compact('lu_user', 'user_groups', 'user_level', 'bank'));
 
     }
 
@@ -1364,15 +1364,26 @@ class AdminController extends Controller
     }
 
     //单一撤单
-    public function cancelOrderSingle($id)
+    public function cancelOrderSingle(Request $request)
     {
+        $id = $request->id;
+        $bettingType = $request->bettingType;
         if (env('SITE_TYPE', '') == 'five') {
-
             $lottery = App\lu_lotteries_five::find($id);
         } else if (env('SITE_TYPE', '') == '') {
-
             $lottery = App\lu_lotteries_k3::find($id);
+        } else if (env('SITE_TYPE', '') == 'gaopin') {
+            if ($bettingType == "k3") {
+                $lottery = App\lu_lotteries_k3::find($id);
+            }else if($bettingType =="five"){
+                $lottery = App\lu_lotteries_five::find($id);
+            }else if($bettingType =="ssc"){
+                $lottery = App\lu_lotteries_ssc::find($id);
+            }else if($bettingType =="6he"){
+                $lottery = App\lu_lotteries_6he::find($id);
+            }
         }
+
         if ($lottery['status'] == '-2' || $lottery['status'] == '-1') {
 
         } else {
@@ -1381,8 +1392,18 @@ class AdminController extends Controller
                 $cancelPrice = ($lottery['eachPrice'] - $lottery['bingoPrice']);
                 if (env('SITE_TYPE', '') == 'five') {
                     DB::table('lu_lottery_notes_fives')->where('proName', $lottery['proName'])->where('province', strtolower($type))->delete();
-                } else {
+                } else if (env('SITE_TYPE', '') == '') {
                     DB::table('lu_lottery_notes_k3s')->where('proName', $lottery['proName'])->where('province', strtolower($type))->delete();
+                } else if (env('SITE_TYPE', '') == 'gaopin') {
+                    if ($bettingType == "k3") {
+                        DB::table('lu_lottery_notes_k3s')->where('proName', $lottery['proName'])->where('province', strtolower($type))->delete();
+                    }else if($bettingType =="five"){
+                        DB::table('lu_lottery_notes_fives')->where('proName', $lottery['proName'])->where('province', strtolower($type))->delete();
+                    }else if($bettingType =="ssc"){
+                        DB::table('lu_lottery_notes_sscs')->where('proName', $lottery['proName'])->where('province', strtolower($type))->delete();
+                    }else if($bettingType =="6he"){
+                        DB::table('lu_lottery_notes_6hes')->where('proName', $lottery['proName'])->where('province', strtolower($type))->delete();
+                    }
                 }
 
             } else if ($lottery['noticed'] == 0) {
@@ -1412,10 +1433,20 @@ class AdminController extends Controller
             if ($lottery['groupId'] != null) {
                 if (env('SITE_TYPE', '') == 'five') {
 
-                    $zhuihaoList = App\lu_lotteries_five::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
-                } else {
+                    $zhuihaoList = App\lu_lotteries_five::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get();
+                } else if (env('SITE_TYPE', '') == '') {
 
-                    $zhuihaoList = App\lu_lotteries_k3::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get(); //$model->queryList($params);
+                    $zhuihaoList = App\lu_lotteries_k3::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get();
+                } else if (env('SITE_TYPE', '') == 'gaopin') {
+                    if ($bettingType == "k3") {
+                        $zhuihaoList = App\lu_lotteries_k3::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get();
+                    }else if($bettingType =="five"){
+                        $zhuihaoList = App\lu_lotteries_five::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get();
+                    }else if($bettingType =="ssc"){
+                        $zhuihaoList = App\lu_lotteries_ssc::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get();
+                    }else if($bettingType =="6he"){
+                        $zhuihaoList = App\lu_lotteries_6he::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get();
+                    }
                 }
                 foreach ($zhuihaoList as $hao) {
                     $userDetail = lu_user_data::where('uid', $lottery['uid'])->first();//$userModel->detail($lottery['uid']);
@@ -1625,6 +1656,12 @@ class AdminController extends Controller
         }
 
         return view('Admin.proxyList', compact('bigProxyList', 'secondProxyList', 'bigproxyid', 'secondproxyid', 'userName', 'starttime', 'endtime', 'lu_lotteries_k3s'));
+    }
+
+    public function lotterystatus()
+    {
+
+        return view('admin.lotterystatus');
     }
 
     public function sixhemanual()

@@ -29,7 +29,19 @@ class defaultCache
                     'terminalId' => '',
                     'returnurl' => 'five.kang886.cn',
                 ));
-        } else {
+        } else if(env('SITE_TYPE')=="gaopin"){
+            return array(1 =>
+                array(
+                    'typeName' => 'bf',
+                    'name' => '宝付',
+                    'url' => '',
+                    'id' => '654895',
+                    'key' => 'mgsdxzag9q9xrv94',
+                    'terminalId' => '',
+                    'returnurl' => 'pay.kaitu87.com',
+                ));
+
+        }else {
             return array(1 =>
                 array(
                     'typeName' => 'zf',

@@ -171,11 +171,13 @@
                             @if($lu_lotteries_k3->status != -2)
                                 {{--<a class="btn btn-sm btn-warning"--}}
                                 {{--href="/cancelOrderSingle/{{$lu_lotteries_k3->id}}">撤单</a>--}}
-                                <form action="{{ url('cancelOrderSingle/'.$lu_lotteries_k3->id) }}"
+                                <form action="{{ url('cancelOrderSingle') }}"
                                       style='display: inline'
                                       method="get">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                    <input type="hidden" name="id" value="{{ $lu_lotteries_k3->id }}">
+                                    <input type="hidden" name="bettingType" value="{{ $bettingType }}">
                                     <button class="btn btn-sm btn-confirm" onclick="return confirm('确定撤单?')">撤单
                                     </button>
                                 </form>
