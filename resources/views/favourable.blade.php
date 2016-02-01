@@ -32,7 +32,7 @@
         @else
             <div class="row">
                 <div class="col-md-10 col-md-offset-1" style="background-color: white;padding:0px">
-                    <img src="/css/k3fav6.jpg" alt="优惠活动" width="100%" height="100%"></div>
+                    <img src="/css/k3fav7.jpg" alt="优惠活动" width="100%" height="100%"></div>
             </div>
         @endif
     </div>
