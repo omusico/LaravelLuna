@@ -11,6 +11,7 @@ use App\lu_lottery_notes_five;
 use App\lu_user;
 use App\lu_user_data;
 use App\LunaLib\Common\CommonClass;
+use App\LunaLib\Common\configCache;
 use App\LunaLib\Common\defaultCache;
 use App\LunaLib\Common\Lottery_GetTime;
 use App\LunaLib\Common\LunaFunctions;
@@ -27,7 +28,7 @@ class LotteryFiveController extends Controller
      */
     public function index(Request $request)
     {
-        //
+
         $lunaFunctions = new LunaFunctions();
         $czName = $lunaFunctions->get_lottery_name($request->lottery_type);
         $config = $lunaFunctions->get_lottery_config($request->lottery_type);
@@ -35,10 +36,14 @@ class LotteryFiveController extends Controller
         $fiveOdds = defaultCache::cache_five_odds();
         $lotterystatus = defaultCache::cache_lottery_status();
         $lotterytypes = defaultCache::cache_five_types();
+        $fivelotterystatus = configCache::fivelotterystatus();
         if (strtolower($request->lottery_type) == 'cqfive') {
             return view('errors.maintance');
         }
         if (strtolower($request->lottery_type) == 'hljfive') {
+            return view('errors.maintance');
+        }
+        if ($fivelotterystatus[strtolower($request->lottery_type)]['status'] == '0') {
             return view('errors.maintance');
         }
         return view('Lottery.fivelotteryindex', compact('czName', 'config', 'chipins', 'fiveOdds', 'lotterystatus', 'lotterytypes'));

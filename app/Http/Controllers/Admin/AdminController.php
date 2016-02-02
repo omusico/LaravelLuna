@@ -1164,7 +1164,6 @@ class AdminController extends Controller
         $downlist = array();
 
         $point_types = CommonClass::cache_point_type();
-        $point_types = CommonClass::cache_point_type();
         foreach ($lu_points_records as $lu_points_record) {
             $lu_points_record = (array)$lu_points_record;
             $lu_points_record['addType'] = $point_types[$lu_points_record['addType']];
@@ -1199,7 +1198,6 @@ class AdminController extends Controller
         $endtime = $request->endtime;
         $addtype = $request->addtype;
         $point_types = CommonClass::cache_point_type();
-//        $result = App\lu_points_record::orderby('created_at', 'desc');
         $wheresql = ' where 1 = 1 ';
         if (!empty($userName)) {
             $wheresql .= ' and userName= "' . $userName . '"';
@@ -1224,7 +1222,6 @@ class AdminController extends Controller
 
         $lu_points_records = DB::select('select uid,userName,oldPoint,ABS(changePoint) as changePoint,newPoint,addType,created_at from lu_points_records' . $wheresql . ' order by created_at desc limit 1000');
         $downlist = array();
-        $point_types = CommonClass::cache_point_type();
         foreach ($lu_points_records as $lu_points_record) {
             $lu_points_record = (array)$lu_points_record;
             if (!empty($lu_points_record['addType'])) {
@@ -1375,11 +1372,11 @@ class AdminController extends Controller
         } else if (env('SITE_TYPE', '') == 'gaopin') {
             if ($bettingType == "k3") {
                 $lottery = App\lu_lotteries_k3::find($id);
-            }else if($bettingType =="five"){
+            } else if ($bettingType == "five") {
                 $lottery = App\lu_lotteries_five::find($id);
-            }else if($bettingType =="ssc"){
+            } else if ($bettingType == "ssc") {
                 $lottery = App\lu_lotteries_ssc::find($id);
-            }else if($bettingType =="6he"){
+            } else if ($bettingType == "6he") {
                 $lottery = App\lu_lotteries_6he::find($id);
             }
         }
@@ -1397,11 +1394,11 @@ class AdminController extends Controller
                 } else if (env('SITE_TYPE', '') == 'gaopin') {
                     if ($bettingType == "k3") {
                         DB::table('lu_lottery_notes_k3s')->where('proName', $lottery['proName'])->where('province', strtolower($type))->delete();
-                    }else if($bettingType =="five"){
+                    } else if ($bettingType == "five") {
                         DB::table('lu_lottery_notes_fives')->where('proName', $lottery['proName'])->where('province', strtolower($type))->delete();
-                    }else if($bettingType =="ssc"){
+                    } else if ($bettingType == "ssc") {
                         DB::table('lu_lottery_notes_sscs')->where('proName', $lottery['proName'])->where('province', strtolower($type))->delete();
-                    }else if($bettingType =="6he"){
+                    } else if ($bettingType == "6he") {
                         DB::table('lu_lottery_notes_6hes')->where('proName', $lottery['proName'])->where('province', strtolower($type))->delete();
                     }
                 }
@@ -1440,11 +1437,11 @@ class AdminController extends Controller
                 } else if (env('SITE_TYPE', '') == 'gaopin') {
                     if ($bettingType == "k3") {
                         $zhuihaoList = App\lu_lotteries_k3::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get();
-                    }else if($bettingType =="five"){
+                    } else if ($bettingType == "five") {
                         $zhuihaoList = App\lu_lotteries_five::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get();
-                    }else if($bettingType =="ssc"){
+                    } else if ($bettingType == "ssc") {
                         $zhuihaoList = App\lu_lotteries_ssc::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get();
-                    }else if($bettingType =="6he"){
+                    } else if ($bettingType == "6he") {
                         $zhuihaoList = App\lu_lotteries_6he::where('groupId', $lottery['groupId'])->where('province', strtolower($type))->where('status', '-1')->get();
                     }
                 }
@@ -1660,8 +1657,50 @@ class AdminController extends Controller
 
     public function lotterystatus()
     {
+        $isdelegate = App\LunaLib\Common\configCache::isdelegate();
+        if (env('SITE_TYPE', '') == "") {
+            $k3lotterystatus = App\LunaLib\Common\configCache::k3lotterystatus();
+            return view('admin.lotterystatus', compact('k3lotterystatus','isdelegate'));
+        } else if (env('SITE_TYPE', '') == "five") {
+            $fivelotterystatus = App\LunaLib\Common\configCache::fivelotterystatus();
+            return view('admin.lotterystatus', compact('fivelotterystatus','isdelegate'));
+        } else {
+            $k3lotterystatus = App\LunaLib\Common\configCache::k3lotterystatus();
+            $fivelotterystatus = App\LunaLib\Common\configCache::fivelotterystatus();
+            $ssclotterystatus = App\LunaLib\Common\configCache::ssclotterystatus();
+            return view('admin.lotterystatus', compact('k3lotterystatus', 'fivelotterystatus', 'ssclotterystatus','isdelegate'));
+        }
 
-        return view('admin.lotterystatus');
+    }
+
+    public function savelotterystatus(Request $request)
+    {
+
+        $isdelegate = $request->isdelegate;
+        Cache::forever('isdelegate', $isdelegate);
+
+        if (env('SITE_TYPE', '') == "") {
+            $k3lotterystatus = $request->k3lotterystatus;
+            Cache::forever('k3lotterystatus', $k3lotterystatus);
+            session()->flash('message', '保存成功');
+            return Redirect::back();
+        } else if (env('SITE_TYPE', '') == "five") {
+            $fivelotterystatus = $request->fivelotterystatus;
+            Cache::forever('fivelotterystatus', $fivelotterystatus);
+            session()->flash('message', '保存成功');
+            return Redirect::back();
+
+        } else {
+            $k3lotterystatus = $request->k3lotterystatus;
+            Cache::forever('k3lotterystatus', $k3lotterystatus);
+            $fivelotterystatus = $request->fivelotterystatus;
+            Cache::forever('fivelotterystatus', $fivelotterystatus);
+            $ssclotterystatus = $request->ssclotterystatus;
+            Cache::forever('ssclotterystatus', $ssclotterystatus);
+            session()->flash('message', '保存成功');
+            return Redirect::back();
+
+        }
     }
 
     public function sixhemanual()

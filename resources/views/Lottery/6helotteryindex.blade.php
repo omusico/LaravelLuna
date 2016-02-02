@@ -1791,7 +1791,7 @@
                 </div>
             </div>
             <div class="col-md-3" style="padding:0px">
-                <div class="login_weizhi">
+                <div class="login_weizhi mobilhide">
                     <div id="QuickBar"
                          style="padding-top: 100px;width: auto; min-height: 98px; max-height: none; height: auto;">
                         <div>
@@ -1856,8 +1856,6 @@
                                     <tr>
                                         <td width="60">期数</td>
                                         <td width="120">奖号</td>
-                                        <!-- 										<td width="80">和值</td>
-                                        <td width="80">形态</td>-->
                                     </tr>
                                     </thead>
                                     <tbody id="awardNumBody">
@@ -1875,7 +1873,6 @@
 @stop
 
 @section('script')
-    {{--<script type="text/javascript" src="/js/jquery-1.8.3.min.js" defer="defer"></script>--}}
     <script type="text/javascript" src="/js/common.js"></script>
     {{--<script type="text/javascript" src="/js/layer.min.js"></script>--}}
     {{--<script type="text/javascript" src="/js/showdiog.js"></script>--}}

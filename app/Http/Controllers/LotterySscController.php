@@ -8,6 +8,7 @@ use App\lu_points_record;
 use App\lu_user;
 use App\lu_user_data;
 use App\LunaLib\Common\CommonClass;
+use App\LunaLib\Common\configCache;
 use App\LunaLib\Common\defaultCache;
 use App\LunaLib\Common\LunaFunctions;
 use Illuminate\Http\Request;
@@ -30,9 +31,10 @@ class LotterySscController extends Controller {
         $lotterystatus = defaultCache::cache_lottery_status();
         $lotterytypes = defaultCache::cache_ssc_first_types();
         $lotterysecondtypes = defaultCache::cache_ssc_types();
-//        if (strtolower($request->lottery_type) == 'xjssc') {
-//            return view('errors.maintance');
-//        }
+        $ssclotterystatus = configCache::ssclotterystatus();
+        if ($ssclotterystatus[strtolower($request->lottery_type)]['status'] == '0') {
+            return view('errors.maintance');
+        }
         return view('Lottery.ssclotteryindex', compact('czName', 'config', 'chipins', 'sscOdds', 'lotterystatus','lotterytypes','lotterysecondtypes'));
 	}
 

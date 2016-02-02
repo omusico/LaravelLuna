@@ -19,11 +19,6 @@
                         <div class="form-group">
                             <label class="control-label col-md-1">赔率</label>
 
-                            {{--<div class="col-md-1" style="padding: 0px">--}}
-                            {{--<input class="form-control" required="required"--}}
-                            {{--name="odds[{{$key}}][value]"--}}
-                            {{--type="text" value="{{$value['value']}}">--}}
-                            {{--</div>--}}
                             @foreach($value as $k=>$v)
                                 @if($k!='value')
                                     <div class="col-md-1" style="padding: 0px;">
@@ -37,22 +32,6 @@
                                 @endif
                             @endforeach
                         </div>
-                        {{--<div class="form-group">--}}
-                        {{--<label class="control-label col-md-2">最低单期下注</label>--}}
-
-                        {{--<div class="col-md-1" style="padding: 0px">--}}
-                        {{--<input class="form-control" required="required"--}}
-                        {{--name="chipins[{{$key}}][low]"--}}
-                        {{--value="{{$chipins[$key]['low']}}">--}}
-                        {{--</div>--}}
-                        {{--<label class="control-label col-md-2">最高单期下注</label>--}}
-
-                        {{--<div class="col-md-1" style="padding: 0px">--}}
-                        {{--<input class="form-control" required="required"--}}
-                        {{--name="chipins[{{$key}}][hight]"--}}
-                        {{--value="{{$chipins[$key]['hight']}}">--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
                     @endforeach
                     <div class="form-group col-md-5 col-md-offset-4">
                         {!! Form::submit('修改', ['class' => 'btn btn-success form-control col-md-offset-4']) !!}

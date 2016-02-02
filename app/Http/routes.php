@@ -86,6 +86,8 @@ Route::get('sixheodds', 'Admin\AdminController@sixheodds');
 Route::post('savesixheodds', 'Admin\AdminController@savesixheodds');
 Route::get('sscodds', 'Admin\AdminController@sscodds');
 Route::post('savesscodds', 'Admin\AdminController@savesscodds');
+Route::get('lotterystatus', 'Admin\AdminController@lotterystatus');
+Route::post('savelotterystatus', 'Admin\AdminController@savelotterystatus');
 Route::get('news', 'Admin\AdminController@news');
 Route::post('savenews', 'Admin\AdminController@savenews');
 Route::get('favor', 'Admin\AdminController@favor');

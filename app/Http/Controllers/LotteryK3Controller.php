@@ -10,6 +10,7 @@ use App\lu_points_record;
 use App\lu_user;
 use App\lu_user_data;
 use App\LunaLib\Common\CommonClass;
+use App\LunaLib\Common\configCache;
 use App\LunaLib\Common\defaultCache;
 use App\LunaLib\Common\Lottery_GetTime;
 use App\LunaLib\Common\LunaFunctions;
@@ -35,32 +36,12 @@ class LotteryK3Controller extends Controller
         $chipins = defaultCache::cache_chipin();
         $k3Odds = defaultCache::cache_k3_odds();
         $k3baoziodds = defaultCache::cache_k3_baozi_odds();
-//        \DB::select("select * from ")
-//        $datas = lu_lotteries_result::where('typeName', $lottery_type)->where("codes")->orderby('created_at', 'desc')->take(50)->get();
-//        $hasbaozi = \DB::select("select * from (select * from lu_lotteries_results  where typeName='" . $lottery_type . "' order by created_at desc limit 100) t where codes ='1,1,1' or codes ='2,2,2' or codes ='3,3,3' or codes='4,4,4' or codes ='5,5,5' or codes ='6,6,6'");
-//        if (count($hasbaozi) == 0) {
-//            $k3Odds["3THDX"]["value"] = 120;
-//            $k3Odds["3THDX"]["111"] = 120;
-//            $k3Odds["3THDX"]["222"] = 120;
-//            $k3Odds["3THDX"]["333"] = 120;
-//            $k3Odds["3THDX"]["444"] = 120;
-//            $k3Odds["3THDX"]["555"] = 120;
-//            $k3Odds["3THDX"]["666"] = 120;
-//            $k3baoziodds[strtolower($lottery_type)] = "120";
-//        } else {
-//            $k3Odds["3THDX"]["value"] = 180;
-//            $k3Odds["3THDX"]["111"] = 180;
-//            $k3Odds["3THDX"]["222"] = 180;
-//            $k3Odds["3THDX"]["333"] = 180;
-//            $k3Odds["3THDX"]["444"] = 180;
-//            $k3Odds["3THDX"]["555"] = 180;
-//            $k3Odds["3THDX"]["666"] = 180;
-//            $k3baoziodds[strtolower($lottery_type)] = "180";
-//        }
-//        \Cache::forever('k3baoziodds', $k3baoziodds);
         $lotterystatus = defaultCache::cache_lottery_status();
-//        return view('errors.maintance');
+        $k3lotterystatus = configCache::k3lotterystatus();
         if (strtolower($request->lottery_type) == 'fjk3') {
+            return view('errors.maintance');
+        }
+        if ($k3lotterystatus[strtolower($request->lottery_type)]['status'] == '0') {
             return view('errors.maintance');
         }
 

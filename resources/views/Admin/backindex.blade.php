@@ -143,6 +143,9 @@
                         </li>
                     @endif
                     <li>
+                        <a onclick="$.addTopTab('#tabXG','彩票状态','彩票状态','/lotterystatus')">彩票状态</a>
+                    </li>
+                    <li>
                         <a onclick="$.addTopTab('#tabXG','手动开奖','手动开奖','/manualkj')">手动开奖</a>
                     </li>
                     <li>

@@ -366,8 +366,7 @@ class LunaFunctions
 //            $currentPeriod = date('Ymd') . "-001";
             $leftTime = ($begin - $now - $fdTime) + $periodTime;
             $formatLeftTime = floor($leftTime / 3600) . ':' . (floor(($leftTime % 3600) / 60)) . ':' . (floor(($leftTime % 3600) % 60));
-        }
-        else{
+        } else {
             $pre = $num;
             $preDate = strtotime("-1 day");
             $prePeriod = date('Ymd', $preDate) . '-0' . $num;
@@ -1112,5 +1111,60 @@ class LunaFunctions
         }
 
         return $sixhetypeId;
+    }
+
+    function batchdelegatelotterystatus($lotteryarray, $type)
+    {
+        $isdelegate = configCache::isdelegate();
+        if ($isdelegate['isdelegate'] == 1) {
+            if ($type == "five") {
+                $lotterystatus = configCache::fivelotterystatus();
+            } elseif ($type == "k3") {
+                $lotterystatus = configCache::k3lotterystatus();
+            } elseif ($type == "ssc") {
+                $lotterystatus = configCache::ssclotterystatus();
+            } else {
+                return;
+            }
+
+
+            foreach ($lotteryarray as $value) {
+//                $last = configCache::getlastproName($value);
+                $last = lu_lotteries_result::where('typeName', strtoupper($value))->orderBy('proName', 'desc')->first();
+                $lastproName = $last->proName;
+                $lastarray = explode("-", $lastproName);
+                $currentproName = $this->get_current_period($value)['currentPeriod'];
+                $currentarray = explode("-", $currentproName);
+                if($value =="beijin")
+                {
+                    if ($currentarray[0] - $lastarray[0] >= $isdelegate['num']) {
+                        $lotterystatus[$value]['status'] = '0';
+                    } else {
+                        $lotterystatus[$value]['status'] = '1';
+                    }
+                }else{
+                    if ($lastarray[0] == $currentarray[0]) {
+                        if ($currentarray[1] - $lastarray[1] > $isdelegate['num']) {
+                            $lotterystatus[$value]['status'] = '0';
+                        } else {
+                            $lotterystatus[$value]['status'] = '1';
+                        }
+                    } else {
+                        $lotterystatus[$value]['status'] = '0';
+                    }
+                }
+
+            }
+            if ($type == "five") {
+                \Cache::forever('fivelotterystatus', $lotterystatus);
+            } elseif ($type == "k3") {
+                \Cache::forever('k3lotterystatus', $lotterystatus);
+            } elseif ($type == "ssc") {
+                \Cache::forever('ssclotterystatus', $lotterystatus);
+            } else {
+                return;
+            }
+        }
+
     }
 }
