@@ -1237,6 +1237,19 @@ class defaultCache
                             'kjTime' => 150,
                             'fdTime' => 120,
                         ),
+                    'icaile' =>
+                        array (
+                            'url' => 'http://www.1816cp.cn/index.php/Syxw/index/type/shsyxw',
+                            'kjTime' => 150,
+                            'fdTime' => 120,
+                            'status' => '1',
+                            'priority' => 2,
+                            'rule' =>
+                                array (
+                                    'preTerm' => '<tbody id="awardNumBody"><tr data-period="(.*?)">',
+                                    'preOpenResult' => '<td align="center"><span class="c_red">(.*?),(.*?),(.*?),(.*?),(.*?)</span></td>',
+                                ),
+                        ),
                 ),
             'hljfive' =>
                 array(
