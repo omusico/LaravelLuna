@@ -1660,15 +1660,15 @@ class AdminController extends Controller
         $isdelegate = App\LunaLib\Common\configCache::isdelegate();
         if (env('SITE_TYPE', '') == "") {
             $k3lotterystatus = App\LunaLib\Common\configCache::k3lotterystatus();
-            return view('admin.lotterystatus', compact('k3lotterystatus','isdelegate'));
+            return view('Admin.lotterystatus', compact('k3lotterystatus','isdelegate'));
         } else if (env('SITE_TYPE', '') == "five") {
             $fivelotterystatus = App\LunaLib\Common\configCache::fivelotterystatus();
-            return view('admin.lotterystatus', compact('fivelotterystatus','isdelegate'));
+            return view('Admin.lotterystatus', compact('fivelotterystatus','isdelegate'));
         } else {
             $k3lotterystatus = App\LunaLib\Common\configCache::k3lotterystatus();
             $fivelotterystatus = App\LunaLib\Common\configCache::fivelotterystatus();
             $ssclotterystatus = App\LunaLib\Common\configCache::ssclotterystatus();
-            return view('admin.lotterystatus', compact('k3lotterystatus', 'fivelotterystatus', 'ssclotterystatus','isdelegate'));
+            return view('Admin.lotterystatus', compact('k3lotterystatus', 'fivelotterystatus', 'ssclotterystatus','isdelegate'));
         }
 
     }
