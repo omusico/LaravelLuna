@@ -123,6 +123,7 @@ class registerController extends Controller
                 $lu_user->phone = $request->phone;
                 $lu_user->recId = $invite_user->id;
                 $lu_user->recUser = $invite_user->name;
+                $lu_user->level = '1';
                 $lu_user->invite = rand(10000, 99999);
                 $lu_user->save();
                 $lu_user_data = new lu_user_data();
