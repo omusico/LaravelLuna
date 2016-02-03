@@ -79,7 +79,7 @@
                             <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
                             <td>{{ $lu_lotteries_k3->profit }}</td>
                             <td>{{ $lu_lotteries_k3->bcount }}</td>
-                            <td>{{ $oint }}</td>
+                            <td>{{ $point }}</td>
                             <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->loginIp }}</td>
                         </tr>
                     @endif
