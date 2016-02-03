@@ -61,24 +61,27 @@
             <?php
             $sumeach = 0;
             $sumbingo = 0;
+            $sumleft = 0;
             ?>
             @if (count($lu_lotteries_k3s))
                 @foreach ($lu_lotteries_k3s as $lu_lotteries_k3)
                     @if(\App\lu_user::find($lu_lotteries_k3->uid)->groupId <> 7)
-                    <?php
-                    $sumeach += $lu_lotteries_k3->eachPrice;
-                    $sumbingo += $lu_lotteries_k3->bingoPrice;
-                    ?>
-                    <tr>
-                        {{--                                <td>{{ $lu_lotteries_k3->uid }}</td>--}}
-                        <td>{{ $lu_lotteries_k3->userName }}</td>
-                        <td>{{ $lu_lotteries_k3->eachPrice }}</td>
-                        <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
-                        <td>{{ $lu_lotteries_k3->profit }}</td>
-                        <td>{{ $lu_lotteries_k3->bcount }}</td>
-                        <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->points }}</td>
-                        <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->loginIp }}</td>
-                    </tr>
+                        <?php
+                        $point = \App\lu_user_data::where('uid', $lu_lotteries_k3->uid)->first()->points;
+                        $sumleft += $point;
+                        $sumeach += $lu_lotteries_k3->eachPrice;
+                        $sumbingo += $lu_lotteries_k3->bingoPrice;
+                        ?>
+                        <tr>
+                            {{--                                <td>{{ $lu_lotteries_k3->uid }}</td>--}}
+                            <td>{{ $lu_lotteries_k3->userName }}</td>
+                            <td>{{ $lu_lotteries_k3->eachPrice }}</td>
+                            <td>{{ $lu_lotteries_k3->bingoPrice }}</td>
+                            <td>{{ $lu_lotteries_k3->profit }}</td>
+                            <td>{{ $lu_lotteries_k3->bcount }}</td>
+                            <td>{{ $oint }}</td>
+                            <td>{{ \App\lu_user_data::where('uid',$lu_lotteries_k3->uid)->first()->loginIp }}</td>
+                        </tr>
                     @endif
                 @endforeach
             @else
@@ -88,7 +91,7 @@
         <div>
             <a>投注总金额：<span style="color: red">{{$sumeach}}</span> 中奖金额：<span
                         style="color: red"> {{$sumbingo}}</span>盈利金额：<span
-                        style="color: red"> {{$sumeach -$sumbingo}}</span></a>
+                        style="color: red"> {{$sumeach -$sumbingo}}</span>剩余金额：<span style="color: #ff0000">{{$sumleft}}</span></a>
         </div>
         {{--{{$lu_lotteries_k3->appends($input)->links()}}--}}
 
@@ -133,6 +136,7 @@
         function Search() {
             url = "bettingcountList?userName=" + $("#userName").val() + "&starttime=" + $("#starttime").val() + "&endtime=" + $("#endtime").val();
             window.location.href = url;
-        };
+        }
+        ;
     </script>
 @stop
