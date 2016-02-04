@@ -66,6 +66,7 @@ Route::post('savesixhemanual', 'Admin\AdminController@savesixhemanual');
 Route::get('proxyList', 'Admin\AdminController@proxyList');
 Route::get('winningList', 'Admin\AdminController@winningList');
 Route::get('bettingcountList', 'Admin\AdminController@bettingcountList');
+Route::get('sixhebettingcountList', 'Admin\AdminController@sixhebettingcountList');
 Route::get('moneycount', 'Admin\AdminController@moneycount');
 Route::get('applycount', 'Admin\AdminController@applycount');
 Route::get('downloadmoneys', 'Admin\AdminController@downloadmoneys');

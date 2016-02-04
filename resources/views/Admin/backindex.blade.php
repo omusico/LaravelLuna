@@ -45,6 +45,11 @@
             <li>
                 <span>会员管理</span>
                 <ul>
+                    @if(env('SITE_TYPE','')=='gaopin')
+                        <li>
+                            <a onclick="$.addTopTab('#tabXG','六合彩统计','六合彩统计','/sixhebettingcountList')"><span>六合彩统计</span></a>
+                        </li>
+                    @endif
                     <li>
                         <a onclick="$.addTopTab('#tabXG','会员列表','会员列表','/admin')"><span>会员列表</span></a>
                     </li>

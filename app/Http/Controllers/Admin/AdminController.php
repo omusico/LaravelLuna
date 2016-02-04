@@ -190,13 +190,40 @@ class AdminController extends Controller
                 '( select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s  ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_k3s  ' . $wheresql . 'and noticed=1 group  by uid) bingo on betting.uid = bingo.uid' .
                 ' union select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_fives  ' . $wheresql . ' group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_fives  ' . $wheresql . 'and noticed=1 group  by uid) bingo on betting.uid = bingo.uid' .
                 ' union select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_sscs  ' . $wheresql . ' group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_sscs  ' . $wheresql . 'and noticed=1 group  by uid) bingo on betting.uid = bingo.uid' .
-                ' union select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(eachPrice) as eachPrice,count(eachPrice) as bcount from lu_lotteries_6hes  ' . $wheresql . ' group  by uid) betting left join (select uid,userName,sum(bingoPrice) as bingoPrice from lu_lotteries_6hes  ' . $wheresql . 'and noticed=1 group  by uid) bingo on betting.uid = bingo.uid) t group by t.uid');
+                ' ) t group by t.uid');
         } else {
             $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(ABS(eachPrice)) as eachPrice,count(eachPrice) as bcount from lu_lotteries_k3s ' . $wheresql . ' and (noticed =1 || status <> -1) group  by uid) betting left join (select uid,userName,sum(ABS(bingoPrice)) as bingoPrice from lu_lotteries_k3s ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
         }
 
 //        $moneycounts = \DB::select('select t.* from (select uid,userName,count(*) as count,sum(amounts) as amounts from lu_lottery_recharges' . $wheresql . ' group by uid) t left join lu_users on t.uid =lu_users.id where lu_users.groupId <> 7');
         return view('Admin.bettingcountList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime'));
+    }
+
+    public function sixhebettingcountList(Request $request)
+    {
+        $userName = $request->userName;
+        $starttime = $request->starttime;
+        $endtime = $request->endtime;
+
+
+        $wheresql = ' where dealing=1 and status <> -2 ';
+        if (!empty($userName)) {
+            $wheresql .= ' and userName= "' . $userName . '"';
+        }
+        if (empty($starttime) && empty($endtime)) {
+            $wheresql .= ' and left(created_at,10) ="' . date('Y-m-d') . '"';
+        }
+        if (!empty($starttime)) {
+            $starttime = substr($starttime, 0, 10);
+            $wheresql .= ' and created_at >="' . $starttime . '"';
+        }
+        if (!empty($endtime)) {
+            $endtime = substr($endtime, 0, 10);
+            $wheresql .= ' and created_at <="' . $endtime . '"';
+        }
+        $lu_lotteries_k3s = \DB::select('select betting.uid,betting.userName,betting.bcount,betting.eachPrice,bingo.bingoPrice,(betting.eachPrice - bingo.bingoPrice) as profit  from (select uid,userName,sum(ABS(eachPrice)) as eachPrice,count(eachPrice) as bcount from lu_lotteries_6hes ' . $wheresql . '  group  by uid) betting left join (select uid,userName,sum(ABS(bingoPrice)) as bingoPrice from lu_lotteries_6hes ' . $wheresql . ' and noticed=1 group  by uid) bingo on betting.uid = bingo.uid');
+
+        return view('Admin.sixhebettingcountList', compact('lu_lotteries_k3s', 'userName', 'starttime', 'endtime'));
     }
 
     public function moneycount(Request $request)
@@ -1660,15 +1687,15 @@ class AdminController extends Controller
         $isdelegate = App\LunaLib\Common\configCache::isdelegate();
         if (env('SITE_TYPE', '') == "") {
             $k3lotterystatus = App\LunaLib\Common\configCache::k3lotterystatus();
-            return view('Admin.lotterystatus', compact('k3lotterystatus','isdelegate'));
+            return view('Admin.lotterystatus', compact('k3lotterystatus', 'isdelegate'));
         } else if (env('SITE_TYPE', '') == "five") {
             $fivelotterystatus = App\LunaLib\Common\configCache::fivelotterystatus();
-            return view('Admin.lotterystatus', compact('fivelotterystatus','isdelegate'));
+            return view('Admin.lotterystatus', compact('fivelotterystatus', 'isdelegate'));
         } else {
             $k3lotterystatus = App\LunaLib\Common\configCache::k3lotterystatus();
             $fivelotterystatus = App\LunaLib\Common\configCache::fivelotterystatus();
             $ssclotterystatus = App\LunaLib\Common\configCache::ssclotterystatus();
-            return view('Admin.lotterystatus', compact('k3lotterystatus', 'fivelotterystatus', 'ssclotterystatus','isdelegate'));
+            return view('Admin.lotterystatus', compact('k3lotterystatus', 'fivelotterystatus', 'ssclotterystatus', 'isdelegate'));
         }
 
     }
