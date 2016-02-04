@@ -195,8 +195,10 @@ class SixheLottery_Result
         $postion = stripos($codeArr, $codes);
 
         // 必须都不相同
-        if ($postion >= 0 && $postion < 17) {
-            $handle = true;
+        if ($postion) {
+            if ($postion >= 0 && $postion < 17) {
+                $handle = true;
+            }
         }
 //        if ($handle == false) {
 //            $handle = $this->specialOpera($codeArr[1], $codes);
