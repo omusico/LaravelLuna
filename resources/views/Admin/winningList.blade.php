@@ -62,6 +62,7 @@
                 <td>订单</td>
                 <td>姓名</td>
                 <td>期号</td>
+                <td>类型</td>
                 <td>号码</td>
                 <td>投注金额</td>
                 <td>中奖金额</td>
@@ -71,6 +72,9 @@
                 <td>更改时间</td>
                 <td>操作</td>
             </tr>
+            <?php
+            $lunaFunctions = new \App\LunaLib\Common\LunaFunctions();
+            ?>
             @if (count($lu_lotteries_k3s))
                 @foreach ($lu_lotteries_k3s as $lu_lotteries_k3)
                     <tr>
@@ -78,6 +82,11 @@
                         <td>{{ $lu_lotteries_k3->sn }}</td>
                         <td>{{ $lu_lotteries_k3->userName }}</td>
                         <td>{{ $lu_lotteries_k3->proName }}</td>
+                        @if($bettingType=="6he")
+                            <td>{{$types[$lunaFunctions->return6hetype($lu_lotteries_k3->typeId)]['name']}}</td>
+                        @else
+                            <td>{{$types[$lu_lotteries_k3->typeId]['name']}}</td>
+                        @endif
                         <td>{{ $lu_lotteries_k3->codes }}</td>
                         <td>{{ $lu_lotteries_k3->eachPrice }}</td>
                         <td>{{ $lu_lotteries_k3->bingoPrice }}</td>

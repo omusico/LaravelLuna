@@ -33,7 +33,7 @@
                     <td>中奖金额</td>
                     <td>开奖号码</td>
                     <td>状态</td>
-                    <td class="mobilhide">投注时间</td>
+                    <td>投注时间</td>
                 </tr>
                 <?php
                 $lunaFunctions = new \App\LunaLib\Common\LunaFunctions();
@@ -71,7 +71,7 @@
                                     等待开奖
                                 @endif
                             </td>
-                            <td class="mobilhide">{{ $lu_lotteries_k3->created_at }}</td>
+                            <td>{{ $lu_lotteries_k3->created_at }}</td>
                         </tr>
                     @endforeach
                 @else
