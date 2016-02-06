@@ -38,14 +38,16 @@ class LotteryK3Controller extends Controller
         $k3baoziodds = defaultCache::cache_k3_baozi_odds();
         $lotterystatus = defaultCache::cache_lottery_status();
         $k3lotterystatus = configCache::k3lotterystatus();
+        $ismaintance = 0;
         if (strtolower($request->lottery_type) == 'fjk3') {
             return view('errors.maintance');
         }
         if ($k3lotterystatus[strtolower($request->lottery_type)]['status'] == '0') {
-            return view('errors.maintance');
+//            return view('errors.maintance');
+            $ismaintance = 1;
         }
 
-        return view('Lottery.lotteryindex', compact('czName','lottery_type', 'k3baoziodds', 'config', 'chipins', 'k3Odds', 'lotterystatus'));
+        return view('Lottery.lotteryindex', compact('czName','lottery_type', 'k3baoziodds', 'config', 'chipins', 'k3Odds', 'lotterystatus','ismaintance'));
     }
 
     public function trend(Request $request)

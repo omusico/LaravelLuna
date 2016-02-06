@@ -241,9 +241,9 @@
                                             {{$i += 1}}
                                         @endforeach
                                         {{--@foreach($k3baoziodds[$lottery_type] as $key => $value)--}}
-                                            {{--<li class="OneNum">--}}
-                                                {{--赔率：<span id="3THDX_getodds{{str_replace(",","",$key)}}" >{{$value}}</span>--}}
-                                            {{--</li>--}}
+                                        {{--<li class="OneNum">--}}
+                                        {{--赔率：<span id="3THDX_getodds{{str_replace(",","",$key)}}" >{{$value}}</span>--}}
+                                        {{--</li>--}}
                                         {{--@endforeach--}}
                                     </ul>
                                 </div>
@@ -489,58 +489,62 @@
                             </div>
                         </div>
                     </div>
-                    <div style="display:block">
-                        <div>
+                    @if($ismaintance == 1)
+                        <div style="margin-top:20px;display:block;background: url('{{asset('/css/mainyear.png')}}') no-repeat;height: 354px;">
+                        </div>
+                    @else
+                        <div style="display:block">
+                            <div>
+                                <div class="blank10"></div>
+                            </div>
                             <div class="blank10"></div>
-                        </div>
-                        <div class="blank10"></div>
-                        <div class="choose_list_box">
-                            <div class="chose_list">
-                                <dl class="choose_list">
-                                    <dd>选项[最多200项]</dd>
-                                </dl>
-                                <ul class="has_add_ball" id="has_add_ball">
-                                </ul>
+                            <div class="choose_list_box">
+                                <div class="chose_list">
+                                    <dl class="choose_list">
+                                        <dd>选项[最多200项]</dd>
+                                    </dl>
+                                    <ul class="has_add_ball" id="has_add_ball">
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="select_line" style="display: none">
-                            <div class="diyBox" style="display: none;">
-                                <span>倍投：</span> <span class="more_tool"><i class="minus"
-                                                                            id="curAmountSub">-</i> <input value="1"
-                                                                                                           id="curAmount"
-                                                                                                           class="input1"
-                                                                                                           onkeyup="this.value=this.value.replace(/\D/g,'')"
-                                                                                                           onafterpaste="this.value=this.value.replace(/\D/g,'')"
-                                                                                                           maxlength="8"
-                                                                                                           type="text"/> <i
-                                            id="curAmountAdd"
-                                            class="add">+</i> </span>元 <span style="display: none;">倍(最多999倍)共<e
-                                            class="c_727171"><strong class="c_ba2636">0</strong>注 <strong
-                                                class="c_ba2636">0</strong>元
-                                    </e>
+                            <div class="select_line" style="display: none">
+                                <div class="diyBox" style="display: none;">
+                                    <span>倍投：</span> <span class="more_tool"><i class="minus"
+                                                                                id="curAmountSub">-</i> <input value="1"
+                                                                                                               id="curAmount"
+                                                                                                               class="input1"
+                                                                                                               onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                                                                               onafterpaste="this.value=this.value.replace(/\D/g,'')"
+                                                                                                               maxlength="8"
+                                                                                                               type="text"/> <i
+                                                id="curAmountAdd"
+                                                class="add">+</i> </span>元 <span style="display: none;">倍(最多999倍)共<e
+                                                class="c_727171"><strong class="c_ba2636">0</strong>注 <strong
+                                                    class="c_ba2636">0</strong>元
+                                        </e>
 														</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="step_box step_buy" style="display: block">
-                            <div class="step_main">
-                                <div class="step_main_in">
-                                    <div class="mode">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        购买方式： <input name="buyType" type="radio" value='daigou'
-                                                     checked="checked" id='daigou'/><label>代购</label> <input
-                                                name="buyType" type="radio" value='zhuihao'
-                                                id='buyTypeZh'/><label>追号</label>
-                                    </div>
-                                    <div class="expand" style="display: none;">
-                                        <!--追号开始-->
-                                        <div style="display: inline-block;" class="zhuihao"
-                                             id="chaseSelect">
-                                            <div class="zhuiTop">
-                                                <label> <input id="chaseStopCondition" value="0" checked="checked"
-                                                               type="checkbox"/></label> <span
-                                                        id="continueChaseSpan" style="display: none;"> <label
-                                                            for="chaseStopCondition"> 中奖后停止追号</label></span> <span
-                                                        id="Span2"> <label for="chaseStopCondition"> 中奖</label>
+                            <div class="step_box step_buy" style="display: block">
+                                <div class="step_main">
+                                    <div class="step_main_in">
+                                        <div class="mode">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            购买方式： <input name="buyType" type="radio" value='daigou'
+                                                         checked="checked" id='daigou'/><label>代购</label> <input
+                                                    name="buyType" type="radio" value='zhuihao'
+                                                    id='buyTypeZh'/><label>追号</label>
+                                        </div>
+                                        <div class="expand" style="display: none;">
+                                            <!--追号开始-->
+                                            <div style="display: inline-block;" class="zhuihao"
+                                                 id="chaseSelect">
+                                                <div class="zhuiTop">
+                                                    <label> <input id="chaseStopCondition" value="0" checked="checked"
+                                                                   type="checkbox"/></label> <span
+                                                            id="continueChaseSpan" style="display: none;"> <label
+                                                                for="chaseStopCondition"> 中奖后停止追号</label></span> <span
+                                                            id="Span2"> <label for="chaseStopCondition"> 中奖</label>
 																			<select id="bingoPrize" name="bingoPrize">
                                                                                 <option value="1">1</option>
                                                                                 <option value="2">2</option>
@@ -548,53 +552,54 @@
                                                                                 <option value="4">4</option>
                                                                                 <option value="5">5</option>
                                                                             </select> <label>次停止追号。</label></span><label>
-                                                    选择所追期数：</label><select
-                                                        id="chaseCountSelect" name="chaseCountSelect">
-                                                    <option value="5">==追5期==</option>
-                                                    <option value="10">==追10期==</option>
-                                                    <option value="15">==追15期==</option>
-                                                    <option value="20">==追20期==</option>
-                                                    <option value="25">==追25期==</option>
-                                                    <option value="30">==追30期==</option>
-                                                    <option value="35">==追35期==</option>
-                                                    <option value="40">==追40期==</option>
-                                                    <option value="45">==追45期==</option>
-                                                    <option value="50">==追50期==</option>
-                                                </select> <label for="allSelect"> <input
-                                                            checked="checked" id="allSelect" value="全选"
-                                                            type="checkbox"/>全选
-                                                </label>
+                                                        选择所追期数：</label><select
+                                                            id="chaseCountSelect" name="chaseCountSelect">
+                                                        <option value="5">==追5期==</option>
+                                                        <option value="10">==追10期==</option>
+                                                        <option value="15">==追15期==</option>
+                                                        <option value="20">==追20期==</option>
+                                                        <option value="25">==追25期==</option>
+                                                        <option value="30">==追30期==</option>
+                                                        <option value="35">==追35期==</option>
+                                                        <option value="40">==追40期==</option>
+                                                        <option value="45">==追45期==</option>
+                                                        <option value="50">==追50期==</option>
+                                                    </select> <label for="allSelect"> <input
+                                                                checked="checked" id="allSelect" value="全选"
+                                                                type="checkbox"/>全选
+                                                    </label>
+                                                </div>
+                                                <div id="chaseTermSubShow" class="chaseNum">
+                                                    <table>
+                                                        <thead>
+                                                        <tr>
+                                                            <td width="50">序号</td>
+                                                            <td width="150">期数</td>
+                                                            <td width="120">类型</td>
+                                                            <td width="65">投注金额</td>
+                                                            <td width="120">累计金额(元)</td>
+                                                            <td width="120">盈利(元)</td>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="zhuihaoBody">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
-                                            <div id="chaseTermSubShow" class="chaseNum">
-                                                <table>
-                                                    <thead>
-                                                    <tr>
-                                                        <td width="50">序号</td>
-                                                        <td width="150">期数</td>
-                                                        <td width="120">类型</td>
-                                                        <td width="65">投注金额</td>
-                                                        <td width="120">累计金额(元)</td>
-                                                        <td width="120">盈利(元)</td>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody id="zhuihaoBody">
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                            <!--追号结束-->
                                         </div>
-                                        <!--追号结束-->
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="donecommit clear">
-                            <input id="playType" value="HZ" type="hidden"/> <input
-                                    id="gameName" value="和值" type="hidden"/> <input
-                                    id="totalVals" value="0" type="hidden"/>
-                            <a class="btn-lg btn-danger" href="#" onclick="BET.submit();return false">投注</a>
+                            <div class="donecommit clear">
+                                <input id="playType" value="HZ" type="hidden"/> <input
+                                        id="gameName" value="和值" type="hidden"/> <input
+                                        id="totalVals" value="0" type="hidden"/>
+                                <a class="btn-lg btn-danger" href="#" onclick="BET.submit();return false">投注</a>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </main>
                 <aside class="col-md-4">
                     <div class="login_weizhi">
