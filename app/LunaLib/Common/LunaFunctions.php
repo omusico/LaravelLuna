@@ -106,8 +106,8 @@ class LunaFunctions
     public function get_bj_period($fdTime)
     {
         $baseData = array(
-            'baseTime' => 1424826600, // 0206  9:10	echo mktime(9,10,0,2,6,2015);
-            'baseNum' => 6673);
+            'baseTime' => 1455412200, // 0206  9:10	echo mktime(9,10,0,2,6,2015);
+            'baseNum' => 37556);
         $day = ceil((time() - $baseData['baseTime']) / 86400) - 1;
 
         $currentTime = time() + $fdTime;

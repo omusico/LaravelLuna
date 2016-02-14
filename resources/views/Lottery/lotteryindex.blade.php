@@ -490,7 +490,7 @@
                         </div>
                     </div>
                     @if($ismaintance == 1)
-                        <div style="margin-top:20px;display:block;background: url('{{asset('/css/mainyear.png')}}') no-repeat;height: 354px;">
+                        <div style="margin-top:20px;display:block;background: url('{{asset('/css/maintaince.png')}}') no-repeat;height: 354px;">
                         </div>
                     @else
                         <div style="display:block">
