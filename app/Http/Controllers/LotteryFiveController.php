@@ -43,10 +43,12 @@ class LotteryFiveController extends Controller
         if (strtolower($request->lottery_type) == 'hljfive') {
             return view('errors.maintance');
         }
+        $ismaintance = 0;
         if ($fivelotterystatus[strtolower($request->lottery_type)]['status'] == '0') {
-            return view('errors.maintance');
+//            return view('errors.maintance');
+            $ismaintance = 1;
         }
-        return view('Lottery.fivelotteryindex', compact('czName', 'config', 'chipins', 'fiveOdds', 'lotterystatus', 'lotterytypes'));
+        return view('Lottery.fivelotteryindex', compact('czName', 'config', 'chipins', 'fiveOdds', 'lotterystatus', 'lotterytypes','ismaintance'));
     }
 
     public function fiveGameRule()
