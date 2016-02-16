@@ -85,7 +85,7 @@
         var lottery_type = '6he';
         {{--var num ={{$lotterystatus[$config['lotterytype']]['num']}};--}}
         tbmplus = {{$sixhe['plus']}};
-        XiaoNums = "[{&#39;xiao&#39;:&#39;鼠&#39;,&#39;nums&#39;:&#39;08.20.32.44&#39;},{&#39;xiao&#39;:&#39;牛&#39;,&#39;nums&#39;:&#39;07.19.31.43&#39;},{&#39;xiao&#39;:&#39;虎&#39;,&#39;nums&#39;:&#39;06.18.30.42&#39;},{&#39;xiao&#39;:&#39;兔&#39;,&#39;nums&#39;:&#39;05.17.29.41&#39;},{&#39;xiao&#39;:&#39;龙&#39;,&#39;nums&#39;:&#39;04.16.28.40&#39;},{&#39;xiao&#39;:&#39;蛇&#39;,&#39;nums&#39;:&#39;03.15.27.39&#39;},{&#39;xiao&#39;:&#39;马&#39;,&#39;nums&#39;:&#39;02.14.26.38&#39;},{&#39;xiao&#39;:&#39;羊&#39;,&#39;nums&#39;:&#39;01.13.25.37.49&#39;},{&#39;xiao&#39;:&#39;猴&#39;,&#39;nums&#39;:&#39;12.24.36.48&#39;},{&#39;xiao&#39;:&#39;鸡&#39;,&#39;nums&#39;:&#39;11.23.35.47&#39;},{&#39;xiao&#39;:&#39;狗&#39;,&#39;nums&#39;:&#39;10.22.34.46&#39;},{&#39;xiao&#39;:&#39;猪&#39;,&#39;nums&#39;:&#39;09.21.33.45&#39;}]";
+        XiaoNums="[{&#39;xiao&#39;:&#39;鼠&#39;,&#39;nums&#39;:&#39;09.21.33.45&#39;},{&#39;xiao&#39;:&#39;牛&#39;,&#39;nums&#39;:&#39;08.20.32.44&#39;},{&#39;xiao&#39;:&#39;虎&#39;,&#39;nums&#39;:&#39;07.19.31.43&#39;},{&#39;xiao&#39;:&#39;兔&#39;,&#39;nums&#39;:&#39;06.18.30.42&#39;},{&#39;xiao&#39;:&#39;龙&#39;,&#39;nums&#39;:&#39;05.17.29.41&#39;},{&#39;xiao&#39;:&#39;蛇&#39;,&#39;nums&#39;:&#39;04.16.28.40&#39;},{&#39;xiao&#39;:&#39;马&#39;,&#39;nums&#39;:&#39;03.15.27.39&#39;},{&#39;xiao&#39;:&#39;羊&#39;,&#39;nums&#39;:&#39;02.14.26.38&#39;},{&#39;xiao&#39;:&#39;猴&#39;,&#39;nums&#39;:&#39;01.13.25.37.49&#39;},{&#39;xiao&#39;:&#39;鸡&#39;,&#39;nums&#39;:&#39;12.24.36.48&#39;},{&#39;xiao&#39;:&#39;狗&#39;,&#39;nums&#39;:&#39;11.23.35.47&#39;},{&#39;xiao&#39;:&#39;猪&#39;,&#39;nums&#39;:&#39;10.22.34.46&#39;}]";
     </script>
 @stop
 @section('content')
@@ -1749,6 +1749,430 @@
                             </div>
                         </div>
 
+                    </div>
+                    <div class="tab-pane" id="SX_TEMA">
+                        <div class="tm_content">
+                            <div class="xiao xiaonum">
+                                <a href="javascript:void(0);" id="xiao01" wf="定位" tp2="鼠" class="xiao_shu" title="鼠">
+                                    <span>08.20.32.44</span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a><a href="javascript:void(0);" id="xiao02" wf="定位" tp2="牛" class="xiao_niu"
+                                       title="牛">
+                                    <span>07.19.31.43</span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a><a href="javascript:void(0);" id="xiao03" wf="定位" tp2="虎" class="xiao_hu" title="虎">
+                                    <span>06.18.30.42</span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a><a href="javascript:void(0);" id="xiao04" wf="定位" tp2="兔" class="xiao_tu" title="兔">
+                                    <span>05.17.29.41</span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a><a href="javascript:void(0);" id="xiao05" wf="定位" tp2="龙" class="xiao_long"
+                                       title="龙">
+                                    <span>04.16.28.40</span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a><a href="javascript:void(0);" id="xiao06" wf="定位" tp2="蛇" class="xiao_she"
+                                       title="蛇">
+                                    <span>03.15.27.39</span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a><a href="javascript:void(0);" id="xiao07" wf="定位" tp2="马" class="xiao_ma" title="马">
+                                    <span>02.14.26.38</span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a><a href="javascript:void(0);" id="xiao08" wf="定位" tp2="羊" class="xiao_yang"
+                                       title="羊">
+                                    <span>01.13.25.37.49</span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a><a href="javascript:void(0);" id="xiao09" wf="定位" tp2="猴" class="xiao_hou"
+                                       title="猴">
+                                    <span>12.24.36.48</span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a>
+
+                                <a href="javascript:void(0);" id="xiao11" wf="定位" tp2="鸡" class="xiao_ji" title="鸡">
+                                    <span>11.23.35.47</span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a>
+                                <a href="javascript:void(0);" id="xiao10" wf="定位" tp2="狗" class="xiao_gou" title="狗">
+                                    <span>10.22.34.46</span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a>
+                                <a href="javascript:void(0);" id="xiao12" wf="定位" tp2="猪" class="xiao_zhu" title="猪">
+                                    <span>09.21.33.45</span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a>
+                            </div>
+
+                            <div class="zhongxiao">
+                                <div class="weixiao">
+                                    <a href="javascript:void(0)" tp3="正特尾数" tp2="0尾">
+                                        <span>尾0</span>
+                                        <label>0</label>
+                                    </a>
+                                    <a href="javascript:void(0)" tp3="正特尾数" tp2="1尾">
+                                        <span>尾1</span>
+                                        <label>0</label>
+                                    </a>
+                                    <a href="javascript:void(0)" tp3="正特尾数" tp2="2尾">
+                                        <span>尾2</span>
+                                        <label>0</label>
+                                    </a>
+                                    <a href="javascript:void(0)" tp3="正特尾数" tp2="3尾">
+                                        <span>尾3</span>
+                                        <label>0</label>
+                                    </a>
+                                    <a href="javascript:void(0)" tp3="正特尾数" tp2="4尾">
+                                        <span>尾4</span>
+                                        <label>0</label>
+                                    </a>
+                                    <a href="javascript:void(0)" tp3="正特尾数" tp2="5尾">
+                                        <span>尾5</span>
+                                        <label>0</label>
+                                    </a>
+                                    <a href="javascript:void(0)" tp3="正特尾数" tp2="6尾">
+                                        <span>尾6</span>
+                                        <label>0</label>
+                                    </a>
+                                    <a href="javascript:void(0)" tp3="正特尾数" tp2="7尾">
+                                        <span>尾7</span>
+                                        <label>0</label>
+                                    </a>
+                                    <a href="javascript:void(0)" tp3="正特尾数" tp2="8尾">
+                                        <span>尾8</span>
+                                        <label>0</label>
+                                    </a>
+                                    <a href="javascript:void(0)" tp3="正特尾数" tp2="9尾">
+                                        <span>尾9</span>
+                                        <label>0</label>
+                                    </a>
+                                </div>
+                                <a href="javascript:void(0);" tp3="总肖" tp2="234肖">
+                                    <span>234肖 </span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a>
+                                <a href="javascript:void(0);" tp3="总肖" tp2="5肖">
+                                    <span>5肖 </span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a>
+                                <a href="javascript:void(0);" tp3="总肖" tp2="6肖">
+                                    <span>6肖 </span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a>
+                                <a href="javascript:void(0);" tp3="总肖" tp2="7肖">
+                                    <span>7肖 </span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a>
+                                <a href="javascript:void(0);" tp3="总肖单双" tp2="总肖单">
+                                    <span>总肖单 </span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a>
+                                <a href="javascript:void(0);" tp3="总肖单双" tp2="总肖双">
+                                    <span>总肖双 </span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a>
+                            </div>
+                            <div class="qisebo">
+                                <a href="javascript:void(0);" tp3="七色波" tp2="红波">
+                                    <span>红波 </span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a>
+                                <a href="javascript:void(0);" tp3="七色波" tp2="绿波">
+                                    <span>绿波 </span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a>
+                                <a href="javascript:void(0);" tp3="七色波" tp2="蓝波">
+                                    <span>蓝波 </span>
+                                    <label>
+                                        0
+                                    </label>
+                                </a>
+
+
+                            </div>
+
+                            <div class="lianwei">
+                                <div id="lianwei_type" class="type_nav">
+                                    <ul>
+                                        <li class="selected" wf="二尾连">二尾连</li>
+                                        <li wf="三尾连">三尾连</li>
+                                        <li wf="四尾连">四尾连</li>
+                                        <li wf="五尾连">五尾连</li>
+                                    </ul>
+                                </div>
+                                <div class="xiaonum">
+                                    <a href="javascript:void(0);" id="wei01" wf="尾连" tp2="0尾" title="0尾">
+                                        <span>10, 20 ,30 ,40</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="wei02" wf="尾连" tp2="1尾" title="1尾">
+                                        <span>01, 11, 21, 31, 41 </span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="wei03" wf="尾连" tp2="2尾" title="2尾">
+                                        <span>02, 12, 22, 32, 42 </span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="wei04" wf="尾连" tp2="3尾" title="3尾">
+                                        <span>03, 13, 23, 33, 43 </span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="wei05" wf="尾连" tp2="4尾" title="4尾">
+                                        <span>04, 14, 24, 34, 44</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="wei06" wf="尾连" tp2="5尾" title="5尾">
+                                        <span>05, 15, 25, 35, 45 </span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="wei07" wf="尾连" tp2="6尾" title="6尾">
+                                        <span>06, 16, 26, 36, 46</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="wei08" wf="尾连" tp2="7尾" title="7尾">
+                                        <span>07, 17, 27, 37, 47</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="wei09" wf="尾连" tp2="8尾" title="8尾">
+                                        <span>08, 18, 28, 38, 48</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a>
+
+                                    <a href="javascript:void(0);" id="wei11" wf="尾连" tp2="9尾" title="9尾">
+                                        <span>09, 19, 29, 39, 49</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a>
+                                </div>
+                                <div class="lianxiaobtnarea">
+
+                                    <p class="addlist">
+                                        <img src="/Content/images/honghu.jpg" id="btnlianwei">
+                                    </p>
+                                    <br>
+                                    <br>
+
+                                    <div class="addlist select_info_text"
+                                         style="display: block;margin:auto;background-color: transparent">
+                                        <a id="btnlianwei">投注列表</a>
+                                        <button class="btn-danger" id="btnlianwei">添加到投注列表</button>
+                                    </div>
+                                    <div id="clearbtn" onclick="clearInput()">清除</div>
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="lianxiao ">
+                                <div id="lianxiao_type" class="type_nav">
+                                    <ul>
+                                        <li class="selected" wf="二肖碰">二肖碰</li>
+                                        <li wf="三肖碰">三肖碰</li>
+                                        <li wf="四肖碰">四肖碰</li>
+                                        <li wf="五肖碰">五肖碰</li>
+                                    </ul>
+
+                                </div>
+                                <div class="xiaonum">
+                                    <a href="javascript:void(0);" id="xiao01" wf="肖碰" tp2="鼠" class="xiao_shu"
+                                       title="鼠">
+                                        <span>08.20.32.44</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="xiao02" wf="肖碰" tp2="牛" class="xiao_niu"
+                                           title="牛">
+                                        <span>07.19.31.43</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="xiao03" wf="肖碰" tp2="虎" class="xiao_hu"
+                                           title="虎">
+                                        <span>06.18.30.42</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="xiao04" wf="肖碰" tp2="兔" class="xiao_tu"
+                                           title="兔">
+                                        <span>05.17.29.41</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="xiao05" wf="肖碰" tp2="龙" class="xiao_long"
+                                           title="龙">
+                                        <span>04.16.28.40</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="xiao06" wf="肖碰" tp2="蛇" class="xiao_she"
+                                           title="蛇">
+                                        <span>03.15.27.39</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="xiao07" wf="肖碰" tp2="马" class="xiao_ma"
+                                           title="马">
+                                        <span>02.14.26.38</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="xiao08" wf="肖碰" tp2="羊" class="xiao_yang"
+                                           title="羊">
+                                        <span>01.13.25.37.49</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="xiao09" wf="肖碰" tp2="猴" class="xiao_hou"
+                                           title="猴">
+                                        <span>12.24.36.48</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a>
+
+                                    <a href="javascript:void(0);" id="xiao11" wf="肖碰" tp2="鸡" class="xiao_ji" title="鸡">
+                                        <span>11.23.35.47</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a><a href="javascript:void(0);" id="xiao10" wf="肖碰" tp2="狗" class="xiao_gou"
+                                           title="狗">
+                                        <span>10.22.34.46</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a>
+                                    <a href="javascript:void(0);" id="xiao12" wf="肖碰" tp2="猪" class="xiao_zhu"
+                                       title="猪">
+                                        <span>09.21.33.45</span>
+                                        <label>
+                                            0
+                                        </label>
+                                    </a>
+                                </div>
+                                <div class="lianxiaobtnarea">
+
+                                    <p class="addlist">
+                                        <img src="/Content/images/honghu.jpg" id="btnlianxiao">
+                                    </p>
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="duoxiao ">
+                                <div id="duoxiao_type" class="type_nav">
+                                    <ul>
+                                        <li class="selected" wf="多肖中">中</li>
+                                        <li wf="多肖不中">不中</li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="xiaonum">
+                                    <a href="javascript:void(0);" tp2="鼠" class="xiao_shu" title="鼠">
+                                        <span>08.20.32.44</span>
+
+                                    </a><a href="javascript:void(0);" tp2="牛" class="xiao_niu" title="牛">
+                                        <span>07.19.31.43</span>
+
+                                    </a><a href="javascript:void(0);" tp2="虎" class="xiao_hu" title="虎">
+                                        <span>06.18.30.42</span>
+
+                                    </a><a href="javascript:void(0);" tp2="兔" class="xiao_tu" title="兔">
+                                        <span>05.17.29.41</span>
+
+                                    </a><a href="javascript:void(0);" tp2="龙" class="xiao_long" title="龙">
+                                        <span>04.16.28.40</span>
+
+                                    </a><a href="javascript:void(0);" tp2="蛇" class="xiao_she" title="蛇">
+                                        <span>03.15.27.39</span>
+
+                                    </a><a href="javascript:void(0);" tp2="马" class="xiao_ma" title="马">
+                                        <span>02.14.26.38</span>
+
+                                    </a><a href="javascript:void(0);" tp2="羊" class="xiao_yang" title="羊">
+                                        <span>01.13.25.37.49</span>
+
+                                    </a><a href="javascript:void(0);" tp2="猴" class="xiao_hou" title="猴">
+                                        <span>12.24.36.48</span>
+
+                                    </a>
+
+                                    <a href="javascript:void(0);" tp2="鸡" class="xiao_ji" title="鸡">
+                                        <span>11.23.35.47</span>
+
+                                    </a>
+                                    <a href="javascript:void(0);" tp2="狗" class="xiao_gou" title="狗">
+                                        <span>10.22.34.46</span>
+
+                                    </a>
+                                    <a href="javascript:void(0);" tp2="猪" class="xiao_zhu" title="猪">
+                                        <span>09.21.33.45</span>
+
+                                    </a>
+
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="duoxiaobtnarea">
+                                    <p class="duoxiaobtnarea_pl">
+                                        玩法：<label class="lm_name">多肖中</label><span>  赔率：<label
+                                                    class="lm_pl">0</label></span>
+                                    </p>
+
+                                    <p class="addlist">
+                                        <img src="/Content/images/honghu.jpg" id="btnduoxiao">
+                                    </p>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div style="display:block">
