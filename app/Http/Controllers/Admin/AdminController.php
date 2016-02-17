@@ -24,7 +24,8 @@ class AdminController extends Controller
 
     public function index(Request $request)
     {
-        $result = lu_user::where('is_admin', 0)->orderby('created_at', 'desc');
+//        $result = lu_user::where('is_admin', 0)->orderby('created_at', 'desc');
+        $result = lu_user::orderby('created_at', 'desc');
 //        $result = lu_user::orderby('created_at', 'desc');
         $groupid = $request->groupid;
         $userName = $request->userName;
