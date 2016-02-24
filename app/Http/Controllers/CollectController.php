@@ -283,7 +283,7 @@ class CollectController extends Controller
                 exec("curl 'www.11x51.com/webkj?lottery_type=" . $lotteryType . "&proName=" . $prePeriod . "&winCode=" . $preOpenResult . "'");
             } else {
 //                exec('curl www.k3558.com/webkj?lottery_type=' . $lotteryType . '&proName=' . $prePeriod . '&winCode=' . $preOpenResult);
-                exec("curl 'www.k3558.com/webkj?lottery_type=" . $lotteryType . "&proName=" . $prePeriod . "&winCode=" . $preOpenResult . "'");
+                exec("curl 'www.k3228.com/webkj?lottery_type=" . $lotteryType . "&proName=" . $prePeriod . "&winCode=" . $preOpenResult . "'");
             }
 
 //            exec("curl '45.119.97.42:88/webkj?lottery_type=" . $lotteryType . "&proName=" . $prePeriod . "&winCode=" . $preOpenResult . "'");
