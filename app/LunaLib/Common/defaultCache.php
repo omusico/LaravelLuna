@@ -2777,6 +2777,7 @@ class defaultCache
 
     public static function cache_ssc_odds()
     {
+        \Cache::forget('sscodds');
         if (\Cache::has('sscodds')) {
             return \Cache::get('sscodds');
         }
