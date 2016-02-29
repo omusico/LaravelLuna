@@ -1444,6 +1444,19 @@ class defaultCache
                                     'preOpenResult' => '<ul id="open_code_list"><li class="ico-ball3">(.*?)</li><li class="ico-ball3">(.*?)</li><li class="ico-ball3">(.*?)</li><li class="ico-ball3">(.*?)</li><li class="ico-ball3">(.*?)</li></ul>',
                                 ),
                         ),
+                    'icaile' =>
+                        array (
+                            'url' => 'http://www.1816cp.cn/index.php/Ssc/index/type/cqssc',
+                            'status' => '1',
+                            'kjTime' => 70,
+                            'priority' => 2,
+                            'fdTime' => 60,
+                            'rule' =>
+                                array (
+                                    'preTerm' => '<tbody id="awardNumBody"><tr data-period="(.*?)">',
+                                    'preOpenResult' => '<td align="center"><span class="c_red">(.*?),(.*?),(.*?),(.*?),(.*?)</span></td>',
+                                ),
+                        ),
                     /*   	'cll' =>
                               array (
                                       'url' => 'http://www.cailele.com/static/ssc/newlyopenlist.xml',
