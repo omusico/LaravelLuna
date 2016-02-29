@@ -69,14 +69,14 @@
                                                                                                      style="color: #666">充值</a>
                         &nbsp;&nbsp;<a href="deposit" style="color: #666">提款</a>
                     @else
-                        {{--<a href="login" style="color: red">登陆</a>&nbsp;<a href="register" style="color: red">注册</a>--}}
+                        <a href="login" style="color: red">登陆</a>&nbsp;<a href="register" style="color: red">注册</a>
                     @endif
                 </div>
             </div>
         </div>
     </div>
 </div>
-{{--<div class="fivelogo mobilhide"></div>--}}
+<div class="fivelogo mobilhide"></div>
 <div style="height: 100px;text-align: center;display: none" class="contain-fluid mobilShow">
     <div class="col-md-12 fivemologo">
     </div>
@@ -121,37 +121,37 @@
         </div>
     </div>
 </nav>
-{{--<div style="width: 100%;background-color:#FCAB1D ">--}}
-    {{--<div class="container" style="background-color: #FCAB1D;">--}}
-        {{--<div class="collapse navbar-collapse navbar-responsive-collapse">--}}
-            {{--<ul class="nav navbar-nav nav">--}}
-                {{--<li><a href="/" style="color:white;font-weight: bold">网站首页</a></li>--}}
-                {{--<li><a href="/fiveGameRule" style="color:white;font-weight: bold" title="游戏规则">游戏规则</a></li>--}}
-                {{--<li><a href="/favourable" style="color:white;font-weight: bold" title="优惠活动">优惠活动</a></li>--}}
-                {{--<li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:white;font-weight: bold"--}}
-                       {{--title="走势图">走势图</a>--}}
-                {{--</li>--}}
-                {{--<li><a title="合作代理" target="_blank" style="color:white;font-weight: bold" href="/inviteurl">合作代理</a>--}}
-                {{--</li>--}}
-                {{--<li><a href="/userLotteryBetting" target="_blank" style="color:white;font-weight: bold"--}}
-                       {{--title="交易记录">交易记录</a>--}}
-                {{--</li>--}}
-                {{--<li><a href="/fivelotteryIndex?lottery_type=sdfive" title="手机下注" style="color:white;font-weight: bold">手机下注</a>--}}
-                {{--</li>--}}
-                {{--<li class="dropdown">--}}
-                    {{--<a class="dropdown-toggle" style="color:white;font-weight: bold" data-toggle="dropdown"--}}
-                       {{--role="button">网址<span class="caret"></span></a>--}}
-                    {{--<ul class="dropdown-menu" role="menu">--}}
-                        {{--<li><a href="#">网址一</a></li>--}}
-                        {{--<li><a href="#">网址二</a></li>--}}
-                        {{--<li><a href="#">网址三</a></li>--}}
-                        {{--<li><a href="#">网址四</a></li>--}}
-                        {{--<li><a href="#">网址五</a></li>--}}
-                    {{--</ul>--}}
-            {{--</ul>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</div>--}}
+<div style="width: 100%;background-color:#FCAB1D ">
+    <div class="container" style="background-color: #FCAB1D;">
+        <div class="collapse navbar-collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav nav">
+                <li><a href="/" style="color:white;font-weight: bold">网站首页</a></li>
+                <li><a href="/fiveGameRule" style="color:white;font-weight: bold" title="游戏规则">游戏规则</a></li>
+                <li><a href="/favourable" style="color:white;font-weight: bold" title="优惠活动">优惠活动</a></li>
+                <li><a href="/fivelotterytrend?lottery_type=sdfive" style="color:white;font-weight: bold"
+                       title="走势图">走势图</a>
+                </li>
+                <li><a title="合作代理" target="_blank" style="color:white;font-weight: bold" href="/inviteurl">合作代理</a>
+                </li>
+                <li><a href="/userLotteryBetting" target="_blank" style="color:white;font-weight: bold"
+                       title="交易记录">交易记录</a>
+                </li>
+                <li><a href="/fivelotteryIndex?lottery_type=sdfive" title="手机下注" style="color:white;font-weight: bold">手机下注</a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" style="color:white;font-weight: bold" data-toggle="dropdown"
+                       role="button">网址<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">网址一</a></li>
+                        <li><a href="#">网址二</a></li>
+                        <li><a href="#">网址三</a></li>
+                        <li><a href="#">网址四</a></li>
+                        <li><a href="#">网址五</a></li>
+                    </ul>
+            </ul>
+        </div>
+    </div>
+</div>
 <div class="container mobilShow" style="display: none">
     @if(!Auth::guest())
         <label class="form-control" style="text-align: center">余额：{{Auth::user()->lu_user_data->points}}</label>
@@ -252,46 +252,46 @@
         </div>
     </div>
 </div>
-{{--@if($_SERVER['REQUEST_URI']=='/index' || $_SERVER['REQUEST_URI']=='/')--}}
+@if($_SERVER['REQUEST_URI']=='/index' || $_SERVER['REQUEST_URI']=='/')
 
-{{--@else--}}
+@else
 
-    {{--@if(!empty(strstr($_SERVER['REQUEST_URI'],'fivelotterytrend')))--}}
-        {{--<div class="container" style="text-align: center">--}}
+    @if(!empty(strstr($_SERVER['REQUEST_URI'],'fivelotterytrend')))
+        <div class="container" style="text-align: center">
             {{--<div class="row">--}}
-            {{--<div class="collapse navbar-collapse navbar-responsive-collapse">--}}
-                {{--<ul class="nav navbar-nav nav ">--}}
-                    {{--<li><a href="/fivelotterytrend?lottery_type=sdfive">山东11选5</a></li>--}}
-                    {{--<li><a href="/fivelotterytrend?lottery_type=gdfive">广东11选5</a></li>--}}
-                    {{--<li><a href="/fivelotterytrend?lottery_type=shfive">上海11选5</a></li>--}}
-                    {{--<li><a href="/fivelotterytrend?lottery_type=zjfive">浙江11选5</a></li>--}}
-                    {{--<li><a href="/fivelotterytrend?lottery_type=jxfive">江西11选5</a></li>--}}
-                    {{--<li><a href="/fivelotterytrend?lottery_type=liaoningfive">辽宁11选5</a></li>--}}
-                    {{--<li><a href="/fivelotterytrend?lottery_type=hljfive">黑龙江11选5</a></li>--}}
-                    {{--<li><a href="/fivelotterytrend?lottery_type=cqfive">重庆11选5</a></li>--}}
-                {{--</ul>--}}
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav nav ">
+                    <li><a href="/fivelotterytrend?lottery_type=sdfive">山东11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=gdfive">广东11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=shfive">上海11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=zjfive">浙江11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=jxfive">江西11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=liaoningfive">辽宁11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=hljfive">黑龙江11选5</a></li>
+                    <li><a href="/fivelotterytrend?lottery_type=cqfive">重庆11选5</a></li>
+                </ul>
+            </div>
             {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--@else--}}
-        {{--<div class="container" style="text-align: center">--}}
+        </div>
+    @else
+        <div class="container" style="text-align: center">
             {{--<div class="row">--}}
-            {{--<div class="collapse navbar-collapse navbar-responsive-collapse">--}}
-                {{--<ul class="nav navbar-nav">--}}
-                    {{--<li><a href="/fivelotteryIndex?lottery_type=sdfive">山东11选5</a></li>--}}
-                    {{--<li><a href="/fivelotteryIndex?lottery_type=gdfive">广东11选5</a></li>--}}
-                    {{--<li><a href="/fivelotteryIndex?lottery_type=shfive">上海11选5</a></li>--}}
-                    {{--<li><a href="/fivelotteryIndex?lottery_type=zjfive">浙江11选5</a></li>--}}
-                    {{--<li><a href="/fivelotteryIndex?lottery_type=jxfive">江西11选5</a></li>--}}
-                    {{--<li><a href="/fivelotteryIndex?lottery_type=liaoningfive">辽宁11选5</a></li>--}}
-                    {{--<li><a href="/fivelotteryIndex?lottery_type=hljfive">黑龙江11选5</a></li>--}}
-                    {{--<li><a href="/fivelotteryIndex?lottery_type=cqfive">重庆11选5</a></li>--}}
-                {{--</ul>--}}
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/fivelotteryIndex?lottery_type=sdfive">山东11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=gdfive">广东11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=shfive">上海11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=zjfive">浙江11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=jxfive">江西11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=liaoningfive">辽宁11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=hljfive">黑龙江11选5</a></li>
+                    <li><a href="/fivelotteryIndex?lottery_type=cqfive">重庆11选5</a></li>
+                </ul>
+            </div>
             {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--@endif--}}
-{{--@endif--}}
+        </div>
+    @endif
+@endif
 <div class="container">
     <div class="row">
         <div class="col-md-offset-1 col-md-10">
@@ -300,8 +300,14 @@
     </div>
 </div>
 @yield('content')
-<div class="container-fluid mobilhide">
-    <div class="fivebottom">
+<div class="container">
+    <div class="row">
+        <div class="footer mobilhide">
+            <div class="f-link"><a title="关于我们" href="#">关于我们</a> | <a title="用户注册" target="_blank" href="/register">用户注册</a>
+                |
+                <a title="加盟合作" href="#">加盟合作</a> | <a href="#" title="进入网盟">进入网盟</a> | <a title="网站地图">网站地图</a> | <a
+                        title="友情链接" href="">友情链接</a></div>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="/js/all.js"></script>

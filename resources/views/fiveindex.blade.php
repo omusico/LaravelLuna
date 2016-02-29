@@ -109,208 +109,59 @@
     </style>
 @stop
 @section('content')
-
     <div class="row" style="display: none">
         <div class="col-md-10 col-md-offset-1">
             <marquee scrollamount=3 style="color:white">{{Cache::get('marquee','请到后台设置滚动文字')}}</marquee>
         </div>
     </div>
-    <div class="container" style="padding-top: 20px">
-        <div class="col-md-offset-1 col-md-4 mobilhide" style="padding: 15px;">
-            <div class="mobilhide" style="background-color: white;height: 280px;">
-                @include('userinfo')
-            </div>
-        </div>
-        @include('User.topbar')
-        <div class="col-md-6 mobilhide">
-            <div id="carousel-generic" class="carousel slide" data-ride="carousel"
-                 xmlns="http://www.w3.org/1999/html">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-generic" data-slide-to="1"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <img src="/css/11501.png" alt="...">
-
-                        <div class="carousel-caption">
-                            {{--<p>中奖率高、赔率高、信誉100%</p>--}}
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="/css/11502.png" alt="...">
-
-                        <div class="carousel-caption">
-                            {{--<p>优惠多多、取款5分钟内到帐</p>--}}
-                        </div>
-                    </div>
-                </div>
-                <a class="left carousel-control" href="#carousel-generic" role="button"
-                   data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-generic" role="button"
-                   data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
     <div class="container">
-        <div class="col-md-offset-1 col-md-10 row">
-
-            <div class="col-md-4 mobilhide">
-                <div class="fivefav"></div>
-                <div style="background-color: white;min-height: 210px;padding: 10px">
-                    @if(null!==Cache::get('marquee'))
-                        <li><a style="width: 205px;"
-                               target="_blank">{{Cache::get('marquee','请到后台设置滚动文字')}}</a><span
-                                    class="time"></span></li>
-                    @endif
-                </div>
-                <div class="fivenews"></div>
-                <div style="background-color: white;min-height: 230px;padding: 10px">
-                    @if(null!==Cache::get('news'))
-                        @foreach(Cache::get('news') as $key=>$value)
-                            <li><a style="width: 205px;"
-                                   href="{{isset($value['url'])?$value['url']:'#'}}"
-                                   target="_blank">{{isset($value['title'])?$value['title']:''}}</a><span
-                                        class="time"></span></li>
-                        @endforeach
-                    @endif
-                </div>
-            </div>
-            <div class="col-md-4" style="padding-right: 0px;padding-left: 0px;border-right: solid 1px #EAEAEA">
-                <div class="distance nk3_kjgg" style="border-right: none;background-color: white">
-                    <ul class="col-md-4">
-                        @if(null !=$recentArray['SDFIVE'])
-                            <li>
-                                开奖时间：{{$recentArray['SDFIVE']->created_at}}
-                                <br>
-                                <strong>山东11选5</strong>
-                                <br>
-                                第<em>{{$recentArray['SDFIVE']->proName}}</em>期开奖号码<br>
-
-                                <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[0]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[1]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[2]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[3]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['SDFIVE']->codes)[4]}}"></div>
-                                <br>
-                                <a href="/fivelotteryIndex?lottery_type=sdfive"></a>
-                            </li>
-                        @endif
-                        @if(null !=$recentArray['GDFIVE'])
-                            <li>
-
-                                开奖时间：{{$recentArray['GDFIVE']->created_at}}
-                                <br>
-                                <strong>广东11选5</strong>
-                                <br>
-                                第<em>{{$recentArray['GDFIVE']->proName}}</em>期开奖号码<br>
-
-                                <div class="fiveNum{{explode(',', $recentArray['GDFIVE']->codes)[0]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['GDFIVE']->codes)[1]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['GDFIVE']->codes)[2]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['GDFIVE']->codes)[3]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['GDFIVE']->codes)[4]}}"></div>
-                                <br>
-                                <a href="/fivelotteryIndex?lottery_type=gdfive"></a>
-                            </li>
-                        @endif
-                        @if(null !=$recentArray['SHFIVE'])
-                            <li>
-                                开奖时间：{{$recentArray['SHFIVE']->created_at}}
-                                <br>
-                                <strong>上海11选5</strong>
-                                <br>
-                                第<em>{{$recentArray['SHFIVE']->proName}}</em>期开奖号码<br>
-
-                                <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[0]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[1]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[2]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[3]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['SHFIVE']->codes)[4]}}"></div>
-                                <br>
-                                <a href="/fivelotteryIndex?lottery_type=shfive"></a>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-4 " style="padding-right: 0px;padding-left: 0px">
-                <div class="distance nk3_kjgg" style="border-right: none;background-color: white">
-                    <ul class="col-md-4">
-                        @if(null !=$recentArray['JXFIVE'])
-                            <li>
-                                开奖时间：{{$recentArray['JXFIVE']->created_at}}
-                                <br>
-                                <strong>江西11选5</strong>
-                                <br>
-                                第<em>{{$recentArray['JXFIVE']->proName}}</em>期开奖号码<br>
-
-                                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[0]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[1]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[2]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[3]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['JXFIVE']->codes)[4]}}"></div>
-                                <br>
-                                <a href="/fivelotteryIndex?lottery_type=jxfive"></a>
-                            </li>
-                        @endif
-                        @if(null !=$recentArray['ZJFIVE'])
-                            <li>
-
-                                开奖时间：{{$recentArray['ZJFIVE']->created_at}}
-                                <br>
-                                <strong>浙江11选5</strong>
-                                <br>
-                                第<em>{{$recentArray['ZJFIVE']->proName}}</em>期开奖号码<br>
-
-                                <div class="fiveNum{{explode(',', $recentArray['ZJFIVE']->codes)[0]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['ZJFIVE']->codes)[1]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['ZJFIVE']->codes)[2]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['ZJFIVE']->codes)[3]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['ZJFIVE']->codes)[4]}}"></div>
-                                <br>
-                                <a href="/fivelotteryIndex?lottery_type=zjfive"></a>
-                            </li>
-                        @endif
-                        @if(null !=$recentArray['LIAONINGFIVE'])
-                            <li>
-                                开奖时间：{{$recentArray['LIAONINGFIVE']->created_at}}
-                                <br>
-                                <strong>辽宁11选5</strong>
-                                <br>
-                                第<em>{{$recentArray['LIAONINGFIVE']->proName}}</em>期开奖号码<br>
-
-                                <div class="fiveNum{{explode(',', $recentArray['LIAONINGFIVE']->codes)[0]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['LIAONINGFIVE']->codes)[1]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['LIAONINGFIVE']->codes)[2]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['LIAONINGFIVE']->codes)[3]}}"></div>
-                                <div class="fiveNum{{explode(',', $recentArray['LIAONINGFIVE']->codes)[4]}}"></div>
-                                <br>
-                                <a href="/fivelotteryIndex?lottery_type=liaoningfive"></a>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-
+        <div class="col-md-12">
+            <div class="fivetop"></div>
         </div>
     </div>
-    <div class="container mobilhide">
-        <div class="col-md-offset-1 col-md-10">
-            <div class="fivebottom">
+    <div class="container-fluid">
+        <div id="carousel-generic" class="carousel slide" data-ride="carousel"
+             xmlns="http://www.w3.org/1999/html">
+            <div class="fiveindexlogin">
+                <div style="margin-top: 40px">
+                    @include('userinfo')
+                </div>
+            </div>
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-generic" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active" style="background: no-repeat scroll">
+                    <div class="fiveindex01">
+                    </div>
+
+                    <div class="carousel-caption">
+                        {{--<p>中奖率高、赔率高、信誉100%</p>--}}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="fiveindex02">
+                    </div>
+
+                    <div class="carousel-caption">
+                        {{--<p>中奖率高、赔率高、信誉100%</p>--}}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="fiveindex03">
+                    </div>
+
+                    <div class="carousel-caption">
+                        {{--<p>优惠多多、取款5分钟内到帐</p>--}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container" style="padding-top: 30px">
-        <div class="row">
-            <div class="col-md-offset-1 col-md-10" style="padding-top: 3px;background-color:#fdc124;"></div>
-        </div>
+    <div class="container-fluid">
+        <div class="fivecenter"></div>
     </div>
     @include('User.mobilebottom')
 @stop

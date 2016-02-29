@@ -96,6 +96,9 @@ class WelcomeController extends Controller
                 $recentArray['HLJFIVE'] = $value;
             }
         }
+        if(env('SITE_TYPE','')=='five' && !\Auth::guest()){
+            return view(env('SITE_TYPE', '') . 'loto', compact('recentArray'));
+        }
         return view(env('SITE_TYPE', '') . 'index', compact('recentArray'));
     }
 

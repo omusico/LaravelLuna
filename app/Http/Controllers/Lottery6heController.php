@@ -11,6 +11,7 @@ use App\LunaLib\Common\CommonClass;
 use App\LunaLib\Common\defaultCache;
 use App\LunaLib\Common\LunaFunctions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class Lottery6heController extends Controller
 {
@@ -59,6 +60,8 @@ class Lottery6heController extends Controller
             $uid = (int)\Auth::user()->id;
             $userInfo = lu_user::find($uid);
             $userdata = lu_user_data::where('uid', $uid)->first();
+            $sixhe = Cache::get('sixhe');
+            $tbmplus = $sixhe['plus'];
 
 
             $status = $userInfo['status'];
@@ -153,6 +156,7 @@ class Lottery6heController extends Controller
                         if ($slug == 'TMB') {
                             $key = trim($code);
                             $odds = $this->typeDatas['TMA'][$key];
+                            $odds = $odds -$tbmplus;
                         } else {
                             $key = trim($code);
                             $odds = $this->typeDatas[$slug][$key];

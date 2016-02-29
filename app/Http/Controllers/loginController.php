@@ -18,6 +18,8 @@ class loginController extends Controller
     {
         if (env("SITE_TYPE", "") == "gaopin") {
             return view('gplogin');
+        } else if (env('SITE_TYPE', '') == 'five') {
+            return view(env('SITE_TYPE', '') . 'index');
         } else {
             return view('login');
         }
